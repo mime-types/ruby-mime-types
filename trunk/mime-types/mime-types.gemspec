@@ -19,22 +19,7 @@ Gem::Specification.new do |s|
 
   s.author = %q{Austin Ziegler}
   s.email = %q{mime-types@halostatue.ca}
+  s.rubyforge_project = %q(mime-types)
   s.homepage = %q{http://www.halostatue.ca/ruby/Mime__Types.html}
-  s.description = <<-EOS
-Mime::Types README
-
-This is release 1.13 of MIME::Types for Ruby, based on the Perl package of the
-same name. It is generally kept in sync with the Perl version of MIME::Types.
-
-This package works on the same concept as mailcap, which uses filename
-extensions to determine the file's likely MIME content type. This package does
-not analyse files for magic bytes to determine the appropriate actual MIME
-content type.
-
-Copyright © 2002 - 2004 Austin Ziegler
-Based on prior work copyright © Mark Overmeer
-
-This package is licensed under Ruby's licence, the Perl Artistic licence, or
-the GPL version 2 or later.
-EOS
+  s.description = File.read("README")
 end

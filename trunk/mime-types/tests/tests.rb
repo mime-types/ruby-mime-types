@@ -1,4 +1,4 @@
-$:.unshift '../lib' if __FILE__ == $0 # Make this library first!
+$LOAD_PATH.unshift("#{File.dirname(__FILE__)}/../lib") if __FILE__ == $0
 
 require 'mime/types'
 require 'test/unit'
