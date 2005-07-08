@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = %q{mime-types}
-  s.version = %q{1.13.1}
+  s.version = %q{1.15}
   s.summary = %q{Manages a MIME Content-Type that will return the Content-Type for a given filename.}
   s.platform = Gem::Platform::RUBY
 

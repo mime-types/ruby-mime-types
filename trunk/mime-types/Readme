@@ -13,3 +13,13 @@ Based on prior work copyright © Mark Overmeer
 
 This package is licensed under Ruby's licence, the Perl Artistic licence, or
 the GPL version 2 or later.
+
+#--
+# MIME::Types for Ruby
+#   http://rubyforge.org/projects/mime-types/
+#   Copyright 2003 - 2005 Austin Ziegler.
+#   Licensed under a MIT-style licence.
+#
+# $Id$
+#++
+# vim: sts=2 sw=2 ts=4 et ai tw=77

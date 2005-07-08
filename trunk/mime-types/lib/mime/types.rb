@@ -68,9 +68,9 @@ module MIME #:nodoc:
     #
   module Types
       # The released version of Ruby MIME::Types
-    VERSION      = '1.13.1'
+    MIME_TYPES_VERSION      = '1.15'
       # The version of the data.
-    DATA_VERSION = '1.13'
+    DATA_VERSION = '1.15'
 
     TYPE_VARIANTS   = Hash.new { |h, k| h[k] = [] } #:nodoc:
     EXTENSION_INDEX = Hash.new { |h, k| h[k] = [] } #:nodoc:

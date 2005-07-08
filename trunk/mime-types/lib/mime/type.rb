@@ -10,10 +10,11 @@
 #
 # The ChangeLog contains all details on revisions.
 #++
-# TODO include ../../ChangeLog
-module MIME #:nodoc:
-    # Reflects a MIME Content-Type which is in invalid format (e.g., it isn't
-    # in the form of type/subtype).
+
+  # The namespace for MIME appplications and tools.
+module MIME
+    # Reflects a MIME Content-Type which is in invalid format (e.g., it
+    # isn't in the form of type/subtype).
   class InvalidContentType < RuntimeError; end
 
     # == Summary
@@ -35,7 +36,7 @@ module MIME #:nodoc:
     #  puts MIME::Type.simplified('x-appl/x-zip') # => 'appl/zip'
     #
   class Type
-    VERSION = '1.13.1' #:nodoc:
+    VERSION = '1.15'
 
     include Comparable
 
@@ -44,7 +45,10 @@ module MIME #:nodoc:
     ENCODING_RE     = %r{^(?:base64|7bit|8bit|quoted\-printable)$}o #:nodoc:
     PLATFORM_RE     = %r|#{RUBY_PLATFORM}|o #:nodoc:
 
-    SIGNATURES      = %w(application/pgp-keys application/pgp application/pgp-signature application/pkcs10 application/pkcs7-mime application/pkcs7-signature text/vcard) #:nodoc:
+    SIGNATURES      = %w(application/pgp-keys application/pgp
+                         application/pgp-signature application/pkcs10
+                         application/pkcs7-mime application/pkcs7-signature
+                         text/vcard) #:nodoc:
 
       # Returns +true+ if the simplified type matches the current 
     def like?(other)
@@ -56,8 +60,8 @@ module MIME #:nodoc:
     end
 
       # Compares the MIME::Type against the exact content type or the
-      # simplified type (the simplified type will be used if comparing against
-      # something that can be treated as a String with #to_s).
+      # simplified type (the simplified type will be used if comparing
+      # against something that can be treated as a String with #to_s).
     def <=>(other) #:nodoc:
       if other.respond_to?(:content_type)
         @content_type <=> other.content_type
@@ -99,23 +103,23 @@ module MIME #:nodoc:
       # The MIME types main- and sub-label can both start with <tt>x-</tt>,
       # which indicates that it is a non-registered name. Of course, after
       # registration this flag can disappear, adds to the confusing
-      # proliferation of MIME types. The simplified string has the <tt>x-</tt>
-      # removed and are translated to lowercase.
+      # proliferation of MIME types. The simplified string has the
+      # <tt>x-</tt> removed and are translated to lowercase.
     attr_reader :simplified
-      # The list of extensions which are known to be used for this MIME::Type.
-      # Non-array values will be coerced into an array with #to_a. Array
-      # values will be flattened and +nil+ values removed.
+      # The list of extensions which are known to be used for this
+      # MIME::Type. Non-array values will be coerced into an array with
+      # #to_a. Array values will be flattened and +nil+ values removed.
     attr_accessor :extensions
     def extensions=(ext) #:nodoc:
       @extensions = ext.to_a.flatten.compact
     end
 
       # The encoding (7bit, 8bit, quoted-printable, or base64) required to
-      # transport the data of this content type safely across a network, which
-      # roughly corresponds to Content-Transfer-Encoding. A value of +nil+ or
-      # <tt>:default</tt> will reset the #encoding to the #default_encoding
-      # for the MIME::Type. Raises ArgumentError if the encoding provided is
-      # invalid.
+      # transport the data of this content type safely across a network,
+      # which roughly corresponds to Content-Transfer-Encoding. A value of
+      # +nil+ or <tt>:default</tt> will reset the #encoding to the
+      # #default_encoding for the MIME::Type. Raises ArgumentError if the
+      # encoding provided is invalid.
     attr_accessor :encoding
     def encoding=(enc) #:nodoc:
       if enc.nil? or enc == :default
@@ -144,11 +148,11 @@ module MIME #:nodoc:
     end
 
     class << self
-        # The MIME types main- and sub-label can both start with <tt>x-</tt>,
-        # which indicates that it is a non-registered name. Of course, after
-        # registration this flag can disappear, adds to the confusing
-        # proliferation of MIME types. The simplified string has the
-        # <tt>x-</tt> removed and are translated to lowercase.
+        # The MIME types main- and sub-label can both start with
+        # <tt>x-</tt>, which indicates that it is a non-registered name. Of
+        # course, after registration this flag can disappear, adds to the
+        # confusing proliferation of MIME types. The simplified string has
+        # the <tt>x-</tt> removed and are translated to lowercase.
       def Type.simplified(content_type)
         matchdata = CONTENT_TYPE_RE.match(content_type)
 
@@ -248,8 +252,8 @@ module MIME #:nodoc:
       #   end
       #
       # === Changes
-      # In MIME::Types 1.07, the constructor accepted more argument types and
-      # called #instance_eval on the optional block provided. This is no
+      # In MIME::Types 1.07, the constructor accepted more argument types
+      # and called #instance_eval on the optional block provided. This is no
       # longer the case as of 1.13. The full changes are noted below.
       #
       # 1. The constructor +yield+s +self+ instead of using #instance_eval and
@@ -260,7 +264,7 @@ module MIME #:nodoc:
       #
       #     # 1.07
       #   MIME::Type.new(plaintext)
-      #     # 1.12
+      #     # 1.13
       #   MIME::Type.from_mime_type(plaintext)
       #
       # 3. MIME::Type.new no longer accepts an Array argument. Use
@@ -268,7 +272,7 @@ module MIME #:nodoc:
       #
       #     # 1.07
       #   MIME::Type.new(["application/x-ruby", ["rb"], "8bit"])
-      #     # 1.12
+      #     # 1.13
       #   MIME::Type.from_array("application/x-ruby", ['rb'], '8bit')
       #   MIME::Type.from_array(["application/x-ruby", ['rb'], '8bit'])
       #
@@ -280,7 +284,7 @@ module MIME #:nodoc:
       #                  'Content-Transfer-Encoding' => '8bit',
       #                  'System' => 'linux',
       #                  'Extensions' => ['yaml', 'yml'])
-      #     # 1.12
+      #     # 1.13
       #   MIME::Type.from_hash('Content-Type' => 'text/x-yaml',
       #                        'Content-Transfer-Encoding' => '8bit',
       #                        'System' => 'linux',
@@ -314,24 +318,24 @@ module MIME #:nodoc:
     end
 
       # MIME content-types which are not regestered by IANA nor defined in
-      # RFCs are required to start with <tt>x-</tt>. This counts as well for a
-      # new media type as well as a new sub-type of an existing media type. If
-      # either the media-type or the content-type begins with <tt>x-</tt>,
-      # this method will return +false+.
+      # RFCs are required to start with <tt>x-</tt>. This counts as well for
+      # a new media type as well as a new sub-type of an existing media
+      # type. If either the media-type or the content-type begins with
+      # <tt>x-</tt>, this method will return +false+.
     def registered?
       not (@raw_media_type =~ UNREGISTERED_RE) || (@raw_sub_type =~ UNREGISTERED_RE)
     end
 
-      # MIME types can be specified to be sent across a network in particular
-      # formats. This method returns +true+ when the MIME type encoding is set
-      # to <tt>base64</tt>.
+      # MIME types can be specified to be sent across a network in
+      # particular formats. This method returns +true+ when the MIME type
+      # encoding is set to <tt>base64</tt>.
     def binary?
       @encoding == 'base64'
     end
 
-      # MIME types can be specified to be sent across a network in particular
-      # formats. This method returns +false+ when the MIME type encoding is
-      # set to <tt>base64</tt>.
+      # MIME types can be specified to be sent across a network in
+      # particular formats. This method returns +false+ when the MIME type
+      # encoding is set to <tt>base64</tt>.
     def ascii?
       not binary?
     end
@@ -347,8 +351,8 @@ module MIME #:nodoc:
       not @system.nil?
     end
 
-      # Returns +true+ if the MIME::Type is specific to the current operating
-      # system as represented by RUBY_PLATFORM.
+      # Returns +true+ if the MIME::Type is specific to the current
+      # operating system as represented by RUBY_PLATFORM.
     def platform?
       system? and (RUBY_PLATFORM =~ @system)
     end

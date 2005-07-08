@@ -1,6 +1,16 @@
 Installing this package is as simple as:
 
-% ruby install.rb
+  % ruby setup.rb
 
 Alternatively, you can use the RubyGem version of MIME::Types available as
-mime-types-1.13.1.gem from the usual sources.
+mime-types-1.15.gem from the usual sources.
+
+#--
+# MIME::Types for Ruby
+#   http://rubyforge.org/projects/mime-types/
+#   Copyright 2003 - 2005 Austin Ziegler.
+#   Licensed under a MIT-style licence.
+#
+# $Id$
+#++
+# vim: sts=2 sw=2 ts=4 et ai tw=77
