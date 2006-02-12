@@ -194,7 +194,7 @@ end
 desc "Post a release announcement via GMail."
 task :email_announcement => [ :verify_gmail ] do
   GMailer.connect(ENV["GMAIL_USER"], ENV["GMAIL_PASSWORD"]) do |gmail|
-    gmail.send  :to       => "ruby-talk@ruby-lang.org",
+    gmail.send  :to       => "ruby-talk@ruby-lang.org, #{ENV['GMAIL_USER']}@gmail.com",
                 :subject  => "[ANN] #$name #$version",
                 :body     => File.read("Release-Announcement")
   end
