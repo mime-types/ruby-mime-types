@@ -59,11 +59,6 @@ Rake::GemPackageTask.new(spec) do |g|
   g.package_dir = ".."
 end
 
-desc "Build the MIME::Types manual.pdf"
-task :manual do
-  PDF::TechBook.run %w(-z)
-end
-
 desc "Build a MIME::Types .tar.gz distribution."
 task :tar => [ TARDIST ]
 file TARDIST => [ :test ] do |t|
