@@ -78,7 +78,7 @@ file $tardist => [ :test ] do |t|
   Dir.chdir("..") do
     begin
       files = %W(bin/**/* lib/**/* tests/**/* ChangeLog README LICENCE
-                 setup.rb pre-setup.rb)
+                 Rakefile mime-types.gemspec setup.rb pre-setup.rb)
       files = FileList[files.map { |file| File.join(current, file) }].to_a
       files.map! do |dd|
         ddnew = dd.gsub(/^#{current}/, $distdir)
@@ -110,10 +110,8 @@ file $tardist => [ :test ] do |t|
       end
     ensure
       tw.close if tw
-      if gz
-        gz.finish
-        gz.close
-      end
+      gz.finish if gz
+      ff.close
     end
   end
 end
