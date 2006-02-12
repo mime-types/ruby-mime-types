@@ -50,6 +50,11 @@ as mime-types-1.15.gem from the usual sources.
 * NOTE: Synchronization with the Perl version of MIME::Types is no longer a
   priority as of this release. The data format and information has changed.
 
+== Release Mechanism
+Thanks goes to Aslak Hellesoy for MetaProject (http://xforge.rubyforge.org)
+and Park Heesob for Gmailer (http://rubyforge.org/projects/gmailutils) for
+their excellent utilities that have automated most of my release process.
+
 -austin
 --
 Austin Ziegler * halostatue@gmail.com
