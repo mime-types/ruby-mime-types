@@ -138,7 +138,8 @@ end
 
 desc "Release files on RubyForge."
 task :release_files => [ :verify_rubyforge, :tar, :gem ] do
-  release_files = FileList[$tardist, $demotar, "../#$distdir.gem"]
+  release_files = FileList[$tardist, "../#$distdir.gem"]
+  p $project
   Rake::XForge::Release.new($project) do |release|
     release.user_name     = ENV['RUBYFORGE_USER']
     release.password      = ENV['RUBYFORGE_PASSWORD']
