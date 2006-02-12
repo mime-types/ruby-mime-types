@@ -7,31 +7,25 @@
 #
 # $Id$
 #++
-$LOAD_PATH.unshift('lib')
-
-require 'rubygems'
+require 'meta_project'
 require 'rake/gempackagetask'
-require 'mime/types'
+require 'rake/contrib/xforge'
+require 'rake/clean'
+
+require 'gmailer'
+
 require 'archive/tar/minitar'
 require 'zlib'
 
-DISTDIR = "mime-types-#{MIME::Types::MIME_TYPES_VERSION}"
+$LOAD_PATH.unshift('lib')
+
+require 'mime/types'
+
+DISTDIR = "mime-types-#{MIME::Types::VERSION}"
 TARDIST = "../#{DISTDIR}.tar.gz"
 
-DATE_RE = %r<(\d{4})[./-]?(\d{2})[./-]?(\d{2})(?:[\sT]?(\d{2})[:.]?(\d{2})[:.]?(\d{2})?)?>
-
-if ENV['RELEASE_DATE']
-  year, month, day, hour, minute, second = DATE_RE.match(ENV['RELEASE_DATE']).captures
-  year ||= 0
-  month ||= 0
-  day ||= 0
-  hour ||= 0
-  minute ||= 0
-  second ||= 0
-  ReleaseDate = Time.mktime(year, month, day, hour, minute, second)
-else
-  ReleaseDate = nil
-end
+$release_date = nil
+$release_date = Time.parse(ENV['RELEASE_DATE']) if ENV['RELEASE_DATE']
 
 task :test do |t|
   require 'test/unit/testsuite'
@@ -56,7 +50,7 @@ task :test do |t|
 end
 
 spec = eval(File.read("mime-types.gemspec"))
-spec.version = MIME::Types::MIME_TYPES_VERSION
+spec.version = MIME::Types::VERSION
 desc "Build the RubyGem for MIME::Types"
 task :gem => [ :test ]
 Rake::GemPackageTask.new(spec) do |g|
@@ -76,12 +70,12 @@ file TARDIST => [ :test ] do |t|
   current = File.basename(Dir.pwd)
   Dir.chdir("..") do
     begin
-      files = %W(bin/**/* lib/**/* demo/**/* images/**/* ChangeLog README
-                 LICENCE setup.rb pre-setup.rb metaconfig manual.pwd)
+      files = %W(bin/**/* lib/**/* tests/**/* ChangeLog README LICENCE
+                 setup.rb pre-setup.rb)
       files = FileList[files.map { |file| File.join(current, file) }].to_a
       files.map! do |dd|
         ddnew = dd.gsub(/^#{current}/, DISTDIR)
-        mtime = ReleaseDate || File.stat(dd).mtime
+        mtime = $release_date || File.stat(dd).mtime
         if File.directory?(dd)
           { :name => ddnew, :mode => 0755, :dir => true, :mtime => mtime }
         else
@@ -109,7 +103,10 @@ file TARDIST => [ :test ] do |t|
       end
     ensure
       tw.close if tw
-      gz.close if gz
+      if gz
+        gz.finish
+        gz.close
+      end
     end
   end
 end
@@ -119,7 +116,7 @@ desc "Build the RDoc documentation for MIME::Types"
 task :docs do
   require 'rdoc/rdoc'
   rdoc_options = %w(--title MIME::Types --main README --line-numbers)
-  files = FileList[*%w(README LICENCE ChangeLog bin/**/*.rb lib/**/*.rb demo/**/*.rb)]
+  files = FileList[*%w(README LICENCE ChangeLog bin/**/*.rb lib/**/*.rb)]
   rdoc_options += files.to_a
   RDoc::RDoc.new.document(rdoc_options)
 end

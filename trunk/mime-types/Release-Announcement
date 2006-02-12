@@ -1,0 +1,56 @@
+The MIME::Types project is not dead! The release of MIME::Types 1.15
+marks the last version that was synchronized in any way with the Perl
+MIME::Types list. Future versions of MIME::Types will be synchronized
+only with the IANA type list, but will also add many other features that
+will significantly enhance the functionality and capability of
+MIME::Types for Ruby.
+
+The main changes made in this version are:
+
+  * MIME::Type (an instance of a single type) no longer has a separate
+    source file.
+  * The amount of meta-data about a MIME::Type has been increased.
+    Future versions of MIME::Types will include functionality that
+    increases the usability of this metadata.
+
+= What is MIME::Types for Ruby?
+This allows for the identification of a file's likely MIME content type
+based on the file's filename extension.
+
+Homepage::  http://mime-types.rubyforge.org/
+Copyright:: 2002 - 2006, Austin Ziegler
+            Based on prior work copyright Mark Overmeer
+Download::  http://rubyforge.org/frs/?group_id=293
+
+== LICENCE NOTES
+MIME::Types is available under Ruby's disjunctive licence with the GNU
+GPL or the Perl Artistic licence. See the file LICENCE in the package
+for full details.
+
+== Requirements and Installation
+PDF::Writer requires Ruby 1.8.2.
+
+Once these packages are installed, MIME::Types can be installed with:
+
+ % ruby setup.rb
+
+Alternatively, you can use the RubyGems version of MIME::Types available
+as mime-types-1.15.gem from the usual sources.
+
+== MIME::Types 1.15
+* Removed lib/mime/type.rb to form a single MIME::Types database source. It
+  is unlikely that one will ever need MIME::Type without MIME::Types.
+* Re-synchronized the MIME type list with the sources, focusing primarily on
+  the IANA list.
+* Added more detailed source information for MIME::Type objects.
+* Changed MIME::Types from a module to a class with a default instance. There
+  should be no difference in usage.
+* Removed MIME::Types::DATA_VERSION; it is now an attribute on the
+  MIME::Types instance.
+* NOTE: Synchronization with the Perl version of MIME::Types is no longer a
+  priority as of this release. The data format and information has changed.
+
+-austin
+--
+Austin Ziegler * halostatue@gmail.com
+             * Alternate: austin@halostatue.ca

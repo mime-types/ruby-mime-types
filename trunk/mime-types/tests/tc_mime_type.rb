@@ -9,7 +9,7 @@
 #++
 $LOAD_PATH.unshift("#{File.dirname(__FILE__)}/../lib") if __FILE__ == $0
 
-require 'mime/type'
+require 'mime/types'
 require 'test/unit'
 
 class Test_MIME__Type < Test::Unit::TestCase #:nodoc:
@@ -219,7 +219,8 @@ class Test_MIME__Type < Test::Unit::TestCase #:nodoc:
       @yaml = MIME::Type.from_array('text/x-yaml', ['yaml', 'yml'], '8bit',
                                     'linux')
     end
-    assert_equal(@yaml.to_a, ['text/x-yaml', ['yaml', 'yml'], '8bit', /linux/])
+    assert_equal(@yaml.to_a, ['text/x-yaml', ['yaml', 'yml'], '8bit',
+                 /linux/, nil, nil, nil, false])
   end
 
   def test_to_hash
@@ -230,7 +231,12 @@ class Test_MIME__Type < Test::Unit::TestCase #:nodoc:
     assert_equal(@yaml.to_hash,
                   { 'Content-Type' => 'text/x-yaml',
                     'Content-Transfer-Encoding' => '8bit',
-                    'Extensions' => ['yaml', 'yml'], 'System' => /linux/ })
+                    'Extensions' => ['yaml', 'yml'],
+                    'System' => /linux/,
+                    'Registered' => false,
+                    'URL' => nil,
+                    'Obsolete' => nil,
+                    'Docs' => nil })
   end
 
   def test_to_s

@@ -4,9 +4,18 @@ Unless explicitly stated differently are all changes produced by Austin
 Ziegler <mime-types@halostatue.ca>.
 
 == MIME::Types 1.15
+* Removed lib/mime/type.rb to form a single MIME::Types database source. It
+  is unlikely that one will ever need MIME::Type without MIME::Types.
 * Re-synchronized the MIME type list with the sources, focusing primarily on
   the IANA list.
-* Re-synchronized with the Perl implementation.
+* Added more detailed source information for MIME::Type objects.
+* Changed MIME::Types from a module to a class with a default instance. There
+  should be no difference in usage.
+* Removed MIME::Types::DATA_VERSION; it is now an attribute on the
+  MIME::Types instance.
+* NOTE: Synchronization with the Perl version of MIME::Types is no longer a
+  priority as of this release. The data format and information has changed.
+* Removed MIME::Types.by_suffix and MIME::Types.by_mediatype.
 
 == MIME::Types 1.13.1
 * Fixed a problem with the installer running tests. This now works.
@@ -84,7 +93,7 @@ Ziegler <mime-types@halostatue.ca>.
 #--
 # MIME::Types for Ruby
 #   http://rubyforge.org/projects/mime-types/
-#   Copyright 2003 - 2005 Austin Ziegler.
+#   Copyright 2003 - 2006 Austin Ziegler.
 #   Licensed under a MIT-style licence.
 #
 # $Id$

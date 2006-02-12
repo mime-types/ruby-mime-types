@@ -5,10 +5,11 @@ Gem::Specification.new do |s|
   s.platform = Gem::Platform::RUBY
 
   s.has_rdoc = true
+  s.rdoc_options = %w(--title MIME::Types --main README --line-numbers)
+  s.extra_rdoc_files = %w(README ChangeLog Install)
 
-  s.test_suite_file = %w{tests/tests.rb}
+  s.test_files = %w{tests/testall.rb}
 
-  s.autorequire = %q{mime/types}
   s.require_paths = %w{lib}
 
   s.files = Dir.glob("**/*").delete_if do |item|
@@ -18,8 +19,17 @@ Gem::Specification.new do |s|
   end
 
   s.author = %q{Austin Ziegler}
-  s.email = %q{mime-types@halostatue.ca}
+  s.email = %q{austin@rubyforge.org}
   s.rubyforge_project = %q(mime-types)
-  s.homepage = %q{http://www.halostatue.ca/ruby/Mime__Types.html}
-  s.description = File.read("README")
+  s.homepage = %q{http://mime-types.rubyforge.org/}
+
+  description = []
+  File.open("README") do |file|
+    file.each do |line|
+      line.chomp!
+      break if line.empty?
+      description << "#{line.gsub(/\[\d\]/, '')}"
+    end
+  end
+  s.description = description[1..-1].join(" ")
 end

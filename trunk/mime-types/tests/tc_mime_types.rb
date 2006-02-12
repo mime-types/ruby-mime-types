@@ -16,7 +16,8 @@ class TestMIME__Types < Test::Unit::TestCase #:nodoc:
   def test_s_AREF # singleton method '[]'
     text_plain = MIME::Type.new('text/plain') do |t|
       t.encoding = '8bit'
-      t.extensions = ['asc', 'txt', 'c', 'cc', 'h', 'hh', 'cpp', 'hpp', 'dat', 'hlp']
+      t.extensions = ['asc', 'txt', 'c', 'cc', 'h', 'hh', 'cpp', 'hpp',
+        'dat', 'hlp']
     end
     text_plain_vms = MIME::Type.new('text/plain') do |t|
       t.encoding = '8bit'
@@ -27,14 +28,13 @@ class TestMIME__Types < Test::Unit::TestCase #:nodoc:
     assert_equal(MIME::Types['text/plain'].sort,
                  [text_plain, text_plain_vms].sort)
 
-    assert_equal([MIME::Type.from_array('image/x-bmp', ['bmp']),
-                  MIME::Type.from_array('image/vnd.wap.wbmp',
-                  ['wbmp'])].sort, MIME::Types[/bmp$/].sort)
-    assert_equal([MIME::Type.from_array('image/x-bmp', ['bmp']),
-                  MIME::Type.from_array('image/vnd.wap.wbmp',
-                  ['wbmp'])].sort,
-                  MIME::Types[/bmp$/, { :complete => true }].sort)
-    assert_nothing_raised { MIME::Types['image/bmp'][0].system = RUBY_PLATFORM }
+    tst_bmp = MIME::Types["image/x-bmp"] +
+      MIME::Types["image/vnd.wap.wbmp"] + MIME::Types["image/x-win-bmp"]
+
+    assert_equal(tst_bmp.sort, MIME::Types[/bmp$/].sort)
+    assert_nothing_raised {
+      MIME::Types['image/bmp'][0].system = RUBY_PLATFORM
+    }
     assert_equal([MIME::Type.from_array('image/x-bmp', ['bmp'])],
                  MIME::Types[/bmp$/, { :platform => true }])
 
@@ -56,7 +56,7 @@ class TestMIME__Types < Test::Unit::TestCase #:nodoc:
   end
 
   def test_s_type_for
-    assert_equal(MIME::Types.type_for('xml'), MIME::Types['text/xml'])
+    assert_equal(MIME::Types.type_for('xml').sort, [ MIME::Types['text/xml'], MIME::Types['application/xml'] ].sort)
     assert_equal(MIME::Types.type_for('gif'), MIME::Types['image/gif'])
     assert_nothing_raised do
       MIME::Types['image/gif'][0].system = RUBY_PLATFORM
@@ -66,7 +66,7 @@ class TestMIME__Types < Test::Unit::TestCase #:nodoc:
   end
 
   def test_s_of
-    assert_equal(MIME::Types.of('xml'), MIME::Types['text/xml'])
+    assert_equal(MIME::Types.of('xml').sort, [ MIME::Types['text/xml'], MIME::Types['application/xml'] ].sort)
     assert_equal(MIME::Types.of('gif'), MIME::Types['image/gif'])
     assert_nothing_raised do
       MIME::Types['image/gif'][0].system = RUBY_PLATFORM
