@@ -1,7 +1,9 @@
-= MIME::Types Change Log
-
-Unless explicitly stated differently are all changes produced by Austin
-Ziegler <mime-types@halostatue.ca>.
+== MIME::Types 1.16
+* Made compatible with Ruby 1.8.6, 1.8.7, and 1.9.1.
+* Switched to the 'hoe' gem system.
+* Updated the MIME types to the list based on the values in the Perl library
+  version 1.27. Also updated based on external source information and bug
+  reports.
 
 == MIME::Types 1.15
 * Removed lib/mime/type.rb to form a single MIME::Types database source. It
@@ -90,12 +92,13 @@ Ziegler <mime-types@halostatue.ca>.
 == MIME::Types 1.003
 * Initial release based on Perl MIME::Types 1.003.
 
-#--
-# MIME::Types for Ruby
-#   http://rubyforge.org/projects/mime-types/
-#   Copyright 2003 - 2006 Austin Ziegler.
-#   Licensed under a MIT-style licence.
-#
-# $Id$
-#++
-# vim: sts=2 sw=2 ts=4 et ai tw=77
+== Copyright
+  MIME::Types
+  A Ruby implementation of a MIME Types information library. Based in spirit
+  on the Perl MIME::Types information library by Mark Overmeer.
+  http://rubyforge.org/projects/mime-types/
+
+  Licensed under the Ruby disjunctive licence with the GNU GPL or the Perl
+  Artistic licence. See Licence.txt for more information.
+
+  Copyright 2003 - 2009 Austin Ziegler

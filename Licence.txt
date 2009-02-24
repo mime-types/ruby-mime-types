@@ -13,6 +13,3 @@ http://www.perl.com/pub/a/language/misc/Artistic.html
 The text of the GNU GPL can be found at: http://www.gnu.org/copyleft/gpl.html
 
 If you do not accept one of these licences, you may not use this software.
-
-$Id$
-# vim: sts=2 sw=2 ts=4 et ai tw=77

@@ -1,18 +1,24 @@
 #! /usr/bin/env ruby
 #--
-# MIME::Types for Ruby
-#   http://rubyforge.org/projects/mime-types/
-#   Copyright 2003 - 2005 Austin Ziegler.
-#   Licensed under a MIT-style licence.
+# MIME::Types
+# A Ruby implementation of a MIME Types information library. Based in spirit
+# on the Perl MIME::Types information library by Mark Overmeer.
+# http://rubyforge.org/projects/mime-types/
 #
-# $Id$
+# Licensed under the Ruby disjunctive licence with the GNU GPL or the Perl
+# Artistic licence. See Licence.txt for more information.
+#
+# Copyright 2003 - 2009 Austin Ziegler
 #++
 
 $LOAD_PATH.unshift("#{File.dirname(__FILE__)}/../lib") if __FILE__ == $0
 
-puts "Checking for test cases:"
-Dir['tc_*.rb'].each do |testcase|
-  puts "\t#{testcase}"
-  require testcase
+$stderr.puts "Checking for test cases:"
+
+Dir[File.join(File.dirnam($0), 'test_*.rb'].each do |testcase|
+  next if File.basename(testcase) == File.basename(__FILE__)
+  $stderr.puts "\t#{testcase}"
+  load testcase
 end
-puts
+
+$stderr.puts " "

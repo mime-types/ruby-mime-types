@@ -1,12 +1,13 @@
 #--
-# MIME::Types for Ruby
-# Version 1.15
+# MIME::Types
+# A Ruby implementation of a MIME Types information library. Based in spirit
+# on the Perl MIME::Types information library by Mark Overmeer.
+# http://rubyforge.org/projects/mime-types/
 #
-# Copyright (c) 2002 - 2004 Austin Ziegler
+# Licensed under the Ruby disjunctive licence with the GNU GPL or the Perl
+# Artistic licence. See Licence.txt for more information.
 #
-# $Id$
-#
-# The ChangeLog contains all details on revisions.
+# Copyright 2003 - 2009 Austin Ziegler
 #++
 
 # The namespace for MIME applications, tools, and libraries.
@@ -33,7 +34,7 @@ module MIME
   #  puts MIME::Type.simplified('x-appl/x-zip') # => 'appl/zip'
   #
   class Type
-    VERSION = '1.15'
+    VERSION = '1.16'
 
     include Comparable
 
@@ -513,10 +514,10 @@ module MIME
   # = Author
   # Copyright:: Copyright (c) 2002 - 2006 by Austin Ziegler
   #             <austin@rubyforge.org>
-  # Version::   1.15
+  # Version::   1.16
   # Based On::  Perl
-  #             MIME::Types[http://search.cpan.org/author/MARKOV/MIME-Types-1.15/MIME/Types.pm],
-  #             Copyright (c) 2001 - 2005 by Mark Overmeer
+  #             MIME::Types[http://search.cpan.org/author/MARKOV/MIME-Types-1.27/MIME/Types.pm],
+  #             Copyright (c) 2001 - 2009 by Mark Overmeer
   #             <mimetypes@overmeer.net>.
   # Licence::   Ruby's, Perl Artistic, or GPL version 2 (or later)
   # See Also::  http://www.iana.org/assignments/media-types/
@@ -524,7 +525,7 @@ module MIME
   #
   class Types
     # The released version of Ruby MIME::Types
-    VERSION  = '1.15'
+    VERSION  = '1.16'
 
       # The data version.
     attr_reader :data_version

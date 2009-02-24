@@ -1,0 +1,13 @@
+History.txt
+Install
+LICENCE
+MIME-Types.txt
+Manifest.txt
+Rakefile
+Readme.txt
+Release-Announcement
+lib/mime/types.rb
+setup.rb
+test/test_all.rb
+test/test_mime_type.rb
+test/test_mime_types.rb
