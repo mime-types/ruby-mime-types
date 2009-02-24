@@ -1,6 +1,6 @@
 History.txt
 Install
-LICENCE
+Licence.txt
 MIME-Types.txt
 Manifest.txt
 Rakefile

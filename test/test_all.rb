@@ -15,7 +15,7 @@ $LOAD_PATH.unshift("#{File.dirname(__FILE__)}/../lib") if __FILE__ == $0
 
 $stderr.puts "Checking for test cases:"
 
-Dir[File.join(File.dirnam($0), 'test_*.rb'].each do |testcase|
+Dir[File.join(File.dirname($0), 'test_*.rb')].each do |testcase|
   next if File.basename(testcase) == File.basename(__FILE__)
   $stderr.puts "\t#{testcase}"
   load testcase

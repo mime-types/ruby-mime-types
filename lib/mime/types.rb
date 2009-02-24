@@ -198,9 +198,11 @@ module MIME
           @use_instead = a.map { |el| "#{el[0]}/#{el[1]}" }
         end
       end
+      @docs = d
     end
 
-    # The encoded URL list for this MIME::Type. See #urls for 
+    # The encoded URL list for this MIME::Type. See #urls for more
+    # information.
     attr_accessor :url
     # The decoded URL list for this MIME::Type.
     # The special URL value IANA will be translated into:
@@ -219,7 +221,7 @@ module MIME
     # The special URL value [token] will be translated into:
     #   http://www.iana.org/assignments/contact-people.htm#<token>
     #
-    # These values will be accessible through #url, which always returns an
+    # These values will be accessible through #urls, which always returns an
     # array.
     def urls
       @url.map { |el|
@@ -349,9 +351,17 @@ module MIME
       #   end
       def from_mime_type(mime_type) #:yields the new MIME::Type:
         m = MIME::Type.new(mime_type.content_type.dup) do |t|
-          t.extensions = mime_type.extensions.dup
-          t.system = mime_type.system.dup
-          t.encoding = mime_type.encoding.dup
+          t.extensions = mime_type.extensions.map { |e| e.dup }
+          t.url = mime_type.url && mime_type.url.map { |e| e.dup }
+
+          mime_type.system && t.system = mime_type.system.dup
+          mime_type.encoding && t.encoding = mime_type.encoding.dup
+
+          t.obsolete = mime_type.obsolete?
+          t.registered = mime_type.registered?
+
+          mime_type.docs && t.docs = mime_type.docs.dup
+          
         end
 
         yield m if block_given?
@@ -382,6 +392,9 @@ module MIME
       self.encoding     = :default
       self.system       = nil
       self.registered   = true
+      self.url          = nil
+      self.obsolete     = nil
+      self.docs         = nil
 
       yield self if block_given?
     end
@@ -512,7 +525,7 @@ module MIME
   # This is originally based on Perl MIME::Types by Mark Overmeer.
   #
   # = Author
-  # Copyright:: Copyright (c) 2002 - 2006 by Austin Ziegler
+  # Copyright:: Copyright (c) 2002 - 2009 by Austin Ziegler
   #             <austin@rubyforge.org>
   # Version::   1.16
   # Based On::  Perl
@@ -559,6 +572,15 @@ module MIME
     #   MIME::Types[/^image/, :complete => true].each do |t|
     #     puts t.to_a.join(", ")
     #   end
+    #
+    # If multiple type definitions are returned, returns them sorted as
+    # follows:
+    #   1. Generic definitions sort before platform-specific ones;
+    #   2. Current definitions sort before obsolete ones;
+    #   3. Obsolete definitions with use-instead clauses sort before those
+    #      without;
+    #   4. Obsolete definitions use-instead clauses are compared.
+    #   5. Sort on name.
     def [](type_id, flags = {})
       if type_id.kind_of?(Regexp)
         matches = []
@@ -574,6 +596,40 @@ module MIME
 
       matches.delete_if { |e| not e.complete? } if flags[:complete]
       matches.delete_if { |e| not e.platform? } if flags[:platform]
+
+      matches.sort! do |a, b|
+        t = 0
+
+        if (t == 0) and (a.platform? != b.platform?)
+          t = if a.platform?
+                1
+              else
+                -1
+              end
+        end
+
+        if (t == 0) and (a.obsolete? != b.obsolete?)
+          t = if a.obsolete?
+                1
+              else
+                -1
+              end
+        end
+
+        if (t == 0) and (a.use_instead != b.use_instead)
+          t = if a.use_instead.nil?
+                -1
+              elsif b.use_instead.nil?
+                1
+              else
+                a.use_instead <=> b.use_instead
+              end
+        end
+
+        t = (a <=> b) if (t == 0)
+        t
+      end
+
       matches
     end
 
@@ -615,7 +671,7 @@ module MIME
       end
     end
 
-    class <<self
+    class << self
       def add_type_variant(mime_type) #:nodoc:
         @__types__.add_type_variant(mime_type)
       end
@@ -672,19 +728,17 @@ module MIME
   end
 end
 
-# Build the type list
-data_mime_type = <<MIME_TYPES
-# What follows is the compiled list of known media types, IANA-registered
-# ones first, one per line.
+# Build the type list from the string below.
 #
 #   [*][!][os:]mt/st[<ws>@ext][<ws>:enc][<ws>'url-list][<ws>=docs]
 #
 # == *
-# An unofficial MIME type. This should be used if an only if the MIME type
-# is not properly specified.
+# An unofficial MIME type. This should be used if and only if the MIME type
+# is not properly specified (that is, not under either x-type or
+# vnd.name.type).
 #
 # == !
-# An obsolete MIME type.
+# An obsolete MIME type. May be used with an unofficial MIME type.
 #
 # == os:
 # Platform-specific MIME type definition.
@@ -707,20 +761,39 @@ data_mime_type = <<MIME_TYPES
 # == <ws>=docs
 # The documentation string.
 #
-# That is, everything except the media type and the subtype is optional.
-#
-# -- Austin Ziegler, 2006.02.12
+# That is, everything except the media type and the subtype is optional. The
+# more information that's available, though, the richer the values that can
+# be provided.
 
-  # Registered: application/*
-!application/xhtml-voice+xml 'DRAFT:draft-mccobb-xplusv-media-type
+data_mime_type = <<MIME_TYPES
+  # application/*
+*application/SLA 'LTSW
+*application/STEP 'LTSW
+*application/acad 'LTSW
+*application/appledouble :base64
+*application/clariscad 'LTSW
+*application/drafting 'LTSW
+*application/dxf 'LTSW
+*application/excel @xls,xlt 'LTSW
+*application/fractals 'LTSW
+*application/i-deas 'LTSW
+*application/macbinary 'LTSW
+*application/netcdf @nc,cdf 'LTSW
+*application/powerpoint @ppt,pps,pot :base64 'LTSW
+*application/pro_eng 'LTSW
+*application/set 'LTSW
+*application/solids 'LTSW
+*application/vda 'LTSW
+*application/word @doc,dot 'LTSW
 application/CSTAdata+xml 'IANA,[Ecma International Helpdesk]
 application/EDI-Consent 'RFC1767
 application/EDI-X12 'RFC1767
 application/EDIFACT 'RFC1767
+application/WITA
 application/activemessage 'IANA,[Shapiro]
 application/andrew-inset 'IANA,[Borenstein]
 application/applefile :base64 'IANA,[Faltstrom]
-application/atom+xml 'RFC4287
+application/atom+xml @atom :8bit 'RFC4287
 application/atomicmail 'IANA,[Borenstein]
 application/batch-SMTP 'RFC2442
 application/beep+xml 'RFC3080
@@ -757,7 +830,8 @@ application/index.vnd 'RFC2652
 application/iotp 'RFC2935
 application/ipp 'RFC2910
 application/isup 'RFC3204
-application/javascript 'DRAFT:draft-hoehrmann-script-types
+application/javascript @js :8bit 'DRAFT:draft-hoehrmann-script-types
+application/json @json :8bit
 application/kpml-request+xml 'DRAFT:draft-ietf-sipping-kpml
 application/kpml-response+xml 'DRAFT:draft-ietf-sipping-kpml
 application/mac-binhex40 @hqx :8bit 'IANA,[Faltstrom]
@@ -770,15 +844,15 @@ application/mp4 'DRAFT:draft-lim-mpeg4-mime
 application/mpeg4-generic 'RFC3640
 application/mpeg4-iod 'DRAFT:draft-lim-mpeg4-mime
 application/mpeg4-iod-xmt 'DRAFT:draft-lim-mpeg4-mime
-application/msword @doc,dot :base64 'IANA,[Lindner]
+application/msword @doc,dot,wrd :base64 'IANA,[Lindner]
 application/news-message-id 'RFC1036,[Spencer]
 application/news-transmission 'RFC1036,[Spencer]
 application/nss 'IANA,[Hammer]
 application/ocsp-request 'RFC2560
 application/ocsp-response 'RFC2560
-application/octet-stream @bin,dms,lha,lzh,exe,class,ani,pgp :base64 'RFC2045,RFC2046
+application/octet-stream @bin,dms,lha,lzh,exe,class,ani,pgp,so,dll,dmg,dylib :base64 'RFC2045,RFC2046
 application/oda @oda 'RFC2045,RFC2046
-application/ogg @ogg 'RFC3534
+application/ogg @ogx 'RFC3534
 application/parityfec 'RFC3009
 application/pdf @pdf :base64 'RFC3778
 application/pgp-encrypted :7bit 'RFC3156
@@ -800,7 +874,7 @@ application/prs.cww @cw,cww 'IANA,[Rungchavalnont]
 application/prs.nprend @rnd,rct 'IANA,[Doggett]
 application/prs.plucker 'IANA,[Janssen]
 application/qsig 'RFC3204
-application/rdf+xml @rdf 'RFC3870
+application/rdf+xml @rdf :8bit 'RFC3870
 application/reginfo+xml 'RFC3680
 application/remote-printing 'IANA,RFC1486,[Rose]
 application/resource-lists+xml 'DRAFT:draft-ietf-simple-xcap-list-usage
@@ -912,6 +986,8 @@ application/vnd.fujixerox.docuworks 'IANA,[Taguchi]
 application/vnd.fujixerox.docuworks.binder 'IANA,[Matsumoto]
 application/vnd.fut-misnet 'IANA,[Pruulmann]
 application/vnd.genomatix.tuxedo @txd 'IANA,[Frey]
+application/vnd.google-earth.kml+xml @kml :8bit
+application/vnd.google-earth.kmz @kmz :8bit
 application/vnd.grafeq 'IANA,[Tupper]
 application/vnd.groove-account 'IANA,[Joseph]
 application/vnd.groove-help 'IANA,[Joseph]
@@ -1000,14 +1076,19 @@ application/vnd.ms-artgalry @cil 'IANA,[Slawson]
 application/vnd.ms-asf @asf 'IANA,[Fleischman]
 application/vnd.ms-cab-compressed @cab 'IANA,[Scarborough]
 application/vnd.ms-excel @xls,xlt :base64 'IANA,[Gill]
+application/vnd.ms-excel.sheet.binary.macroEnabled.12 @xlsb
+application/vnd.ms-excel.sheet.macroEnabled.12 @xlsm
 application/vnd.ms-fontobject 'IANA,[Scarborough]
 application/vnd.ms-ims 'IANA,[Ledoux]
 application/vnd.ms-lrm @lrm 'IANA,[Ledoux]
 application/vnd.ms-powerpoint @ppt,pps,pot :base64 'IANA,[Gill]
 application/vnd.ms-project @mpp :base64 'IANA,[Gill]
 application/vnd.ms-tnef :base64 'IANA,[Gill]
+application/vnd.ms-word.document.macroEnabled.12 @docm
+application/vnd.ms-word.template.macroEnabled.12 @dotm
 application/vnd.ms-works :base64 'IANA,[Gill]
 application/vnd.ms-wpl @wpl :base64 'IANA,[Plastina]
+application/vnd.ms-xpsdocument @xps :8bit
 application/vnd.mseq @mseq 'IANA,[Le Bodic]
 application/vnd.msign 'IANA,[Borcherding]
 application/vnd.music-niff 'IANA,[Butler]
@@ -1025,10 +1106,29 @@ application/vnd.nokia.radio-presets @rpss 'IANA,[Nokia]
 application/vnd.novadigm.EDM 'IANA,[Swenson]
 application/vnd.novadigm.EDX 'IANA,[Swenson]
 application/vnd.novadigm.EXT 'IANA,[Swenson]
+application/vnd.oasis.opendocument.chart @odc
+application/vnd.oasis.opendocument.database @odb
+application/vnd.oasis.opendocument.formula @odf
+application/vnd.oasis.opendocument.graphics @odg
+application/vnd.oasis.opendocument.graphics-template @otg
+application/vnd.oasis.opendocument.image @odi
+application/vnd.oasis.opendocument.presentation @odp
+application/vnd.oasis.opendocument.presentation-template @otp
+application/vnd.oasis.opendocument.spreadsheet @ods
+application/vnd.oasis.opendocument.spreadsheet-template @ots
+application/vnd.oasis.opendocument.text @odt
+application/vnd.oasis.opendocument.text-master @odm
+application/vnd.oasis.opendocument.text-template @ott
+application/vnd.oasis.opendocument.text-web @oth
 application/vnd.obn 'IANA,[Hessling]
 application/vnd.omads-email+xml 'IANA,[OMA Data Synchronization Working Group]
 application/vnd.omads-file+xml 'IANA,[OMA Data Synchronization Working Group]
 application/vnd.omads-folder+xml 'IANA,[OMA Data Synchronization Working Group]
+application/vnd.openxmlformats-officedocument.presentationml.presentation @pptx
+application/vnd.openxmlformats-officedocument.presentationml.slideshow @ppsx
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet @xlsx :quoted-printable
+application/vnd.openxmlformats-officedocument.wordprocessingml.document @docx
+application/vnd.openxmlformats-officedocument.wordprocessingml.template @dotx
 application/vnd.osa.netdeploy 'IANA,[Klos]
 application/vnd.osgi.dp 'IANA,[Kriens]
 application/vnd.palm @prc,pdb,pqa,oprc :base64 'IANA,[Peacock]
@@ -1051,6 +1151,7 @@ application/vnd.pvi.ptid1 @pti,ptid 'IANA,[Lamb]
 application/vnd.pwg-multiplexed 'RFC3391
 application/vnd.pwg-xhtml-print+xml 'IANA,[Wright]
 application/vnd.rapid 'IANA,[Szekely]
+application/vnd.renlearn.rlprint
 application/vnd.ruckus.download 'IANA,[Harris]
 application/vnd.s3sms 'IANA,[Tarkkala]
 application/vnd.sealed.doc @sdoc,sdo,s1w 'IANA,[Petersen]
@@ -1071,7 +1172,24 @@ application/vnd.smaf @mmf 'IANA,[Takahashi]
 application/vnd.sss-cod 'IANA,[Dani]
 application/vnd.sss-dtf 'IANA,[Bruno]
 application/vnd.sss-ntf 'IANA,[Bruno]
+application/vnd.stardivision.calc @sdc
+application/vnd.stardivision.chart @sds
+application/vnd.stardivision.draw @sda
+application/vnd.stardivision.impress @sdd
+application/vnd.stardivision.math @sdf
+application/vnd.stardivision.writer @sdw
+application/vnd.stardivision.writer-global @sgl
 application/vnd.street-stream 'IANA,[Levitt]
+application/vnd.sun.xml.calc @sxc
+application/vnd.sun.xml.calc.template @stc
+application/vnd.sun.xml.draw @sxd
+application/vnd.sun.xml.draw.template @std
+application/vnd.sun.xml.impress @sxi
+application/vnd.sun.xml.impress.template @sti
+application/vnd.sun.xml.math @sxm
+application/vnd.sun.xml.writer @sxw
+application/vnd.sun.xml.writer.global @sxg
+application/vnd.sun.xml.writer.template @stw
 application/vnd.sus-calendar @sus,susp 'IANA,[Niedfeldt]
 application/vnd.svd 'IANA,[Becker]
 application/vnd.swiftview-ics 'IANA,[Widener]
@@ -1130,22 +1248,139 @@ application/whoispp-query 'RFC2957
 application/whoispp-response 'RFC2958
 application/wita 'IANA,[Campbell]
 application/wordperfect5.1 @wp5,wp 'IANA,[Lindner]
+!application/x-123 @wk =use-instead:application/vnd.lotus-1-2-3
+application/x-SLA
+application/x-STEP
+application/x-VMSBACKUP @bck :base64
+application/x-Wingz @wz
+!application/x-access @mdf,mda,mdb,mde =use-instead:application/x-msaccess
+application/x-bcpio @bcpio 'LTSW
+application/x-bleeper @bleep :base64
+application/x-bzip2 @bz2
+application/x-cdlink @vcd
+application/x-chess-pgn @pgn
+application/x-clariscad
+!application/x-compress @z,Z :base64 =use-instead:application/x-compressed
+application/x-compressed @z,Z :base64 'LTSW
+application/x-cpio @cpio :base64 'LTSW
+application/x-csh @csh :8bit 'LTSW
+application/x-cu-seeme @csm,cu
+application/x-debian-package @deb
+application/x-director @dcr,@dir,@dxr
+application/x-drafting
+application/x-dvi @dvi :base64 'LTSW
+application/x-dxf
+application/x-excel
+application/x-fractals
+application/x-futuresplash @spl
+application/x-ghostview
+application/x-gtar @gtar,tgz,tbz2,tbz :base64 'LTSW
+application/x-gzip @gz :base64 'LTSW
+application/x-hdf @hdf 'LTSW
+application/x-hep @hep
+application/x-html+ruby @rhtml :8bit
+application/x-httpd-php @phtml,pht,php :8bit
+application/x-ica @ica
+application/x-ideas
+application/x-imagemap @imagemap,imap :8bit
+application/x-java-archive @jar 'LTSW
+application/x-java-jnlp-file @jnlp 'LTSW
+application/x-java-serialized-object @ser 'LTSW
+application/x-java-vm @class 'LTSW
+application/x-koan @skp,skd,skt,skm
+application/x-latex @ltx,latex :8bit 'LTSW
+application/x-mac-compactpro @cpt
+application/x-macbinary
+application/x-maker @frm,maker,frame,fm,fb,book,fbdoc
+application/x-mathematica-old
+application/x-mif @mif 'LTSW
+application/x-msaccess @mda,mdb,mde,mdf
+application/x-msdos-program @cmd,bat :8bit
+application/x-msdos-program @com,exe :base64
+application/x-msdownload @exe,com :base64
+application/x-netcdf @nc,cdf
+application/x-ns-proxy-autoconfig @pac
+application/x-pagemaker @pm,pm5,pt5
+application/x-perl @pl,pm :8bit
+application/x-pgp
+application/x-python @py :8bit
+application/x-quicktimeplayer @qtl
+application/x-rar-compressed @rar :base64
+application/x-remote_printing
+!application/x-rtf @rtf :base64 'LTSW =use-instead:application/rtf
+application/x-ruby @rb,rbw :8bit
+application/x-set
+application/x-sh @sh :8bit 'LTSW
+application/x-shar @shar :8bit 'LTSW
+application/x-shockwave-flash @swf
+application/x-smil @smi,smil
+application/x-solids
+application/x-spss @sav,sbs,sps,spo,spp
+application/x-stuffit @sit :base64 'LTSW
+application/x-sv4cpio @sv4cpio :base64 'LTSW
+application/x-sv4crc @sv4crc :base64 'LTSW
+application/x-tar @tar :base64 'LTSW
+application/x-tcl @tcl :8bit 'LTSW
+application/x-tex @tex :8bit
+application/x-texinfo @texinfo,texi :8bit
+application/x-toolbook @tbk
+application/x-troff @t,tr,roff :8bit
+application/x-troff-man @man :8bit 'LTSW
+application/x-troff-me @me 'LTSW
+application/x-troff-ms @ms 'LTSW
+application/x-ustar @ustar :base64 'LTSW
+application/x-wais-source @src 'LTSW
+application/x-wordperfect6.1 @wp6
+application/x-x400.bp
+application/x-x509-ca-cert @crt :base64
 application/x400-bp 'RFC1494
 application/xcap-att+xml 'DRAFT:draft-ietf-simple-xcap
 application/xcap-caps+xml 'DRAFT:draft-ietf-simple-xcap
 application/xcap-el+xml 'DRAFT:draft-ietf-simple-xcap
 application/xcap-error+xml 'DRAFT:draft-ietf-simple-xcap
 application/xhtml+xml @xhtml :8bit 'RFC3236
-application/xml @xml :8bit 'RFC3023
-application/xml-dtd :8bit 'RFC3023
+application/xml @xml,xsl :8bit 'RFC3023
+application/xml-dtd @dtd :8bit 'RFC3023
 application/xml-external-parsed-entity 'RFC3023
 application/xmpp+xml 'RFC3923
 application/xop+xml 'IANA,[Nottingham]
+application/xslt+xml @xslt :8bit
 application/xv+xml 'DRAFT:draft-mccobb-xv-media-type
 application/zip @zip :base64 'IANA,[Lindner]
+mac:application/x-mac @bin :base64
+mac:application/x-macbase64 @bin :base64
+!application/x-javascript @js :8bit =use-instead:application/javascript
+!application/x-lotus-123 @wks =use-instead:application/vnd.lotus-1-2-3
+!application/x-mathcad @mcd :base64 =use-instead:application/vnd.mcd
+!application/x-msword @doc,dot,wrd :base64 =use-instead:application/msword
+!application/x-troff 'LTSW =use-instead:text/troff
+!application/x-u-star 'LTSW =use-instead:application/x-ustar
+!application/x-word @doc,dot :base64 =use-instead:application/msword
+!application/x-wordperfect @wp =use-instead:application/vnd.wordperfect
+!application/xhtml-voice+xml 'DRAFT:draft-mccobb-xplusv-media-type
+*!application/VMSBACKUP @bck :base64 =use-instead:application/x-VMSBACKUP
+*!application/access @mdf,mda,mdb,mde =use-instead:application/x-msaccess
+*!application/bleeper @bleep :base64 =use-instead:application/x-bleeper
+*!application/cals1840 'LTSW =use-instead:application/cals-1840
+*!application/futuresplash @spl =use-instead:application/x-futuresplash
+*!application/ghostview =use-instead:application/x-ghostview
+*!application/hep @hep =use-instead:application/x-hep
+*!application/imagemap @imagemap,imap :8bit =use-instead:application/x-imagemap
+*!application/lotus-123 @wks =use-instead:application/vnd.lotus-1-2-3
+*!application/mac-compactpro @cpt =use-instead:application/x-mac-compactpro
+*!application/mathcad @mcd :base64 =use-instead:application/vnd.mcd
+*!application/mathematica-old =use-instead:application/x-mathematica-old
+*!application/quicktimeplayer @qtl =use-instead:application/x-quicktimeplayer
+*!application/remote_printing 'LTSW =use-instead:application/remote-printing
+*!application/smil @smi,smil :8bit =use-instead:application/x-smil
+*!application/toolbook @tbk =use-instead:application/x-toolbook
+*!application/wordperfect @wp =use-instead:application/vnd.wordperfect
+*!application/wordperfect6.1 @wp6 =use-instead:application/x-wordperfect6.1
+*!application/wordperfectd @wpd =use-instead:application/vnd.wordperfect
+*!application/x-wordperfectd @wpd =use-instead:application/vnd.wordperfect
+*!application/x400.bp 'LTSW =use-instead:application/x400-bp
 
-  # Registered: audio/*
-!audio/vnd.qcelp 'IANA,RFC3625 =use-instead:audio/QCELP
+  # audio/*
 audio/32kadpcm 'RFC2421,RFC2422
 audio/3gpp @3gpp 'RFC3839,DRAFT:draft-gellens-bucket
 audio/3gpp2 'DRAFT:draft-garudadri-avt-3gpp2-mime
@@ -1226,21 +1461,29 @@ audio/vnd.octel.sbc 'IANA,[Vaudreuil]
 audio/vnd.rhetorex.32kadpcm 'IANA,[Vaudreuil]
 audio/vnd.sealedmedia.softseal.mpeg @smp3,smp,s1m 'IANA,[Petersen]
 audio/vnd.vmx.cvsd 'IANA,[Vaudreuil]
+audio/x-aiff @aif,aifc,aiff :base64
+audio/x-midi @mid,midi,kar :base64
+audio/x-pn-realaudio @rm,ram :base64
+audio/x-pn-realaudio-plugin @rpm
+audio/x-realaudio @ra :base64
+audio/x-wav @wav :base64
+!audio/vnd.qcelp @qcp 'IANA,RFC3625 =use-instead:audio/QCELP
 
-  # Registered: image/*
+  # image/*
 image/cgm 'IANA =Computer Graphics Metafile [Francis]
 image/fits 'RFC4047
 image/g3fax 'RFC1494
 image/gif @gif :base64 'RFC2045,RFC2046
 image/ief @ief :base64 'RFC1314 =Image Exchange Format
-image/jp2 @jp2 :base64 'IANA,RFC3745
+image/jp2 @jp2,jpg2 :base64 'IANA,RFC3745
 image/jpeg @jpeg,jpg,jpe :base64 'RFC2045,RFC2046
-image/jpm @jpm :base64 'IANA,RFC3745
-image/jpx @jpx :base64 'IANA,RFC3745
+image/jpm @jpm,jpgm :base64 'IANA,RFC3745
+image/jpx @jpx,jpf :base64 'IANA,RFC3745
 image/naplps 'IANA,[Ferber]
 image/png @png :base64 'IANA,[Randers-Pehrson]
 image/prs.btif 'IANA,[Simon]
 image/prs.pti 'IANA,[Laun]
+image/svg+xml @svg :8bit
 image/t38 'RFC3362
 image/tiff @tiff,tif :base64 'RFC3302 =Tag Image File Format
 image/tiff-fx 'RFC3950 =Tag Image File Format Fax eXtended
@@ -1265,8 +1508,30 @@ image/vnd.sealedmedia.softseal.jpg @sjpg,sjp,s1j 'IANA,[Petersen]
 image/vnd.svf 'IANA,[Moline]
 image/vnd.wap.wbmp @wbmp 'IANA,[Stark]
 image/vnd.xiff 'IANA,[S.Martin]
+image/x-bmp @bmp
+image/x-cmu-raster @ras
+image/x-paintshoppro @psp,pspimage :base64
+image/x-pict
+image/x-portable-anymap @pnm :base64
+image/x-portable-bitmap @pbm :base64
+image/x-portable-graymap @pgm :base64
+image/x-portable-pixmap @ppm :base64
+image/x-rgb @rgb :base64
+image/x-targa @tga
+image/x-vnd.dgn @dgn
+image/x-win-bmp
+image/x-xbitmap @xbm :7bit
+image/x-xbm @xbm :7bit
+image/x-xpixmap @xpm :8bit
+image/x-xwindowdump @xwd :base64
+*!image/bmp @bmp =use-instead:image/x-bmp
+*!image/cmu-raster =use-instead:image/x-cmu-raster
+*!image/targa @tga =use-instead:image/x-targa
+*!image/vnd.dgn @dgn =use-instead:image/x-vnd.dgn
+*!image/vnd.net.fpx =use-instead:image/vnd.net-fpx
+*image/pjpeg :base64 =Fixes a bug with IE6 and progressive JPEGs
 
-  # Registered: message/*
+  # message/*
 message/CPIM 'RFC3862
 message/delivery-status 'RFC1894
 message/disposition-notification 'RFC2298
@@ -1274,13 +1539,13 @@ message/external-body :8bit 'RFC2046
 message/http 'RFC2616
 message/news :8bit 'RFC1036,[H.Spencer]
 message/partial :8bit 'RFC2046
-message/rfc822 :8bit 'RFC2046
+message/rfc822 @eml :8bit 'RFC2046
 message/s-http 'RFC2660
 message/sip 'RFC3261
 message/sipfrag 'RFC3420
 message/tracking-status 'RFC3886
 
-  # Registered: model/*
+  # model/*
 model/iges @igs,iges 'IANA,[Parks]
 model/mesh @msh,mesh,silo 'RFC2077
 model/vnd.dwf 'IANA,[Pratt]
@@ -1308,22 +1573,29 @@ multipart/related 'RFC2387
 multipart/report 'RFC1892
 multipart/signed 'RFC1847
 multipart/voice-message 'RFC2421,RFC2423
+multipart/x-gzip
+multipart/x-mixed-replace
+multipart/x-tar
+multipart/x-ustar
+multipart/x-www-form-urlencoded
+multipart/x-zip
+*!multipart/x-parallel =use-instead:multipart/parallel
 
   # Registered: text/*
-!text/ecmascript 'DRAFT:draft-hoehrmann-script-types
-!text/javascript 'DRAFT:draft-hoehrmann-script-types
+text/RED 'RFC4102
 text/calendar 'RFC2445
 text/css @css :8bit 'RFC2318
 text/csv @csv :8bit 'RFC4180
 text/directory 'RFC2425
 text/dns 'RFC4027
+text/ecmascript 'DRAFT:draft-hoehrmann-script-types
 text/enriched 'RFC1896
 text/html @html,htm,htmlx,shtml,htx :8bit 'RFC2854
+text/javascript 'DRAFT:draft-hoehrmann-script-types
 text/parityfec 'RFC3009
 text/plain @txt,asc,c,cc,h,hh,cpp,hpp,dat,hlp 'RFC2046,RFC3676
 text/prs.fallenstein.rst @rst 'IANA,[Fallenstein]
 text/prs.lines.tag 'IANA,[Lines]
-text/RED 'RFC4102
 text/rfc822-headers 'RFC1892
 text/richtext @rtx :8bit 'RFC2045,RFC2046
 text/rtf @rtf :8bit 'IANA,[Lindner]
@@ -1333,16 +1605,16 @@ text/t140 'RFC4103
 text/tab-separated-values @tsv 'IANA,[Lindner]
 text/troff @t,tr,roff,troff :8bit 'DRAFT:draft-lilly-text-troff
 text/uri-list 'RFC2483
+text/vnd.DMClientScript 'IANA,[Bradley]
+text/vnd.IPTC.NITF '[IPTC]
+text/vnd.IPTC.NewsML '[IPTC]
 text/vnd.abc 'IANA,[Allen]
 text/vnd.curl 'IANA,[Byrnes]
-text/vnd.DMClientScript 'IANA,[Bradley]
 text/vnd.esmertec.theme-descriptor 'IANA,[Eilemann]
 text/vnd.fly 'IANA,[Gurney]
 text/vnd.fmi.flexstor 'IANA,[Hurtta]
 text/vnd.in3d.3dml 'IANA,[Powers]
 text/vnd.in3d.spot 'IANA,[Powers]
-text/vnd.IPTC.NewsML '[IPTC]
-text/vnd.IPTC.NITF '[IPTC]
 text/vnd.latex-z 'IANA,[Lubos]
 text/vnd.motorola.reflex 'IANA,[Patton]
 text/vnd.ms-mediapackage 'IANA,[Nelson]
@@ -1352,9 +1624,18 @@ text/vnd.wap.si @si 'IANA,[WAP-Forum]
 text/vnd.wap.sl @sl 'IANA,[WAP-Forum]
 text/vnd.wap.wml @wml 'IANA,[Stark]
 text/vnd.wap.wmlscript @wmls 'IANA,[Stark]
+text/x-component @htc :8bit
+text/x-setext @etx
+text/x-vcalendar @vcs :8bit
+text/x-vcard @vcf :8bit
+text/x-yaml @yaml,yml :8bit
 text/xml @xml,dtd :8bit 'RFC3023
 text/xml-external-parsed-entity 'RFC3023
 vms:text/plain @doc :8bit
+!text/x-rtf @rtf :8bit =use-instead:text/rtf
+!text/x-vnd.flatland.3dml =use-instead:model/vnd.flatland.3dml
+*!text/comma-separated-values @csv :8bit =use-instead:text/csv
+*!text/vnd.flatland.3dml =use-instead:model/vnd.flatland.3dml
 
   # Registered: video/*
 video/3gpp @3gp,3gpp 'RFC3839,DRAFT:draft-gellens-mime-bucket 
@@ -1374,18 +1655,19 @@ video/MJ2 @mj2,mjp2 'RFC3745
 video/MP1S 'RFC3555 
 video/MP2P 'RFC3555 
 video/MP2T 'RFC3555 
-video/mp4 'DRAFT:draft-lim-mpeg4-mime 
 video/MP4V-ES 'RFC3016 
+video/MPV 'RFC3555 
+video/SMPTE292M 'RFC3497 
+video/mp4 'DRAFT:draft-lim-mpeg4-mime 
 video/mpeg @mp2,mpe,mp3g,mpg :base64 'RFC2045,RFC2046 
 video/mpeg4-generic 'RFC3640 
-video/MPV 'RFC3555 
 video/nv 'RFC3555 
+video/ogg @ogv
 video/parityfec 'RFC3009 
 video/pointer 'RFC2862 
 video/quicktime @qt,mov :base64 'IANA,[Lindner] 
 video/raw 'RFC4175 
 video/rtx 'DRAFT:draft-ietf-avt-rtp-retransmission 
-video/SMPTE292M 'RFC3497 
 video/vnd.dlna.mpeg-tts 'IANA,[Heredia] 
 video/vnd.fvt 'IANA,[Fuldseth] 
 video/vnd.motorola.video 'IANA,[McGinty] 
@@ -1398,117 +1680,21 @@ video/vnd.sealed.mpeg4 @smpg,s14 'IANA,[Petersen]
 video/vnd.sealed.swf @sswf,ssw 'IANA,[Petersen] 
 video/vnd.sealedmedia.softseal.mov @smov,smo,s1q 'IANA,[Petersen] 
 video/vnd.vivo @viv,vivo 'IANA,[Wolfe] 
-
-  # Unregistered: application/*
-!application/x-troff 'LTSW =use-instead:text/troff
-application/x-bcpio @bcpio 'LTSW
-application/x-compressed @z,Z :base64 'LTSW
-application/x-cpio @cpio :base64 'LTSW
-application/x-csh @csh :8bit 'LTSW
-application/x-dvi @dvi :base64 'LTSW
-application/x-gtar @gtar,tgz,tbz2,tbz :base64 'LTSW
-application/x-gzip @gz :base64 'LTSW
-application/x-hdf @hdf 'LTSW
-application/x-java-archive @jar 'LTSW
-application/x-java-jnlp-file @jnlp 'LTSW
-application/x-java-serialized-object @ser 'LTSW
-application/x-java-vm @class 'LTSW
-application/x-latex @ltx,latex :8bit 'LTSW
-application/x-mif @mif 'LTSW
-application/x-rtf 'LTSW =use-instead:application/rtf
-application/x-sh @sh 'LTSW
-application/x-shar @shar 'LTSW
-application/x-stuffit @sit :base64 'LTSW
-application/x-sv4cpio @sv4cpio :base64 'LTSW
-application/x-sv4crc @sv4crc :base64 'LTSW
-application/x-tar @tar :base64 'LTSW
-application/x-tcl @tcl :8bit 'LTSW
-application/x-tex @tex :8bit
-application/x-texinfo @texinfo,texi :8bit
-application/x-troff-man @man :8bit 'LTSW
-application/x-troff-me @me 'LTSW
-application/x-troff-ms @ms 'LTSW
-application/x-ustar @ustar :base64 'LTSW
-application/x-wais-source @src 'LTSW
-mac:application/x-mac @bin :base64
-*!application/cals1840 'LTSW =use-instead:application/cals-1840
-*!application/remote_printing 'LTSW =use-instead:application/remote-printing
-*!application/x-u-star 'LTSW =use-instead:application/x-ustar
-*!application/x400.bp 'LTSW =use-instead:application/x400-bp
-*application/acad 'LTSW
-*application/clariscad 'LTSW
-*application/drafting 'LTSW
-*application/dxf 'LTSW
-*application/excel @xls,xlt 'LTSW
-*application/fractals 'LTSW
-*application/i-deas 'LTSW
-*application/macbinary 'LTSW
-*application/netcdf @nc,cdf 'LTSW
-*application/powerpoint @ppt,pps,pot :base64 'LTSW
-*application/pro_eng 'LTSW
-*application/set 'LTSW
-*application/SLA 'LTSW
-*application/solids 'LTSW
-*application/STEP 'LTSW
-*application/vda 'LTSW
-*application/word @doc,dot 'LTSW
-
-  # Unregistered: audio/*
-audio/x-aiff @aif,aifc,aiff :base64
-audio/x-midi @mid,midi,kar :base64
-audio/x-pn-realaudio @rm,ram :base64
-audio/x-pn-realaudio-plugin @rpm
-audio/x-realaudio @ra :base64
-audio/x-wav @wav :base64
-
-  # Unregistered: image/*
-*image/vnd.dgn @dgn =use-instead:image/x-vnd.dgn
-image/x-bmp @bmp
-image/x-cmu-raster @ras
-image/x-paintshoppro @psp,pspimage :base64
-image/x-pict
-image/x-portable-anymap @pnm :base64
-image/x-portable-bitmap @pbm :base64
-image/x-portable-graymap @pgm :base64
-image/x-portable-pixmap @ppm :base64
-image/x-rgb @rgb :base64
-image/x-targa @tga
-image/x-vnd.dgn @dgn
-image/x-win-bmp
-image/x-xbitmap @xbm :7bit
-image/x-xbm @xbm :7bit
-image/x-xpixmap @xpm :8bit
-image/x-xwindowdump @xwd :base64
-*!image/cmu-raster =use-instead:image/x-cmu-raster
-*!image/vnd.net.fpx =use-instead:image/vnd.net-fpx
-*image/bmp @bmp
-*image/targa @tga
-
-  # Unregistered: multipart/*
-multipart/x-gzip
-multipart/x-mixed-replace
-multipart/x-tar
-multipart/x-ustar
-multipart/x-www-form-urlencoded
-multipart/x-zip
-*!multipart/parallel =use-instead:multipart/parallel
-
-  # Unregistered: text/*
-*text/comma-separated-values @csv :8bit
-*text/vnd.flatland.3dml =use-instead:model/vnd.flatland.3dml
-text/x-vnd.flatland.3dml =use-instead:model/vnd.flatland.3dml
-text/x-setext @etx
-text/x-vcalendar @vcs :8bit
-text/x-vcard @vcf :8bit
-text/x-yaml @yaml,yml :8bit
-
-  # Unregistered: video/*
-*video/dl @dl :base64
-*video/gl @gl :base64
+video/x-dl @dl :base64
+video/x-fli @fli :base64
+video/x-flv @flv :base64
+video/x-gl @gl :base64
+video/x-ms-asf @asf,asx
+video/x-ms-wmv @wmv
 video/x-msvideo @avi :base64
 video/x-sgi-movie @movie :base64
+*!video/dl @dl :base64 =use-instead:video/x-dl
+*!video/gl @gl :base64 =use-instead:video/x-gl
 
   # Unregistered: other/*
+*!chemical/x-pdb @pdb =use-instead:x-chemical/x-pdb
+*!chemical/x-xyz @xyz =use-instead:x-chemical/x-xyz
+*!drawing/dwf @dwf =use-instead:x-drawing/dwf
 x-chemical/x-pdb @pdb
 x-chemical/x-xyz @xyz
 x-conference/x-cooltalk @ice
@@ -1529,11 +1715,19 @@ _re = %r{
   $
 }x
 
-data_mime_type.each do |i|
+data_mime_type.each_with_index do |i,x|
   item = i.chomp.strip.gsub(%r{#.*}o, '')
   next if item.empty?
 
-  m = _re.match(item).captures
+  begin
+    m = _re.match(item).captures
+  rescue Exception => ex
+    puts <<-"ERROR"
+#{__FILE__}:#{x + 714}: Parsing error in MIME type definitions.
+=> "#{item}"
+    ERROR
+    raise
+  end
 
   unregistered, obsolete, platform, mediatype, subtype, extensions,
     encoding, urls, docs = *m
