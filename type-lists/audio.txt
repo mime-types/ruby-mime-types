@@ -1,11 +1,10 @@
-!audio/vnd.qcelp 'RFC3625 =use-instead:audio/qcelp
 audio/32kadpcm 'RFC2421,RFC2422
 audio/3gpp 'RFC4281,RFC3839
 audio/3gpp2 'RFC4393,RFC4281
 audio/ac3 'RFC4184
 audio/AMR 'RFC4867
 audio/AMR-WB 'RFC4867
-audio/amr-wbaudio 'RFC4352
+audio/amr-wb+ 'RFC4352
 audio/asc 'RFC4695
 audio/basic 'RFC2045,RFC2046
 audio/BV16 'RFC4298
@@ -18,15 +17,15 @@ audio/dsr-es201108 'RFC3557
 audio/dsr-es202050 'RFC4060
 audio/dsr-es202211 'RFC4060
 audio/dsr-es202212 'RFC4060
+audio/eac3 '<font color="#000000"><a href="http://www.ietf.org/rfc/rfc4598.txt">RFC4598</a></font>
 audio/DVI4 'RFC4856
-audio/eac3 'RFC4598
 audio/EVRC 'RFC4788
-audio/EVRC-QCP 'RFC3625
 audio/EVRC0 'RFC4788
 audio/EVRC1 'RFC4788
 audio/EVRCB 'RFC5188
 audio/EVRCB0 'RFC5188
 audio/EVRCB1 'RFC4788
+audio/EVRC-QCP 'RFC3625
 audio/EVRCWB 'RFC5188
 audio/EVRCWB0 'RFC5188
 audio/EVRCWB1 'RFC5188
@@ -47,15 +46,15 @@ audio/G729E 'RFC4856
 audio/GSM 'RFC4856
 audio/GSM-EFR 'RFC4856
 audio/iLBC 'RFC3952
+audio/L8 'RFC4856
 audio/L16 'RFC4856
 audio/L20 'RFC3190
 audio/L24 'RFC3190
-audio/L8 'RFC4856
 audio/LPC 'RFC4856
 audio/mobile-xmf 'RFC4723
+audio/MPA 'RFC3555
 audio/mp4 'RFC4337
 audio/MP4A-LATM 'RFC3016
-audio/MPA 'RFC3555
 audio/mpa-robust 'RFC5219
 audio/mpeg 'RFC3003
 audio/mpeg4-generic 'RFC3640
@@ -72,9 +71,9 @@ audio/rtp-enc-aescm128 '[3GPP]
 audio/rtp-midi 'RFC4695
 audio/rtx 'RFC4588
 audio/SMV 'RFC3558
-audio/SMV-QCP 'RFC3625
 audio/SMV0 'RFC3558
-audio/sp-midi '[Kosonen],[T. White]
+audio/SMV-QCP 'RFC3625
+audio/sp-midi '[Kosonen],[T. White=T.White]
 audio/t140c 'RFC4351
 audio/t38 'RFC4612
 audio/telephone-event 'RFC4733
@@ -100,12 +99,13 @@ audio/vnd.everad.plj '[Cicelsky]
 audio/vnd.hns.audio '[Swaminathan]
 audio/vnd.lucent.voice '[Vaudreuil]
 audio/vnd.ms-playready.media.pya '[DiAcetis]
-audio/vnd.nokia.mobile-xmf '[Nokia Corporation]
+audio/vnd.nokia.mobile-xmf '[Nokia Corporation=Nokia]
 audio/vnd.nortel.vbk '[Parsons]
 audio/vnd.nuera.ecelp4800 '[Fox]
 audio/vnd.nuera.ecelp7470 '[Fox]
 audio/vnd.nuera.ecelp9600 '[Fox]
 audio/vnd.octel.sbc '[Vaudreuil]
+audio/vnd.qcelp - DEPRECATED - Please use audio/qcelp 'RFC3625
 audio/vnd.rhetorex.32kadpcm '[Vaudreuil]
 audio/vnd.sealedmedia.softseal.mpeg '[Petersen]
 audio/vnd.vmx.cvsd '[Vaudreuil]
