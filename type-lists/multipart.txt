@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title>IANA | Multipart Media Types</title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="949.43">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 18.0px Times}
+    p.p4 {margin: 0.0px 0.0px 6.0px 0.0px; font: 12.0px Times; background-color: #808080; min-height: 14.0px}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #0006ee}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 10.0px Times}
+    p.p8 {margin: 0.0px 0.0px 12.0px 0.0px; text-align: center; font: 12.0px Times; min-height: 14.0px}
+    p.p9 {margin: 0.0px 0.0px 12.0px 0.0px; text-align: center; font: 9.0px Times}
+    span.s1 {color: #000000}
+    span.s2 {text-decoration: underline}
+    span.s3 {text-decoration: underline ; color: #0006ee}
+    span.s4 {font: 10.0px Times}
+    span.s5 {font: 12.0px Times}
+    table.t1 {width: 730.0px; margin: 0.0px 20.0px 0.0px 19.0px}
+    td.td1 {width: 258.0px}
+    td.td2 {width: 472.0px}
+    td.td3 {width: 730.0px}
+    td.td4 {width: 42.0px; margin: 0.5px 0.5px 0.5px 0.5px; padding: 2.0px 2.0px 2.0px 2.0px}
+    td.td5 {width: 69.0px; margin: 0.5px 0.5px 0.5px 0.5px; padding: 2.0px 2.0px 2.0px 2.0px}
+    td.td6 {width: 105.0px; margin: 0.5px 0.5px 0.5px 0.5px; padding: 2.0px 2.0px 2.0px 2.0px}
+  </style>
+</head>
+<body>
+<p class="p1"><br></p>
+<table width="730.0" cellspacing="0" cellpadding="0" class="t1">
+  <tbody>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p2"><img src="file:///iana1.jpg" alt="iana1.jpg"></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p3"><b>Multipart Media Types</b></p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" valign="middle" class="td3">
+        <p class="p4"><br></p>
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td valign="middle" class="td4">
+                <p class="p2">multipart</p>
+              </td>
+              <td valign="middle" class="td5">
+                <p class="p2"> </p>
+              </td>
+              <td valign="middle" class="td6">
+                <p class="p2"> </p>
+              </td>
+            </tr>
+            <tr>
+              <td valign="middle" class="td4">
+                <p class="p2"> </p>
+              </td>
+              <td valign="middle" class="td5">
+                <p class="p2">alternative</p>
+              </td>
+              <td valign="middle" class="td6">
+                <p class="p5"><span class="s1">[<a href="http://www.rfc-editor.org/rfc/rfc2045.txt"><span class="s2">RFC2045</span></a>,<a href="http://www.rfc-editor.org/rfc/rfc2046.txt"><span class="s2">RFC2046</span></a>]</span></p>
+              </td>
+            </tr>
+            <tr>
+              <td valign="middle" class="td4">
+                <p class="p2"> </p>
+              </td>
+              <td valign="middle" class="td5">
+                <p class="p5"><span class="s2"><a href="http://www.iana.org/assignments/media-types/multipart/appledouble">appledouble</a></span></p>
+              </td>
+              <td valign="middle" class="td6">
+                <p class="p5"><span class="s1">[<a href="http://www.iana.org/assignments/contact-people.htm#Faltstrom"><span class="s2">Faltstrom</span></a>]</span></p>
+              </td>
+            </tr>
+            <tr>
+              <td valign="middle" class="td4">
+                <p class="p2"> </p>
+              </td>
+              <td valign="middle" class="td5">
+                <p class="p2">byteranges</p>
+              </td>
+              <td valign="middle" class="td6">
+                <p class="p5"><span class="s1">[<a href="http://www.rfc-editor.org/rfc/rfc2068.txt"><span class="s2">RFC2068</span></a>]</span></p>
+              </td>
+            </tr>
+            <tr>
+              <td valign="middle" class="td4">
+                <p class="p2"> </p>
+              </td>
+              <td valign="middle" class="td5">
+                <p class="p2">digest</p>
+              </td>
+              <td valign="middle" class="td6">
+                <p class="p5"><span class="s1">[<a href="http://www.rfc-editor.org/rfc/rfc2045.txt"><span class="s2">RFC2045</span></a>,<a href="http://www.rfc-editor.org/rfc/rfc2046.txt"><span class="s2">RFC2046</span></a>]</span></p>
+              </td>
+            </tr>
+            <tr>
+              <td valign="middle" class="td4">
+                <p class="p2"> </p>
+              </td>
+              <td valign="middle" class="td5">
+                <p class="p2">encrypted</p>
+              </td>
+              <td valign="middle" class="td6">
+                <p class="p5"><span class="s1">[<a href="http://www.rfc-editor.org/rfc/rfc1847.txt"><span class="s2">RFC1847</span></a>]</span></p>
+              </td>
+            </tr>
+            <tr>
+              <td valign="middle" class="td4">
+                <p class="p6"><br></p>
+              </td>
+              <td valign="middle" class="td5">
+                <p class="p2">example</p>
+              </td>
+              <td valign="middle" class="td6">
+                <p class="p5"><span class="s2"><a href="http://www.rfc-editor.org/rfc/rfc4735.txt">[RFC4735]</a></span></p>
+              </td>
+            </tr>
+            <tr>
+              <td valign="middle" class="td4">
+                <p class="p2"> </p>
+              </td>
+              <td valign="middle" class="td5">
+                <p class="p2">form-data</p>
+              </td>
+              <td valign="middle" class="td6">
+                <p class="p5"><span class="s1">[<a href="http://www.rfc-editor.org/rfc/rfc2388.txt"><span class="s2">RFC2388</span></a>]</span></p>
+              </td>
+            </tr>
+            <tr>
+              <td valign="middle" class="td4">
+                <p class="p2"> </p>
+              </td>
+              <td valign="middle" class="td5">
+                <p class="p5"><span class="s2"><a href="http://www.iana.org/assignments/media-types/multipart/header-set">header-set</a></span></p>
+              </td>
+              <td valign="middle" class="td6">
+                <p class="p5"><span class="s1">[<a href="http://www.iana.org/assignments/contact-people.htm#Crocker"><span class="s2">Crocker</span></a>]</span></p>
+              </td>
+            </tr>
+            <tr>
+              <td valign="middle" class="td4">
+                <p class="p2"> </p>
+              </td>
+              <td valign="middle" class="td5">
+                <p class="p2">mixed</p>
+              </td>
+              <td valign="middle" class="td6">
+                <p class="p5"><span class="s1">[<a href="http://www.rfc-editor.org/rfc/rfc2045.txt"><span class="s2">RFC2045</span></a>,<a href="http://www.rfc-editor.org/rfc/rfc2046.txt"><span class="s2">RFC2046</span></a>]</span></p>
+              </td>
+            </tr>
+            <tr>
+              <td valign="middle" class="td4">
+                <p class="p2"> </p>
+              </td>
+              <td valign="middle" class="td5">
+                <p class="p2">parallel</p>
+              </td>
+              <td valign="middle" class="td6">
+                <p class="p5"><span class="s1">[<a href="http://www.rfc-editor.org/rfc/rfc2045.txt"><span class="s2">RFC2045</span></a>,<a href="http://www.rfc-editor.org/rfc/rfc2046.txt"><span class="s2">RFC2046</span></a>]</span></p>
+              </td>
+            </tr>
+            <tr>
+              <td valign="middle" class="td4">
+                <p class="p2"> </p>
+              </td>
+              <td valign="middle" class="td5">
+                <p class="p2">related</p>
+              </td>
+              <td valign="middle" class="td6">
+                <p class="p5"><span class="s1">[<a href="http://www.rfc-editor.org/rfc/rfc2387.txt"><span class="s2">RFC2387</span></a>]</span></p>
+              </td>
+            </tr>
+            <tr>
+              <td valign="middle" class="td4">
+                <p class="p2"> </p>
+              </td>
+              <td valign="middle" class="td5">
+                <p class="p2">report</p>
+              </td>
+              <td valign="middle" class="td6">
+                <p class="p5"><span class="s1">[<a href="http://www.rfc-editor.org/rfc/rfc3462.txt"><span class="s2">RFC3462</span></a>]</span></p>
+              </td>
+            </tr>
+            <tr>
+              <td valign="middle" class="td4">
+                <p class="p2"> </p>
+              </td>
+              <td valign="middle" class="td5">
+                <p class="p2">signed</p>
+              </td>
+              <td valign="middle" class="td6">
+                <p class="p5"><span class="s1">[<a href="http://www.rfc-editor.org/rfc/rfc1847.txt"><span class="s2">RFC1847</span></a>]</span></p>
+              </td>
+            </tr>
+            <tr>
+              <td valign="middle" class="td4">
+                <p class="p2"> </p>
+              </td>
+              <td valign="middle" class="td5">
+                <p class="p2">voice-message</p>
+              </td>
+              <td valign="middle" class="td6">
+                <p class="p5"><span class="s1">[<a href="http://www.rfc-editor.org/rfc/rfc2421.txt"><span class="s2">RFC2421</span></a>,<a href="http://www.rfc-editor.org/rfc/rfc2423.txt"><span class="s2">RFC2423</span></a>]</span></p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="p4"><br></p>
+        <p class="p7">Comments concerning the layout, construction and functionality of this site<span class="Apple-converted-space"> </span></p>
+        <p class="p7">should be sent to <a href="mailto:webmaster&amp;iana.org"><span class="s3">webmaster&amp;iana.org</span></a>.</p>
+        <p class="p8"><br></p>
+        <p class="p9"><span class="s4">Page updated 2008-11-21 <br>
+</span>©2001 The Internet Corporation for Assigned Names and Numbers<span class="s5"> </span>All rights reserved.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="p1"><br></p>
+</body>
+</html>
