@@ -35,7 +35,7 @@ Hoe.new PKG_NAME, PKG_VERSION do |p|
   p.url             = "http://mime-types.rubyforge.org/"
   p.summary         = %q{Manages a MIME Content-Type database that will return the Content-Type for a given filename.}
   p.changes         = p.paragraphs_of("History.txt", 0..1).join("\n\n")
-  p.description     = p.paragraphs_of("Readme.txt", 1..1).join("\n\n")
+  p.description     = p.paragraphs_of("README.txt", 1..1).join("\n\n")
 
   p.extra_deps      << [ "archive-tar-minitar", "~>0.5.1" ]
 
@@ -105,6 +105,7 @@ task :build_manifest do |t|
     next if path =~ /\.swp$/
     next if path =~ %r{coverage/}
     next if path =~ /~$/
+    next if path =~ /type-lists/
     paths << path.sub(%r{^\./}, '')
   end
 

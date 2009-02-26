@@ -1,11 +1,11 @@
 History.txt
-Install
+Install.txt
 Licence.txt
-MIME-Types.txt
 Manifest.txt
+README.txt
 Rakefile
-Readme.txt
 Release-Announcement
+lib/mime/type-initializer
 lib/mime/types.rb
 setup.rb
 test/test_all.rb
