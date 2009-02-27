@@ -99,7 +99,7 @@ class IANAParser
       }
       refs = refnodes.join(',')
 
-      "#@type/#{subtype} '#{refs}"
+      "#@type/#{subtype} 'IANA,#{refs}"
     end.compact
 
     @mime_types
