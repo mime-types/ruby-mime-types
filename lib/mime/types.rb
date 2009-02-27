@@ -736,4 +736,4 @@ module MIME
   end
 end
 
-load File.join(File.dirname(__FILE__), 'type-initializer')
+load File.join(File.dirname(__FILE__), 'types.rb.data')
