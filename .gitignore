@@ -1,0 +1,7 @@
+*.swp
+html
+doc
+pkg
+publish
+coverage
+type-lists

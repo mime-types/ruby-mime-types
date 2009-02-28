@@ -1,4 +1,4 @@
-# vim: ft=ruby enc=utf-8
+# vim: ft=ruby encoding=utf-8
 #--
 # MIME::Types
 # A Ruby implementation of a MIME Types information library. Based in spirit
