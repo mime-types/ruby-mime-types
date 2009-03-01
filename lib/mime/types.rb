@@ -1,4 +1,4 @@
-# encoding: utf-8
+# vim: ft=ruby encoding=utf-8
 #--
 # MIME::Types
 # A Ruby implementation of a MIME Types information library. Based in spirit
@@ -39,15 +39,15 @@ module MIME
 
     include Comparable
 
-    MEDIA_TYPE_RE = %r{([-\w.+]+)/([-\w.+]*)}o #:nodoc:
-    UNREG_RE      = %r{[Xx]-}o #:nodoc:
-    ENCODING_RE   = %r{(?:base64|7bit|8bit|quoted\-printable)}o #:nodoc:
-    PLATFORM_RE   = %r|#{RUBY_PLATFORM}|o #:nodoc:
+    MEDIA_TYPE_RE = %r{([-\w.+]+)/([-\w.+]*)}o
+    UNREG_RE      = %r{[Xx]-}o
+    ENCODING_RE   = %r{(?:base64|7bit|8bit|quoted\-printable)}o
+    PLATFORM_RE   = %r|#{RUBY_PLATFORM}|o
 
     SIGNATURES    = %w(application/pgp-keys application/pgp
                        application/pgp-signature application/pkcs10
                        application/pkcs7-mime application/pkcs7-signature
-                       text/vcard) #:nodoc:
+                       text/vcard)
 
     IANA_URL      = "http://www.iana.org/assignments/media-types/%s/%s"
     RFC_URL       = "http://rfc-editor.org/rfc/rfc%s.txt"
@@ -66,8 +66,9 @@ module MIME
 
     # Compares the MIME::Type against the exact content type or the
     # simplified type (the simplified type will be used if comparing against
-    # something that can be treated as a String with #to_s).
-    def <=>(other) #:nodoc:
+    # something that can be treated as a String with #to_s). In comparisons,
+    # this is done against the lowercase version of the MIME::Type.
+    def <=>(other)
       if other.respond_to?(:content_type)
         @content_type.downcase <=> other.content_type.downcase
       elsif other.respond_to?(:to_s)
@@ -77,9 +78,53 @@ module MIME
       end
     end
 
+    # Compares the MIME::Type based on how reliable it is before doing a
+    # normal <=> comparison. Used by MIME::Types#[] to sort types. The
+    # comparisons involved are:
+    #
+    # 1. self.simplified <=> other.simplified (ensures that we
+    #    don't try to compare different types)
+    # 2. IANA-registered definitions > other definitions.
+    # 3. Generic definitions > platform definitions.
+    # 3. Complete definitions > incomplete definitions.
+    # 4. Current definitions > obsolete definitions.
+    # 5. Obselete with use-instead references > obsolete without.
+    # 6. Obsolete use-instead definitions are compared.
+    def priority_compare(other)
+      pc = simplified <=> other.simplified
+
+      if pc.zero? and registered? != other.registered?
+        pc = registered? ? -1 : 1
+      end
+
+      if pc.zero? and platform? != other.platform?
+        pc = platform? ? 1 : -1
+      end
+
+      if pc.zero? and complete? != other.complete?
+        pc = complete? ? -1 : 1
+      end
+
+      if pc.zero? and obsolete? != other.obsolete?
+        pc = obsolete? ? 1 : -1
+      end
+
+      if pc.zero? and obsolete? and (use_instead != other.use_instead)
+        pc = if use_instead.nil?
+               -1
+             elsif other.use_instead.nil?
+               1
+             else
+               use_instead <=> other.use_instead
+             end
+      end
+
+      pc
+    end
+
     # Returns +true+ if the other object is a MIME::Type and the content
     # types match.
-    def eql?(other) #:nodoc:
+    def eql?(other)
       other.kind_of?(MIME::Type) and self == other
     end
 
@@ -235,7 +280,7 @@ module MIME
           DRAFT_URL % $1
         when %r{^LTSW$}
           LTSW_URL % @media_type
-        when %r{^\{([^=]+)=([^\]]+)\}}
+        when %r<^\{([^=]+)=([^\]]+)\}>
           [$1, $2]
         when %r{^\[([^=]+)=([^\]]+)\]}
           [$1, CONTACT_URL % $2]
@@ -605,40 +650,7 @@ module MIME
       matches.delete_if { |e| not e.complete? } if flags[:complete]
       matches.delete_if { |e| not e.platform? } if flags[:platform]
 
-      matches.sort! do |a, b|
-        t = 0
-
-        if (t == 0) and (a.platform? != b.platform?)
-          t = if a.platform?
-                1
-              else
-                -1
-              end
-        end
-
-        if (t == 0) and (a.obsolete? != b.obsolete?)
-          t = if a.obsolete?
-                1
-              else
-                -1
-              end
-        end
-
-        if (t == 0) and (a.use_instead != b.use_instead)
-          t = if a.use_instead.nil?
-                -1
-              elsif b.use_instead.nil?
-                1
-              else
-                a.use_instead <=> b.use_instead
-              end
-        end
-
-        t = (a <=> b) if (t == 0)
-        t
-      end
-
-      matches
+      matches.sort { |a, b| a.priority_compare(b) }
     end
 
     # Return the list of MIME::Types which belongs to the file based on its
