@@ -37,18 +37,32 @@ hoe = Hoe.new PKG_NAME, PKG_VERSION do |p|
   p.changes         = p.paragraphs_of("History.txt", 0..1).join("\n\n")
   p.description     = p.paragraphs_of("README.txt", 1..1).join("\n\n")
 
-  p.extra_dev_deps  << %w(archive-tar-minitar ~>0.5.1)
-  p.extra_dev_deps  << %w(nokogiri ~>1.2.1)
+  p.extra_dev_deps  << %w(archive-tar-minitar ~>0.5)
+  p.extra_dev_deps  << %w(nokogiri ~>1.2)
+  p.extra_dev_deps  << %w(rcov ~>0.8)
 
   p.clean_globs     << "coverage"
 
   p.spec_extras[:extra_rdoc_files] = MANIFEST.grep(/txt$/) - ["Manifest.txt"]
 end
 
-desc "Runs rcov over the tests."
-task :coverage do |t|
-  sh %Q(rcov -I lib #{hoe.test_files.join(" ")})
+begin
+  require 'rcov/rcovtask'
+  Rcov::RcovTask.new do |t|
+    t.libs << 'test'
+    t.test_files = hoe.test_files
+    t.verbose = true
+  end
+rescue LoadError
+  puts "RCov is not available. In order to run rcov, you must: sudo gem install spicycode-rcov"
 end
+
+=begin
+  require 'cucumber/rake/task'
+  Cucumber::Rake::Task.new(:features)
+rescue LoadError
+  puts "Cucumber is not available. In order to run features, you must: sudo gem install cucumber"
+=end
 
 desc "Build a MIME::Types .tar.gz distribution."
 task :tar => [ PKG_TAR ]
@@ -277,4 +291,26 @@ http://standards.freedesktop.org/shared-mime-info-spec/shared-mime-info-spec-lat
 http://www.feedforall.com/mime-types.htm
 http://www.iana.org/assignments/media-types/
   EOS
+end
+
+desc "Validate the RubyGem spec for GitHub."
+task :github_validate_spec do |t|
+  require 'yaml'
+
+  require 'rubygems/specification'
+  data = File.read("#{PKG_NAME}.gemspec")
+  spec = nil
+
+  if data !~ %r{!ruby/object:Gem::Specification}
+    code = "$SAFE = 3\n#{data}"
+    p code.split($/)[44]
+    Thread.new { spec = eval("$SAFE = 3\n#{data}") }.join
+  else
+    spec = YAML.load(data)
+  end
+
+  spec.validate
+
+  puts spec
+  puts "OK"
 end
