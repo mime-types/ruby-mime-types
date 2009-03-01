@@ -263,7 +263,7 @@ task :iana, :save, :destination do |t, args|
 end
 
 desc "Shows known MIME type sources."
-task mime_type_sources do
+task :mime_type_sources do
   puts <<-EOS
 http://www.ltsw.se/knbase/internet/mime.htp
 http://www.webmaster-toolkit.com/mime-types.shtml
