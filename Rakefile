@@ -97,23 +97,23 @@ desc "Build the manifest file from the current set of files."
 task :build_manifest do |t|
   require 'find'
 
+  hoerc = File.join(File.dirname(__FILE__), ".hoerc")
+  hoerc = File.open(hoerc, "rb") { |f| f.read }
+  hoerc = YAML::load(hoerc)
+
   paths = []
   Find.find(".") do |path|
-    next if File.directory?(path)
-    next if path =~ /\.svn/
-    next if path =~ /\.git/
-    next if path =~ /\.swp$/
-    next if path =~ %r{coverage/}
-    next if path =~ /~$/
-    next if path =~ /type-lists/
+    next if File.directory?(path) || path =~ hoerc["exclude"]
     paths << path.sub(%r{^\./}, '')
   end
 
+  paths = paths.sort.join("\n")
+
   File.open("Manifest.txt", "w") do |f|
-    f.puts paths.sort.join("\n")
+    f.puts paths
   end
 
-  puts paths.sort.join("\n")
+  puts paths
 end
 
 desc "Download the current MIME type registrations from IANA."

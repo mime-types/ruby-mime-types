@@ -4,9 +4,8 @@ Licence.txt
 Manifest.txt
 README.txt
 Rakefile
-Release-Announcement
-lib/mime/type-initializer
 lib/mime/types.rb
+lib/mime/types.rb.data
 setup.rb
 test/test_all.rb
 test/test_mime_type.rb
