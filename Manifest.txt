@@ -7,6 +7,5 @@ Rakefile
 lib/mime/types.rb
 lib/mime/types.rb.data
 setup.rb
-test/test_all.rb
 test/test_mime_type.rb
 test/test_mime_types.rb

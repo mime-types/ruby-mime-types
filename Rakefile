@@ -24,7 +24,7 @@ PKG_DIST    = "#{PKG_NAME}-#{PKG_VERSION}"
 PKG_TAR     = "pkg/#{PKG_DIST}.tar.gz"
 MANIFEST    = File.read("Manifest.txt").split
 
-Hoe.new PKG_NAME, PKG_VERSION do |p|
+hoe = Hoe.new PKG_NAME, PKG_VERSION do |p|
   p.rubyforge_name  = PKG_NAME
   # This is a lie because I will continue to use Archive::Tar::Minitar.
   p.need_tar        = false
@@ -43,6 +43,11 @@ Hoe.new PKG_NAME, PKG_VERSION do |p|
   p.clean_globs     << "coverage"
 
   p.spec_extras[:extra_rdoc_files] = MANIFEST.grep(/txt$/) - ["Manifest.txt"]
+end
+
+desc "Runs rcov over the tests."
+task :coverage do |t|
+  sh %Q(rcov -I lib #{hoe.test_files.join(" ")})
 end
 
 desc "Build a MIME::Types .tar.gz distribution."
