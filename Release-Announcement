@@ -1,21 +1,17 @@
-The MIME::Types project is not dead! The release of MIME::Types 1.15
-marks the last version that was synchronized in any way with the Perl
-MIME::Types list. Future versions of MIME::Types will be synchronized
-only with the IANA type list, but will also add many other features that
-will significantly enhance the functionality and capability of
-MIME::Types for Ruby.
+After an excessive amount of time, I've released MIME::Types 1.16. The
+primary purpose of this release is compatibility with Ruby 1.9.1, but I
+haven't ignored the latest IANA registered types. I have also picked up
+a few other types that others submitted as patches and scanned through
+the latest version (1.27) of the Perl MIME::Types library.
 
-The main changes made in this version are:
-
-  * MIME::Type (an instance of a single type) no longer has a separate
-    source file.
-  * The amount of meta-data about a MIME::Type has been increased.
-    Future versions of MIME::Types will include functionality that
-    increases the usability of this metadata.
+This is the last planned release of MIME::Types 1.x. Soon, I will be
+releasing MIME::Types 2.0 with several planned enhancements to the data
+querying and sources used.
 
 = What is MIME::Types for Ruby?
-This allows for the identification of a file's likely MIME content type
-based on the file's filename extension.
+It allows for the identification of a file's likely MIME content type
+based on the file's filename extension, or provides a list of extensions
+associated with a MIME content type, if known.
 
 Homepage::  http://mime-types.rubyforge.org/
 Copyright:: 2002 - 2006, Austin Ziegler
@@ -24,38 +20,32 @@ Download::  http://rubyforge.org/frs/?group_id=293
 
 == LICENCE NOTES
 MIME::Types is available under Ruby's disjunctive licence with the GNU
-GPL or the Perl Artistic licence. See the file LICENCE in the package
-for full details.
+GPL or the Perl Artistic licence. See the file Licence.txt in the
+package for full details.
 
 == Requirements and Installation
-PDF::Writer requires Ruby 1.8.2.
+PDF::Writer has been tested with Ruby 1.8.6, Ruby 1.8.7, Ruby 1.9.1,
+JRuby 1.1.6 (in Ruby 1.8 mode), and MacRuby 0.3.
 
 Once these packages are installed, MIME::Types can be installed with:
 
  % ruby setup.rb
 
 Alternatively, you can use the RubyGems version of MIME::Types available
-as mime-types-1.15.gem from the usual sources.
+as mime-types-1.16.gem from the usual sources.
 
-== MIME::Types 1.15
-* Removed lib/mime/type.rb to form a single MIME::Types database source. It
-  is unlikely that one will ever need MIME::Type without MIME::Types.
-* Re-synchronized the MIME type list with the sources, focusing primarily on
-  the IANA list.
-* Added more detailed source information for MIME::Type objects.
-* Changed MIME::Types from a module to a class with a default instance. There
-  should be no difference in usage.
-* Removed MIME::Types::DATA_VERSION; it is now an attribute on the
-  MIME::Types instance.
-* NOTE: Synchronization with the Perl version of MIME::Types is no longer a
-  priority as of this release. The data format and information has changed.
+== MIME::Types 1.16
+* Made compatible with Ruby 1.8.6, 1.8.7, and 1.9.1.
+* Switched to the 'hoe' gem system and added a lot of build-time tools.
+* Updated the MIME types to the list based on the values in the Perl library
+  version 1.27. Also updated based on external source information and bug
+  reports.
 
-== Release Mechanism
-Thanks goes to Aslak Hellesoy for MetaProject (http://xforge.rubyforge.org)
-and Park Heesob for Gmailer (http://rubyforge.org/projects/gmailutils) for
-their excellent utilities that have automated most of my release process.
+== Acknowledgements
+Thanks to Ryan Davis for ZenTest and Hoe, and @merbist for pushing me to
+make a release.
 
 -austin
 --
 Austin Ziegler * halostatue@gmail.com
-             * Alternate: austin@halostatue.ca
+               * Alternate: austin@halostatue.ca

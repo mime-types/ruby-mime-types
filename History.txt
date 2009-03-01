@@ -1,6 +1,6 @@
 == MIME::Types 1.16
 * Made compatible with Ruby 1.8.6, 1.8.7, and 1.9.1.
-* Switched to the 'hoe' gem system.
+* Switched to the 'hoe' gem system and added a lot of build-time tools.
 * Updated the MIME types to the list based on the values in the Perl library
   version 1.27. Also updated based on external source information and bug
   reports.

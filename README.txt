@@ -16,7 +16,6 @@ Copyright:: 2002 - 2009, Austin Ziegler
 MIME::Types is available under three disjunctive licences, as detailed in the
 Licence.txt file.
 
-
 == Copyright
   MIME::Types
   A Ruby implementation of a MIME Types information library. Based in spirit
