@@ -28,7 +28,7 @@
   MIME::Types implementation (1.13). Do not rely on these until the purpose
   and implementation is stabilised.
 * Updated the MIME list to reflect changes noted by 
-  Ville Skytt‰ <ville.skytta@iki.fi>.
+  Ville Skytt√§ <ville.skytta@iki.fi>.
 * Added a new constant to MIME::Types, DATA_VERSION. This will allow the Ruby
   version number to be updated separately from the Perl version while keeping
   the MIME Type list version in sync.
@@ -75,7 +75,7 @@
 == MIME::Types 1.07
 * Changed version numbering to match Perl MIME::Types 1.07.
 * Re-synchronized with Mark Overmeer's list in Perl PMIME::Types 1.07.
-	- [NN Poster] updated the attributes for the PGP types.
+* [NN Poster] updated the attributes for the PGP types.
 
 == MIME::Types 1.005
 * Changed to Phil Thomson's InstallPackage.
