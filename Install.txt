@@ -2,7 +2,7 @@ Installing this package is as simple as:
 
   % ruby setup.rb
 
-Alternatively, you can use the RubyGem version of MIME::Types available as
+Alternatively, you can use the Gem version of MIME::Types available as
 mime-types-1.16.gem from the usual sources.
 
 == Copyright
