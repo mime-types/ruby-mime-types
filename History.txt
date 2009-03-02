@@ -4,6 +4,9 @@
 * Updated the MIME types to the list based on the values in the Perl library
   version 1.27. Also updated based on external source information and bug
   reports.
+* This is the last planned version of MIME::Types 1.x. Work will be
+  starting soon on MIME::Types 2.x with richer data querying mechanisms
+  and support for external data sources.
 
 == MIME::Types 1.15
 * Removed lib/mime/type.rb to form a single MIME::Types database source. It

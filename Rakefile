@@ -34,7 +34,7 @@ hoe = Hoe.new PKG_NAME, PKG_VERSION do |p|
   p.email           = %W(austin@rubyforge.org)
   p.url             = "http://mime-types.rubyforge.org/"
   p.summary         = %q{Manages a MIME Content-Type database that will return the Content-Type for a given filename.}
-  p.changes         = p.paragraphs_of("History.txt", 0..1).join("\n\n")
+  p.changes         = p.paragraphs_of("History.txt", 0..0).join("\n\n")
   p.description     = p.paragraphs_of("README.txt", 1..1).join("\n\n")
 
   p.extra_dev_deps  << %w(archive-tar-minitar ~>0.5)
