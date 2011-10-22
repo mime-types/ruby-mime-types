@@ -12,7 +12,7 @@ Hoe.plugin :minitest
 spec = Hoe.spec 'mime-types' do
   self.rubyforge_name = self.name
 
-  developer('Austin Ziegler', 'ausint@rubyforge.org')
+  developer('Austin Ziegler', 'austin@rubyforge.org')
 
   self.url = "http://mime-types.rubyforge.org/"
   self.remote_rdoc_dir = 'rdoc'
