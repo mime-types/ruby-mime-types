@@ -2,7 +2,10 @@
 * Implemented modern 'hoe' semantics.
 * Switched to minitest instead of test/unit.
 * Converted documentation from .txt to .rdoc.
-* Removed setup.rb.
+* Removed setup.rb. (Issue #3:
+  https://github.com/halostatue/mime-types/issues/3).
+* Should no longer complain about missing RubyGems keys (Issue #2:
+  https://github.com/halostatue/mime-types/issues/2).
 
 == MIME::Types 1.16
 * Made compatible with Ruby 1.8.6, 1.8.7, and 1.9.1.
