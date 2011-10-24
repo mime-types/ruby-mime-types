@@ -1,15 +1,4 @@
-# vim: ft=ruby encoding=utf-8
-#--
-# MIME::Types
-# A Ruby implementation of a MIME Types information library. Based in spirit
-# on the Perl MIME::Types information library by Mark Overmeer.
-# http://rubyforge.org/projects/mime-types/
-#
-# Licensed under the Ruby disjunctive licence with the GNU GPL or the Perl
-# Artistic licence. See Licence.txt for more information.
-#
-# Copyright 2003 - 2009 Austin Ziegler
-#++
+# -*- ruby encoding: utf-8
 
 # The namespace for MIME applications, tools, and libraries.
 module MIME
@@ -588,7 +577,7 @@ module MIME
   #
   class Types
     # The released version of Ruby MIME::Types
-    VERSION  = '1.16'
+    VERSION = '1.17'
 
       # The data version.
     attr_reader :data_version
@@ -596,6 +585,7 @@ module MIME
     def initialize(data_version = nil)
       @type_variants    = Hash.new { |h, k| h[k] = [] }
       @extension_index  = Hash.new { |h, k| h[k] = [] }
+      @data_version = data_version
     end
 
     def add_type_variant(mime_type) #:nodoc:
@@ -604,6 +594,10 @@ module MIME
 
     def index_extensions(mime_type) #:nodoc:
       mime_type.extensions.each { |ext| @extension_index[ext] << mime_type }
+    end
+
+    def defined_types #:nodoc:
+      @type_variants.values.flatten
     end
 
     @__types__ = self.new(VERSION)
@@ -677,17 +671,21 @@ module MIME
     # type should be experimental (e.g., 'application/x-ruby'). If the type
     # is already known, a warning will be displayed.
     #
-    # <b>Please inform the maintainer of this module when registered types
-    # are missing.</b>
+    # <strong>Please inform the maintainer of this module when registered
+    # types are missing.</strong>
     def add(*types)
       types.each do |mime_type|
-        if @type_variants.include?(mime_type.simplified)
-          if @type_variants[mime_type.simplified].include?(mime_type)
-            warn "Type #{mime_type} already registered as a variant of #{mime_type.simplified}."
+        if mime_type.kind_of? MIME::Types
+          add(*mime_type.defined_types)
+        else
+          if @type_variants.include?(mime_type.simplified)
+            if @type_variants[mime_type.simplified].include?(mime_type)
+              warn "Type #{mime_type} already registered as a variant of #{mime_type.simplified}." unless defined? MIME::Types::STARTUP
+            end
           end
+          add_type_variant(mime_type)
+          index_extensions(mime_type)
         end
-        add_type_variant(mime_type)
-        index_extensions(mime_type)
       end
     end
 
@@ -698,6 +696,95 @@ module MIME
 
       def index_extensions(mime_type) #:nodoc:
         @__types__.index_extensions(mime_type)
+      end
+
+      # The regular expression used to match a file-based MIME type
+      # definition.
+      TEXT_FORMAT_RE = %r{
+        ^
+        \s*
+        ([*])?                                 # 0: Unregistered?
+        (!)?                                   # 1: Obsolete?
+        (?:(\w+):)?                            # 2: Platform marker
+        #{MIME::Type::MEDIA_TYPE_RE}           # 3,4: Media type
+        (?:\s+@([^\s]+))?                      # 5: Extensions
+        (?:\s+:(#{MIME::Type::ENCODING_RE}))?  # 6: Encoding
+        (?:\s+'(.+))?                          # 7: URL list
+        (?:\s+=(.+))?                          # 8: Documentation
+        \s*
+        $
+      }x
+
+      # Build the type list from a file in the format:
+      #
+      #   [*][!][os:]mt/st[<ws>@ext][<ws>:enc][<ws>'url-list][<ws>=docs]
+      #
+      # == *
+      # An unofficial MIME type. This should be used if and only if the MIME type
+      # is not properly specified (that is, not under either x-type or
+      # vnd.name.type).
+      #
+      # == !
+      # An obsolete MIME type. May be used with an unofficial MIME type.
+      #
+      # == os:
+      # Platform-specific MIME type definition.
+      #
+      # == mt
+      # The media type.
+      #
+      # == st
+      # The media subtype.
+      #
+      # == <ws>@ext
+      # The list of comma-separated extensions.
+      #
+      # == <ws>:enc
+      # The encoding.
+      #
+      # == <ws>'url-list
+      # The list of comma-separated URLs.
+      #
+      # == <ws>=docs
+      # The documentation string.
+      #
+      # That is, everything except the media type and the subtype is optional. The
+      # more information that's available, though, the richer the values that can
+      # be provided.
+      def load_from_file(filename) #:nodoc:
+        data = File.open(filename) { |f| f.read }.split($/)
+        mime = MIME::Types.new
+        data.each_with_index { |line, index|
+          item = line.chomp.strip.gsub(%r{#.*}o, '')
+          next if item.empty?
+
+          begin
+            m = TEXT_FORMAT_RE.match(item).captures
+          rescue Exception => ex
+            puts "#{filename}:#{index}: Parsing error in MIME type definitions."
+            puts "=> #{line}"
+            raise
+          end
+
+          unregistered, obsolete, platform, mediatype, subtype, extensions,
+            encoding, urls, docs = *m
+
+          extensions &&= extensions.split(/,/)
+          urls &&= urls.split(/,/)
+
+          mime_type = MIME::Type.new("#{mediatype}/#{subtype}") do |t|
+            t.extensions  = extensions
+            t.encoding    = encoding
+            t.system      = platform
+            t.obsolete    = obsolete
+            t.registered  = false if unregistered
+            t.docs        = docs
+            t.url         = urls
+          end
+
+          mime.add(mime_type)
+        }
+        mime
       end
 
       # Returns a list of MIME::Type objects, which may be empty. The
@@ -739,13 +826,18 @@ module MIME
       # type should be experimental (e.g., 'application/x-ruby'). If the
       # type is already known, a warning will be displayed.
       #
-      # <b>Please inform the maintainer of this module when registered types
-      # are missing.</b>
+      # <strong>Please inform the maintainer of this module when registered
+      # types are missing.</strong>
       def add(*types)
         @__types__.add(*types)
       end
     end
+
+    files = Dir[File.join(File.dirname(__FILE__), 'types', '*')]
+    MIME::Types::STARTUP = true unless $DEBUG
+    files.sort.each { |file| add load_from_file(file) }
+    remove_const :STARTUP if defined? STARTUP
   end
 end
 
-load File.join(File.dirname(__FILE__), 'types.rb.data')
+# vim: ft=ruby
