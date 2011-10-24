@@ -22,7 +22,7 @@ spec = Hoe.spec 'mime-types' do
   self.readme_file = 'README.rdoc'
   self.extra_rdoc_files = FileList["*.rdoc"].to_a
 
-  self.extra_dev_deps << ['nokogiri', '~> 1.2']
+  self.extra_dev_deps << ['nokogiri', '~> 1.5']
   self.extra_dev_deps << ['minitest', '~> 2.0']
   self.extra_dev_deps << ['hoe-doofus', '~> 1.0']
   self.extra_dev_deps << ['hoe-gemspec', '~> 1.0']
@@ -33,8 +33,7 @@ end
 namespace :mime do
   desc "Download the current MIME type registrations from IANA."
   task :iana, :save, :destination do |t, args|
-    save_type = args.save || :text
-    save_type = save_type.to_sym
+    save_type = (args.save || :text).to_sym
 
     case save_type
     when :text, :both, :html
@@ -100,12 +99,19 @@ namespace :mime do
         nodes = html.xpath("//table//table//tr")
 
         # How many <td> children does the first node have?
-        node_count = nodes.first.children.select { |node| node.elem? }.size
+        node_count = nodes.first.children.select { |n| n.elem? }.size
+
+        if node_count == 1
+          # The title node doesn't have what we expect. Let's try it based
+          # on the first real node.
+          node_count = nodes.first.next.children.select { |n| n.elem? }.size
+        end
 
         @mime_types = nodes.map do |node|
           next if node == nodes.first
           elems = node.children.select { |n| n.elem? }
           next if elems.size.zero?
+
           raise "size mismatch #{elems.size} != #{node_count}" if node_count != elems.size
 
           case elems.size
