@@ -1,6 +1,6 @@
 .hoerc
 History.rdoc
-Licence.rdoc
+License.rdoc
 Manifest.txt
 README.rdoc
 Rakefile
