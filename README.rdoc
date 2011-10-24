@@ -12,6 +12,7 @@ format for the MIME::Type list has changed and the synchronization will no
 longer happen.
 
 Homepage::  http://mime-types.rubyforge.org/
+GitHub::    http://github.com/halostatue/mime-types/
 Copyright:: 2002 - 2011, Austin Ziegler
             Based in part on prior work copyright Mark Overmeer
 
