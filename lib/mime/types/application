@@ -259,6 +259,7 @@ application/vnd.airzip.filesecure.azs 'IANA,[Mould],[Clueit]
 application/vnd.americandynamics.acc 'IANA,[Sands]
 application/vnd.amiga.ami @ami 'IANA,[Blumberg]
 application/vnd.amundsen.maze+xml 'IANA,[Amundsen]
+application/vnd.android.package-archive @apk
 application/vnd.anser-web-certificate-issue-initiation 'IANA,[Mori]
 application/vnd.antix.game-component 'IANA,[Shelton]
 application/vnd.apple.installer+xml 'IANA,[Bierman]

@@ -76,11 +76,14 @@ application/x-macbinary
 application/x-maker @frm,maker,frame,fm,fb,book,fbdoc =use-instead:application/vnd.framemaker
 application/x-mathematica-old
 application/x-mif @mif 'LTSW
+application/x-ms-wmd @wmd
+application/x-ms-wmz @wmz
 application/x-msaccess @mda,mdb,mde,mdf
 application/x-msdos-program @cmd,bat,com,exe :base64
 application/x-msdownload @exe,com :base64
 application/x-netcdf @nc,cdf
 application/x-ns-proxy-autoconfig @pac
+application/x-opera-extension @oex
 application/x-pagemaker @pm,pm5,pt5
 application/x-perl @pl,pm :8bit
 application/x-pgp
@@ -110,5 +113,3 @@ application/x-ustar @ustar :base64 'LTSW
 application/x-wais-source @src 'LTSW
 application/x-wordperfect6.1 @wp6
 application/x-x509-ca-cert @crt :base64
-application/x-ms-wmz @wmz
-application/x-ms-wmd @wmd
