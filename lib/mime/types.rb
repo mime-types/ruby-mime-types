@@ -24,7 +24,7 @@ module MIME
   #  puts MIME::Type.simplified('x-appl/x-zip') # => 'appl/zip'
   #
   class Type
-    VERSION = '1.16'
+    VERSION = '1.17'
 
     include Comparable
 
@@ -566,7 +566,7 @@ module MIME
   # = Author
   # Copyright:: Copyright (c) 2002 - 2009 by Austin Ziegler
   #             <austin@rubyforge.org>
-  # Version::   1.16
+  # Version::   1.17
   # Based On::  Perl
   #             MIME::Types[http://search.cpan.org/author/MARKOV/MIME-Types-1.27/MIME/Types.pm],
   #             Copyright (c) 2001 - 2009 by Mark Overmeer
