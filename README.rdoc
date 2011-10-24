@@ -3,7 +3,7 @@
 == Description
 
 This library allows for the identification of a file's likely MIME content
-type. This is release 1.17. The identification of MIME content type is based
+type. This is release 1.17.1. The identification of MIME content type is based
 on a file's filename extensions.
 
 MIME::Types for Ruby originally based on and synchronized with MIME::Types for

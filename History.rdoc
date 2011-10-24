@@ -1,4 +1,4 @@
-== MIME::Types 1.17 / 2011-MM-DD
+== MIME::Types 1.17.1 / 2011-10-23
 * Minor Enhancements:
   * Implemented modern 'hoe' semantics.
   * Switched to minitest instead of test/unit.
