@@ -1,4 +1,4 @@
-# -*- ruby encoding: utf-8
+# -*- ruby encoding: utf-8 -*-
 
 # The namespace for MIME applications, tools, and libraries.
 module MIME
@@ -24,7 +24,7 @@ module MIME
   #  puts MIME::Type.simplified('x-appl/x-zip') # => 'appl/zip'
   #
   class Type
-    VERSION = '1.17.1'
+    VERSION = '1.17.2'
 
     include Comparable
 
@@ -566,7 +566,7 @@ module MIME
   # = Author
   # Copyright:: Copyright (c) 2002 - 2009 by Austin Ziegler
   #             <austin@rubyforge.org>
-  # Version::   1.17.1
+  # Version::   1.17.2
   # Based On::  Perl
   #             MIME::Types[http://search.cpan.org/author/MARKOV/MIME-Types-1.27/MIME/Types.pm],
   #             Copyright (c) 2001 - 2009 by Mark Overmeer
@@ -577,7 +577,7 @@ module MIME
   #
   class Types
     # The released version of Ruby MIME::Types
-    VERSION = '1.17.1'
+    VERSION = '1.17.2'
 
       # The data version.
     attr_reader :data_version
@@ -752,7 +752,12 @@ module MIME
       # more information that's available, though, the richer the values that can
       # be provided.
       def load_from_file(filename) #:nodoc:
-        data = File.open(filename) { |f| f.read }.split($/)
+        if defined? ::Encoding
+          data = File.open(filename, 'r:UTF-8') { |f| f.read }
+        else
+          data = File.open(filename) { |f| f.read }
+        end
+        data = data.split($/)
         mime = MIME::Types.new
         data.each_with_index { |line, index|
           item = line.chomp.strip.gsub(%r{#.*}o, '')
