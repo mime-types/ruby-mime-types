@@ -6,7 +6,7 @@ require 'minitest/autorun'
 
 class TestMIME_Type < MiniTest::Unit::TestCase
   def yaml_mime_type_from_array
-    yaml = MIME::Type.from_array('text/x-yaml', %w(yaml yml), '8bit', 'linux')
+    MIME::Type.from_array('text/x-yaml', %w(yaml yml), '8bit', 'linux')
   end
 
   def setup

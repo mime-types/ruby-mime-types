@@ -44,7 +44,7 @@ module MIME
     LTSW_URL      = "http://www.ltsw.se/knbase/internet/%s.htp"
     CONTACT_URL   = "http://www.iana.org/assignments/contact-people.htm#%s"
 
-    # Returns +true+ if the simplified type matches the current 
+    # Returns +true+ if the simplified type matches the current
     def like?(other)
       if other.respond_to?(:simplified)
         @simplified == other.simplified
@@ -138,7 +138,7 @@ module MIME
     #   x-chemical/x-pdb  => pdb
     attr_reader :sub_type
     # Returns the media type of the unmodified MIME type.
-    # 
+    #
     #   text/plain        => plain
     #   x-chemical/x-pdb  => x-pdb
     attr_reader :raw_sub_type
@@ -185,7 +185,7 @@ module MIME
     # The regexp for the operating system that this MIME::Type is specific
     # to.
     attr_accessor :system
-    remove_method :system= ; 
+    remove_method :system= ;
     def system=(os) #:nodoc:
       if os.nil? or os.kind_of?(Regexp)
         @system = os
@@ -359,7 +359,7 @@ module MIME
       #   end
       def from_hash(hash) #:yields MIME::Type.new:
         type = {}
-        hash.each_pair do |k, v| 
+        hash.each_pair do |k, v|
           type[k.to_s.tr('A-Z', 'a-z').gsub(/-/, '_').to_sym] = v
         end
 
@@ -400,7 +400,7 @@ module MIME
           t.registered = mime_type.registered?
 
           mime_type.docs && t.docs = mime_type.docs.dup
-          
+
         end
 
         yield m if block_given?
@@ -765,7 +765,7 @@ module MIME
 
           begin
             m = TEXT_FORMAT_RE.match(item).captures
-          rescue Exception => ex
+          rescue Exception
             puts "#{filename}:#{index}: Parsing error in MIME type definitions."
             puts "=> #{line}"
             raise
