@@ -608,6 +608,7 @@ module MIME
     end
 
     @__types__ = self.new(VERSION)
+    @__types_loaded = false
 
     # Returns a list of MIME::Type objects, which may be empty. The optional
     # flag parameters are :complete (finds only complete MIME::Type objects)
@@ -698,11 +699,11 @@ module MIME
 
     class << self
       def add_type_variant(mime_type) #:nodoc:
-        @__types__.add_type_variant(mime_type)
+        __types__.add_type_variant(mime_type)
       end
 
       def index_extensions(mime_type) #:nodoc:
-        @__types__.index_extensions(mime_type)
+        __types__.index_extensions(mime_type)
       end
 
       # The regular expression used to match a file-based MIME type
@@ -814,7 +815,7 @@ module MIME
       #     puts t.to_a.join(", ")
       #   end
       def [](type_id, flags = {})
-        @__types__[type_id, flags]
+        __types__[type_id, flags]
       end
 
       # Return the list of MIME::Types which belongs to the file based on
@@ -826,12 +827,12 @@ module MIME
       #   puts "MIME::Types.type_for('citydesk.gif')
       #     => "#{MIME::Types.type_for('citydesk.gif')}"
       def type_for(filename, platform = false)
-        @__types__.type_for(filename, platform)
+        __types__.type_for(filename, platform)
       end
 
       # A synonym for MIME::Types.type_for
       def of(filename, platform = false)
-        @__types__.type_for(filename, platform)
+        __types__.type_for(filename, platform)
       end
 
       # Add one or more MIME::Type objects to the set of known types. Each
@@ -841,8 +842,21 @@ module MIME
       # <strong>Please inform the maintainer of this module when registered
       # types are missing.</strong>
       def add(*types)
-        @__types__.add(*types)
+        __types__.add(*types)
       end
+
+      # Lazy interface
+
+      def lazy_load?
+        (lazy = ENV['RUBY_MIME_TYPES_LAZY_LOAD']) && (lazy != 'false')
+      end
+
+      def __types__
+        load_mime_types_with_cache unless @__types_loaded
+        @__types__
+      end
+
+      # Cache interface
 
       def cachefile
         ENV['RUBY_MIME_TYPES_CACHE']
@@ -886,7 +900,7 @@ module MIME
         raise "No cachefile set" unless cachefile
 
         File.open(cachefile, 'w') do |f|
-          data = Marshal.dump(@__types__)
+          data = Marshal.dump(__types__)
           container = Container.new(VERSION, data)
           f.write(Marshal.dump(container))
         end
@@ -895,6 +909,14 @@ module MIME
       def load_all_mime_types
         files = Dir[File.join(File.dirname(__FILE__), 'types', '*')]
         files.sort.each { |file| add load_from_file(file) }
+      end
+
+      def load_mime_types_with_cache
+        @__types_loaded = true
+        unless load_types_cache
+          load_all_mime_types
+          write_types_cache
+        end
       end
     end
 
@@ -908,10 +930,7 @@ module MIME
     end
 
     MIME::Types::STARTUP = true unless $DEBUG
-    unless load_types_cache
-      load_all_mime_types
-      write_types_cache
-    end
+    load_mime_types_with_cache unless lazy_load?
     remove_const :STARTUP if defined? STARTUP
   end
 end
