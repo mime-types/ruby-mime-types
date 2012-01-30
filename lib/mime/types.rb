@@ -582,9 +582,16 @@ module MIME
       # The data version.
     attr_reader :data_version
 
+    class ArrayDefaultHash < Hash
+      # Needed because a hash with default dictionary is not marshalable
+      def initialize; super { |h, k| h[k] = [] }; end
+      def marshal_dump; {}.merge(self); end
+      def marshal_load(hash) self.merge!(hash); end
+    end
+
     def initialize(data_version = nil)
-      @type_variants    = Hash.new { |h, k| h[k] = [] }
-      @extension_index  = Hash.new { |h, k| h[k] = [] }
+      @type_variants    = ArrayDefaultHash.new
+      @extension_index  = ArrayDefaultHash.new
       @data_version = data_version
     end
 
@@ -836,11 +843,75 @@ module MIME
       def add(*types)
         @__types__.add(*types)
       end
+
+      def cachefile
+        ENV['RUBY_MIME_TYPES_CACHE']
+      end
+
+      def load_types_cache
+        load_types_cache! if cachefile
+      end
+
+      def load_types_cache!
+        raise "No cachefile set" unless cachefile
+
+        if File.exists?(cachefile)
+          data = File.read(cachefile)
+          begin
+            container = Marshal.load(data)
+          rescue StandardError => e
+            warn "Could not load mime types cache: #{e.inspect}"
+            return false
+          end
+
+          if container.version == VERSION
+            @__types__ = Marshal.load(container.data)
+            return true
+          end
+        end
+
+        false
+      end
+
+      def write_types_cache
+        write_types_cache! if cachefile
+      end
+
+      # Since this is nonatomic, we can end up with invalid cache
+      # state. That's probably ok though, because we ignore caches
+      # which raise an exception upon unmarshaling. (I'm not familiar
+      # enough with the marshal format to know whether a partial
+      # marshal can ever be a valid marshal.)
+      def write_types_cache!
+        raise "No cachefile set" unless cachefile
+
+        File.open(cachefile, 'w') do |f|
+          data = Marshal.dump(@__types__)
+          container = Container.new(VERSION, data)
+          f.write(Marshal.dump(container))
+        end
+      end
+
+      def load_all_mime_types
+        files = Dir[File.join(File.dirname(__FILE__), 'types', '*')]
+        files.sort.each { |file| add load_from_file(file) }
+      end
     end
 
-    files = Dir[File.join(File.dirname(__FILE__), 'types', '*')]
+    class Container
+      attr_reader :version, :data
+
+      def initialize(version, data)
+        @version = version
+        @data = data
+      end
+    end
+
     MIME::Types::STARTUP = true unless $DEBUG
-    files.sort.each { |file| add load_from_file(file) }
+    unless load_types_cache
+      load_all_mime_types
+      write_types_cache
+    end
     remove_const :STARTUP if defined? STARTUP
   end
 end
