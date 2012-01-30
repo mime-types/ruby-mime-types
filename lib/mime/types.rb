@@ -571,7 +571,7 @@ module MIME
   #             MIME::Types[http://search.cpan.org/author/MARKOV/MIME-Types-1.27/MIME/Types.pm],
   #             Copyright (c) 2001 - 2009 by Mark Overmeer
   #             <mimetypes@overmeer.net>.
-  # Licence::   Ruby's, Perl Artistic, or GPL version 2 (or later)
+  # License::   Ruby's, Perl Artistic, or GPL version 2 (or later)
   # See Also::  http://www.iana.org/assignments/media-types/
   #             http://www.ltsw.se/knbase/internet/mime.htp
   #
@@ -582,9 +582,16 @@ module MIME
       # The data version.
     attr_reader :data_version
 
+    class ArrayDefaultHash < Hash
+      # Needed because a hash with default dictionary is not marshalable
+      def initialize; super { |h, k| h[k] = [] }; end
+      def marshal_dump; {}.merge(self); end
+      def marshal_load(hash) self.merge!(hash); end
+    end
+
     def initialize(data_version = nil)
-      @type_variants    = Hash.new { |h, k| h[k] = [] }
-      @extension_index  = Hash.new { |h, k| h[k] = [] }
+      @type_variants    = ArrayDefaultHash.new
+      @extension_index  = ArrayDefaultHash.new
       @data_version = data_version
     end
 
@@ -601,6 +608,7 @@ module MIME
     end
 
     @__types__ = self.new(VERSION)
+    @__types_loaded = false
 
     # Returns a list of MIME::Type objects, which may be empty. The optional
     # flag parameters are :complete (finds only complete MIME::Type objects)
@@ -691,11 +699,11 @@ module MIME
 
     class << self
       def add_type_variant(mime_type) #:nodoc:
-        @__types__.add_type_variant(mime_type)
+        __types__.add_type_variant(mime_type)
       end
 
       def index_extensions(mime_type) #:nodoc:
-        @__types__.index_extensions(mime_type)
+        __types__.index_extensions(mime_type)
       end
 
       # The regular expression used to match a file-based MIME type
@@ -807,7 +815,7 @@ module MIME
       #     puts t.to_a.join(", ")
       #   end
       def [](type_id, flags = {})
-        @__types__[type_id, flags]
+        __types__[type_id, flags]
       end
 
       # Return the list of MIME::Types which belongs to the file based on
@@ -819,12 +827,12 @@ module MIME
       #   puts "MIME::Types.type_for('citydesk.gif')
       #     => "#{MIME::Types.type_for('citydesk.gif')}"
       def type_for(filename, platform = false)
-        @__types__.type_for(filename, platform)
+        __types__.type_for(filename, platform)
       end
 
       # A synonym for MIME::Types.type_for
       def of(filename, platform = false)
-        @__types__.type_for(filename, platform)
+        __types__.type_for(filename, platform)
       end
 
       # Add one or more MIME::Type objects to the set of known types. Each
@@ -834,13 +842,95 @@ module MIME
       # <strong>Please inform the maintainer of this module when registered
       # types are missing.</strong>
       def add(*types)
-        @__types__.add(*types)
+        __types__.add(*types)
+      end
+
+      # Lazy interface
+
+      def lazy_load?
+        (lazy = ENV['RUBY_MIME_TYPES_LAZY_LOAD']) && (lazy != 'false')
+      end
+
+      def __types__
+        load_mime_types_with_cache unless @__types_loaded
+        @__types__
+      end
+
+      # Cache interface
+
+      def cachefile
+        ENV['RUBY_MIME_TYPES_CACHE']
+      end
+
+      def load_types_cache
+        load_types_cache! if cachefile
+      end
+
+      def load_types_cache!
+        raise "No cachefile set" unless cachefile
+
+        if File.exists?(cachefile)
+          data = File.read(cachefile)
+          begin
+            container = Marshal.load(data)
+          rescue StandardError => e
+            warn "Could not load mime types cache: #{e.inspect}"
+            return false
+          end
+
+          if container.version == VERSION
+            @__types__ = Marshal.load(container.data)
+            return true
+          end
+        end
+
+        false
+      end
+
+      def write_types_cache
+        write_types_cache! if cachefile
+      end
+
+      # Since this is nonatomic, we can end up with invalid cache
+      # state. That's probably ok though, because we ignore caches
+      # which raise an exception upon unmarshaling. (I'm not familiar
+      # enough with the marshal format to know whether a partial
+      # marshal can ever be a valid marshal.)
+      def write_types_cache!
+        raise "No cachefile set" unless cachefile
+
+        File.open(cachefile, 'w') do |f|
+          data = Marshal.dump(__types__)
+          container = Container.new(VERSION, data)
+          f.write(Marshal.dump(container))
+        end
+      end
+
+      def load_all_mime_types
+        files = Dir[File.join(File.dirname(__FILE__), 'types', '*')]
+        files.sort.each { |file| add load_from_file(file) }
+      end
+
+      def load_mime_types_with_cache
+        @__types_loaded = true
+        unless load_types_cache
+          load_all_mime_types
+          write_types_cache
+        end
       end
     end
 
-    files = Dir[File.join(File.dirname(__FILE__), 'types', '*')]
+    class Container
+      attr_reader :version, :data
+
+      def initialize(version, data)
+        @version = version
+        @data = data
+      end
+    end
+
     MIME::Types::STARTUP = true unless $DEBUG
-    files.sort.each { |file| add load_from_file(file) }
+    load_mime_types_with_cache unless lazy_load?
     remove_const :STARTUP if defined? STARTUP
   end
 end
