@@ -7,6 +7,8 @@
     * TrueType (application/x-font-truetype; .ttf; base64).
     * OpenType (application/x-font-opentype; .otf; base64).
   * WebM (audio/webm, video/webm; .webm). Issue #11 (https://github.com/halostatue/mime-types/issues/11).
+* New extensions:
+  * f4v/f4p (video/mp4, used by Adobe); f4a/fb4 (audio/mp4, used by Adobe).
 * Bug Fixes:
   * It was pointed out that Licence.txt was incorrectly named. Fixed by renaming to Licence.rdoc (from Issue/Pull Request #8, https://github.com/halostatue/mime-types/issues/8).
   * It was pointed out that a plan to have the test output generated automatically never went through. Issue #10 (https://github.com/halostatue/mime-types/issues/10)

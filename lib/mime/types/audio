@@ -59,7 +59,7 @@ audio/L24 'IANA,RFC3190
 audio/L8 'IANA,RFC4856
 audio/LPC 'IANA,RFC4856
 audio/mobile-xmf 'IANA,RFC4723
-audio/mp4 @mp4,mpg4 'IANA,RFC4337
+audio/mp4 @mp4,mpg4,f4a,f4b 'IANA,RFC4337,{Adobe=http://www.kaourantin.net/2007/10/new-file-extensions-and-mime-types.html}
 audio/MP4A-LATM @m4a 'IANA,RFC6416
 audio/MPA 'IANA,RFC3555
 audio/mpa-robust 'IANA,RFC5219
