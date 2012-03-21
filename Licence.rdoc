@@ -8,3 +8,5 @@ or the {GNU GPL version 2}[http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 (or at your option, any later verison).
 
 If you do not accept one of these licences, you may not use this software.
+
+* Copyright 2003–2012 Austin Ziegler.

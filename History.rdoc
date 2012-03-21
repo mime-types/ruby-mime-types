@@ -1,3 +1,16 @@
+== MIME::Types 1.18 / 2012-03-20
+* New MIME Types:
+  * Types reported in Issue #6 (https://github.com/halostatue/mime-types/issues/6):
+    * CoffeeScript (text/x-coffeescript; .coffee; 8bit).
+    * AIR (application/vnd.adobe.air-applicationinstaller-package+zip, .air; base64).
+    * WOFF (application/font-woff; .woff; base64).
+    * TrueType (application/x-font-truetype; .ttf; base64).
+    * OpenType (application/x-font-opentype; .otf; base64).
+  * WebM (audio/webm, video/webm; .webm). Issue #11 (https://github.com/halostatue/mime-types/issues/11).
+* Bug Fixes:
+  * It was pointed out that Licence.txt was incorrectly named. Fixed by renaming to Licence.rdoc (from Issue/Pull Request #8, https://github.com/halostatue/mime-types/issues/8).
+  * It was pointed out that a plan to have the test output generated automatically never went through. Issue #10 (https://github.com/halostatue/mime-types/issues/10)
+
 == MIME::Types 1.17.2 / 2011-10-25
 * Bug Fixes:
   * Fixed an issue with Ruby 1.9 and file encoding.
@@ -51,7 +64,7 @@
 * Added two new best-guess implementations of functions found in Perl's
   MIME::Types implementation (1.13). Do not rely on these until the purpose
   and implementation is stabilised.
-* Updated the MIME list to reflect changes noted by 
+* Updated the MIME list to reflect changes noted by
   Ville Skyttä <ville.skytta@iki.fi>.
 * Added a new constant to MIME::Types, DATA_VERSION. This will allow the Ruby
   version number to be updated separately from the Perl version while keeping
@@ -115,14 +128,3 @@
 
 == MIME::Types 1.003
 * Initial release based on Perl MIME::Types 1.003.
-
-== Copyright
-  MIME::Types
-  A Ruby implementation of a MIME Types information library. Based in spirit
-  on the Perl MIME::Types information library by Mark Overmeer.
-  http://rubyforge.org/projects/mime-types/
-
-  Licensed under the Ruby disjunctive licence with the GNU GPL or the Perl
-  Artistic licence. See Licence.rdoc for more information.
-
-  Copyright 2003–2012 Austin Ziegler
