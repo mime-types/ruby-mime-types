@@ -1,5 +1,10 @@
 = MIME::Types for Ruby
 
+home :: http://mime-types.rubyforge.org/
+code :: https://github.com/halostatue/mime-types/
+bugs :: https://github.com/halostatue/mime-types/issues
+rdoc :: http://mime-types.rubyforge.org/
+
 == Description
 
 This library allows for the identification of a file's likely MIME content
@@ -10,10 +15,5 @@ MIME::Types for Ruby originally based on and synchronized with MIME::Types for
 Perl by Mark Overmeer, copyright 2001 - 2009. As of version 1.15, the data
 format for the MIME::Type list has changed and the synchronization will no
 longer happen.
-
-Homepage::  http://mime-types.rubyforge.org/
-GitHub::    http://github.com/halostatue/mime-types/
-Copyright:: 2002 - 2011, Austin Ziegler
-            Based in part on prior work copyright Mark Overmeer
 
 :include: Licence.rdoc
