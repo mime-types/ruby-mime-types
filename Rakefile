@@ -14,7 +14,7 @@ spec = Hoe.spec 'mime-types' do
 
   developer('Austin Ziegler', 'austin@rubyforge.org')
 
-  self.url = "http://mime-types.rubyforge.org/"
+  self.urls = [ "http://mime-types.rubyforge.org/" ]
   self.remote_rdoc_dir = '.'
   self.rsync_args << ' --exclude=statsvn/'
 
