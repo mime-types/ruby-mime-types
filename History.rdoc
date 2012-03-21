@@ -123,6 +123,6 @@
   http://rubyforge.org/projects/mime-types/
 
   Licensed under the Ruby disjunctive licence with the GNU GPL or the Perl
-  Artistic licence. See Licence.txt for more information.
+  Artistic licence. See Licence.rdoc for more information.
 
-  Copyright 2003 - 2009 Austin Ziegler
+  Copyright 2003–2012 Austin Ziegler

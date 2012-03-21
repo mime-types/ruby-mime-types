@@ -16,4 +16,4 @@ GitHub::    http://github.com/halostatue/mime-types/
 Copyright:: 2002 - 2011, Austin Ziegler
             Based in part on prior work copyright Mark Overmeer
 
-:include: License.rdoc
+:include: Licence.rdoc

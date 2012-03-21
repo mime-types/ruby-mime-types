@@ -1,6 +1,7 @@
+.gitignore
 .hoerc
 History.rdoc
-License.rdoc
+Licence.rdoc
 Manifest.txt
 README.rdoc
 Rakefile
