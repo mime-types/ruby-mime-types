@@ -65,7 +65,7 @@ audio/MPA 'IANA,RFC3555
 audio/mpa-robust 'IANA,RFC5219
 audio/mpeg @mpga,mp2,mp3 :base64 'IANA,RFC3003
 audio/mpeg4-generic 'IANA,RFC3640,RFC5691,RFC6295
-audio/ogg 'IANA,RFC5334
+audio/ogg @ogg 'IANA,RFC5334
 audio/parityfec 'IANA,RFC5109
 audio/PCMA 'IANA,RFC4856
 audio/PCMA-WB 'IANA,RFC5391
@@ -129,3 +129,4 @@ audio/vnd.sealedmedia.softseal.mpeg @smp3,smp,s1m 'IANA,[Petersen]
 audio/vnd.vmx.cvsd 'IANA,[Vaudreuil]
 audio/vorbis 'IANA,RFC5215
 audio/vorbis-config 'IANA,RFC5215
+audio/webm @webm '{WebM=http://www.webmproject.org/code/specs/container/}

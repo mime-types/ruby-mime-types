@@ -53,6 +53,7 @@ application/fastinfoset 'IANA,[ITU-T ASN.1 Rapporteur]
 application/fastsoap 'IANA,[ITU-T ASN.1 Rapporteur]
 application/fits 'IANA,RFC4047
 application/font-tdpfr @pfr 'IANA,RFC3073
+application/font-woff @woff :base64 'W3C,{WOFF=http://www.w3.org/TR/WOFF/#appendix-b}
 application/framework-attributes+xml 'IANA,RFC6230
 application/held+xml 'IANA,RFC5985
 application/http 'IANA,RFC2616
@@ -247,6 +248,7 @@ application/vnd.accpac.simply.aso 'IANA,[Leow]
 application/vnd.accpac.simply.imp 'IANA,[Leow]
 application/vnd.acucobol 'IANA,[Lubin]
 application/vnd.acucorp @atc,acutc :7bit 'IANA,[Lubin]
+application/vnd.adobe.air-applicationinstaller-package+zip @air :base64
 application/vnd.adobe.fxp 'IANA,[Brambley],[Heintz]
 application/vnd.adobe.partial-upload 'IANA,[Otala]
 application/vnd.adobe.xdp+xml 'IANA,[Brinkman]

@@ -53,6 +53,8 @@ application/x-drafting
 application/x-dvi @dvi :base64 'LTSW
 application/x-dxf
 application/x-excel
+application/x-font-truetype @ttf :base64
+application/x-font-opentype @otf :base64
 application/x-fractals
 application/x-futuresplash @spl
 application/x-ghostview

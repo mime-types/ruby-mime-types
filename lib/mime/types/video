@@ -66,3 +66,4 @@ video/vnd.sealed.swf @sswf,ssw 'IANA,[Petersen]
 video/vnd.sealedmedia.softseal.mov @smov,smo,s1q 'IANA,[Petersen]
 video/vnd.uvvu.mp4 'IANA,[Dolan]
 video/vnd.vivo @viv,vivo 'IANA,[Wolfe]
+video/webm @webm '{WebM=http://www.webmproject.org/code/specs/container/}
