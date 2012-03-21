@@ -24,6 +24,7 @@ module MIME
   #  puts MIME::Type.simplified('x-appl/x-zip') # => 'appl/zip'
   #
   class Type
+    # The released version of Ruby MIME::Types
     VERSION = '1.18'
 
     include Comparable
@@ -577,7 +578,7 @@ module MIME
   #
   class Types
     # The released version of Ruby MIME::Types
-    VERSION = '1.18'
+    VERSION = MIME::Type::VERSION
 
       # The data version.
     attr_reader :data_version
@@ -651,10 +652,12 @@ module MIME
     # filename extension. If +platform+ is +true+, then only file types that
     # are specific to the current platform will be returned.
     #
+    # This will always return an array.
+    #
     #   puts "MIME::Types.type_for('citydesk.xml')
-    #     => "#{MIME::Types.type_for('citydesk.xml')}"
+    #     => [application/xml, text/xml]
     #   puts "MIME::Types.type_for('citydesk.gif')
-    #     => "#{MIME::Types.type_for('citydesk.gif')}"
+    #     => [image/gif]
     def type_for(filename, platform = false)
       ext = filename.chomp.downcase.gsub(/.*\./o, '')
       list = @extension_index[ext]
@@ -814,10 +817,12 @@ module MIME
       # its filename extension. If +platform+ is +true+, then only file
       # types that are specific to the current platform will be returned.
       #
+      # This will always return an array.
+      #
       #   puts "MIME::Types.type_for('citydesk.xml')
-      #     => "#{MIME::Types.type_for('citydesk.xml')}"
+      #     => [application/xml, text/xml]
       #   puts "MIME::Types.type_for('citydesk.gif')
-      #     => "#{MIME::Types.type_for('citydesk.gif')}"
+      #     => [image/gif]
       def type_for(filename, platform = false)
         @__types__.type_for(filename, platform)
       end
