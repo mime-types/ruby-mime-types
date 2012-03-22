@@ -1,4 +1,5 @@
 video/x-dl @dl :base64
+video/x-dv @dv
 video/x-fli @fli :base64
 video/x-flv @flv :base64
 video/x-gl @gl :base64
