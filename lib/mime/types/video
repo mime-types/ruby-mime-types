@@ -26,7 +26,7 @@ video/mpeg @mp2,mp3g,mpe,mpeg,mpg :base64 'IANA,RFC2045,RFC2046
 video/mpeg4-generic 'IANA,RFC3640
 video/MPV 'IANA,RFC3555
 video/nv 'IANA,RFC4856
-video/ogg @ogv 'IANA,RFC5334
+video/ogg @ogg,ogv 'IANA,RFC5334
 video/parityfec 'IANA,RFC5109
 video/pointer 'IANA,RFC2862
 video/quicktime @qt,mov :base64 'IANA,[Lindner]
