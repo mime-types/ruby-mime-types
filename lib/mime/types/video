@@ -22,7 +22,7 @@ video/MP2P 'IANA,RFC3555
 video/MP2T 'IANA,RFC3555
 video/mp4 @mp4,mpg4,f4v,f4p 'IANA,RFC4337,RFC6381,{Adobe=http://www.kaourantin.net/2007/10/new-file-extensions-and-mime-types.html}
 video/MP4V-ES 'IANA,RFC6416
-video/mpeg @mp2,mpe,mp3g,mpg :base64 'IANA,RFC2045,RFC2046
+video/mpeg @mp2,mp3g,mpe,mpeg,mpg :base64 'IANA,RFC2045,RFC2046
 video/mpeg4-generic 'IANA,RFC3640
 video/MPV 'IANA,RFC3555
 video/nv 'IANA,RFC4856
