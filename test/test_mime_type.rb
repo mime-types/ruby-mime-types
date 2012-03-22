@@ -2,11 +2,10 @@ $LOAD_PATH.unshift("#{File.dirname(__FILE__)}/../lib") if __FILE__ == $0
 
 require 'mime/types'
 require 'minitest/autorun'
-#require 'test/unit' unless defined? $ZENTEST and $ZENTEST
 
 class TestMIME_Type < MiniTest::Unit::TestCase
   def yaml_mime_type_from_array
-    MIME::Type.from_array('text/x-yaml', %w(yaml yml), '8bit', 'linux')
+    MIME::Type.from_array('text/x-yaml', %w(yaml yml), '8bit', 'd9d172f608')
   end
 
   def setup
@@ -22,7 +21,7 @@ class TestMIME_Type < MiniTest::Unit::TestCase
   def test_class_from_hash
     yaml = MIME::Type.from_hash('Content-Type' => 'text/x-yaml',
                                 'Content-Transfer-Encoding' => '8bit',
-                                'System' => 'linux',
+                                'System' => 'd9d172f608',
                                 'Extensions' => %w(yaml yml))
     assert_instance_of(MIME::Type, yaml)
     assert_equal('text/yaml', yaml.simplified)
@@ -247,7 +246,7 @@ class TestMIME_Type < MiniTest::Unit::TestCase
 
   def test_system_equals
     yaml = yaml_mime_type_from_array
-    assert_equal(yaml.system, %r{linux})
+    assert_equal(yaml.system, %r{d9d172f608})
     yaml.system = /win32/
     assert_equal(yaml.system, %r{win32})
     yaml.system = nil
@@ -264,7 +263,7 @@ class TestMIME_Type < MiniTest::Unit::TestCase
   def test_to_a
     yaml = yaml_mime_type_from_array
     assert_equal(yaml.to_a, ['text/x-yaml', %w(yaml yml), '8bit',
-                 /linux/, nil, nil, nil, false])
+                 /d9d172f608/, nil, nil, nil, false])
   end
 
   def test_to_hash
@@ -273,7 +272,7 @@ class TestMIME_Type < MiniTest::Unit::TestCase
                  { 'Content-Type' => 'text/x-yaml',
                     'Content-Transfer-Encoding' => '8bit',
                     'Extensions' => %w(yaml yml),
-                    'System' => /linux/,
+                    'System' => /d9d172f608/,
                     'Registered' => false,
                     'URL' => nil,
                     'Obsolete' => nil,
@@ -289,7 +288,7 @@ class TestMIME_Type < MiniTest::Unit::TestCase
     yaml = MIME::Type.new('text/x-yaml') do |y|
       y.extensions = %w(yaml yml)
       y.encoding = '8bit'
-      y.system = 'linux'
+      y.system = 'd9d172f608'
     end
     assert_instance_of(MIME::Type, yaml)
     assert_raises(MIME::InvalidContentType) { MIME::Type.new('apps') }

@@ -1,4 +1,8 @@
-== MIME::Types 1.18 / 2012-03-20
+== 1.?? / ????-??-??
+* Resolve issue #8 (https://github.com/halostatue/mime-types/issues/8).
+  Apparently some people run the tests on Linux. Imagine that. :)
+
+== 1.18 / 2012-03-20
 * New MIME Types:
   * Types reported in Issue #6 (https://github.com/halostatue/mime-types/issues/6):
     * CoffeeScript (text/x-coffeescript; .coffee; 8bit).
@@ -13,11 +17,11 @@
   * It was pointed out that Licence.txt was incorrectly named. Fixed by renaming to Licence.rdoc (from Issue/Pull Request #8, https://github.com/halostatue/mime-types/issues/8).
   * It was pointed out that a plan to have the test output generated automatically never went through. Issue #10 (https://github.com/halostatue/mime-types/issues/10)
 
-== MIME::Types 1.17.2 / 2011-10-25
+== 1.17.2 / 2011-10-25
 * Bug Fixes:
   * Fixed an issue with Ruby 1.9 and file encoding.
 
-== MIME::Types 1.17.1 / 2011-10-23
+== 1.17.1 / 2011-10-23
 * Minor Enhancements:
   * Implemented modern 'hoe' semantics.
   * Switched to minitest instead of test/unit.
@@ -34,7 +38,7 @@
   * Made it much easier to update MIME types from this point forward.
   * Updated MIME types from IANA.
 
-== MIME::Types 1.16
+== 1.16
 * Made compatible with Ruby 1.8.6, 1.8.7, and 1.9.1.
 * Switched to the 'hoe' gem system and added a lot of build-time tools.
 * Updated the MIME types to the list based on the values in the Perl library
@@ -44,7 +48,7 @@
   starting soon on MIME::Types 2.x with richer data querying mechanisms
   and support for external data sources.
 
-== MIME::Types 1.15
+== 1.15
 * Removed lib/mime/type.rb to form a single MIME::Types database source. It
   is unlikely that one will ever need MIME::Type without MIME::Types.
 * Re-synchronized the MIME type list with the sources, focusing primarily on
@@ -58,7 +62,7 @@
   priority as of this release. The data format and information has changed.
 * Removed MIME::Types.by_suffix and MIME::Types.by_mediatype.
 
-== MIME::Types 1.13.1
+== 1.13.1
 * Fixed a problem with the installer running tests. This now works.
 * Improved the implementation of MIME::Type.signature?
 * Moved code around to use the class << self idiom instead of always
@@ -72,7 +76,7 @@
   version number to be updated separately from the Perl version while keeping
   the MIME Type list version in sync.
 
-== MIME::Types 1.13
+== 1.13
   ! WARNING: This version changes the API of MIME::Types !
   ! WARNING: This version is compatible with Ruby 1.8 and higher ONLY !
 * Removed dependency on InstallPackage; offering 1.13 as either .tar.gz or
@@ -111,22 +115,22 @@
   exchange between the two projects.
 * Added additional unit tests from Mark Overmeer's 1.12 version.
 
-== MIME::Types 1.07
+== 1.07
 * Changed version numbering to match Perl MIME::Types 1.07.
 * Re-synchronized with Mark Overmeer's list in Perl PMIME::Types 1.07.
 * [NN Poster] updated the attributes for the PGP types.
 
-== MIME::Types 1.005
+== 1.005
 * Changed to Phil Thomson's InstallPackage.
 * Added several types from Perl MIME::Types 1.005.
 * Cleaned up data format; some data formats will show up with proper data now.
 
-== MIME::Types 1.004
+== 1.004
 * Updated to match Perl MIME::Types 1.004, links credited to Dan Puro. Adds
   new reference list to http://www.indiana.edu/cgi-bin-local/mimetypes
 * Removed InvalidType and replaced with TypeError.
 * Changed instances of #type to #class.
 * Cleaned up how simplified versions are created.
 
-== MIME::Types 1.003
+== 1.003
 * Initial release based on Perl MIME::Types 1.003.
