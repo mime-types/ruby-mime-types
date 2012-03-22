@@ -116,7 +116,7 @@ application/mpeg4-iod-xmt 'IANA,RFC4337
 application/msc-ivr+xml 'IANA,RFC6231
 application/msc-mixer+xml 'IANA,{RFC-ietf-mediactrl-mixer-control-package-14=http://tools.ietf.org/html/draft-ietf-mediactrl-mixer-control-package}
 application/msword @doc,dot,wrd :base64 'IANA,[Lindner]
-application/mxf 'IANA,RFC4539
+application/mxf @mxf 'IANA,RFC4539
 application/nasdata 'IANA,RFC4707
 application/news-checkgroups 'IANA,RFC5537
 application/news-groupinfo 'IANA,RFC5537
