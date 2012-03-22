@@ -1,7 +1,7 @@
 video/1d-interleaved-parityfec 'IANA,RFC6015
 video/3gpp @3gp,3gpp 'IANA,RFC3839,RFC6381
 video/3gpp-tt 'IANA,RFC4396
-video/3gpp2 'IANA,RFC4393,RFC6381
+video/3gpp2 @3g2,3gpp2 'IANA,RFC4393,RFC6381
 video/BMPEG 'IANA,RFC3555
 video/BT656 'IANA,RFC3555
 video/CelB 'IANA,RFC3555
