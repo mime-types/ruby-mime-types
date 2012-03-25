@@ -248,7 +248,7 @@ application/vnd.accpac.simply.aso 'IANA,[Leow]
 application/vnd.accpac.simply.imp 'IANA,[Leow]
 application/vnd.acucobol 'IANA,[Lubin]
 application/vnd.acucorp @atc,acutc :7bit 'IANA,[Lubin]
-application/vnd.adobe.air-applicationinstaller-package+zip @air :base64
+application/vnd.adobe.air-application-installer-package+zip @air :base64
 application/vnd.adobe.fxp 'IANA,[Brambley],[Heintz]
 application/vnd.adobe.partial-upload 'IANA,[Otala]
 application/vnd.adobe.xdp+xml 'IANA,[Brinkman]
