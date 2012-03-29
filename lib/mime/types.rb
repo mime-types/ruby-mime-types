@@ -155,8 +155,7 @@ module MIME
     # The list of extensions which are known to be used for this MIME::Type.
     # Non-array values will be coerced into an array with #to_a. Array
     # values will be flattened and +nil+ values removed.
-    attr_accessor :extensions
-    remove_method :extensions= ;
+    attr :extensions
     def extensions=(ext) #:nodoc:
       @extensions = [ext].flatten.compact
     end
@@ -171,8 +170,7 @@ module MIME
     # If the encoding is not provided on construction, this will be either
     # 'quoted-printable' (for text/* media types) and 'base64' for eveything
     # else.
-    attr_accessor :encoding
-    remove_method :encoding= ;
+    attr :encoding
     def encoding=(enc) #:nodoc:
       if enc.nil? or enc == :default
         @encoding = self.default_encoding
@@ -185,8 +183,7 @@ module MIME
 
     # The regexp for the operating system that this MIME::Type is specific
     # to.
-    attr_accessor :system
-    remove_method :system= ;
+    attr :system
     def system=(os) #:nodoc:
       if os.nil? or os.kind_of?(Regexp)
         @system = os
@@ -222,8 +219,7 @@ module MIME
     # The documentation for this MIME::Type. Documentation about media
     # types will be found on a media type definition as a comment.
     # Documentation will be found through #docs.
-    attr_accessor :docs
-    remove_method :docs= ;
+    attr :docs
     def docs=(d)
       if d
         a = d.scan(%r{use-instead:#{MEDIA_TYPE_RE}})
