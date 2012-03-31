@@ -1,7 +1,7 @@
 video/1d-interleaved-parityfec 'IANA,RFC6015
 video/3gpp @3gp,3gpp 'IANA,RFC3839,RFC6381
 video/3gpp-tt 'IANA,RFC4396
-video/3gpp2 'IANA,RFC4393,RFC6381
+video/3gpp2 @3g2,3gpp2 'IANA,RFC4393,RFC6381
 video/BMPEG 'IANA,RFC3555
 video/BT656 'IANA,RFC3555
 video/CelB 'IANA,RFC3555
@@ -19,14 +19,14 @@ video/jpeg2000 'IANA,RFC5371,RFC5372
 video/MJ2 @mj2,mjp2 'IANA,RFC3745
 video/MP1S 'IANA,RFC3555
 video/MP2P 'IANA,RFC3555
-video/MP2T 'IANA,RFC3555
+video/MP2T @ts 'IANA,RFC3555
 video/mp4 @mp4,mpg4,f4v,f4p 'IANA,RFC4337,RFC6381,{Adobe=http://www.kaourantin.net/2007/10/new-file-extensions-and-mime-types.html}
 video/MP4V-ES 'IANA,RFC6416
-video/mpeg @mp2,mpe,mp3g,mpg :base64 'IANA,RFC2045,RFC2046
+video/mpeg @mp2,mp3g,mpe,mpeg,mpg :base64 'IANA,RFC2045,RFC2046
 video/mpeg4-generic 'IANA,RFC3640
 video/MPV 'IANA,RFC3555
 video/nv 'IANA,RFC4856
-video/ogg @ogv 'IANA,RFC5334
+video/ogg @ogg,ogv 'IANA,RFC5334
 video/parityfec 'IANA,RFC5109
 video/pointer 'IANA,RFC2862
 video/quicktime @qt,mov :base64 'IANA,[Lindner]

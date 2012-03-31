@@ -15,6 +15,7 @@
 *application/set 'LTSW
 *application/solids 'LTSW
 *application/vda 'LTSW
+*application/vnd.rn-realmedia @rm
 *application/vnd.stardivision.calc @sdc
 *application/vnd.stardivision.chart @sds
 *application/vnd.stardivision.draw @sda
