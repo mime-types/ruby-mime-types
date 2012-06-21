@@ -1,21 +1,40 @@
-== 1.?? / ????-??-??
-* Resolve issue #8 (https://github.com/halostatue/mime-types/issues/8).
-  Apparently some people run the tests on Linux. Imagine that. :)
+== 1.19 / 2012-06-20
+* New MIME Types:
+  * XCF Gnome Images (image/x-xcf, image/x-compressed-xcf; .xcf). https://github.com/halostatue/mime-types/issue/17
+  * Types reported in https://github.com/halostatue/mime-types/issues/12:
+    * DV (video/x-dv; .dv)
+    * IVF (video/x-ivf; .ivf)
+    * Matroska (video/x-matroska; .mkv)
+    * Motion JPEG (video/x-motion-jpeg; .mjpg)
+    * RealMedia (official; application/vnd.rn-realmedia; .rm)
+* New extensions:
+  * dcm (application/dicom); https://github.com/halostatue/mime-types/issue/16.
+  * Types reported in https://github.com/halostatue/mime-types/issues/12:
+    * 3g2, 3gpp2 (video/3gpp2)
+    * mpeg (video/mpeg)
+    * mxf (application/mxf)
+    * ts (video/MP2T)
+    * ogg (video/ogg)
+* Fixed MIME Types:
+  * Adobe AIR application installer packages was missing a hyphen. https://github.com/halostatue/mime-types/issue/13
+  * Types reported in https://github.com/halostatue/mime-types/issues/12:
+    * audio/x-pn-realaudio extension is .ra, not .rm.
+* Resolved https://github.com/halostatue/mime-types/issues/8. Apparently some people run the tests on Linux. Imagine that.
 
 == 1.18 / 2012-03-20
 * New MIME Types:
-  * Types reported in Issue #6 (https://github.com/halostatue/mime-types/issues/6):
+  * Types reported in https://github.com/halostatue/mime-types/issues/6:
     * CoffeeScript (text/x-coffeescript; .coffee; 8bit).
     * AIR (application/vnd.adobe.air-applicationinstaller-package+zip, .air; base64).
     * WOFF (application/font-woff; .woff; base64).
     * TrueType (application/x-font-truetype; .ttf; base64).
     * OpenType (application/x-font-opentype; .otf; base64).
-  * WebM (audio/webm, video/webm; .webm). Issue #11 (https://github.com/halostatue/mime-types/issues/11).
+  * WebM (audio/webm, video/webm; .webm). https://github.com/halostatue/mime-types/issues/11.
 * New extensions:
   * f4v/f4p (video/mp4, used by Adobe); f4a/fb4 (audio/mp4, used by Adobe).
 * Bug Fixes:
   * It was pointed out that Licence.txt was incorrectly named. Fixed by renaming to Licence.rdoc (from Issue/Pull Request #8, https://github.com/halostatue/mime-types/issues/8).
-  * It was pointed out that a plan to have the test output generated automatically never went through. Issue #10 (https://github.com/halostatue/mime-types/issues/10)
+  * It was pointed out that a plan to have the test output generated automatically never went through. https://github.com/halostatue/mime-types/issues/10
 
 == 1.17.2 / 2011-10-25
 * Bug Fixes:
@@ -26,13 +45,10 @@
   * Implemented modern 'hoe' semantics.
   * Switched to minitest instead of test/unit.
   * Converted documentation from .txt to .rdoc.
-  * Removed setup.rb. (Issue #3:
-    https://github.com/halostatue/mime-types/issues/3).
-  * Should no longer complain about missing RubyGems keys (Issue #2:
-    https://github.com/halostatue/mime-types/issues/2).
+  * Removed setup.rb. https://github.com/halostatue/mime-types/issues/3
+  * Should no longer complain about missing RubyGems keys https://github.com/halostatue/mime-types/issues/2
   * Added .mp4 and .mpg4 as recognized extensions for
-    {application,audio,video}/mp4 per RFC4337. (Issue #1:
-    https://github.com/halostatue/mime-types/issues/1).
+    {application,audio,video}/mp4 per RFC4337. https://github.com/halostatue/mime-types/issues/1
   * Added audio/x-aac and .aac per RubyForge issue #28054
     (http://rubyforge.org/tracker/index.php?func=detail&aid=28054&group_id=293&atid=1194).
   * Made it much easier to update MIME types from this point forward.

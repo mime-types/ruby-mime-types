@@ -25,7 +25,7 @@ module MIME
   #
   class Type
     # The released version of Ruby MIME::Types
-    VERSION = '1.18'
+    VERSION = '1.19'
 
     include Comparable
 
@@ -565,12 +565,12 @@ module MIME
   # This is originally based on Perl MIME::Types by Mark Overmeer.
   #
   # = Author
-  # Copyright:: Copyright (c) 2002 - 2009 by Austin Ziegler
+  # Copyright:: Copyright 2002–2012 by Austin Ziegler
   #             <austin@rubyforge.org>
-  # Version::   1.18
+  # Version::   1.19
   # Based On::  Perl
   #             MIME::Types[http://search.cpan.org/author/MARKOV/MIME-Types-1.27/MIME/Types.pm],
-  #             Copyright (c) 2001 - 2009 by Mark Overmeer
+  #             Copyright 2001–2009 by Mark Overmeer
   #             <mimetypes@overmeer.net>.
   # Licence::   Ruby's, Perl Artistic, or GPL version 2 (or later)
   # See Also::  http://www.iana.org/assignments/media-types/
