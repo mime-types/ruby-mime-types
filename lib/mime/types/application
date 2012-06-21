@@ -37,7 +37,7 @@ application/davmount+xml 'IANA,RFC4709
 application/dca-rft 'IANA,[Campbell]
 application/dec-dx 'IANA,[Campbell]
 application/dialog-info+xml 'IANA,RFC4235
-application/dicom 'IANA,RFC3240
+application/dicom @dcm 'IANA,RFC3240
 application/dns 'IANA,RFC4027
 application/dskpp+xml 'IANA,RFC6063
 application/dssc+der 'IANA,RFC5698
