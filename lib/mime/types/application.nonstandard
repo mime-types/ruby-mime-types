@@ -68,6 +68,9 @@ application/x-httpd-php @phtml,pht,php :8bit
 application/x-ica @ica
 application/x-ideas
 application/x-imagemap @imagemap,imap :8bit
+application/x-iwork-keynote-sffkey @key
+application/x-iwork-pages-sffpages @pages
+application/x-iwork-numbers-sffnumbers @numbers
 application/x-java-archive @jar 'LTSW
 application/x-java-jnlp-file @jnlp 'LTSW
 application/x-java-serialized-object @ser 'LTSW
