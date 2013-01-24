@@ -69,6 +69,16 @@ class TestMIME_Types < MiniTest::Unit::TestCase #:nodoc:
     assert(MIME::Types.of('zzz').empty?)
   end
 
+  def test_ebook_formats
+    assert_equal( MIME::Types['application/x-mobipocket-ebook'],  MIME::Types.type_for("book.mobi"))
+    assert_equal( MIME::Types['application/epub+zip'],  MIME::Types.type_for("book.epub"))
+    assert_equal( MIME::Types['application/x-ibooks+zip'], MIME::Types.type_for("book.ibooks") )
+  end
+
+  def test_apple_formats
+    assert_equal( MIME::Types['application/x-apple-diskimage'], MIME::Types.type_for("disk.dmg") )
+  end
+
   def _test_add
     raise NotImplementedError, 'Need to write test_add'
   end

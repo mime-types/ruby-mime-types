@@ -124,7 +124,7 @@ application/news-transmission 'IANA,RFC5537,[Spencer]
 application/nss 'IANA,[Hammer]
 application/ocsp-request 'IANA,RFC2560
 application/ocsp-response 'IANA,RFC2560
-application/octet-stream @bin,dms,lha,lzh,exe,class,ani,pgp,so,dll,dmg,dylib :base64 'IANA,RFC2045,RFC2046
+application/octet-stream @bin,dms,lha,lzh,exe,class,ani,pgp,so,dll,dylib :base64 'IANA,RFC2045,RFC2046
 application/oda @oda 'IANA,RFC2045,RFC2046
 application/oebps-package+xml 'IANA,RFC4839
 application/ogg @ogx 'IANA,RFC5334

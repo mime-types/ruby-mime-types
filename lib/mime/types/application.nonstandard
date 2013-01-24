@@ -34,6 +34,7 @@
 *application/vnd.sun.xml.writer.global @sxg
 *application/vnd.sun.xml.writer.template @stw
 *application/word @doc,dot 'LTSW
+application/epub+zip @epub
 application/x-SLA
 application/x-STEP
 application/x-VMSBACKUP @bck :base64
@@ -65,6 +66,7 @@ application/x-hdf @hdf 'LTSW
 application/x-hep @hep
 application/x-html+ruby @rhtml :8bit
 application/x-httpd-php @phtml,pht,php :8bit
+application/x-ibooks+zip @ibooks
 application/x-ica @ica
 application/x-ideas
 application/x-imagemap @imagemap,imap :8bit
@@ -82,6 +84,7 @@ application/x-macbinary
 application/x-maker @frm,maker,frame,fm,fb,book,fbdoc =use-instead:application/vnd.framemaker
 application/x-mathematica-old
 application/x-mif @mif 'LTSW
+application/x-mobipocket-ebook @mobi
 application/x-ms-wmd @wmd
 application/x-ms-wmz @wmz
 application/x-msaccess @mda,mdb,mde,mdf
