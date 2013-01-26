@@ -25,7 +25,7 @@ module MIME
   #
   class Type
     # The released version of Ruby MIME::Types
-    VERSION = '1.19'
+    VERSION = '1.20'
 
     include Comparable
 
@@ -270,7 +270,7 @@ module MIME
           DRAFT_URL % $1
         when %r{^LTSW$}
           LTSW_URL % @media_type
-        when %r<^\{([^=]+)=([^\]]+)\}>
+        when %r{^\{([^=]+)=([^\}]+)\}}
           [$1, $2]
         when %r{^\[([^=]+)=([^\]]+)\]}
           [$1, CONTACT_URL % $2]
@@ -565,9 +565,9 @@ module MIME
   # This is originally based on Perl MIME::Types by Mark Overmeer.
   #
   # = Author
-  # Copyright:: Copyright 2002–2012 by Austin Ziegler
+  # Copyright:: Copyright 2002–2013 by Austin Ziegler
   #             <austin@rubyforge.org>
-  # Version::   1.19
+  # Version::   1.20
   # Based On::  Perl
   #             MIME::Types[http://search.cpan.org/author/MARKOV/MIME-Types-1.27/MIME/Types.pm],
   #             Copyright 2001–2009 by Mark Overmeer
@@ -704,18 +704,19 @@ module MIME
       # The regular expression used to match a file-based MIME type
       # definition.
       TEXT_FORMAT_RE = %r{
-        ^
+        \A
         \s*
         ([*])?                                 # 0: Unregistered?
         (!)?                                   # 1: Obsolete?
         (?:(\w+):)?                            # 2: Platform marker
-        #{MIME::Type::MEDIA_TYPE_RE}           # 3,4: Media type
+        #{MIME::Type::MEDIA_TYPE_RE}?          # 3,4: Media type
         (?:\s+@([^\s]+))?                      # 5: Extensions
         (?:\s+:(#{MIME::Type::ENCODING_RE}))?  # 6: Encoding
         (?:\s+'(.+))?                          # 7: URL list
         (?:\s+=(.+))?                          # 8: Documentation
+        (?:\s*([#].*)?)?
         \s*
-        $
+        \z
       }x
 
       # Build the type list from a file in the format:
@@ -763,7 +764,7 @@ module MIME
         data = data.split($/)
         mime = MIME::Types.new
         data.each_with_index { |line, index|
-          item = line.chomp.strip.gsub(%r{#.*}o, '')
+          item = line.chomp.strip
           next if item.empty?
 
           begin
@@ -775,7 +776,17 @@ module MIME
           end
 
           unregistered, obsolete, platform, mediatype, subtype, extensions,
-            encoding, urls, docs = *m
+            encoding, urls, docs, comment = *m
+
+          if mediatype.nil?
+            if comment.nil?
+              puts "#{filename}:#{index}: Parsing error in MIME type definitions."
+              puts "=> #{line}"
+              raise RuntimeError
+            end
+
+            next
+          end
 
           extensions &&= extensions.split(/,/)
           urls &&= urls.split(/,/)
