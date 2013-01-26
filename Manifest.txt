@@ -1,3 +1,5 @@
+.travis.yml
+Gemfile
 History.rdoc
 Licence.rdoc
 Manifest.txt
