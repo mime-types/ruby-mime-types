@@ -21,8 +21,10 @@ audio/dsr-es201108 'IANA,RFC3557
 audio/dsr-es202050 'IANA,RFC4060
 audio/dsr-es202211 'IANA,RFC4060
 audio/dsr-es202212 'IANA,RFC4060
+audio/DV 'IANA,RFC6469
 audio/DVI4 'IANA,RFC4856
 audio/eac3 'IANA,RFC4598
+audio/encaprtp 'IANA,{RFC-ietf-mmusic-media-loopback-27=http://tools.ietf.org/html/draft-ietf-mmusic-media-loopback}
 audio/EVRC @evc 'IANA,RFC4788
 audio/EVRC-QCP 'IANA,RFC3625
 audio/EVRC0 'IANA,RFC4788
@@ -30,12 +32,15 @@ audio/EVRC1 'IANA,RFC4788
 audio/EVRCB 'IANA,RFC5188
 audio/EVRCB0 'IANA,RFC5188
 audio/EVRCB1 'IANA,RFC4788
+audio/EVRCNW 'IANA,{RFC-ietf-avt-rtp-evrc-nw-10=http://tools.ietf.org/html/draft-ietf-avt-rtp-evrc-nw}
+audio/EVRCNW0 'IANA,{RFC-ietf-avt-rtp-evrc-nw-10=http://tools.ietf.org/html/draft-ietf-avt-rtp-evrc-nw}
+audio/EVRCNW1 'IANA,{RFC-ietf-avt-rtp-evrc-nw-10=http://tools.ietf.org/html/draft-ietf-avt-rtp-evrc-nw}
 audio/EVRCWB 'IANA,RFC5188
 audio/EVRCWB0 'IANA,RFC5188
 audio/EVRCWB1 'IANA,RFC5188
 audio/example 'IANA,RFC4735
 audio/fwdred 'IANA,RFC6354
-audio/G719 'IANA,RFC5404
+audio/G719 'IANA,RFC5404,{Errata3245=http://www.rfc-editor.org/errata_search.php?rfc=5404&eid=3245}
 audio/G722 'IANA,RFC4856
 audio/G7221 'IANA,RFC5577
 audio/G723 'IANA,RFC4856
@@ -73,9 +78,11 @@ audio/PCMU 'IANA,RFC4856
 audio/PCMU-WB 'IANA,RFC5391
 audio/prs.sid 'IANA,[Walleij]
 audio/QCELP 'IANA,RFC3555,RFC3625
+audio/raptorfec 'IANA,RFC6682
 audio/RED 'IANA,RFC3555
 audio/rtp-enc-aescm128 'IANA,[3GPP]
 audio/rtp-midi 'IANA,RFC6295
+audio/rtploopback 'IANA,{RFC-ietf-mmusic-media-loopback-27=http://tools.ietf.org/html/draft-ietf-mmusic-media-loopback}
 audio/rtx 'IANA,RFC4588
 audio/SMV @smv 'IANA,RFC3558
 audio/SMV-QCP 'IANA,RFC3625
@@ -129,4 +136,3 @@ audio/vnd.sealedmedia.softseal.mpeg @smp3,smp,s1m 'IANA,[Petersen]
 audio/vnd.vmx.cvsd 'IANA,[Vaudreuil]
 audio/vorbis 'IANA,RFC5215
 audio/vorbis-config 'IANA,RFC5215
-audio/webm @webm '{WebM=http://www.webmproject.org/code/specs/container/}

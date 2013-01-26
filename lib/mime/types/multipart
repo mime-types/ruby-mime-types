@@ -9,6 +9,6 @@ multipart/header-set 'IANA,[Crocker]
 multipart/mixed :8bit 'IANA,RFC2045,RFC2046
 multipart/parallel :8bit 'IANA,RFC2045,RFC2046
 multipart/related 'IANA,RFC2387
-multipart/report 'IANA,RFC3462
+multipart/report 'IANA,RFC6522
 multipart/signed 'IANA,RFC1847
 multipart/voice-message 'IANA,RFC2421,RFC2423

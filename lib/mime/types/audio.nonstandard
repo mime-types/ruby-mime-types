@@ -8,3 +8,4 @@ audio/x-pn-realaudio @ra,ram :base64
 audio/x-pn-realaudio-plugin @rpm
 audio/x-realaudio @ra :base64
 audio/x-wav @wav :base64
+*audio/webm @webm '{WebM=http://www.webmproject.org/code/specs/container/}

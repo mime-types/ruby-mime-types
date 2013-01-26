@@ -5,3 +5,4 @@
 !text/x-vnd.flatland.3dml =use-instead:model/vnd.flatland.3dml
 *!text/comma-separated-values @csv :8bit =use-instead:text/csv
 *!text/vnd.flatland.3dml =use-instead:model/vnd.flatland.3dml
+!text/vnd.si.uricatalogue 'IANA,[Parks Young=ParksYoung]

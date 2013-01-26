@@ -13,11 +13,13 @@ image/naplps 'IANA,[Ferber]
 image/png @png :base64 'IANA,[Randers-Pehrson]
 image/prs.btif 'IANA,[Simon]
 image/prs.pti 'IANA,[Laun]
+image/pwg-raster 'IANA,[Sweet]
 image/svg+xml @svg :8bit 'IANA,[W3C]
 image/t38 'IANA,RFC3362
 image/tiff @tiff,tif :base64 'IANA,RFC2302
 image/tiff-fx 'IANA,RFC3950
 image/vnd.adobe.photoshop 'IANA,[Scarborough]
+image/vnd.airzip.accelerator.azv 'IANA,[Clueit]
 image/vnd.cns.inf2 'IANA,[McLaughlin]
 image/vnd.dece.graphic 'IANA,[Dolan]
 image/vnd.djvu @djvu,djv 'IANA,[Bottou]

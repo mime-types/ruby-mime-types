@@ -1,5 +1,6 @@
 !application/smil @smi,smil :8bit 'IANA,RFC4536 =use-instead:application/smil+xml
 !application/vnd.arastra.swi 'IANA,[Fenner] =use-instead:application/vnd.aristanetworks.swi
+!application/vnd.geocube+xml :8bit 'IANA,[Pirsch]
 !application/vnd.gmx 'IANA,[Sciberras]
 !application/vnd.nokia.ncd+xml 'IANA,[Nokia] =use-instead:application/vnd.nokia.ncd
 !application/x-123 @wk =use-instead:application/vnd.lotus-1-2-3
