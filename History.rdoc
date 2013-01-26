@@ -1,3 +1,21 @@
+== 1.20 / 2013-01-26
+* New MIME Types:
+  * Apple iWork document types added by Hans de Graaff
+    (application/x-iwork-keynote-sffkey, .key;
+    application/x-iwork-pages-sffpages, .pages;
+    application/x-iwork-numbers-sffnumbers, .numbers).
+    https://github.com/halostatue/mime-types/issue/20
+  * epub, ibooks, mobi, and DMG content types by Mauricio
+    Linhares (mac:application/x-apple-diskimage, .dmg; application/epub\+zip,
+    .epub; application/x-ibooks\+zip, .ibooks; application/x-mobipocket-ebook,
+    .mobi). https://github.com/halostatue/mime-types/issue/22
+  * Added or updated MIME types from the latest IANA list.
+* Fixed MIME Types:
+  * Excel macro-enabled spreadsheets had an incorrect extension. Thanks to
+    Rafael Belvederese for reporting this issue.
+    https://github.com/halostatue/mime-types/issue/21
+* Enabled for use with travis.
+
 == 1.19 / 2012-06-20
 * New MIME Types:
   * XCF Gnome Images (image/x-xcf, image/x-compressed-xcf; .xcf). https://github.com/halostatue/mime-types/issue/17
