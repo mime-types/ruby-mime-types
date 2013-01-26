@@ -5,30 +5,39 @@ text/csv 'IANA,RFC4180
 text/directory (deprecated) 'IANA,RFC2425,RFC6350
 text/dns 'IANA,RFC4027
 text/ecmascript (obsolete) 'IANA,RFC4329
+text/encaprtp 'IANA,{RFC-ietf-mmusic-media-loopback-27=http://tools.ietf.org/html/draft-ietf-mmusic-media-loopback}
 text/enriched 'IANA,RFC1896
 text/example 'IANA,RFC4735
 text/fwdred 'IANA,RFC6354
+text/grammar-ref-list 'IANA,RFC6787
+text/html 'IANA,[Michael Smith=MSmith],[W3C]
 text/javascript (obsolete) 'IANA,RFC4329
+text/jcr-cnd 'IANA,[Piegaze]
+text/mizar 'IANA,[Jesse Alama=Jesse_Alama]
 text/n3 'IANA,[Prud'hommeaux=Prudhommeaux],[W3C]
 text/parityfec 'IANA,RFC5109
 text/plain 'IANA,RFC2046,RFC3676,RFC5147
 text/prs.fallenstein.rst 'IANA,[Fallenstein]
 text/prs.lines.tag 'IANA,[Lines]
+text/raptorfec 'IANA,RFC6682
 text/RED 'IANA,RFC4102
-text/rfc822-headers 'IANA,RFC3462
+text/rfc822-headers 'IANA,RFC6522
 text/richtext 'IANA,RFC2045,RFC2046
 text/rtf 'IANA,[Lindner]
 text/rtp-enc-aescm128 'IANA,[3GPP]
+text/rtploopback 'IANA,{RFC-ietf-mmusic-media-loopback-27=http://tools.ietf.org/html/draft-ietf-mmusic-media-loopback}
 text/rtx 'IANA,RFC4588
 text/sgml 'IANA,RFC1874
 text/t140 'IANA,RFC4103
 text/tab-separated-values 'IANA,[Lindner]
 text/troff 'IANA,RFC4263
 text/turtle 'IANA,[Prud'hommeaux=Prudhommeaux],[W3C]
+text/ulpfec 'IANA,RFC5109
 text/uri-list 'IANA,RFC2483
 text/vcard 'IANA,RFC6350
 text/vnd.abc 'IANA,[Allen]
 text/vnd.curl 'IANA,[Byrnes]
+text/vnd.debian.copyright 'IANA,[Plessy]
 text/vnd.DMClientScript 'IANA,[Bradley]
 text/vnd.dvb.subtitle 'IANA,[Siebert],[Lagally]
 text/vnd.esmertec.theme-descriptor 'IANA,[Eilemann]
@@ -37,16 +46,14 @@ text/vnd.fmi.flexstor 'IANA,[Hurtta]
 text/vnd.graphviz 'IANA,[Ellson]
 text/vnd.in3d.3dml 'IANA,[Powers]
 text/vnd.in3d.spot 'IANA,[Powers]
-text/vnd.IPTC.NewsML 'IANA,[IPTC
-         =IPTC]
-text/vnd.IPTC.NITF 'IANA,[IPTC
-         =IPTC]
+text/vnd.IPTC.NewsML 'IANA,[IPTC]
+text/vnd.IPTC.NITF 'IANA,[IPTC]
 text/vnd.latex-z 'IANA,[Lubos]
 text/vnd.motorola.reflex 'IANA,[Patton]
 text/vnd.ms-mediapackage 'IANA,[Nelson]
 text/vnd.net2phone.commcenter.command 'IANA,[Xie]
 text/vnd.radisys.msml-basic-layout 'IANA,RFC5707
-text/vnd.si.uricatalogue 'IANA,[Parks Young=ParksYoung]
+text/vnd.si.uricatalogue (OBSOLETE) 'IANA,[Parks Young=ParksYoung]
 text/vnd.sun.j2me.app-descriptor 'IANA,[G.Adams]
 text/vnd.trolltech.linguist 'IANA,[D.Lambert]
 text/vnd.wap.si 'IANA,[WAP-Forum]

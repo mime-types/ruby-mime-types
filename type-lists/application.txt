@@ -4,6 +4,7 @@ application/activemessage 'IANA,[Shapiro]
 application/andrew-inset 'IANA,[Borenstein]
 application/applefile 'IANA,[Faltstrom]
 application/atom+xml 'IANA,RFC4287,RFC5023
+application/atomdeleted+xml 'IANA,RFC6721
 application/atomicmail 'IANA,[Borenstein]
 application/atomcat+xml 'IANA,RFC5023
 application/atomsvc+xml 'IANA,RFC5023
@@ -12,7 +13,7 @@ application/batch-SMTP 'IANA,RFC2442
 application/beep+xml 'IANA,RFC3080
 application/calendar+xml 'IANA,RFC6321
 application/cals-1840 'IANA,RFC1895
-application/ccmp+xml 'IANA,{RFC-ietf-xcon-ccmp-15.txt=http://http://tools.ietf.org/html/draft-ietf-xcon-ccmp}
+application/ccmp+xml 'IANA,RFC6503
 application/ccxml+xml 'IANA,RFC4267
 application/cdmi-capability 'IANA,RFC6208
 application/cdmi-container 'IANA,RFC6208
@@ -44,15 +45,19 @@ application/EDI-Consent 'IANA,RFC1767
 application/EDIFACT 'IANA,RFC1767
 application/EDI-X12 'IANA,RFC1767
 application/emma+xml 'IANA,[W3C]
+application/encaprtp 'IANA,{RFC-ietf-mmusic-media-loopback-27=http://tools.ietf.org/html/draft-ietf-mmusic-media-loopback}
 application/epp+xml 'IANA,RFC5730
 application/eshop 'IANA,[Katz]
 application/example 'IANA,RFC4735
 application/exi 'IANA,[W3C]
 application/fastinfoset 'IANA,[ITU-T ASN.1 Rapporteur]
 application/fastsoap 'IANA,[ITU-T ASN.1 Rapporteur]
+application/fdt+xml 'IANA,RFC6726
 application/fits 'IANA,RFC4047
 application/font-tdpfr 'IANA,RFC3073
+application/font-woff 'IANA,[W3C]
 application/framework-attributes+xml 'IANA,RFC6230
+application/gzip 'IANA,RFC6713
 application/H224 'IANA,RFC4573
 application/held+xml 'IANA,RFC5985
 application/http 'IANA,RFC2616
@@ -74,9 +79,12 @@ application/ipp 'IANA,RFC2910
 application/isup 'IANA,RFC3204
 application/javascript 'IANA,RFC4329
 application/json 'IANA,RFC4627
+application/json-patch+json 'IANA,{RFC-ietf-appsawg-json-patch-10=http://tools.ietf.org/html/draft-ietf-appsawg-json-patch}
 application/kpml-request+xml 'IANA,RFC4730
 application/kpml-response+xml 'IANA,RFC4730
+application/link-format 'IANA,RFC6690
 application/lost+xml 'IANA,RFC5222
+application/lostsync+xml 'IANA,RFC6739
 application/mac-binhex40 'IANA,[Faltstrom]
 application/macwriteii 'IANA,[Lindner]
 application/mads+xml 'IANA,RFC6207
@@ -98,6 +106,7 @@ application/mbms-register+xml 'IANA,[3GPP]
 application/mbms-user-service-description+xml 'IANA,[3GPP]
 application/mbox 'IANA,RFC4155
 application/media_control+xml 'IANA,RFC5168
+application/media-policy-dataset+xml 'IANA,RFC6796
 application/mediaservercontrol+xml 'IANA,RFC5022
 application/metalink4+xml 'IANA,RFC5854
 application/mets+xml 'IANA,RFC6207
@@ -113,13 +122,14 @@ application/mpeg4-generic 'IANA,RFC3640
 application/mpeg4-iod 'IANA,RFC4337
 application/mpeg4-iod-xmt 'IANA,RFC4337
 application/msc-ivr+xml 'IANA,RFC6231
-application/msc-mixer+xml 'IANA,{RFC-ietf-mediactrl-mixer-control-package-14=http://tools.ietf.org/html/draft-ietf-mediactrl-mixer-control-package}
+application/msc-mixer+xml 'IANA,RFC6505
 application/msword 'IANA,[Lindner]
 application/mxf 'IANA,RFC4539
 application/nasdata 'IANA,RFC4707
 application/news-checkgroups 'IANA,RFC5537
 application/news-groupinfo 'IANA,RFC5537
 application/news-transmission 'IANA,RFC5537
+application/nlsml+xml 'IANA,RFC6787
 application/nss 'IANA,[Hammer]
 application/ocsp-request 'IANA,RFC2560
 application/ocsp-response 'IANA,RFC2560
@@ -157,6 +167,7 @@ application/prs.xsf+xml 'IANA,[Stührenberg=Stuhrenberg]
 application/pskc+xml 'IANA,RFC6030
 application/rdf+xml 'IANA,RFC3870
 application/qsig 'IANA,RFC3204
+application/raptorfec 'IANA,RFC6682
 application/reginfo+xml 'IANA,RFC3680
 application/relax-ng-compact-syntax 'IANA,{ISO/IEC 19757-2:2003/FDAM-1=http://www.jtc1sc34.org/repository/0661.pdf}
 application/remote-printing 'IANA,RFC1486,[Rose]
@@ -165,10 +176,12 @@ application/resource-lists+xml 'IANA,RFC4826
 application/riscos 'IANA,[Smith]
 application/rlmi+xml 'IANA,RFC4662
 application/rls-services+xml 'IANA,RFC4826
-application/rpki-manifest 'IANA,{RFC-ietf-sidr-repos-struct-09.txt=http://tools.ietf.org/html/draft-ietf-sidr-repos-struct}
-application/rpki-roa 'IANA,{RFC-ietf-sidr-repos-struct-09.txt=http://tools.ietf.org/html/draft-ietf-sidr-repos-struct}
-application/rpki-updown 'IANA,{RFC-ietf-sidr-rescerts-provisioning-11.txt=http://tools.ietf.org/html/draft-ietf-sidr-rescerts-provisioning}
+application/rpki-ghostbusters 'IANA,RFC6493
+application/rpki-manifest 'IANA,RFC6481
+application/rpki-roa 'IANA,RFC6481
+application/rpki-updown 'IANA,RFC6492
 application/rtf 'IANA,[Lindner]
+application/rtploopback 'IANA,{RFC-ietf-mmusic-media-loopback-27=http://tools.ietf.org/html/draft-ietf-mmusic-media-loopback}
 application/rtx 'IANA,RFC4588
 application/samlassertion+xml 'IANA,[OASIS Security Services Technical Committee (SSTC)]
 application/samlmetadata+xml 'IANA,[OASIS Security Services Technical Committee (SSTC)]
@@ -178,6 +191,8 @@ application/scvp-cv-response 'IANA,RFC5055
 application/scvp-vp-request 'IANA,RFC5055
 application/scvp-vp-response 'IANA,RFC5055
 application/sdp 'IANA,RFC4566
+application/sep-exi 'IANA,[Robby_Simpson=RoSimpson],[ZigBee_Alliance=ZigBee]
+application/sep+xml 'IANA,[Robby_Simpson=RoSimpson],[ZigBee_Alliance=ZigBee]
 application/set-payment 'IANA,[Korver]
 application/set-payment-initiation 'IANA,[Korver]
 application/set-registration 'IANA,[Korver]
@@ -192,6 +207,7 @@ application/simpleSymbolContainer 'IANA,[3GPP]
 application/slate 'IANA,[Crowley]
 application/smil (OBSOLETE) 'IANA,RFC4536
 application/smil+xml 'IANA,RFC4536
+application/smpte336m 'IANA,RFC6597
 application/soap+fastinfoset 'IANA,[ITU-T ASN.1 Rapporteur]
 application/soap+xml 'IANA,RFC3902
 application/sparql-query 'IANA,[W3C]
@@ -234,6 +250,7 @@ application/vnd.accpac.simply.aso 'IANA,[Leow]
 application/vnd.accpac.simply.imp 'IANA,[Leow]
 application/vnd.acucobol 'IANA,[Lubin]
 application/vnd.acucorp 'IANA,[Lubin]
+application/vnd.adobe.formscentral.fcdt 'IANA,[Solc]
 application/vnd.adobe.fxp 'IANA,[Brambley],[Heintz]
 application/vnd.adobe.partial-upload 'IANA,[Otala]
 application/vnd.adobe.xdp+xml 'IANA,[Brinkman]
@@ -256,6 +273,7 @@ application/vnd.astraea-software.iota 'IANA,[Snazell]
 application/vnd.audiograph 'IANA,[Slusanschi]
 application/vnd.autopackage 'IANA,[Hearn]
 application/vnd.avistar+xml 'IANA,[Vysotsky]
+application/vnd.balsamiq.bmml+xml 'IANA,[Giacomo_Guilizzoni]
 application/vnd.blueice.multipass 'IANA,[Holmstrom]
 application/vnd.bluetooth.ep.oob 'IANA,[Foley]
 application/vnd.bmi 'IANA,[Gotoh]
@@ -264,6 +282,7 @@ application/vnd.cab-jscript 'IANA,[Falkenberg]
 application/vnd.canon-cpdl 'IANA,[Muto]
 application/vnd.canon-lips 'IANA,[Muto]
 application/vnd.cendio.thinlinc.clientconf 'IANA,[Åstrand=Astrand]
+application/vnd.century-systems.tcp_stream 'IANA,[Shuji Fujii=Shuji_Fujii]
 application/vnd.chemdraw+xml 'IANA,[Howes]
 application/vnd.chipnuts.karaoke-mmd 'IANA,[Xiong]
 application/vnd.cinderella 'IANA,[Kortenkamp]
@@ -274,6 +293,7 @@ application/vnd.clonk.c4group 'IANA,[Brammer]
 application/vnd.cluetrust.cartomobile-config 'IANA,[Paulsen]
 application/vnd.cluetrust.cartomobile-config-pkg 'IANA,[Paulsen]
 application/vnd.collection+json 'IANA,[Amundsen]
+application/vnd.collection.next+json 'IANA,[Ioseb Dzmanashvili=Ioseb_Dzmanashvili]
 application/vnd.commerce-battelle 'IANA,[Applebaum]
 application/vnd.commonspace 'IANA,[Chandhok]
 application/vnd.cosmocaller 'IANA,[Dellutri]
@@ -292,7 +312,9 @@ application/vnd.cups-ppd 'IANA,[Sweet]
 application/vnd.cups-raster 'IANA,[Sweet]
 application/vnd.cups-raw 'IANA,[Sweet]
 application/vnd.curl 'IANA,[Byrnes]
+application/vnd.cyan.dean.root+xml 'IANA,[Kern]
 application/vnd.cybank 'IANA,[Helmee]
+application/vnd.dart 'IANA,[Sandholm]
 application/vnd.data-vision.rdz 'IANA,[Fields]
 application/vnd.dece.data 'IANA,[Dolan]
 application/vnd.dece.ttml+xml 'IANA,[Dolan]
@@ -300,11 +322,15 @@ application/vnd.dece.unspecified 'IANA,[Dolan]
 application/vnd.dece.zip 'IANA,[Dolan]
 application/vnd.denovo.fcselayout-link 'IANA,[Dixon]
 application/vnd.dir-bi.plate-dl-nosuffix 'IANA,[Yamanaka]
+application/vnd.dm.delegation+xml 'IANA,[Ferrazzini]
 application/vnd.dna 'IANA,[Searcy]
 application/vnd.dolby.mobile.1 'IANA,[Hattersley]
 application/vnd.dolby.mobile.2 'IANA,[Hattersley]
 application/vnd.dpgraph 'IANA,[Parker]
 application/vnd.dreamfactory 'IANA,[Appleton]
+application/vnd.dtg.local 'IANA,[Ali_Teffahi]
+application/vnd.dtg.local.flash 'IANA,[Ali_Teffahi]
+application/vnd.dtg.local.html 'IANA,[Ali_Teffahi]
 application/vnd.dvb.ait 'IANA,[Siebert],[Lagally]
 application/vnd.dvb.dvbj 'IANA,[Siebert],[Lagally]
 application/vnd.dvb.esgcontainer 'IANA,[Heuer]
@@ -356,6 +382,7 @@ application/vnd.etsi.iptvservice+xml 'IANA,[Ortega]
 application/vnd.etsi.iptvsync+xml 'IANA,[Ortega]
 application/vnd.etsi.iptvueprofile+xml 'IANA,[Hu]
 application/vnd.etsi.mcid+xml 'IANA,[Hu]
+application/vnd.etsi.mheg5 'IANA,[Ortega],[Medland]
 application/vnd.etsi.overload-control-policy-dataset+xml 'IANA,[Ortega]
 application/vnd.etsi.sci+xml 'IANA,[Hu]
 application/vnd.etsi.simservs+xml 'IANA,[Hu]
@@ -391,7 +418,7 @@ application/vnd.fujixerox.HBPL 'IANA,[Tanabe]
 application/vnd.fut-misnet 'IANA,[Pruulmann]
 application/vnd.fuzzysheet 'IANA,[Birtwistle]
 application/vnd.genomatix.tuxedo 'IANA,[Frey]
-application/vnd.geocube+xml 'IANA,[Pirsch]
+application/vnd.geocube+xml (OBSOLETE) 'IANA,[Pirsch]
 application/vnd.geogebra.file 'IANA,[GeoGebra],[Kreis]
 application/vnd.geogebra.tool 'IANA,[GeoGebra],[Kreis]
 application/vnd.geometry-explorer 'IANA,[Hvidsten]
@@ -434,6 +461,7 @@ application/vnd.ibm.modcap 'IANA,[Hohensee]
 application/vnd.ibm.rights-management 'IANA,[Tantlinger]
 application/vnd.ibm.secure-container 'IANA,[Tantlinger]
 application/vnd.iccprofile 'IANA,[Green]
+application/vnd.ieee.1905 'IANA,[Rajkotia]
 application/vnd.igloader 'IANA,[Fisher]
 application/vnd.immervision-ivp 'IANA,[Villegas]
 application/vnd.immervision-ivu 'IANA,[Villegas]
@@ -441,6 +469,7 @@ application/vnd.informedcontrol.rms+xml 'IANA,[Wahl]
 application/vnd.infotech.project 'IANA,[Engelke]
 application/vnd.infotech.project+xml 'IANA,[Engelke]
 application/vnd.informix-visionary 'IANA,[Gales]
+application/vnd.innopath.wamp.notification 'IANA,[Sudo]
 application/vnd.insors.igm 'IANA,[Swanson]
 application/vnd.intercon.formnet 'IANA,[Gurak]
 application/vnd.intergeo 'IANA,[Kreis=Kreis2]
@@ -451,7 +480,9 @@ application/vnd.intu.qfx 'IANA,[Scratchley]
 application/vnd.iptc.g2.conceptitem+xml 'IANA,[Steidl]
 application/vnd.iptc.g2.knowledgeitem+xml 'IANA,[Steidl]
 application/vnd.iptc.g2.newsitem+xml 'IANA,[Steidl]
+application/vnd.iptc.g2.newsmessage+xml 'IANA,[Steidl]
 application/vnd.iptc.g2.packageitem+xml 'IANA,[Steidl]
+application/vnd.iptc.g2.planningitem+xml 'IANA,[Steidl]
 application/vnd.ipunplugged.rcprofile 'IANA,[Ersson]
 application/vnd.irepository.package+xml 'IANA,[Knowles]
 application/vnd.is-xpr 'IANA,[Natarajan]
@@ -468,6 +499,7 @@ application/vnd.japannet-verification-wakeup 'IANA,[Fujii]
 application/vnd.jcp.javame.midlet-rms 'IANA,[Gorshenev]
 application/vnd.jisp 'IANA,[Deckers]
 application/vnd.joost.joda-archive 'IANA,[Joost]
+application/vnd.jsk.isdn-ngn 'IANA,[Kiyonobu]
 application/vnd.kahootz 'IANA,[Macdonald]
 application/vnd.kde.karbon 'IANA,[Faure]
 application/vnd.kde.kchart 'IANA,[Faure]
@@ -551,6 +583,7 @@ application/vnd.ms-powerpoint.slideshow.macroEnabled.12 'IANA,[Rae]
 application/vnd.ms-powerpoint.template.macroEnabled.12 'IANA,[Rae]
 application/vnd.ms-project 'IANA,[Gill]
 application/vnd.ms-tnef 'IANA,[Gill]
+application/vnd.ms-windows.printerpairing 'IANA,[Hutchings]
 application/vnd.ms-wmdrm.lic-chlg-req 'IANA,[Lau]
 application/vnd.ms-wmdrm.lic-resp 'IANA,[Lau]
 application/vnd.ms-wmdrm.meter-chlg-req 'IANA,[Lau]
@@ -572,6 +605,8 @@ application/vnd.ncd.reference 'IANA,[Tarkkala]
 application/vnd.nervana 'IANA,[Judkins]
 application/vnd.netfpx 'IANA,[Mutz]
 application/vnd.neurolanguage.nlu 'IANA,[DuFeu]
+application/vnd.nintendo.nitro.rom 'IANA,[Andersson]
+application/vnd.nitf 'IANA,[Rogan]
 application/vnd.noblenet-directory 'IANA,[Solomon]
 application/vnd.noblenet-sealer 'IANA,[Solomon]
 application/vnd.noblenet-web 'IANA,[Solomon]
@@ -594,6 +629,7 @@ application/vnd.nokia.radio-presets 'IANA,[Nokia]
 application/vnd.novadigm.EDM 'IANA,[Swenson]
 application/vnd.novadigm.EDX 'IANA,[Swenson]
 application/vnd.novadigm.EXT 'IANA,[Swenson]
+application/vnd.ntt-local.content-share 'IANA,[Taya]
 application/vnd.ntt-local.file-transfer 'IANA,[NTT-local]
 application/vnd.ntt-local.sip-ta_remote 'IANA,[NTT-local]
 application/vnd.ntt-local.sip-ta_tcp_stream 'IANA,[NTT-local]
@@ -643,6 +679,8 @@ application/vnd.oma.bcast.sprov+xml 'IANA,[Rauschenbach],[OMNA - Open Mobile Nam
 application/vnd.oma.bcast.stkm 'IANA,[Rauschenbach],[OMNA - Open Mobile Naming Authority=OMNA-OpenMobileNamingAuthority]
 application/vnd.oma.cab-address-book+xml 'IANA,[Wang],[OMA]
 application/vnd.oma.cab-pcc+xml 'IANA,[Wang],[OMA]
+application/vnd.oma.cab-subs-invite+xml 'IANA,[Wang],[OMA]
+application/vnd.oma.cab-user-prefs+xml 'IANA,[Wang],[OMA]
 application/vnd.oma.dcd 'IANA,[Primo],[OMNA - Open Mobile Naming Authority=OMNA-OpenMobileNamingAuthority]
 application/vnd.oma.dcdc 'IANA,[Primo],[OMNA - Open Mobile Naming Authority=OMNA-OpenMobileNamingAuthority]
 application/vnd.oma.dd2+xml 'IANA,[Sato],[Open Mobile Alliance's BAC DLDRM Working Group]
@@ -739,10 +777,12 @@ application/vnd.openxmlformats-officedocument.wordprocessingml.webSettings+xml '
 application/vnd.openxmlformats-package.core-properties+xml 'IANA,[Murata]
 application/vnd.openxmlformats-package.digital-signature-xmlsignature+xml 'IANA,[Murata]
 application/vnd.openxmlformats-package.relationships+xml 'IANA,[Murata]
+application/vnd.orange.indata 'IANA,[CHATRAS_Bruno]
 application/vnd.osa.netdeploy 'IANA,[Klos]
 application/vnd.osgeo.mapguide.package 'IANA,[Birch]
 application/vnd.osgi.bundle 'IANA,[Kriens]
 application/vnd.osgi.dp 'IANA,[Kriens]
+application/vnd.osgi.subsystem 'IANA,[Kriens]
 application/vnd.otps.ct-kip+xml 'IANA,[Nyström=Nystrom]
 application/vnd.palm 'IANA,[Peacock]
 application/vnd.paos.xml 'IANA,[Kemp]
@@ -793,6 +833,7 @@ application/vnd.recordare.musicxml+xml 'IANA,[Good]
 application/vnd.RenLearn.rlprint 'IANA,[Wick]
 application/vnd.rig.cryptonote 'IANA,[Jibiki]
 application/vnd.route66.link66+xml 'IANA,[Kikstra]
+application/vnd.rs-274x 'IANA,[Harding]
 application/vnd.ruckus.download 'IANA,[Harris]
 application/vnd.s3sms 'IANA,[Tarkkala]
 application/vnd.sailingtracker.track 'IANA,[Vesalainen]
@@ -819,6 +860,7 @@ application/vnd.shana.informed.formtemplate 'IANA,[Selzler]
 application/vnd.shana.informed.interchange 'IANA,[Selzler]
 application/vnd.shana.informed.package 'IANA,[Selzler]
 application/vnd.SimTech-MindMapper 'IANA,[Koh]
+application/vnd.siren+json 'IANA,[Swiber]
 application/vnd.smaf 'IANA,[Takahashi]
 application/vnd.smart.notebook 'IANA,[Neitz]
 application/vnd.smart.teacher 'IANA,[Boyle]
@@ -838,6 +880,10 @@ application/vnd.sus-calendar 'IANA,[Niedfeldt]
 application/vnd.svd 'IANA,[Becker]
 application/vnd.swiftview-ics 'IANA,[Widener]
 application/vnd.syncml.dm.notification 'IANA,[Thompson],[OMA-DM Work Group]
+application/vnd.syncml.dmddf+xml 'IANA,[OMA-DM Work Group]
+application/vnd.syncml.dmtnds+wbxml 'IANA,[OMA-DM Work Group]
+application/vnd.syncml.dmtnds+xml 'IANA,[OMA-DM Work Group]
+application/vnd.syncml.dmddf+wbxml 'IANA,[OMA-DM Work Group]
 application/vnd.syncml.dm+wbxml 'IANA,[OMA-DM Work Group]
 application/vnd.syncml.dm+xml 'IANA,[Rao],[OMA-DM Work Group]
 application/vnd.syncml.ds.notification 'IANA,[OMA Data Synchronization Working Group]
@@ -949,3 +995,4 @@ application/xv+xml 'IANA,RFC4374
 application/yang 'IANA,RFC6020
 application/yin+xml 'IANA,RFC6020
 application/zip 'IANA,[Lindner]
+application/zlib 'IANA,RFC6713
