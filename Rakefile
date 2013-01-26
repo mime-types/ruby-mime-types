@@ -3,15 +3,16 @@
 require 'rubygems'
 require 'hoe'
 
+Hoe.plugin :bundler
 Hoe.plugin :doofus
+Hoe.plugin :email
 Hoe.plugin :gemspec
-Hoe.plugin :rubyforge
 Hoe.plugin :git
+Hoe.plugin :rubyforge
 Hoe.plugin :minitest
+Hoe.plugin :travis
 
 spec = Hoe.spec 'mime-types' do
-  self.rubyforge_name = self.name
-
   developer('Austin Ziegler', 'austin@rubyforge.org')
 
   self.remote_rdoc_dir = '.'
@@ -21,12 +22,15 @@ spec = Hoe.spec 'mime-types' do
   self.readme_file = 'README.rdoc'
   self.extra_rdoc_files = FileList["*.rdoc"].to_a
 
-  self.extra_dev_deps << ['nokogiri', '~> 1.5']
-  self.extra_dev_deps << ['minitest', '~> 2.0']
+  self.extra_dev_deps << ['hoe-bundler', '~> 1.2']
   self.extra_dev_deps << ['hoe-doofus', '~> 1.0']
   self.extra_dev_deps << ['hoe-gemspec', '~> 1.0']
-  self.extra_dev_deps << ['hoe-git', '~> 1.0']
-  self.extra_dev_deps << ['hoe-seattlerb', '~> 1.0']
+  self.extra_dev_deps << ['hoe-git', '~> 1.5']
+  self.extra_dev_deps << ['hoe-rubygems', '~> 1.0']
+  self.extra_dev_deps << ['hoe-travis', '~> 1.2']
+  self.extra_dev_deps << ['minitest', '~> 4.5']
+  self.extra_dev_deps << ['nokogiri', '~> 1.5']
+  self.extra_dev_deps << ['rake', '~> 10.0']
 end
 
 namespace :mime do
