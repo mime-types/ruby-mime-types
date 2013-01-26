@@ -1,5 +1,6 @@
 .travis.yml
 Gemfile
+Gemfile.lock
 History.rdoc
 Licence.rdoc
 Manifest.txt

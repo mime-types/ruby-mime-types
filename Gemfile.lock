@@ -1,0 +1,45 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    hashr (0.0.22)
+    hoe (3.5.0)
+      rake (>= 0.8, < 11.0)
+    hoe-bundler (1.2.0)
+      hoe (>= 2.2.0)
+    hoe-doofus (1.0.0)
+    hoe-gemspec (1.0.0)
+      hoe (>= 2.2.0)
+    hoe-git (1.5.0)
+      hoe (>= 2.2.0)
+    hoe-rubygems (1.0.0)
+    hoe-travis (1.2)
+      hoe (~> 3.0)
+      travis-lint (~> 1.2)
+    json (1.7.6)
+    json_pure (1.7.6)
+    minitest (4.5.0)
+    nokogiri (1.5.6)
+    rake (10.0.3)
+    rdoc (3.12)
+      json (~> 1.4)
+    rubyforge (2.0.4)
+      json_pure (>= 1.1.7)
+    travis-lint (1.5.0)
+      hashr (~> 0.0.22)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  hoe (~> 3.4)
+  hoe-bundler (~> 1.2)
+  hoe-doofus (~> 1.0)
+  hoe-gemspec (~> 1.0)
+  hoe-git (~> 1.5)
+  hoe-rubygems (~> 1.0)
+  hoe-travis (~> 1.2)
+  minitest (~> 4.5)
+  nokogiri (~> 1.5)
+  rake (~> 10.0)
+  rdoc (~> 3.10)
+  rubyforge (>= 2.0.4)
