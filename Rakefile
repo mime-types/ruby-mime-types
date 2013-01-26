@@ -115,7 +115,10 @@ namespace :mime do
           elems = node.children.select { |n| n.elem? }
           next if elems.size.zero?
 
-          raise "size mismatch #{elems.size} != #{node_count}" if node_count != elems.size
+          if elems.size != node_count
+            warn "size mismatch (#{elems.size} != #{node_count}) in node: #{node}"
+            next
+          end
 
           case elems.size
           when 3
@@ -134,21 +137,21 @@ namespace :mime do
             when CONTACT_PEOPLE
               tag = CGI::unescape($1).chomp.strip
               if tag == ref.content
-            "[#{ref.content}]"
+                "[#{ref.content}]"
               else
-            "[#{ref.content}=#{tag}]"
+                "[#{ref.content}=#{tag}]"
               end
             when RFC_EDITOR, IETF_RFC, IETF_RFC_TOOLS
-          "RFC#$1"
+              "RFC#$1"
             when %r{(https?://.*)}
-          "{#{ref.content}=#$1}"
+              "{#{ref.content}=#$1}"
             else
               ref
             end
           }
           refs = refnodes.join(',')
 
-      "#@type/#{subtype} 'IANA,#{refs}"
+          "#@type/#{subtype} 'IANA,#{refs}"
         end.compact
 
         @mime_types
@@ -175,10 +178,10 @@ namespace :mime do
           parser.save_html
         end
 
-        puts "Parsing #{parser.name} HTML"
-        parser.parse
-
         if :text == save_type || :both == save_type
+          puts "Parsing #{parser.name} HTML"
+          parser.parse
+
           puts "Saving #{parser.name}.txt"
           parser.save_text
         end
