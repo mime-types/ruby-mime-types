@@ -1,3 +1,5 @@
+# -*- ruby encoding: utf-8 -*-
+
 $LOAD_PATH.unshift("#{File.dirname(__FILE__)}/../lib") if __FILE__ == $0
 
 require 'mime/types'
