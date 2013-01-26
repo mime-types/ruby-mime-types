@@ -16,7 +16,6 @@
 !application/x-wordperfect @wp =use-instead:application/vnd.wordperfect
 !application/x-wordperfectd @wpd =use-instead:application/vnd.wordperfect
 !application/xhtml-voice+xml 'IANA,{RFC-mccobb-xplusv-media-type-04.txt=https://datatracker.ietf.org/public/idindex.cgi?command=id_detail&filename=draft-mccobb-xplusv-media-type}
-*!application/VMSBACKUP @bck :base64 =use-instead:application/x-VMSBACKUP
 *!application/access @mdf,mda,mdb,mde =use-instead:application/x-msaccess
 *!application/bleeper @bleep :base64 =use-instead:application/x-bleeper
 *!application/cals1840 'LTSW =use-instead:application/cals-1840
@@ -32,6 +31,7 @@
 *!application/quicktimeplayer @qtl =use-instead:application/x-quicktimeplayer
 *!application/remote_printing 'LTSW =use-instead:application/remote-printing
 *!application/toolbook @tbk =use-instead:application/x-toolbook
+*!application/VMSBACKUP @bck :base64 =use-instead:application/x-VMSBACKUP
 *!application/vnd.ms-word.document.macroEnabled.12 @docm
 *!application/vnd.ms-word.template.macroEnabled.12 @dotm
 *!application/wordperfect @wp =use-instead:application/vnd.wordperfect

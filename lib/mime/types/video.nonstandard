@@ -13,4 +13,3 @@ video/x-ms-wmx @wmx
 video/x-ms-wvx @wvx
 video/x-msvideo @avi :base64
 video/x-sgi-movie @movie :base64
-

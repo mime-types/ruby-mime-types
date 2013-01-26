@@ -1,5 +1,3 @@
-*application/SLA 'LTSW
-*application/STEP 'LTSW
 *application/acad 'LTSW
 *application/appledouble :base64
 *application/clariscad 'LTSW
@@ -13,7 +11,9 @@
 *application/powerpoint @ppt,pps,pot :base64 'LTSW
 *application/pro_eng 'LTSW
 *application/set 'LTSW
+*application/SLA 'LTSW
 *application/solids 'LTSW
+*application/STEP 'LTSW
 *application/vda 'LTSW
 *application/vnd.rn-realmedia @rm
 *application/vnd.stardivision.calc @sdc
@@ -35,10 +35,6 @@
 *application/vnd.sun.xml.writer.template @stw
 *application/word @doc,dot 'LTSW
 application/epub+zip @epub
-application/x-SLA
-application/x-STEP
-application/x-VMSBACKUP @bck :base64
-application/x-Wingz @wz
 application/x-bcpio @bcpio 'LTSW
 application/x-bleeper @bleep :base64
 application/x-bzip2 @bz2
@@ -55,8 +51,8 @@ application/x-drafting
 application/x-dvi @dvi :base64 'LTSW
 application/x-dxf
 application/x-excel
-application/x-font-truetype @ttf :base64
 application/x-font-opentype @otf :base64
+application/x-font-truetype @ttf :base64
 application/x-fractals
 application/x-futuresplash @spl
 application/x-ghostview
@@ -71,8 +67,8 @@ application/x-ica @ica
 application/x-ideas
 application/x-imagemap @imagemap,imap :8bit
 application/x-iwork-keynote-sffkey @key
-application/x-iwork-pages-sffpages @pages
 application/x-iwork-numbers-sffnumbers @numbers
+application/x-iwork-pages-sffpages @pages
 application/x-java-archive @jar 'LTSW
 application/x-java-jnlp-file @jnlp 'LTSW
 application/x-java-serialized-object @ser 'LTSW
@@ -105,8 +101,10 @@ application/x-set
 application/x-sh @sh :8bit 'LTSW
 application/x-shar @shar :8bit 'LTSW
 application/x-shockwave-flash @swf
+application/x-SLA
 application/x-solids
 application/x-spss @sav,sbs,sps,spo,spp
+application/x-STEP
 application/x-stuffit @sit :base64 'LTSW
 application/x-sv4cpio @sv4cpio :base64 'LTSW
 application/x-sv4crc @sv4crc :base64 'LTSW
@@ -119,6 +117,8 @@ application/x-troff-man @man :8bit 'LTSW
 application/x-troff-me @me 'LTSW
 application/x-troff-ms @ms 'LTSW
 application/x-ustar @ustar :base64 'LTSW
+application/x-VMSBACKUP @bck :base64
 application/x-wais-source @src 'LTSW
+application/x-Wingz @wz
 application/x-wordperfect6.1 @wp6
 application/x-x509-ca-cert @crt :base64

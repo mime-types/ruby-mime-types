@@ -1,5 +1,4 @@
 text/1d-interleaved-parityfec 'IANA,RFC6015
-text/RED 'IANA,RFC4102
 text/calendar 'IANA,RFC5545
 text/css @css :8bit 'IANA,RFC2318
 text/csv @csv :8bit 'IANA,RFC4180
@@ -13,6 +12,7 @@ text/parityfec 'IANA,RFC5109
 text/plain @txt,asc,c,cc,h,hh,cpp,hpp,dat,hlp 'IANA,RFC2046,RFC3676,RFC5147
 text/prs.fallenstein.rst @rst 'IANA,[Fallenstein]
 text/prs.lines.tag 'IANA,[Lines]
+text/RED 'IANA,RFC4102
 text/rfc822-headers 'IANA,RFC3462
 text/richtext @rtx :8bit 'IANA,RFC2045,RFC2046
 text/rtf @rtf :8bit 'IANA,[Lindner]
@@ -26,11 +26,9 @@ text/turtle 'IANA,[Prud'hommeaux=Prudhommeaux],[W3C]
 text/ulpfec 'IANA,RFC5109
 text/uri-list 'IANA,RFC2483
 text/vcard 'IANA,RFC6350
-text/vnd.DMClientScript 'IANA,[Bradley]
-text/vnd.IPTC.NITF 'IANA,[IPTC]
-text/vnd.IPTC.NewsML 'IANA,[IPTC]
 text/vnd.abc 'IANA,[Allen]
 text/vnd.curl 'IANA,[Byrnes]
+text/vnd.DMClientScript 'IANA,[Bradley]
 text/vnd.dvb.subtitle 'IANA,[Siebert],[Lagally]
 text/vnd.esmertec.theme-descriptor 'IANA,[Eilemann]
 text/vnd.fly 'IANA,[Gurney]
@@ -38,6 +36,8 @@ text/vnd.fmi.flexstor 'IANA,[Hurtta]
 text/vnd.graphviz 'IANA,[Ellson]
 text/vnd.in3d.3dml 'IANA,[Powers]
 text/vnd.in3d.spot 'IANA,[Powers]
+text/vnd.IPTC.NewsML 'IANA,[IPTC]
+text/vnd.IPTC.NITF 'IANA,[IPTC]
 text/vnd.latex-z 'IANA,[Lubos]
 text/vnd.motorola.reflex 'IANA,[Patton]
 text/vnd.ms-mediapackage 'IANA,[Nelson]

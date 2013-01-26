@@ -1,8 +1,8 @@
 model/example 'IANA,RFC4735
 model/iges @igs,iges 'IANA,[Parks]
 model/mesh @msh,mesh,silo 'IANA,RFC2077
-model/vnd.dwf 'IANA,[Pratt]
 model/vnd.collada+xml 'IANA,[Riordon]
+model/vnd.dwf 'IANA,[Pratt]
 model/vnd.flatland.3dml 'IANA,[Powers]
 model/vnd.gdl 'IANA,[Babits]
 model/vnd.gs-gdl 'IANA,[Babits]
