@@ -37,6 +37,7 @@
 *application/vnd.sun.xml.writer.template @stw
 *application/word @doc,dot 'LTSW
 application/epub+zip @epub
+application/rss+xml @rss
 application/x-bcpio @bcpio 'LTSW
 application/x-bleeper @bleep :base64
 application/x-bzip2 @bz2
