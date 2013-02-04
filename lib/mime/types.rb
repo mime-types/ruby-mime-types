@@ -568,11 +568,7 @@ module MIME
   # Copyright:: Copyright 2002–2013 by Austin Ziegler
   #             <austin@rubyforge.org>
   # Version::   1.20
-  # Based On::  Perl
-  #             MIME::Types[http://search.cpan.org/author/MARKOV/MIME-Types-1.27/MIME/Types.pm],
-  #             Copyright 2001–2009 by Mark Overmeer
-  #             <mimetypes@overmeer.net>.
-  # Licence::   Ruby's, Perl Artistic, or GPL version 2 (or later)
+  # Licence::   See Licence.rdoc
   # See Also::  http://www.iana.org/assignments/media-types/
   #             http://www.ltsw.se/knbase/internet/mime.htp
   #

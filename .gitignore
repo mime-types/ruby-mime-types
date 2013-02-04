@@ -6,3 +6,4 @@ doc
 pkg
 publish
 coverage
+Gemfile.lock

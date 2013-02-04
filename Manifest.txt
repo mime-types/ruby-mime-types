@@ -1,11 +1,14 @@
 .travis.yml
+Contributing.rdoc
 Gemfile
-Gemfile.lock
 History.rdoc
 Licence.rdoc
 Manifest.txt
 README.rdoc
 Rakefile
+docs/COPYING.txt
+docs/artistic.txt
+lib/mime-types.rb
 lib/mime/types.rb
 lib/mime/types/application
 lib/mime/types/application.mac
