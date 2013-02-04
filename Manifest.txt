@@ -1,3 +1,4 @@
+.gemtest
 .travis.yml
 Contributing.rdoc
 Gemfile
