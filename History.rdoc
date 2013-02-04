@@ -1,4 +1,5 @@
-== 1.20 / 2013-01-26
+== 1.20.1 / 2013-01-26
+
 * New MIME Types:
   * Apple iWork document types added by Hans de Graaff
     (application/x-iwork-keynote-sffkey, .key;
@@ -9,12 +10,17 @@
     Linhares (mac:application/x-apple-diskimage, .dmg; application/epub\+zip,
     .epub; application/x-ibooks\+zip, .ibooks; application/x-mobipocket-ebook,
     .mobi). https://github.com/halostatue/mime-types/issue/22
+  * rss content type by Garret Alfert (application/rss\+xml, .rss).
+    https://github.com/halostatue/mime-types/issue/23
   * Added or updated MIME types from the latest IANA list.
 * Fixed MIME Types:
   * Excel macro-enabled spreadsheets had an incorrect extension. Thanks to
     Rafael Belvederese for reporting this issue.
     https://github.com/halostatue/mime-types/issue/21
 * Enabled for use with travis.
+* Enabled gem signing.
+* Fixed an error related to MIME type downloads.
+* This was previously published as 1.20, but I had forgotten some attributions.
 
 == 1.19 / 2012-06-20
 * New MIME Types:

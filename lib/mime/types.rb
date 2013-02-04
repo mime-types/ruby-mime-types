@@ -25,7 +25,7 @@ module MIME
   #
   class Type
     # The released version of Ruby MIME::Types
-    VERSION = '1.20'
+    VERSION = '1.20.1'
 
     include Comparable
 
@@ -567,7 +567,7 @@ module MIME
   # = Author
   # Copyright:: Copyright 2002–2013 by Austin Ziegler
   #             <austin@rubyforge.org>
-  # Version::   1.20
+  # Version::   1.20.1
   # Licence::   See Licence.rdoc
   # See Also::  http://www.iana.org/assignments/media-types/
   #             http://www.ltsw.se/knbase/internet/mime.htp
