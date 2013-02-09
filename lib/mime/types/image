@@ -14,7 +14,7 @@ image/png @png :base64 'IANA,[Randers-Pehrson]
 image/prs.btif 'IANA,[Simon]
 image/prs.pti 'IANA,[Laun]
 image/pwg-raster 'IANA,[Sweet]
-image/svg+xml @svg :8bit 'IANA,[W3C]
+image/svg+xml @svg,svgz :8bit 'IANA,[W3C]
 image/t38 'IANA,RFC3362
 image/tiff @tiff,tif :base64 'IANA,RFC2302
 image/tiff-fx 'IANA,RFC3950
@@ -43,3 +43,4 @@ image/vnd.sealedmedia.softseal.jpg 'IANA,[Petersen]
 image/vnd.svf 'IANA,[Moline]
 image/vnd.wap.wbmp 'IANA,[Stark]
 image/vnd.xiff 'IANA,[S.Martin]
+image/webp @webp

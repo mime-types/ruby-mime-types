@@ -17,6 +17,7 @@
 *application/vda 'LTSW
 *application/vnd.adobe.air-application-installer-package+zip @air :base64
 *application/vnd.android.package-archive @apk
+*application/vnd.ms-fontobject @eot
 *application/vnd.rn-realmedia @rm
 *application/vnd.stardivision.calc @sdc
 *application/vnd.stardivision.chart @sds
@@ -43,6 +44,7 @@ application/x-bleeper @bleep :base64
 application/x-bzip2 @bz2
 application/x-cdlink @vcd
 application/x-chess-pgn @pgn
+application/x-chrome-extension @crx
 application/x-clariscad
 application/x-compressed @z,Z :base64 'LTSW
 application/x-cpio @cpio :base64 'LTSW
@@ -122,6 +124,8 @@ application/x-troff-ms @ms 'LTSW
 application/x-ustar @ustar :base64 'LTSW
 application/x-VMSBACKUP @bck :base64
 application/x-wais-source @src 'LTSW
+application/x-web-app-manifest+json @webapp
 application/x-Wingz @wz
 application/x-wordperfect6.1 @wp6
 application/x-x509-ca-cert @crt :base64
+application/x-xpinstall @xpi
