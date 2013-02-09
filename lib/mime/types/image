@@ -43,3 +43,4 @@ image/vnd.sealedmedia.softseal.jpg 'IANA,[Petersen]
 image/vnd.svf 'IANA,[Moline]
 image/vnd.wap.wbmp 'IANA,[Stark]
 image/vnd.xiff 'IANA,[S.Martin]
+image/webp @webp
