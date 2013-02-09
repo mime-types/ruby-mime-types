@@ -127,3 +127,4 @@ application/x-wais-source @src 'LTSW
 application/x-Wingz @wz
 application/x-wordperfect6.1 @wp6
 application/x-x509-ca-cert @crt :base64
+application/x-xpinstall @xpi
