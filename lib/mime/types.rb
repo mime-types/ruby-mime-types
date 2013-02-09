@@ -25,7 +25,7 @@ module MIME
   #
   class Type
     # The released version of Ruby MIME::Types
-    VERSION = '1.20.1'
+    VERSION = '1.21'
 
     include Comparable
 

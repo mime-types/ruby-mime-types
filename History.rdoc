@@ -1,3 +1,13 @@
+== 1.21 / 2013-02-09
+
+* New MIME Types:
+  * Various new or updated MIME types by Garret Alfert:
+    application/vnd.ms-fontobject, .eot; application/x-chrome-extension, .crx;
+    application/x-web-app-manifest\+json, .webapp; application/x-xpinstall,
+    .xpi; image/svg\+xml, .svg, .svgz; image/webp, .webp; text/cache-manifest,
+    .appcache, .manifest. https://github.com/halostatue/mime-types/pull/24
+* Fixed some Manifest.txt related madness on Travis.
+
 == 1.20.1 / 2013-01-26
 
 * New MIME Types:

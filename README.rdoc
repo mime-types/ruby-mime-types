@@ -8,7 +8,7 @@ rdoc :: http://mime-types.rubyforge.org/
 == Description
 
 This library allows for the identification of a file's likely MIME content
-type. This is release 1.20.1 with new MIME types. The identification of MIME
+type. This is release 1.21 with new MIME types. The identification of MIME
 content type is based on a file's filename extensions.
 
 MIME types are used in MIME-compliant communications, as in e-mail or
