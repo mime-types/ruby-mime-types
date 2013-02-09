@@ -17,6 +17,7 @@
 *application/vda 'LTSW
 *application/vnd.adobe.air-application-installer-package+zip @air :base64
 *application/vnd.android.package-archive @apk
+*application/vnd.ms-fontobject @eot
 *application/vnd.rn-realmedia @rm
 *application/vnd.stardivision.calc @sdc
 *application/vnd.stardivision.chart @sds
