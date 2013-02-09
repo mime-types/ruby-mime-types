@@ -1,3 +1,4 @@
+text/cache-manifest @appcache,manifest
 text/x-coffescript @coffee :8bit
 text/x-component @htc :8bit
 text/x-setext @etx
