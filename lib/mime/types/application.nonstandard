@@ -44,6 +44,7 @@ application/x-bleeper @bleep :base64
 application/x-bzip2 @bz2
 application/x-cdlink @vcd
 application/x-chess-pgn @pgn
+application/x-chrome-extension @crx
 application/x-clariscad
 application/x-compressed @z,Z :base64 'LTSW
 application/x-cpio @cpio :base64 'LTSW
