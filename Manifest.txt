@@ -1,4 +1,5 @@
 .gemtest
+.hoerc
 .travis.yml
 Contributing.rdoc
 Gemfile
