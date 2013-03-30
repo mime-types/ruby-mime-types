@@ -6,8 +6,8 @@ request, or code contributions.
 Code contributions to MIME::Types are especially <del>welcome</del>encouraged.
 Because MIME::Types is a complex codebase, there are a few guidelines:
 
-* Changes <strong>will not</strong> be accepted without tests.
-* The test suite is written with MiniTest.‡
+* Changes (aside from new MIME types) <strong>will not</strong> be accepted
+  without tests. The test suite is written with MiniTest.
 * Match my coding style.
 * Use a thoughtfully-named topic branch that contains your change. Rebase your
   commits into logical chunks as necessary.
@@ -65,3 +65,4 @@ Thanks to everyone else who has contributed to MIME::Types:
 *  Hans de Graaff
 *  Henrik Hodne
 *  Martin d'Allens
+*  cgat

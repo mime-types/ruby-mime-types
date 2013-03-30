@@ -1,3 +1,13 @@
+== 1.22 / 2013-03-30
+
+* New MIME Types:
+  * Added support for 3FR (Hasselblad raw images) files. MIME-Type was obtained
+    by looking at exif data with exiftool. Thanks to cgat for these changes.
+    https://github.com/halostatue/mime-types/pull/27
+* Updated MIME Types:
+    * Pulled the latest updates from the IANA MIME-Type registry.
+* Added support for Ruby 2.0 with Travis CI.
+
 == 1.21 / 2013-02-09
 
 * New MIME Types:

@@ -24,7 +24,7 @@ audio/dsr-es202212 'IANA,RFC4060
 audio/DV 'IANA,RFC6469
 audio/DVI4 'IANA,RFC4856
 audio/eac3 'IANA,RFC4598
-audio/encaprtp 'IANA,{RFC-ietf-mmusic-media-loopback-27=http://tools.ietf.org/html/draft-ietf-mmusic-media-loopback}
+audio/encaprtp 'IANA,RFC6849
 audio/EVRC @evc 'IANA,RFC4788
 audio/EVRC-QCP 'IANA,RFC3625
 audio/EVRC0 'IANA,RFC4788
@@ -32,9 +32,9 @@ audio/EVRC1 'IANA,RFC4788
 audio/EVRCB 'IANA,RFC5188
 audio/EVRCB0 'IANA,RFC5188
 audio/EVRCB1 'IANA,RFC4788
-audio/EVRCNW 'IANA,{RFC-ietf-avt-rtp-evrc-nw-10=http://tools.ietf.org/html/draft-ietf-avt-rtp-evrc-nw}
-audio/EVRCNW0 'IANA,{RFC-ietf-avt-rtp-evrc-nw-10=http://tools.ietf.org/html/draft-ietf-avt-rtp-evrc-nw}
-audio/EVRCNW1 'IANA,{RFC-ietf-avt-rtp-evrc-nw-10=http://tools.ietf.org/html/draft-ietf-avt-rtp-evrc-nw}
+audio/EVRCNW 'IANA,RFC6884
+audio/EVRCNW0 'IANA,RFC6884
+audio/EVRCNW1 'IANA,RFC6884
 audio/EVRCWB 'IANA,RFC5188
 audio/EVRCWB0 'IANA,RFC5188
 audio/EVRCWB1 'IANA,RFC5188
@@ -82,7 +82,7 @@ audio/raptorfec 'IANA,RFC6682
 audio/RED 'IANA,RFC3555
 audio/rtp-enc-aescm128 'IANA,[3GPP]
 audio/rtp-midi 'IANA,RFC6295
-audio/rtploopback 'IANA,{RFC-ietf-mmusic-media-loopback-27=http://tools.ietf.org/html/draft-ietf-mmusic-media-loopback}
+audio/rtploopback 'IANA,RFC6849
 audio/rtx 'IANA,RFC4588
 audio/SMV @smv 'IANA,RFC3558
 audio/SMV-QCP 'IANA,RFC3625

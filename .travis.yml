@@ -6,8 +6,9 @@ before_script:
 - rake travis:before -t
 language: ruby
 notifications:
-  email: false
+  email: true
 rvm:
+  - 2.0.0
   - 1.9.3
   - 1.9.2
   - ruby-head

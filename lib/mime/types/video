@@ -6,7 +6,7 @@ video/BMPEG 'IANA,RFC3555
 video/BT656 'IANA,RFC3555
 video/CelB 'IANA,RFC3555
 video/DV 'IANA,RFC6469
-video/encaprtp 'IANA,{RFC-ietf-mmusic-media-loopback-27=http://tools.ietf.org/html/draft-ietf-mmusic-media-loopback}
+video/encaprtp 'IANA,RFC6849
 video/example 'IANA,RFC4735
 video/H261 'IANA,RFC4587
 video/H263 'IANA,RFC3555
@@ -34,7 +34,7 @@ video/quicktime @qt,mov :base64 'IANA,RFC6381,[Lindner]
 video/raptorfec 'IANA,RFC6682
 video/raw 'IANA,RFC4175
 video/rtp-enc-aescm128 'IANA,[3GPP]
-video/rtploopback 'IANA,{RFC-ietf-mmusic-media-loopback-27=http://tools.ietf.org/html/draft-ietf-mmusic-media-loopback}
+video/rtploopback 'IANA,RFC6849
 video/rtx 'IANA,RFC4588
 video/SMPTE292M 'IANA,RFC3497
 video/ulpfec 'IANA,RFC5109

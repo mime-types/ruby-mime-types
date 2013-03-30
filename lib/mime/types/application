@@ -12,6 +12,7 @@ application/auth-policy+xml :8bit 'IANA,RFC4745
 application/batch-SMTP 'IANA,RFC2442
 application/beep+xml 'IANA,RFC3080
 application/calendar+xml 'IANA,RFC6321
+application/call-completion 'IANA,{RFC-ietf-bliss-call-completion-19=http://tools.ietf.org/html/draft-ietf-bliss-call-completion}
 application/cals-1840 'IANA,RFC1895
 application/ccmp+xml 'IANA,RFC6503
 application/ccxml+xml 'IANA,RFC4267
@@ -30,6 +31,7 @@ application/cpl+xml 'IANA,RFC3880
 application/csta+xml 'IANA,[Ecma International Helpdesk]
 application/CSTAdata+xml 'IANA,[Ecma International Helpdesk]
 application/cybercash 'IANA,[Eastlake]
+application/dash+xml 'IANA,[Stockhammer]
 application/davmount+xml 'IANA,RFC4709
 application/dca-rft 'IANA,[Campbell]
 application/dec-dx 'IANA,[Campbell]
@@ -45,7 +47,7 @@ application/EDI-Consent 'IANA,RFC1767
 application/EDI-X12 'IANA,RFC1767
 application/EDIFACT 'IANA,RFC1767
 application/emma+xml 'IANA,[W3C]
-application/encaprtp 'IANA,{RFC-ietf-mmusic-media-loopback-27=http://tools.ietf.org/html/draft-ietf-mmusic-media-loopback}
+application/encaprtp 'IANA,RFC6849
 application/epp+xml 'IANA,RFC5730
 application/eshop 'IANA,[Katz]
 application/example 'IANA,RFC4735
@@ -55,7 +57,7 @@ application/fastsoap 'IANA,[ITU-T ASN.1 Rapporteur]
 application/fdt+xml 'IANA,RFC6726
 application/fits 'IANA,RFC4047
 application/font-tdpfr @pfr 'IANA,RFC3073
-application/font-woff @woff :base64 'IANA,[W3C],{WOFF=http://www.w3.org/TR/WOFF/#appendix-b}
+application/font-woff @woff :base64 'IANA,[W3C]
 application/framework-attributes+xml 'IANA,RFC6230
 application/gzip 'IANA,RFC6713
 application/H224 'IANA,RFC4573
@@ -121,6 +123,8 @@ application/mp4 @mp4,mpg4 'IANA,RFC4337,RFC6381
 application/mpeg4-generic 'IANA,RFC3640
 application/mpeg4-iod 'IANA,RFC4337
 application/mpeg4-iod-xmt 'IANA,RFC4337
+application/mrb-consumer+xml 'IANA,{RFC-ietf-mediactrl-mrb-19=http://tools.ietf.org/html/draft-ietf-mediactrl-mrb}
+application/mrb-publish+xml 'IANA,{RFC-ietf-mediactrl-mrb-19=http://tools.ietf.org/html/draft-ietf-mediactrl-mrb}
 application/msc-ivr+xml 'IANA,RFC6231
 application/msc-mixer+xml 'IANA,RFC6505
 application/msword @doc,dot,wrd :base64 'IANA,[Lindner]
@@ -138,6 +142,7 @@ application/oda @oda 'IANA,RFC2045,RFC2046
 application/oebps-package+xml 'IANA,RFC4839
 application/ogg @ogx 'IANA,RFC5334
 application/oxps 'IANA,[Ecma International Helpdesk]
+application/p2p-overlay+xml 'IANA,{RFC-ietf-p2psip-base-26=http://tools.ietf.org/html/draft-ietf-p2psip-base}
 application/parityfec 'IANA,RFC5109
 application/patch-ops-error+xml 'IANA,RFC5261
 application/pdf @pdf :base64 'IANA,RFC3778
@@ -181,7 +186,7 @@ application/rpki-manifest 'IANA,RFC6481
 application/rpki-roa 'IANA,RFC6481
 application/rpki-updown 'IANA,RFC6492
 application/rtf @rtf 'IANA,[Lindner]
-application/rtploopback 'IANA,{RFC-ietf-mmusic-media-loopback-27=http://tools.ietf.org/html/draft-ietf-mmusic-media-loopback}
+application/rtploopback 'IANA,RFC6849
 application/rtx 'IANA,RFC4588
 application/samlassertion+xml 'IANA,[OASIS Security Services Technical Committee (SSTC)]
 application/samlmetadata+xml 'IANA,[OASIS Security Services Technical Committee (SSTC)]
@@ -212,6 +217,7 @@ application/soap+xml 'IANA,RFC3902
 application/sparql-query 'IANA,[W3C]
 application/sparql-results+xml 'IANA,[W3C]
 application/spirits-event+xml 'IANA,RFC3910
+application/sql 'IANA,{RFC-shafranovich-mime-sql-06=http://tools.ietf.org/html/draft-shafranovich-mime-sql}
 application/srgs 'IANA,RFC4267
 application/srgs+xml 'IANA,RFC4267
 application/sru+xml 'IANA,RFC6207
@@ -234,6 +240,7 @@ application/timestamp-reply 'IANA,RFC3161
 application/timestamped-data 'IANA,RFC5955
 application/tve-trigger 'IANA,[Welsh]
 application/ulpfec 'IANA,RFC5109
+application/urc-ressheet+xml 'IANA,[Zimmermann]
 application/vcard+xml 'IANA,RFC6351
 application/vemmi 'IANA,RFC2122
 application/vnd.3gpp.bsf+xml 'IANA,[Meredith]
@@ -319,6 +326,7 @@ application/vnd.dece.ttml+xml 'IANA,[Dolan]
 application/vnd.dece.unspecified 'IANA,[Dolan]
 application/vnd.dece.zip 'IANA,[Dolan]
 application/vnd.denovo.fcselayout-link 'IANA,[Dixon]
+application/vnd.desmume.movie 'IANA,[Andersson]
 application/vnd.dir-bi.plate-dl-nosuffix 'IANA,[Yamanaka]
 application/vnd.dm.delegation+xml 'IANA,[Ferrazzini]
 application/vnd.dna 'IANA,[Searcy]
@@ -937,6 +945,7 @@ application/vnd.wt.stf 'IANA,[Wohler]
 application/vnd.wv.csp+wbxml @wv 'IANA,[Salmi]
 application/vnd.wv.csp+xml :8bit 'IANA,[Ingimundarson]
 application/vnd.wv.ssp+xml :8bit 'IANA,[Ingimundarson]
+application/vnd.xacml+json 'IANA,[Brossard]
 application/vnd.xara 'IANA,[Matthewman]
 application/vnd.xfdl 'IANA,[Manning]
 application/vnd.xfdl.webform 'IANA,[Mansell]
