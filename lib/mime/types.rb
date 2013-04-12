@@ -596,6 +596,14 @@ module MIME
     def defined_types #:nodoc:
       @type_variants.values.flatten
     end
+  
+    def count
+      @type_variants.size
+    end
+  
+    def each
+      @type_variants.each { |t| yield t }
+    end
 
     @__types__ = self.new(VERSION)
 
@@ -818,6 +826,16 @@ module MIME
       #   end
       def [](type_id, flags = {})
         @__types__[type_id, flags]
+      end
+
+      include Enumerable
+  
+      def count
+        @__types__.count
+      end
+
+      def each
+        @__types__.each {|t| yield t }
       end
 
       # Return the list of MIME::Types which belongs to the file based on
