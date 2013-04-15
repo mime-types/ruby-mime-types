@@ -72,7 +72,7 @@ class TestMIME_Types < MiniTest::Unit::TestCase #:nodoc:
   end
   
   def test_class_enumerable
-    assert( MIME::Types.any? {|types| types[0] == 'text/plain'} )
+    assert( MIME::Types.any? {|type| type.content_type == 'text/plain'} )
   end
   
   def test_class_count
