@@ -597,7 +597,9 @@ module MIME
       @type_variants.values.flatten
     end
   
-    # Returns the number of known types. A shortcut of MIME::Types[//].size
+    # Returns the number of known types. A shortcut of MIME::Types[//].size.
+    # (Keep in mind that this is memory intensive, cache the result to spare
+    # resources)
     def count
       defined_types.size
     end
