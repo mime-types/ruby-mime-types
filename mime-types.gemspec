@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.rubygems_version = "1.8.25"
   s.summary = "This library allows for the identification of a file's likely MIME content type"
   s.test_files = ["test/test_mime_type.rb", "test/test_mime_types.rb"]
+  s.licenses = ["MIT", "Artistic 2.0", "GPL-2"]
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
