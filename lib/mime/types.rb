@@ -596,6 +596,17 @@ module MIME
     def defined_types #:nodoc:
       @type_variants.values.flatten
     end
+  
+    # Returns the number of known types. A shortcut of MIME::Types[//].size.
+    # (Keep in mind that this is memory intensive, cache the result to spare
+    # resources)
+    def count
+      defined_types.size
+    end
+  
+    def each
+     defined_types.each { |t| yield t }
+    end
 
     @__types__ = self.new(VERSION)
 
@@ -818,6 +829,16 @@ module MIME
       #   end
       def [](type_id, flags = {})
         @__types__[type_id, flags]
+      end
+
+      include Enumerable
+  
+      def count
+        @__types__.count
+      end
+
+      def each
+        @__types__.each {|t| yield t }
       end
 
       # Return the list of MIME::Types which belongs to the file based on
