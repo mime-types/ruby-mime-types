@@ -6,7 +6,7 @@ require 'hoe'
 Hoe.plugin :bundler
 Hoe.plugin :doofus
 Hoe.plugin :email
-Hoe.plugin :gemspec
+Hoe.plugin :gemspec2
 Hoe.plugin :git
 Hoe.plugin :rubyforge
 Hoe.plugin :minitest
@@ -21,10 +21,11 @@ spec = Hoe.spec 'mime-types' do
   self.history_file = 'History.rdoc'
   self.readme_file = 'README.rdoc'
   self.extra_rdoc_files = FileList["*.rdoc"].to_a
+  self.licenses = ["MIT", "Artistic 2.0", "GPL-2"]
 
   self.extra_dev_deps << ['hoe-bundler', '~> 1.2']
   self.extra_dev_deps << ['hoe-doofus', '~> 1.0']
-  self.extra_dev_deps << ['hoe-gemspec', '~> 1.0']
+  self.extra_dev_deps << ['hoe-gemspec2', '~> 1.1']
   self.extra_dev_deps << ['hoe-git', '~> 1.5']
   self.extra_dev_deps << ['hoe-rubygems', '~> 1.0']
   self.extra_dev_deps << ['hoe-travis', '~> 1.2']
@@ -195,7 +196,7 @@ namespace :mime do
 http://www.ltsw.se/knbase/internet/mime.htp
 http://www.webmaster-toolkit.com/mime-types.shtml
 http://plugindoc.mozdev.org/winmime.php
-http://standards.freedesktop.org/shared-mime-info-spec/shared-mime-info-spec-latest.html  
+http://standards.freedesktop.org/shared-mime-info-spec/shared-mime-info-spec-latest.html
 http://www.feedforall.com/mime-types.htm
 http://www.iana.org/assignments/media-types/
   EOS

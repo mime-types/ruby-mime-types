@@ -1,3 +1,22 @@
+== 1.23 / 2013-04-20
+
+* New Feature:
+  * Arnaud Meuret (ameuret) suggested that it could be useful if the MIME type
+    collection was enumerable, so he implemented it in #30. Thanks for the
+    contribution! https://github.com/halostatue/mime-types/pull/30
+* Updated MIME Types:
+  * RFC6910 was adopted (application/call-completion).
+  * RFC6902 was adopted (application/json-patch\+json).
+  * RFC6917 was adopted (application/mrb-consumer\+xml,
+    application/mrb-publish\+xml).
+  * RFC6922 was adopted (application/sql).
+  * RFC2560 is being
+    {updated}[http://tools.ietf.org/html/draft-ietf-pkix-rfc2560bis].
+* Administrivia:
+  * The gemspec now includes information about the licenses under which the
+    mime-types gem is available.
+  * Using hoe-gemspec2 instead of hoe-gemspec.
+
 == 1.22 / 2013-03-30
 
 * New MIME Types:

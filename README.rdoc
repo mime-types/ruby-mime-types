@@ -8,17 +8,17 @@ rdoc :: http://mime-types.rubyforge.org/
 == Description
 
 This library allows for the identification of a file's likely MIME content
-type. This is release 1.22 with new MIME types. The identification of MIME
-content type is based on a file's filename extensions.
+type. This is release 1.23 that adds the ability to enumerate over the
+collection of MIME types and updates the sources of a few MIME types. The
+identification of MIME content type is based on a file's filename extensions.
 
-MIME types are used in MIME-compliant communications, as in e-mail or
-HTTP traffic, to indicate the type of content which is transmitted.
-MIME::Types provides the ability for detailed information about MIME
-entities (provided as a set of MIME::Type objects) to be determined and
-used programmatically. There are many types defined by RFCs and vendors,
-so the list is long but not complete; don't hesitate to ask to add
-additional information. This library follows the IANA collection of MIME
-types (see below for reference).
+MIME types are used in MIME-compliant communications, as in e-mail or HTTP
+traffic, to indicate the type of content which is transmitted. MIME::Types
+provides the ability for detailed information about MIME entities (provided as
+a set of MIME::Type objects) to be determined and used programmatically. There
+are many types defined by RFCs and vendors, so the list is long but not
+complete; don't hesitate to ask to add additional information. This library
+follows the IANA collection of MIME types (see below for reference).
 
 MIME::Types for Ruby was originally based on and synchronized with MIME::Types
 for Perl by Mark Overmeer, copyright 2001 - 2009. As of version 1.15, the data
@@ -51,6 +51,8 @@ files). A MIME::Type stores the known information about one MIME type.
     puts plaintext.registered?           # => true
     puts plaintext == 'text/plain'       # => true
     puts MIME::Type.simplified('x-appl/x-zip') # => 'appl/zip'
+
+    puts MIME::Types.any? { |type| type.content_type == 'text/plain' }
 
 == Continuous Integration Status
 

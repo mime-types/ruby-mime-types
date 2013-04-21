@@ -36,6 +36,5 @@ lib/mime/types/text.vms
 lib/mime/types/video
 lib/mime/types/video.nonstandard
 lib/mime/types/video.obsolete
-mime-types.gemspec
 test/test_mime_type.rb
 test/test_mime_types.rb

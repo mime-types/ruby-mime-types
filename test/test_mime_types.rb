@@ -70,11 +70,11 @@ class TestMIME_Types < MiniTest::Unit::TestCase #:nodoc:
     assert_equal(MIME::Types.of('gif', true), MIME::Types['image/gif'])
     assert(MIME::Types.of('zzz').empty?)
   end
-  
+
   def test_class_enumerable
     assert( MIME::Types.any? {|type| type.content_type == 'text/plain'} )
   end
-  
+
   def test_class_count
     assert(MIME::Types.count > 42, "A lot of types are expected to be known.")
   end

@@ -12,7 +12,7 @@ application/auth-policy+xml :8bit 'IANA,RFC4745
 application/batch-SMTP 'IANA,RFC2442
 application/beep+xml 'IANA,RFC3080
 application/calendar+xml 'IANA,RFC6321
-application/call-completion 'IANA,{RFC-ietf-bliss-call-completion-19=http://tools.ietf.org/html/draft-ietf-bliss-call-completion}
+application/call-completion 'IANA,RFC6910
 application/cals-1840 'IANA,RFC1895
 application/ccmp+xml 'IANA,RFC6503
 application/ccxml+xml 'IANA,RFC4267
@@ -81,7 +81,7 @@ application/ipp 'IANA,RFC2910
 application/isup 'IANA,RFC3204
 application/javascript @js :8bit 'IANA,RFC4329
 application/json @json :8bit 'IANA,RFC4627
-application/json-patch+json 'IANA,{RFC-ietf-appsawg-json-patch-10=http://tools.ietf.org/html/draft-ietf-appsawg-json-patch}
+application/json-patch+json 'IANA,RFC6902
 application/kpml-request+xml 'IANA,RFC4730
 application/kpml-response+xml 'IANA,RFC4730
 application/link-format 'IANA,RFC6690
@@ -123,8 +123,8 @@ application/mp4 @mp4,mpg4 'IANA,RFC4337,RFC6381
 application/mpeg4-generic 'IANA,RFC3640
 application/mpeg4-iod 'IANA,RFC4337
 application/mpeg4-iod-xmt 'IANA,RFC4337
-application/mrb-consumer+xml 'IANA,{RFC-ietf-mediactrl-mrb-19=http://tools.ietf.org/html/draft-ietf-mediactrl-mrb}
-application/mrb-publish+xml 'IANA,{RFC-ietf-mediactrl-mrb-19=http://tools.ietf.org/html/draft-ietf-mediactrl-mrb}
+application/mrb-consumer+xml 'IANA,RFC6917
+application/mrb-publish+xml 'IANA,RFC6917
 application/msc-ivr+xml 'IANA,RFC6231
 application/msc-mixer+xml 'IANA,RFC6505
 application/msword @doc,dot,wrd :base64 'IANA,[Lindner]
@@ -135,8 +135,8 @@ application/news-groupinfo 'IANA,RFC5537
 application/news-transmission 'IANA,RFC5537
 application/nlsml+xml 'IANA,RFC6787
 application/nss 'IANA,[Hammer]
-application/ocsp-request 'IANA,RFC2560
-application/ocsp-response 'IANA,RFC2560
+application/ocsp-request 'IANA,{RFC-ietf-pkix-rfc2560bis-20=http://tools.ietf.org/html/draft-ietf-pkix-rfc2560bis}
+application/ocsp-response 'IANA,{RFC-ietf-pkix-rfc2560bis-20=http://tools.ietf.org/html/draft-ietf-pkix-rfc2560bis}
 application/octet-stream @bin,dms,lha,lzh,exe,class,ani,pgp,so,dll,dylib :base64 'IANA,RFC2045,RFC2046
 application/oda @oda 'IANA,RFC2045,RFC2046
 application/oebps-package+xml 'IANA,RFC4839
@@ -217,7 +217,7 @@ application/soap+xml 'IANA,RFC3902
 application/sparql-query 'IANA,[W3C]
 application/sparql-results+xml 'IANA,[W3C]
 application/spirits-event+xml 'IANA,RFC3910
-application/sql 'IANA,{RFC-shafranovich-mime-sql-06=http://tools.ietf.org/html/draft-shafranovich-mime-sql}
+application/sql 'IANA,RFC6922
 application/srgs 'IANA,RFC4267
 application/srgs+xml 'IANA,RFC4267
 application/sru+xml 'IANA,RFC6207
