@@ -4,6 +4,8 @@ home :: http://mime-types.rubyforge.org/
 code :: https://github.com/halostatue/mime-types/
 bugs :: https://github.com/halostatue/mime-types/issues
 rdoc :: http://mime-types.rubyforge.org/
+code climate :: {<img src="https://codeclimate.com/github/halostatue/mime-types.png" />}[https://codeclimate.com/github/halostatue/mime-types]
+continuous integration :: {<img src="https://travis-ci.org/halostatue/mime-types.png" />}[https://travis-ci.org/halostatue/mime-types]
 
 == Description
 
@@ -53,10 +55,6 @@ files). A MIME::Type stores the known information about one MIME type.
     puts MIME::Type.simplified('x-appl/x-zip') # => 'appl/zip'
 
     puts MIME::Types.any? { |type| type.content_type == 'text/plain' }
-
-== Continuous Integration Status
-
-{<img src="https://travis-ci.org/halostatue/mime-types.png" />}[https://travis-ci.org/halostatue/mime-types]
 
 :include: Contributing.rdoc
 

@@ -74,39 +74,35 @@ module MIME
     #
     # 1. self.simplified <=> other.simplified (ensures that we
     #    don't try to compare different types)
-    # 2. IANA-registered definitions > other definitions.
-    # 3. Generic definitions > platform definitions.
-    # 3. Complete definitions > incomplete definitions.
-    # 4. Current definitions > obsolete definitions.
-    # 5. Obselete with use-instead references > obsolete without.
+    # 2. IANA-registered definitions < other definitions.
+    # 3. Generic definitions < platform definitions.
+    # 3. Complete definitions < incomplete definitions.
+    # 4. Current definitions < obsolete definitions.
+    # 5. Obselete with use-instead references < obsolete without.
     # 6. Obsolete use-instead definitions are compared.
     def priority_compare(other)
       pc = simplified <=> other.simplified
 
-      if pc.zero? and registered? != other.registered?
-        pc = registered? ? -1 : 1
-      end
-
-      if pc.zero? and platform? != other.platform?
-        pc = platform? ? 1 : -1
-      end
-
-      if pc.zero? and complete? != other.complete?
-        pc = complete? ? -1 : 1
-      end
-
-      if pc.zero? and obsolete? != other.obsolete?
-        pc = obsolete? ? 1 : -1
-      end
-
-      if pc.zero? and obsolete? and (use_instead != other.use_instead)
-        pc = if use_instead.nil?
-               -1
-             elsif other.use_instead.nil?
-               1
-             else
-               use_instead <=> other.use_instead
+      if pc.zero?
+        pc = if registered? != other.registered?
+               registered? ? -1 : 1 # registered < unregistered
+             elsif platform? != other.platform?
+               platform? ? 1 : -1 # generic < platform
+             elsif complete? != other.complete?
+               pc = complete? ? -1 : 1 # complete < incomplete
+             elsif obsolete? != other.obsolete?
+               pc = obsolete? ? 1 : -1 # current < obsolete
              end
+
+        if pc.zero? and obsolete? and (use_instead != other.use_instead)
+          pc = if use_instead.nil?
+                 -1
+               elsif other.use_instead.nil?
+                 1
+               else
+                 use_instead <=> other.use_instead
+               end
+        end
       end
 
       pc
@@ -317,23 +313,17 @@ module MIME
       #   end
       def from_array(*args) #:yields MIME::Type.new:
         # Dereferences the array one level, if necessary.
-        args = args[0] if args[0].kind_of?(Array)
+        args = args.first if args.first.kind_of? Array
 
-        if args.size.between?(1, 8)
-          m = MIME::Type.new(args[0]) do |t|
-            t.extensions  = args[1] if args.size > 1
-            t.encoding    = args[2] if args.size > 2
-            t.system      = args[3] if args.size > 3
-            t.obsolete    = args[4] if args.size > 4
-            t.docs        = args[5] if args.size > 5
-            t.url         = args[6] if args.size > 6
-            t.registered  = args[7] if args.size > 7
-          end
-          yield m if block_given?
-        else
+        unless args.size.between?(1, 8)
           raise ArgumentError, "Array provided must contain between one and eight elements."
         end
-        m
+
+        MIME::Type.new(args.shift) do |t|
+          t.extensions, t.encoding, t.system, t.obsolete, t.docs, t.url,
+            t.registered = *args
+          yield t if block_given?
+        end
       end
 
       # Creates a MIME::Type from a hash. Keys are case-insensitive,
@@ -364,7 +354,7 @@ module MIME
           type[k.to_s.tr('A-Z', 'a-z').gsub(/-/, '_').to_sym] = v
         end
 
-        m = MIME::Type.new(type[:content_type]) do |t|
+        MIME::Type.new(type[:content_type]) do |t|
           t.extensions  = type[:extensions]
           t.encoding    = type[:content_transfer_encoding]
           t.system      = type[:system]
@@ -372,10 +362,9 @@ module MIME
           t.docs        = type[:docs]
           t.url         = type[:url]
           t.registered  = type[:registered]
-        end
 
-        yield m if block_given?
-        m
+          yield t if block_given?
+        end
       end
 
       # Essentially a copy constructor.
@@ -390,7 +379,7 @@ module MIME
       #     t.encoding    = plaintext.encoding.dup
       #   end
       def from_mime_type(mime_type) #:yields the new MIME::Type:
-        m = MIME::Type.new(mime_type.content_type.dup) do |t|
+        MIME::Type.new(mime_type.content_type.dup) do |t|
           t.extensions = mime_type.extensions.map { |e| e.dup }
           t.url = mime_type.url && mime_type.url.map { |e| e.dup }
 
@@ -402,9 +391,8 @@ module MIME
 
           mime_type.docs && t.docs = mime_type.docs.dup
 
+          yield t if block_given?
         end
-
-        yield m if block_given?
       end
     end
 
