@@ -4,6 +4,11 @@
   * Working on improving the quality of the mime-types codebase through the use
     of Code Climate. https://codeclimate.com/github/halostatue/mime-types
   * Simplified MIME::Type.from_array to make more assumptions about assignment.
+* Documentation:
+  * LeoYoung <mrleoyoung@gmail.com> pointed out that the README.rdoc contained
+    examples that could never possibly work because MIME::Types#[] returns (for
+    all the versions I have handy) an array, not a single type. I have updated
+    README.rdoc to reflect this.
 
 == 1.23 / 2013-04-20
 

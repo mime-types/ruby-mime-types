@@ -22,15 +22,15 @@ are many types defined by RFCs and vendors, so the list is long but not
 complete; don't hesitate to ask to add additional information. This library
 follows the IANA collection of MIME types (see below for reference).
 
-MIME::Types for Ruby was originally based on and synchronized with MIME::Types
-for Perl by Mark Overmeer, copyright 2001 - 2009. As of version 1.15, the data
-format for the MIME::Type list has changed and the synchronization will no
-longer happen.
+MIME::Types for Ruby was originally based on MIME::Types for Perl by Mark
+Overmeer, copyright 2001 - 2009. As of version 1.15, the data format for the
+MIME::Type list has changed and the synchronization will no longer happen.
 
 MIME::Types is built to conform to the MIME types of RFCs 2045 and 2231. It
-follows the official {IANA registry}[http://www.iana.org/assignments/media-types/]
+tracks the {IANA registry}[http://www.iana.org/assignments/media-types/]
 ({ftp}[ftp://ftp.iana.org/assignments/media-types]) with some unofficial types
-added from the the {LTSW collection}[http://www.ltsw.se/knbase/internet/mime.htp].
+added from the {LTSW collection}[http://www.ltsw.se/knbase/internet/mime.htp]
+and added by the users of MIME::Types.
 
 == Synopsis
 
@@ -41,20 +41,27 @@ files). A MIME::Type stores the known information about one MIME type.
     require 'mime/types'
 
     plaintext = MIME::Types['text/plain']
-    print plaintext.media_type           # => 'text'
-    print plaintext.sub_type             # => 'plain'
+    # returns [text/plain, text/plan]
+    text      = plaintext.first
+    puts text.media_type            # => 'text'
+    puts text.sub_type              # => 'plain'
 
-    puts plaintext.extensions.join(" ")  # => 'asc txt c cc h hh cpp'
+    puts text.extensions.join(" ")  # => 'txt asc c cc h hh cpp hpp dat hlp'
 
-    puts plaintext.encoding              # => 8bit
-    puts plaintext.binary?               # => false
-    puts plaintext.ascii?                # => true
-    puts plaintext.obsolete?             # => false
-    puts plaintext.registered?           # => true
-    puts plaintext == 'text/plain'       # => true
-    puts MIME::Type.simplified('x-appl/x-zip') # => 'appl/zip'
+    puts text.encoding              # => quoted-printable
+    puts text.binary?               # => false
+    puts text.ascii?                # => true
+    puts text.obsolete?             # => false
+    puts text.registered?           # => true
+    puts text == 'text/plain'       # => true
+    puts MIME::Type.simplified('x-appl/x-zip')
+                                    # => 'appl/zip'
 
-    puts MIME::Types.any? { |type| type.content_type == 'text/plain' }
+    puts MIME::Types.any? { |type|
+      type.content_type == 'text/plain'
+    }                               # => true
+    puts MIME::Types.all?(&:registered?)
+                                    # => false
 
 :include: Contributing.rdoc
 
