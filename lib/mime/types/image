@@ -18,7 +18,7 @@ image/svg+xml @svg,svgz :8bit 'IANA,[W3C]
 image/t38 'IANA,RFC3362
 image/tiff @tiff,tif :base64 'IANA,RFC2302
 image/tiff-fx 'IANA,RFC3950
-image/vnd.adobe.photoshop 'IANA,[Scarborough]
+image/vnd.adobe.photoshop @psd 'IANA,[Scarborough]
 image/vnd.airzip.accelerator.azv 'IANA,[Clueit]
 image/vnd.cns.inf2 'IANA,[McLaughlin]
 image/vnd.dece.graphic 'IANA,[Dolan]
