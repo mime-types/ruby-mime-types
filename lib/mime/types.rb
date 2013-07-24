@@ -25,6 +25,12 @@ module MIME
   #  puts text == 'text/plain'       # => true
   #  puts MIME::Type.simplified('x-appl/x-zip') # => 'appl/zip'
   #
+  #  puts MIME::Types.any? { |type|
+  #    type.content_type == 'text/plain'
+  #  }                               # => true
+  #  puts MIME::Types.all?(&:registered?)
+  #                                  # => false
+  #
   class Type
     # The released version of Ruby MIME::Types
     VERSION = '1.23'
