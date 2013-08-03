@@ -11,17 +11,25 @@ module MIME
   # == Usage
   #  require 'mime/types'
   #
-  #  plaintext = MIME::Types['text/plain']
-  #  print plaintext.media_type           # => 'text'
-  #  print plaintext.sub_type             # => 'plain'
+  #  plaintext = MIME::Types['text/plain'].first
+  #  # returns [text/plain, text/plan]
+  #  text      = plaintext.first
+  #  print text.media_type           # => 'text'
+  #  print text.sub_type             # => 'plain'
   #
-  #  puts plaintext.extensions.join(" ")  # => 'asc txt c cc h hh cpp'
+  #  puts text.extensions.join(" ")  # => 'asc txt c cc h hh cpp'
   #
-  #  puts plaintext.encoding              # => 8bit
-  #  puts plaintext.binary?               # => false
-  #  puts plaintext.ascii?                # => true
-  #  puts plaintext == 'text/plain'       # => true
+  #  puts text.encoding              # => 8bit
+  #  puts text.binary?               # => false
+  #  puts text.ascii?                # => true
+  #  puts text == 'text/plain'       # => true
   #  puts MIME::Type.simplified('x-appl/x-zip') # => 'appl/zip'
+  #
+  #  puts MIME::Types.any? { |type|
+  #    type.content_type == 'text/plain'
+  #  }                               # => true
+  #  puts MIME::Types.all?(&:registered?)
+  #                                  # => false
   #
   class Type
     # The released version of Ruby MIME::Types
