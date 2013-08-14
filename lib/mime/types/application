@@ -105,6 +105,7 @@ application/mbms-protection-description+xml 'IANA,[3GPP]
 application/mbms-reception-report+xml 'IANA,[3GPP]
 application/mbms-register+xml 'IANA,[3GPP]
 application/mbms-register-response+xml 'IANA,[3GPP]
+application/mbms-schedule+xml 'IANA,[3GPP],[Turcotte]
 application/mbms-user-service-description+xml 'IANA,[3GPP]
 application/mbox 'IANA,RFC4155
 application/media-policy-dataset+xml 'IANA,RFC6796
@@ -135,8 +136,8 @@ application/news-groupinfo 'IANA,RFC5537
 application/news-transmission 'IANA,RFC5537
 application/nlsml+xml 'IANA,RFC6787
 application/nss 'IANA,[Hammer]
-application/ocsp-request 'IANA,{RFC-ietf-pkix-rfc2560bis-20=http://tools.ietf.org/html/draft-ietf-pkix-rfc2560bis}
-application/ocsp-response 'IANA,{RFC-ietf-pkix-rfc2560bis-20=http://tools.ietf.org/html/draft-ietf-pkix-rfc2560bis}
+application/ocsp-request 'IANA,RFC6960
+application/ocsp-response 'IANA,RFC6960
 application/octet-stream @bin,dms,lha,lzh,exe,class,ani,pgp,so,dll,dylib :base64 'IANA,RFC2045,RFC2046
 application/oda @oda 'IANA,RFC2045,RFC2046
 application/oebps-package+xml 'IANA,RFC4839
@@ -163,6 +164,7 @@ application/pkixcmp @pki 'IANA,RFC2510
 application/pls+xml 'IANA,RFC4267
 application/poc-settings+xml 'IANA,RFC4354
 application/postscript @ai,eps,ps :8bit 'IANA,RFC2045,RFC2046
+application/provenance+xml 'IANA,[3GPP],[Firmin]
 application/prs.alvestrand.titrax-sheet 'IANA,[Alvestrand]
 application/prs.cww @cw,cww 'IANA,[Rungchavalnont]
 application/prs.nprend @rnd,rct 'IANA,[Doggett]
@@ -240,6 +242,7 @@ application/timestamp-reply 'IANA,RFC3161
 application/timestamped-data 'IANA,RFC5955
 application/tve-trigger 'IANA,[Welsh]
 application/ulpfec 'IANA,RFC5109
+application/urc-grpsheet+xml 'IANA,[Zimmermann]
 application/urc-ressheet+xml 'IANA,[Zimmermann]
 application/vcard+xml 'IANA,RFC6351
 application/vemmi 'IANA,RFC2122
@@ -271,6 +274,7 @@ application/vnd.amiga.ami @ami 'IANA,[Blumberg]
 application/vnd.amundsen.maze+xml 'IANA,[Amundsen]
 application/vnd.anser-web-certificate-issue-initiation 'IANA,[Mori]
 application/vnd.antix.game-component 'IANA,[Shelton]
+application/vnd.api+json 'IANA,[Klabnik]
 application/vnd.apple.installer+xml 'IANA,[Bierman]
 application/vnd.apple.mpegurl 'IANA,[Singer],[Pantos]
 application/vnd.aristanetworks.swi 'IANA,[Fenner]
@@ -390,6 +394,7 @@ application/vnd.etsi.iptvueprofile+xml 'IANA,[Hu]
 application/vnd.etsi.mcid+xml 'IANA,[Hu]
 application/vnd.etsi.mheg5 'IANA,[Ortega],[Medland]
 application/vnd.etsi.overload-control-policy-dataset+xml 'IANA,[Ortega]
+application/vnd.etsi.pstn+xml 'IANA,[Han],[Belling]
 application/vnd.etsi.sci+xml 'IANA,[Hu]
 application/vnd.etsi.simservs+xml 'IANA,[Hu]
 application/vnd.etsi.tsl+xml 'IANA,[Hu]
@@ -420,6 +425,7 @@ application/vnd.fujixerox.ART4 'IANA,[Tanabe]
 application/vnd.fujixerox.ddd 'IANA,[Onda]
 application/vnd.fujixerox.docuworks 'IANA,[Taguchi]
 application/vnd.fujixerox.docuworks.binder 'IANA,[Matsumoto]
+application/vnd.fujixerox.docuworks.container 'IANA,[Tashiro]
 application/vnd.fujixerox.HBPL 'IANA,[Tanabe]
 application/vnd.fut-misnet 'IANA,[Pruulmann]
 application/vnd.fuzzysheet 'IANA,[Birtwistle]
@@ -933,6 +939,7 @@ application/vnd.wap.wmlc @wmlc 'IANA,[Stark]
 application/vnd.wap.wmlscriptc @wmlsc 'IANA,[Stark]
 application/vnd.webturbo @wtb 'IANA,[Rehem]
 application/vnd.wfa.wsc 'IANA,[Wi-Fi Alliance]
+application/vnd.windows.devicepairing 'IANA,[Dandawate]
 application/vnd.wmc 'IANA,[Kjørnes=Kjornes]
 application/vnd.wmf.bootstrap 'IANA,[Nguyenphu],[Iyer]
 application/vnd.wolfram.mathematica 'IANA,[Wolfram]
@@ -978,6 +985,7 @@ application/wita 'IANA,[Campbell]
 application/wordperfect5.1 @wp5,wp 'IANA,[Lindner]
 application/wsdl+xml 'IANA,[W3C]
 application/wspolicy+xml 'IANA,[W3C]
+application/x-www-form-urlencoded :7bit '[W3C],{HTML5=http://www.w3.org/TR/html5/iana.html#application/x-www-form-urlencoded}
 application/x400-bp 'IANA,RFC1494
 application/xcap-att+xml 'IANA,RFC4825
 application/xcap-caps+xml 'IANA,RFC4825
@@ -1000,4 +1008,3 @@ application/yang 'IANA,RFC6020
 application/yin+xml 'IANA,RFC6020
 application/zip @zip :base64 'IANA,[Lindner]
 application/zlib 'IANA,RFC6713
-application/x-www-form-urlencoded :7bit '[W3C],{HTML5=http://www.w3.org/TR/html5/iana.html#application/x-www-form-urlencoded}

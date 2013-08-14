@@ -14,6 +14,18 @@
     https://github.com/halostatue/mime-types/issues/32
   * application/x-www-form-urlencoded. Fixes a request by alexkwolfe.
     https://github.com/halostatue/mime-types/issues/39
+  * Various new MIME types from IANA:
+    * application/mbms-schedule\+xml from 3GPP and Turcotte.
+    * application/provenance\+xml from W3C and Herman.
+    * application/session-info from 3GPP and Firmin.
+    * application/urc-grpsheet\+xml, application/urc-targetdesc\+xml,
+      application/uisocketdesc\+xml from Zimmermann.
+    * application/api\+json from Klabnik.
+    * application/vnd.etsi.pstn\+xml from Han and Belling.
+    * application/vnd.fujixerox.docuworks.container from Tashiro.
+    * application/vnd.windows.devicepairing from Dandawate.
+* Updated MIME Types:
+  * RFC 6960 was adopted (application/ocsp-request and application/ocsp-response).
 
 == 1.23 / 2013-04-20
 
