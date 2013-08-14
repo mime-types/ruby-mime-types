@@ -12,7 +12,7 @@ module MIME
   #  require 'mime/types'
   #
   #  plaintext = MIME::Types['text/plain'].first
-  #  # returns [text/plain, text/plan]
+  #  # returns [text/plain, text/plain]
   #  text      = plaintext.first
   #  print text.media_type           # => 'text'
   #  print text.sub_type             # => 'plain'
@@ -33,7 +33,7 @@ module MIME
   #
   class Type
     # The released version of Ruby MIME::Types
-    VERSION = '1.23'
+    VERSION = '1.24'
 
     include Comparable
 

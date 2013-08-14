@@ -10,9 +10,8 @@ continuous integration :: {<img src="https://travis-ci.org/halostatue/mime-types
 == Description
 
 This library allows for the identification of a file's likely MIME content
-type. This is release 1.23 that adds the ability to enumerate over the
-collection of MIME types and updates the sources of a few MIME types. The
-identification of MIME content type is based on a file's filename extensions.
+type. This is release 1.24, adding and updating a few MIME types and fixing
+some issues with documentation.
 
 MIME types are used in MIME-compliant communications, as in e-mail or HTTP
 traffic, to indicate the type of content which is transmitted. MIME::Types
@@ -41,7 +40,7 @@ files). A MIME::Type stores the known information about one MIME type.
     require 'mime/types'
 
     plaintext = MIME::Types['text/plain']
-    # returns [text/plain, text/plan]
+    # returns [text/plain, text/plain]
     text      = plaintext.first
     puts text.media_type            # => 'text'
     puts text.sub_type              # => 'plain'

@@ -1,4 +1,4 @@
-== 1.24 / YYYY-MM-DD
+== 1.24 / 2013-08-14
 
 * Code Climate:
   * Working on improving the quality of the mime-types codebase through the use
@@ -9,6 +9,10 @@
     examples that could never possibly work because MIME::Types#[] returns (for
     all the versions I have handy) an array, not a single type. I have updated
     README.rdoc to reflect this.
+* Removed Nokogiri as a declared development dependency. It is still required
+  if you're going to use the IANA parser functionality, but it is not necessary
+  for most development purposes. This has been removed to ensure that Travis CI
+  passes on Ruby 1.8.7.
 * New MIME Types:
   * 7zip (application/x-7z-compressed). Fixes a request by kodram.
     https://github.com/halostatue/mime-types/issues/32
