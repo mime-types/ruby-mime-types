@@ -129,3 +129,4 @@ application/x-Wingz @wz
 application/x-wordperfect6.1 @wp6
 application/x-x509-ca-cert @crt :base64
 application/x-xpinstall @xpi
+application/x-7z-compressed @7z '{7zip=http://www.7-zip.org/7z.html}

@@ -9,6 +9,9 @@
     examples that could never possibly work because MIME::Types#[] returns (for
     all the versions I have handy) an array, not a single type. I have updated
     README.rdoc to reflect this.
+* New MIME Types:
+  * 7zip (application/x-7z-compressed). Fixes a request by kodram.
+    https://github.com/halostatue/mime-types/issues/32
 
 == 1.23 / 2013-04-20
 
