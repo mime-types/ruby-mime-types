@@ -1000,3 +1000,4 @@ application/yang 'IANA,RFC6020
 application/yin+xml 'IANA,RFC6020
 application/zip @zip :base64 'IANA,[Lindner]
 application/zlib 'IANA,RFC6713
+application/x-www-form-urlencoded :7bit '[W3C],{HTML5=http://www.w3.org/TR/html5/iana.html#application/x-www-form-urlencoded}

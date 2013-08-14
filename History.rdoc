@@ -12,6 +12,8 @@
 * New MIME Types:
   * 7zip (application/x-7z-compressed). Fixes a request by kodram.
     https://github.com/halostatue/mime-types/issues/32
+  * application/x-www-form-urlencoded. Fixes a request by alexkwolfe.
+    https://github.com/halostatue/mime-types/issues/39
 
 == 1.23 / 2013-04-20
 
