@@ -24,6 +24,8 @@
     * application/vnd.etsi.pstn\+xml from Han and Belling.
     * application/vnd.fujixerox.docuworks.container from Tashiro.
     * application/vnd.windows.devicepairing from Dandawate.
+    * video/vnd.radgamettools.bink and video/vnd.radgamettools.smacker from
+      Andersson.
 * Updated MIME Types:
   * RFC 6960 was adopted (application/ocsp-request and application/ocsp-response).
 
