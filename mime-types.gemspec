@@ -33,9 +33,8 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<hoe-git>, ["~> 1.5"])
       s.add_development_dependency(%q<hoe-rubygems>, ["~> 1.0"])
       s.add_development_dependency(%q<hoe-travis>, ["~> 1.2"])
-      s.add_development_dependency(%q<nokogiri>, ["~> 1.5"])
       s.add_development_dependency(%q<rake>, ["~> 10.0"])
-      s.add_development_dependency(%q<hoe>, ["~> 3.6"])
+      s.add_development_dependency(%q<hoe>, ["~> 3.7"])
     else
       s.add_dependency(%q<rubyforge>, [">= 2.0.4"])
       s.add_dependency(%q<minitest>, ["~> 5.0"])
@@ -46,9 +45,8 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<hoe-git>, ["~> 1.5"])
       s.add_dependency(%q<hoe-rubygems>, ["~> 1.0"])
       s.add_dependency(%q<hoe-travis>, ["~> 1.2"])
-      s.add_dependency(%q<nokogiri>, ["~> 1.5"])
       s.add_dependency(%q<rake>, ["~> 10.0"])
-      s.add_dependency(%q<hoe>, ["~> 3.6"])
+      s.add_dependency(%q<hoe>, ["~> 3.7"])
     end
   else
     s.add_dependency(%q<rubyforge>, [">= 2.0.4"])
@@ -60,8 +58,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<hoe-git>, ["~> 1.5"])
     s.add_dependency(%q<hoe-rubygems>, ["~> 1.0"])
     s.add_dependency(%q<hoe-travis>, ["~> 1.2"])
-    s.add_dependency(%q<nokogiri>, ["~> 1.5"])
     s.add_dependency(%q<rake>, ["~> 10.0"])
-    s.add_dependency(%q<hoe>, ["~> 3.6"])
+    s.add_dependency(%q<hoe>, ["~> 3.7"])
   end
 end
