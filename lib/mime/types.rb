@@ -578,7 +578,7 @@ module MIME
     def initialize(data_version = nil)
       @type_variants    = Hash.new { |h, k| h[k] = [] }
       @extension_index  = Hash.new { |h, k| h[k] = [] }
-      @data_version = data_version
+      @data_version     = data_version
     end
 
     def add_type_variant(mime_type) #:nodoc:
@@ -592,14 +592,14 @@ module MIME
     def defined_types #:nodoc:
       @type_variants.values.flatten
     end
-  
+
     # Returns the number of known types. A shortcut of MIME::Types[//].size.
     # (Keep in mind that this is memory intensive, cache the result to spare
     # resources)
     def count
       defined_types.size
     end
-  
+
     def each
      defined_types.each { |t| yield t }
     end
@@ -633,22 +633,16 @@ module MIME
     #   6. Obsolete definitions use-instead clauses are compared.
     #   7. Sort on name.
     def [](type_id, flags = {})
-      if type_id.kind_of?(Regexp)
-        matches = []
-        @type_variants.each_key do |k|
-          matches << @type_variants[k] if k =~ type_id
-        end
-        matches.flatten!
-      elsif type_id.kind_of?(MIME::Type)
-        matches = [type_id]
-      else
-        matches = @type_variants[MIME::Type.simplified(type_id)]
-      end
+      matches = case type_id
+                when MIME::Type
+                  @type_variants[type_id.simplified]
+                when Regexp
+                  match(type_id)
+                else
+                  @type_variants[MIME::Type.simplified(type_id)]
+                end
 
-      matches.delete_if { |e| not e.complete? } if flags[:complete]
-      matches.delete_if { |e| not e.platform? } if flags[:platform]
-
-      matches.sort { |a, b| a.priority_compare(b) }
+      prune_matches(matches, flags).sort { |a, b| a.priority_compare(b) }
     end
 
     # Return the list of MIME::Types which belongs to the file based on its
@@ -693,6 +687,17 @@ module MIME
           index_extensions(mime_type)
         end
       end
+    end
+
+    private
+    def prune_matches(matches, flags)
+      matches.delete_if { |e| not e.complete? } if flags[:complete]
+      matches.delete_if { |e| not e.platform? } if flags[:platform]
+      matches
+    end
+
+    def match(pattern)
+      @type_variants.select { |k, v| k =~ pattern }.values.flatten
     end
 
     class << self
@@ -828,7 +833,7 @@ module MIME
       end
 
       include Enumerable
-  
+
       def count
         @__types__.count
       end
