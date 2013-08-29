@@ -1,11 +1,8 @@
 # -*- ruby encoding: utf-8 -*-
 
-$LOAD_PATH.unshift("#{File.dirname(__FILE__)}/../lib") if __FILE__ == $0
-
 require 'mime/types'
-require 'minitest/autorun'
 
-class TestMIME_Type < MiniTest::Unit::TestCase
+class TestMIME_Type < MiniTest::Test
   def yaml_mime_type_from_array
     MIME::Type.from_array('text/x-yaml', %w(yaml yml), '8bit', 'd9d172f608')
   end

@@ -1,10 +1,8 @@
 # -*- ruby encoding: utf-8 -*-
 
-$LOAD_PATH.unshift("#{File.dirname(__FILE__)}/../lib") if __FILE__ == $0
-
 require 'mime/types'
 
-class TestMIME_Types < MiniTest::Unit::TestCase #:nodoc:
+class TestMIME_Types < MiniTest::Test
   def test_class_index_1
     text_plain = MIME::Type.new('text/plain') do |t|
       t.encoding = '8bit'
