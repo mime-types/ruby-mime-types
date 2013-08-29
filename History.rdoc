@@ -1,3 +1,14 @@
+== 1.25 / YYYY-MM-DD
+
+* Bugs:
+  * Force the default internal application encoding to be used when reading the
+    MIME types database. Based on a change by briangamble, found in the rapid7
+    fork.
+* New extensions:
+  * mjpeg (video/x-motion-jpeg) based on a change by punkrats, found in the
+    vidibus fork.
+* Modernized MiniTest configuration.
+
 == 1.24 / 2013-08-14
 
 * Code Climate:
