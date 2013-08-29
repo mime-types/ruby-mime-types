@@ -5,7 +5,7 @@ video/x-flv @flv :base64
 video/x-gl @gl :base64
 video/x-ivf @ivf
 video/x-matroska @mkv
-video/x-motion-jpeg @mjpg
+video/x-motion-jpeg @mjpg,mjpeg
 video/x-ms-asf @asf,asx
 video/x-ms-wm @wm
 video/x-ms-wmv @wmv
