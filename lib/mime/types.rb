@@ -765,7 +765,7 @@ module MIME
       # be provided.
       def load_from_file(filename) #:nodoc:
         if defined? ::Encoding
-          data = File.open(filename, 'r:UTF-8') { |f| f.read }
+          data = File.open(filename, 'r:UTF-8:-') { |f| f.read }
         else
           data = File.open(filename) { |f| f.read }
         end
