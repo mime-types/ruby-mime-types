@@ -708,7 +708,12 @@ module MIME
     end
 
     def match(pattern)
-      @type_variants.select { |k, v| k =~ pattern }.values.flatten
+      matches = @type_variants.select { |k, v| k =~ pattern }
+      if matches.respond_to? :values
+        matches.values.flatten
+      else
+        matches.map { |m| m.last }.flatten
+      end
     end
 
     class << self
