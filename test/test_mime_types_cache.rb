@@ -2,7 +2,7 @@
 
 require 'mime/types'
 
-class TestMIME_Types_Cache < MiniTest::Test
+class TestMIMETypesCache < Minitest::Test
   def setup
     require 'fileutils'
     @cache_file = File.expand_path('../cache.tst', __FILE__)

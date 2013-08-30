@@ -33,6 +33,46 @@ spec = Hoe.spec 'mime-types' do
   self.extra_dev_deps << ['rake', '~> 10.0']
 end
 
+def reload_mime_types(repeats = 1, force_load = false)
+  repeats.times {
+    Object.send(:remove_const, :MIME) if defined? MIME
+    load 'lib/mime/types.rb'
+    MIME::Types.send(:__types__) if force_load
+  }
+end
+
+desc 'Benchmark'
+task :benchmark, :repeats do |t, args|
+  repeats = args.repeats.to_i
+  repeats = 50 if repeats.zero?
+  require 'benchmark'
+  $LOAD_PATH.unshift 'lib'
+
+  cache_file = File.expand_path('../cache.mtx', __FILE__)
+  rm cache_file if File.exist? cache_file
+
+  Benchmark.bm(17) do |x|
+    x.report("Normal:") { reload_mime_types repeats }
+
+    ENV['RUBY_MIME_TYPES_LAZY_LOAD'] = 'yes'
+    x.report("Lazy:") { reload_mime_types repeats }
+    x.report("Lazy+Load:") { reload_mime_types repeats, true }
+
+    ENV.delete('RUBY_MIME_TYPES_LAZY_LOAD')
+
+    ENV['RUBY_MIME_TYPES_CACHE'] = cache_file
+    reload_mime_types
+
+    x.report("Cached:") { reload_mime_types repeats }
+    ENV['RUBY_MIME_TYPES_LAZY_LOAD'] = 'yes'
+    x.report("Lazy Cached:") { reload_mime_types repeats }
+    x.report("Lazy Cached Load:") { reload_mime_types repeats, true }
+
+  end
+
+  rm cache_file
+end
+
 namespace :mime do
   desc "Download the current MIME type registrations from IANA."
   task :iana, :save, :destination do |t, args|

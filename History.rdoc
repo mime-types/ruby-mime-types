@@ -1,4 +1,4 @@
-== 1.25 / YYYY-MM-DD
+== 1.25 / 2013-08-30
 
 * New Features:
   * Adding lazy loading and caching functionality to the default data based on

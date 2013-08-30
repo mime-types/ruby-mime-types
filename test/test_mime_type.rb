@@ -2,7 +2,7 @@
 
 require 'mime/types'
 
-class TestMIME_Type < MiniTest::Test
+class TestMIMEType < Minitest::Test
   def yaml_mime_type_from_array
     MIME::Type.from_array('text/x-yaml', %w(yaml yml), '8bit', 'd9d172f608')
   end

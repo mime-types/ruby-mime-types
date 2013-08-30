@@ -57,12 +57,13 @@ Here's the most direct way to get your work merged into the project:
 
 Thanks to everyone else who has contributed to MIME::Types:
 
-*  Andre Pankratz
-*  Mauricio Linhares
-*  Richard Hirner
-*  Todd Carrico
-*  Garret Alfert
-*  Hans de Graaff
-*  Henrik Hodne
-*  Martin d'Allens
-*  cgat
+* Andre Pankratz
+* Mauricio Linhares
+* Richard Hirner
+* Todd Carrico
+* Garret Alfert
+* Hans de Graaff
+* Henrik Hodne
+* Martin d'Allens
+* cgat
+* Greg Brockman

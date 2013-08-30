@@ -2,7 +2,7 @@
 
 require 'mime/types'
 
-class TestMIMETypesLazy < MiniTest::Test
+class TestMIMETypesLazy < Minitest::Test
   def setup
     ENV['RUBY_MIME_TYPES_LAZY_LOAD'] = 'true'
     ENV['RUBY_MIME_TYPES_CACHE'] = File.expand_path('../cache.tst', __FILE__)

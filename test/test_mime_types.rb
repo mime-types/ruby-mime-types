@@ -2,7 +2,12 @@
 
 require 'mime/types'
 
-class TestMIME_Types < MiniTest::Test
+class TestMIMETypes < Minitest::Test
+  def setup
+    MIME::Types.instance_variable_set(:@__types__, nil)
+    MIME::Types.send(:load_mime_types)
+  end
+
   def test_class_index_1
     text_plain = MIME::Type.new('text/plain') do |t|
       t.encoding = '8bit'

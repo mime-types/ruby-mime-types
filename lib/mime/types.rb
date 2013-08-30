@@ -579,6 +579,13 @@ module MIME
       end
     end
 
+    class CacheContainer # :nodoc:
+      attr_reader :version, :data
+      def initialize(version, data)
+        @version, @data = version, data
+      end
+    end
+
     def initialize(data_version = DATA_VERSION)
       @type_variants    = HashWithArrayDefault.new
       @extension_index  = HashWithArrayDefault.new
@@ -875,7 +882,7 @@ module MIME
         __types__.add(*types)
       end
 
-      # Returns the currently defined cache.
+      # Returns the currently defined cache file, if any.
       def cache_file
         ENV['RUBY_MIME_TYPES_CACHE']
       end
@@ -889,19 +896,20 @@ module MIME
         raise ArgumentError, "No RUBY_MIME_TYPES_CACHE set." unless cache_file
         return false unless File.exists? cache_file
 
-        data      = File.read(cache_file)
-        container = Marshal.load(data)
+        begin
+          data      = File.read(cache_file)
+          container = Marshal.load(data)
 
-        if container.version == VERSION
-          @__types__ = Marshal.load(container.data)
-          true
-        else
+          if container.version == VERSION
+            @__types__ = Marshal.load(container.data)
+            true
+          else
+            false
+          end
+        rescue => e
+          warn "Could not load MIME::Types cache: #{e}"
           false
         end
-      rescue => e
-        raise if e.kind_of? ArgumentError
-        warn "Could not load MIME::Types cache: #{e}"
-        false
       end
 
       def write_mime_types_to_cache
@@ -912,7 +920,8 @@ module MIME
         raise ArgumentError, "No RUBY_MIME_TYPES_CACHE set." unless cache_file
 
         File.open(cache_file, 'w') do |f|
-          cache = CacheContainer.new(VERSION, Marshal.dump(__types__))
+          cache = MIME::Types::CacheContainer.new(VERSION,
+                                                  Marshal.dump(__types__))
           f.write Marshal.dump(cache)
         end
 
@@ -946,13 +955,6 @@ module MIME
     end
 
     load_mime_types unless lazy_load?
-
-    class CacheContainer # :nodoc:
-      attr_reader :version, :data
-      def initialize(version, data)
-        @version, @data = version, data
-      end
-    end
   end
 end
 
