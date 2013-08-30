@@ -17,8 +17,8 @@ rvm:
   - rbx-19mode
   - rbx-18mode
   - ree
-  - ruby-head
-  - jruby-head
+# - ruby-head
+# - jruby-head
 matrix:
   allow_failures:
     - rvm:
