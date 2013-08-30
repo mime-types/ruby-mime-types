@@ -7,3 +7,4 @@ pkg
 publish
 coverage
 Gemfile.lock
+test/cache.tst

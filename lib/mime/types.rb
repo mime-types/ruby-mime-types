@@ -33,7 +33,7 @@ module MIME
   #
   class Type
     # The released version of Ruby MIME::Types
-    VERSION = '1.24'
+    VERSION = '1.25'
 
     include Comparable
 
@@ -557,27 +557,31 @@ module MIME
   # ftp://ftp.iana.org/assignments/media-types with some unofficial types
   # added from the the collection at
   # http://www.ltsw.se/knbase/internet/mime.htp
-  #
-  # This is originally based on Perl MIME::Types by Mark Overmeer.
-  #
-  # = Author
-  # Copyright:: Copyright 2002–2013 by Austin Ziegler
-  #             <austin@rubyforge.org>
-  # Version::   1.20.1
-  # Licence::   See Licence.rdoc
-  # See Also::  http://www.iana.org/assignments/media-types/
-  #             http://www.ltsw.se/knbase/internet/mime.htp
-  #
   class Types
     # The released version of Ruby MIME::Types
-    VERSION = MIME::Type::VERSION
+    VERSION      = MIME::Type::VERSION
+    DATA_VERSION = (VERSION.to_f * 100).to_i
 
-      # The data version.
+    # The data version.
     attr_reader :data_version
 
-    def initialize(data_version = nil)
-      @type_variants    = Hash.new { |h, k| h[k] = [] }
-      @extension_index  = Hash.new { |h, k| h[k] = [] }
+    class HashWithArrayDefault < Hash # :nodoc:
+      def initialize
+        super { |h, k| h[k] = [] }
+      end
+
+      def marshal_dump
+        {}.merge(self)
+      end
+
+      def marshal_load(hash)
+        self.merge!(hash)
+      end
+    end
+
+    def initialize(data_version = DATA_VERSION)
+      @type_variants    = HashWithArrayDefault.new
+      @extension_index  = HashWithArrayDefault.new
       @data_version     = data_version
     end
 
@@ -604,7 +608,7 @@ module MIME
      defined_types.each { |t| yield t }
     end
 
-    @__types__ = self.new(VERSION)
+    @__types__  = nil
 
     # Returns a list of MIME::Type objects, which may be empty. The optional
     # flag parameters are :complete (finds only complete MIME::Type objects)
@@ -680,7 +684,7 @@ module MIME
         else
           if @type_variants.include?(mime_type.simplified)
             if @type_variants[mime_type.simplified].include?(mime_type)
-              warn "Type #{mime_type} already registered as a variant of #{mime_type.simplified}." unless defined? MIME::Types::STARTUP
+              warn "Type #{mime_type} already registered as a variant of #{mime_type.simplified}." unless defined? MIME::Types::LOAD
             end
           end
           add_type_variant(mime_type)
@@ -702,11 +706,11 @@ module MIME
 
     class << self
       def add_type_variant(mime_type) #:nodoc:
-        @__types__.add_type_variant(mime_type)
+        __types__.add_type_variant(mime_type)
       end
 
       def index_extensions(mime_type) #:nodoc:
-        @__types__.index_extensions(mime_type)
+        __types__.index_extensions(mime_type)
       end
 
       # The regular expression used to match a file-based MIME type
@@ -829,17 +833,17 @@ module MIME
       #     puts t.to_a.join(", ")
       #   end
       def [](type_id, flags = {})
-        @__types__[type_id, flags]
+        __types__[type_id, flags]
       end
 
       include Enumerable
 
       def count
-        @__types__.count
+        __types__.count
       end
 
       def each
-        @__types__.each {|t| yield t }
+        __types__.each {|t| yield t }
       end
 
       # Return the list of MIME::Types which belongs to the file based on
@@ -853,12 +857,12 @@ module MIME
       #   puts "MIME::Types.type_for('citydesk.gif')
       #     => [image/gif]
       def type_for(filename, platform = false)
-        @__types__.type_for(filename, platform)
+        __types__.type_for(filename, platform)
       end
 
       # A synonym for MIME::Types.type_for
       def of(filename, platform = false)
-        @__types__.type_for(filename, platform)
+        __types__.type_for(filename, platform)
       end
 
       # Add one or more MIME::Type objects to the set of known types. Each
@@ -868,14 +872,87 @@ module MIME
       # <strong>Please inform the maintainer of this module when registered
       # types are missing.</strong>
       def add(*types)
-        @__types__.add(*types)
+        __types__.add(*types)
+      end
+
+      # Returns the currently defined cache.
+      def cache_file
+        ENV['RUBY_MIME_TYPES_CACHE']
+      end
+
+      private
+      def load_mime_types_from_cache
+        load_mime_types_from_cache! if cache_file
+      end
+
+      def load_mime_types_from_cache!
+        raise ArgumentError, "No RUBY_MIME_TYPES_CACHE set." unless cache_file
+        return false unless File.exists? cache_file
+
+        data      = File.read(cache_file)
+        container = Marshal.load(data)
+
+        if container.version == VERSION
+          @__types__ = Marshal.load(container.data)
+          true
+        else
+          false
+        end
+      rescue => e
+        raise if e.kind_of? ArgumentError
+        warn "Could not load MIME::Types cache: #{e}"
+        false
+      end
+
+      def write_mime_types_to_cache
+        write_mime_types_to_cache! if cache_file
+      end
+
+      def write_mime_types_to_cache!
+        raise ArgumentError, "No RUBY_MIME_TYPES_CACHE set." unless cache_file
+
+        File.open(cache_file, 'w') do |f|
+          cache = CacheContainer.new(VERSION, Marshal.dump(__types__))
+          f.write Marshal.dump(cache)
+        end
+
+        true
+      end
+
+      def load_and_parse_mime_types
+        const_set(:LOAD, true) unless $DEBUG
+        Dir[File.join(File.dirname(__FILE__), 'types', '*')].sort.each { |f|
+          add(load_from_file(f))
+        }
+        remove_const :LOAD if defined? LOAD
+      end
+
+      def lazy_load?
+        (lazy = ENV['RUBY_MIME_TYPES_LAZY_LOAD']) && (lazy != 'false')
+      end
+
+      def __types__
+        load_mime_types unless @__types__
+        @__types__
+      end
+
+      def load_mime_types
+        @__types__ = new(VERSION)
+        unless load_mime_types_from_cache
+          load_and_parse_mime_types
+          write_mime_types_to_cache
+        end
       end
     end
 
-    files = Dir[File.join(File.dirname(__FILE__), 'types', '*')]
-    MIME::Types::STARTUP = true unless $DEBUG
-    files.sort.each { |file| add load_from_file(file) }
-    remove_const :STARTUP if defined? STARTUP
+    load_mime_types unless lazy_load?
+
+    class CacheContainer # :nodoc:
+      attr_reader :version, :data
+      def initialize(version, data)
+        @version, @data = version, data
+      end
+    end
   end
 end
 

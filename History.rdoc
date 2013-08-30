@@ -1,5 +1,8 @@
 == 1.25 / YYYY-MM-DD
 
+* New Features:
+  * Adding lazy loading and caching functionality to the default data based on
+    work done by Greg Brockman (gdb).
 * Bugs:
   * Force the default internal application encoding to be used when reading the
     MIME types database. Based on a change by briangamble, found in the rapid7

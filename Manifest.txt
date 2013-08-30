@@ -38,3 +38,5 @@ lib/mime/types/video.nonstandard
 lib/mime/types/video.obsolete
 test/test_mime_type.rb
 test/test_mime_types.rb
+test/test_mime_types_cache.rb
+test/test_mime_types_lazy.rb
