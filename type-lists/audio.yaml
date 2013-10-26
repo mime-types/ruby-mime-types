@@ -1,0 +1,1111 @@
+---
+- !ruby/object:MIME::Type
+  content-type: audio/1d-interleaved-parityfec
+  encoding: base64
+  references:
+  - IANA
+  - RFC6015
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/32kadpcm
+  encoding: base64
+  references:
+  - IANA
+  - RFC3802
+  - RFC2421
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/3gpp
+  encoding: base64
+  references:
+  - IANA
+  - RFC3839
+  - RFC6381
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/3gpp2
+  encoding: base64
+  references:
+  - IANA
+  - RFC4393
+  - RFC6381
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/ac3
+  encoding: base64
+  references:
+  - IANA
+  - RFC4184
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/AMR
+  encoding: base64
+  extensions:
+  - amr
+  references:
+  - IANA
+  - RFC4867
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/AMR-WB
+  encoding: base64
+  extensions:
+  - awb
+  references:
+  - IANA
+  - RFC4867
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/amr-wb+
+  encoding: base64
+  references:
+  - IANA
+  - RFC4352
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/asc
+  encoding: base64
+  references:
+  - IANA
+  - RFC6295
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/ATRAC-ADVANCED-LOSSLESS
+  encoding: base64
+  references:
+  - IANA
+  - RFC5584
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/ATRAC-X
+  encoding: base64
+  references:
+  - IANA
+  - RFC5584
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/ATRAC3
+  encoding: base64
+  references:
+  - IANA
+  - RFC5584
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/basic
+  encoding: base64
+  extensions:
+  - au
+  - snd
+  references:
+  - IANA
+  - RFC2045
+  - RFC2046
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/BV16
+  encoding: base64
+  references:
+  - IANA
+  - RFC4298
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/BV32
+  encoding: base64
+  references:
+  - IANA
+  - RFC4298
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/clearmode
+  encoding: base64
+  references:
+  - IANA
+  - RFC4040
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/CN
+  encoding: base64
+  references:
+  - IANA
+  - RFC3389
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/DAT12
+  encoding: base64
+  references:
+  - IANA
+  - RFC3190
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/dls
+  encoding: base64
+  references:
+  - IANA
+  - RFC4613
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/dsr-es201108
+  encoding: base64
+  references:
+  - IANA
+  - RFC3557
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/dsr-es202050
+  encoding: base64
+  references:
+  - IANA
+  - RFC4060
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/dsr-es202211
+  encoding: base64
+  references:
+  - IANA
+  - RFC4060
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/dsr-es202212
+  encoding: base64
+  references:
+  - IANA
+  - RFC4060
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/DV
+  encoding: base64
+  references:
+  - IANA
+  - RFC6469
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/DVI4
+  encoding: base64
+  references:
+  - IANA
+  - RFC4856
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/eac3
+  encoding: base64
+  references:
+  - IANA
+  - RFC4598
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/encaprtp
+  encoding: base64
+  references:
+  - IANA
+  - RFC6849
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/EVRC
+  encoding: base64
+  extensions:
+  - evc
+  references:
+  - IANA
+  - RFC4788
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/EVRC-QCP
+  encoding: base64
+  references:
+  - IANA
+  - RFC3625
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/EVRC0
+  encoding: base64
+  references:
+  - IANA
+  - RFC4788
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/EVRC1
+  encoding: base64
+  references:
+  - IANA
+  - RFC4788
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/EVRCB
+  encoding: base64
+  references:
+  - IANA
+  - RFC5188
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/EVRCB0
+  encoding: base64
+  references:
+  - IANA
+  - RFC5188
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/EVRCB1
+  encoding: base64
+  references:
+  - IANA
+  - RFC4788
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/EVRCNW
+  encoding: base64
+  references:
+  - IANA
+  - RFC6884
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/EVRCNW0
+  encoding: base64
+  references:
+  - IANA
+  - RFC6884
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/EVRCNW1
+  encoding: base64
+  references:
+  - IANA
+  - RFC6884
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/EVRCWB
+  encoding: base64
+  references:
+  - IANA
+  - RFC5188
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/EVRCWB0
+  encoding: base64
+  references:
+  - IANA
+  - RFC5188
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/EVRCWB1
+  encoding: base64
+  references:
+  - IANA
+  - RFC5188
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/example
+  encoding: base64
+  references:
+  - IANA
+  - RFC4735
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/fwdred
+  encoding: base64
+  references:
+  - IANA
+  - RFC6354
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/G719
+  encoding: base64
+  references:
+  - IANA
+  - RFC5404
+  - ! '{Errata3245=http://www.rfc-editor.org/errata_search.php?rfc=5404&eid=3245}'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/G722
+  encoding: base64
+  references:
+  - IANA
+  - RFC4856
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/G7221
+  encoding: base64
+  references:
+  - IANA
+  - RFC5577
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/G723
+  encoding: base64
+  references:
+  - IANA
+  - RFC4856
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/G726-16
+  encoding: base64
+  references:
+  - IANA
+  - RFC4856
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/G726-24
+  encoding: base64
+  references:
+  - IANA
+  - RFC4856
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/G726-32
+  encoding: base64
+  references:
+  - IANA
+  - RFC4856
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/G726-40
+  encoding: base64
+  references:
+  - IANA
+  - RFC4856
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/G728
+  encoding: base64
+  references:
+  - IANA
+  - RFC4856
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/G729
+  encoding: base64
+  references:
+  - IANA
+  - RFC4856
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/G7291
+  encoding: base64
+  references:
+  - IANA
+  - RFC4749
+  - RFC5459
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/G729D
+  encoding: base64
+  references:
+  - IANA
+  - RFC4856
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/G729E
+  encoding: base64
+  references:
+  - IANA
+  - RFC4856
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/GSM
+  encoding: base64
+  references:
+  - IANA
+  - RFC4856
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/GSM-EFR
+  encoding: base64
+  references:
+  - IANA
+  - RFC4856
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/GSM-HR-08
+  encoding: base64
+  references:
+  - IANA
+  - RFC5993
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/iLBC
+  encoding: base64
+  references:
+  - IANA
+  - RFC3952
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/ip-mr_v2.5
+  encoding: base64
+  references:
+  - IANA
+  - RFC6262
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/L16
+  encoding: base64
+  extensions:
+  - l16
+  references:
+  - IANA
+  - RFC4856
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/L20
+  encoding: base64
+  references:
+  - IANA
+  - RFC3190
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/L24
+  encoding: base64
+  references:
+  - IANA
+  - RFC3190
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/L8
+  encoding: base64
+  references:
+  - IANA
+  - RFC4856
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/LPC
+  encoding: base64
+  references:
+  - IANA
+  - RFC4856
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/mobile-xmf
+  encoding: base64
+  references:
+  - IANA
+  - RFC4723
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/mp4
+  encoding: base64
+  extensions:
+  - mp4
+  - mpg4
+  - f4a
+  - f4b
+  references:
+  - IANA
+  - RFC4337
+  - RFC6381
+  - ! '{Adobe=http://www.kaourantin.net/2007/10/new-file-extensions-and-mime-types.html}'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/MP4A-LATM
+  encoding: base64
+  extensions:
+  - m4a
+  references:
+  - IANA
+  - RFC6416
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/MPA
+  encoding: base64
+  references:
+  - IANA
+  - RFC3555
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/mpa-robust
+  encoding: base64
+  references:
+  - IANA
+  - RFC5219
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/mpeg
+  encoding: base64
+  extensions:
+  - mpga
+  - mp2
+  - mp3
+  references:
+  - IANA
+  - RFC3003
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/mpeg4-generic
+  encoding: base64
+  references:
+  - IANA
+  - RFC3640
+  - RFC5691
+  - RFC6295
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/ogg
+  encoding: base64
+  extensions:
+  - ogg
+  references:
+  - IANA
+  - RFC5334
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/parityfec
+  encoding: base64
+  references:
+  - IANA
+  - RFC5109
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/PCMA
+  encoding: base64
+  references:
+  - IANA
+  - RFC4856
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/PCMA-WB
+  encoding: base64
+  references:
+  - IANA
+  - RFC5391
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/PCMU
+  encoding: base64
+  references:
+  - IANA
+  - RFC4856
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/PCMU-WB
+  encoding: base64
+  references:
+  - IANA
+  - RFC5391
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/prs.sid
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Walleij]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/QCELP
+  encoding: base64
+  references:
+  - IANA
+  - RFC3555
+  - RFC3625
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/raptorfec
+  encoding: base64
+  references:
+  - IANA
+  - RFC6682
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/RED
+  encoding: base64
+  references:
+  - IANA
+  - RFC3555
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/rtp-enc-aescm128
+  encoding: base64
+  references:
+  - IANA
+  - ! '[3GPP]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/rtp-midi
+  encoding: base64
+  references:
+  - IANA
+  - RFC6295
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/rtploopback
+  encoding: base64
+  references:
+  - IANA
+  - RFC6849
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/rtx
+  encoding: base64
+  references:
+  - IANA
+  - RFC4588
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/SMV
+  encoding: base64
+  extensions:
+  - smv
+  references:
+  - IANA
+  - RFC3558
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/SMV-QCP
+  encoding: base64
+  references:
+  - IANA
+  - RFC3625
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/SMV0
+  encoding: base64
+  references:
+  - IANA
+  - RFC3558
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/sp-midi
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Kosonen]'
+  - ! '[T. White=T.White]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/speex
+  encoding: base64
+  references:
+  - IANA
+  - RFC5574
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/t140c
+  encoding: base64
+  references:
+  - IANA
+  - RFC4351
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/t38
+  encoding: base64
+  references:
+  - IANA
+  - RFC4612
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/telephone-event
+  encoding: base64
+  references:
+  - IANA
+  - RFC4733
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/tone
+  encoding: base64
+  references:
+  - IANA
+  - RFC4733
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/UEMCLIP
+  encoding: base64
+  references:
+  - IANA
+  - RFC5686
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/ulpfec
+  encoding: base64
+  references:
+  - IANA
+  - RFC5109
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/VDVI
+  encoding: base64
+  references:
+  - IANA
+  - RFC4856
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/VMR-WB
+  encoding: base64
+  references:
+  - IANA
+  - RFC4348
+  - RFC4424
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.3gpp.iufp
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Belling]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.4SB
+  encoding: base64
+  references:
+  - IANA
+  - ! '[De Jaham]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.audiokoz
+  encoding: base64
+  references:
+  - IANA
+  - ! '[DeBarros]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.CELP
+  encoding: base64
+  references:
+  - IANA
+  - ! '[De Jaham]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.cisco.nse
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Kumar]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.cmles.radio-events
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Goulet]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.cns.anp1
+  encoding: base64
+  references:
+  - IANA
+  - ! '[McLaughlin]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.cns.inf1
+  encoding: base64
+  references:
+  - IANA
+  - ! '[McLaughlin]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.dece.audio
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Dolan]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.digital-winds
+  encoding: 7bit
+  extensions:
+  - eol
+  references:
+  - IANA
+  - ! '[Strazds]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.dlna.adts
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Heredia]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.dolby.heaac.1
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Hattersley]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.dolby.heaac.2
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Hattersley]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.dolby.mlp
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Ward]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.dolby.mps
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Hattersley]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.dolby.pl2
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Hattersley]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.dolby.pl2x
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Hattersley]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.dolby.pl2z
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Hattersley]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.dolby.pulse.1
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Hattersley]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.dra
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Tian]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.dts
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Zou]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.dts.hd
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Zou]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.dvb.file
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Siebert]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.everad.plj
+  encoding: base64
+  extensions:
+  - plj
+  references:
+  - IANA
+  - ! '[Cicelsky]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.hns.audio
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Swaminathan]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.lucent.voice
+  encoding: base64
+  extensions:
+  - lvp
+  references:
+  - IANA
+  - ! '[Vaudreuil]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.ms-playready.media.pya
+  encoding: base64
+  references:
+  - IANA
+  - ! '[DiAcetis]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.nokia.mobile-xmf
+  encoding: base64
+  extensions:
+  - mxmf
+  references:
+  - IANA
+  - ! '[Nokia Corporation=Nokia]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.nortel.vbk
+  encoding: base64
+  extensions:
+  - vbk
+  references:
+  - IANA
+  - ! '[Parsons]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.nuera.ecelp4800
+  encoding: base64
+  extensions:
+  - ecelp4800
+  references:
+  - IANA
+  - ! '[Fox]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.nuera.ecelp7470
+  encoding: base64
+  extensions:
+  - ecelp7470
+  references:
+  - IANA
+  - ! '[Fox]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.nuera.ecelp9600
+  encoding: base64
+  extensions:
+  - ecelp9600
+  references:
+  - IANA
+  - ! '[Fox]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.octel.sbc
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Vaudreuil]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.qcelp
+  encoding: base64
+  extensions:
+  - qcp
+  obsolete: true
+  use-instead:
+  - audio/qcelp
+  references:
+  - IANA
+  - RFC3625
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.rhetorex.32kadpcm
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Vaudreuil]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.rip
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Dawe]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.sealedmedia.softseal.mpeg
+  encoding: base64
+  extensions:
+  - smp3
+  - smp
+  - s1m
+  references:
+  - IANA
+  - ! '[Petersen]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vnd.vmx.cvsd
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Vaudreuil]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vorbis
+  encoding: base64
+  references:
+  - IANA
+  - RFC5215
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/vorbis-config
+  encoding: base64
+  references:
+  - IANA
+  - RFC5215
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/webm
+  encoding: base64
+  extensions:
+  - webm
+  references:
+  - ! '{WebM=http://www.webmproject.org/code/specs/container/}'
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: audio/x-aac
+  encoding: base64
+  extensions:
+  - aac
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: audio/x-aiff
+  encoding: base64
+  extensions:
+  - aif
+  - aifc
+  - aiff
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: audio/x-midi
+  encoding: base64
+  extensions:
+  - mid
+  - midi
+  - kar
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: audio/x-ms-wax
+  encoding: base64
+  extensions:
+  - wax
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: audio/x-ms-wma
+  encoding: base64
+  extensions:
+  - wma
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: audio/x-ms-wmv
+  encoding: base64
+  extensions:
+  - wmv
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: audio/x-pn-realaudio
+  encoding: base64
+  extensions:
+  - ra
+  - ram
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: audio/x-pn-realaudio-plugin
+  encoding: base64
+  extensions:
+  - rpm
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: audio/x-realaudio
+  encoding: base64
+  extensions:
+  - ra
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: audio/x-wav
+  encoding: base64
+  extensions:
+  - wav
+  registered: false

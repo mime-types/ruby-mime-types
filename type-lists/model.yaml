@@ -1,0 +1,122 @@
+---
+- !ruby/object:MIME::Type
+  content-type: model/example
+  encoding: base64
+  references:
+  - IANA
+  - RFC4735
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: model/iges
+  encoding: base64
+  extensions:
+  - igs
+  - iges
+  references:
+  - IANA
+  - ! '[Parks]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: model/mesh
+  encoding: base64
+  extensions:
+  - msh
+  - mesh
+  - silo
+  references:
+  - IANA
+  - RFC2077
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: model/vnd.collada+xml
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Riordon]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: model/vnd.dwf
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Pratt]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: model/vnd.flatland.3dml
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Powers]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: model/vnd.gdl
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Babits]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: model/vnd.gs-gdl
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Babits]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: model/vnd.gtw
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Ozaki]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: model/vnd.moml+xml
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Brooks]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: model/vnd.mts
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Rabinovitch]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: model/vnd.parasolid.transmit.binary
+  encoding: base64
+  extensions:
+  - x_b
+  - xmt_bin
+  references:
+  - IANA
+  - ! '[Parasolid]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: model/vnd.parasolid.transmit.text
+  encoding: quoted-printable
+  extensions:
+  - x_t
+  - xmt_txt
+  references:
+  - IANA
+  - ! '[Parasolid]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: model/vnd.vtu
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Rabinovitch]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: model/vrml
+  encoding: base64
+  extensions:
+  - wrl
+  - vrml
+  references:
+  - IANA
+  - RFC2077
+  registered: true

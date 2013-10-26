@@ -1,0 +1,139 @@
+---
+- !ruby/object:MIME::Type
+  content-type: multipart/alternative
+  encoding: 8bit
+  references:
+  - IANA
+  - RFC2045
+  - RFC2046
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: multipart/appledouble
+  encoding: 8bit
+  references:
+  - IANA
+  - ! '[Faltstrom]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: multipart/byteranges
+  encoding: base64
+  references:
+  - IANA
+  - RFC2616
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: multipart/digest
+  encoding: 8bit
+  references:
+  - IANA
+  - RFC2045
+  - RFC2046
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: multipart/encrypted
+  encoding: base64
+  references:
+  - IANA
+  - RFC1847
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: multipart/example
+  encoding: base64
+  references:
+  - IANA
+  - RFC4735
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: multipart/form-data
+  encoding: base64
+  references:
+  - IANA
+  - RFC2388
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: multipart/header-set
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Crocker]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: multipart/mixed
+  encoding: 8bit
+  references:
+  - IANA
+  - RFC2045
+  - RFC2046
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: multipart/parallel
+  encoding: 8bit
+  references:
+  - IANA
+  - RFC2045
+  - RFC2046
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: multipart/related
+  encoding: base64
+  references:
+  - IANA
+  - RFC2387
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: multipart/report
+  encoding: base64
+  references:
+  - IANA
+  - RFC6522
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: multipart/signed
+  encoding: base64
+  references:
+  - IANA
+  - RFC1847
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: multipart/voice-message
+  encoding: base64
+  references:
+  - IANA
+  - RFC2421
+  - RFC2423
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: multipart/x-gzip
+  encoding: base64
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: multipart/x-mixed-replace
+  encoding: base64
+  references:
+  - ! '{HTML5=http://www.w3.org/TR/html5/iana.html#multipart/x-mixed-replace}'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: multipart/x-parallel
+  encoding: base64
+  obsolete: true
+  use-instead:
+  - multipart/parallel
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: multipart/x-tar
+  encoding: base64
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: multipart/x-ustar
+  encoding: base64
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: multipart/x-www-form-urlencoded
+  encoding: base64
+  obsolete: true
+  use-instead: application/x-www-form-urlencoded
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: multipart/x-zip
+  encoding: base64
+  registered: false

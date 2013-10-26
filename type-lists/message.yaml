@@ -1,0 +1,156 @@
+---
+- !ruby/object:MIME::Type
+  content-type: message/CPIM
+  encoding: base64
+  references:
+  - IANA
+  - RFC3862
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: message/delivery-status
+  encoding: base64
+  references:
+  - IANA
+  - RFC1894
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: message/disposition-notification
+  encoding: base64
+  references:
+  - IANA
+  - RFC3798
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: message/example
+  encoding: base64
+  references:
+  - IANA
+  - RFC4735
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: message/external-body
+  encoding: 8bit
+  references:
+  - IANA
+  - RFC2045
+  - RFC2046
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: message/feedback-report
+  encoding: base64
+  references:
+  - IANA
+  - RFC5965
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: message/global
+  encoding: base64
+  references:
+  - IANA
+  - RFC6532
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: message/global-delivery-status
+  encoding: base64
+  references:
+  - IANA
+  - RFC6533
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: message/global-disposition-notification
+  encoding: base64
+  references:
+  - IANA
+  - RFC6533
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: message/global-headers
+  encoding: base64
+  references:
+  - IANA
+  - RFC6533
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: message/http
+  encoding: base64
+  references:
+  - IANA
+  - RFC2616
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: message/imdn+xml
+  encoding: base64
+  references:
+  - IANA
+  - RFC5438
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: message/news
+  encoding: 8bit
+  obsolete: true
+  references:
+  - IANA
+  - RFC5537
+  - ! '[H.Spencer]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: message/partial
+  encoding: 8bit
+  references:
+  - IANA
+  - RFC2045
+  - RFC2046
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: message/rfc822
+  encoding: 8bit
+  extensions:
+  - eml
+  references:
+  - IANA
+  - RFC2045
+  - RFC2046
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: message/s-http
+  encoding: base64
+  references:
+  - IANA
+  - RFC2660
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: message/sip
+  encoding: base64
+  references:
+  - IANA
+  - RFC3261
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: message/sipfrag
+  encoding: base64
+  references:
+  - IANA
+  - RFC3420
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: message/tracking-status
+  encoding: base64
+  references:
+  - IANA
+  - RFC3886
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: message/vnd.si.simp
+  encoding: base64
+  obsolete: true
+  references:
+  - IANA
+  - ! '[Parks Young=ParksYoung]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: message/vnd.wfa.wsc
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Conley]'
+  registered: true

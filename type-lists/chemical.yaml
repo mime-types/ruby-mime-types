@@ -1,0 +1,31 @@
+---
+- !ruby/object:MIME::Type
+  content-type: chemical/x-pdb
+  encoding: base64
+  extensions:
+  - pdb
+  obsolete: true
+  use-instead:
+  - x-chemical/x-pdb
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: chemical/x-xyz
+  encoding: base64
+  extensions:
+  - xyz
+  obsolete: true
+  use-instead:
+  - x-chemical/x-xyz
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: x-chemical/x-pdb
+  encoding: base64
+  extensions:
+  - pdb
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: x-chemical/x-xyz
+  encoding: base64
+  extensions:
+  - xyz
+  registered: false

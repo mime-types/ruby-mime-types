@@ -1,122 +1,113 @@
 # -*- ruby encoding: utf-8 -*-
 
 require 'mime/types'
+require 'minitest_helper'
 
 class TestMIMETypes < Minitest::Test
   def setup
-    MIME::Types.instance_variable_set(:@__types__, nil)
-    MIME::Types.send(:load_mime_types)
+    @mime_types = MIME::Types.new
+    @mime_types.add(MIME::Type.new(['text/plain', %w(txt)]),
+                    MIME::Type.new(['image/jpeg', %w(jpg jpeg)]),
+                    MIME::Type.new('application/x-wordperfect6.1'),
+                    MIME::Type.new('content-type' => 'application/x-www-form-urlencoded', 'registered' => true),
+                    MIME::Type.new(['application/x-gzip', %w(gz)]),
+                    MIME::Type.new(['application/gzip', %W(gz)]))
   end
 
-  def test_class_index_1
-    text_plain = MIME::Type.new('text/plain') do |t|
-      t.encoding = '8bit'
-      t.extensions = %w(asc txt c cc h hh cpp hpp dat hlp)
+  def test_enumerable
+    assert(@mime_types.any? {|type| type.content_type == 'text/plain'})
+  end
+
+  def test_index_with_mime_type
+    xtxp = MIME::Type.new('x-text/x-plain')
+    assert_includes(@mime_types[xtxp], 'text/plain')
+    assert_equal(1, @mime_types[xtxp].size)
+  end
+
+  def test_index_with_regex
+    assert_includes(@mime_types[/plain/], 'text/plain')
+    assert_equal(1, @mime_types[/plain/].size)
+  end
+
+  def test_index_with_string
+    assert_includes(@mime_types['text/plain'], 'text/plain')
+    assert_equal(1, @mime_types['text/plain'].size)
+  end
+
+  def test_index_with_complete_flag
+    assert_empty(@mime_types['text/vnd.fly', complete: true])
+    refute_empty(@mime_types['text/plain', complete: true])
+  end
+
+  def test_index_with_registered_flag
+    assert_empty(@mime_types['application/x-wordperfect6.1',
+                             registered: true])
+    refute_empty(@mime_types['application/x-www-form-urlencoded',
+                             registered: true])
+    refute_empty(@mime_types['application/gzip', registered: true])
+    refute_equal(@mime_types['application/gzip'].size,
+                 @mime_types['application/gzip', registered: true])
+  end
+
+  def test_index_with_platform_flag
+    assert_deprecated("MIME::Types#[]", "using the :platform flag") do
+      assert_empty(MIME::Types['text/plain', platform: true])
     end
-    text_plain_vms = MIME::Type.new('text/plain') do |t|
-      t.encoding = '8bit'
-      t.extensions = %w(doc)
-      t.system = 'vms'
-    end
-
-    assert_equal(MIME::Types['text/plain'], [text_plain, text_plain_vms])
   end
-
-  def test_class_index_2
-    tst_bmp = MIME::Types["image/x-bmp"] +
-      MIME::Types["image/vnd.wap.wbmp"] + MIME::Types["image/x-win-bmp"]
-
-    assert_equal(tst_bmp.sort, MIME::Types[/bmp$/].sort)
-
-    MIME::Types['image/bmp'][0].system = RUBY_PLATFORM
-
-    assert_equal([MIME::Type.from_array('image/x-bmp', ['bmp'])],
-                 MIME::Types[/bmp$/, { :platform => true }])
-  end
-
-  def test_class_index_3
-    assert(MIME::Types['text/vnd.fly', { :complete => true }].empty?)
-    assert(!MIME::Types['text/plain', { :complete => true} ].empty?)
-  end
-
-  def _test_class_index_extensions
-    raise NotImplementedError, 'Need to write test_class_index_extensions'
-  end
-
-  def test_class_add
+  def test_add
     eruby = MIME::Type.new("application/x-eruby") do |t|
       t.extensions = "rhtml"
       t.encoding = "8bit"
     end
 
-    MIME::Types.add(eruby)
+    @mime_types.add(eruby)
 
-    assert_equal(MIME::Types['application/x-eruby'], [eruby])
+    assert_equal(@mime_types['application/x-eruby'], [eruby])
   end
 
-  def _test_class_add_type_variant
-    raise NotImplementedError, 'Need to write test_class_add_type_variant'
+  def test_type_for
+    assert_equal(%w(application/gzip application/x-gzip),
+                 @mime_types.type_for('gz'))
+    assert_equal(%w(image/jpeg), MIME::Types.of('foo.jpeg'))
+    assert_equal(%w(image/jpeg text/plain),
+                 MIME::Types.type_for(%w(foo.txt foo.jpeg)))
+    assert_equal(@mime_types.of('gif', true), @mime_types['image/gif'])
+    assert_deprecated("MIME::Types#type_for", "using the platform parameter") do
+      assert_empty(MIME::Types.type_for('jpeg', true))
+    end
+    assert_empty(@mime_types.type_for('zzz'))
   end
 
-  def test_class_type_for
-    assert_equal(MIME::Types.type_for('xml').sort, [ MIME::Types['text/xml'], MIME::Types['application/xml'] ].sort)
-    assert_equal(MIME::Types.type_for('gif'), MIME::Types['image/gif'])
-    MIME::Types['image/gif'][0].system = RUBY_PLATFORM
-    assert_equal(MIME::Types.type_for('gif', true), MIME::Types['image/gif'])
-    assert(MIME::Types.type_for('zzz').empty?)
+  def test_count
+    assert_equal(6, @mime_types.count)
   end
 
-  def test_class_of
-    assert_equal(MIME::Types.of('xml').sort, [ MIME::Types['text/xml'], MIME::Types['application/xml'] ].sort)
-    assert_equal(MIME::Types.of('gif'), MIME::Types['image/gif'])
-    MIME::Types['image/gif'][0].system = RUBY_PLATFORM
-    assert_equal(MIME::Types.of('gif', true), MIME::Types['image/gif'])
-    assert(MIME::Types.of('zzz').empty?)
+  # This tests the instance implementation through the class implementation.
+  def test_add_type_variant
+    xtxp = MIME::Type.new('x-text/x-plain')
+    assert_deprecated("MIME::Types#add_type_variant", "and will be private") do
+      @mime_types.add_type_variant(xtxp)
+    end
+    assert_includes(@mime_types['text/plain'], xtxp)
   end
 
-  def test_class_enumerable
-    assert( MIME::Types.any? {|type| type.content_type == 'text/plain'} )
+  def test_data_version
+    assert_equal(MIME::Type::VERSION, @mime_types.data_version)
   end
 
-  def test_class_count
-    assert(MIME::Types.count > 42, "A lot of types are expected to be known.")
+  # This tests the instance implementation through the class implementation.
+  def test_index_extensions
+    xtxp = MIME::Type.new(['x-text/x-plain', %w(tzt)])
+    assert_deprecated("MIME::Types#index_extensions", "and will be private") do
+      @mime_types.index_extensions(xtxp)
+    end
+    assert_includes(@mime_types.of('tzt'), xtxp)
   end
 
-  def test_ebook_formats
-    assert_equal( MIME::Types['application/x-mobipocket-ebook'],  MIME::Types.type_for("book.mobi"))
-    assert_equal( MIME::Types['application/epub+zip'],  MIME::Types.type_for("book.epub"))
-    assert_equal( MIME::Types['application/x-ibooks+zip'], MIME::Types.type_for("book.ibooks") )
-  end
-
-  def test_apple_formats
-    assert_equal( MIME::Types['application/x-apple-diskimage'], MIME::Types.type_for("disk.dmg") )
-  end
-
-  def _test_add
-    raise NotImplementedError, 'Need to write test_add'
-  end
-
-  def _test_add_type_variant
-    raise NotImplementedError, 'Need to write test_add_type_variant'
-  end
-
-  def _test_data_version
-    raise NotImplementedError, 'Need to write test_data_version'
-  end
-
-  def _test_index
-    raise NotImplementedError, 'Need to write test_index'
-  end
-
-  def _test_index_extensions
-    raise NotImplementedError, 'Need to write test_index_extensions'
-  end
-
-  def _test_of
-    raise NotImplementedError, 'Need to write test_of'
-  end
-
-  def _test_type_for
-    raise NotImplementedError, 'Need to write test_type_for'
+  def test_defined_types
+    assert_deprecated("MIME::Types#defined_types") do
+      assert_empty(MIME::Types.new.defined_types)
+    end
+    refute_empty(@mime_types.defined_types)
   end
 end

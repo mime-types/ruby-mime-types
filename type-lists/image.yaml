@@ -1,0 +1,528 @@
+---
+- !ruby/object:MIME::Type
+  content-type: image/bmp
+  encoding: base64
+  extensions:
+  - bmp
+  obsolete: true
+  use-instead:
+  - image/x-bmp
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: image/cgm
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Francis]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/cmu-raster
+  encoding: base64
+  obsolete: true
+  use-instead:
+  - image/x-cmu-raster
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: image/example
+  encoding: base64
+  references:
+  - IANA
+  - RFC4735
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/fits
+  encoding: base64
+  references:
+  - IANA
+  - RFC4047
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/g3fax
+  encoding: base64
+  references:
+  - IANA
+  - RFC1494
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/gif
+  encoding: base64
+  extensions:
+  - gif
+  references:
+  - IANA
+  - RFC2045
+  - RFC2046
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/ief
+  encoding: base64
+  extensions:
+  - ief
+  references:
+  - IANA
+  - RFC1314
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/jp2
+  encoding: base64
+  extensions:
+  - jp2
+  - jpg2
+  references:
+  - IANA
+  - RFC3745
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/jpeg
+  encoding: base64
+  extensions:
+  - jpeg
+  - jpg
+  - jpe
+  references:
+  - IANA
+  - RFC2045
+  - RFC2046
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/jpm
+  encoding: base64
+  extensions:
+  - jpm
+  - jpgm
+  references:
+  - IANA
+  - RFC3745
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/jpx
+  encoding: base64
+  extensions:
+  - jpx
+  - jpf
+  references:
+  - IANA
+  - RFC3745
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/ktx
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Callow]'
+  - ! '[Khronos]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/naplps
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Ferber]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/pjpeg
+  docs: Fixes a bug with IE6 and progressive JPEGs
+  encoding: base64
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: image/png
+  encoding: base64
+  extensions:
+  - png
+  references:
+  - IANA
+  - ! '[Randers-Pehrson]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/prs.btif
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Simon]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/prs.pti
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Laun]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/pwg-raster
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Sweet]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/svg+xml
+  encoding: 8bit
+  extensions:
+  - svg
+  - svgz
+  references:
+  - IANA
+  - ! '[W3C]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/t38
+  encoding: base64
+  references:
+  - IANA
+  - RFC3362
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/targa
+  encoding: base64
+  extensions:
+  - tga
+  obsolete: true
+  use-instead:
+  - image/x-targa
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: image/tiff
+  encoding: base64
+  extensions:
+  - tiff
+  - tif
+  references:
+  - IANA
+  - RFC2302
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/tiff-fx
+  encoding: base64
+  references:
+  - IANA
+  - RFC3950
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/vnd.adobe.photoshop
+  encoding: base64
+  extensions:
+  - psd
+  references:
+  - IANA
+  - ! '[Scarborough]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/vnd.airzip.accelerator.azv
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Clueit]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/vnd.cns.inf2
+  encoding: base64
+  references:
+  - IANA
+  - ! '[McLaughlin]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/vnd.dece.graphic
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Dolan]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/vnd.dgn
+  encoding: base64
+  extensions:
+  - dgn
+  obsolete: true
+  use-instead:
+  - image/x-vnd.dgn
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: image/vnd.djvu
+  encoding: base64
+  extensions:
+  - djvu
+  - djv
+  references:
+  - IANA
+  - ! '[Bottou]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/vnd.dvb.subtitle
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Siebert]'
+  - ! '[Lagally]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/vnd.dwg
+  encoding: base64
+  extensions:
+  - dwg
+  references:
+  - IANA
+  - ! '[Moline]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/vnd.dxf
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Moline]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/vnd.fastbidsheet
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Becker]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/vnd.fpx
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Spencer]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/vnd.fst
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Fuldseth]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/vnd.fujixerox.edmics-mmr
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Onda]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/vnd.fujixerox.edmics-rlc
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Onda]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/vnd.globalgraphics.pgb
+  encoding: base64
+  extensions:
+  - pgb
+  references:
+  - IANA
+  - ! '[Bailey]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/vnd.microsoft.icon
+  encoding: base64
+  extensions:
+  - ico
+  references:
+  - IANA
+  - ! '[Butcher]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/vnd.mix
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Reddy]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/vnd.ms-modi
+  encoding: base64
+  extensions:
+  - mdi
+  references:
+  - IANA
+  - ! '[Vaughan]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/vnd.net-fpx
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Spencer]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/vnd.net.fpx
+  encoding: base64
+  obsolete: true
+  use-instead:
+  - image/vnd.net-fpx
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: image/vnd.radiance
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Fritz]'
+  - ! '[GWard]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/vnd.sealed.png
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Petersen]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/vnd.sealedmedia.softseal.gif
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Petersen]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/vnd.sealedmedia.softseal.jpg
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Petersen]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/vnd.svf
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Moline]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/vnd.wap.wbmp
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Stark]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/vnd.xiff
+  encoding: base64
+  references:
+  - IANA
+  - ! '[S.Martin]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/webp
+  encoding: base64
+  extensions:
+  - webp
+  references:
+  - ! '{WebP=https://developers.google.com/speed/webp/}'
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: image/x-bmp
+  encoding: base64
+  extensions:
+  - bmp
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: image/x-cmu-raster
+  encoding: base64
+  extensions:
+  - ras
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: image/x-compressed-xcf
+  docs: see-also:image/x-xcf
+  encoding: base64
+  extensions:
+  - xcfbz2
+  - xcfgz
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: image/x-hasselblad-3fr
+  encoding: base64
+  extensions:
+  - 3fr
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: image/x-paintshoppro
+  encoding: base64
+  extensions:
+  - psp
+  - pspimage
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: image/x-pict
+  encoding: base64
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: image/x-portable-anymap
+  encoding: base64
+  extensions:
+  - pnm
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: image/x-portable-bitmap
+  encoding: base64
+  extensions:
+  - pbm
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: image/x-portable-graymap
+  encoding: base64
+  extensions:
+  - pgm
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: image/x-portable-pixmap
+  encoding: base64
+  extensions:
+  - ppm
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: image/x-rgb
+  encoding: base64
+  extensions:
+  - rgb
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: image/x-targa
+  encoding: base64
+  extensions:
+  - tga
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: image/x-vnd.dgn
+  encoding: base64
+  extensions:
+  - dgn
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: image/x-win-bmp
+  encoding: base64
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: image/x-xbitmap
+  encoding: 7bit
+  extensions:
+  - xbm
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: image/x-xbm
+  encoding: 7bit
+  extensions:
+  - xbm
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: image/x-xcf
+  encoding: base64
+  extensions:
+  - xcf
+  references:
+  - ! '{XCF=http://git.gnome.org/browse/gimp/tree/devel-docs/xcf.txt}'
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: image/x-xpixmap
+  encoding: 8bit
+  extensions:
+  - xpm
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: image/x-xwindowdump
+  encoding: base64
+  extensions:
+  - xwd
+  registered: false
