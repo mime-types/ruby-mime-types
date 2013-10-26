@@ -1,6 +1,7 @@
 # -*- ruby encoding: utf-8 -*-
 
 require 'mime/types'
+require 'minitest_helper'
 
 class TestMIMETypesCache < Minitest::Test
   def setup
@@ -17,61 +18,61 @@ class TestMIMETypesCache < Minitest::Test
 
   def reset_mime_types
     MIME::Types.instance_variable_set(:@__types__, nil)
-    MIME::Types.send(:load_mime_types)
+    MIME::Types.send(:load_default_mime_types)
   end
 
   def clear_cache_file
     FileUtils.rm @cache_file if File.exist? @cache_file
   end
 
-  def test_uses_correct_cache_file
-    assert_equal(@cache_file, MIME::Types.cache_file)
-  end
-
   def test_does_not_use_cache_when_unset
     ENV.delete('RUBY_MIME_TYPES_CACHE')
-    assert_equal(nil, MIME::Types.send(:load_mime_types_from_cache))
-  end
-
-  def test_raises_exception_when_load_forced_without_cache_file
-    assert_raises(ArgumentError) {
-      ENV.delete('RUBY_MIME_TYPES_CACHE')
-      MIME::Types.send(:load_mime_types_from_cache!)
-    }
+    assert_equal(nil, MIME::Types::Cache.load)
   end
 
   def test_does_not_use_cache_when_missing
-    assert_equal(false, MIME::Types.send(:load_mime_types_from_cache))
+    assert_equal(nil, MIME::Types::Cache.load)
   end
 
   def test_does_not_create_cache_when_unset
     ENV.delete('RUBY_MIME_TYPES_CACHE')
-    assert_equal(nil, MIME::Types.send(:write_mime_types_to_cache))
-  end
-
-  def test_raises_exception_when_write_forced_without_cache_file
-    assert_raises(ArgumentError) {
-      ENV.delete('RUBY_MIME_TYPES_CACHE')
-      MIME::Types.send(:write_mime_types_to_cache!)
-    }
+    assert_equal(nil, MIME::Types::Cache.save)
   end
 
   def test_creates_cache
     assert_equal(false, File.exist?(@cache_file))
-    MIME::Types.send(:write_mime_types_to_cache)
+    MIME::Types::Cache.save
     assert_equal(true, File.exist?(@cache_file))
   end
 
   def test_uses_cache
-    html = MIME::Types['text/html'].first
-    html.extensions << 'hex'
-    MIME::Types.send(:write_mime_types_to_cache)
+    MIME::Types['text/html'].first.extensions << 'hex'
+    MIME::Types::Cache.save
     MIME::Types.instance_variable_set(:@__types__, nil)
 
-    assert_equal(true, MIME::Types.send(:load_mime_types_from_cache))
-    html = MIME::Types['text/html'].first
-    assert_includes(html.extensions, 'hex')
+    assert_includes(MIME::Types['text/html'].first.extensions, 'hex')
 
     reset_mime_types
+  end
+
+  def test_load_different_version
+    v = MIME::Types::VERSION.dup
+    MIME::Types::VERSION.gsub!(/.*/, '0.0')
+    MIME::Types::Cache.save
+    MIME::Types::VERSION.gsub!(/.*/, v)
+    MIME::Types.instance_variable_set(:@__types__, nil)
+    assert_output(nil, /MIME::Types cache: invalid version/) do
+      MIME::Types['text/html']
+    end
+  end
+
+  def test_cache_load_failure
+    MIME::Types::Cache.save
+    data = File.binread(@cache_file).reverse
+    File.open(@cache_file, 'wb') { |f| f.write(data) }
+    MIME::Types.instance_variable_set(:@__types__, nil)
+    assert_output(nil, /Could not load MIME::Types cache: incompatible marshal file format/) do
+      MIME::Types['text/html']
+    end
   end
 end

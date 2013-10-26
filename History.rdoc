@@ -1,3 +1,103 @@
+== 2.0 / 2013-10-DD
+
+* API Changes (General):
+  * mime-types is no longer compatible with Ruby 1.8. Additionally, for its
+    YAML operations (normally development and test), it requires a YAML parser
+    that conforms to the Psych parser, not the Syck parser. This would only be
+    a problem with an alternative Ruby 1.9.2 interpreter that does not
+    implement the Psych parser conventions by requiring +psych+.
+  * MIME::InvalidContentType has been renamed to
+    MIME::Type::InvalidContentType.
+* API Changes (MIME::Type):
+  * Construction of a MIME::Type can be with any of the following objects:
+    * An array containing a valid content type identifier and an optional array
+      of extensions. This allows MIME::Type.new to be used instead of
+      MIME::Type.from_array for the most common use-case. Fixes #43.
+      https://github.com/halostatue/mime-types/pull/43
+    * A Hash containing the output of MIME::Type#to_h, as would be deserialized
+      from the JSON representation of a MIME::Type. This replaces
+      MIME::Type.from_hash using a different parameter set.
+    * Another MIME::Type.
+    * A content type identifier string.
+  * Assignment of an invalid encoding to MIME::Type#encoding= will raise a
+    MIME::Type::InvalidEncoding exception rather than a plain ArgumentError.
+  * MIME::Type#url has been renamed to MIME::Type#references.
+  * MIME::Type#use_instead is now tracked as its own attribute, not as part of
+    MIME::Type#docs.
+  * MIME::Type#system, MIME::Type#system?, MIME::Type#platform?,
+    MIME::Type#to_a, MIME::Type#to_hash, MIME::Type.from_array,
+    MIME::Type.from_hash, and MIME::Type.from_mime_type have been deprecated
+    for removal.
+  * Implemented YAML object encoding and decoding methods,
+    MIME::Type#encode_with and MIME::Type#init_with.
+  * Implemented JSON hash encoding methods.
+  * Added MIME::Type#add_extensions to easily add extensions to a MIME::Type.
+    Fixes #44. https://github.com/halostatue/mime-types/pull/44
+* API Changes (MIME::Types):
+  * MIME type caching has been extracted to its own class. It is structurally
+    similar to what was introduced with mime-types 1.25, but is no longer
+    considered an experimental interface.
+  * MIME type loading has been extracted to its own class. Loading has changed
+    substantially.
+  * MIME::Types#[] accepts a new filter flag, :registered. The :platform flag
+    has been deprecated.
+  * The MIME::Types#type_for platform parameter has been deprecated.
+  * Added the ability for MIME::Types#type_for produce results for multiple
+    filenames or extensions by providing an array as the first parameter. Fixes
+    #42. https://github.com/halostatue/mime-types/pull/42
+  * MIME::Types#add_type_variant and MIME::Types#index_extensions have been
+    deprecated as public methods. They will be private in a future version.
+  * MIME::Types#defined_types, MIME::Types.cache_file,
+    MIME::Types.add_type_variant, and MIME::Types.index_extensions have been
+    deprecated for removal.
+* Default Registry Changes:
+  * The default registry is now a file in the directory data/, located via
+    MIME::Types::Loader::PATH. +PATH+ is defined in the file
+    lib/mime/types/path.rb so that system packagers only have to modify one
+    file in order to put the registry in a location that is not where a gem
+    version of mime-types would expect it. This resolves issue #36, reported by
+    postmodern. https://github.com/halostatue/mime-types/pull/36
+  * The default registry is now a single file in JSON format. This resolves
+    issue #28 reported by jasonlor (an error with mime-types in MacRuby).
+    https://github.com/halostatue/mime-types/pull/28
+  * The default registry is compiled from YAML files in type-lists/, resolving
+    issue #37 reported by postmodern requesting an easier-to-edit format.
+    https://github.com/halostatue/mime-types/pull/37
+* New or Updated MIME Types:
+  * Major updates to the registered MIME type list from IANA using the improved
+    developer tools.
+  * Added:
+    * application/xhtml\+xml (HTML5)
+    * multipart/x-mixed-replace (HTML5)
+    * application/vnd.apple.pkpass (Apple PassBook) with extension pkpass.
+  * Modified:
+    * application/gzip (RFC6713) added extension (gz) and encoding.
+    * application/epub\+zip is not a registered MIME type.
+    * application/rss\+xml is not a registered MIME type.
+    * application/x-director reported incorrect extensions.
+    * application/x-gzip marked as obsolete (use application/gzip instead).
+    * application/x-maker marked as obsolete (use application/vnd.framemaker
+      instead).
+    * image/webp is not a registered MIME type; added a URL to Google's
+      proposed standard document.
+    * text/html added URL to the HTML5 specification.
+    * text/cache-manifest added URL to the HTML5 specification.
+    * text/plain (VMS .doc files) marked as non-standard. This type will be
+      merged with the standard text/plain type in a future release.
+    * Added md, markdown, rst, and textile extensions to text/plain.
+* MIME Type Development Tools
+  * The benchmarking task has been moved mostly to support/benchmarker.rb.
+  * A task for SimpleCov coverage has been added (<tt>rake test:coverage</tt>).
+  * IANA type registry downloading has been substantially improved and the
+    implementation no longer resides in the Rakefile; it has instead been moved
+    to support/iana_downloader.rb. This takes advantage of the new YAML
+    encoding functionality to update added or modified MIME types
+    non-destructively in <tt>type-lists/</tt> by default.
+  * Rake tasks <tt>convert:yaml:json</tt> and <tt>convert:json:yaml</tt>
+    provide functionality to convert the human-editable YAML format in
+    <tt>type-lists/</tt> to the JSON format in <tt>data/</tt> and vice-versa.
+    This is powered by support/convert.rb.
+
 == 1.25 / 2013-08-30
 
 * New Features:
@@ -10,7 +110,7 @@
 * New extensions:
   * mjpeg (video/x-motion-jpeg) based on a change by punkrats, found in the
     vidibus fork.
-* Modernized MiniTest configuration.
+* Modernized Minitest configuration.
 
 == 1.24 / 2013-08-14
 
@@ -137,7 +237,7 @@
 * New MIME Types:
   * Types reported in https://github.com/halostatue/mime-types/issues/6:
     * CoffeeScript (text/x-coffeescript; .coffee; 8bit).
-    * AIR (application/vnd.adobe.air-applicationinstaller-package+zip, .air; base64).
+    * AIR (application/vnd.adobe.air-applicationinstaller-package\+zip, .air; base64).
     * WOFF (application/font-woff; .woff; base64).
     * TrueType (application/x-font-truetype; .ttf; base64).
     * OpenType (application/x-font-opentype; .otf; base64).

@@ -1,0 +1,615 @@
+---
+- !ruby/object:MIME::Type
+  content-type: text/1d-interleaved-parityfec
+  encoding: quoted-printable
+  references:
+  - IANA
+  - RFC6015
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/cache-manifest
+  encoding: quoted-printable
+  extensions:
+  - appcache
+  - manifest
+  references:
+  - ! '{HTML5=http://www.w3.org/TR/html5/iana.html#text/cache-manifest}'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/calendar
+  encoding: quoted-printable
+  references:
+  - IANA
+  - RFC5545
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/comma-separated-values
+  encoding: 8bit
+  extensions:
+  - csv
+  obsolete: true
+  use-instead:
+  - text/csv
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: text/css
+  encoding: 8bit
+  extensions:
+  - css
+  references:
+  - IANA
+  - RFC2318
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/csv
+  encoding: 8bit
+  extensions:
+  - csv
+  references:
+  - IANA
+  - RFC4180
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/directory
+  encoding: quoted-printable
+  obsolete: true
+  references:
+  - IANA
+  - RFC2425
+  - RFC6350
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/dns
+  encoding: quoted-printable
+  references:
+  - IANA
+  - RFC4027
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/ecmascript
+  encoding: quoted-printable
+  obsolete: true
+  references:
+  - IANA
+  - RFC4329
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/encaprtp
+  encoding: quoted-printable
+  references:
+  - IANA
+  - RFC6849
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/enriched
+  encoding: quoted-printable
+  references:
+  - IANA
+  - RFC1896
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/example
+  encoding: quoted-printable
+  references:
+  - IANA
+  - RFC4735
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/fwdred
+  encoding: quoted-printable
+  references:
+  - IANA
+  - RFC6354
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/grammar-ref-list
+  encoding: quoted-printable
+  references:
+  - IANA
+  - RFC6787
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/html
+  encoding: 8bit
+  extensions:
+  - html
+  - htm
+  - htmlx
+  - shtml
+  - htx
+  references:
+  - IANA
+  - ! '[Michael Smith=MSmith]'
+  - ! '[W3C]'
+  - ! '{HTML5=http://www.w3.org/TR/html5/iana.html#text/html}'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/javascript
+  encoding: quoted-printable
+  extensions:
+  - js
+  obsolete: true
+  references:
+  - IANA
+  - RFC4329
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/jcr-cnd
+  encoding: quoted-printable
+  references:
+  - IANA
+  - ! '[Piegaze]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/mizar
+  encoding: quoted-printable
+  references:
+  - IANA
+  - ! '[Jesse Alama=Jesse_Alama]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/n3
+  encoding: quoted-printable
+  references:
+  - IANA
+  - ! '[Prud''hommeaux=Prudhommeaux]'
+  - ! '[W3C]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/parityfec
+  encoding: quoted-printable
+  references:
+  - IANA
+  - RFC5109
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/plain
+  encoding: 8bit
+  extensions:
+  - doc
+  registered: false
+  system: !ruby/regexp /(?-mix:vms)/
+- !ruby/object:MIME::Type
+  content-type: text/plain
+  encoding: quoted-printable
+  extensions:
+  - txt
+  - asc
+  - c
+  - cc
+  - h
+  - hh
+  - cpp
+  - hpp
+  - dat
+  - hlp
+  - md
+  - markdown
+  - rst
+  - textile
+  references:
+  - IANA
+  - RFC2046
+  - RFC3676
+  - RFC5147
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/provenance-notation
+  encoding: quoted-printable
+  references:
+  - IANA
+  - ! '[Herman]'
+  - ! '[W3C]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/prs.fallenstein.rst
+  encoding: quoted-printable
+  extensions:
+  - rst
+  references:
+  - IANA
+  - ! '[Fallenstein]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/prs.lines.tag
+  encoding: quoted-printable
+  references:
+  - IANA
+  - ! '[Lines]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/raptorfec
+  encoding: quoted-printable
+  references:
+  - IANA
+  - RFC6682
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/RED
+  encoding: quoted-printable
+  references:
+  - IANA
+  - RFC4102
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/rfc822-headers
+  encoding: quoted-printable
+  references:
+  - IANA
+  - RFC6522
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/richtext
+  encoding: 8bit
+  extensions:
+  - rtx
+  references:
+  - IANA
+  - RFC2045
+  - RFC2046
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/rtf
+  encoding: 8bit
+  extensions:
+  - rtf
+  references:
+  - IANA
+  - ! '[Lindner]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/rtp-enc-aescm128
+  encoding: quoted-printable
+  references:
+  - IANA
+  - ! '[3GPP]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/rtploopback
+  encoding: quoted-printable
+  references:
+  - IANA
+  - RFC6849
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/rtx
+  encoding: quoted-printable
+  references:
+  - IANA
+  - RFC4588
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/sgml
+  encoding: quoted-printable
+  extensions:
+  - sgml
+  - sgm
+  references:
+  - IANA
+  - RFC1874
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/t140
+  encoding: quoted-printable
+  references:
+  - IANA
+  - RFC4103
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/tab-separated-values
+  encoding: quoted-printable
+  extensions:
+  - tsv
+  references:
+  - IANA
+  - ! '[Lindner]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/troff
+  encoding: 8bit
+  extensions:
+  - t
+  - tr
+  - roff
+  - troff
+  references:
+  - IANA
+  - RFC4263
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/turtle
+  encoding: quoted-printable
+  references:
+  - IANA
+  - ! '[Prud''hommeaux=Prudhommeaux]'
+  - ! '[W3C]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/ulpfec
+  encoding: quoted-printable
+  references:
+  - IANA
+  - RFC5109
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/uri-list
+  encoding: quoted-printable
+  references:
+  - IANA
+  - RFC2483
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/vcard
+  encoding: quoted-printable
+  references:
+  - IANA
+  - RFC6350
+  registered: true
+  signature: true
+- !ruby/object:MIME::Type
+  content-type: text/vnd.abc
+  encoding: quoted-printable
+  references:
+  - IANA
+  - ! '[Allen]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/vnd.curl
+  encoding: quoted-printable
+  references:
+  - IANA
+  - ! '[Byrnes]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/vnd.debian.copyright
+  encoding: quoted-printable
+  references:
+  - IANA
+  - ! '[Plessy]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/vnd.DMClientScript
+  encoding: quoted-printable
+  references:
+  - IANA
+  - ! '[Bradley]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/vnd.dvb.subtitle
+  encoding: quoted-printable
+  references:
+  - IANA
+  - ! '[Siebert]'
+  - ! '[Lagally]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/vnd.esmertec.theme-descriptor
+  encoding: quoted-printable
+  references:
+  - IANA
+  - ! '[Eilemann]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/vnd.flatland.3dml
+  encoding: quoted-printable
+  obsolete: true
+  use-instead:
+  - model/vnd.flatland.3dml
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: text/vnd.fly
+  encoding: quoted-printable
+  references:
+  - IANA
+  - ! '[Gurney]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/vnd.fmi.flexstor
+  encoding: quoted-printable
+  references:
+  - IANA
+  - ! '[Hurtta]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/vnd.graphviz
+  encoding: quoted-printable
+  references:
+  - IANA
+  - ! '[Ellson]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/vnd.in3d.3dml
+  encoding: quoted-printable
+  references:
+  - IANA
+  - ! '[Powers]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/vnd.in3d.spot
+  encoding: quoted-printable
+  references:
+  - IANA
+  - ! '[Powers]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/vnd.IPTC.NewsML
+  encoding: quoted-printable
+  references:
+  - IANA
+  - ! '[IPTC]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/vnd.IPTC.NITF
+  encoding: quoted-printable
+  references:
+  - IANA
+  - ! '[IPTC]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/vnd.latex-z
+  encoding: quoted-printable
+  references:
+  - IANA
+  - ! '[Lubos]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/vnd.motorola.reflex
+  encoding: quoted-printable
+  references:
+  - IANA
+  - ! '[Patton]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/vnd.ms-mediapackage
+  encoding: quoted-printable
+  references:
+  - IANA
+  - ! '[Nelson]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/vnd.net2phone.commcenter.command
+  encoding: quoted-printable
+  extensions:
+  - ccc
+  references:
+  - IANA
+  - ! '[Xie]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/vnd.radisys.msml-basic-layout
+  encoding: quoted-printable
+  references:
+  - IANA
+  - RFC5707
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/vnd.si.uricatalogue
+  encoding: quoted-printable
+  obsolete: true
+  references:
+  - IANA
+  - ! '[Parks Young=ParksYoung]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/vnd.sun.j2me.app-descriptor
+  encoding: 8bit
+  extensions:
+  - jad
+  references:
+  - IANA
+  - ! '[G.Adams]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/vnd.trolltech.linguist
+  encoding: quoted-printable
+  references:
+  - IANA
+  - ! '[D.Lambert]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/vnd.wap.si
+  encoding: quoted-printable
+  extensions:
+  - si
+  references:
+  - IANA
+  - ! '[WAP-Forum]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/vnd.wap.sl
+  encoding: quoted-printable
+  extensions:
+  - sl
+  references:
+  - IANA
+  - ! '[WAP-Forum]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/vnd.wap.wml
+  encoding: quoted-printable
+  extensions:
+  - wml
+  references:
+  - IANA
+  - ! '[Stark]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/vnd.wap.wmlscript
+  encoding: quoted-printable
+  extensions:
+  - wmls
+  references:
+  - IANA
+  - ! '[Stark]'
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/x-coffescript
+  encoding: 8bit
+  extensions:
+  - coffee
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: text/x-component
+  encoding: 8bit
+  extensions:
+  - htc
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: text/x-rtf
+  encoding: 8bit
+  extensions:
+  - rtf
+  obsolete: true
+  use-instead:
+  - text/rtf
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: text/x-setext
+  encoding: quoted-printable
+  extensions:
+  - etx
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: text/x-vcalendar
+  encoding: 8bit
+  extensions:
+  - vcs
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: text/x-vcard
+  encoding: 8bit
+  extensions:
+  - vcf
+  registered: false
+  signature: true
+- !ruby/object:MIME::Type
+  content-type: text/x-vnd.flatland.3dml
+  encoding: quoted-printable
+  obsolete: true
+  use-instead:
+  - model/vnd.flatland.3dml
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: text/x-yaml
+  encoding: 8bit
+  extensions:
+  - yaml
+  - yml
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: text/xml
+  encoding: 8bit
+  extensions:
+  - xml
+  - dtd
+  references:
+  - IANA
+  - RFC3023
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/xml-external-parsed-entity
+  encoding: quoted-printable
+  references:
+  - IANA
+  - RFC3023
+  registered: true

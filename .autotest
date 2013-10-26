@@ -1,0 +1,5 @@
+# -*- ruby encoding: utf-8 -*-
+
+Autotest.add_hook :initialize do |at|
+  at.testlib = ".minitest"
+end

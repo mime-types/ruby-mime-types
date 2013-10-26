@@ -1,12 +1,13 @@
 # -*- ruby encoding: utf-8 -*-
 
 require 'mime/types'
+require 'minitest_helper'
 
 class TestMIMETypesLazy < Minitest::Test
   def setup
     ENV['RUBY_MIME_TYPES_LAZY_LOAD'] = 'true'
     ENV['RUBY_MIME_TYPES_CACHE'] = File.expand_path('../cache.tst', __FILE__)
-    MIME::Types.send(:write_mime_types_to_cache)
+    MIME::Types::Cache.save
   end
 
   def teardown
@@ -20,7 +21,7 @@ class TestMIMETypesLazy < Minitest::Test
 
   def reset_mime_types
     MIME::Types.instance_variable_set(:@__types__, nil)
-    MIME::Types.send(:load_mime_types)
+    MIME::Types.send(:load_default_mime_types)
   end
 
   def test_lazy_load?
