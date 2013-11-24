@@ -33,7 +33,7 @@ module MIME
   #
   class Type
     # The released version of Ruby MIME::Types
-    VERSION = '1.25'
+    VERSION = '1.25.1'
 
     include Comparable
 
@@ -97,9 +97,11 @@ module MIME
              elsif platform? != other.platform?
                platform? ? 1 : -1 # generic < platform
              elsif complete? != other.complete?
-               pc = complete? ? -1 : 1 # complete < incomplete
+               complete? ? -1 : 1 # complete < incomplete
              elsif obsolete? != other.obsolete?
-               pc = obsolete? ? 1 : -1 # current < obsolete
+               obsolete? ? 1 : -1 # current < obsolete
+             else
+               0
              end
 
         if pc.zero? and obsolete? and (use_instead != other.use_instead)

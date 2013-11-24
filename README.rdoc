@@ -10,14 +10,16 @@ continuous integration :: {<img src="https://travis-ci.org/halostatue/mime-types
 == Description
 
 This library allows for the identification of a file's likely MIME content
-type. This is release 1.25, adding experimental caching and lazy loading
-functionality.
+type. This is release 1.25.1, fixing an issue with priority comparison for
+mime-types 1.x. The current release is 2.0, which only supports Ruby 1.9 or
+later.
 
-The caching and lazy loading features were initially implemented by Greg
-Brockman (gdb). As these features are experimental, they are disabled by
-default and must be enabled through the use of environment variables. The cache
-is invalidated on a per-version basis; the cache for version 1.25 will not be
-reused for version 1.26.
+Release 1.25.1 contains all features of 1.25, including the experimental
+caching and lazy loading functionality. The caching and lazy loading features
+were initially implemented by Greg Brockman (gdb). As these features are
+experimental, they are disabled by default and must be enabled through the use
+of environment variables. The cache is invalidated on a per-version basis; the
+cache for version 1.25 will not be reused for any later version.
 
 To use lazy loading, set the environment variable +RUBY_MIME_TYPES_LAZY_LOAD+
 to any value other than 'false'. When using lazy loading, the initial startup
@@ -48,8 +50,7 @@ complete; don't hesitate to ask to add additional information. This library
 follows the IANA collection of MIME types (see below for reference).
 
 MIME::Types for Ruby was originally based on MIME::Types for Perl by Mark
-Overmeer, copyright 2001 - 2009. As of version 1.15, the data format for the
-MIME::Type list has changed and the synchronization will no longer happen.
+Overmeer, copyright 2001 - 2009.
 
 MIME::Types is built to conform to the MIME types of RFCs 2045 and 2231. It
 tracks the {IANA registry}[http://www.iana.org/assignments/media-types/]
