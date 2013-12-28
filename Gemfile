@@ -17,5 +17,7 @@ gem "hoe-travis", "~>1.2", :group => [:development, :test]
 gem "rake", "~>10.0", :group => [:development, :test]
 gem "simplecov", "~>0.7", :group => [:development, :test]
 gem "hoe", "~>3.7", :group => [:development, :test]
-
+gem "rubysl", "~>2.0", :platforms => :rbx, :group => [:development, :test]
+gem "rubinius-developer_tools", :platforms => :rbx, :group => [:development, :test]
+gem "psych", :platforms => :rbx, :group => [:development, :test]
 # vim: syntax=ruby
