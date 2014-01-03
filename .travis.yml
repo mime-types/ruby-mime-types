@@ -1,23 +1,24 @@
 ---
 after_script:
-- rake travis:after -t
+  - rake travis:after -t
 before_script:
-- gem install hoe-travis --no-rdoc --no-ri
-- rake travis:before -t
+  - gem install hoe-travis --no-rdoc --no-ri
+  - rake travis:before -t
+  - case "${TRAVIS_RUBY_VERSION}" in rbx*) gem install psych ;; esac
 language: ruby
 notifications:
-  email: true
+  recipients:
+    - austin@rubyforge.org
+  email:
+    - on_success: change
+    - on_failure: always
 rvm:
+  - 2.1.0
   - 2.0.0
   - 1.9.3
   - 1.9.2
+  - ruby-head
   - jruby-19mode
-  - rbx-19mode
-# - ruby-head
-# - jruby-head
-matrix:
-  allow_failures:
-    - rvm:
-      - ruby-head
-      - jruby-head
+  - jruby-head
+  - rbx
 script: rake travis
