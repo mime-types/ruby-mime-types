@@ -3,7 +3,6 @@
 require 'rubygems'
 require 'hoe'
 
-Hoe.plugin :bundler
 Hoe.plugin :doofus
 Hoe.plugin :email
 Hoe.plugin :gemspec2
@@ -26,7 +25,6 @@ spec = Hoe.spec 'mime-types' do
   self.extra_rdoc_files = FileList["*.rdoc"].to_a
   self.licenses = ["MIT", "Artistic 2.0", "GPL-2"]
 
-  self.extra_dev_deps << ['hoe-bundler', '~> 1.2']
   self.extra_dev_deps << ['hoe-doofus', '~> 1.0']
   self.extra_dev_deps << ['hoe-gemspec2', '~> 1.1']
   self.extra_dev_deps << ['hoe-git', '~> 1.5']

@@ -6,7 +6,8 @@ request, or code contributions.
 As mime-types is a complex codebase, there are a few guidelines:
 
 * Changes (aside from new MIME types) *will* *not* be accepted
-  without tests. The test suite is written with Minitest.
+  without tests. The test suite is written with
+  {Minitest}[https://github.com/seattlerb/minitest].
 * Match my coding style.
 * Use a thoughtfully-named topic branch that contains your change. Rebase your
   commits into logical chunks as necessary.
@@ -18,14 +19,9 @@ As mime-types is a complex codebase, there are a few guidelines:
 
 === Test Dependencies
 
-To run the test suite, you will need to install the development dependencies
-for mime-types. If you have Bundler, you can accomplish this easily:
-
-    $ bundle install
-
-mime-types uses Ryan Davis’s excellent {Hoe}[https://github.com/seattlerb/hoe]
-to manage the release process, and it adds a number of rake tasks. You will
-mostly be interested in:
+mime-types uses Ryan Davis’s {Hoe}[https://github.com/seattlerb/hoe] to manage
+the release process, and it adds a number of rake tasks. You will mostly be
+interested in:
 
     $ rake
 
@@ -35,6 +31,20 @@ which runs the tests the same way that:
     $ rake travis
 
 will do.
+
+To assist with the installation of the development dependencies for mime-types,
+I have provided the simplest possible Gemfile pointing to the (generated)
++mime-types.gemspec+ file. This will permit you to do:
+
+    $ bundle install
+
+to get the development dependencies. If you aleady have +hoe+ installed, you
+can accomplish the same thing with:
+
+    $ rake newb
+
+This task will install any missing dependencies, run the tests/specs, and
+generate the RDoc.
 
 === Workflow
 
