@@ -57,7 +57,7 @@ class MIME::Type
   end
 
   # The released version of the mime-types library.
-  VERSION = '2.0'
+  VERSION = '2.1'
 
   include Comparable
 
@@ -218,16 +218,16 @@ class MIME::Type
   attr_reader :simplified
   # The list of extensions which are known to be used for this MIME::Type.
   # Non-array values will be coerced into an array with #to_a. Array values
-  # will be flattened, +nil+ values removed, and made unique.
+  # will be flattened, +nil+ values removed, sorted, and made unique.
   attr_reader :extensions
   def extensions=(ext) # :nodoc:
-    @extensions = [ext].flatten.compact.sort.uniq
+    @extensions = Array(ext).flatten.compact.sort.uniq
   end
 
   # Merge the extensions provided into this MIME::Type. The extensions added
   # will be merged uniquely.
   def add_extensions(*ext)
-    @extensions = (@extensions + ext).flatten.compact.sort.uniq
+    self.extensions = self.extensions + ext
   end
 
   # The encoding (7bit, 8bit, quoted-printable, or base64) required to
@@ -299,7 +299,7 @@ class MIME::Type
   # This was previously called #url.
   attr_reader :references
   def references=(r) # :nodoc:
-    @references = [ r ].flatten.compact.uniq
+    @references = Array(r).flatten.compact.uniq
   end
 
   def url # :nodoc:

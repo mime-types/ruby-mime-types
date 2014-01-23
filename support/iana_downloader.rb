@@ -12,7 +12,7 @@ ENV['RUBY_MIME_TYPES_LAZY_LOAD'] = 'yes'
 require 'mime/types'
 
 class IANADownloader
-  INDEX_URL = %q(https://www.iana.org/assignments/media-types/)
+  INDEX_URL = %q(https://www.iana.org/assignments/media-types/media-types.xhtml)
   MIME_HREF = %r{/assignments/media-types/(.+)/?$}
 
   def self.download_to(destination)
@@ -113,8 +113,7 @@ class IANADownloader::Parser
       subtype = elems[sub_ix].content.chomp.strip
       refs    = child_elems(elems[ref_ix]).map { |ref|
         ref = ref.xpath('a') unless ref.name == 'a'
-        [ ref ].flatten.map { |r| href_to_ref(r) }
-
+        Array(ref).flatten.map { |r| href_to_ref(r) }
       }.flatten
 
       content_type = [ @type, subtype].join('/')

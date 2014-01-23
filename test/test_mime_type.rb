@@ -199,6 +199,12 @@ class TestMIMEType < Minitest::Test
     yaml = make_yaml_mime_type
     yaml.extensions = 'yaml'
     assert_equal(%w(yaml), yaml.extensions)
+
+    yaml.extensions = %w(yaml yaml)
+    assert_equal(%w(yaml), yaml.extensions)
+
+    yaml.extensions = %w(yz yaml yz yml)
+    assert_equal(%w(yaml yml yz), yaml.extensions)
   end
 
   def test_like_eh
@@ -449,6 +455,9 @@ class TestMIMEType < Minitest::Test
   def test_references_equals
     yaml = make_yaml_mime_type
     yaml.references = "IANA"
+    assert_equal(%W(IANA), yaml.references)
+
+    yaml.references = %w(IANA IANA)
     assert_equal(%W(IANA), yaml.references)
   end
 
