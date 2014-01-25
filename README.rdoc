@@ -24,18 +24,22 @@ add additional type definitions (see Contributing.rdoc). The primary sources
 for MIME type definitions found in mime-types is the IANA collection of
 registrations (see below for the link), RFCs, and W3C recommendations.
 
-The mime-types library uses semantic versioning. This is release 2.0; there are
-incompatible changes in the API provided by mime-types, mostly around registry
-initialization (see History.rdoc for full details), and the removal of support
-for Ruby 1.8 interpreters.
+This is release 2.1, mostly changing how the MIME type registry is updated from
+the IANA registry (the format of which was incompatibly changed shortly before
+this release) and taking advantage of the extra data available from IANA
+registry in the form of MIME::Type#xrefs. In addition, the {LTSW
+list}[http://www.ltsw.se/knbase/internet/mime.htp] has been dropped as a
+supported list.
+
+As a reminder, mime-types 2.x is no longer compatible with Ruby 1.8 and
+mime-types 1.x is only being maintained for security issues. No new MIME types
+or features will be added.
 
 mime-types (previously called MIME::Types for Ruby) was originally based on
 MIME::Types for Perl by Mark Overmeer, copyright 2001 - 2009. It is built to
-conform to the MIME types of RFCs 2045 and 2231. It tracks the {IANA
-registry}[http://www.iana.org/assignments/media-types/]
-({ftp}[ftp://ftp.iana.org/assignments/media-types]) with some unofficial types
-added from the {LTSW collection}[http://www.ltsw.se/knbase/internet/mime.htp]
-and added by the users of mime-types.
+conform to the MIME types of RFCs 2045 and 2231. It tracks the {IANA Media
+Types registry}[https://www.iana.org/assignments/media-types/media-types.xhtml]
+with some types added by the users of mime-types.
 
 == Synopsis
 
@@ -67,6 +71,36 @@ files). A MIME::Type stores the known information about one MIME type.
     }                               # => true
     puts MIME::Types.all?(&:registered?)
                                     # => false
+
+== mime-types Modified Semantic Versioning
+
+The mime-types library has one version number, but this single version number
+tracks both API changes and registry data changes; this is not wholly
+compatible with all aspects of {Semantic Versioning}[http://semver.org/];
+removing a MIME type from the registry *could* be considered a breaking change
+under some interpretations of semantic versioning (as lookups for that
+particular type would no longer work by default).
+
+mime-types uses a modified semantic versioning scheme. Given the version
+MAJOR.MINOR:
+
+1. If an incompatible API (code) change is made, the MAJOR version will be
+   incremented, MINOR will be set to zero, and PATCH will be reset to the
+   implied zero.
+
+2. If an API (code) feature is added that does not break compatibilty OR if
+   there are MIME types added, removed, or changed in the registry, the MINOR
+   version will be incremented and PATCH will be reset to the implied zero.
+
+3. If there is a bugfix to a feature added in the most recent MAJOR.MINOR
+   release, OR if purely typographical errors are fixed in MIME types, the
+   implied PATCH value will be incremented resulting in MAJOR.MINOR.PATCH.
+
+In practical terms, there should be a MINOR release roughly monthly to track
+updated or changed MIME types from the official IANA registry. This does not
+indicate when new API features have been added, but all minor versions of
+mime-types 2.x will be backwards compatible; the interfaces marked deprecated
+will not be removed until at least mime-types 3.x or possibly later.
 
 :include: Contributing.rdoc
 

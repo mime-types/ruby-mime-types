@@ -110,7 +110,10 @@ class MIME::Type
     self.extensions   ||= []
     self.docs         ||= nil
     self.encoding     ||= :default
-    self.references   ||= []
+    # This value will be deprecated in the future, as it will be an
+    # alternative view on #xrefs. Silence an unnecessary warning for now by
+    # assigning directly to the instance variable.
+    @references       ||= []
     self.xrefs        ||= {}
 
     yield self if block_given?
