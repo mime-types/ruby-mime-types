@@ -61,18 +61,6 @@ namespace :mime do
     require 'iana_registry'
     IANARegistry.download(to: args.destination)
   end
-
-  desc "Shows known MIME type sources."
-  task :mime_type_sources do
-    puts <<-EOS
-http://www.ltsw.se/knbase/internet/mime.htp
-http://www.webmaster-toolkit.com/mime-types.shtml
-http://plugindoc.mozdev.org/winmime.php
-http://standards.freedesktop.org/shared-mime-info-spec/shared-mime-info-spec-latest.html
-http://www.feedforall.com/mime-types.htm
-http://www.iana.org/assignments/media-types/
-  EOS
-  end
 end
 
 Rake::Task['gem'].prerequisites.unshift("convert:yaml:json")
