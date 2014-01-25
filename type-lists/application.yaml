@@ -16,8 +16,6 @@
 - !ruby/object:MIME::Type
   content-type: application/acad
   encoding: base64
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/access
@@ -151,8 +149,6 @@
   obsolete: true
   use-instead:
   - application/cals-1840
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/cbor
@@ -234,8 +230,6 @@
 - !ruby/object:MIME::Type
   content-type: application/clariscad
   encoding: base64
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/cnrp+xml
@@ -354,8 +348,6 @@
 - !ruby/object:MIME::Type
   content-type: application/drafting
   encoding: base64
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/dskpp+xml
@@ -388,8 +380,6 @@
 - !ruby/object:MIME::Type
   content-type: application/dxf
   encoding: base64
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/ecmascript
@@ -466,8 +456,6 @@
   extensions:
   - xls
   - xlt
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/exi
@@ -532,8 +520,6 @@
 - !ruby/object:MIME::Type
   content-type: application/fractals
   encoding: base64
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/framework-attributes+xml
@@ -609,8 +595,6 @@
 - !ruby/object:MIME::Type
   content-type: application/i-deas
   encoding: base64
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/ibe-key-request+xml
@@ -840,8 +824,6 @@
 - !ruby/object:MIME::Type
   content-type: application/macbinary
   encoding: base64
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/macwriteii
@@ -1178,8 +1160,6 @@
   extensions:
   - nc
   - cdf
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/news-checkgroups
@@ -1477,14 +1457,10 @@
   - ppt
   - pps
   - pot
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/pro_eng
   encoding: base64
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/provenance+xml
@@ -1609,8 +1585,6 @@
   obsolete: true
   use-instead:
   - application/remote-printing
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/reputon+json
@@ -1794,8 +1768,6 @@
 - !ruby/object:MIME::Type
   content-type: application/set
   encoding: base64
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/set-payment
@@ -1883,8 +1855,6 @@
 - !ruby/object:MIME::Type
   content-type: application/SLA
   encoding: base64
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/slate
@@ -1940,8 +1910,6 @@
 - !ruby/object:MIME::Type
   content-type: application/solids
   encoding: base64
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/sparql-query
@@ -2002,8 +1970,6 @@
 - !ruby/object:MIME::Type
   content-type: application/STEP
   encoding: base64
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/tamp-apex-update
@@ -2178,8 +2144,6 @@
 - !ruby/object:MIME::Type
   content-type: application/vda
   encoding: base64
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/vemmi
@@ -7947,8 +7911,6 @@
   extensions:
   - doc
   - dot
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/wordperfect
@@ -8042,8 +8004,6 @@
   encoding: base64
   extensions:
   - bcpio
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-bleeper
@@ -8095,24 +8055,18 @@
   extensions:
   - z
   - Z
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-cpio
   encoding: base64
   extensions:
   - cpio
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-csh
   encoding: 8bit
   extensions:
   - csh
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-cu-seeme
@@ -8144,8 +8098,6 @@
   encoding: base64
   extensions:
   - dvi
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-dxf
@@ -8189,8 +8141,6 @@
   - tgz
   - tbz2
   - tbz
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-gzip
@@ -8200,16 +8150,12 @@
   obsolete: true
   use-instead:
   - application/gzip
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-hdf
   encoding: base64
   extensions:
   - hdf
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-hep
@@ -8277,32 +8223,24 @@
   encoding: base64
   extensions:
   - jar
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-java-jnlp-file
   encoding: base64
   extensions:
   - jnlp
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-java-serialized-object
   encoding: base64
   extensions:
   - ser
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-java-vm
   encoding: base64
   extensions:
   - class
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-javascript
@@ -8328,8 +8266,6 @@
   extensions:
   - ltx
   - latex
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-lotus-123
@@ -8397,8 +8333,6 @@
   encoding: base64
   extensions:
   - mif
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-mobipocket-ebook
@@ -8523,8 +8457,6 @@
   obsolete: true
   use-instead:
   - application/rtf
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-ruby
@@ -8542,16 +8474,12 @@
   encoding: 8bit
   extensions:
   - sh
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-shar
   encoding: 8bit
   extensions:
   - shar
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-shockwave-flash
@@ -8586,40 +8514,30 @@
   encoding: base64
   extensions:
   - sit
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-sv4cpio
   encoding: base64
   extensions:
   - sv4cpio
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-sv4crc
   encoding: base64
   extensions:
   - sv4crc
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-tar
   encoding: base64
   extensions:
   - tar
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-tcl
   encoding: 8bit
   extensions:
   - tcl
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-tex
@@ -8650,32 +8568,24 @@
   obsolete: true
   use-instead:
   - text/troff
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-troff-man
   encoding: 8bit
   extensions:
   - man
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-troff-me
   encoding: base64
   extensions:
   - me
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-troff-ms
   encoding: base64
   extensions:
   - ms
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-u-star
@@ -8683,16 +8593,12 @@
   obsolete: true
   use-instead:
   - application/x-ustar
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-ustar
   encoding: base64
   extensions:
   - ustar
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-VMSBACKUP
@@ -8705,8 +8611,6 @@
   encoding: base64
   extensions:
   - src
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-web-app-manifest+json
@@ -8786,8 +8690,6 @@
   obsolete: true
   use-instead:
   - application/x400-bp
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/xacml+xml
