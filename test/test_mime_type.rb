@@ -469,7 +469,7 @@ class TestMIMEType < Minitest::Test
 
   def test_url_equals
     yaml = make_yaml_mime_type
-    assert_deprecated("MIME::Type#url=", "and has been renamed to #references=") do
+    assert_deprecated("MIME::Type#url=") do
       yaml.url = "IANA"
     end
     assert_equal(%W(IANA), yaml.url)
@@ -478,11 +478,10 @@ class TestMIMEType < Minitest::Test
   def test_urls
     yaml = make_yaml_mime_type
     assert_empty(yaml.urls)
-    yaml.references = %w(IANA RFC123 DRAFT:xyz LTSW [abc])
+    yaml.references = %w(IANA RFC123 DRAFT:xyz [abc])
     assert_equal(%w(http://www.iana.org/assignments/media-types/text/yaml
                     http://rfc-editor.org/rfc/rfc123.txt
                     http://datatracker.ietf.org/public/idindex.cgi?command=id_details&filename=xyz
-                    http://www.ltsw.se/knbase/internet/text.htp
                     http://www.iana.org/assignments/contact-people.htm#abc),
                  yaml.urls)
     yaml.references = '[def=lax]'

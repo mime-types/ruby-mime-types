@@ -14,6 +14,12 @@
   references:
   - IANA
   - ! '[Francis]'
+  - ! '{image/cgm=http://www.iana.org/assignments/media-types/image/cgm}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Francis
+    template:
+    - image/cgm
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/cmu-raster
@@ -28,6 +34,9 @@
   references:
   - IANA
   - RFC4735
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc4735
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/fits
@@ -35,6 +44,9 @@
   references:
   - IANA
   - RFC4047
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc4047
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/g3fax
@@ -42,6 +54,9 @@
   references:
   - IANA
   - RFC1494
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc1494
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/gif
@@ -52,6 +67,10 @@
   - IANA
   - RFC2045
   - RFC2046
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc2045
+    - rfc2046
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/ief
@@ -61,6 +80,9 @@
   references:
   - IANA
   - RFC1314
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc1314
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/jp2
@@ -71,38 +93,60 @@
   references:
   - IANA
   - RFC3745
+  - ! '{image/jp2=http://www.iana.org/assignments/media-types/image/jp2}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc3745
+    template:
+    - image/jp2
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/jpeg
   encoding: base64
   extensions:
+  - jpe
   - jpeg
   - jpg
-  - jpe
   references:
   - IANA
   - RFC2045
   - RFC2046
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc2045
+    - rfc2046
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/jpm
   encoding: base64
   extensions:
-  - jpm
   - jpgm
+  - jpm
   references:
   - IANA
   - RFC3745
+  - ! '{image/jpm=http://www.iana.org/assignments/media-types/image/jpm}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc3745
+    template:
+    - image/jpm
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/jpx
   encoding: base64
   extensions:
-  - jpx
   - jpf
+  - jpx
   references:
   - IANA
   - RFC3745
+  - ! '{image/jpx=http://www.iana.org/assignments/media-types/image/jpx}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc3745
+    template:
+    - image/jpx
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/ktx
@@ -111,6 +155,13 @@
   - IANA
   - ! '[Callow]'
   - ! '[Khronos]'
+  - ! '{http://www.khronos.org/opengles/sdk/tools/KTX/file_format_spec/#mimeregistration}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Callow
+    - Khronos
+    uri:
+    - http://www.khronos.org/opengles/sdk/tools/KTX/file_format_spec/#mimeregistration
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/naplps
@@ -118,6 +169,12 @@
   references:
   - IANA
   - ! '[Ferber]'
+  - ! '{image/naplps=http://www.iana.org/assignments/media-types/image/naplps}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Ferber
+    template:
+    - image/naplps
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/pjpeg
@@ -131,28 +188,52 @@
   - png
   references:
   - IANA
-  - ! '[Randers-Pehrson]'
+  - ! '[Glenn_Randers-Pehrson]'
+  - ! '{image/png=http://www.iana.org/assignments/media-types/image/png}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Glenn_Randers-Pehrson
+    template:
+    - image/png
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/prs.btif
   encoding: base64
   references:
   - IANA
-  - ! '[Simon]'
+  - ! '[Ben_Simon]'
+  - ! '{image/prs.btif=http://www.iana.org/assignments/media-types/image/prs.btif}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Ben_Simon
+    template:
+    - image/prs.btif
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/prs.pti
   encoding: base64
   references:
   - IANA
-  - ! '[Laun]'
+  - ! '[Juern_Laun]'
+  - ! '{image/prs.pti=http://www.iana.org/assignments/media-types/image/prs.pti}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Juern_Laun
+    template:
+    - image/prs.pti
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/pwg-raster
   encoding: base64
   references:
   - IANA
-  - ! '[Sweet]'
+  - ! '[Michael_Sweet]'
+  - ! '{image/pwg-raster=http://www.iana.org/assignments/media-types/image/pwg-raster}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Michael_Sweet
+    template:
+    - image/pwg-raster
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/svg+xml
@@ -163,6 +244,12 @@
   references:
   - IANA
   - ! '[W3C]'
+  - ! '{http://www.w3.org/TR/SVG/mimereg.html}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - W3C
+    uri:
+    - http://www.w3.org/TR/SVG/mimereg.html
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/t38
@@ -170,6 +257,9 @@
   references:
   - IANA
   - RFC3362
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc3362
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/targa
@@ -184,11 +274,14 @@
   content-type: image/tiff
   encoding: base64
   extensions:
-  - tiff
   - tif
+  - tiff
   references:
   - IANA
-  - RFC2302
+  - RFC3302
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc3302
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/tiff-fx
@@ -196,6 +289,9 @@
   references:
   - IANA
   - RFC3950
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc3950
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.adobe.photoshop
@@ -204,7 +300,13 @@
   - psd
   references:
   - IANA
-  - ! '[Scarborough]'
+  - ! '[Kim_Scarborough]'
+  - ! '{image/vnd.adobe.photoshop=http://www.iana.org/assignments/media-types/image/vnd.adobe.photoshop}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Kim_Scarborough
+    template:
+    - image/vnd.adobe.photoshop
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.airzip.accelerator.azv
@@ -212,13 +314,25 @@
   references:
   - IANA
   - ! '[Clueit]'
+  - ! '{image/vnd.airzip.accelerator.azv=http://www.iana.org/assignments/media-types/image/vnd.airzip.accelerator.azv}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Clueit
+    template:
+    - image/vnd.airzip.accelerator.azv
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.cns.inf2
   encoding: base64
   references:
   - IANA
-  - ! '[McLaughlin]'
+  - ! '[Ann_McLaughlin]'
+  - ! '{image/vnd.cns.inf2=http://www.iana.org/assignments/media-types/image/vnd.cns.inf2}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Ann_McLaughlin
+    template:
+    - image/vnd.cns.inf2
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.dece.graphic
@@ -226,6 +340,12 @@
   references:
   - IANA
   - ! '[Dolan]'
+  - ! '{image/vnd.dece.graphic=http://www.iana.org/assignments/media-types/image/vnd.dece.graphic}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Dolan
+    template:
+    - image/vnd.dece.graphic
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.dgn
@@ -240,19 +360,32 @@
   content-type: image/vnd.djvu
   encoding: base64
   extensions:
-  - djvu
   - djv
+  - djvu
   references:
   - IANA
   - ! '[Bottou]'
+  - ! '{image/vnd-djvu=http://www.iana.org/assignments/media-types/image/vnd-djvu}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Bottou
+    template:
+    - image/vnd-djvu
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.dvb.subtitle
   encoding: base64
   references:
   - IANA
-  - ! '[Siebert]'
-  - ! '[Lagally]'
+  - ! '[Peter_Siebert]'
+  - ! '[Michael_Lagally]'
+  - ! '{image/vnd.dvb.subtitle=http://www.iana.org/assignments/media-types/image/vnd.dvb.subtitle}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Peter_Siebert
+    - Michael_Lagally
+    template:
+    - image/vnd.dvb.subtitle
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.dwg
@@ -261,14 +394,26 @@
   - dwg
   references:
   - IANA
-  - ! '[Moline]'
+  - ! '[Jodi_Moline]'
+  - ! '{image/vnd.dwg=http://www.iana.org/assignments/media-types/image/vnd.dwg}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Jodi_Moline
+    template:
+    - image/vnd.dwg
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.dxf
   encoding: base64
   references:
   - IANA
-  - ! '[Moline]'
+  - ! '[Jodi_Moline]'
+  - ! '{image/vnd.dxf=http://www.iana.org/assignments/media-types/image/vnd.dxf}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Jodi_Moline
+    template:
+    - image/vnd.dxf
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.fastbidsheet
@@ -276,13 +421,25 @@
   references:
   - IANA
   - ! '[Becker]'
+  - ! '{image/vnd.fastbidsheet=http://www.iana.org/assignments/media-types/image/vnd.fastbidsheet}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Becker
+    template:
+    - image/vnd.fastbidsheet
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.fpx
   encoding: base64
   references:
   - IANA
-  - ! '[Spencer]'
+  - ! '[Marc_Douglas_Spencer]'
+  - ! '{image/vnd.fpx=http://www.iana.org/assignments/media-types/image/vnd.fpx}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Marc_Douglas_Spencer
+    template:
+    - image/vnd.fpx
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.fst
@@ -290,20 +447,38 @@
   references:
   - IANA
   - ! '[Fuldseth]'
+  - ! '{image/vnd.fst=http://www.iana.org/assignments/media-types/image/vnd.fst}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Fuldseth
+    template:
+    - image/vnd.fst
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.fujixerox.edmics-mmr
   encoding: base64
   references:
   - IANA
-  - ! '[Onda]'
+  - ! '[Masanori_Onda]'
+  - ! '{image/vnd.fujixerox.edmics-mmr=http://www.iana.org/assignments/media-types/image/vnd.fujixerox.edmics-mmr}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Masanori_Onda
+    template:
+    - image/vnd.fujixerox.edmics-mmr
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.fujixerox.edmics-rlc
   encoding: base64
   references:
   - IANA
-  - ! '[Onda]'
+  - ! '[Masanori_Onda]'
+  - ! '{image/vnd.fujixerox.edmics-rlc=http://www.iana.org/assignments/media-types/image/vnd.fujixerox.edmics-rlc}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Masanori_Onda
+    template:
+    - image/vnd.fujixerox.edmics-rlc
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.globalgraphics.pgb
@@ -313,6 +488,12 @@
   references:
   - IANA
   - ! '[Bailey]'
+  - ! '{image/vnd.globalgraphics.pgb=http://www.iana.org/assignments/media-types/image/vnd.globalgraphics.pgb}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Bailey
+    template:
+    - image/vnd.globalgraphics.pgb
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.microsoft.icon
@@ -322,13 +503,25 @@
   references:
   - IANA
   - ! '[Butcher]'
+  - ! '{image/vnd.microsoft.icon=http://www.iana.org/assignments/media-types/image/vnd.microsoft.icon}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Butcher
+    template:
+    - image/vnd.microsoft.icon
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.mix
   encoding: base64
   references:
   - IANA
-  - ! '[Reddy]'
+  - ! '[Saveen_Reddy]'
+  - ! '{image/vnd.mix=http://www.iana.org/assignments/media-types/image/vnd.mix}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Saveen_Reddy
+    template:
+    - image/vnd.mix
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.ms-modi
@@ -337,14 +530,26 @@
   - mdi
   references:
   - IANA
-  - ! '[Vaughan]'
+  - ! '[Gregory_Vaughan]'
+  - ! '{image/vnd.ms-modi=http://www.iana.org/assignments/media-types/image/vnd.ms-modi}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Gregory_Vaughan
+    template:
+    - image/vnd.ms-modi
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.net-fpx
   encoding: base64
   references:
   - IANA
-  - ! '[Spencer]'
+  - ! '[Marc_Douglas_Spencer]'
+  - ! '{image/vnd.net-fpx=http://www.iana.org/assignments/media-types/image/vnd.net-fpx}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Marc_Douglas_Spencer
+    template:
+    - image/vnd.net-fpx
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.net.fpx
@@ -360,48 +565,91 @@
   - IANA
   - ! '[Fritz]'
   - ! '[GWard]'
+  - ! '{image/vnd.radiance=http://www.iana.org/assignments/media-types/image/vnd.radiance}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Fritz
+    - GWard
+    template:
+    - image/vnd.radiance
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.sealed.png
   encoding: base64
   references:
   - IANA
-  - ! '[Petersen]'
+  - ! '[David_Petersen]'
+  - ! '{image/vnd.sealed-png=http://www.iana.org/assignments/media-types/image/vnd.sealed-png}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - David_Petersen
+    template:
+    - image/vnd.sealed-png
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.sealedmedia.softseal.gif
   encoding: base64
   references:
   - IANA
-  - ! '[Petersen]'
+  - ! '[David_Petersen]'
+  - ! '{image/vnd.sealedmedia.softseal-gif=http://www.iana.org/assignments/media-types/image/vnd.sealedmedia.softseal-gif}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - David_Petersen
+    template:
+    - image/vnd.sealedmedia.softseal-gif
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.sealedmedia.softseal.jpg
   encoding: base64
   references:
   - IANA
-  - ! '[Petersen]'
+  - ! '[David_Petersen]'
+  - ! '{image/vnd.sealedmedia.softseal-jpg=http://www.iana.org/assignments/media-types/image/vnd.sealedmedia.softseal-jpg}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - David_Petersen
+    template:
+    - image/vnd.sealedmedia.softseal-jpg
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.svf
   encoding: base64
   references:
   - IANA
-  - ! '[Moline]'
+  - ! '[Jodi_Moline]'
+  - ! '{image/vnd-svf=http://www.iana.org/assignments/media-types/image/vnd-svf}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Jodi_Moline
+    template:
+    - image/vnd-svf
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.wap.wbmp
   encoding: base64
   references:
   - IANA
-  - ! '[Stark]'
+  - ! '[Peter_Stark]'
+  - ! '{image/vnd-wap-wbmp=http://www.iana.org/assignments/media-types/image/vnd-wap-wbmp}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Peter_Stark
+    template:
+    - image/vnd-wap-wbmp
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.xiff
   encoding: base64
   references:
   - IANA
-  - ! '[S.Martin]'
+  - ! '[Steven_Martin]'
+  - ! '{image/vnd.xiff=http://www.iana.org/assignments/media-types/image/vnd.xiff}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Steven_Martin
+    template:
+    - image/vnd.xiff
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/webp

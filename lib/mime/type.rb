@@ -74,7 +74,6 @@ class MIME::Type
   IANA_URL          = "http://www.iana.org/assignments/media-types/%s/%s"
   RFC_URL           = "http://rfc-editor.org/rfc/rfc%s.txt"
   DRAFT_URL         = "http://datatracker.ietf.org/public/idindex.cgi?command=id_details&filename=%s"
-  LTSW_URL          = "http://www.ltsw.se/knbase/internet/%s.htp"
   CONTACT_URL       = "http://www.iana.org/assignments/contact-people.htm#%s"
   # :startdoc:
 
@@ -112,6 +111,7 @@ class MIME::Type
     self.docs         ||= nil
     self.encoding     ||= :default
     self.references   ||= []
+    self.xrefs        ||= {}
 
     yield self if block_given?
   end
@@ -299,6 +299,7 @@ class MIME::Type
   # This was previously called #url.
   attr_reader :references
   def references=(r) # :nodoc:
+    MIME.deprecated(self, __method__)
     @references = Array(r).flatten.compact.uniq
   end
 
@@ -307,8 +308,16 @@ class MIME::Type
     references
   end
   def url=(r) # :nodoc:
-    MIME.deprecated(self, __method__, "and has been renamed to #references=")
+    MIME.deprecated(self, __method__)
     self.references = r
+  end
+
+  # The cross-references list for this MIME::Type.
+  attr_reader :xrefs
+  def xrefs=(x) # :nodoc:
+    @xrefs = MIME::Types::Container.new.merge(x)
+    @xrefs.each_value(&:sort!)
+    @xrefs.each_value(&:uniq!)
   end
 
   # The decoded URL list for this MIME::Type.
@@ -323,16 +332,13 @@ class MIME::Type
   #   https://datatracker.ietf.org/public/idindex.cgi?
   #       command=id_detail&filename=<name>
   #
-  # The special URL value LTSW will be translated into:
-  #   http://www.ltsw.se/knbase/internet/<mediatype>.htp
-  #
   # The special URL value [token] will be translated into:
   #   http://www.iana.org/assignments/contact-people.htm#<token>
   #
   # These values will be accessible through #urls, which always returns an
   # array.
   def urls
-    @references.map do |el|
+    references.map do |el|
       case el
       when %r{^IANA$}
         IANA_URL % [ @media_type, @sub_type ]
@@ -340,8 +346,6 @@ class MIME::Type
         RFC_URL % $1
       when %r{^DRAFT:(.+)$}
         DRAFT_URL % $1
-      when %r{^LTSW$}
-        LTSW_URL % @media_type
       when %r{^\{([^=]+)=([^\}]+)\}}
         [$1, $2]
       when %r{^\[([^=]+)=([^\]]+)\]}
@@ -352,6 +356,34 @@ class MIME::Type
         el
       end
     end
+  end
+
+  # The decoded cross-reference URL list for this MIME::Type.
+  def xref_urls
+    xrefs.map { |(type, values)|
+      case type
+      when 'rfc'
+        values.map { |data| "http://www.iana.org/go/#{data}" }
+      when 'draft'
+        values.map { |data|
+          "http://www.iana.org/go/#{data.sub(/\ARFC/, 'draft')}"
+        }
+      when 'rfc-errata'
+        values.map { |data|
+          "http://www.rfc-editor.org/errata_search.php?eid=#{data}"
+        }
+      when 'person'
+        values.map { |data|
+          "http://www.iana.org/assignments/media-types/media-types.xhtml##{data}"
+        }
+      when 'template'
+        values.map { |data|
+          "http://www.iana.org/assignments/media-types/#{data}"
+        }
+      when 'uri', 'text'
+        values
+      end
+    }.flatten
   end
 
   # Prior to BCP 178 (RFC 6648), it could be assumed that MIME content types
@@ -484,10 +516,9 @@ class MIME::Type
       coder['use-instead']  = use_instead if use_instead
     end
     coder['references']     = references unless references.empty?
+    coder['xrefs']          = xrefs unless xrefs.empty?
     coder['registered']     = registered?
-    if signature?
-      coder['signature']      = signature?
-    end
+    coder['signature']      = signature? if signature?
     coder['system']         = @system if @system
     coder
   end
@@ -498,10 +529,14 @@ class MIME::Type
     self.encoding     = coder['encoding']
     self.extensions   = coder['extensions'] || []
     self.obsolete     = coder['obsolete']
-    self.references   = coder['references'] || []
+    # This value will be deprecated in the future, as it will be an
+    # alternative view on #xrefs. Silence an unnecessary warning for now by
+    # assigning directly to the instance variable.
+    @references       = Array(coder['references']).flatten.compact.uniq
     self.registered   = coder['registered']
     self.signature    = coder['signature']
     self.system       = coder['system']
+    self.xrefs        = coder['xrefs'] || {}
     self.use_instead  = coder['use-instead']
   end
   # :startdoc:

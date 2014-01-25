@@ -58,8 +58,8 @@ namespace :mime do
   desc "Download the current MIME type registrations from IANA."
   task :iana, :destination do |t, args|
     $LOAD_PATH.unshift('support')
-    require 'iana_downloader'
-    IANADownloader.download_to(args.destination)
+    require 'iana_registry'
+    IANARegistry.download(to: args.destination)
   end
 
   desc "Shows known MIME type sources."
