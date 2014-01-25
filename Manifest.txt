@@ -22,7 +22,7 @@ lib/mime/types/loader.rb
 lib/mime/types/loader_path.rb
 support/benchmarker.rb
 support/convert.rb
-support/iana_registry_parser.rb
+support/iana_registry.rb
 test/fixture/json.json
 test/fixture/old-data
 test/fixture/yaml.yaml

@@ -21,6 +21,9 @@
 - !ruby/object:MIME::Type
   content-type: text/calendar
   encoding: quoted-printable
+  extensions:
+  - ics
+  - ifb
   references:
   - IANA
   - RFC5545
@@ -217,6 +220,8 @@
 - !ruby/object:MIME::Type
   content-type: text/n3
   encoding: quoted-printable
+  extensions:
+  - n3
   references:
   - IANA
   - ! '[Eric_Prudhommeaux]'
@@ -241,37 +246,27 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/plain
-  encoding: 8bit
-  extensions:
-  - doc
-  references:
-  - IANA
-  - RFC2046
-  - RFC3676
-  - RFC5147
-  xrefs: !ruby/hash:MIME::Types::Container
-    rfc: &70248784132680
-    - rfc2046
-    - rfc3676
-    - rfc5147
-  registered: true
-  system: !ruby/regexp /(?-mix:vms)/
-- !ruby/object:MIME::Type
-  content-type: text/plain
   encoding: quoted-printable
   extensions:
   - asc
   - c
   - cc
+  - conf
   - cpp
   - dat
+  - def
+  - doc
   - h
   - hh
   - hlp
   - hpp
+  - in
+  - list
+  - log
   - markdown
   - md
   - rst
+  - text
   - textile
   - txt
   references:
@@ -280,7 +275,10 @@
   - RFC3676
   - RFC5147
   xrefs: !ruby/hash:MIME::Types::Container
-    rfc: *70248784132680
+    rfc:
+    - rfc2046
+    - rfc3676
+    - rfc5147
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/provenance-notation
@@ -312,6 +310,8 @@
 - !ruby/object:MIME::Type
   content-type: text/prs.lines.tag
   encoding: quoted-printable
+  extensions:
+  - dsc
   references:
   - IANA
   - ! '[John_Lines]'
@@ -459,6 +459,9 @@
   content-type: text/troff
   encoding: 8bit
   extensions:
+  - man
+  - me
+  - ms
   - roff
   - t
   - tr
@@ -473,6 +476,8 @@
 - !ruby/object:MIME::Type
   content-type: text/turtle
   encoding: quoted-printable
+  extensions:
+  - ttl
   references:
   - IANA
   - ! '[Eric_Prudhommeaux]'
@@ -498,6 +503,10 @@
 - !ruby/object:MIME::Type
   content-type: text/uri-list
   encoding: quoted-printable
+  extensions:
+  - uri
+  - uris
+  - urls
   references:
   - IANA
   - RFC2483
@@ -508,6 +517,8 @@
 - !ruby/object:MIME::Type
   content-type: text/vcard
   encoding: quoted-printable
+  extensions:
+  - vcard
   references:
   - IANA
   - RFC6350
@@ -532,6 +543,8 @@
 - !ruby/object:MIME::Type
   content-type: text/vnd.curl
   encoding: quoted-printable
+  extensions:
+  - curl
   references:
   - IANA
   - ! '[Byrnes]'
@@ -542,6 +555,24 @@
     template:
     - text/vnd-curl
   registered: true
+- !ruby/object:MIME::Type
+  content-type: text/vnd.curl.dcurl
+  encoding: quoted-printable
+  extensions:
+  - dcurl
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: text/vnd.curl.mcurl
+  encoding: quoted-printable
+  extensions:
+  - mcurl
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: text/vnd.curl.scurl
+  encoding: quoted-printable
+  extensions:
+  - scurl
+  registered: false
 - !ruby/object:MIME::Type
   content-type: text/vnd.debian.copyright
   encoding: quoted-printable
@@ -571,6 +602,8 @@
 - !ruby/object:MIME::Type
   content-type: text/vnd.dvb.subtitle
   encoding: quoted-printable
+  extensions:
+  - sub
   references:
   - IANA
   - ! '[Peter_Siebert]'
@@ -578,8 +611,8 @@
   - ! '{text/vnd.dvb.subtitle=http://www.iana.org/assignments/media-types/text/vnd.dvb.subtitle}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Peter_Siebert
     - Michael_Lagally
+    - Peter_Siebert
     template:
     - text/vnd.dvb.subtitle
   registered: true
@@ -606,6 +639,8 @@
 - !ruby/object:MIME::Type
   content-type: text/vnd.fly
   encoding: quoted-printable
+  extensions:
+  - fly
   references:
   - IANA
   - ! '[Gurney]'
@@ -619,6 +654,8 @@
 - !ruby/object:MIME::Type
   content-type: text/vnd.fmi.flexstor
   encoding: quoted-printable
+  extensions:
+  - flx
   references:
   - IANA
   - ! '[Hurtta]'
@@ -632,6 +669,8 @@
 - !ruby/object:MIME::Type
   content-type: text/vnd.graphviz
   encoding: quoted-printable
+  extensions:
+  - gv
   references:
   - IANA
   - ! '[Ellson]'
@@ -645,6 +684,8 @@
 - !ruby/object:MIME::Type
   content-type: text/vnd.in3d.3dml
   encoding: quoted-printable
+  extensions:
+  - 3dml
   references:
   - IANA
   - ! '[Michael_Powers]'
@@ -658,6 +699,8 @@
 - !ruby/object:MIME::Type
   content-type: text/vnd.in3d.spot
   encoding: quoted-printable
+  extensions:
+  - spot
   references:
   - IANA
   - ! '[Michael_Powers]'
@@ -861,6 +904,25 @@
     - text/vnd.wap.wmlscript
   registered: true
 - !ruby/object:MIME::Type
+  content-type: text/x-asm
+  encoding: quoted-printable
+  extensions:
+  - asm
+  - s
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: text/x-c
+  encoding: quoted-printable
+  extensions:
+  - c
+  - cc
+  - cpp
+  - cxx
+  - dic
+  - h
+  - hh
+  registered: false
+- !ruby/object:MIME::Type
   content-type: text/x-coffescript
   encoding: 8bit
   extensions:
@@ -871,6 +933,40 @@
   encoding: 8bit
   extensions:
   - htc
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: text/x-fortran
+  encoding: quoted-printable
+  extensions:
+  - f
+  - f77
+  - f90
+  - for
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: text/x-java-source
+  encoding: quoted-printable
+  extensions:
+  - java
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: text/x-nfo
+  encoding: quoted-printable
+  extensions:
+  - nfo
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: text/x-opml
+  encoding: quoted-printable
+  extensions:
+  - opml
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: text/x-pascal
+  encoding: quoted-printable
+  extensions:
+  - p
+  - pas
   registered: false
 - !ruby/object:MIME::Type
   content-type: text/x-rtf
@@ -886,6 +982,18 @@
   encoding: quoted-printable
   extensions:
   - etx
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: text/x-sfv
+  encoding: quoted-printable
+  extensions:
+  - sfv
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: text/x-uuencode
+  encoding: quoted-printable
+  extensions:
+  - uu
   registered: false
 - !ruby/object:MIME::Type
   content-type: text/x-vcalendar

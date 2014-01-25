@@ -61,6 +61,13 @@ namespace :mime do
     require 'iana_registry'
     IANARegistry.download(to: args.destination)
   end
+
+  desc "Download the current MIME type configuration from Apache."
+  task :apache, :destination do |t, args|
+    $LOAD_PATH.unshift('support')
+    require 'apache_mime_types'
+    ApacheMIMETypes.download(to: args.destination)
+  end
 end
 
 Rake::Task['gem'].prerequisites.unshift("convert:yaml:json")

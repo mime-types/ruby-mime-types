@@ -18,8 +18,8 @@
   - RFC2421
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
-    - rfc3802
     - rfc2421
+    - rfc3802
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/3gpp
@@ -56,22 +56,16 @@
     - rfc4184
   registered: true
 - !ruby/object:MIME::Type
+  content-type: audio/adpcm
+  encoding: base64
+  extensions:
+  - adp
+  registered: false
+- !ruby/object:MIME::Type
   content-type: audio/AMR
   encoding: base64
   extensions:
   - amr
-  references:
-  - IANA
-  - RFC4867
-  xrefs: !ruby/hash:MIME::Types::Container
-    rfc:
-    - rfc4867
-  registered: true
-- !ruby/object:MIME::Type
-  content-type: audio/AMR-WB
-  encoding: base64
-  extensions:
-  - awb
   references:
   - IANA
   - RFC4867
@@ -88,6 +82,18 @@
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4352
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/AMR-WB
+  encoding: base64
+  extensions:
+  - awb
+  references:
+  - IANA
+  - RFC4867
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc4867
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/amr-wb+
@@ -693,6 +699,15 @@
     - rfc4856
   registered: true
 - !ruby/object:MIME::Type
+  content-type: audio/midi
+  encoding: base64
+  extensions:
+  - kar
+  - mid
+  - midi
+  - rmi
+  registered: false
+- !ruby/object:MIME::Type
   content-type: audio/mobile-xmf
   encoding: base64
   references:
@@ -709,6 +724,7 @@
   - f4a
   - f4b
   - mp4
+  - mp4a
   - mpg4
   references:
   - IANA
@@ -755,7 +771,10 @@
   content-type: audio/mpeg
   encoding: base64
   extensions:
+  - m2a
+  - m3a
   - mp2
+  - mp2a
   - mp3
   - mpga
   references:
@@ -783,7 +802,9 @@
   content-type: audio/ogg
   encoding: base64
   extensions:
+  - oga
   - ogg
+  - spx
   references:
   - IANA
   - RFC5334
@@ -932,6 +953,18 @@
     rfc:
     - rfc4588
   registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/s3m
+  encoding: base64
+  extensions:
+  - s3m
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: audio/silk
+  encoding: base64
+  extensions:
+  - sil
+  registered: false
 - !ruby/object:MIME::Type
   content-type: audio/SMV
   encoding: base64
@@ -1178,6 +1211,9 @@
 - !ruby/object:MIME::Type
   content-type: audio/vnd.dece.audio
   encoding: base64
+  extensions:
+  - uva
+  - uvva
   references:
   - IANA
   - ! '[Dolan]'
@@ -1323,6 +1359,8 @@
 - !ruby/object:MIME::Type
   content-type: audio/vnd.dra
   encoding: base64
+  extensions:
+  - dra
   references:
   - IANA
   - ! '[Jiang_Tian]'
@@ -1336,6 +1374,8 @@
 - !ruby/object:MIME::Type
   content-type: audio/vnd.dts
   encoding: base64
+  extensions:
+  - dts
   references:
   - IANA
   - ! '[William_Zou]'
@@ -1349,6 +1389,8 @@
 - !ruby/object:MIME::Type
   content-type: audio/vnd.dts.hd
   encoding: base64
+  extensions:
+  - dtshd
   references:
   - IANA
   - ! '[William_Zou]'
@@ -1418,6 +1460,8 @@
 - !ruby/object:MIME::Type
   content-type: audio/vnd.ms-playready.media.pya
   encoding: base64
+  extensions:
+  - pya
   references:
   - IANA
   - ! '[DiAcetis]'
@@ -1549,6 +1593,8 @@
 - !ruby/object:MIME::Type
   content-type: audio/vnd.rip
   encoding: base64
+  extensions:
+  - rip
   references:
   - IANA
   - ! '[Dawe]'
@@ -1613,6 +1659,7 @@
   content-type: audio/webm
   encoding: base64
   extensions:
+  - weba
   - webm
   references:
   - ! '{WebM=http://www.webmproject.org/code/specs/container/}'
@@ -1632,12 +1679,36 @@
   - aiff
   registered: false
 - !ruby/object:MIME::Type
+  content-type: audio/x-caf
+  encoding: base64
+  extensions:
+  - caf
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: audio/x-flac
+  encoding: base64
+  extensions:
+  - flac
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: audio/x-matroska
+  encoding: base64
+  extensions:
+  - mka
+  registered: false
+- !ruby/object:MIME::Type
   content-type: audio/x-midi
   encoding: base64
   extensions:
   - kar
   - mid
   - midi
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: audio/x-mpegurl
+  encoding: base64
+  extensions:
+  - m3u
   registered: false
 - !ruby/object:MIME::Type
   content-type: audio/x-ms-wax
@@ -1668,6 +1739,7 @@
   content-type: audio/x-pn-realaudio-plugin
   encoding: base64
   extensions:
+  - rmp
   - rpm
   registered: false
 - !ruby/object:MIME::Type
@@ -1681,4 +1753,10 @@
   encoding: base64
   extensions:
   - wav
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: audio/xm
+  encoding: base64
+  extensions:
+  - xm
   registered: false

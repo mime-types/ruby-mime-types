@@ -42,6 +42,8 @@
 - !ruby/object:MIME::Type
   content-type: model/vnd.collada+xml
   encoding: base64
+  extensions:
+  - dae
   references:
   - IANA
   - ! '[James_Riordon]'
@@ -55,6 +57,8 @@
 - !ruby/object:MIME::Type
   content-type: model/vnd.dwf
   encoding: base64
+  extensions:
+  - dwf
   references:
   - IANA
   - ! '[Jason_Pratt]'
@@ -81,6 +85,8 @@
 - !ruby/object:MIME::Type
   content-type: model/vnd.gdl
   encoding: base64
+  extensions:
+  - gdl
   references:
   - IANA
   - ! '[Babits]'
@@ -107,6 +113,8 @@
 - !ruby/object:MIME::Type
   content-type: model/vnd.gtw
   encoding: base64
+  extensions:
+  - gtw
   references:
   - IANA
   - ! '[Yutaka_Ozaki]'
@@ -133,6 +141,8 @@
 - !ruby/object:MIME::Type
   content-type: model/vnd.mts
   encoding: base64
+  extensions:
+  - mts
   references:
   - IANA
   - ! '[Boris_Rabinovitch]'
@@ -178,6 +188,8 @@
 - !ruby/object:MIME::Type
   content-type: model/vnd.vtu
   encoding: base64
+  extensions:
+  - vtu
   references:
   - IANA
   - ! '[Boris_Rabinovitch]'
@@ -202,8 +214,25 @@
     - rfc2077
   registered: true
 - !ruby/object:MIME::Type
+  content-type: model/x3d+binary
+  encoding: base64
+  extensions:
+  - x3db
+  - x3dbz
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: model/x3d+vrml
+  encoding: base64
+  extensions:
+  - x3dv
+  - x3dvz
+  registered: false
+- !ruby/object:MIME::Type
   content-type: model/x3d+xml
   encoding: base64
+  extensions:
+  - x3d
+  - x3dz
   references:
   - IANA
   - ! '[Web3D]'

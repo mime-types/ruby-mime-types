@@ -22,21 +22,21 @@ class TestMIMETypesQueryClassMethods < Minitest::Test
   def test_index_with_mime_type
     xtxp = MIME::Type.new('x-text/x-plain')
     assert_includes(MIME::Types[xtxp], 'text/plain')
-    assert_equal(2, MIME::Types[xtxp].size)
+    assert_equal(1, MIME::Types[xtxp].size)
   end
 
   def test_index_with_regex
     assert_includes(MIME::Types[/plain/], 'text/plain')
-    assert_equal(2, MIME::Types[/plain/].size)
+    assert_equal(1, MIME::Types[/plain/].size)
   end
 
   def test_index_with_string
     assert_includes(MIME::Types['text/plain'], 'text/plain')
-    assert_equal(2, MIME::Types['text/plain'].size)
+    assert_equal(1, MIME::Types['text/plain'].size)
   end
 
   def test_index_with_complete_flag
-    assert_empty(MIME::Types['text/vnd.fly', complete: true])
+    assert_empty(MIME::Types['application/1d-interleaved-parityfec', complete: true])
     refute_empty(MIME::Types['text/plain', complete: true])
   end
 

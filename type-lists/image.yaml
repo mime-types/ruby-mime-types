@@ -11,6 +11,8 @@
 - !ruby/object:MIME::Type
   content-type: image/cgm
   encoding: base64
+  extensions:
+  - cgm
   references:
   - IANA
   - ! '[Francis]'
@@ -51,6 +53,8 @@
 - !ruby/object:MIME::Type
   content-type: image/g3fax
   encoding: base64
+  extensions:
+  - g3
   references:
   - IANA
   - RFC1494
@@ -151,6 +155,8 @@
 - !ruby/object:MIME::Type
   content-type: image/ktx
   encoding: base64
+  extensions:
+  - ktx
   references:
   - IANA
   - ! '[Callow]'
@@ -199,6 +205,8 @@
 - !ruby/object:MIME::Type
   content-type: image/prs.btif
   encoding: base64
+  extensions:
+  - btif
   references:
   - IANA
   - ! '[Ben_Simon]'
@@ -235,6 +243,12 @@
     template:
     - image/pwg-raster
   registered: true
+- !ruby/object:MIME::Type
+  content-type: image/sgi
+  encoding: base64
+  extensions:
+  - sgi
+  registered: false
 - !ruby/object:MIME::Type
   content-type: image/svg+xml
   encoding: 8bit
@@ -337,6 +351,11 @@
 - !ruby/object:MIME::Type
   content-type: image/vnd.dece.graphic
   encoding: base64
+  extensions:
+  - uvg
+  - uvi
+  - uvvg
+  - uvvi
   references:
   - IANA
   - ! '[Dolan]'
@@ -375,6 +394,8 @@
 - !ruby/object:MIME::Type
   content-type: image/vnd.dvb.subtitle
   encoding: base64
+  extensions:
+  - sub
   references:
   - IANA
   - ! '[Peter_Siebert]'
@@ -382,8 +403,8 @@
   - ! '{image/vnd.dvb.subtitle=http://www.iana.org/assignments/media-types/image/vnd.dvb.subtitle}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Peter_Siebert
     - Michael_Lagally
+    - Peter_Siebert
     template:
     - image/vnd.dvb.subtitle
   registered: true
@@ -405,6 +426,8 @@
 - !ruby/object:MIME::Type
   content-type: image/vnd.dxf
   encoding: base64
+  extensions:
+  - dxf
   references:
   - IANA
   - ! '[Jodi_Moline]'
@@ -418,6 +441,8 @@
 - !ruby/object:MIME::Type
   content-type: image/vnd.fastbidsheet
   encoding: base64
+  extensions:
+  - fbs
   references:
   - IANA
   - ! '[Becker]'
@@ -431,6 +456,8 @@
 - !ruby/object:MIME::Type
   content-type: image/vnd.fpx
   encoding: base64
+  extensions:
+  - fpx
   references:
   - IANA
   - ! '[Marc_Douglas_Spencer]'
@@ -444,6 +471,8 @@
 - !ruby/object:MIME::Type
   content-type: image/vnd.fst
   encoding: base64
+  extensions:
+  - fst
   references:
   - IANA
   - ! '[Fuldseth]'
@@ -457,6 +486,8 @@
 - !ruby/object:MIME::Type
   content-type: image/vnd.fujixerox.edmics-mmr
   encoding: base64
+  extensions:
+  - mmr
   references:
   - IANA
   - ! '[Masanori_Onda]'
@@ -470,6 +501,8 @@
 - !ruby/object:MIME::Type
   content-type: image/vnd.fujixerox.edmics-rlc
   encoding: base64
+  extensions:
+  - rlc
   references:
   - IANA
   - ! '[Masanori_Onda]'
@@ -539,8 +572,16 @@
     - image/vnd.ms-modi
   registered: true
 - !ruby/object:MIME::Type
+  content-type: image/vnd.ms-photo
+  encoding: base64
+  extensions:
+  - wdp
+  registered: false
+- !ruby/object:MIME::Type
   content-type: image/vnd.net-fpx
   encoding: base64
+  extensions:
+  - npx
   references:
   - IANA
   - ! '[Marc_Douglas_Spencer]'
@@ -628,6 +669,8 @@
 - !ruby/object:MIME::Type
   content-type: image/vnd.wap.wbmp
   encoding: base64
+  extensions:
+  - wbmp
   references:
   - IANA
   - ! '[Peter_Stark]'
@@ -641,6 +684,8 @@
 - !ruby/object:MIME::Type
   content-type: image/vnd.xiff
   encoding: base64
+  extensions:
+  - xif
   references:
   - IANA
   - ! '[Steven_Martin]'
@@ -660,6 +705,12 @@
   - ! '{WebP=https://developers.google.com/speed/webp/}'
   registered: false
 - !ruby/object:MIME::Type
+  content-type: image/x-3ds
+  encoding: base64
+  extensions:
+  - 3ds
+  registered: false
+- !ruby/object:MIME::Type
   content-type: image/x-bmp
   encoding: base64
   extensions:
@@ -672,6 +723,12 @@
   - ras
   registered: false
 - !ruby/object:MIME::Type
+  content-type: image/x-cmx
+  encoding: base64
+  extensions:
+  - cmx
+  registered: false
+- !ruby/object:MIME::Type
   content-type: image/x-compressed-xcf
   docs: see-also:image/x-xcf
   encoding: base64
@@ -680,10 +737,32 @@
   - xcfgz
   registered: false
 - !ruby/object:MIME::Type
+  content-type: image/x-freehand
+  encoding: base64
+  extensions:
+  - fh
+  - fh4
+  - fh5
+  - fh7
+  - fhc
+  registered: false
+- !ruby/object:MIME::Type
   content-type: image/x-hasselblad-3fr
   encoding: base64
   extensions:
   - 3fr
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: image/x-icon
+  encoding: base64
+  extensions:
+  - ico
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: image/x-mrsid-image
+  encoding: base64
+  extensions:
+  - sid
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/x-paintshoppro
@@ -693,8 +772,17 @@
   - pspimage
   registered: false
 - !ruby/object:MIME::Type
+  content-type: image/x-pcx
+  encoding: base64
+  extensions:
+  - pcx
+  registered: false
+- !ruby/object:MIME::Type
   content-type: image/x-pict
   encoding: base64
+  extensions:
+  - pct
+  - pic
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/x-portable-anymap
@@ -728,6 +816,12 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/x-targa
+  encoding: base64
+  extensions:
+  - tga
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: image/x-tga
   encoding: base64
   extensions:
   - tga

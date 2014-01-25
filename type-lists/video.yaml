@@ -141,6 +141,12 @@
     - rfc4587
   registered: true
 - !ruby/object:MIME::Type
+  content-type: video/h261
+  encoding: base64
+  extensions:
+  - h261
+  registered: false
+- !ruby/object:MIME::Type
   content-type: video/H263
   encoding: base64
   references:
@@ -150,6 +156,12 @@
     rfc:
     - rfc3555
   registered: true
+- !ruby/object:MIME::Type
+  content-type: video/h263
+  encoding: base64
+  extensions:
+  - h263
+  registered: false
 - !ruby/object:MIME::Type
   content-type: video/H263-1998
   encoding: base64
@@ -170,6 +182,12 @@
     rfc:
     - rfc4629
   registered: true
+- !ruby/object:MIME::Type
+  content-type: video/h264
+  encoding: base64
+  extensions:
+  - h264
+  registered: false
 - !ruby/object:MIME::Type
   content-type: video/H264
   encoding: base64
@@ -201,6 +219,12 @@
     - rfc6190
   registered: true
 - !ruby/object:MIME::Type
+  content-type: video/jpeg
+  encoding: base64
+  extensions:
+  - jpgv
+  registered: false
+- !ruby/object:MIME::Type
   content-type: video/JPEG
   encoding: base64
   references:
@@ -223,6 +247,13 @@
     - rfc5372
   registered: true
 - !ruby/object:MIME::Type
+  content-type: video/jpm
+  encoding: base64
+  extensions:
+  - jpgm
+  - jpm
+  registered: false
+- !ruby/object:MIME::Type
   content-type: video/MJ2
   encoding: base64
   extensions:
@@ -235,6 +266,13 @@
     rfc:
     - rfc3745
   registered: true
+- !ruby/object:MIME::Type
+  content-type: video/mj2
+  encoding: base64
+  extensions:
+  - mj2
+  - mjp2
+  registered: false
 - !ruby/object:MIME::Type
   content-type: video/MP1S
   encoding: base64
@@ -274,6 +312,7 @@
   - f4p
   - f4v
   - mp4
+  - mp4v
   - mpg4
   references:
   - IANA
@@ -298,6 +337,8 @@
   content-type: video/mpeg
   encoding: base64
   extensions:
+  - m1v
+  - m2v
   - mp2
   - mp3g
   - mpe
@@ -496,6 +537,9 @@
 - !ruby/object:MIME::Type
   content-type: video/vnd.dece.hd
   encoding: base64
+  extensions:
+  - uvh
+  - uvvh
   references:
   - IANA
   - ! '[Dolan]'
@@ -509,6 +553,9 @@
 - !ruby/object:MIME::Type
   content-type: video/vnd.dece.mobile
   encoding: base64
+  extensions:
+  - uvm
+  - uvvm
   references:
   - IANA
   - ! '[Dolan]'
@@ -535,6 +582,9 @@
 - !ruby/object:MIME::Type
   content-type: video/vnd.dece.pd
   encoding: base64
+  extensions:
+  - uvp
+  - uvvp
   references:
   - IANA
   - ! '[Dolan]'
@@ -548,6 +598,9 @@
 - !ruby/object:MIME::Type
   content-type: video/vnd.dece.sd
   encoding: base64
+  extensions:
+  - uvs
+  - uvvs
   references:
   - IANA
   - ! '[Dolan]'
@@ -561,6 +614,9 @@
 - !ruby/object:MIME::Type
   content-type: video/vnd.dece.video
   encoding: base64
+  extensions:
+  - uvv
+  - uvvv
   references:
   - IANA
   - ! '[Dolan]'
@@ -600,31 +656,33 @@
 - !ruby/object:MIME::Type
   content-type: video/vnd.dlna.mpeg-tts
   encoding: base64
+  references:
+  - IANA
+  - ! '[Heredia]'
+  - ! '{video/vnd.dlna.mpeg-tts=http://www.iana.org/assignments/media-types/video/vnd.dlna.mpeg-tts}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person: &70361330687080
+    - Heredia
+    template: &70361330686880
+    - video/vnd.dlna.mpeg-tts
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: video/vnd.dlna.mpeg-tts
+  encoding: base64
   obsolete: true
   references:
   - IANA
   - ! '[Heredia]'
   - ! '{video/vnd.dlna.mpeg-tts=http://www.iana.org/assignments/media-types/video/vnd.dlna.mpeg-tts}'
   xrefs: !ruby/hash:MIME::Types::Container
-    person: &70248802078580
-    - Heredia
-    template: &70248802076460
-    - video/vnd.dlna.mpeg-tts
-  registered: true
-- !ruby/object:MIME::Type
-  content-type: video/vnd.dlna.mpeg-tts
-  encoding: base64
-  references:
-  - IANA
-  - ! '[Heredia]'
-  - ! '{video/vnd.dlna.mpeg-tts=http://www.iana.org/assignments/media-types/video/vnd.dlna.mpeg-tts}'
-  xrefs: !ruby/hash:MIME::Types::Container
-    person: *70248802078580
-    template: *70248802076460
+    person: *70361330687080
+    template: *70361330686880
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/vnd.dvb.file
   encoding: base64
+  extensions:
+  - dvb
   references:
   - IANA
   - ! '[Peter_Siebert]'
@@ -632,14 +690,16 @@
   - ! '{video/vnd.dvb.file=http://www.iana.org/assignments/media-types/video/vnd.dvb.file}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Peter_Siebert
     - Kevin_Murray
+    - Peter_Siebert
     template:
     - video/vnd.dvb.file
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/vnd.fvt
   encoding: base64
+  extensions:
+  - fvt
   references:
   - IANA
   - ! '[Fuldseth]'
@@ -786,6 +846,8 @@
 - !ruby/object:MIME::Type
   content-type: video/vnd.ms-playready.media.pyv
   encoding: base64
+  extensions:
+  - pyv
   references:
   - IANA
   - ! '[DiAcetis]'
@@ -933,6 +995,9 @@
 - !ruby/object:MIME::Type
   content-type: video/vnd.uvvu.mp4
   encoding: base64
+  extensions:
+  - uvu
+  - uvvu
   references:
   - IANA
   - ! '[Dolan]'
@@ -980,6 +1045,12 @@
   - dv
   registered: false
 - !ruby/object:MIME::Type
+  content-type: video/x-f4v
+  encoding: base64
+  extensions:
+  - f4v
+  registered: false
+- !ruby/object:MIME::Type
   content-type: video/x-fli
   encoding: base64
   extensions:
@@ -1004,10 +1075,24 @@
   - ivf
   registered: false
 - !ruby/object:MIME::Type
+  content-type: video/x-m4v
+  encoding: base64
+  extensions:
+  - m4v
+  registered: false
+- !ruby/object:MIME::Type
   content-type: video/x-matroska
   encoding: base64
   extensions:
+  - mk3d
+  - mks
   - mkv
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: video/x-mng
+  encoding: base64
+  extensions:
+  - mng
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/x-motion-jpeg
@@ -1022,6 +1107,12 @@
   extensions:
   - asf
   - asx
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: video/x-ms-vob
+  encoding: base64
+  extensions:
+  - vob
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/x-ms-wm
@@ -1058,4 +1149,10 @@
   encoding: base64
   extensions:
   - movie
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: video/x-smv
+  encoding: base64
+  extensions:
+  - smv
   registered: false

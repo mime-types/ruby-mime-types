@@ -7,24 +7,14 @@
     into a short-hand view on MIME::Type#xrefs, MIME::Type#urls will be an
     alias for MIME::Type#xref_urls, and MIME::Type#references= will be removed.
 * New or Updated MIME Types:
-  * Most MIME types have had some metadata updates due to the change in the
-    IANA registry format.
-  * MIME types having a publicly available registry application now include a
-    link to that file in references.
-  * Added +xrefs+ data as discovered (see the API changes noted above).
-  * MIME types
-  * Added:
-    * application/emotionml\+xml, application/ODX, application/prs.hpub\+zip,
-      application/vcard\+json, application/vnd.bekitzur-stech\+json,
-      application/vnd.etsi.timestamp-token,
-      application/vnd.oma.cab-feature-handler\+xml,
-      application/vnd.openeye.oeb, application/vnd.tcpdump.pcap, audio/amr-wb,
-      model/x3d\+xml, model/x3d-vrml
+  * This information is now tracked in History-Types.rdoc.
 * MIME Type Development Tools
   * The IANA registry format changed, breaking the IANA registry tool
     previously used. Rewrote IANADownloader and IANADownloader::Parser as
     IANARegistryParser using the XML form.
   * The LTSW list has been dropped as it has not been updated since 2002.
+  * The default Apache MIME types configuration list is now used to enrich MIME
+    type data with additional extension information.
 
 == 2.0 / 2013-10-27
 
