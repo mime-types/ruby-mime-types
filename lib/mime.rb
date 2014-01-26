@@ -6,7 +6,7 @@ end
 
 class << MIME
   # Used to mark a method as deprecated in the mime-types interface.
-  def deprecated(klass, sym, message = nil) # :nodoc:
+  def deprecated(klass, sym, message = nil, &block) # :nodoc:
     level = case klass
             when Class, Module
               '.'
@@ -25,6 +25,7 @@ class << MIME
                 end
       warn "#{klass}#{level}#{sym} is deprecated #{message}."
       (@__deprecated ||= {})["#{klass}#{level}#{sym}"] = true
+      block.call if block
     end
   end
 

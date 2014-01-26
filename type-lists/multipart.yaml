@@ -6,6 +6,10 @@
   - IANA
   - RFC2045
   - RFC2046
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc2045
+    - rfc2046
   registered: true
 - !ruby/object:MIME::Type
   content-type: multipart/appledouble
@@ -13,6 +17,12 @@
   references:
   - IANA
   - ! '[Faltstrom]'
+  - ! '{multipart/appledouble=http://www.iana.org/assignments/media-types/multipart/appledouble}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Faltstrom
+    template:
+    - multipart/appledouble
   registered: true
 - !ruby/object:MIME::Type
   content-type: multipart/byteranges
@@ -20,6 +30,9 @@
   references:
   - IANA
   - RFC2616
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc2616
   registered: true
 - !ruby/object:MIME::Type
   content-type: multipart/digest
@@ -28,6 +41,10 @@
   - IANA
   - RFC2045
   - RFC2046
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc2045
+    - rfc2046
   registered: true
 - !ruby/object:MIME::Type
   content-type: multipart/encrypted
@@ -35,6 +52,9 @@
   references:
   - IANA
   - RFC1847
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc1847
   registered: true
 - !ruby/object:MIME::Type
   content-type: multipart/example
@@ -42,6 +62,9 @@
   references:
   - IANA
   - RFC4735
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc4735
   registered: true
 - !ruby/object:MIME::Type
   content-type: multipart/form-data
@@ -49,6 +72,9 @@
   references:
   - IANA
   - RFC2388
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc2388
   registered: true
 - !ruby/object:MIME::Type
   content-type: multipart/header-set
@@ -56,6 +82,12 @@
   references:
   - IANA
   - ! '[Crocker]'
+  - ! '{multipart/header-set=http://www.iana.org/assignments/media-types/multipart/header-set}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Crocker
+    template:
+    - multipart/header-set
   registered: true
 - !ruby/object:MIME::Type
   content-type: multipart/mixed
@@ -64,6 +96,10 @@
   - IANA
   - RFC2045
   - RFC2046
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc2045
+    - rfc2046
   registered: true
 - !ruby/object:MIME::Type
   content-type: multipart/parallel
@@ -72,6 +108,10 @@
   - IANA
   - RFC2045
   - RFC2046
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc2045
+    - rfc2046
   registered: true
 - !ruby/object:MIME::Type
   content-type: multipart/related
@@ -79,6 +119,9 @@
   references:
   - IANA
   - RFC2387
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc2387
   registered: true
 - !ruby/object:MIME::Type
   content-type: multipart/report
@@ -86,6 +129,9 @@
   references:
   - IANA
   - RFC6522
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc6522
   registered: true
 - !ruby/object:MIME::Type
   content-type: multipart/signed
@@ -93,6 +139,9 @@
   references:
   - IANA
   - RFC1847
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc1847
   registered: true
 - !ruby/object:MIME::Type
   content-type: multipart/voice-message
@@ -101,6 +150,10 @@
   - IANA
   - RFC2421
   - RFC2423
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc2421
+    - rfc2423
   registered: true
 - !ruby/object:MIME::Type
   content-type: multipart/x-gzip

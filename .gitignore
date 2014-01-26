@@ -1,10 +1,12 @@
 *.swp
 *~
 .rake_tasks~
-html
+.vagrant
+Gemfile.lock
+Vagrantfile
+coverage
 doc
+html
 pkg
 publish
-coverage
-Gemfile.lock
 test/cache.tst

@@ -7,7 +7,7 @@ Hoe.plugin :doofus
 Hoe.plugin :email
 Hoe.plugin :gemspec2
 Hoe.plugin :git
-Hoe.plugin :rubyforge
+Hoe.plugin :rubyforge unless ENV['CI'] or ENV['TRAVIS']
 Hoe.plugin :minitest
 Hoe.plugin :travis
 
@@ -58,20 +58,15 @@ namespace :mime do
   desc "Download the current MIME type registrations from IANA."
   task :iana, :destination do |t, args|
     $LOAD_PATH.unshift('support')
-    require 'iana_downloader'
-    IANADownloader.download_to(args.destination)
+    require 'iana_registry'
+    IANARegistry.download(to: args.destination)
   end
 
-  desc "Shows known MIME type sources."
-  task :mime_type_sources do
-    puts <<-EOS
-http://www.ltsw.se/knbase/internet/mime.htp
-http://www.webmaster-toolkit.com/mime-types.shtml
-http://plugindoc.mozdev.org/winmime.php
-http://standards.freedesktop.org/shared-mime-info-spec/shared-mime-info-spec-latest.html
-http://www.feedforall.com/mime-types.htm
-http://www.iana.org/assignments/media-types/
-  EOS
+  desc "Download the current MIME type configuration from Apache."
+  task :apache, :destination do |t, args|
+    $LOAD_PATH.unshift('support')
+    require 'apache_mime_types'
+    ApacheMIMETypes.download(to: args.destination)
   end
 end
 

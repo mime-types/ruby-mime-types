@@ -1,5 +1,35 @@
 ---
 - !ruby/object:MIME::Type
+  content-type: chemical/x-cdx
+  encoding: base64
+  extensions:
+  - cdx
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: chemical/x-cif
+  encoding: base64
+  extensions:
+  - cif
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: chemical/x-cmdf
+  encoding: base64
+  extensions:
+  - cmdf
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: chemical/x-cml
+  encoding: base64
+  extensions:
+  - cml
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: chemical/x-csml
+  encoding: base64
+  extensions:
+  - csml
+  registered: false
+- !ruby/object:MIME::Type
   content-type: chemical/x-pdb
   encoding: base64
   extensions:

@@ -17,7 +17,7 @@ class MIME::Types
     # the cache version is different than this version.
     def load(cache_file = nil)
       cache_file = cache_file || ENV['RUBY_MIME_TYPES_CACHE']
-      return nil unless cache_file and File.exists?(cache_file)
+      return nil unless cache_file and File.exist?(cache_file)
 
       cache = Marshal.load(File.binread(cache_file))
       if cache.version == MIME::Types::VERSION
