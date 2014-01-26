@@ -5,6 +5,7 @@
 .travis.yml
 Contributing.rdoc
 Gemfile
+History-Types.rdoc
 History.rdoc
 Licence.rdoc
 Manifest.txt
@@ -20,6 +21,7 @@ lib/mime/types.rb
 lib/mime/types/cache.rb
 lib/mime/types/loader.rb
 lib/mime/types/loader_path.rb
+support/apache_mime_types.rb
 support/benchmarker.rb
 support/convert.rb
 support/iana_registry.rb

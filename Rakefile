@@ -7,7 +7,7 @@ Hoe.plugin :doofus
 Hoe.plugin :email
 Hoe.plugin :gemspec2
 Hoe.plugin :git
-Hoe.plugin :rubyforge
+Hoe.plugin :rubyforge unless ENV['CI'] or ENV['TRAVIS']
 Hoe.plugin :minitest
 Hoe.plugin :travis
 
