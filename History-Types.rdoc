@@ -1,6 +1,6 @@
 = MIME Types Changes by Version
 
-== 2.1 / 2014-MM-DD
+== 2.1 / 2014-01-25
 
 * The IANA media type registry format changed, resulting in updates to most of
   the 1,427 registered MIME types.

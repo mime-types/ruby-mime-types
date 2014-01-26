@@ -1,4 +1,4 @@
-== 2.1 / 2014-MM-DD
+== 2.1 / 2014-01-25
 
 * API Changes (MIME::Type):
   * Added MIME::Type#xrefs and MIME::Type#xref_urls that have better handling
