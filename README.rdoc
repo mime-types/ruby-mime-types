@@ -104,4 +104,4 @@ will not be removed until at least mime-types 3.x or possibly later.
 
 :include: Contributing.rdoc
 
-:include: Licence.rdoc
+:include: License.rdoc
