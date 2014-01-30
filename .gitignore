@@ -1,6 +1,7 @@
 *.swp
 *~
 .rake_tasks~
+.source_index
 .vagrant
 Gemfile.lock
 Vagrantfile
