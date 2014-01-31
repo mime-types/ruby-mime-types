@@ -164,9 +164,9 @@ class MIME::Types
   # If +platform+ is +true+, then only file types that are specific to the
   # current platform will be returned. This parameter has been deprecated.
   def type_for(filename, platform = false)
-    types = Array(filename).flatten.map { |fn|
+    types = Array(filename).flat_map { |fn|
       @extension_index[File.basename(fn.chomp.downcase).gsub(/.*\./o, '')]
-    }.flatten.sort { |a, b| a.priority_compare(b) }.uniq
+    }.sort { |a, b| a.priority_compare(b) }.uniq
 
     if platform
       MIME.deprecated(self, __method__,
