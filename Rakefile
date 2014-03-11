@@ -6,12 +6,11 @@ require 'hoe'
 Hoe.plugin :doofus
 Hoe.plugin :gemspec2
 Hoe.plugin :git
-Hoe.plugin :rubyforge unless ENV['CI'] or ENV['TRAVIS']
 Hoe.plugin :minitest
 Hoe.plugin :travis
 
 spec = Hoe.spec 'mime-types' do
-  developer('Austin Ziegler', 'austin@rubyforge.org')
+  developer('Austin Ziegler', 'halostatue@gmail.com')
   self.need_tar = true
 
   self.require_ruby_version '>= 1.9.2'
