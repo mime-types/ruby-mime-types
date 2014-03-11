@@ -1181,6 +1181,7 @@
   encoding: 8bit
   extensions:
   - js
+  - sj
   references:
   - IANA
   - RFC4329
