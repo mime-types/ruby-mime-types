@@ -155,21 +155,21 @@ class MIME::Type
   def priority_compare(other)
     pc = simplified <=> other.simplified
     if pc.zero?
-      pc = if (registered? != other.registered?)
-             registered? ? -1 : 1 # registered < unregistered
-           elsif (platform? != other.platform?)
-             platform? ? 1 : -1 # generic < platform
-           elsif (complete? != other.complete?)
-             complete? ? -1 : 1 # complete < incomplete
-           elsif (obsolete? != other.obsolete?)
-             obsolete? ? 1 : -1 # current < obsolete
-           elsif obsolete? and (use_instead != other.use_instead)
-             if use_instead.nil?
+      pc = if ((reg = registered?) != other.registered?)
+             reg ? -1 : 1 # registered < unregistered
+           elsif ((plat = platform?(true)) != other.platform?(true))
+             plat ? 1 : -1 # generic < platform
+           elsif ((comp = complete?) != other.complete?)
+             comp ? -1 : 1 # complete < incomplete
+           elsif ((obs = obsolete?) != other.obsolete?)
+             obs ? 1 : -1 # current < obsolete
+           elsif obs and ((ui = use_instead) != (oui = other.use_instead))
+             if ui.nil?
                1
-             elsif other.use_instead.nil?
+             elsif oui.nil?
                -1
              else
-               use_instead <=> other.use_instead
+               ui <=> oui
              end
            else
              0
@@ -437,8 +437,8 @@ class MIME::Type
   # Returns +true+ if the MIME::Type is specific to an operating system.
   #
   # This method is deprecated.
-  def system?
-    MIME.deprecated(self, __method__)
+  def system?(__internal__ = false)
+    MIME.deprecated(self, __method__) unless __internal__
     not @system.nil?
   end
 
@@ -446,9 +446,9 @@ class MIME::Type
   # system as represented by RUBY_PLATFORM.
   #
   # This method is deprecated.
-  def platform?
-    MIME.deprecated(self, __method__)
-    system? and (RUBY_PLATFORM =~ @system)
+  def platform?(__internal__ = false)
+    MIME.deprecated(self, __method__) unless __internal__
+    system?(__internal__) and (RUBY_PLATFORM =~ @system)
   end
 
   # Returns +true+ if the MIME::Type specifies an extension list,
