@@ -1,12 +1,12 @@
 == Licence
 
-This software is available under three licenses: the GNU GPL version 2 (or at
-your option, a later version), the Perl Artistic license, or the MIT license.
-Note that my preference for licensing is the MIT license, but the original Perl
-MIME::Types was dually originally licensed with the Perl Artistic and the GNU
-GPL ("the same terms as Perl itself") and given that the Ruby implementation
-hewed pretty closely to the Perl version, I must maintain the additional
-licensing terms.
+This software is available under three licences: the GNU GPL version 2 (or at
+your option, a later version), the Perl Artistic License, or the MIT License.
+Note that my preference for licensing is the MIT License, but the original Perl
+MIME::Types was dually originally licensed with the Perl Artistic Licence and
+the GNU GPL ("the same terms as Perl itself") and given that the Ruby
+implementation hewed pretty closely to the Perl version, I must maintain the
+additional licensing terms.
 
 * Copyright 2003–2013 Austin Ziegler.
 * Adapted from MIME::Types (Perl) by Mark Overmeer.
