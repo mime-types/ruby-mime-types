@@ -3,11 +3,10 @@
 I value any contribution to mime-types you can provide: a bug report, a feature
 request, or code contributions.
 
-As mime-types is a complex codebase, there are a few guidelines:
+As mime-types is a mature codebase, there are a few guidelines:
 
-* Changes (aside from new MIME types) *will* *not* be accepted
-  without tests. The test suite is written with
-  {Minitest}[https://github.com/seattlerb/minitest].
+* Code changes *will* *not* be accepted without tests. The test suite is
+  written with {Minitest}[https://github.com/seattlerb/minitest].
 * Match my coding style.
 * Use a thoughtfully-named topic branch that contains your change. Rebase your
   commits into logical chunks as necessary.
@@ -15,7 +14,39 @@ As mime-types is a complex codebase, there are a few guidelines:
 * Do not change the version number; when your patch is accepted and a release
   is made, the version will be updated at that point.
 * Submit a GitHub pull request with your changes.
-* New behaviours require new or updated documentation.
+* New or changed behaviours require new or updated documentation.
+
+=== Adding or Modifying MIME Types
+
+The mime-types registry is loaded from a JSON file in +data+, but this file is
+not considered editable and cannot be compared in a pull request. New or
+modified MIME types should be edited in the appropriate YAML file under
++type-lists+. The format is as shown below for the +application/xml+ MIME type
+in +type-lists/application.yml+.
+
+  - !ruby/object:MIME::Type
+    content-type: application/xml
+    encoding: 8bit
+    extensions:
+    - xml
+    - xsl
+    references:
+    - IANA
+    - RFC3023
+    xrefs: !ruby/hash:MIME::Types::Container
+      rfc:
+      - rfc3023
+    registered: true
+
+There are other fields that can be added, matching the fields discussed in the
+documentation for MIME::Type. Pull requests for MIME types should just contain
+the changes to the YAML files for the new or modified MIME types; I will
+convert the YAML files to JSON prior to a new release. I would rather not have
+to verify that the JSON matches the YAML changes, which is why it is not
+necessary to convert for the pull request.
+
+If you are making a change for a private fork, use <tt>rake
+convert:yaml:json</tt> to convert the YAML to JSON.
 
 === Test Dependencies
 
