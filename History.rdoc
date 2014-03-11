@@ -1,3 +1,7 @@
+== 2.2 / YYYY-MM-DD
+* Clarified contribution guidelines for MIME types. Resolves
+  {#57}[https://github.com/halostatue/mime-types/issues/57].
+
 == 2.1 / 2014-01-25
 
 * API Changes (MIME::Type):

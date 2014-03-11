@@ -1,5 +1,10 @@
 = MIME Types Changes by Version
 
+== 2.2 / YYYY-MM-DD
+* Added <tt>.sj</tt> to +application/javascript+ as suggested by Brandon
+  Galbraith (@brandongalbraith) in
+  {#58}[https://github.com/halostatue/mime-types/pull/58].
+
 == 2.1 / 2014-01-25
 
 * The IANA media type registry format changed, resulting in updates to most of
