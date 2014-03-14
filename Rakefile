@@ -8,6 +8,7 @@ Hoe.plugin :gemspec2
 Hoe.plugin :git
 Hoe.plugin :minitest
 Hoe.plugin :travis
+Hoe.plugin :email unless ENV['CI'] or ENV['TRAVIS']
 
 spec = Hoe.spec 'mime-types' do
   developer('Austin Ziegler', 'halostatue@gmail.com')
