@@ -235,6 +235,19 @@
     - text/n3
   registered: true
 - !ruby/object:MIME::Type
+  content-type: text/parameters
+  encoding: quoted-printable
+  references:
+  - IANA
+  - DRAFT:draft-ietf-mmusic-rfc2326bis-40
+  - ! '{text/parameters=http://www.iana.org/assignments/media-types/text/parameters}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-ietf-mmusic-rfc2326bis-40
+    template:
+    - text/parameters
+  registered: true
+- !ruby/object:MIME::Type
   content-type: text/parityfec
   encoding: quoted-printable
   references:
@@ -285,11 +298,11 @@
   encoding: quoted-printable
   references:
   - IANA
-  - ! '[Herman]'
+  - ! '[Ivan_Herman]'
   - ! '[W3C]'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Herman
+    - Ivan_Herman
     - W3C
   registered: true
 - !ruby/object:MIME::Type
@@ -299,11 +312,11 @@
   - rst
   references:
   - IANA
-  - ! '[Fallenstein]'
+  - ! '[Benja_Fallenstein]'
   - ! '{text/prs.fallenstein.rst=http://www.iana.org/assignments/media-types/text/prs.fallenstein.rst}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Fallenstein
+    - Benja_Fallenstein
     template:
     - text/prs.fallenstein.rst
   registered: true
@@ -528,15 +541,28 @@
   registered: true
   signature: true
 - !ruby/object:MIME::Type
+  content-type: text/vnd.a
+  encoding: quoted-printable
+  references:
+  - IANA
+  - ! '[Regis_Dehoux]'
+  - ! '{text/vnd-a=http://www.iana.org/assignments/media-types/text/vnd-a}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Regis_Dehoux
+    template:
+    - text/vnd-a
+  registered: true
+- !ruby/object:MIME::Type
   content-type: text/vnd.abc
   encoding: quoted-printable
   references:
   - IANA
-  - ! '[Allen]'
+  - ! '[Steve_Allen]'
   - ! '{text/vnd.abc=http://www.iana.org/assignments/media-types/text/vnd.abc}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Allen
+    - Steve_Allen
     template:
     - text/vnd.abc
   registered: true
@@ -547,11 +573,11 @@
   - curl
   references:
   - IANA
-  - ! '[Byrnes]'
+  - ! '[Robert_Byrnes]'
   - ! '{text/vnd-curl=http://www.iana.org/assignments/media-types/text/vnd-curl}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Byrnes
+    - Robert_Byrnes
     template:
     - text/vnd-curl
   registered: true
@@ -591,11 +617,11 @@
   encoding: quoted-printable
   references:
   - IANA
-  - ! '[Bradley]'
+  - ! '[Dan_Bradley]'
   - ! '{text/vnd.DMClientScript=http://www.iana.org/assignments/media-types/text/vnd.DMClientScript}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Bradley
+    - Dan_Bradley
     template:
     - text/vnd.DMClientScript
   registered: true
@@ -621,11 +647,11 @@
   encoding: quoted-printable
   references:
   - IANA
-  - ! '[Eilemann]'
+  - ! '[Stefan_Eilemann]'
   - ! '{text/vnd.esmertec.theme-descriptor=http://www.iana.org/assignments/media-types/text/vnd.esmertec.theme-descriptor}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Eilemann
+    - Stefan_Eilemann
     template:
     - text/vnd.esmertec.theme-descriptor
   registered: true
@@ -643,11 +669,11 @@
   - fly
   references:
   - IANA
-  - ! '[Gurney]'
+  - ! '[John-Mark_Gurney]'
   - ! '{text/vnd.fly=http://www.iana.org/assignments/media-types/text/vnd.fly}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Gurney
+    - John-Mark_Gurney
     template:
     - text/vnd.fly
   registered: true
@@ -658,11 +684,11 @@
   - flx
   references:
   - IANA
-  - ! '[Hurtta]'
+  - ! '[Kari_E._Hurtta]'
   - ! '{text/vnd.fmi.flexstor=http://www.iana.org/assignments/media-types/text/vnd.fmi.flexstor}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Hurtta
+    - Kari_E._Hurtta
     template:
     - text/vnd.fmi.flexstor
   registered: true
@@ -673,11 +699,11 @@
   - gv
   references:
   - IANA
-  - ! '[Ellson]'
+  - ! '[John_Ellson]'
   - ! '{text/vnd.graphviz=http://www.iana.org/assignments/media-types/text/vnd.graphviz}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Ellson
+    - John_Ellson
     template:
     - text/vnd.graphviz
   registered: true
@@ -822,11 +848,11 @@
   - jad
   references:
   - IANA
-  - ! '[G.Adams]'
+  - ! '[Gary_Adams]'
   - ! '{text/vnd.sun.j2me.app-descriptor=http://www.iana.org/assignments/media-types/text/vnd.sun.j2me.app-descriptor}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - G.Adams
+    - Gary_Adams
     template:
     - text/vnd.sun.j2me.app-descriptor
   registered: true
@@ -835,11 +861,11 @@
   encoding: quoted-printable
   references:
   - IANA
-  - ! '[D.Lambert]'
+  - ! '[David_Lee_Lambert]'
   - ! '{text/vnd.trolltech.linguist=http://www.iana.org/assignments/media-types/text/vnd.trolltech.linguist}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - D.Lambert
+    - David_Lee_Lambert
     template:
     - text/vnd.trolltech.linguist
   registered: true

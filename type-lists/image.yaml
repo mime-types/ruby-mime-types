@@ -15,11 +15,11 @@
   - cgm
   references:
   - IANA
-  - ! '[Francis]'
+  - ! '[Alan_Francis]'
   - ! '{image/cgm=http://www.iana.org/assignments/media-types/image/cgm}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Francis
+    - Alan_Francis
     template:
     - image/cgm
   registered: true
@@ -159,13 +159,13 @@
   - ktx
   references:
   - IANA
-  - ! '[Callow]'
+  - ! '[Mark_Callow]'
   - ! '[Khronos]'
   - ! '{http://www.khronos.org/opengles/sdk/tools/KTX/file_format_spec/#mimeregistration}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Callow
     - Khronos
+    - Mark_Callow
     uri:
     - http://www.khronos.org/opengles/sdk/tools/KTX/file_format_spec/#mimeregistration
   registered: true
@@ -174,11 +174,11 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Ferber]'
+  - ! '[Ilya_Ferber]'
   - ! '{image/naplps=http://www.iana.org/assignments/media-types/image/naplps}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Ferber
+    - Ilya_Ferber
     template:
     - image/naplps
   registered: true
@@ -327,11 +327,11 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Clueit]'
+  - ! '[Gary_Clueit]'
   - ! '{image/vnd.airzip.accelerator.azv=http://www.iana.org/assignments/media-types/image/vnd.airzip.accelerator.azv}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Clueit
+    - Gary_Clueit
     template:
     - image/vnd.airzip.accelerator.azv
   registered: true
@@ -358,11 +358,11 @@
   - uvvi
   references:
   - IANA
-  - ! '[Dolan]'
+  - ! '[Michael_A_Dolan]'
   - ! '{image/vnd.dece.graphic=http://www.iana.org/assignments/media-types/image/vnd.dece.graphic}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Dolan
+    - Michael_A_Dolan
     template:
     - image/vnd.dece.graphic
   registered: true
@@ -383,11 +383,11 @@
   - djvu
   references:
   - IANA
-  - ! '[Bottou]'
+  - ! '[Leon_Bottou]'
   - ! '{image/vnd-djvu=http://www.iana.org/assignments/media-types/image/vnd-djvu}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Bottou
+    - Leon_Bottou
     template:
     - image/vnd-djvu
   registered: true
@@ -445,11 +445,11 @@
   - fbs
   references:
   - IANA
-  - ! '[Becker]'
+  - ! '[Scott_Becker]'
   - ! '{image/vnd.fastbidsheet=http://www.iana.org/assignments/media-types/image/vnd.fastbidsheet}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Becker
+    - Scott_Becker
     template:
     - image/vnd.fastbidsheet
   registered: true
@@ -475,11 +475,11 @@
   - fst
   references:
   - IANA
-  - ! '[Fuldseth]'
+  - ! '[Arild_Fuldseth]'
   - ! '{image/vnd.fst=http://www.iana.org/assignments/media-types/image/vnd.fst}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Fuldseth
+    - Arild_Fuldseth
     template:
     - image/vnd.fst
   registered: true
@@ -520,11 +520,11 @@
   - pgb
   references:
   - IANA
-  - ! '[Bailey]'
+  - ! '[Martin_Bailey]'
   - ! '{image/vnd.globalgraphics.pgb=http://www.iana.org/assignments/media-types/image/vnd.globalgraphics.pgb}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Bailey
+    - Martin_Bailey
     template:
     - image/vnd.globalgraphics.pgb
   registered: true
@@ -535,11 +535,11 @@
   - ico
   references:
   - IANA
-  - ! '[Butcher]'
+  - ! '[Simon_Butcher]'
   - ! '{image/vnd.microsoft.icon=http://www.iana.org/assignments/media-types/image/vnd.microsoft.icon}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Butcher
+    - Simon_Butcher
     template:
     - image/vnd.microsoft.icon
   registered: true
@@ -604,13 +604,13 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Fritz]'
-  - ! '[GWard]'
+  - ! '[Randolph_Fritz]'
+  - ! '[Greg_Ward]'
   - ! '{image/vnd.radiance=http://www.iana.org/assignments/media-types/image/vnd.radiance}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Fritz
-    - GWard
+    - Greg_Ward
+    - Randolph_Fritz
     template:
     - image/vnd.radiance
   registered: true

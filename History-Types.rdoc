@@ -1,12 +1,47 @@
 = MIME Types Changes by Version
 
-== 2.2 / YYYY-MM-DD
+== 2.2 / 2014-03-14
 * Added <tt>.sj</tt> to +application/javascript+ as provided by Brandon
   Galbraith (@brandongalbraith) in
   {#58}[https://github.com/halostatue/mime-types/pull/58].
 * Marked application/excel and application/x-excel as obsolete in favour of
   application/vnd.ms-excel per
   {#60}[https://github.com/halostatue/mime-types/pull/60].
+* Merged duplicate MIME types for 3M post-it-notes into the registered MIME type.
+  The only difference between the MIME types was capitalization; the MIME type
+  registry is case-preserving.
+  * Affected MIME types: application/vnd.3M.Post-it-Notes,
+    application/vnd.FloGraphIt, application/vnd.HandHeld-Entertainment\+xml,
+    application/vnd.hp-HPGL, application/vnd.hp-PCL, application/vnd.hp-PCLXL,
+    application/vnd.ibm.MiniPay, application/vnd.Kinar, application/vnd.MFER,
+    application/vnd.Mobius.DAF, application/vnd.Mobius.DIS,
+    application/vnd.Mobius.MBK, application/vnd.Mobius.MSL,
+    application/vnd.Mobius.MQY, application/vnd.Mobius.PLC,
+    application/vnd.Mobius.TXF, application/vnd.ms-excel.addin.macroEnabled.12,
+    application/vnd.ms-excel.sheet.binary.macroEnabled.12,
+    application/vnd.ms-excel.sheet.macroEnabled.12,
+    application/vnd.ms-excel.template.macroEnabled.12,
+    application/vnd.ms-powerpoint.addin.macroEnabled.12,
+    application/vnd.ms-powerpoint.presentation.macroEnabled.12,
+    application/vnd.ms-powerpoint.slide.macroEnabled.12,
+    application/vnd.ms-powerpoint.slideshow.macroEnabled.12,
+    application/vnd.ms-powerpoint.template.macroEnabled.12,
+    application/vnd.ms-word.document.macroEnabled.12,
+    application/vnd.ms-word.template.macroEnabled.12,
+    application/vnd.novadigm.EDM, application/vnd.novadigm.EDX,
+    application/vnd.novadigm.EXT, application/vnd.Quark.QuarkXPress,
+    application/vnd.SimTech-MindMapper, audio/AMR-WB, video/H261, video/H263,
+    video/H264, video/JPEG, video/MJ2.
+
+* Updated the IANA media registry entries as of release date.
+  * Registered type person names have been updated from surname only to full
+    name.
+  * Several types had updated RFC or draft RFC references.
+  * Added application/bacnet-xdd\+zip, application/cms,
+    application/load-control\+xml, application/PDX, application/ttml\+xml,
+    application/vnd.collection.doc\+json,
+    application/vnd.iptc.g2.catalogitem\+xml, application/vnd.pcos,
+    text/parameters, text/vnd.a, video/iso.segment
 
 == 2.1 / 2014-01-25
 

@@ -106,10 +106,13 @@
   encoding: base64
   references:
   - IANA
-  - RFC2616
+  - DRAFT:draft-ietf-httpbis-p1-messaging-26
+  - ! '{message/http=http://www.iana.org/assignments/media-types/message/http}'
   xrefs: !ruby/hash:MIME::Types::Container
-    rfc:
-    - rfc2616
+    draft:
+    - RFC-ietf-httpbis-p1-messaging-26
+    template:
+    - message/http
   registered: true
 - !ruby/object:MIME::Type
   content-type: message/imdn+xml
@@ -128,13 +131,13 @@
   references:
   - IANA
   - RFC5537
-  - ! '[H.Spencer]'
+  - ! '[Henry_Spencer]'
   - ! '{message/news=http://www.iana.org/assignments/media-types/message/news}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5537
     person:
-    - H.Spencer
+    - Henry_Spencer
     template:
     - message/news
   registered: true
@@ -224,11 +227,11 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Conley]'
+  - ! '[Mick_Conley]'
   - ! '{message/vnd.wfa.wsc=http://www.iana.org/assignments/media-types/message/vnd.wfa.wsc}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Conley
+    - Mick_Conley
     template:
     - message/vnd.wfa.wsc
   registered: true

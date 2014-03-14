@@ -74,16 +74,6 @@
     - rfc4867
   registered: true
 - !ruby/object:MIME::Type
-  content-type: audio/amr-wb
-  encoding: base64
-  references:
-  - IANA
-  - RFC4352
-  xrefs: !ruby/hash:MIME::Types::Container
-    rfc:
-    - rfc4352
-  registered: true
-- !ruby/object:MIME::Type
   content-type: audio/AMR-WB
   encoding: base64
   extensions:
@@ -94,6 +84,16 @@
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4867
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/amr-wb
+  encoding: base64
+  references:
+  - IANA
+  - RFC4352
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc4352
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/amr-wb+
@@ -1002,12 +1002,12 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Kosonen]'
+  - ! '[Timo_Kosonen]'
   - ! '[Tom_White]'
   - ! '{audio/sp-midi=http://www.iana.org/assignments/media-types/audio/sp-midi}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Kosonen
+    - Timo_Kosonen
     - Tom_White
     template:
     - audio/sp-midi
@@ -1109,11 +1109,11 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Belling]'
+  - ! '[Thomas_Belling]'
   - ! '{audio/vnd.3gpp.iufp=http://www.iana.org/assignments/media-types/audio/vnd.3gpp.iufp}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Belling
+    - Thomas_Belling
     template:
     - audio/vnd.3gpp.iufp
   registered: true
@@ -1122,11 +1122,11 @@
   encoding: base64
   references:
   - IANA
-  - ! '[De_Jaham]'
+  - ! '[Serge_De_Jaham]'
   - ! '{audio/vnd.4SB=http://www.iana.org/assignments/media-types/audio/vnd.4SB}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - De_Jaham
+    - Serge_De_Jaham
     template:
     - audio/vnd.4SB
   registered: true
@@ -1135,11 +1135,11 @@
   encoding: base64
   references:
   - IANA
-  - ! '[DeBarros]'
+  - ! '[Vicki_DeBarros]'
   - ! '{audio/vnd.audiokoz=http://www.iana.org/assignments/media-types/audio/vnd.audiokoz}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - DeBarros
+    - Vicki_DeBarros
     template:
     - audio/vnd.audiokoz
   registered: true
@@ -1148,11 +1148,11 @@
   encoding: base64
   references:
   - IANA
-  - ! '[De_Jaham]'
+  - ! '[Serge_De_Jaham]'
   - ! '{audio/vnd.CELP=http://www.iana.org/assignments/media-types/audio/vnd.CELP}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - De_Jaham
+    - Serge_De_Jaham
     template:
     - audio/vnd.CELP
   registered: true
@@ -1174,11 +1174,11 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Goulet]'
+  - ! '[Jean-Philippe_Goulet]'
   - ! '{audio/vnd.cmles.radio-events=http://www.iana.org/assignments/media-types/audio/vnd.cmles.radio-events}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Goulet
+    - Jean-Philippe_Goulet
     template:
     - audio/vnd.cmles.radio-events
   registered: true
@@ -1216,11 +1216,11 @@
   - uvva
   references:
   - IANA
-  - ! '[Dolan]'
+  - ! '[Michael_A_Dolan]'
   - ! '{audio/vnd.dece.audio=http://www.iana.org/assignments/media-types/audio/vnd.dece.audio}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Dolan
+    - Michael_A_Dolan
     template:
     - audio/vnd.dece.audio
   registered: true
@@ -1244,11 +1244,11 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Heredia]'
+  - ! '[Edwin_Heredia]'
   - ! '{audio/vnd.dlna.adts=http://www.iana.org/assignments/media-types/audio/vnd.dlna.adts}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Heredia
+    - Edwin_Heredia
     template:
     - audio/vnd.dlna.adts
   registered: true
@@ -1257,11 +1257,11 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Hattersley]'
+  - ! '[Steve_Hattersley]'
   - ! '{audio/vnd.dolby.heaac.1=http://www.iana.org/assignments/media-types/audio/vnd.dolby.heaac.1}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Hattersley
+    - Steve_Hattersley
     template:
     - audio/vnd.dolby.heaac.1
   registered: true
@@ -1270,11 +1270,11 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Hattersley]'
+  - ! '[Steve_Hattersley]'
   - ! '{audio/vnd.dolby.heaac.2=http://www.iana.org/assignments/media-types/audio/vnd.dolby.heaac.2}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Hattersley
+    - Steve_Hattersley
     template:
     - audio/vnd.dolby.heaac.2
   registered: true
@@ -1296,11 +1296,11 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Hattersley]'
+  - ! '[Steve_Hattersley]'
   - ! '{audio/vnd.dolby.mps=http://www.iana.org/assignments/media-types/audio/vnd.dolby.mps}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Hattersley
+    - Steve_Hattersley
     template:
     - audio/vnd.dolby.mps
   registered: true
@@ -1309,11 +1309,11 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Hattersley]'
+  - ! '[Steve_Hattersley]'
   - ! '{audio/vnd.dolby.pl2=http://www.iana.org/assignments/media-types/audio/vnd.dolby.pl2}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Hattersley
+    - Steve_Hattersley
     template:
     - audio/vnd.dolby.pl2
   registered: true
@@ -1322,11 +1322,11 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Hattersley]'
+  - ! '[Steve_Hattersley]'
   - ! '{audio/vnd.dolby.pl2x=http://www.iana.org/assignments/media-types/audio/vnd.dolby.pl2x}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Hattersley
+    - Steve_Hattersley
     template:
     - audio/vnd.dolby.pl2x
   registered: true
@@ -1335,11 +1335,11 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Hattersley]'
+  - ! '[Steve_Hattersley]'
   - ! '{audio/vnd.dolby.pl2z=http://www.iana.org/assignments/media-types/audio/vnd.dolby.pl2z}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Hattersley
+    - Steve_Hattersley
     template:
     - audio/vnd.dolby.pl2z
   registered: true
@@ -1348,11 +1348,11 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Hattersley]'
+  - ! '[Steve_Hattersley]'
   - ! '{audio/vnd.dolby.pulse.1=http://www.iana.org/assignments/media-types/audio/vnd.dolby.pulse.1}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Hattersley
+    - Steve_Hattersley
     template:
     - audio/vnd.dolby.pulse.1
   registered: true
@@ -1421,11 +1421,11 @@
   - plj
   references:
   - IANA
-  - ! '[Cicelsky]'
+  - ! '[Shay_Cicelsky]'
   - ! '{audio/vnd.everad.plj=http://www.iana.org/assignments/media-types/audio/vnd.everad.plj}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Cicelsky
+    - Shay_Cicelsky
     template:
     - audio/vnd.everad.plj
   registered: true
@@ -1464,11 +1464,11 @@
   - pya
   references:
   - IANA
-  - ! '[DiAcetis]'
+  - ! '[Steve_DiAcetis]'
   - ! '{audio/vnd.ms-playready.media.pya=http://www.iana.org/assignments/media-types/audio/vnd.ms-playready.media.pya}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - DiAcetis
+    - Steve_DiAcetis
     template:
     - audio/vnd.ms-playready.media.pya
   registered: true
@@ -1509,11 +1509,11 @@
   - ecelp4800
   references:
   - IANA
-  - ! '[Fox]'
+  - ! '[Michael_Fox]'
   - ! '{audio/vnd.nuera.ecelp4800=http://www.iana.org/assignments/media-types/audio/vnd.nuera.ecelp4800}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Fox
+    - Michael_Fox
     template:
     - audio/vnd.nuera.ecelp4800
   registered: true
@@ -1524,11 +1524,11 @@
   - ecelp7470
   references:
   - IANA
-  - ! '[Fox]'
+  - ! '[Michael_Fox]'
   - ! '{audio/vnd.nuera.ecelp7470=http://www.iana.org/assignments/media-types/audio/vnd.nuera.ecelp7470}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Fox
+    - Michael_Fox
     template:
     - audio/vnd.nuera.ecelp7470
   registered: true
@@ -1539,11 +1539,11 @@
   - ecelp9600
   references:
   - IANA
-  - ! '[Fox]'
+  - ! '[Michael_Fox]'
   - ! '{audio/vnd.nuera.ecelp9600=http://www.iana.org/assignments/media-types/audio/vnd.nuera.ecelp9600}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Fox
+    - Michael_Fox
     template:
     - audio/vnd.nuera.ecelp9600
   registered: true
@@ -1597,11 +1597,11 @@
   - rip
   references:
   - IANA
-  - ! '[Dawe]'
+  - ! '[Martin_Dawe]'
   - ! '{audio/vnd.rip=http://www.iana.org/assignments/media-types/audio/vnd.rip}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Dawe
+    - Martin_Dawe
     template:
     - audio/vnd.rip
   registered: true

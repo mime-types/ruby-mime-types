@@ -1,13 +1,13 @@
-== 2.2 / YYYY-MM-DD
+== 2.2 / 2014-03-14
 
 * Clarified contribution guidelines for MIME types. Resolves
   {#57}[https://github.com/halostatue/mime-types/issues/57].
 * Fixed a small bug where deprecated methods would warn of deprecation when
   called by internal methods. Resolves
   {#60}[https://github.com/halostatue/mime-types/issues/60].
-* Dropped Code Climate.
-* Added Coveralls for test coverage reports.
-* Removing external references to RubyForge, as it is shutting down.
+* Dropped Code Climate; added Coveralls for test coverage reports.
+* Removing external references to RubyForge, as it is shutting down. Resolves
+  {#59}[https://github.com/halostatue/mime-types/issues/59].
 
 == 2.1 / 2014-01-25
 

@@ -91,6 +91,8 @@
 - !ruby/object:MIME::Type
   content-type: video/DV
   encoding: base64
+  extensions:
+  - dv
   references:
   - IANA
   - RFC6469
@@ -133,6 +135,8 @@
 - !ruby/object:MIME::Type
   content-type: video/H261
   encoding: base64
+  extensions:
+  - h261
   references:
   - IANA
   - RFC4587
@@ -141,14 +145,10 @@
     - rfc4587
   registered: true
 - !ruby/object:MIME::Type
-  content-type: video/h261
-  encoding: base64
-  extensions:
-  - h261
-  registered: false
-- !ruby/object:MIME::Type
   content-type: video/H263
   encoding: base64
+  extensions:
+  - h263
   references:
   - IANA
   - RFC3555
@@ -156,12 +156,6 @@
     rfc:
     - rfc3555
   registered: true
-- !ruby/object:MIME::Type
-  content-type: video/h263
-  encoding: base64
-  extensions:
-  - h263
-  registered: false
 - !ruby/object:MIME::Type
   content-type: video/H263-1998
   encoding: base64
@@ -183,14 +177,10 @@
     - rfc4629
   registered: true
 - !ruby/object:MIME::Type
-  content-type: video/h264
+  content-type: video/H264
   encoding: base64
   extensions:
   - h264
-  registered: false
-- !ruby/object:MIME::Type
-  content-type: video/H264
-  encoding: base64
   references:
   - IANA
   - RFC6184
@@ -219,14 +209,25 @@
     - rfc6190
   registered: true
 - !ruby/object:MIME::Type
-  content-type: video/jpeg
+  content-type: video/iso.segment
   encoding: base64
-  extensions:
-  - jpgv
-  registered: false
+  references:
+  - IANA
+  - ! '[David_Singer]'
+  - ! '[ISO-IEC_JTC1]'
+  - ! '{video/iso.segment=http://www.iana.org/assignments/media-types/video/iso.segment}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - David_Singer
+    - ISO-IEC_JTC1
+    template:
+    - video/iso.segment
+  registered: true
 - !ruby/object:MIME::Type
   content-type: video/JPEG
   encoding: base64
+  extensions:
+  - jpgv
   references:
   - IANA
   - RFC3555
@@ -266,13 +267,6 @@
     rfc:
     - rfc3745
   registered: true
-- !ruby/object:MIME::Type
-  content-type: video/mj2
-  encoding: base64
-  extensions:
-  - mj2
-  - mjp2
-  registered: false
 - !ruby/object:MIME::Type
   content-type: video/MP1S
   encoding: base64
@@ -658,12 +652,12 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Heredia]'
+  - ! '[Edwin_Heredia]'
   - ! '{video/vnd.dlna.mpeg-tts=http://www.iana.org/assignments/media-types/video/vnd.dlna.mpeg-tts}'
   xrefs: !ruby/hash:MIME::Types::Container
-    person: &70361330687080
-    - Heredia
-    template: &70361330686880
+    person: &70341004391800
+    - Edwin_Heredia
+    template: &70341004407780
     - video/vnd.dlna.mpeg-tts
   registered: true
 - !ruby/object:MIME::Type
@@ -672,11 +666,11 @@
   obsolete: true
   references:
   - IANA
-  - ! '[Heredia]'
+  - ! '[Edwin_Heredia]'
   - ! '{video/vnd.dlna.mpeg-tts=http://www.iana.org/assignments/media-types/video/vnd.dlna.mpeg-tts}'
   xrefs: !ruby/hash:MIME::Types::Container
-    person: *70361330687080
-    template: *70361330686880
+    person: *70341004391800
+    template: *70341004407780
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/vnd.dvb.file
@@ -702,11 +696,11 @@
   - fvt
   references:
   - IANA
-  - ! '[Fuldseth]'
+  - ! '[Arild_Fuldseth]'
   - ! '{video/vnd.fvt=http://www.iana.org/assignments/media-types/video/vnd.fvt}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Fuldseth
+    - Arild_Fuldseth
     template:
     - video/vnd.fvt
   registered: true
@@ -850,11 +844,11 @@
   - pyv
   references:
   - IANA
-  - ! '[DiAcetis]'
+  - ! '[Steve_DiAcetis]'
   - ! '{video/vnd.ms-playready.media.pyv=http://www.iana.org/assignments/media-types/video/vnd.ms-playready.media.pyv}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - DiAcetis
+    - Steve_DiAcetis
     template:
     - video/vnd.ms-playready.media.pyv
   registered: true
@@ -865,11 +859,11 @@
   - nim
   references:
   - IANA
-  - ! '[Kangaslampi]'
+  - ! '[Petteri_Kangaslampi]'
   - ! '{video/vnd.nokia.interleaved-multimedia=http://www.iana.org/assignments/media-types/video/vnd.nokia.interleaved-multimedia}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Kangaslampi
+    - Petteri_Kangaslampi
     template:
     - video/vnd.nokia.interleaved-multimedia
   registered: true
@@ -894,11 +888,11 @@
   - mp4
   references:
   - IANA
-  - ! '[Clark]'
+  - ! '[John_Clark]'
   - ! '{video/vnd.objectvideo=http://www.iana.org/assignments/media-types/video/vnd.objectvideo}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Clark
+    - John_Clark
     template:
     - video/vnd.objectvideo
   registered: true
@@ -907,11 +901,11 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Andersson]'
+  - ! '[Henrik_Andersson]'
   - ! '{video/vnd.radgamettools.bink=http://www.iana.org/assignments/media-types/video/vnd.radgamettools.bink}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Andersson
+    - Henrik_Andersson
     template:
     - video/vnd.radgamettools.bink
   registered: true
@@ -920,11 +914,11 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Andersson]'
+  - ! '[Henrik_Andersson]'
   - ! '{video/vnd.radgamettools.smacker=http://www.iana.org/assignments/media-types/video/vnd.radgamettools.smacker}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Andersson
+    - Henrik_Andersson
     template:
     - video/vnd.radgamettools.smacker
   registered: true
@@ -1043,6 +1037,8 @@
   encoding: base64
   extensions:
   - dv
+  obsolete: true
+  use-instead: video/DV
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/x-f4v

@@ -89,11 +89,11 @@
   - gdl
   references:
   - IANA
-  - ! '[Babits]'
+  - ! '[Attila_Babits]'
   - ! '{model/vnd.gdl=http://www.iana.org/assignments/media-types/model/vnd.gdl}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Babits
+    - Attila_Babits
     template:
     - model/vnd.gdl
   registered: true
@@ -102,11 +102,11 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Babits]'
+  - ! '[Attila_Babits]'
   - ! '{model/vnd.gs-gdl=http://www.iana.org/assignments/media-types/model/vnd.gs-gdl}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Babits
+    - Attila_Babits
     template:
     - model/vnd.gs-gdl
   registered: true
@@ -130,11 +130,11 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Brooks]'
+  - ! '[Christopher_Brooks]'
   - ! '{model/vnd.moml+xml=http://www.iana.org/assignments/media-types/model/vnd.moml+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Brooks
+    - Christopher_Brooks
     template:
     - model/vnd.moml+xml
   registered: true

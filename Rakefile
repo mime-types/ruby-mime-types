@@ -15,9 +15,6 @@ spec = Hoe.spec 'mime-types' do
 
   self.require_ruby_version '>= 1.9.2'
 
-  self.remote_rdoc_dir = '.'
-  self.rsync_args << ' --exclude=statsvn/'
-
   self.history_file = 'History.rdoc'
   self.readme_file = 'README.rdoc'
   self.extra_rdoc_files = FileList["*.rdoc"].to_a

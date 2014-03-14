@@ -16,11 +16,11 @@
   encoding: 8bit
   references:
   - IANA
-  - ! '[Faltstrom]'
+  - ! '[Patrik_Faltstrom]'
   - ! '{multipart/appledouble=http://www.iana.org/assignments/media-types/multipart/appledouble}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Faltstrom
+    - Patrik_Faltstrom
     template:
     - multipart/appledouble
   registered: true
@@ -29,10 +29,13 @@
   encoding: base64
   references:
   - IANA
-  - RFC2616
+  - DRAFT:draft-ietf-httpbis-p5-range-26
+  - ! '{multipart/byteranges=http://www.iana.org/assignments/media-types/multipart/byteranges}'
   xrefs: !ruby/hash:MIME::Types::Container
-    rfc:
-    - rfc2616
+    draft:
+    - RFC-ietf-httpbis-p5-range-26
+    template:
+    - multipart/byteranges
   registered: true
 - !ruby/object:MIME::Type
   content-type: multipart/digest
@@ -81,11 +84,11 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Crocker]'
+  - ! '[Dave_Crocker]'
   - ! '{multipart/header-set=http://www.iana.org/assignments/media-types/multipart/header-set}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Crocker
+    - Dave_Crocker
     template:
     - multipart/header-set
   registered: true

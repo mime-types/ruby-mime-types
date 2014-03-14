@@ -24,7 +24,8 @@ add additional type definitions (see Contributing.rdoc). The primary sources
 for MIME type definitions found in mime-types is the IANA collection of
 registrations (see below for the link), RFCs, and W3C recommendations.
 
-This is release 2.1, mostly changing how the MIME type registry is updated from
+This is release 2.2, 
+mostly changing how the MIME type registry is updated from
 the IANA registry (the format of which was incompatibly changed shortly before
 this release) and taking advantage of the extra data available from IANA
 registry in the form of MIME::Type#xrefs. In addition, the {LTSW
