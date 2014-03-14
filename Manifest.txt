@@ -1,4 +1,5 @@
 .autotest
+.coveralls.yml
 .gemtest
 .hoerc
 .minitest.rb

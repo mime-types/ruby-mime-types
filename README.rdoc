@@ -1,11 +1,11 @@
 = mime-types
 
-home :: http://mime-types.rubyforge.org/
+home :: https://github.com/halostatue/mime-types/
 code :: https://github.com/halostatue/mime-types/
 bugs :: https://github.com/halostatue/mime-types/issues
-rdoc :: http://mime-types.rubyforge.org/
-code climate :: {<img src="https://codeclimate.com/github/halostatue/mime-types.png" />}[https://codeclimate.com/github/halostatue/mime-types]
+rdoc :: http://rdoc.info/gems/mime-types/
 continuous integration :: {<img src="https://travis-ci.org/halostatue/mime-types.png" />}[https://travis-ci.org/halostatue/mime-types]
+test coverage :: {<img src="https://coveralls.io/repos/halostatue/mime-types/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/halostatue/mime-types]
 
 == Description
 

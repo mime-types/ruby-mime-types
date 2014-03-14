@@ -5,6 +5,9 @@
 * Fixed a small bug where deprecated methods would warn of deprecation when
   called by internal methods. Resolves
   {#60}[https://github.com/halostatue/mime-types/issues/60].
+* Dropped Code Climate.
+* Added Coveralls for test coverage reports.
+* Removing external references to RubyForge, as it is shutting down.
 
 == 2.1 / 2014-01-25
 
@@ -287,8 +290,7 @@
   * Should no longer complain about missing RubyGems keys https://github.com/halostatue/mime-types/issues/2
   * Added .mp4 and .mpg4 as recognized extensions for
     {application,audio,video}/mp4 per RFC4337. https://github.com/halostatue/mime-types/issues/1
-  * Added audio/x-aac and .aac per RubyForge issue #28054
-    (http://rubyforge.org/tracker/index.php?func=detail&aid=28054&group_id=293&atid=1194).
+  * Added audio/x-aac and .aac per RubyForge issue #28054.
   * Made it much easier to update MIME types from this point forward.
   * Updated MIME types from IANA.
 

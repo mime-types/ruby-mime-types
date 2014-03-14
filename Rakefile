@@ -31,6 +31,7 @@ spec = Hoe.spec 'mime-types' do
   self.extra_dev_deps << ['minitest', '~> 5.2']
   self.extra_dev_deps << ['rake', '~> 10.0']
   self.extra_dev_deps << ['simplecov', '~> 0.7']
+  self.extra_dev_deps << ['coveralls', '~> 0.7']
 end
 
 desc 'Benchmark'
@@ -42,6 +43,17 @@ task :benchmark, :repeats do |t, args|
 end
 
 namespace :test do
+  task :coveralls do
+    spec.test_prelude = [
+      'require "simplecov"',
+      'require "coveralls"',
+      'SimpleCov.formatter = Coveralls::SimpleCov::Formatter',
+      'SimpleCov.start("test_frameworks") { command_name "Minitest" }',
+      'gem "minitest"'
+    ].join('; ')
+    Rake::Task['test'].execute
+  end
+
   task :coverage do
     spec.test_prelude = [
       'require "simplecov"',
@@ -89,5 +101,7 @@ namespace :convert do
     end
   end
 end
+
+Rake::Task['travis'].prerequisites.replace(%w(test:coveralls))
 
 # vim: syntax=ruby
