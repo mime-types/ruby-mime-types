@@ -45,6 +45,7 @@ end
 namespace :test do
   task :coveralls do
     spec.test_prelude = [
+      'require "psych"',
       'require "simplecov"',
       'require "coveralls"',
       'SimpleCov.formatter = Coveralls::SimpleCov::Formatter',

@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--main", "README.rdoc"]
   s.required_ruby_version = Gem::Requirement.new(">= 1.9.2")
   s.rubyforge_project = "mime-types"
-  s.rubygems_version = "2.2.1"
+  s.rubygems_version = "2.2.2"
   s.summary = "The mime-types library provides a library and registry for information about MIME content type definitions"
   s.test_files = ["test/test_mime_type.rb", "test/test_mime_types.rb", "test/test_mime_types_cache.rb", "test/test_mime_types_class.rb", "test/test_mime_types_lazy.rb", "test/test_mime_types_loader.rb"]
 
@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
     s.specification_version = 4
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_development_dependency(%q<minitest>, ["~> 5.2"])
+      s.add_development_dependency(%q<minitest>, ["~> 5.3"])
       s.add_development_dependency(%q<rdoc>, ["~> 4.0"])
       s.add_development_dependency(%q<hoe-doofus>, ["~> 1.0"])
       s.add_development_dependency(%q<hoe-gemspec2>, ["~> 1.1"])
@@ -38,7 +38,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<coveralls>, ["~> 0.7"])
       s.add_development_dependency(%q<hoe>, ["~> 3.9"])
     else
-      s.add_dependency(%q<minitest>, ["~> 5.2"])
+      s.add_dependency(%q<minitest>, ["~> 5.3"])
       s.add_dependency(%q<rdoc>, ["~> 4.0"])
       s.add_dependency(%q<hoe-doofus>, ["~> 1.0"])
       s.add_dependency(%q<hoe-gemspec2>, ["~> 1.1"])
@@ -51,7 +51,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<hoe>, ["~> 3.9"])
     end
   else
-    s.add_dependency(%q<minitest>, ["~> 5.2"])
+    s.add_dependency(%q<minitest>, ["~> 5.3"])
     s.add_dependency(%q<rdoc>, ["~> 4.0"])
     s.add_dependency(%q<hoe-doofus>, ["~> 1.0"])
     s.add_dependency(%q<hoe-gemspec2>, ["~> 1.1"])
