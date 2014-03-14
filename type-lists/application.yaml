@@ -751,6 +751,9 @@
   - xls
   - xlt
   registered: false
+  obsolete: true
+  use-instead:
+    - application/vnd.ms-excel
 - !ruby/object:MIME::Type
   content-type: application/exi
   encoding: base64
@@ -14904,6 +14907,9 @@
   content-type: application/x-excel
   encoding: base64
   registered: false
+  obsolete: true
+  use-instead:
+    - application/vnd.ms-excel
 - !ruby/object:MIME::Type
   content-type: application/x-font-bdf
   encoding: base64

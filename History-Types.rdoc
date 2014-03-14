@@ -1,9 +1,12 @@
 = MIME Types Changes by Version
 
 == 2.2 / YYYY-MM-DD
-* Added <tt>.sj</tt> to +application/javascript+ as suggested by Brandon
+* Added <tt>.sj</tt> to +application/javascript+ as provided by Brandon
   Galbraith (@brandongalbraith) in
   {#58}[https://github.com/halostatue/mime-types/pull/58].
+* Marked application/excel and application/x-excel as obsolete in favour of
+  application/vnd.ms-excel per
+  {#60}[https://github.com/halostatue/mime-types/pull/60].
 
 == 2.1 / 2014-01-25
 
