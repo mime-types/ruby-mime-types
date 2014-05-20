@@ -35,9 +35,12 @@
   references:
   - IANA
   - RFC4735
+  - ! '{message/example=http://www.iana.org/assignments/media-types/message/example}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4735
+    template:
+    - message/example
   registered: true
 - !ruby/object:MIME::Type
   content-type: message/external-body

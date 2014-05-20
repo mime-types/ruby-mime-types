@@ -5,9 +5,12 @@
   references:
   - IANA
   - RFC4735
+  - ! '{model/example=http://www.iana.org/assignments/media-types/model/example}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4735
+    template:
+    - model/example
   registered: true
 - !ruby/object:MIME::Type
   content-type: model/iges
@@ -154,6 +157,19 @@
     - model/vnd.mts
   registered: true
 - !ruby/object:MIME::Type
+  content-type: model/vnd.opengex
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Eric_Lengyel]'
+  - ! '{model/vnd.opengex=http://www.iana.org/assignments/media-types/model/vnd.opengex}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Eric_Lengyel
+    template:
+    - model/vnd.opengex
+  registered: true
+- !ruby/object:MIME::Type
   content-type: model/vnd.parasolid.transmit.binary
   encoding: base64
   extensions:
@@ -184,6 +200,19 @@
     - Parasolid
     template:
     - model/vnd.parasolid.transmit-text
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: model/vnd.valve.source.compiled-map
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Henrik_Andersson]'
+  - ! '{model/vnd.valve.source.compiled-map=http://www.iana.org/assignments/media-types/model/vnd.valve.source.compiled-map}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Henrik_Andersson
+    template:
+    - model/vnd.valve.source.compiled-map
   registered: true
 - !ruby/object:MIME::Type
   content-type: model/vnd.vtu
@@ -221,6 +250,19 @@
   - x3dbz
   registered: false
 - !ruby/object:MIME::Type
+  content-type: model/x3d+fastinfoset
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Web3D_X3D]'
+  - ! '{model/x3d+fastinfoset=http://www.iana.org/assignments/media-types/model/x3d+fastinfoset}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Web3D_X3D
+    template:
+    - model/x3d+fastinfoset
+  registered: true
+- !ruby/object:MIME::Type
   content-type: model/x3d+vrml
   encoding: base64
   extensions:
@@ -236,12 +278,12 @@
   references:
   - IANA
   - ! '[Web3D]'
-  - ! '[Web3DX3D]'
+  - ! '[Web3D_X3D]'
   - ! '{model/x3d+xml=http://www.iana.org/assignments/media-types/model/x3d+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Web3D
-    - Web3DX3D
+    - Web3D_X3D
     template:
     - model/x3d+xml
   registered: true
@@ -251,12 +293,12 @@
   references:
   - IANA
   - ! '[Web3D]'
-  - ! '[Web3DX3D]'
+  - ! '[Web3D_X3D]'
   - ! '{model/x3d-vrml=http://www.iana.org/assignments/media-types/model/x3d-vrml}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Web3D
-    - Web3DX3D
+    - Web3D_X3D
     template:
     - model/x3d-vrml
   registered: true

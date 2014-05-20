@@ -36,9 +36,12 @@
   references:
   - IANA
   - RFC4735
+  - ! '{image/example=http://www.iana.org/assignments/media-types/image/example}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4735
+    template:
+    - image/example
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/fits
@@ -46,9 +49,12 @@
   references:
   - IANA
   - RFC4047
+  - ! '{image/fits=http://www.iana.org/assignments/media-types/image/fits}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4047
+    template:
+    - image/fits
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/g3fax
@@ -58,9 +64,12 @@
   references:
   - IANA
   - RFC1494
+  - ! '{image/g3fax=http://www.iana.org/assignments/media-types/image/g3fax}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc1494
+    template:
+    - image/g3fax
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/gif
@@ -271,9 +280,12 @@
   references:
   - IANA
   - RFC3362
+  - ! '{image/t38=http://www.iana.org/assignments/media-types/image/t38}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3362
+    template:
+    - image/t38
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/targa
@@ -293,9 +305,12 @@
   references:
   - IANA
   - RFC3302
+  - ! '{image/tiff=http://www.iana.org/assignments/media-types/image/tiff}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3302
+    template:
+    - image/tiff
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/tiff-fx
@@ -303,9 +318,12 @@
   references:
   - IANA
   - RFC3950
+  - ! '{image/tiff-fx=http://www.iana.org/assignments/media-types/image/tiff-fx}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3950
+    template:
+    - image/tiff-fx
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.adobe.photoshop
@@ -665,6 +683,19 @@
     - Jodi_Moline
     template:
     - image/vnd-svf
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/vnd.valve.source.texture
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Henrik_Andersson]'
+  - ! '{image/vnd.valve.source.texture=http://www.iana.org/assignments/media-types/image/vnd.valve.source.texture}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Henrik_Andersson
+    template:
+    - image/vnd.valve.source.texture
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.wap.wbmp

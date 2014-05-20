@@ -5,9 +5,27 @@
   references:
   - IANA
   - RFC6015
+  - ! '{application/1d-interleaved-parityfec=http://www.iana.org/assignments/media-types/application/1d-interleaved-parityfec}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6015
+    template:
+    - application/1d-interleaved-parityfec
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/3gpdash-qoe-report+xml
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Ozgur_Oyman]'
+  - ! '[ThreeGPP]'
+  - ! '{application/3gpdash-qoe-report+xml=http://www.iana.org/assignments/media-types/application/3gpdash-qoe-report+xml}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Ozgur_Oyman
+    - ThreeGPP
+    template:
+    - application/3gpdash-qoe-report+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/3gpp-ims+xml
@@ -50,6 +68,136 @@
     - Ehud_Shapiro
     template:
     - application/activemessage
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/alto-costmap+json
+  encoding: base64
+  references:
+  - IANA
+  - DRAFT:draft-ietf-alto-protocol-27
+  - ! '{application/alto-costmap+json=http://www.iana.org/assignments/media-types/application/alto-costmap+json}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-ietf-alto-protocol-27
+    template:
+    - application/alto-costmap+json
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/alto-costmapfilter+json
+  encoding: base64
+  references:
+  - IANA
+  - DRAFT:draft-ietf-alto-protocol-27
+  - ! '{application/alto-costmapfilter+json=http://www.iana.org/assignments/media-types/application/alto-costmapfilter+json}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-ietf-alto-protocol-27
+    template:
+    - application/alto-costmapfilter+json
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/alto-directory+json
+  encoding: base64
+  references:
+  - IANA
+  - DRAFT:draft-ietf-alto-protocol-27
+  - ! '{application/alto-directory+json=http://www.iana.org/assignments/media-types/application/alto-directory+json}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-ietf-alto-protocol-27
+    template:
+    - application/alto-directory+json
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/alto-endpointcost+json
+  encoding: base64
+  references:
+  - IANA
+  - DRAFT:draft-ietf-alto-protocol-27
+  - ! '{application/alto-endpointcost+json=http://www.iana.org/assignments/media-types/application/alto-endpointcost+json}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-ietf-alto-protocol-27
+    template:
+    - application/alto-endpointcost+json
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/alto-endpointcostparams+json
+  encoding: base64
+  references:
+  - IANA
+  - DRAFT:draft-ietf-alto-protocol-27
+  - ! '{application/alto-endpointcostparams+json=http://www.iana.org/assignments/media-types/application/alto-endpointcostparams+json}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-ietf-alto-protocol-27
+    template:
+    - application/alto-endpointcostparams+json
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/alto-endpointprop+json
+  encoding: base64
+  references:
+  - IANA
+  - DRAFT:draft-ietf-alto-protocol-27
+  - ! '{application/alto-endpointprop+json=http://www.iana.org/assignments/media-types/application/alto-endpointprop+json}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-ietf-alto-protocol-27
+    template:
+    - application/alto-endpointprop+json
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/alto-endpointpropparams+json
+  encoding: base64
+  references:
+  - IANA
+  - DRAFT:draft-ietf-alto-protocol-27
+  - ! '{application/alto-endpointpropparams+json=http://www.iana.org/assignments/media-types/application/alto-endpointpropparams+json}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-ietf-alto-protocol-27
+    template:
+    - application/alto-endpointpropparams+json
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/alto-error+json
+  encoding: base64
+  references:
+  - IANA
+  - DRAFT:draft-ietf-alto-protocol-27
+  - ! '{application/alto-error+json=http://www.iana.org/assignments/media-types/application/alto-error+json}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-ietf-alto-protocol-27
+    template:
+    - application/alto-error+json
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/alto-networkmap+json
+  encoding: base64
+  references:
+  - IANA
+  - DRAFT:draft-ietf-alto-protocol-27
+  - ! '{application/alto-networkmap+json=http://www.iana.org/assignments/media-types/application/alto-networkmap+json}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-ietf-alto-protocol-27
+    template:
+    - application/alto-networkmap+json
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/alto-networkmapfilter+json
+  encoding: base64
+  references:
+  - IANA
+  - DRAFT:draft-ietf-alto-protocol-27
+  - ! '{application/alto-networkmapfilter+json=http://www.iana.org/assignments/media-types/application/alto-networkmapfilter+json}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-ietf-alto-protocol-27
+    template:
+    - application/alto-networkmapfilter+json
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/andrew-inset
@@ -98,10 +246,13 @@
   - IANA
   - RFC4287
   - RFC5023
+  - ! '{application/atom+xml=http://www.iana.org/assignments/media-types/application/atom+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4287
     - rfc5023
+    template:
+    - application/atom+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/atomcat+xml
@@ -111,9 +262,12 @@
   references:
   - IANA
   - RFC5023
+  - ! '{application/atomcat+xml=http://www.iana.org/assignments/media-types/application/atomcat+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5023
+    template:
+    - application/atomcat+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/atomdeleted+xml
@@ -121,9 +275,12 @@
   references:
   - IANA
   - RFC6721
+  - ! '{application/atomdeleted+xml=http://www.iana.org/assignments/media-types/application/atomdeleted+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6721
+    template:
+    - application/atomdeleted+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/atomicmail
@@ -146,9 +303,12 @@
   references:
   - IANA
   - RFC5023
+  - ! '{application/atomsvc+xml=http://www.iana.org/assignments/media-types/application/atomsvc+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5023
+    template:
+    - application/atomsvc+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/auth-policy+xml
@@ -156,9 +316,12 @@
   references:
   - IANA
   - RFC4745
+  - ! '{application/auth-policy+xml=http://www.iana.org/assignments/media-types/application/auth-policy+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4745
+    template:
+    - application/auth-policy+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/bacnet-xdd+zip
@@ -181,9 +344,12 @@
   references:
   - IANA
   - RFC2442
+  - ! '{application/batch-SMTP=http://www.iana.org/assignments/media-types/application/batch-SMTP}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2442
+    template:
+    - application/batch-SMTP
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/beep+xml
@@ -191,9 +357,12 @@
   references:
   - IANA
   - RFC3080
+  - ! '{application/beep+xml=http://www.iana.org/assignments/media-types/application/beep+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3080
+    template:
+    - application/beep+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/bleeper
@@ -205,14 +374,30 @@
   - application/x-bleeper
   registered: false
 - !ruby/object:MIME::Type
+  content-type: application/calendar+json
+  encoding: base64
+  references:
+  - IANA
+  - DRAFT:draft-ietf-jcardcal-jcal-10
+  - ! '{application/calendar+json=http://www.iana.org/assignments/media-types/application/calendar+json}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-ietf-jcardcal-jcal-10
+    template:
+    - application/calendar+json
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/calendar+xml
   encoding: base64
   references:
   - IANA
   - RFC6321
+  - ! '{application/calendar+xml=http://www.iana.org/assignments/media-types/application/calendar+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6321
+    template:
+    - application/calendar+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/call-completion
@@ -233,9 +418,12 @@
   references:
   - IANA
   - RFC1895
+  - ! '{application/cals-1840=http://www.iana.org/assignments/media-types/application/cals-1840}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc1895
+    template:
+    - application/cals-1840
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/cals1840
@@ -263,9 +451,12 @@
   references:
   - IANA
   - RFC6503
+  - ! '{application/ccmp+xml=http://www.iana.org/assignments/media-types/application/ccmp+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6503
+    template:
+    - application/ccmp+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/ccxml+xml
@@ -275,9 +466,12 @@
   references:
   - IANA
   - RFC4267
+  - ! '{application/ccxml+xml=http://www.iana.org/assignments/media-types/application/ccxml+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4267
+    template:
+    - application/ccxml+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/cdmi-capability
@@ -287,9 +481,12 @@
   references:
   - IANA
   - RFC6208
+  - ! '{application/cdmi-capability=http://www.iana.org/assignments/media-types/application/cdmi-capability}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6208
+    template:
+    - application/cdmi-capability
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/cdmi-container
@@ -299,9 +496,12 @@
   references:
   - IANA
   - RFC6208
+  - ! '{application/cdmi-container=http://www.iana.org/assignments/media-types/application/cdmi-container}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6208
+    template:
+    - application/cdmi-container
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/cdmi-domain
@@ -311,9 +511,12 @@
   references:
   - IANA
   - RFC6208
+  - ! '{application/cdmi-domain=http://www.iana.org/assignments/media-types/application/cdmi-domain}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6208
+    template:
+    - application/cdmi-domain
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/cdmi-object
@@ -323,9 +526,12 @@
   references:
   - IANA
   - RFC6208
+  - ! '{application/cdmi-object=http://www.iana.org/assignments/media-types/application/cdmi-object}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6208
+    template:
+    - application/cdmi-object
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/cdmi-queue
@@ -335,9 +541,12 @@
   references:
   - IANA
   - RFC6208
+  - ! '{application/cdmi-queue=http://www.iana.org/assignments/media-types/application/cdmi-queue}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6208
+    template:
+    - application/cdmi-queue
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/cea-2018+xml
@@ -358,9 +567,12 @@
   references:
   - IANA
   - RFC4708
+  - ! '{application/cellml+xml=http://www.iana.org/assignments/media-types/application/cellml+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4708
+    template:
+    - application/cellml+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/cfw
@@ -368,9 +580,12 @@
   references:
   - IANA
   - RFC6230
+  - ! '{application/cfw=http://www.iana.org/assignments/media-types/application/cfw}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6230
+    template:
+    - application/cfw
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/clariscad
@@ -381,11 +596,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-turner-application-cms-media-type-08
+  - RFC7193
   - ! '{application/cms=http://www.iana.org/assignments/media-types/application/cms}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-turner-application-cms-media-type-08
+    rfc:
+    - rfc7193
     template:
     - application/cms
   registered: true
@@ -395,9 +610,12 @@
   references:
   - IANA
   - RFC3367
+  - ! '{application/cnrp+xml=http://www.iana.org/assignments/media-types/application/cnrp+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3367
+    template:
+    - application/cnrp+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/commonground
@@ -418,9 +636,12 @@
   references:
   - IANA
   - RFC4575
+  - ! '{application/conference-info+xml=http://www.iana.org/assignments/media-types/application/conference-info+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4575
+    template:
+    - application/conference-info+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/cpl+xml
@@ -428,9 +649,12 @@
   references:
   - IANA
   - RFC3880
+  - ! '{application/cpl+xml=http://www.iana.org/assignments/media-types/application/cpl+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3880
+    template:
+    - application/cpl+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/csrattrs
@@ -526,9 +750,12 @@
   references:
   - IANA
   - RFC4709
+  - ! '{application/davmount+xml=http://www.iana.org/assignments/media-types/application/davmount+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4709
+    template:
+    - application/davmount+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/dca-rft
@@ -562,9 +789,12 @@
   references:
   - IANA
   - RFC4235
+  - ! '{application/dialog-info+xml=http://www.iana.org/assignments/media-types/application/dialog-info+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4235
+    template:
+    - application/dialog-info+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/dicom
@@ -574,9 +804,12 @@
   references:
   - IANA
   - RFC3240
+  - ! '{application/dicom=http://www.iana.org/assignments/media-types/application/dicom}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3240
+    template:
+    - application/dicom
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/dns
@@ -584,9 +817,12 @@
   references:
   - IANA
   - RFC4027
+  - ! '{application/dns=http://www.iana.org/assignments/media-types/application/dns}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4027
+    template:
+    - application/dns
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/docbook+xml
@@ -604,9 +840,12 @@
   references:
   - IANA
   - RFC6063
+  - ! '{application/dskpp+xml=http://www.iana.org/assignments/media-types/application/dskpp+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6063
+    template:
+    - application/dskpp+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/dssc+der
@@ -616,9 +855,12 @@
   references:
   - IANA
   - RFC5698
+  - ! '{application/dssc+der=http://www.iana.org/assignments/media-types/application/dssc+der}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5698
+    template:
+    - application/dssc+der
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/dssc+xml
@@ -628,9 +870,12 @@
   references:
   - IANA
   - RFC5698
+  - ! '{application/dssc+xml=http://www.iana.org/assignments/media-types/application/dssc+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5698
+    template:
+    - application/dssc+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/dvcs
@@ -638,9 +883,12 @@
   references:
   - IANA
   - RFC3029
+  - ! '{application/dvcs=http://www.iana.org/assignments/media-types/application/dvcs}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3029
+    template:
+    - application/dvcs
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/dxf
@@ -654,9 +902,12 @@
   references:
   - IANA
   - RFC4329
+  - ! '{application/ecmascript=http://www.iana.org/assignments/media-types/application/ecmascript}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4329
+    template:
+    - application/ecmascript
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/EDI-Consent
@@ -669,14 +920,30 @@
     - rfc1767
   registered: true
 - !ruby/object:MIME::Type
+  content-type: application/EDI-consent
+  encoding: base64
+  references:
+  - IANA
+  - RFC1767
+  - ! '{application/EDI-consent=http://www.iana.org/assignments/media-types/application/EDI-consent}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc1767
+    template:
+    - application/EDI-consent
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/EDI-X12
   encoding: base64
   references:
   - IANA
   - RFC1767
+  - ! '{application/EDI-X12=http://www.iana.org/assignments/media-types/application/EDI-X12}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc1767
+    template:
+    - application/EDI-X12
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/EDIFACT
@@ -684,9 +951,12 @@
   references:
   - IANA
   - RFC1767
+  - ! '{application/EDIFACT=http://www.iana.org/assignments/media-types/application/EDIFACT}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc1767
+    template:
+    - application/EDIFACT
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/emma+xml
@@ -739,9 +1009,12 @@
   references:
   - IANA
   - RFC5730
+  - ! '{application/epp+xml=http://www.iana.org/assignments/media-types/application/epp+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5730
+    template:
+    - application/epp+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/epub+zip
@@ -768,9 +1041,12 @@
   references:
   - IANA
   - RFC4735
+  - ! '{application/example=http://www.iana.org/assignments/media-types/application/example}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4735
+    template:
+    - application/example
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/excel
@@ -829,9 +1105,12 @@
   references:
   - IANA
   - RFC6726
+  - ! '{application/fdt+xml=http://www.iana.org/assignments/media-types/application/fdt+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6726
+    template:
+    - application/fdt+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/fits
@@ -839,9 +1118,12 @@
   references:
   - IANA
   - RFC4047
+  - ! '{application/fits=http://www.iana.org/assignments/media-types/application/fits}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4047
+    template:
+    - application/fits
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/font-sfnt
@@ -866,9 +1148,12 @@
   references:
   - IANA
   - RFC3073
+  - ! '{application/font-tdpfr=http://www.iana.org/assignments/media-types/application/font-tdpfr}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3073
+    template:
+    - application/font-tdpfr
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/font-woff
@@ -895,9 +1180,12 @@
   references:
   - IANA
   - RFC6230
+  - ! '{application/framework-attributes+xml=http://www.iana.org/assignments/media-types/application/framework-attributes+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6230
+    template:
+    - application/framework-attributes+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/futuresplash
@@ -941,9 +1229,12 @@
   references:
   - IANA
   - RFC6713
+  - ! '{application/gzip=http://www.iana.org/assignments/media-types/application/gzip}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6713
+    template:
+    - application/gzip
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/H224
@@ -951,9 +1242,12 @@
   references:
   - IANA
   - RFC4573
+  - ! '{application/H224=http://www.iana.org/assignments/media-types/application/H224}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4573
+    template:
+    - application/H224
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/held+xml
@@ -961,9 +1255,12 @@
   references:
   - IANA
   - RFC5985
+  - ! '{application/held+xml=http://www.iana.org/assignments/media-types/application/held+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5985
+    template:
+    - application/held+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/hep
@@ -1012,9 +1309,12 @@
   references:
   - IANA
   - RFC5408
+  - ! '{application/ibe-key-request+xml=http://www.iana.org/assignments/media-types/application/ibe-key-request+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5408
+    template:
+    - application/ibe-key-request+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/ibe-pkg-reply+xml
@@ -1022,9 +1322,12 @@
   references:
   - IANA
   - RFC5408
+  - ! '{application/ibe-pkg-reply+xml=http://www.iana.org/assignments/media-types/application/ibe-pkg-reply+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5408
+    template:
+    - application/ibe-pkg-reply+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/ibe-pp-data
@@ -1032,9 +1335,12 @@
   references:
   - IANA
   - RFC5408
+  - ! '{application/ibe-pp-data=http://www.iana.org/assignments/media-types/application/ibe-pp-data}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5408
+    template:
+    - application/ibe-pp-data
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/iges
@@ -1055,9 +1361,12 @@
   references:
   - IANA
   - RFC3994
+  - ! '{application/im-iscomposing+xml=http://www.iana.org/assignments/media-types/application/im-iscomposing+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3994
+    template:
+    - application/im-iscomposing+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/imagemap
@@ -1075,9 +1384,12 @@
   references:
   - IANA
   - RFC2652
+  - ! '{application/index=http://www.iana.org/assignments/media-types/application/index}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2652
+    template:
+    - application/index
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/index.cmd
@@ -1085,9 +1397,12 @@
   references:
   - IANA
   - RFC2652
+  - ! '{application/index.cmd=http://www.iana.org/assignments/media-types/application/index.cmd}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2652
+    template:
+    - application/index.cmd
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/index.obj
@@ -1095,9 +1410,12 @@
   references:
   - IANA
   - RFC2652
+  - ! '{application/index.obj=http://www.iana.org/assignments/media-types/application/index.obj}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2652
+    template:
+    - application/index.obj
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/index.response
@@ -1105,9 +1423,12 @@
   references:
   - IANA
   - RFC2652
+  - ! '{application/index.response=http://www.iana.org/assignments/media-types/application/index.response}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2652
+    template:
+    - application/index.response
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/index.vnd
@@ -1115,9 +1436,12 @@
   references:
   - IANA
   - RFC2652
+  - ! '{application/index.vnd=http://www.iana.org/assignments/media-types/application/index.vnd}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2652
+    template:
+    - application/index.vnd
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/inkml+xml
@@ -1141,9 +1465,12 @@
   references:
   - IANA
   - RFC2935
+  - ! '{application/IOTP=http://www.iana.org/assignments/media-types/application/IOTP}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2935
+    template:
+    - application/IOTP
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/ipfix
@@ -1153,9 +1480,12 @@
   references:
   - IANA
   - RFC5655
+  - ! '{application/ipfix=http://www.iana.org/assignments/media-types/application/ipfix}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5655
+    template:
+    - application/ipfix
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/ipp
@@ -1163,9 +1493,12 @@
   references:
   - IANA
   - RFC2910
+  - ! '{application/ipp=http://www.iana.org/assignments/media-types/application/ipp}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2910
+    template:
+    - application/ipp
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/isup
@@ -1173,9 +1506,12 @@
   references:
   - IANA
   - RFC3204
+  - ! '{application/ISUP=http://www.iana.org/assignments/media-types/application/ISUP}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3204
+    template:
+    - application/ISUP
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/its+xml
@@ -1219,9 +1555,12 @@
   references:
   - IANA
   - RFC4329
+  - ! '{application/javascript=http://www.iana.org/assignments/media-types/application/javascript}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4329
+    template:
+    - application/javascript
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/jrd+json
@@ -1276,9 +1615,12 @@
   references:
   - IANA
   - RFC4730
+  - ! '{application/kpml-request+xml=http://www.iana.org/assignments/media-types/application/kpml-request+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4730
+    template:
+    - application/kpml-request+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/kpml-response+xml
@@ -1286,9 +1628,12 @@
   references:
   - IANA
   - RFC4730
+  - ! '{application/kpml-response+xml=http://www.iana.org/assignments/media-types/application/kpml-response+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4730
+    template:
+    - application/kpml-response+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/ld+json
@@ -1311,20 +1656,23 @@
   references:
   - IANA
   - RFC6690
+  - ! '{application/link-format=http://www.iana.org/assignments/media-types/application/link-format}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6690
+    template:
+    - application/link-format
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/load-control+xml
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-soc-load-control-event-package-13
+  - RFC7200
   - ! '{application/load-control+xml=http://www.iana.org/assignments/media-types/application/load-control+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-soc-load-control-event-package-13
+    rfc:
+    - rfc7200
     template:
     - application/load-control+xml
   registered: true
@@ -1336,9 +1684,12 @@
   references:
   - IANA
   - RFC5222
+  - ! '{application/lost+xml=http://www.iana.org/assignments/media-types/application/lost+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5222
+    template:
+    - application/lost+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/lostsync+xml
@@ -1346,9 +1697,12 @@
   references:
   - IANA
   - RFC6739
+  - ! '{application/lostsync+xml=http://www.iana.org/assignments/media-types/application/lostsync+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6739
+    template:
+    - application/lostsync+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/lotus-123
@@ -1408,9 +1762,12 @@
   references:
   - IANA
   - RFC6207
+  - ! '{application/mads+xml=http://www.iana.org/assignments/media-types/application/mads+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6207
+    template:
+    - application/mads+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/marc
@@ -1420,9 +1777,12 @@
   references:
   - IANA
   - RFC2220
+  - ! '{application/marc=http://www.iana.org/assignments/media-types/application/marc}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2220
+    template:
+    - application/marc
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/marcxml+xml
@@ -1432,9 +1792,12 @@
   references:
   - IANA
   - RFC6207
+  - ! '{application/marcxml+xml=http://www.iana.org/assignments/media-types/application/marcxml+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6207
+    template:
+    - application/marcxml+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/mathcad
@@ -1663,9 +2026,12 @@
   references:
   - IANA
   - RFC4155
+  - ! '{application/mbox+xml=http://www.iana.org/assignments/media-types/application/mbox+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4155
+    template:
+    - application/mbox+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/media-policy-dataset+xml
@@ -1673,9 +2039,12 @@
   references:
   - IANA
   - RFC6796
+  - ! '{application/media-policy-dataset+xml=http://www.iana.org/assignments/media-types/application/media-policy-dataset+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6796
+    template:
+    - application/media-policy-dataset+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/media_control+xml
@@ -1683,9 +2052,12 @@
   references:
   - IANA
   - RFC5168
+  - ! '{application/media_control+xml=http://www.iana.org/assignments/media-types/application/media_control+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5168
+    template:
+    - application/media_control+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/mediaservercontrol+xml
@@ -1695,9 +2067,12 @@
   references:
   - IANA
   - RFC5022
+  - ! '{application/mediaservercontrol+xml=http://www.iana.org/assignments/media-types/application/mediaservercontrol+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5022
+    template:
+    - application/mediaservercontrol+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/metalink+xml
@@ -1713,9 +2088,12 @@
   references:
   - IANA
   - RFC5854
+  - ! '{application/metalink4+xml=http://www.iana.org/assignments/media-types/application/metalink4+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5854
+    template:
+    - application/metalink4+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/mets+xml
@@ -1725,9 +2103,12 @@
   references:
   - IANA
   - RFC6207
+  - ! '{application/mets+xml=http://www.iana.org/assignments/media-types/application/mets+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6207
+    template:
+    - application/mets+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/mikey
@@ -1735,9 +2116,12 @@
   references:
   - IANA
   - RFC3830
+  - ! '{application/mikey=http://www.iana.org/assignments/media-types/application/mikey}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3830
+    template:
+    - application/mikey
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/mods+xml
@@ -1747,9 +2131,12 @@
   references:
   - IANA
   - RFC6207
+  - ! '{application/mods+xml=http://www.iana.org/assignments/media-types/application/mods+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6207
+    template:
+    - application/mods+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/moss-keys
@@ -1757,9 +2144,12 @@
   references:
   - IANA
   - RFC1848
+  - ! '{application/moss-keys=http://www.iana.org/assignments/media-types/application/moss-keys}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc1848
+    template:
+    - application/moss-keys
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/moss-signature
@@ -1767,9 +2157,12 @@
   references:
   - IANA
   - RFC1848
+  - ! '{application/moss-signature=http://www.iana.org/assignments/media-types/application/moss-signature}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc1848
+    template:
+    - application/moss-signature
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/mosskey-data
@@ -1777,9 +2170,12 @@
   references:
   - IANA
   - RFC1848
+  - ! '{application/mosskey-data=http://www.iana.org/assignments/media-types/application/mosskey-data}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc1848
+    template:
+    - application/mosskey-data
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/mosskey-request
@@ -1787,9 +2183,12 @@
   references:
   - IANA
   - RFC1848
+  - ! '{application/mosskey-request=http://www.iana.org/assignments/media-types/application/mosskey-request}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc1848
+    template:
+    - application/mosskey-request
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/mp21
@@ -1821,10 +2220,13 @@
   - IANA
   - RFC4337
   - RFC6381
+  - ! '{application/mp4=http://www.iana.org/assignments/media-types/application/mp4}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4337
     - rfc6381
+    template:
+    - application/mp4
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/mpeg4-generic
@@ -1832,9 +2234,12 @@
   references:
   - IANA
   - RFC3640
+  - ! '{application/mpeg4-generic=http://www.iana.org/assignments/media-types/application/mpeg4-generic}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3640
+    template:
+    - application/mpeg4-generic
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/mpeg4-iod
@@ -1842,9 +2247,12 @@
   references:
   - IANA
   - RFC4337
+  - ! '{application/mpeg4-iod=http://www.iana.org/assignments/media-types/application/mpeg4-iod}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4337
+    template:
+    - application/mpeg4-iod
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/mpeg4-iod-xmt
@@ -1852,9 +2260,12 @@
   references:
   - IANA
   - RFC4337
+  - ! '{application/mpeg4-iod-xmt=http://www.iana.org/assignments/media-types/application/mpeg4-iod-xmt}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4337
+    template:
+    - application/mpeg4-iod-xmt
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/mrb-consumer+xml
@@ -1888,9 +2299,12 @@
   references:
   - IANA
   - RFC6231
+  - ! '{application/msc-ivr+xml=http://www.iana.org/assignments/media-types/application/msc-ivr+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6231
+    template:
+    - application/msc-ivr+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/msc-mixer+xml
@@ -1898,9 +2312,12 @@
   references:
   - IANA
   - RFC6505
+  - ! '{application/msc-mixer+xml=http://www.iana.org/assignments/media-types/application/msc-mixer+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6505
+    template:
+    - application/msc-mixer+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/msword
@@ -1927,9 +2344,12 @@
   references:
   - IANA
   - RFC4539
+  - ! '{application/mxf=http://www.iana.org/assignments/media-types/application/mxf}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4539
+    template:
+    - application/mxf
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/nasdata
@@ -1937,9 +2357,12 @@
   references:
   - IANA
   - RFC4707
+  - ! '{application/nasdata=http://www.iana.org/assignments/media-types/application/nasdata}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4707
+    template:
+    - application/nasdata
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/netcdf
@@ -1954,9 +2377,12 @@
   references:
   - IANA
   - RFC5537
+  - ! '{application/news-checkgroups=http://www.iana.org/assignments/media-types/application/news-checkgroups}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5537
+    template:
+    - application/news-checkgroups
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/news-groupinfo
@@ -1964,9 +2390,12 @@
   references:
   - IANA
   - RFC5537
+  - ! '{application/news-groupinfo=http://www.iana.org/assignments/media-types/application/news-groupinfo}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5537
+    template:
+    - application/news-groupinfo
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/news-message-id
@@ -1983,9 +2412,12 @@
   references:
   - IANA
   - RFC5537
+  - ! '{application/news-transmission=http://www.iana.org/assignments/media-types/application/news-transmission}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5537
+    template:
+    - application/news-transmission
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/nlsml+xml
@@ -1993,9 +2425,12 @@
   references:
   - IANA
   - RFC6787
+  - ! '{application/nlsml+xml=http://www.iana.org/assignments/media-types/application/nlsml+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6787
+    template:
+    - application/nlsml+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/nss
@@ -2016,9 +2451,12 @@
   references:
   - IANA
   - RFC6960
+  - ! '{application/ocsp-request=http://www.iana.org/assignments/media-types/application/ocsp-request}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6960
+    template:
+    - application/ocsp-request
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/ocsp-response
@@ -2026,9 +2464,12 @@
   references:
   - IANA
   - RFC6960
+  - ! '{application/oscp-response=http://www.iana.org/assignments/media-types/application/oscp-response}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6960
+    template:
+    - application/oscp-response
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/octet-stream
@@ -2058,10 +2499,13 @@
   - IANA
   - RFC2045
   - RFC2046
+  - ! '{application/octet-stream=http://www.iana.org/assignments/media-types/application/octet-stream}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2045
     - rfc2046
+    template:
+    - application/octet-stream
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/oda
@@ -2072,10 +2516,13 @@
   - IANA
   - RFC2045
   - RFC2046
+  - ! '{application/ODA=http://www.iana.org/assignments/media-types/application/ODA}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2045
     - rfc2046
+    template:
+    - application/ODA
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/ODX
@@ -2100,9 +2547,12 @@
   references:
   - IANA
   - RFC4839
+  - ! '{application/oebps-package+xml=http://www.iana.org/assignments/media-types/application/oebps-package+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4839
+    template:
+    - application/oebps-package+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/ogg
@@ -2112,9 +2562,12 @@
   references:
   - IANA
   - RFC5334
+  - ! '{application/ogg=http://www.iana.org/assignments/media-types/application/ogg}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5334
+    template:
+    - application/ogg
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/omdoc+xml
@@ -2177,9 +2630,12 @@
   references:
   - IANA
   - RFC5261
+  - ! '{application/patch-ops-error+xml=http://www.iana.org/assignments/media-types/application/patch-ops-error+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5261
+    template:
+    - application/patch-ops-error+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/pdf
@@ -2189,9 +2645,12 @@
   references:
   - IANA
   - RFC3778
+  - ! '{application/pdf=http://www.iana.org/assignments/media-types/application/pdf}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3778
+    template:
+    - application/pdf
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/PDX
@@ -2216,9 +2675,12 @@
   references:
   - IANA
   - RFC3156
+  - ! '{application/pgp-encrypted=http://www.iana.org/assignments/media-types/application/pgp-encrypted}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3156
+    template:
+    - application/pgp-encrypted
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/pgp-keys
@@ -2240,9 +2702,12 @@
   references:
   - IANA
   - RFC3156
+  - ! '{application/pgp-signature=http://www.iana.org/assignments/media-types/application/pgp-signature}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3156
+    template:
+    - application/pgp-signature
   registered: true
   signature: true
 - !ruby/object:MIME::Type
@@ -2257,12 +2722,12 @@
   references:
   - IANA
   - RFC3863
-  - ! '{application/pidfxml=http://www.iana.org/assignments/media-types/application/pidfxml}'
+  - ! '{application/pidf+xml=http://www.iana.org/assignments/media-types/application/pidf+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3863
     template:
-    - application/pidfxml
+    - application/pidf+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/pidf-diff+xml
@@ -2270,9 +2735,12 @@
   references:
   - IANA
   - RFC5262
+  - ! '{application/pidf-diff+xml=http://www.iana.org/assignments/media-types/application/pidf-diff+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5262
+    template:
+    - application/pidf-diff+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/pkcs10
@@ -2282,9 +2750,12 @@
   references:
   - IANA
   - RFC5967
+  - ! '{application/pkcs10=http://www.iana.org/assignments/media-types/application/pkcs10}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5967
+    template:
+    - application/pkcs10
   registered: true
   signature: true
 - !ruby/object:MIME::Type
@@ -2297,10 +2768,13 @@
   - IANA
   - RFC5751
   - RFC7114
+  - ! '{application/pkcs7-mime=http://www.iana.org/assignments/media-types/application/pkcs7-mime}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5751
     - rfc7114
+    template:
+    - application/pkcs7-mime
   registered: true
   signature: true
 - !ruby/object:MIME::Type
@@ -2311,9 +2785,12 @@
   references:
   - IANA
   - RFC5751
+  - ! '{application/pkcs7-signature=http://www.iana.org/assignments/media-types/application/pkcs7-signature}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5751
+    template:
+    - application/pkcs7-signature
   registered: true
   signature: true
 - !ruby/object:MIME::Type
@@ -2324,9 +2801,12 @@
   references:
   - IANA
   - RFC5958
+  - ! '{application/pkcs8=http://www.iana.org/assignments/media-types/application/pkcs8}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5958
+    template:
+    - application/pkcs8
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/pkix-attr-cert
@@ -2336,9 +2816,12 @@
   references:
   - IANA
   - RFC5877
+  - ! '{application/pkix-attr-cert=http://www.iana.org/assignments/media-types/application/pkix-attr-cert}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5877
+    template:
+    - application/pkix-attr-cert
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/pkix-cert
@@ -2348,9 +2831,12 @@
   references:
   - IANA
   - RFC2585
+  - ! '{application/pkix-cert=http://www.iana.org/assignments/media-types/application/pkix-cert}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2585
+    template:
+    - application/pkix-cert
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/pkix-crl
@@ -2360,9 +2846,12 @@
   references:
   - IANA
   - RFC2585
+  - ! '{application/pkix-crl=http://www.iana.org/assignments/media-types/application/pkix-crl}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2585
+    template:
+    - application/pkix-crl
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/pkix-pkipath
@@ -2372,9 +2861,12 @@
   references:
   - IANA
   - RFC6066
+  - ! '{application/pkix-pkipath=http://www.iana.org/assignments/media-types/application/pkix-pkipath}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6066
+    template:
+    - application/pkix-pkipath
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/pkixcmp
@@ -2384,9 +2876,12 @@
   references:
   - IANA
   - RFC2510
+  - ! '{application/pkixcmp=http://www.iana.org/assignments/media-types/application/pkixcmp}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2510
+    template:
+    - application/pkixcmp
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/pls+xml
@@ -2396,9 +2891,12 @@
   references:
   - IANA
   - RFC4267
+  - ! '{application/pls+xml=http://www.iana.org/assignments/media-types/application/pls+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4267
+    template:
+    - application/pls+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/poc-settings+xml
@@ -2406,9 +2904,12 @@
   references:
   - IANA
   - RFC4354
+  - ! '{application/poc-settings+xml=http://www.iana.org/assignments/media-types/application/poc-settings+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4354
+    template:
+    - application/poc-settings+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/postscript
@@ -2421,10 +2922,13 @@
   - IANA
   - RFC2045
   - RFC2046
+  - ! '{application/postscript=http://www.iana.org/assignments/media-types/application/postscript}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2045
     - rfc2046
+    template:
+    - application/postscript
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/powerpoint
@@ -2558,9 +3062,12 @@
   references:
   - IANA
   - RFC6030
+  - ! '{application/pskc+xml=http://www.iana.org/assignments/media-types/application/pskc+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6030
+    template:
+    - application/pskc+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/qsig
@@ -2568,9 +3075,12 @@
   references:
   - IANA
   - RFC3204
+  - ! '{application/QSIG=http://www.iana.org/assignments/media-types/application/QSIG}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3204
+    template:
+    - application/QSIG
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/quicktimeplayer
@@ -2587,9 +3097,12 @@
   references:
   - IANA
   - RFC6682
+  - ! '{application/raptorfec=http://www.iana.org/assignments/media-types/application/raptorfec}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6682
+    template:
+    - application/raptorfec
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/rdf+xml
@@ -2599,9 +3112,12 @@
   references:
   - IANA
   - RFC3870
+  - ! '{application/rdf+xml=http://www.iana.org/assignments/media-types/application/rdf+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3870
+    template:
+    - application/rdf+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/reginfo+xml
@@ -2611,9 +3127,12 @@
   references:
   - IANA
   - RFC3680
+  - ! '{application/reginfo+xml=http://www.iana.org/assignments/media-types/application/reginfo+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3680
+    template:
+    - application/reginfo+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/relax-ng-compact-syntax
@@ -2674,9 +3193,12 @@
   references:
   - IANA
   - RFC4826
+  - ! '{application/resource-lists+xml=http://www.iana.org/assignments/media-types/application/resource-lists+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4826
+    template:
+    - application/resource-lists+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/resource-lists-diff+xml
@@ -2686,9 +3208,12 @@
   references:
   - IANA
   - RFC5362
+  - ! '{application/resource-lists-diff+xml=http://www.iana.org/assignments/media-types/application/resource-lists-diff+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5362
+    template:
+    - application/resource-lists-diff+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/riscos
@@ -2709,9 +3234,12 @@
   references:
   - IANA
   - RFC4662
+  - ! '{application/rlmi+xml=http://www.iana.org/assignments/media-types/application/rlmi+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4662
+    template:
+    - application/rlmi+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/rls-services+xml
@@ -2721,9 +3249,12 @@
   references:
   - IANA
   - RFC4826
+  - ! '{application/rls-services+xml=http://www.iana.org/assignments/media-types/application/rls-services+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4826
+    template:
+    - application/rls-services+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/rpki-ghostbusters
@@ -2733,9 +3264,12 @@
   references:
   - IANA
   - RFC6493
+  - ! '{application/rpki-ghostbusters=http://www.iana.org/assignments/media-types/application/rpki-ghostbusters}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6493
+    template:
+    - application/rpki-ghostbusters
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/rpki-manifest
@@ -2745,9 +3279,12 @@
   references:
   - IANA
   - RFC6481
+  - ! '{application/rpki-manifest=http://www.iana.org/assignments/media-types/application/rpki-manifest}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6481
+    template:
+    - application/rpki-manifest
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/rpki-roa
@@ -2757,9 +3294,12 @@
   references:
   - IANA
   - RFC6481
+  - ! '{application/rpki-roa=http://www.iana.org/assignments/media-types/application/rpki-roa}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6481
+    template:
+    - application/rpki-roa
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/rpki-updown
@@ -2767,9 +3307,12 @@
   references:
   - IANA
   - RFC6492
+  - ! '{application/rpki-updown=http://www.iana.org/assignments/media-types/application/rpki-updown}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6492
+    template:
+    - application/rpki-updown
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/rsd+xml
@@ -2817,9 +3360,12 @@
   references:
   - IANA
   - RFC4588
+  - ! '{application/rtx=http://www.iana.org/assignments/media-types/application/rtx}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4588
+    template:
+    - application/rtx
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/samlassertion+xml
@@ -2855,9 +3401,12 @@
   references:
   - IANA
   - RFC3823
+  - ! '{application/sbml+xml=http://www.iana.org/assignments/media-types/application/sbml+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3823
+    template:
+    - application/sbml+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/scvp-cv-request
@@ -2867,9 +3416,12 @@
   references:
   - IANA
   - RFC5055
+  - ! '{application/scvp-cv-request=http://www.iana.org/assignments/media-types/application/scvp-cv-request}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5055
+    template:
+    - application/scvp-cv-request
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/scvp-cv-response
@@ -2879,9 +3431,12 @@
   references:
   - IANA
   - RFC5055
+  - ! '{application/scvp-cv-response=http://www.iana.org/assignments/media-types/application/scvp-cv-response}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5055
+    template:
+    - application/scvp-cv-response
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/scvp-vp-request
@@ -2891,9 +3446,12 @@
   references:
   - IANA
   - RFC5055
+  - ! '{application/scvp-vp-request=http://www.iana.org/assignments/media-types/application/scvp-vp-request}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5055
+    template:
+    - application/scvp-vp-request
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/scvp-vp-response
@@ -2903,9 +3461,12 @@
   references:
   - IANA
   - RFC5055
+  - ! '{application/scvp-vp-response=http://www.iana.org/assignments/media-types/application/scvp-vp-response}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5055
+    template:
+    - application/scvp-vp-response
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/sdp
@@ -2915,9 +3476,12 @@
   references:
   - IANA
   - RFC4566
+  - ! '{application/sdp=http://www.iana.org/assignments/media-types/application/sdp}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4566
+    template:
+    - application/sdp
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/sep+xml
@@ -3032,9 +3596,12 @@
   references:
   - IANA
   - RFC1874
+  - ! '{application/SGML=http://www.iana.org/assignments/media-types/application/SGML}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc1874
+    template:
+    - application/SGML
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/sgml-open-catalog
@@ -3059,9 +3626,12 @@
   references:
   - IANA
   - RFC4194
+  - ! '{application/shf+xml=http://www.iana.org/assignments/media-types/application/shf+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4194
+    template:
+    - application/shf+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/sieve
@@ -3071,9 +3641,12 @@
   references:
   - IANA
   - RFC5228
+  - ! '{application/sieve=http://www.iana.org/assignments/media-types/application/sieve}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5228
+    template:
+    - application/sieve
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/simple-filter+xml
@@ -3081,9 +3654,12 @@
   references:
   - IANA
   - RFC4661
+  - ! '{application/simple-filter+xml=http://www.iana.org/assignments/media-types/application/simple-filter+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4661
+    template:
+    - application/simple-filter+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/simple-message-summary
@@ -3091,9 +3667,12 @@
   references:
   - IANA
   - RFC3842
+  - ! '{application/simple-message-summary=http://www.iana.org/assignments/media-types/application/simple-message-summary}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3842
+    template:
+    - application/simple-message-summary
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/simpleSymbolContainer
@@ -3137,9 +3716,12 @@
   references:
   - IANA
   - RFC4536
+  - ! '{application/smil=http://www.iana.org/assignments/media-types/application/smil}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4536
+    template:
+    - application/smil
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/smil+xml
@@ -3150,9 +3732,12 @@
   references:
   - IANA
   - RFC4536
+  - ! '{application/smil+xml=http://www.iana.org/assignments/media-types/application/smil+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4536
+    template:
+    - application/smil+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/smpte336m
@@ -3160,9 +3745,12 @@
   references:
   - IANA
   - RFC6597
+  - ! '{application/smpte336m=http://www.iana.org/assignments/media-types/application/smpte336m}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6597
+    template:
+    - application/smpte336m
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/soap+fastinfoset
@@ -3183,9 +3771,12 @@
   references:
   - IANA
   - RFC3902
+  - ! '{application/soap+xml=http://www.iana.org/assignments/media-types/application/soap+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3902
+    template:
+    - application/soap+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/solids
@@ -3227,9 +3818,12 @@
   references:
   - IANA
   - RFC3910
+  - ! '{application/spirits-event+xml=http://www.iana.org/assignments/media-types/application/spirits-event+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3910
+    template:
+    - application/spirits-event+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/sql
@@ -3252,9 +3846,12 @@
   references:
   - IANA
   - RFC4267
+  - ! '{application/srgs=http://www.iana.org/assignments/media-types/application/srgs}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4267
+    template:
+    - application/srgs
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/srgs+xml
@@ -3264,9 +3861,12 @@
   references:
   - IANA
   - RFC4267
+  - ! '{application/srgs+xml=http://www.iana.org/assignments/media-types/application/srgs+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4267
+    template:
+    - application/srgs+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/sru+xml
@@ -3276,9 +3876,12 @@
   references:
   - IANA
   - RFC6207
+  - ! '{application/sru+xml=http://www.iana.org/assignments/media-types/application/sru+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6207
+    template:
+    - application/sru+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/ssdl+xml
@@ -3294,9 +3897,12 @@
   references:
   - IANA
   - RFC4267
+  - ! '{application/ssml+xml=http://www.iana.org/assignments/media-types/application/ssml+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4267
+    template:
+    - application/ssml+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/STEP
@@ -3308,9 +3914,12 @@
   references:
   - IANA
   - RFC5934
+  - ! '{application/tamp-apex-update=http://www.iana.org/assignments/media-types/application/tamp-apex-update}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5934
+    template:
+    - application/tamp-apex-update
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/tamp-apex-update-confirm
@@ -3318,9 +3927,12 @@
   references:
   - IANA
   - RFC5934
+  - ! '{application/tamp-apex-update-confirm=http://www.iana.org/assignments/media-types/application/tamp-apex-update-confirm}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5934
+    template:
+    - application/tamp-apex-update-confirm
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/tamp-community-update
@@ -3328,9 +3940,12 @@
   references:
   - IANA
   - RFC5934
+  - ! '{application/tamp-community-update=http://www.iana.org/assignments/media-types/application/tamp-community-update}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5934
+    template:
+    - application/tamp-community-update
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/tamp-community-update-confirm
@@ -3338,9 +3953,12 @@
   references:
   - IANA
   - RFC5934
+  - ! '{application/tamp-community-update-confirm=http://www.iana.org/assignments/media-types/application/tamp-community-update-confirm}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5934
+    template:
+    - application/tamp-community-update-confirm
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/tamp-error
@@ -3348,9 +3966,12 @@
   references:
   - IANA
   - RFC5934
+  - ! '{application/tamp-error=http://www.iana.org/assignments/media-types/application/tamp-error}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5934
+    template:
+    - application/tamp-error
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/tamp-sequence-adjust
@@ -3358,9 +3979,12 @@
   references:
   - IANA
   - RFC5934
+  - ! '{application/tamp-sequence-adjust=http://www.iana.org/assignments/media-types/application/tamp-sequence-adjust}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5934
+    template:
+    - application/tamp-sequence-adjust
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/tamp-sequence-adjust-confirm
@@ -3368,9 +3992,12 @@
   references:
   - IANA
   - RFC5934
+  - ! '{application/tamp-sequence-adjust-confirm=http://www.iana.org/assignments/media-types/application/tamp-sequence-adjust-confirm}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5934
+    template:
+    - application/tamp-sequence-adjust-confirm
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/tamp-status-query
@@ -3378,9 +4005,12 @@
   references:
   - IANA
   - RFC5934
+  - ! '{application/tamp-status-query=http://www.iana.org/assignments/media-types/application/tamp-status-query}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5934
+    template:
+    - application/tamp-status-query
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/tamp-status-response
@@ -3388,9 +4018,12 @@
   references:
   - IANA
   - RFC5934
+  - ! '{application/tamp-status-response=http://www.iana.org/assignments/media-types/application/tamp-status-response}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5934
+    template:
+    - application/tamp-status-response
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/tamp-update
@@ -3398,9 +4031,12 @@
   references:
   - IANA
   - RFC5934
+  - ! '{application/tamp-update=http://www.iana.org/assignments/media-types/application/tamp-update}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5934
+    template:
+    - application/tamp-update
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/tamp-update-confirm
@@ -3408,9 +4044,12 @@
   references:
   - IANA
   - RFC5934
+  - ! '{application/tamp-update-confirm=http://www.iana.org/assignments/media-types/application/tamp-update-confirm}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5934
+    template:
+    - application/tamp-update-confirm
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/tei+xml
@@ -3421,9 +4060,12 @@
   references:
   - IANA
   - RFC6129
+  - ! '{application/tei+xml=http://www.iana.org/assignments/media-types/application/tei+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6129
+    template:
+    - application/tei+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/thraud+xml
@@ -3433,9 +4075,12 @@
   references:
   - IANA
   - RFC5941
+  - ! '{application/thraud+xml=http://www.iana.org/assignments/media-types/application/thraud+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5941
+    template:
+    - application/thraud+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/timestamp-query
@@ -3443,9 +4088,12 @@
   references:
   - IANA
   - RFC3161
+  - ! '{application/timestamp-query=http://www.iana.org/assignments/media-types/application/timestamp-query}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3161
+    template:
+    - application/timestamp-query
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/timestamp-reply
@@ -3453,9 +4101,12 @@
   references:
   - IANA
   - RFC3161
+  - ! '{application/timestamp-reply=http://www.iana.org/assignments/media-types/application/timestamp-reply}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3161
+    template:
+    - application/timestamp-reply
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/timestamped-data
@@ -3465,9 +4116,12 @@
   references:
   - IANA
   - RFC5955
+  - ! '{application/timestamped-data=http://www.iana.org/assignments/media-types/application/timestamped-data}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5955
+    template:
+    - application/timestamped-data
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/toolbook
@@ -3512,9 +4166,12 @@
   references:
   - IANA
   - RFC5109
+  - ! '{application/ulpfec=http://www.iana.org/assignments/media-types/application/ulpfec}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5109
+    template:
+    - application/ulpfec
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/urc-grpsheet+xml
@@ -3593,9 +4250,12 @@
   references:
   - IANA
   - RFC6351
+  - ! '{application/vcard+xml=http://www.iana.org/assignments/media-types/application/vcard+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6351
+    template:
+    - application/vcard+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vda
@@ -3607,9 +4267,12 @@
   references:
   - IANA
   - RFC2122
+  - ! '{application/vemmi=http://www.iana.org/assignments/media-types/application/vemmi}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2122
+    template:
+    - application/vemmi
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/VMSBACKUP
@@ -7126,6 +7789,84 @@
     - application/vnd.immervision-ivu
   registered: true
 - !ruby/object:MIME::Type
+  content-type: application/vnd.ims.lis.v2.result+json
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Lisa_Mattson]'
+  - ! '{application/vnd.ims.lis.v2.result+json=http://www.iana.org/assignments/media-types/application/vnd.ims.lis.v2.result+json}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Lisa_Mattson
+    template:
+    - application/vnd.ims.lis.v2.result+json
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/vnd.ims.lti.v2.toolconsumerprofile+json
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Lisa_Mattson]'
+  - ! '{application/vnd.ims.lti.v2.toolconsumerprofile+json=http://www.iana.org/assignments/media-types/application/vnd.ims.lti.v2.toolconsumerprofile+json}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Lisa_Mattson
+    template:
+    - application/vnd.ims.lti.v2.toolconsumerprofile+json
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/vnd.ims.lti.v2.toolproxy+json
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Lisa_Mattson]'
+  - ! '{application/vnd.ims.lti.v2.toolproxy+json=http://www.iana.org/assignments/media-types/application/vnd.ims.lti.v2.toolproxy+json}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Lisa_Mattson
+    template:
+    - application/vnd.ims.lti.v2.toolproxy+json
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/vnd.ims.lti.v2.toolproxy.id+json
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Lisa_Mattson]'
+  - ! '{application/vnd.ims.lti.v2.toolproxy.id+json=http://www.iana.org/assignments/media-types/application/vnd.ims.lti.v2.toolproxy.id+json}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Lisa_Mattson
+    template:
+    - application/vnd.ims.lti.v2.toolproxy.id+json
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/vnd.ims.lti.v2.toolsettings+json
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Lisa_Mattson]'
+  - ! '{application/vnd.ims.lti.v2.toolsettings+json=http://www.iana.org/assignments/media-types/application/vnd.ims.lti.v2.toolsettings+json}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Lisa_Mattson
+    template:
+    - application/vnd.ims.lti.v2.toolsettings+json
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/vnd.ims.lti.v2.toolsettings.simple+json
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Lisa_Mattson]'
+  - ! '{application/vnd.ims.lti.v2.toolsettings.simple+json=http://www.iana.org/assignments/media-types/application/vnd.ims.lti.v2.toolsettings.simple+json}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Lisa_Mattson
+    template:
+    - application/vnd.ims.lti.v2.toolsettings.simple+json
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/vnd.informedcontrol.rms+xml
   encoding: base64
   references:
@@ -8070,6 +8811,19 @@
     - application/vnd.marlin.drm.mdcf
   registered: true
 - !ruby/object:MIME::Type
+  content-type: application/vnd.mason+json
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Jorn_Wildt]'
+  - ! '{application/vnd.mason+json=http://www.iana.org/assignments/media-types/application/vnd.mason+json}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Jorn_Wildt
+    template:
+    - application/vnd.mason+json
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/vnd.mcd
   encoding: base64
   extensions:
@@ -8186,6 +8940,19 @@
     - Joe_Prevo
     template:
     - application/vnd.micrografx-igx
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/vnd.miele+json
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Nils_Langhammer]'
+  - ! '{application/vnd.miele+json=http://www.iana.org/assignments/media-types/application/vnd.miele+json}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Nils_Langhammer
+    template:
+    - application/vnd.miele+json
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.mif
@@ -8483,6 +9250,19 @@
     - application/vnd.mozilla.xul+xml
   registered: true
 - !ruby/object:MIME::Type
+  content-type: application/vnd.ms-3mfdocument
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Shawn_Maloney]'
+  - ! '{application/vnd.ms-3mfdocument=http://www.iana.org/assignments/media-types/application/vnd.ms-3mfdocument}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Shawn_Maloney
+    template:
+    - application/vnd.ms-3mfdocument
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/vnd.ms-artgalry
   encoding: base64
   extensions:
@@ -8617,23 +9397,10 @@
   - ! '[Kim_Scarborough]'
   - ! '{application/vnd.ms-fontobject=http://www.iana.org/assignments/media-types/application/vnd.ms-fontobject}'
   xrefs: !ruby/hash:MIME::Types::Container
-    person: &70341024515740
+    person:
     - Kim_Scarborough
-    template: &70341024465140
+    template:
     - application/vnd.ms-fontobject
-  registered: true
-- !ruby/object:MIME::Type
-  content-type: application/vnd.ms-fontobject
-  encoding: base64
-  extensions:
-  - eot
-  references:
-  - IANA
-  - ! '[Kim_Scarborough]'
-  - ! '{application/vnd.ms-fontobject=http://www.iana.org/assignments/media-types/application/vnd.ms-fontobject}'
-  xrefs: !ruby/hash:MIME::Types::Container
-    person: *70341024515740
-    template: *70341024465140
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ms-htmlhelp
@@ -11750,6 +12517,19 @@
     - application/vnd.palm
   registered: true
 - !ruby/object:MIME::Type
+  content-type: application/vnd.panoply
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Natarajan_Balasundara]'
+  - ! '{application/vnd.panoply=http://www.iana.org/assignments/media-types/application/vnd.panoply}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Natarajan_Balasundara
+    template:
+    - application/vnd.panoply
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/vnd.paos.xml
   encoding: base64
   references:
@@ -12053,9 +12833,12 @@
   references:
   - IANA
   - RFC3391
+  - ! '{application/vwg-multiplexed=http://www.iana.org/assignments/media-types/application/vwg-multiplexed}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3391
+    template:
+    - application/vwg-multiplexed
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.pwg-xhtml-print+xml
@@ -12122,9 +12905,12 @@
   references:
   - IANA
   - RFC5707
+  - ! '{application/vnd.radisys.moml+xml=http://www.iana.org/assignments/media-types/application/vnd.radisys.moml+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5707
+    template:
+    - application/vnd.radisys.moml+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.radisys.msml+xml
@@ -12132,9 +12918,12 @@
   references:
   - IANA
   - RFC5707
+  - ! '{application/vnd.radisys.msml+xml=http://www.iana.org/assignments/media-types/application/vnd.radisys.msml+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5707
+    template:
+    - application/vnd.radisys.msml+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.radisys.msml-audit+xml
@@ -12142,9 +12931,12 @@
   references:
   - IANA
   - RFC5707
+  - ! '{application/vnd.radisys.msml-audit+xml=http://www.iana.org/assignments/media-types/application/vnd.radisys.msml-audit+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5707
+    template:
+    - application/vnd.radisys.msml-audit+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.radisys.msml-audit-conf+xml
@@ -12152,9 +12944,12 @@
   references:
   - IANA
   - RFC5707
+  - ! '{application/vnd.radisys.msml-audit-conf+xml=http://www.iana.org/assignments/media-types/application/vnd.radisys.msml-audit-conf+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5707
+    template:
+    - application/vnd.radisys.msml-audit-conf+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.radisys.msml-audit-conn+xml
@@ -12162,9 +12957,12 @@
   references:
   - IANA
   - RFC5707
+  - ! '{application/vnd.radisys.msml-audit-conn+xml=http://www.iana.org/assignments/media-types/application/vnd.radisys.msml-audit-conn+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5707
+    template:
+    - application/vnd.radisys.msml-audit-conn+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.radisys.msml-audit-dialog+xml
@@ -12172,9 +12970,12 @@
   references:
   - IANA
   - RFC5707
+  - ! '{application/vnd.radisys.msml-audit-dialog+xml=http://www.iana.org/assignments/media-types/application/vnd.radisys.msml-audit-dialog+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5707
+    template:
+    - application/vnd.radisys.msml-audit-dialog+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.radisys.msml-audit-stream+xml
@@ -12182,9 +12983,12 @@
   references:
   - IANA
   - RFC5707
+  - ! '{application/vnd.radisys.msml-audit-stream+xml=http://www.iana.org/assignments/media-types/application/vnd.radisys.msml-audit-stream+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5707
+    template:
+    - application/vnd.radisys.msml-audit-stream+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.radisys.msml-conf+xml
@@ -12192,9 +12996,12 @@
   references:
   - IANA
   - RFC5707
+  - ! '{application/vnd.radisys.msml-conf+xml=http://www.iana.org/assignments/media-types/application/vnd.radisys.msml-conf+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5707
+    template:
+    - application/vnd.radisys.msml-conf+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.radisys.msml-dialog+xml
@@ -12202,9 +13009,12 @@
   references:
   - IANA
   - RFC5707
+  - ! '{application/vnd.radisys.msml-dialog+xml=http://www.iana.org/assignments/media-types/application/vnd.radisys.msml-dialog+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5707
+    template:
+    - application/vnd.radisys.msml-dialog+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.radisys.msml-dialog-base+xml
@@ -12212,9 +13022,12 @@
   references:
   - IANA
   - RFC5707
+  - ! '{application/vnd.radisys.msml-dialog-base+xml=http://www.iana.org/assignments/media-types/application/vnd.radisys.msml-dialog-base+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5707
+    template:
+    - application/vnd.radisys.msml-dialog-base+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.radisys.msml-dialog-fax-detect+xml
@@ -12222,9 +13035,12 @@
   references:
   - IANA
   - RFC5707
+  - ! '{application/vnd.radisys.msml-dialog-fax-detect+xml=http://www.iana.org/assignments/media-types/application/vnd.radisys.msml-dialog-fax-detect+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5707
+    template:
+    - application/vnd.radisys.msml-dialog-fax-detect+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.radisys.msml-dialog-fax-sendrecv+xml
@@ -12232,9 +13048,12 @@
   references:
   - IANA
   - RFC5707
+  - ! '{application/vnd.radisys.msml-dialog-fax-sendrecv+xml=http://www.iana.org/assignments/media-types/application/vnd.radisys.msml-dialog-fax-sendrecv+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5707
+    template:
+    - application/vnd.radisys.msml-dialog-fax-sendrecv+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.radisys.msml-dialog-group+xml
@@ -12242,9 +13061,12 @@
   references:
   - IANA
   - RFC5707
+  - ! '{application/vnd.radisys.msml-dialog-group+xml=http://www.iana.org/assignments/media-types/application/vnd.radisys.msml-dialog-group+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5707
+    template:
+    - application/vnd.radisys.msml-dialog-group+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.radisys.msml-dialog-speech+xml
@@ -12252,9 +13074,12 @@
   references:
   - IANA
   - RFC5707
+  - ! '{application/vnd.radisys.msml-dialog-speech+xml=http://www.iana.org/assignments/media-types/application/vnd.radisys.msml-dialog-speech+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5707
+    template:
+    - application/vnd.radisys.msml-dialog-speech+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.radisys.msml-dialog-transform+xml
@@ -12262,9 +13087,12 @@
   references:
   - IANA
   - RFC5707
+  - ! '{application/vnd.radisys.msml-dialog-transform+xml=http://www.iana.org/assignments/media-types/application/vnd.radisys.msml-dialog-transform+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5707
+    template:
+    - application/vnd.radisys.msml-dialog-transform+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.rainstor.data
@@ -13673,6 +14501,19 @@
     - application/vnd.uplanet.signal
   registered: true
 - !ruby/object:MIME::Type
+  content-type: application/vnd.valve.source.material
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Henrik_Andersson]'
+  - ! '{application/vnd.valve.source.material=http://www.iana.org/assignments/media-types/application/vnd.valve.source.material}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Henrik_Andersson
+    template:
+    - application/vnd.valve.source.material
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/vnd.vcx
   encoding: base64
   extensions:
@@ -14380,6 +15221,19 @@
     - application/vnd.yamaha.tunnel-udpencap
   registered: true
 - !ruby/object:MIME::Type
+  content-type: application/vnd.yaoweme
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Jens_Jorgensen]'
+  - ! '{application/vnd.yaoweme=http://www.iana.org/assignments/media-types/application/vnd.yaoweme}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Jens_Jorgensen
+    template:
+    - application/vnd.yaoweme
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/vnd.yellowriver-custom-menu
   encoding: base64
   extensions:
@@ -14433,9 +15287,12 @@
   references:
   - IANA
   - RFC4267
+  - ! '{application/voicexml+xml=http://www.iana.org/assignments/media-types/application/voicexml+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4267
+    template:
+    - application/voicexml+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vq-rtcpxr
@@ -14443,9 +15300,12 @@
   references:
   - IANA
   - RFC6035
+  - ! '{application/vq-rtcpxr=http://www.iana.org/assignments/media-types/application/vq-rtcpxr}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6035
+    template:
+    - application/vq-rtcpxr
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/watcherinfo+xml
@@ -14455,9 +15315,12 @@
   references:
   - IANA
   - RFC3858
+  - ! '{application/watcherinfo+xml=http://www.iana.org/assignments/media-types/application/watcherinfo+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3858
+    template:
+    - application/watcherinfo+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/whoispp-query
@@ -14465,9 +15328,12 @@
   references:
   - IANA
   - RFC2957
+  - ! '{application/whoispp-query=http://www.iana.org/assignments/media-types/application/whoispp-query}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2957
+    template:
+    - application/whoispp-query
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/whoispp-response
@@ -14475,9 +15341,12 @@
   references:
   - IANA
   - RFC2958
+  - ! '{application/whoispp-response=http://www.iana.org/assignments/media-types/application/whoispp-response}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2958
+    template:
+    - application/whoispp-response
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/widget
@@ -15701,8 +16570,16 @@
   content-type: application/x-www-form-urlencoded
   encoding: 7bit
   references:
+  - IANA
   - ! '[W3C]'
-  - ! '{HTML5=http://www.w3.org/TR/html5/iana.html#application/x-www-form-urlencoded}'
+  - ! '[Robin_Berjon]'
+  - ! '{application/x-www-form-urlencoded=http://www.iana.org/assignments/media-types/application/x-www-form-urlencoded}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Robin_Berjon
+    - W3C
+    template:
+    - application/x-www-form-urlencoded
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/x-x509-ca-cert
@@ -15754,9 +16631,12 @@
   references:
   - IANA
   - RFC1494
+  - ! '{application/x400-bp=http://www.iana.org/assignments/media-types/application/x400-bp}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc1494
+    template:
+    - application/x400-bp
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/x400.bp
@@ -15790,9 +16670,12 @@
   references:
   - IANA
   - RFC4825
+  - ! '{application/xcap-att+xml=http://www.iana.org/assignments/media-types/application/xcap-att+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4825
+    template:
+    - application/xcap-att+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/xcap-caps+xml
@@ -15800,9 +16683,12 @@
   references:
   - IANA
   - RFC4825
+  - ! '{application/xcap-caps+xml=http://www.iana.org/assignments/media-types/application/xcap-caps+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4825
+    template:
+    - application/xcap-caps+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/xcap-diff+xml
@@ -15812,9 +16698,12 @@
   references:
   - IANA
   - RFC5874
+  - ! '{application/xcap-diff+xml=http://www.iana.org/assignments/media-types/application/xcap-diff+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5874
+    template:
+    - application/xcap-diff+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/xcap-el+xml
@@ -15822,9 +16711,12 @@
   references:
   - IANA
   - RFC4825
+  - ! '{application/xcap-el+xml=http://www.iana.org/assignments/media-types/application/xcap-el+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4825
+    template:
+    - application/xcap-el+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/xcap-error+xml
@@ -15832,9 +16724,12 @@
   references:
   - IANA
   - RFC4825
+  - ! '{application/xcap-error+xml=http://www.iana.org/assignments/media-types/application/xcap-error+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4825
+    template:
+    - application/xcap-error+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/xcap-ns+xml
@@ -15842,29 +16737,38 @@
   references:
   - IANA
   - RFC4825
+  - ! '{application/xcap-ns+xml=http://www.iana.org/assignments/media-types/application/xcap-ns+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4825
+    template:
+    - application/xcap-ns+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/xcon-conference-info+xml
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-xcon-event-package
+  - RFC6502
+  - ! '{application/xcon-conference-info+xml=http://www.iana.org/assignments/media-types/application/xcon-conference-info+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - draft-ietf-xcon-event-package
+    rfc:
+    - rfc6502
+    template:
+    - application/xcon-conference-info+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/xcon-conference-info-diff+xml
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-xcon-event-package
+  - RFC6502
+  - ! '{application/xcon-conference-info-diff+xml=http://www.iana.org/assignments/media-types/application/xcon-conference-info-diff+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - draft-ietf-xcon-event-package
+    rfc:
+    - rfc6502
+    template:
+    - application/xcon-conference-info-diff+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/xenc+xml
@@ -15892,9 +16796,12 @@
   references:
   - IANA
   - RFC3236
+  - ! '{application/xhtml+xml=http://www.iana.org/assignments/media-types/application/xhtml+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3236
+    template:
+    - application/xhtml+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/xhtml-voice+xml
@@ -15903,9 +16810,12 @@
   references:
   - IANA
   - DRAFT:draft-mccobb-xplusv-media-type
+  - ! '{application/xhtml-voice+xml=http://www.iana.org/assignments/media-types/application/xhtml-voice+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     draft:
     - draft-mccobb-xplusv-media-type
+    template:
+    - application/xhtml-voice+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/xml
@@ -15915,10 +16825,13 @@
   - xsl
   references:
   - IANA
-  - RFC3023
+  - DRAFT:draft-ietf-appsawg-xml-mediatypes-10
+  - ! '{application/xml=http://www.iana.org/assignments/media-types/application/xml}'
   xrefs: !ruby/hash:MIME::Types::Container
-    rfc:
-    - rfc3023
+    draft:
+    - RFC-ietf-appsawg-xml-mediatypes-10
+    template:
+    - application/xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/xml-dtd
@@ -15927,20 +16840,26 @@
   - dtd
   references:
   - IANA
-  - RFC3023
+  - DRAFT:draft-ietf-appsawg-xml-mediatypes-10
+  - ! '{application/xml-dtd=http://www.iana.org/assignments/media-types/application/xml-dtd}'
   xrefs: !ruby/hash:MIME::Types::Container
-    rfc:
-    - rfc3023
+    draft:
+    - RFC-ietf-appsawg-xml-mediatypes-10
+    template:
+    - application/xml-dtd
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/xml-external-parsed-entity
   encoding: base64
   references:
   - IANA
-  - RFC3023
+  - DRAFT:draft-ietf-appsawg-xml-mediatypes-10
+  - ! '{application/xml-external-parsed-entity=http://www.iana.org/assignments/media-types/application/xml-external-parsed-entity}'
   xrefs: !ruby/hash:MIME::Types::Container
-    rfc:
-    - rfc3023
+    draft:
+    - RFC-ietf-appsawg-xml-mediatypes-10
+    template:
+    - application/xml-external-parsed-entity
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/xmpp+xml
@@ -15948,9 +16867,12 @@
   references:
   - IANA
   - RFC3923
+  - ! '{application/xmpp+xml=http://www.iana.org/assignments/media-types/application/xmpp+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3923
+    template:
+    - application/xmpp+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/xop+xml
@@ -16005,9 +16927,12 @@
   references:
   - IANA
   - RFC4374
+  - ! '{application/xv+xml=http://www.iana.org/assignments/media-types/application/xv+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4374
+    template:
+    - application/xv+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/yang
@@ -16017,9 +16942,12 @@
   references:
   - IANA
   - RFC6020
+  - ! '{application/yang=http://www.iana.org/assignments/media-types/application/yang}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6020
+    template:
+    - application/yang
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/yin+xml
@@ -16029,9 +16957,12 @@
   references:
   - IANA
   - RFC6020
+  - ! '{application/yin+xml=http://www.iana.org/assignments/media-types/application/yin+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6020
+    template:
+    - application/yin+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/zip
@@ -16054,7 +16985,10 @@
   references:
   - IANA
   - RFC6713
+  - ! '{application/zlib=http://www.iana.org/assignments/media-types/application/zlib}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6713
+    template:
+    - application/zlib
   registered: true

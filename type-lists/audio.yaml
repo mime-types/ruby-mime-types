@@ -5,9 +5,12 @@
   references:
   - IANA
   - RFC6015
+  - ! '{audio/1d-interleaved-parityfec=http://www.iana.org/assignments/media-types/audio/1d-interleaved-parityfec}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6015
+    template:
+    - audio/1d-interleaved-parityfec
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/32kadpcm
@@ -16,10 +19,13 @@
   - IANA
   - RFC3802
   - RFC2421
+  - ! '{audio/32kadpcm=http://www.iana.org/assignments/media-types/audio/32kadpcm}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2421
     - rfc3802
+    template:
+    - audio/32kadpcm
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/3gpp
@@ -28,10 +34,13 @@
   - IANA
   - RFC3839
   - RFC6381
+  - ! '{audio/3gpp=http://www.iana.org/assignments/media-types/audio/3gpp}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3839
     - rfc6381
+    template:
+    - audio/3gpp
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/3gpp2
@@ -40,10 +49,13 @@
   - IANA
   - RFC4393
   - RFC6381
+  - ! '{audio/3gpp2=http://www.iana.org/assignments/media-types/audio/3gpp2}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4393
     - rfc6381
+    template:
+    - audio/3gpp2
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/ac3
@@ -51,9 +63,12 @@
   references:
   - IANA
   - RFC4184
+  - ! '{audio/ac3=http://www.iana.org/assignments/media-types/audio/ac3}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4184
+    template:
+    - audio/ac3
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/adpcm
@@ -69,9 +84,12 @@
   references:
   - IANA
   - RFC4867
+  - ! '{audio/AMR=http://www.iana.org/assignments/media-types/audio/AMR}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4867
+    template:
+    - audio/AMR
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/AMR-WB
@@ -81,9 +99,12 @@
   references:
   - IANA
   - RFC4867
+  - ! '{audio/AMR-WB=http://www.iana.org/assignments/media-types/audio/AMR-WB}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4867
+    template:
+    - audio/AMR-WB
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/amr-wb
@@ -101,6 +122,25 @@
   references:
   - IANA
   - RFC4352
+  - ! '{audio/amr-wb+=http://www.iana.org/assignments/media-types/audio/amr-wb+}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc4352
+    template:
+    - audio/amr-wb+
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: audio/aptx
+  encoding: base64
+  references:
+  - IANA
+  - DRAFT:draft-ietf-payload-rtp-aptx-05
+  - ! '{audio/aptx=http://www.iana.org/assignments/media-types/audio/aptx}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-ietf-payload-rtp-aptx-05
+    template:
+    - audio/aptx
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/asc
@@ -108,9 +148,12 @@
   references:
   - IANA
   - RFC6295
+  - ! '{audio/asc=http://www.iana.org/assignments/media-types/audio/asc}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6295
+    template:
+    - audio/asc
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/ATRAC-ADVANCED-LOSSLESS
@@ -118,9 +161,12 @@
   references:
   - IANA
   - RFC5584
+  - ! '{audio/ATRAC-ADVANCED-LOSSLESS=http://www.iana.org/assignments/media-types/audio/ATRAC-ADVANCED-LOSSLESS}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5584
+    template:
+    - audio/ATRAC-ADVANCED-LOSSLESS
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/ATRAC-X
@@ -128,9 +174,12 @@
   references:
   - IANA
   - RFC5584
+  - ! '{audio/ATRAC-X=http://www.iana.org/assignments/media-types/audio/ATRAC-X}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5584
+    template:
+    - audio/ATRAC-X
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/ATRAC3
@@ -138,9 +187,12 @@
   references:
   - IANA
   - RFC5584
+  - ! '{audio/ATRAC3=http://www.iana.org/assignments/media-types/audio/ATRAC3}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5584
+    template:
+    - audio/ATRAC3
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/basic
@@ -152,10 +204,13 @@
   - IANA
   - RFC2045
   - RFC2046
+  - ! '{audio/basic=http://www.iana.org/assignments/media-types/audio/basic}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2045
     - rfc2046
+    template:
+    - audio/basic
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/BV16
@@ -163,9 +218,12 @@
   references:
   - IANA
   - RFC4298
+  - ! '{audio/BV16=http://www.iana.org/assignments/media-types/audio/BV16}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4298
+    template:
+    - audio/BV16
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/BV32
@@ -173,9 +231,12 @@
   references:
   - IANA
   - RFC4298
+  - ! '{audio/BV32=http://www.iana.org/assignments/media-types/audio/BV32}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4298
+    template:
+    - audio/BV32
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/clearmode
@@ -183,9 +244,12 @@
   references:
   - IANA
   - RFC4040
+  - ! '{audio/clearmode=http://www.iana.org/assignments/media-types/audio/clearmode}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4040
+    template:
+    - audio/clearmode
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/CN
@@ -193,9 +257,12 @@
   references:
   - IANA
   - RFC3389
+  - ! '{audio/CN=http://www.iana.org/assignments/media-types/audio/CN}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3389
+    template:
+    - audio/CN
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/DAT12
@@ -203,9 +270,12 @@
   references:
   - IANA
   - RFC3190
+  - ! '{audio/DAT12=http://www.iana.org/assignments/media-types/audio/DAT12}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3190
+    template:
+    - audio/DAT12
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/dls
@@ -213,9 +283,12 @@
   references:
   - IANA
   - RFC4613
+  - ! '{audio/dls=http://www.iana.org/assignments/media-types/audio/dls}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4613
+    template:
+    - audio/dls
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/dsr-es201108
@@ -223,9 +296,12 @@
   references:
   - IANA
   - RFC3557
+  - ! '{audio/dsr-es201108=http://www.iana.org/assignments/media-types/audio/dsr-es201108}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3557
+    template:
+    - audio/dsr-es201108
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/dsr-es202050
@@ -233,9 +309,12 @@
   references:
   - IANA
   - RFC4060
+  - ! '{audio/dsr-es202050=http://www.iana.org/assignments/media-types/audio/dsr-es202050}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4060
+    template:
+    - audio/dsr-es202050
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/dsr-es202211
@@ -243,9 +322,12 @@
   references:
   - IANA
   - RFC4060
+  - ! '{audio/dsr-es202211=http://www.iana.org/assignments/media-types/audio/dsr-es202211}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4060
+    template:
+    - audio/dsr-es202211
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/dsr-es202212
@@ -253,9 +335,12 @@
   references:
   - IANA
   - RFC4060
+  - ! '{audio/dsr-es202212=http://www.iana.org/assignments/media-types/audio/dsr-es202212}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4060
+    template:
+    - audio/dsr-es202212
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/DV
@@ -263,9 +348,12 @@
   references:
   - IANA
   - RFC6469
+  - ! '{audio/DV=http://www.iana.org/assignments/media-types/audio/DV}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6469
+    template:
+    - audio/DV
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/DVI4
@@ -273,9 +361,12 @@
   references:
   - IANA
   - RFC4856
+  - ! '{audio/DVI4=http://www.iana.org/assignments/media-types/audio/DVI4}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
+    template:
+    - audio/DVI4
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/eac3
@@ -283,9 +374,12 @@
   references:
   - IANA
   - RFC4598
+  - ! '{audio/eac3=http://www.iana.org/assignments/media-types/audio/eac3}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4598
+    template:
+    - audio/eac3
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/encaprtp
@@ -308,9 +402,12 @@
   references:
   - IANA
   - RFC4788
+  - ! '{audio/EVRC=http://www.iana.org/assignments/media-types/audio/EVRC}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4788
+    template:
+    - audio/EVRC
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/EVRC-QCP
@@ -318,9 +415,12 @@
   references:
   - IANA
   - RFC3625
+  - ! '{audio/EVRC-QCP=http://www.iana.org/assignments/media-types/audio/EVRC-QCP}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3625
+    template:
+    - audio/EVRC-QCP
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/EVRC0
@@ -328,9 +428,12 @@
   references:
   - IANA
   - RFC4788
+  - ! '{audio/EVRC0=http://www.iana.org/assignments/media-types/audio/EVRC0}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4788
+    template:
+    - audio/EVRC0
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/EVRC1
@@ -338,9 +441,12 @@
   references:
   - IANA
   - RFC4788
+  - ! '{audio/EVRC1=http://www.iana.org/assignments/media-types/audio/EVRC1}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4788
+    template:
+    - audio/EVRC1
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/EVRCB
@@ -348,9 +454,12 @@
   references:
   - IANA
   - RFC5188
+  - ! '{audio/EVRCB=http://www.iana.org/assignments/media-types/audio/EVRCB}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5188
+    template:
+    - audio/EVRCB
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/EVRCB0
@@ -358,9 +467,12 @@
   references:
   - IANA
   - RFC5188
+  - ! '{audio/EVRCB0=http://www.iana.org/assignments/media-types/audio/EVRCB0}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5188
+    template:
+    - audio/EVRCB0
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/EVRCB1
@@ -368,9 +480,12 @@
   references:
   - IANA
   - RFC4788
+  - ! '{audio/EVRCB1=http://www.iana.org/assignments/media-types/audio/EVRCB1}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4788
+    template:
+    - audio/EVRCB1
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/EVRCNW
@@ -417,9 +532,12 @@
   references:
   - IANA
   - RFC5188
+  - ! '{audio/EVRCWB=http://www.iana.org/assignments/media-types/audio/EVRCWB}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5188
+    template:
+    - audio/EVRCWB
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/EVRCWB0
@@ -427,9 +545,12 @@
   references:
   - IANA
   - RFC5188
+  - ! '{audio/EVRCWB0=http://www.iana.org/assignments/media-types/audio/EVRCWB0}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5188
+    template:
+    - audio/EVRCWB0
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/EVRCWB1
@@ -437,9 +558,12 @@
   references:
   - IANA
   - RFC5188
+  - ! '{audio/EVRCWB1=http://www.iana.org/assignments/media-types/audio/EVRCWB1}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5188
+    template:
+    - audio/EVRCWB1
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/example
@@ -447,9 +571,12 @@
   references:
   - IANA
   - RFC4735
+  - ! '{audio/example=http://www.iana.org/assignments/media-types/audio/example}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4735
+    template:
+    - audio/example
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/fwdred
@@ -457,9 +584,12 @@
   references:
   - IANA
   - RFC6354
+  - ! '{audio/fwdred=http://www.iana.org/assignments/media-types/audio/fwdred}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6354
+    template:
+    - audio/fwdred
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/G719
@@ -468,11 +598,14 @@
   - IANA
   - RFC5404
   - ! '{RFC Errata 3245=http://www.rfc-editor.org/errata_search.php?eid=3245}'
+  - ! '{audio/G719=http://www.iana.org/assignments/media-types/audio/G719}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5404
     rfc-errata:
     - '3245'
+    template:
+    - audio/G719
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/G722
@@ -480,9 +613,12 @@
   references:
   - IANA
   - RFC4856
+  - ! '{audio/G722=http://www.iana.org/assignments/media-types/audio/G722}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
+    template:
+    - audio/G722
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/G7221
@@ -490,9 +626,12 @@
   references:
   - IANA
   - RFC5577
+  - ! '{audio/G721=http://www.iana.org/assignments/media-types/audio/G721}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5577
+    template:
+    - audio/G721
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/G723
@@ -500,9 +639,12 @@
   references:
   - IANA
   - RFC4856
+  - ! '{audio/G723=http://www.iana.org/assignments/media-types/audio/G723}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
+    template:
+    - audio/G723
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/G726-16
@@ -510,9 +652,12 @@
   references:
   - IANA
   - RFC4856
+  - ! '{audio/G726-16=http://www.iana.org/assignments/media-types/audio/G726-16}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
+    template:
+    - audio/G726-16
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/G726-24
@@ -520,9 +665,12 @@
   references:
   - IANA
   - RFC4856
+  - ! '{audio/G726-24=http://www.iana.org/assignments/media-types/audio/G726-24}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
+    template:
+    - audio/G726-24
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/G726-32
@@ -530,9 +678,12 @@
   references:
   - IANA
   - RFC4856
+  - ! '{audio/G726-32=http://www.iana.org/assignments/media-types/audio/G726-32}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
+    template:
+    - audio/G726-32
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/G726-40
@@ -540,9 +691,12 @@
   references:
   - IANA
   - RFC4856
+  - ! '{audio/G726-40=http://www.iana.org/assignments/media-types/audio/G726-40}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
+    template:
+    - audio/G726-40
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/G728
@@ -550,9 +704,12 @@
   references:
   - IANA
   - RFC4856
+  - ! '{audio/G728=http://www.iana.org/assignments/media-types/audio/G728}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
+    template:
+    - audio/G728
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/G729
@@ -560,9 +717,12 @@
   references:
   - IANA
   - RFC4856
+  - ! '{audio/G729=http://www.iana.org/assignments/media-types/audio/G729}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
+    template:
+    - audio/G729
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/G7291
@@ -582,9 +742,12 @@
   references:
   - IANA
   - RFC4856
+  - ! '{audio/G729D=http://www.iana.org/assignments/media-types/audio/G729D}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
+    template:
+    - audio/G729D
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/G729E
@@ -592,9 +755,12 @@
   references:
   - IANA
   - RFC4856
+  - ! '{audio/G729E=http://www.iana.org/assignments/media-types/audio/G729E}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
+    template:
+    - audio/G729E
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/GSM
@@ -602,9 +768,12 @@
   references:
   - IANA
   - RFC4856
+  - ! '{audio/GSM=http://www.iana.org/assignments/media-types/audio/GSM}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
+    template:
+    - audio/GSM
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/GSM-EFR
@@ -612,9 +781,12 @@
   references:
   - IANA
   - RFC4856
+  - ! '{audio/GSM-EFR=http://www.iana.org/assignments/media-types/audio/GSM-EFR}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
+    template:
+    - audio/GSM-EFR
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/GSM-HR-08
@@ -622,9 +794,12 @@
   references:
   - IANA
   - RFC5993
+  - ! '{audio/GSM-HR-08=http://www.iana.org/assignments/media-types/audio/GSM-HR-08}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5993
+    template:
+    - audio/GSM-HR-08
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/iLBC
@@ -632,9 +807,12 @@
   references:
   - IANA
   - RFC3952
+  - ! '{audio/iLBC=http://www.iana.org/assignments/media-types/audio/iLBC}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3952
+    template:
+    - audio/iLBC
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/ip-mr_v2.5
@@ -642,9 +820,12 @@
   references:
   - IANA
   - RFC6262
+  - ! '{audio/ip-mr_v2.5=http://www.iana.org/assignments/media-types/audio/ip-mr_v2.5}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6262
+    template:
+    - audio/ip-mr_v2.5
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/L16
@@ -654,9 +835,12 @@
   references:
   - IANA
   - RFC4856
+  - ! '{audio/L16=http://www.iana.org/assignments/media-types/audio/L16}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
+    template:
+    - audio/L16
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/L20
@@ -664,9 +848,12 @@
   references:
   - IANA
   - RFC3190
+  - ! '{audio/L20=http://www.iana.org/assignments/media-types/audio/L20}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3190
+    template:
+    - audio/L20
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/L24
@@ -674,9 +861,12 @@
   references:
   - IANA
   - RFC3190
+  - ! '{audio/L24=http://www.iana.org/assignments/media-types/audio/L24}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3190
+    template:
+    - audio/L24
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/L8
@@ -684,9 +874,12 @@
   references:
   - IANA
   - RFC4856
+  - ! '{audio/L8=http://www.iana.org/assignments/media-types/audio/L8}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
+    template:
+    - audio/L8
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/LPC
@@ -694,9 +887,12 @@
   references:
   - IANA
   - RFC4856
+  - ! '{audio/LPC=http://www.iana.org/assignments/media-types/audio/LPC}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
+    template:
+    - audio/LPC
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/midi
@@ -713,9 +909,12 @@
   references:
   - IANA
   - RFC4723
+  - ! '{audio/mobile-xmf=http://www.iana.org/assignments/media-types/audio/mobile-xmf}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4723
+    template:
+    - audio/mobile-xmf
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/mp4
@@ -730,10 +929,13 @@
   - IANA
   - RFC4337
   - RFC6381
+  - ! '{audio/mp4=http://www.iana.org/assignments/media-types/audio/mp4}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4337
     - rfc6381
+    template:
+    - audio/mp4
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/MP4A-LATM
@@ -743,9 +945,12 @@
   references:
   - IANA
   - RFC6416
+  - ! '{audio/MP4A-LATM=http://www.iana.org/assignments/media-types/audio/MP4A-LATM}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6416
+    template:
+    - audio/MP4A-LATM
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/MPA
@@ -753,9 +958,12 @@
   references:
   - IANA
   - RFC3555
+  - ! '{audio/MPA=http://www.iana.org/assignments/media-types/audio/MPA}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
+    template:
+    - audio/MPA
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/mpa-robust
@@ -763,9 +971,12 @@
   references:
   - IANA
   - RFC5219
+  - ! '{audio/mpa-robust=http://www.iana.org/assignments/media-types/audio/mpa-robust}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5219
+    template:
+    - audio/mpa-robust
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/mpeg
@@ -780,9 +991,12 @@
   references:
   - IANA
   - RFC3003
+  - ! '{audio/mpeg=http://www.iana.org/assignments/media-types/audio/mpeg}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3003
+    template:
+    - audio/mpeg
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/mpeg4-generic
@@ -792,11 +1006,14 @@
   - RFC3640
   - RFC5691
   - RFC6295
+  - ! '{audio/mpeg4-generic=http://www.iana.org/assignments/media-types/audio/mpeg4-generic}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3640
     - rfc5691
     - rfc6295
+    template:
+    - audio/mpeg4-generic
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/ogg
@@ -808,9 +1025,12 @@
   references:
   - IANA
   - RFC5334
+  - ! '{audio/ogg=http://www.iana.org/assignments/media-types/audio/ogg}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5334
+    template:
+    - audio/ogg
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/parityfec
@@ -828,9 +1048,12 @@
   references:
   - IANA
   - RFC4856
+  - ! '{audio/PCMA=http://www.iana.org/assignments/media-types/audio/PCMA}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
+    template:
+    - audio/PCMA
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/PCMA-WB
@@ -838,9 +1061,12 @@
   references:
   - IANA
   - RFC5391
+  - ! '{audio/PCMA-WB=http://www.iana.org/assignments/media-types/audio/PCMA-WB}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5391
+    template:
+    - audio/PCMA-WB
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/PCMU
@@ -848,9 +1074,12 @@
   references:
   - IANA
   - RFC4856
+  - ! '{audio/PCMU=http://www.iana.org/assignments/media-types/audio/PCMU}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
+    template:
+    - audio/PCMU
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/PCMU-WB
@@ -858,9 +1087,12 @@
   references:
   - IANA
   - RFC5391
+  - ! '{audio/PCMU-WB=http://www.iana.org/assignments/media-types/audio/PCMU-WB}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5391
+    template:
+    - audio/PCMU-WB
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/prs.sid
@@ -893,9 +1125,12 @@
   references:
   - IANA
   - RFC6682
+  - ! '{audio/raptorfec=http://www.iana.org/assignments/media-types/audio/raptorfec}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6682
+    template:
+    - audio/raptorfec
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/RED
@@ -903,9 +1138,12 @@
   references:
   - IANA
   - RFC3555
+  - ! '{audio/RED=http://www.iana.org/assignments/media-types/audio/RED}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
+    template:
+    - audio/RED
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/rtp-enc-aescm128
@@ -926,9 +1164,12 @@
   references:
   - IANA
   - RFC6295
+  - ! '{audio/rtp-midi=http://www.iana.org/assignments/media-types/audio/rtp-midi}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6295
+    template:
+    - audio/rtp-midi
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/rtploopback
@@ -949,9 +1190,12 @@
   references:
   - IANA
   - RFC4588
+  - ! '{audio/rtx=http://www.iana.org/assignments/media-types/audio/rtx}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4588
+    template:
+    - audio/rtx
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/s3m
@@ -973,9 +1217,12 @@
   references:
   - IANA
   - RFC3558
+  - ! '{audio/SMV=http://www.iana.org/assignments/media-types/audio/SMV}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3558
+    template:
+    - audio/SMV
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/SMV-QCP
@@ -983,9 +1230,12 @@
   references:
   - IANA
   - RFC3625
+  - ! '{audio/SMV-QCP=http://www.iana.org/assignments/media-types/audio/SMV-QCP}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3625
+    template:
+    - audio/SMV-QCP
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/SMV0
@@ -993,9 +1243,12 @@
   references:
   - IANA
   - RFC3558
+  - ! '{audio/SMV0=http://www.iana.org/assignments/media-types/audio/SMV0}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3558
+    template:
+    - audio/SMV0
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/sp-midi
@@ -1018,9 +1271,12 @@
   references:
   - IANA
   - RFC5574
+  - ! '{audio/speex=http://www.iana.org/assignments/media-types/audio/speex}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5574
+    template:
+    - audio/speex
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/t140c
@@ -1028,9 +1284,12 @@
   references:
   - IANA
   - RFC4351
+  - ! '{audio/t140c=http://www.iana.org/assignments/media-types/audio/t140c}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4351
+    template:
+    - audio/t140c
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/t38
@@ -1038,9 +1297,12 @@
   references:
   - IANA
   - RFC4612
+  - ! '{audio/t38=http://www.iana.org/assignments/media-types/audio/t38}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4612
+    template:
+    - audio/t38
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/telephone-event
@@ -1048,9 +1310,12 @@
   references:
   - IANA
   - RFC4733
+  - ! '{audio/telephone-event=http://www.iana.org/assignments/media-types/audio/telephone-event}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4733
+    template:
+    - audio/telephone-event
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/tone
@@ -1058,9 +1323,12 @@
   references:
   - IANA
   - RFC4733
+  - ! '{audio/tone=http://www.iana.org/assignments/media-types/audio/tone}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4733
+    template:
+    - audio/tone
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/UEMCLIP
@@ -1068,9 +1336,12 @@
   references:
   - IANA
   - RFC5686
+  - ! '{audio/UEMCLIP=http://www.iana.org/assignments/media-types/audio/UEMCLIP}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5686
+    template:
+    - audio/UEMCLIP
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/ulpfec
@@ -1078,9 +1349,12 @@
   references:
   - IANA
   - RFC5109
+  - ! '{audio/ulpfec=http://www.iana.org/assignments/media-types/audio/ulpfec}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5109
+    template:
+    - audio/ulpfec
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/VDVI
@@ -1088,9 +1362,12 @@
   references:
   - IANA
   - RFC4856
+  - ! '{audio/VDVI=http://www.iana.org/assignments/media-types/audio/VDVI}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
+    template:
+    - audio/VDVI
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/VMR-WB
@@ -1099,10 +1376,13 @@
   - IANA
   - RFC4348
   - RFC4424
+  - ! '{audio/VMR-WB=http://www.iana.org/assignments/media-types/audio/VMR-WB}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4348
     - rfc4424
+    template:
+    - audio/VMR-WB
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/vnd.3gpp.iufp
@@ -1641,9 +1921,12 @@
   references:
   - IANA
   - RFC5215
+  - ! '{audio/vorbis=http://www.iana.org/assignments/media-types/audio/vorbis}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5215
+    template:
+    - audio/vorbis
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/vorbis-config
@@ -1651,9 +1934,12 @@
   references:
   - IANA
   - RFC5215
+  - ! '{audio/vorbis-config=http://www.iana.org/assignments/media-types/audio/vorbis-config}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5215
+    template:
+    - audio/vorbis-config
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/webm

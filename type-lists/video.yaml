@@ -5,9 +5,12 @@
   references:
   - IANA
   - RFC6015
+  - ! '{video/1d-interleaved-parityfec=http://www.iana.org/assignments/media-types/video/1d-interleaved-parityfec}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6015
+    template:
+    - video/1d-interleaved-parityfec
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/3gpp
@@ -19,10 +22,13 @@
   - IANA
   - RFC3839
   - RFC6381
+  - ! '{video/3gpp=http://www.iana.org/assignments/media-types/video/3gpp}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3839
     - rfc6381
+    template:
+    - video/3gpp
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/3gpp-tt
@@ -44,10 +50,13 @@
   - IANA
   - RFC4393
   - RFC6381
+  - ! '{video/3gpp2=http://www.iana.org/assignments/media-types/video/3gpp2}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4393
     - rfc6381
+    template:
+    - video/3gpp2
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/BMPEG
@@ -96,9 +105,12 @@
   references:
   - IANA
   - RFC6469
+  - ! '{video/DV=http://www.iana.org/assignments/media-types/video/DV}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6469
+    template:
+    - video/DV
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/encaprtp
@@ -119,9 +131,12 @@
   references:
   - IANA
   - RFC4735
+  - ! '{video/example=http://www.iana.org/assignments/media-types/video/example}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4735
+    template:
+    - video/example
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/gl
@@ -312,10 +327,13 @@
   - IANA
   - RFC4337
   - RFC6381
+  - ! '{video/mp4=http://www.iana.org/assignments/media-types/video/mp4}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4337
     - rfc6381
+    template:
+    - video/mp4
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/MP4V-ES
@@ -323,9 +341,12 @@
   references:
   - IANA
   - RFC6416
+  - ! '{video/MP4V-ES=http://www.iana.org/assignments/media-types/video/MP4V-ES}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6416
+    template:
+    - video/MP4V-ES
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/mpeg
@@ -353,9 +374,12 @@
   references:
   - IANA
   - RFC3640
+  - ! '{video/mpeg4-generic=http://www.iana.org/assignments/media-types/video/mpeg4-generic}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3640
+    template:
+    - video/mpeg4-generic
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/MPV
@@ -373,9 +397,12 @@
   references:
   - IANA
   - RFC4856
+  - ! '{video/nv=http://www.iana.org/assignments/media-types/video/nv}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
+    template:
+    - video/nv
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/ogg
@@ -386,9 +413,12 @@
   references:
   - IANA
   - RFC5334
+  - ! '{video/ogg=http://www.iana.org/assignments/media-types/video/ogg}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5334
+    template:
+    - video/ogg
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/parityfec
@@ -435,9 +465,12 @@
   references:
   - IANA
   - RFC6682
+  - ! '{video/raptorfec=http://www.iana.org/assignments/media-types/video/raptorfec}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6682
+    template:
+    - video/raptorfec
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/raw
@@ -481,9 +514,12 @@
   references:
   - IANA
   - RFC4588
+  - ! '{video/rtx=http://www.iana.org/assignments/media-types/video/rtx}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4588
+    template:
+    - video/rtx
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/SMPTE292M
@@ -501,9 +537,12 @@
   references:
   - IANA
   - RFC5109
+  - ! '{video/ulpfec=http://www.iana.org/assignments/media-types/video/ulpfec}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5109
+    template:
+    - video/ulpfec
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/vc1
@@ -655,22 +694,10 @@
   - ! '[Edwin_Heredia]'
   - ! '{video/vnd.dlna.mpeg-tts=http://www.iana.org/assignments/media-types/video/vnd.dlna.mpeg-tts}'
   xrefs: !ruby/hash:MIME::Types::Container
-    person: &70341004391800
+    person:
     - Edwin_Heredia
-    template: &70341004407780
+    template:
     - video/vnd.dlna.mpeg-tts
-  registered: true
-- !ruby/object:MIME::Type
-  content-type: video/vnd.dlna.mpeg-tts
-  encoding: base64
-  obsolete: true
-  references:
-  - IANA
-  - ! '[Edwin_Heredia]'
-  - ! '{video/vnd.dlna.mpeg-tts=http://www.iana.org/assignments/media-types/video/vnd.dlna.mpeg-tts}'
-  xrefs: !ruby/hash:MIME::Types::Container
-    person: *70341004391800
-    template: *70341004407780
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/vnd.dvb.file

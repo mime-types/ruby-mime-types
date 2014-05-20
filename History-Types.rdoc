@@ -1,5 +1,30 @@
 = MIME Types Changes by Version
 
+== 2.3 / 2014-05-DD
+
+* Updated the IANA media registry entries as of release date.
+  * Several MIME types had additional metadata added on the most recent import.
+  * MIME::Type application/pidfxml was renamed to application/pidf\+xml.
+  * Added MIME types: application/3gpdash-qoe-report\+xml,
+    application/alto-costmap\+json, application/alto-costmapfilter\+json,
+    application/alto-directory\+json, application/alto-endpointcost\+json,
+    application/alto-endpointcostparams\+json,
+    application/alto-endpointprop\+json,
+    application/alto-endpointpropparams\+json, application/alto-error\+json,
+    application/alto-networkmap\+json, application/alto-networkmapfilter\+json,
+    application/calendar\+json, application/vnd.ims.lis.v2.result\+json,
+    application/vnd.ims.lti.v2.toolconsumerprofile\+json,
+    application/vnd.ims.lti.v2.toolproxy\+json,
+    application/vnd.ims.lti.v2.toolproxy.id\+json,
+    application/vnd.ims.lti.v2.toolsettings\+json,
+    application/vnd.ims.lti.v2.toolsettings.simple\+json,
+    application/vnd.mason\+json, application/vnd.miele\+json,
+    application/vnd.ms-3mfdocument, application/vnd.panoply,
+    application/vnd.valve.source.material, application/vnd.yaoweme, audio/aptx,
+    image/vnd.valve.source.texture, model/vnd.opengex,
+    model/vnd.valve.source.compiled-map, model/x3d\+fastinfoset,
+    text/cache-manifest
+
 == 2.2 / 2014-03-14
 * Added <tt>.sj</tt> to +application/javascript+ as provided by Brandon
   Galbraith (@brandongalbraith) in
@@ -7,9 +32,9 @@
 * Marked application/excel and application/x-excel as obsolete in favour of
   application/vnd.ms-excel per
   {#60}[https://github.com/halostatue/mime-types/pull/60].
-* Merged duplicate MIME types for 3M post-it-notes into the registered MIME type.
-  The only difference between the MIME types was capitalization; the MIME type
-  registry is case-preserving.
+* Merged duplicate MIME types into the registered MIME type. The only
+  difference between the MIME types was capitalization; the MIME type registry
+  is case-preserving.
   * Affected MIME types: application/vnd.3M.Post-it-Notes,
     application/vnd.FloGraphIt, application/vnd.HandHeld-Entertainment\+xml,
     application/vnd.hp-HPGL, application/vnd.hp-PCL, application/vnd.hp-PCLXL,

@@ -4,8 +4,8 @@
   encoding: 8bit
   references:
   - IANA
-  - RFC2045
   - RFC2046
+  - RFC2045
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2045
@@ -42,8 +42,8 @@
   encoding: 8bit
   references:
   - IANA
-  - RFC2045
   - RFC2046
+  - RFC2045
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2045
@@ -65,9 +65,12 @@
   references:
   - IANA
   - RFC4735
+  - ! '{multipart/example=http://www.iana.org/assignments/media-types/multipart/example}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4735
+    template:
+    - multipart/example
   registered: true
 - !ruby/object:MIME::Type
   content-type: multipart/form-data
@@ -97,8 +100,8 @@
   encoding: 8bit
   references:
   - IANA
-  - RFC2045
   - RFC2046
+  - RFC2045
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2045
@@ -109,8 +112,8 @@
   encoding: 8bit
   references:
   - IANA
-  - RFC2045
   - RFC2046
+  - RFC2045
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2045
