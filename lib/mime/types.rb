@@ -166,7 +166,7 @@ class MIME::Types
   def type_for(filename, platform = false)
     types = Array(filename).flat_map { |fn|
       @extension_index[File.basename(fn.chomp.downcase).gsub(/.*\./o, '')]
-    }.sort { |a, b| a.priority_compare(b) }.uniq
+    }.compact.sort { |a, b| a.priority_compare(b) }.uniq
 
     if platform
       MIME.deprecated(self, __method__,

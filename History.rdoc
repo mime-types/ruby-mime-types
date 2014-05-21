@@ -1,3 +1,11 @@
+== 2.3 / 2014-05-DD
+
+* Bugs:
+  * Fixed a bug in <tt>MIME::Types#type_for</tt> where type specifications that
+    did not match a MIME::Type would be returned as +nil+ inside the returned
+    array. This was incorrect behaviour as those values should not have been
+    returned, resulting in an empty array.
+
 == 2.2 / 2014-03-14
 
 * Clarified contribution guidelines for MIME types. Resolves
