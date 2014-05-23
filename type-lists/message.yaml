@@ -5,9 +5,12 @@
   references:
   - IANA
   - RFC3862
+  - ! '{message/CPIM=http://www.iana.org/assignments/media-types/message/CPIM}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3862
+    template:
+    - message/CPIM
   registered: true
 - !ruby/object:MIME::Type
   content-type: message/delivery-status
@@ -15,9 +18,12 @@
   references:
   - IANA
   - RFC1894
+  - ! '{message/delivery-status=http://www.iana.org/assignments/media-types/message/delivery-status}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc1894
+    template:
+    - message/delivery-status
   registered: true
 - !ruby/object:MIME::Type
   content-type: message/disposition-notification
@@ -25,9 +31,12 @@
   references:
   - IANA
   - RFC3798
+  - ! '{message/disposition-notification=http://www.iana.org/assignments/media-types/message/disposition-notification}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3798
+    template:
+    - message/disposition-notification
   registered: true
 - !ruby/object:MIME::Type
   content-type: message/example
@@ -60,9 +69,12 @@
   references:
   - IANA
   - RFC5965
+  - ! '{message/feedback-report=http://www.iana.org/assignments/media-types/message/feedback-report}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5965
+    template:
+    - message/feedback-report
   registered: true
 - !ruby/object:MIME::Type
   content-type: message/global
@@ -70,9 +82,12 @@
   references:
   - IANA
   - RFC6532
+  - ! '{message/global=http://www.iana.org/assignments/media-types/message/global}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6532
+    template:
+    - message/global
   registered: true
 - !ruby/object:MIME::Type
   content-type: message/global-delivery-status
@@ -80,9 +95,12 @@
   references:
   - IANA
   - RFC6533
+  - ! '{message/global-delivery-status=http://www.iana.org/assignments/media-types/message/global-delivery-status}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6533
+    template:
+    - message/global-delivery-status
   registered: true
 - !ruby/object:MIME::Type
   content-type: message/global-disposition-notification
@@ -90,9 +108,12 @@
   references:
   - IANA
   - RFC6533
+  - ! '{message/global-disposition-notification=http://www.iana.org/assignments/media-types/message/global-disposition-notification}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6533
+    template:
+    - message/global-disposition-notification
   registered: true
 - !ruby/object:MIME::Type
   content-type: message/global-headers
@@ -100,9 +121,12 @@
   references:
   - IANA
   - RFC6533
+  - ! '{message/global-headers=http://www.iana.org/assignments/media-types/message/global-headers}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6533
+    template:
+    - message/global-headers
   registered: true
 - !ruby/object:MIME::Type
   content-type: message/http
@@ -123,9 +147,12 @@
   references:
   - IANA
   - RFC5438
+  - ! '{message/imdn+xml=http://www.iana.org/assignments/media-types/message/imdn+xml}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5438
+    template:
+    - message/imdn+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: message/news
@@ -177,9 +204,12 @@
   references:
   - IANA
   - RFC2660
+  - ! '{message/s-http=http://www.iana.org/assignments/media-types/message/s-http}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2660
+    template:
+    - message/s-http
   registered: true
 - !ruby/object:MIME::Type
   content-type: message/sip
@@ -187,9 +217,12 @@
   references:
   - IANA
   - RFC3261
+  - ! '{message/sip=http://www.iana.org/assignments/media-types/message/sip}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3261
+    template:
+    - message/sip
   registered: true
 - !ruby/object:MIME::Type
   content-type: message/sipfrag
@@ -197,9 +230,12 @@
   references:
   - IANA
   - RFC3420
+  - ! '{message/sipfrag=http://www.iana.org/assignments/media-types/message/sipfrag}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3420
+    template:
+    - message/sipfrag
   registered: true
 - !ruby/object:MIME::Type
   content-type: message/tracking-status
@@ -207,9 +243,12 @@
   references:
   - IANA
   - RFC3886
+  - ! '{message/tracking-status=http://www.iana.org/assignments/media-types/message/tracking-status}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3886
+    template:
+    - message/tracking-status
   registered: true
 - !ruby/object:MIME::Type
   content-type: message/vnd.si.simp

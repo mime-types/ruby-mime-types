@@ -5539,6 +5539,19 @@
     - application/vnd.data-vision.rdz
   registered: true
 - !ruby/object:MIME::Type
+  content-type: application/vnd.debian.binary-package
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Charles_Plessy]'
+  - ! '{application/vnd.debian.binary-package=http://www.iana.org/assignments/media-types/application/vnd.debian.binary-package}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Charles_Plessy
+    template:
+    - application/vnd.debian.binary-package
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/vnd.dece.data
   encoding: base64
   extensions:
@@ -7072,6 +7085,19 @@
     - Torben_Frey
     template:
     - application/vnd.genomatix.tuxedo
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/vnd.geo+json
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Sean_Gillies]'
+  - ! '{application/vnd.geo+json=http://www.iana.org/assignments/media-types/application/vnd.geo+json}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Sean_Gillies
+    template:
+    - application/vnd.geo+json
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.geocube+xml
