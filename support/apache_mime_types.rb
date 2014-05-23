@@ -64,7 +64,7 @@ class ApacheMIMETypes
       extensions   = record.last.split(/\s+/)
 
       types        = @types.select { |t|
-        (t.content_type == content_type)
+        (t.content_type.downcase == content_type.downcase)
       }
 
       if types.empty?

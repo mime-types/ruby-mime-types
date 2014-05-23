@@ -96,11 +96,17 @@ class IANARegistry
       end
 
       record.css('file').each do |file|
+        file_name = if file.text == subtype
+                      [ @type, subtype ].join('/')
+                    else
+                      file.text
+                    end
+
         if file["type"] == "template"
-          refs << (ASSIGNMENT_FILE_REF % [ file.text, file.text ])
+          refs << (ASSIGNMENT_FILE_REF % [ file_name, file_name ])
         end
 
-        xrefs[file["type"]] << file.text
+        xrefs[file["type"]] << file_name
       end
 
       content_type  = [ @type, subtype ].join('/')
@@ -108,7 +114,7 @@ class IANARegistry
       use_instead   = record.at_css('deprecated').text rescue nil
 
       types         = @types.select { |t|
-        (t.content_type == content_type)
+        (t.content_type.downcase == content_type.downcase)
       }
 
       if types.empty?

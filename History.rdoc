@@ -5,6 +5,15 @@
     did not match a MIME::Type would be returned as +nil+ inside the returned
     array. This was incorrect behaviour as those values should not have been
     returned, resulting in an empty array.
+* MIME Type Development Tools:
+  * As always, there are bugs in the IANA registry because it's manually
+    maintained. Some robustness has been added to properly writing file
+    template references where the file template reference is not a full media
+    type specification (e.g., 'amr-wb\+' instead of 'audio/amr-wb\+').
+  * Both the IANA and Apache import tools were unnecessarily case-sensitive in
+    matching against already-existing MIME types, resulting in extra work to
+    weed out duplicates that differed only in the case of the canonical content
+    type. This has been fixed.
 
 == 2.2 / 2014-03-14
 
@@ -27,7 +36,7 @@
     alias for MIME::Type#xref_urls, and MIME::Type#references= will be removed.
 * New or Updated MIME Types:
   * This information is now tracked in History-Types.rdoc.
-* MIME Type Development Tools
+* MIME Type Development Tools:
   * The IANA registry format changed, breaking the IANA registry tool
     previously used. Rewrote IANADownloader and IANADownloader::Parser as
     IANARegistryParser using the XML form.
@@ -122,7 +131,7 @@
     * text/plain (VMS .doc files) marked as non-standard. This type will be
       merged with the standard text/plain type in a future release.
     * Added md, markdown, rst, and textile extensions to text/plain.
-* MIME Type Development Tools
+* MIME Type Development Tools:
   * The benchmarking task has been moved mostly to support/benchmarker.rb.
   * A task for SimpleCov coverage has been added (<tt>rake test:coverage</tt>).
   * IANA type registry downloading has been substantially improved and the
