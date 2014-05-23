@@ -101,6 +101,18 @@ namespace :convert do
   end
 end
 
+task :objects do
+  GC.start
+  objects_before = ObjectSpace.count_objects
+  $:.unshift File.expand_path("../lib", __FILE__)
+  require "mime/types"
+  GC.start
+  objects_after = ObjectSpace.count_objects
+  for key, delta in objects_before.keys.grep(/T_/).map { |key| [key, objects_after[key] - objects_before[key]] }.sort_by { |key, delta| -delta }
+    printf "%10s +%6d\n", key, delta
+  end
+end
+
 Rake::Task['travis'].prerequisites.replace(%w(test:coveralls))
 
 # vim: syntax=ruby
