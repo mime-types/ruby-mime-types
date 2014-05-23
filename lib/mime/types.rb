@@ -97,7 +97,11 @@ class MIME::Types
 
   # Iterates through the type variants.
   def each
-    @type_variants.values.each { |tv| tv.each { |t| yield t } }
+    if block_given?
+      @type_variants.each_value { |tv| tv.each { |t| yield t } }
+    else
+      enum_for(:each)
+    end
   end
 
   @__types__  = nil
@@ -237,7 +241,11 @@ class MIME::Types
 
     # MIME::Types#each against the default MIME::Types registry.
     def each
-      __types__.each {|t| yield t }
+      if block_given?
+        __types__.each {|t| yield t }
+      else
+        enum_for(:each)
+      end
     end
 
     # MIME::Types#type_for against the default MIME::Types registry.
