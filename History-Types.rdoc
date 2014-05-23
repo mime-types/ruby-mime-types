@@ -1,6 +1,6 @@
 = MIME Types Changes by Version
 
-== 2.3 / 2014-05-DD
+== 2.3 / 2014-05-23
 
 * Updated the IANA media registry entries as of release date.
   * Several MIME types had additional metadata added on the most recent import.
