@@ -1128,6 +1128,9 @@
 - !ruby/object:MIME::Type
   content-type: application/font-sfnt
   encoding: base64
+  extensions:
+  - otf
+  - ttf
   references:
   - IANA
   - ! '[Levantovsky]'
