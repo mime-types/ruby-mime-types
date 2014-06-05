@@ -46,6 +46,7 @@ namespace :benchmark do
                             args.repeats)
   end
 
+  desc 'Show object counts'
   task objects: :support do
     GC.start
     objects_before = ObjectSpace.count_objects
@@ -55,43 +56,6 @@ namespace :benchmark do
     objects_after = ObjectSpace.count_objects
     for key, delta in objects_before.keys.grep(/T_/).map { |key| [key, objects_after[key] - objects_before[key]] }.sort_by { |key, delta| -delta }
       printf "%10s +%6d\n", key, delta
-    end
-  end
-
-  task :type_for, [ :repeated ] => :support do |t, args|
-    repeats = args.repeats.to_i
-    repeats = 5000 if repeats <= 0
-
-    require 'mime/types'
-
-    extensions = MIME::Types.send(:__types__).
-      instance_variable_get(:@extension_index).keys
-
-    require 'benchmark'
-    Benchmark.bm(17) do |mark|
-      mark.report("Normal:") {
-        repeats.times { extensions.each { |ext| MIME::Types.type_for(ext) } }
-      }
-
-      class MIME::Types
-        def type_for(filename, platform = false)
-          types = Array(filename).flat_map { |fn|
-            @extension_index[fn.chomp.downcase.split(/\./o).last]
-          }.compact.sort { |a, b| a.priority_compare(b) }.uniq
-
-          if platform
-            MIME.deprecated(self, __method__,
-                            "using the platform parameter")
-            types.select(&:platform?)
-          else
-            types
-          end
-        end
-      end
-
-      mark.report("Split:") {
-        repeats.times { extensions.each { |ext| MIME::Types.type_for(ext) } }
-      }
     end
   end
 end
@@ -133,8 +97,6 @@ namespace :mime do
   end
 end
 
-Rake::Task['gem'].prerequisites.unshift("convert:yaml:json")
-
 namespace :convert do
   namespace :yaml do
     desc "Convert from YAML to JSON"
@@ -154,5 +116,6 @@ namespace :convert do
 end
 
 Rake::Task['travis'].prerequisites.replace(%w(test:coveralls))
+Rake::Task['gem'].prerequisites.unshift("convert:yaml:json")
 
 # vim: syntax=ruby

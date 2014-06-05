@@ -169,7 +169,7 @@ class MIME::Types
   # current platform will be returned. This parameter has been deprecated.
   def type_for(filename, platform = false)
     types = Array(filename).flat_map { |fn|
-      @extension_index[File.basename(fn.chomp.downcase).gsub(/.*\./o, '')]
+      @extension_index[fn.chomp.downcase[/\.?([^.]*?)$/, 1]]
     }.compact.sort { |a, b| a.priority_compare(b) }.uniq
 
     if platform
@@ -210,8 +210,8 @@ class MIME::Types
   # a truthy value to suppress that warning.
   def add_type(mime_type, quiet = false)
     if !quiet and @type_variants[mime_type.simplified].include?(mime_type)
-      warn("Type %s is already registered as a variant of %s." % [
-        mime_type, mime_type.simplified ])
+      warn('Type %s is already registered as a variant of %s.' %
+           [ mime_type, mime_type.simplified ])
     end
 
     add_type_variant!(mime_type)
@@ -242,7 +242,7 @@ class MIME::Types
     # MIME::Types#each against the default MIME::Types registry.
     def each
       if block_given?
-        __types__.each {|t| yield t }
+        __types__.each { |t| yield t }
       else
         enum_for(:each)
       end
