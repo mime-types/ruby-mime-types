@@ -9933,6 +9933,12 @@
     - application/vnd.ms-officetheme
   registered: true
 - !ruby/object:MIME::Type
+  content-type: application/vnd.ms-outlook
+  encoding: base64
+  extensions:
+  - msg
+  registered: false
+- !ruby/object:MIME::Type
   content-type: application/vnd.ms-pki.seccat
   friendly: Microsoft Trust UI Provider - Security Catalog
   encoding: base64
