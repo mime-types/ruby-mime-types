@@ -4,7 +4,9 @@
 
 * Changed the sort order of many of the extensions to restore behaviour
   from mime-types 1.25.1.
-* Added `friendly` MIME::Type descriptions.
+* Added +friendly+ MIME::Type descriptions.
+* Added +reg+, +ps1+, and +vbs+ extensions to application/x-msdos-program and
+  application/x-msdownload.
 * Updated the IANA media registry entries as of release date.
 
 == 2.3 / 2014-05-23

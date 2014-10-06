@@ -16667,6 +16667,9 @@
   - bat
   - com
   - exe
+  - reg
+  - ps1
+  - vbs
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-msdownload
@@ -16675,9 +16678,13 @@
   extensions:
   - exe
   - com
+  - cmd
   - bat
   - dll
   - msi
+  - reg
+  - ps1
+  - vbs
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-msmediaview
