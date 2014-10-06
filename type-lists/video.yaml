@@ -14,6 +14,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/3gpp
+  friendly: 3GP
   encoding: base64
   extensions:
   - 3gp
@@ -42,6 +43,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/3gpp2
+  friendly: 3GP2
   encoding: base64
   extensions:
   - 3g2
@@ -149,6 +151,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/H261
+  friendly: H.261
   encoding: base64
   extensions:
   - h261
@@ -161,6 +164,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/H263
+  friendly: H.263
   encoding: base64
   extensions:
   - h263
@@ -193,6 +197,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/H264
+  friendly: H.264
   encoding: base64
   extensions:
   - h264
@@ -240,6 +245,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/JPEG
+  friendly: JPGVideo
   encoding: base64
   extensions:
   - jpgv
@@ -264,6 +270,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/jpm
+  friendly: JPEG 2000 Compound Image File Format
   encoding: base64
   extensions:
   - jpgm
@@ -271,6 +278,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/MJ2
+  friendly: Motion JPEG 2000
   encoding: base64
   extensions:
   - mj2
@@ -316,6 +324,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/mp4
+  friendly: MPEG-4 Video
   encoding: base64
   extensions:
   - mp4
@@ -350,6 +359,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/mpeg
+  friendly: MPEG Video
   encoding: base64
   extensions:
   - mp2
@@ -406,6 +416,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/ogg
+  friendly: Ogg Video
   encoding: base64
   extensions:
   - ogg
@@ -442,6 +453,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/quicktime
+  friendly: Quicktime Video
   encoding: base64
   extensions:
   - qt
@@ -569,6 +581,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/vnd.dece.hd
+  friendly: DECE High Definition Video
   encoding: base64
   extensions:
   - uvh
@@ -585,6 +598,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/vnd.dece.mobile
+  friendly: DECE Mobile Video
   encoding: base64
   extensions:
   - uvm
@@ -614,6 +628,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/vnd.dece.pd
+  friendly: DECE PD Video
   encoding: base64
   extensions:
   - uvp
@@ -630,6 +645,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/vnd.dece.sd
+  friendly: DECE SD Video
   encoding: base64
   extensions:
   - uvs
@@ -646,6 +662,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/vnd.dece.video
+  friendly: DECE Video
   encoding: base64
   extensions:
   - uvv
@@ -718,6 +735,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/vnd.fvt
+  friendly: FAST Search & Transfer ASA
   encoding: base64
   extensions:
   - fvt
@@ -850,6 +868,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/vnd.mpegurl
+  friendly: MPEG Url
   encoding: 8bit
   extensions:
   - mxu
@@ -866,6 +885,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/vnd.ms-playready.media.pyv
+  friendly: Microsoft PlayReady Ecosystem Video
   encoding: base64
   extensions:
   - pyv
@@ -1015,6 +1035,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/vnd.uvvu.mp4
+  friendly: DECE MP4
   encoding: base64
   extensions:
   - uvu
@@ -1031,6 +1052,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/vnd.vivo
+  friendly: Vivo
   encoding: base64
   extensions:
   - viv
@@ -1047,6 +1069,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/webm
+  friendly: Open Web Media Project - Video
   encoding: base64
   extensions:
   - webm
@@ -1069,18 +1092,21 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/x-f4v
+  friendly: Flash Video
   encoding: base64
   extensions:
   - f4v
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/x-fli
+  friendly: FLI/FLC Animation Format
   encoding: base64
   extensions:
   - fli
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/x-flv
+  friendly: Flash Video
   encoding: base64
   extensions:
   - flv
@@ -1099,6 +1125,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/x-m4v
+  friendly: M4v
   encoding: base64
   extensions:
   - m4v
@@ -1126,6 +1153,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/x-ms-asf
+  friendly: Microsoft Advanced Systems Format (ASF)
   encoding: base64
   extensions:
   - asf
@@ -1139,36 +1167,42 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/x-ms-wm
+  friendly: Microsoft Windows Media
   encoding: base64
   extensions:
   - wm
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/x-ms-wmv
+  friendly: Microsoft Windows Media Video
   encoding: base64
   extensions:
   - wmv
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/x-ms-wmx
+  friendly: Microsoft Windows Media Audio/Video Playlist
   encoding: base64
   extensions:
   - wmx
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/x-ms-wvx
+  friendly: Microsoft Windows Media Video Playlist
   encoding: base64
   extensions:
   - wvx
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/x-msvideo
+  friendly: Audio Video Interleave (AVI)
   encoding: base64
   extensions:
   - avi
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/x-sgi-movie
+  friendly: SGI Movie
   encoding: base64
   extensions:
   - movie

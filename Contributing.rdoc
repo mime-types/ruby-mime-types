@@ -107,3 +107,4 @@ Thanks to everyone else who has contributed to mime-types:
 * Martin d'Allens
 * cgat
 * Greg Brockman
+* Łukasz Śliwa (for the friendly names)

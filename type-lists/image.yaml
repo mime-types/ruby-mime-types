@@ -1,6 +1,7 @@
 ---
 - !ruby/object:MIME::Type
   content-type: image/bmp
+  friendly: Bitmap Image File
   encoding: base64
   extensions:
   - bmp
@@ -10,6 +11,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/cgm
+  friendly: Computer Graphics Metafile
   encoding: base64
   extensions:
   - cgm
@@ -58,6 +60,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/g3fax
+  friendly: G3 Fax Image
   encoding: base64
   extensions:
   - g3
@@ -73,6 +76,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/gif
+  friendly: Graphics Interchange Format
   encoding: base64
   extensions:
   - gif
@@ -87,6 +91,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/ief
+  friendly: Image Exchange Format
   encoding: base64
   extensions:
   - ief
@@ -115,6 +120,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/jpeg
+  friendly: JPEG Image
   encoding: base64
   extensions:
   - jpeg
@@ -163,6 +169,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/ktx
+  friendly: OpenGL Textures (KTX)
   encoding: base64
   extensions:
   - ktx
@@ -198,6 +205,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/png
+  friendly: Portable Network Graphics (PNG)
   encoding: base64
   extensions:
   - png
@@ -213,6 +221,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/prs.btif
+  friendly: BTIF
   encoding: base64
   extensions:
   - btif
@@ -260,6 +269,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/svg+xml
+  friendly: Scalable Vector Graphics (SVG)
   encoding: 8bit
   extensions:
   - svg
@@ -298,6 +308,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/tiff
+  friendly: Tagged Image File Format
   encoding: base64
   extensions:
   - tiff
@@ -327,6 +338,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.adobe.photoshop
+  friendly: Photoshop Document
   encoding: base64
   extensions:
   - psd
@@ -368,6 +380,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.dece.graphic
+  friendly: DECE Graphic
   encoding: base64
   extensions:
   - uvg
@@ -395,6 +408,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/vnd.djvu
+  friendly: DjVu
   encoding: base64
   extensions:
   - djvu
@@ -411,6 +425,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.dvb.subtitle
+  friendly: Close Captioning - Subtitle
   encoding: base64
   extensions:
   - sub
@@ -428,6 +443,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.dwg
+  friendly: DWG Drawing
   encoding: base64
   extensions:
   - dwg
@@ -443,6 +459,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.dxf
+  friendly: AutoCAD DXF
   encoding: base64
   extensions:
   - dxf
@@ -458,6 +475,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.fastbidsheet
+  friendly: FastBid Sheet
   encoding: base64
   extensions:
   - fbs
@@ -473,6 +491,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.fpx
+  friendly: FlashPix
   encoding: base64
   extensions:
   - fpx
@@ -488,6 +507,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.fst
+  friendly: FAST Search & Transfer ASA
   encoding: base64
   extensions:
   - fst
@@ -503,6 +523,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.fujixerox.edmics-mmr
+  friendly: EDMICS 2000
   encoding: base64
   extensions:
   - mmr
@@ -518,6 +539,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.fujixerox.edmics-rlc
+  friendly: EDMICS 2000
   encoding: base64
   extensions:
   - rlc
@@ -576,6 +598,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.ms-modi
+  friendly: Microsoft Document Imaging Format
   encoding: base64
   extensions:
   - mdi
@@ -597,6 +620,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/vnd.net-fpx
+  friendly: FlashPix
   encoding: base64
   extensions:
   - npx
@@ -699,6 +723,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.wap.wbmp
+  friendly: WAP Bitamp (WBMP)
   encoding: base64
   extensions:
   - wbmp
@@ -714,6 +739,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/vnd.xiff
+  friendly: eXtended Image File Format (XIFF)
   encoding: base64
   extensions:
   - xif
@@ -729,6 +755,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/webp
+  friendly: WebP Image
   encoding: base64
   extensions:
   - webp
@@ -749,12 +776,14 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/x-cmu-raster
+  friendly: CMU Image
   encoding: base64
   extensions:
   - ras
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/x-cmx
+  friendly: Corel Metafile Exchange (CMX)
   encoding: base64
   extensions:
   - cmx
@@ -769,6 +798,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/x-freehand
+  friendly: FreeHand MX
   encoding: base64
   extensions:
   - fh
@@ -785,6 +815,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/x-icon
+  friendly: Icon Image
   encoding: base64
   extensions:
   - ico
@@ -804,12 +835,14 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/x-pcx
+  friendly: PCX Image
   encoding: base64
   extensions:
   - pcx
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/x-pict
+  friendly: PICT Image
   encoding: base64
   extensions:
   - pct
@@ -817,30 +850,35 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/x-portable-anymap
+  friendly: Portable Anymap Image
   encoding: base64
   extensions:
   - pnm
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/x-portable-bitmap
+  friendly: Portable Bitmap Format
   encoding: base64
   extensions:
   - pbm
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/x-portable-graymap
+  friendly: Portable Graymap Format
   encoding: base64
   extensions:
   - pgm
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/x-portable-pixmap
+  friendly: Portable Pixmap Format
   encoding: base64
   extensions:
   - ppm
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/x-rgb
+  friendly: Silicon Graphics RGB Bitmap
   encoding: base64
   extensions:
   - rgb
@@ -869,6 +907,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/x-xbitmap
+  friendly: X BitMap
   encoding: 7bit
   extensions:
   - xbm
@@ -889,12 +928,14 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/x-xpixmap
+  friendly: X PixMap
   encoding: 8bit
   extensions:
   - xpm
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/x-xwindowdump
+  friendly: X Window Dump
   encoding: base64
   extensions:
   - xwd

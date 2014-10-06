@@ -185,6 +185,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: message/rfc822
+  friendly: Email Message
   encoding: 8bit
   extensions:
   - eml

@@ -94,6 +94,7 @@ class MIME::Type
     self.registered  = nil
     self.use_instead = nil
     self.signature   = nil
+    self.friendly    = nil
 
     case content_type
     when Hash
@@ -306,6 +307,9 @@ class MIME::Type
 
   # The documentation for this MIME::Type.
   attr_accessor :docs
+
+  # A friendly short description for this MIME::Type.
+  attr_accessor :friendly
 
   # The encoded references URL list for this MIME::Type. See #urls for more
   # information.
@@ -523,6 +527,7 @@ class MIME::Type
   def encode_with(coder)
     coder['content-type']   = @content_type
     coder['docs']           = @docs unless @docs.nil? or @docs.empty?
+    coder['friendly']       = @friendly if @friendly
     coder['encoding']       = @encoding
     coder['extensions']     = @extensions unless @extensions.empty?
     if obsolete?
@@ -540,6 +545,7 @@ class MIME::Type
   def init_with(coder)
     self.content_type = coder['content-type']
     self.docs         = coder['docs'] || []
+    self.friendly     = coder['friendly']
     self.encoding     = coder['encoding']
     self.extensions   = coder['extensions'] || []
     self.obsolete     = coder['obsolete']

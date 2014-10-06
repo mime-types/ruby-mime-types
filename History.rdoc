@@ -10,6 +10,9 @@
     the MIME type. This should be used in preference to the current mechanism
     used by many clients, <tt>type.extensions.first</tt>. This will allow the
     implementation to change over time.
+  * Added MIME::Type#friendly based on the concept presented by Łukasz Śliwa’s
+    {friendly_mime}[https://github.com/lukaszsliwa/friendly_mime] gem. The
+    initial data for this is pulled from +friendly_mime+.
 
 == 2.3 / 2014-05-23
 
