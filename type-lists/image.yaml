@@ -117,9 +117,9 @@
   content-type: image/jpeg
   encoding: base64
   extensions:
-  - jpe
   - jpeg
   - jpg
+  - jpe
   references:
   - IANA
   - RFC2045
@@ -133,8 +133,8 @@
   content-type: image/jpm
   encoding: base64
   extensions:
-  - jpgm
   - jpm
+  - jpgm
   references:
   - IANA
   - RFC3745
@@ -149,8 +149,8 @@
   content-type: image/jpx
   encoding: base64
   extensions:
-  - jpf
   - jpx
+  - jpf
   references:
   - IANA
   - RFC3745
@@ -300,8 +300,8 @@
   content-type: image/tiff
   encoding: base64
   extensions:
-  - tif
   - tiff
+  - tif
   references:
   - IANA
   - RFC3302
@@ -397,8 +397,8 @@
   content-type: image/vnd.djvu
   encoding: base64
   extensions:
-  - djv
   - djvu
+  - djv
   references:
   - IANA
   - ! '[Leon_Bottou]'

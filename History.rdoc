@@ -1,3 +1,16 @@
+== 2.4 / 2014-10-DD
+
+* Bugs:
+  * Restored the extension sort order from mime-types 1.25.1 and modified
+    MIME::Type#extensions= to no longer sort extensions when set. This resolves
+    {#71}[https://github.com/halostatue/mime-types/issues/71] and should fix
+    Paperclip.
+* API Changes:
+  * Added MIME::Type#preferred_extension to return the preferred extension for
+    the MIME type. This should be used in preference to the current mechanism
+    used by many clients, <tt>type.extensions.first</tt>. This will allow the
+    implementation to change over time.
+
 == 2.3 / 2014-05-23
 
 * Bugs:

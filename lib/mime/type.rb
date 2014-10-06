@@ -219,18 +219,29 @@ class MIME::Type
   #   text/plain        => text/plain
   #   x-chemical/x-pdb  => chemical/pdb
   attr_reader :simplified
+
   # The list of extensions which are known to be used for this MIME::Type.
   # Non-array values will be coerced into an array with #to_a. Array values
-  # will be flattened, +nil+ values removed, sorted, and made unique.
+  # will be flattened, +nil+ values removed, and made unique.
   attr_reader :extensions
   def extensions=(ext) # :nodoc:
-    @extensions = Array(ext).flatten.compact.sort.uniq
+    @extensions = Array(ext).flatten.compact.uniq
   end
 
   # Merge the extensions provided into this MIME::Type. The extensions added
   # will be merged uniquely.
   def add_extensions(*ext)
     self.extensions = self.extensions + ext
+  end
+
+  ##
+  # The preferred extension for this MIME type, if one is set.
+  #
+  # :attr_reader: preferred_extension
+
+  ##
+  def preferred_extension
+    extensions.first
   end
 
   # The encoding (7bit, 8bit, quoted-printable, or base64) required to

@@ -920,11 +920,11 @@
   content-type: audio/mp4
   encoding: base64
   extensions:
+  - mp4
+  - mpg4
   - f4a
   - f4b
-  - mp4
   - mp4a
-  - mpg4
   references:
   - IANA
   - RFC4337
@@ -982,12 +982,12 @@
   content-type: audio/mpeg
   encoding: base64
   extensions:
+  - mpga
+  - mp2
+  - mp3
   - m2a
   - m3a
-  - mp2
   - mp2a
-  - mp3
-  - mpga
   references:
   - IANA
   - RFC3003
@@ -1889,9 +1889,9 @@
   content-type: audio/vnd.sealedmedia.softseal.mpeg
   encoding: base64
   extensions:
-  - s1m
-  - smp
   - smp3
+  - smp
+  - s1m
   references:
   - IANA
   - ! '[David_Petersen]'
@@ -1986,9 +1986,9 @@
   content-type: audio/x-midi
   encoding: base64
   extensions:
-  - kar
   - mid
   - midi
+  - kar
   registered: false
 - !ruby/object:MIME::Type
   content-type: audio/x-mpegurl

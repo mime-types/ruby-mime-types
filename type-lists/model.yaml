@@ -16,8 +16,8 @@
   content-type: model/iges
   encoding: base64
   extensions:
-  - iges
   - igs
+  - iges
   references:
   - IANA
   - ! '[Curtis_Parks]'
@@ -32,8 +32,8 @@
   content-type: model/mesh
   encoding: base64
   extensions:
-  - mesh
   - msh
+  - mesh
   - silo
   references:
   - IANA
@@ -233,8 +233,8 @@
   content-type: model/vrml
   encoding: base64
   extensions:
-  - vrml
   - wrl
+  - vrml
   references:
   - IANA
   - RFC2077

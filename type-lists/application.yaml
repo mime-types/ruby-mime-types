@@ -48,10 +48,10 @@
   content-type: application/access
   encoding: base64
   extensions:
+  - mdf
   - mda
   - mdb
   - mde
-  - mdf
   obsolete: true
   use-instead:
   - application/x-msaccess
@@ -2217,8 +2217,8 @@
   encoding: base64
   extensions:
   - mp4
-  - mp4s
   - mpg4
+  - mp4s
   references:
   - IANA
   - RFC4337
@@ -2371,8 +2371,8 @@
   content-type: application/netcdf
   encoding: base64
   extensions:
-  - cdf
   - nc
+  - cdf
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/news-checkgroups
@@ -2478,26 +2478,26 @@
   content-type: application/octet-stream
   encoding: base64
   extensions:
-  - ani
   - bin
-  - bpk
+  - dms
+  - lha
+  - lzh
+  - exe
   - class
+  - ani
+  - pgp
+  - so
+  - dll
+  - dylib
+  - bpk
   - deploy
   - dist
   - distz
-  - dll
-  - dms
   - dump
-  - dylib
   - elc
-  - exe
-  - lha
   - lrf
-  - lzh
   - mar
-  - pgp
   - pkg
-  - so
   references:
   - IANA
   - RFC2045
@@ -2765,8 +2765,8 @@
   content-type: application/pkcs7-mime
   encoding: base64
   extensions:
-  - p7c
   - p7m
+  - p7c
   references:
   - IANA
   - RFC5751
@@ -2937,9 +2937,9 @@
   content-type: application/powerpoint
   encoding: base64
   extensions:
-  - pot
-  - pps
   - ppt
+  - pps
+  - pot
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/pro_eng
@@ -3006,8 +3006,8 @@
   content-type: application/prs.nprend
   encoding: base64
   extensions:
-  - rct
   - rnd
+  - rct
   references:
   - IANA
   - ! '[Jay_Doggett]'
@@ -4464,8 +4464,8 @@
   content-type: application/vnd.acucorp
   encoding: 7bit
   extensions:
-  - acutc
   - atc
+  - acutc
   references:
   - IANA
   - ! '[Dovid_Lubin]'
@@ -6812,13 +6812,13 @@
   content-type: application/vnd.framemaker
   encoding: base64
   extensions:
-  - book
-  - fb
-  - fbdoc
-  - fm
-  - frame
   - frm
   - maker
+  - frame
+  - fm
+  - fb
+  - book
+  - fbdoc
   references:
   - IANA
   - ! '[Mike_Wexler]'
@@ -7464,12 +7464,12 @@
   content-type: application/vnd.hbci
   encoding: base64
   extensions:
-  - bpd
-  - hbc
   - hbci
+  - hbc
   - kom
-  - pkd
   - upa
+  - pkd
+  - bpd
   references:
   - IANA
   - ! '[Ingo_Hammann]'
@@ -7525,8 +7525,8 @@
   content-type: application/vnd.hp-HPGL
   encoding: base64
   extensions:
-  - hpgl
   - plt
+  - hpgl
   references:
   - IANA
   - ! '[Bob_Pentecost]'
@@ -8670,8 +8670,8 @@
   content-type: application/vnd.lotus-1-2-3
   encoding: base64
   extensions:
-  - '123'
   - wks
+  - '123'
   references:
   - IANA
   - ! '[Paul_Wattenberger]'
@@ -9340,11 +9340,11 @@
   content-type: application/vnd.ms-excel
   encoding: base64
   extensions:
+  - xls
+  - xlt
   - xla
   - xlc
   - xlm
-  - xls
-  - xlt
   - xlw
   references:
   - IANA
@@ -9533,9 +9533,9 @@
   content-type: application/vnd.ms-powerpoint
   encoding: base64
   extensions:
-  - pot
-  - pps
   - ppt
+  - pps
+  - pot
   references:
   - IANA
   - ! '[Sukvinder_S._Gill]'
@@ -9935,12 +9935,12 @@
   content-type: application/vnd.nervana
   encoding: base64
   extensions:
-  - bkm
   - ent
   - entity
-  - kcm
   - req
   - request
+  - bkm
+  - kcm
   references:
   - IANA
   - ! '[Steve_Judkins]'
@@ -12531,10 +12531,10 @@
   content-type: application/vnd.palm
   encoding: base64
   extensions:
-  - oprc
+  - prc
   - pdb
   - pqa
-  - prc
+  - oprc
   references:
   - IANA
   - ! '[Gavin_Peacock]'
@@ -12899,12 +12899,12 @@
   content-type: application/vnd.Quark.QuarkXPress
   encoding: 8bit
   extensions:
+  - qxd
+  - qxt
   - qwd
   - qwt
-  - qxb
-  - qxd
   - qxl
-  - qxt
+  - qxb
   references:
   - IANA
   - ! '[Hannes_Scheidler]'
@@ -13378,9 +13378,9 @@
   content-type: application/vnd.sealed.doc
   encoding: base64
   extensions:
-  - s1w
-  - sdo
   - sdoc
+  - sdo
+  - s1w
   references:
   - IANA
   - ! '[David_Petersen]'
@@ -13395,8 +13395,8 @@
   content-type: application/vnd.sealed.eml
   encoding: base64
   extensions:
-  - sem
   - seml
+  - sem
   references:
   - IANA
   - ! '[David_Petersen]'
@@ -13411,8 +13411,8 @@
   content-type: application/vnd.sealed.mht
   encoding: base64
   extensions:
-  - smh
   - smht
+  - smh
   references:
   - IANA
   - ! '[David_Petersen]'
@@ -13440,9 +13440,9 @@
   content-type: application/vnd.sealed.ppt
   encoding: base64
   extensions:
-  - s1p
-  - spp
   - sppt
+  - spp
+  - s1p
   references:
   - IANA
   - ! '[David_Petersen]'
@@ -13472,9 +13472,9 @@
   content-type: application/vnd.sealed.xls
   encoding: base64
   extensions:
-  - s1e
-  - sxl
   - sxls
+  - sxl
+  - s1e
   references:
   - IANA
   - ! '[David_Petersen]'
@@ -13489,9 +13489,9 @@
   content-type: application/vnd.sealedmedia.softseal.html
   encoding: base64
   extensions:
-  - s1h
-  - stm
   - stml
+  - stm
+  - s1h
   references:
   - IANA
   - ! '[David_Petersen]'
@@ -13506,9 +13506,9 @@
   content-type: application/vnd.sealedmedia.softseal.pdf
   encoding: base64
   extensions:
-  - s1a
-  - spd
   - spdf
+  - spd
+  - s1a
   references:
   - IANA
   - ! '[David_Petersen]'
@@ -14618,9 +14618,9 @@
   encoding: base64
   extensions:
   - vsd
-  - vss
   - vst
   - vsw
+  - vss
   references:
   - IANA
   - ! '[Troy_Sandal]'
@@ -15433,8 +15433,8 @@
   content-type: application/wordperfect5.1
   encoding: base64
   extensions:
-  - wp
   - wp5
+  - wp
   references:
   - IANA
   - ! '[Paul_Lindner]'
@@ -15520,10 +15520,10 @@
   content-type: application/x-access
   encoding: base64
   extensions:
+  - mdf
   - mda
   - mdb
   - mde
-  - mdf
   obsolete: true
   use-instead:
   - application/x-msaccess
@@ -15648,8 +15648,8 @@
   content-type: application/x-compress
   encoding: base64
   extensions:
-  - Z
   - z
+  - Z
   obsolete: true
   use-instead:
   - application/x-compressed
@@ -15658,8 +15658,8 @@
   content-type: application/x-compressed
   encoding: base64
   extensions:
-  - Z
   - z
+  - Z
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-conference
@@ -15703,10 +15703,12 @@
   content-type: application/x-director
   encoding: base64
   extensions:
+  - dcr
+  - ! '@dir'
+  - ! '@dxr'
   - cct
   - cst
   - cxt
-  - dcr
   - dir
   - dxr
   - fgd
@@ -15883,9 +15885,9 @@
   encoding: base64
   extensions:
   - gtar
-  - tbz
-  - tbz2
   - tgz
+  - tbz2
+  - tbz
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-gzip
@@ -15918,9 +15920,9 @@
   content-type: application/x-httpd-php
   encoding: 8bit
   extensions:
-  - php
-  - pht
   - phtml
+  - pht
+  - php
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-ibooks+zip
@@ -16012,17 +16014,17 @@
   content-type: application/x-koan
   encoding: base64
   extensions:
-  - skd
-  - skm
   - skp
+  - skd
   - skt
+  - skm
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-latex
   encoding: 8bit
   extensions:
-  - latex
   - ltx
+  - latex
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-lotus-123
@@ -16068,13 +16070,13 @@
   content-type: application/x-maker
   encoding: base64
   extensions:
-  - book
-  - fb
-  - fbdoc
-  - fm
-  - frame
   - frm
   - maker
+  - frame
+  - fm
+  - fb
+  - book
+  - fbdoc
   obsolete: true
   use-instead:
   - application/vnd.framemaker
@@ -16172,8 +16174,8 @@
   content-type: application/x-msdos-program
   encoding: base64
   extensions:
-  - bat
   - cmd
+  - bat
   - com
   - exe
   registered: false
@@ -16181,10 +16183,10 @@
   content-type: application/x-msdownload
   encoding: base64
   extensions:
-  - bat
-  - com
-  - dll
   - exe
+  - com
+  - bat
+  - dll
   - msi
   registered: false
 - !ruby/object:MIME::Type
@@ -16249,8 +16251,8 @@
   content-type: application/x-netcdf
   encoding: base64
   extensions:
-  - cdf
   - nc
+  - cdf
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-ns-proxy-autoconfig
@@ -16396,9 +16398,9 @@
   extensions:
   - sav
   - sbs
+  - sps
   - spo
   - spp
-  - sps
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-sql
@@ -16480,8 +16482,8 @@
   content-type: application/x-texinfo
   encoding: 8bit
   extensions:
-  - texi
   - texinfo
+  - texi
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-tgif
@@ -16499,9 +16501,9 @@
   content-type: application/x-troff
   encoding: base64
   extensions:
-  - roff
   - t
   - tr
+  - roff
   obsolete: true
   use-instead:
   - text/troff

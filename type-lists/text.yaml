@@ -188,11 +188,11 @@
   content-type: text/html
   encoding: 8bit
   extensions:
-  - htm
   - html
+  - htm
   - htmlx
-  - htx
   - shtml
+  - htx
   references:
   - IANA
   - ! '[Michael_TM_Smith]'
@@ -291,18 +291,19 @@
   content-type: text/plain
   encoding: quoted-printable
   extensions:
+  - txt
   - asc
   - c
   - cc
-  - conf
-  - cpp
-  - dat
-  - def
-  - doc
   - h
   - hh
-  - hlp
+  - cpp
   - hpp
+  - dat
+  - hlp
+  - conf
+  - def
+  - doc
   - in
   - list
   - log
@@ -311,7 +312,6 @@
   - rst
   - text
   - textile
-  - txt
   references:
   - IANA
   - RFC2046
@@ -470,8 +470,8 @@
   content-type: text/sgml
   encoding: quoted-printable
   extensions:
-  - sgm
   - sgml
+  - sgm
   references:
   - IANA
   - RFC1874
@@ -511,13 +511,13 @@
   content-type: text/troff
   encoding: 8bit
   extensions:
+  - t
+  - tr
+  - roff
+  - troff
   - man
   - me
   - ms
-  - roff
-  - t
-  - tr
-  - troff
   references:
   - IANA
   - RFC4263
@@ -1097,8 +1097,8 @@
   content-type: text/xml
   encoding: 8bit
   extensions:
-  - dtd
   - xml
+  - dtd
   references:
   - IANA
   - DRAFT:draft-ietf-appsawg-xml-mediatypes-10

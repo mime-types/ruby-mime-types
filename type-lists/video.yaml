@@ -318,11 +318,11 @@
   content-type: video/mp4
   encoding: base64
   extensions:
-  - f4p
-  - f4v
   - mp4
-  - mp4v
   - mpg4
+  - f4v
+  - f4p
+  - mp4v
   references:
   - IANA
   - RFC4337
@@ -352,13 +352,13 @@
   content-type: video/mpeg
   encoding: base64
   extensions:
-  - m1v
-  - m2v
   - mp2
   - mp3g
   - mpe
   - mpeg
   - mpg
+  - m1v
+  - m2v
   references:
   - IANA
   - RFC2045
@@ -444,8 +444,8 @@
   content-type: video/quicktime
   encoding: base64
   extensions:
-  - mov
   - qt
+  - mov
   references:
   - IANA
   - RFC6381
@@ -852,8 +852,8 @@
   content-type: video/vnd.mpegurl
   encoding: 8bit
   extensions:
-  - m4u
   - mxu
+  - m4u
   references:
   - IANA
   - ! '[Heiko_Recktenwald]'
@@ -911,8 +911,8 @@
   content-type: video/vnd.objectvideo
   encoding: base64
   extensions:
-  - m4v
   - mp4
+  - m4v
   references:
   - IANA
   - ! '[John_Clark]'
@@ -968,8 +968,8 @@
   content-type: video/vnd.sealed.mpeg4
   encoding: base64
   extensions:
-  - s14
   - smpg
+  - s14
   references:
   - IANA
   - ! '[David_Petersen]'
@@ -984,8 +984,8 @@
   content-type: video/vnd.sealed.swf
   encoding: base64
   extensions:
-  - ssw
   - sswf
+  - ssw
   references:
   - IANA
   - ! '[David_Petersen]'
@@ -1000,9 +1000,9 @@
   content-type: video/vnd.sealedmedia.softseal.mov
   encoding: base64
   extensions:
-  - s1q
-  - smo
   - smov
+  - smo
+  - s1q
   references:
   - IANA
   - ! '[David_Petersen]'
@@ -1121,8 +1121,8 @@
   content-type: video/x-motion-jpeg
   encoding: base64
   extensions:
-  - mjpeg
   - mjpg
+  - mjpeg
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/x-ms-asf
