@@ -109,6 +109,24 @@ namespace :mime do
 end
 
 namespace :convert do
+  namespace :docs do
+    task :setup do
+      gem 'rdoc'
+      require 'rdoc/rdoc'
+      @doc_converter ||= RDoc::Markup::ToMarkdown.new
+    end
+
+    %w(README History History-Types).each do |name|
+      file "#{name}.md" => [ "#{name}.rdoc", :setup ] do |t|
+        File.open(t.name, 'wb') { |target|
+          target.write @doc_converter.convert(IO.read(t.prerequisites.first))
+        }
+      end
+
+      task docs: [ name ]
+    end
+  end
+
   namespace :yaml do
     desc "Convert from YAML to JSON"
     task :json, [ :source, :destination, :multiple_files ] => :support do |t, args|

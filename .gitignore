@@ -11,3 +11,4 @@ html
 pkg
 publish
 test/cache.tst
+*.md
