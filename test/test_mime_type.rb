@@ -514,5 +514,6 @@ class TestMIMEType < Minitest::Test
     assert_silent do
       assert_same(MIME::InvalidContentType, MIME::Type::InvalidContentType)
     end
+    assert_raises(NameError) { MIME::Foo }
   end
 end
