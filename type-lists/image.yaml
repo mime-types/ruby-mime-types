@@ -709,6 +709,19 @@
     - image/vnd-svf
   registered: true
 - !ruby/object:MIME::Type
+  content-type: image/vnd.tencent.tap
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Ni_Hui]'
+  - ! '{image/vnd.tencent.tap=http://www.iana.org/assignments/media-types/image/vnd.tencent.tap}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Ni_Hui
+    template:
+    - image/vnd.tencent.tap
+  registered: true
+- !ruby/object:MIME::Type
   content-type: image/vnd.valve.source.texture
   encoding: base64
   references:

@@ -102,9 +102,9 @@
   - RFC4867
   - ! '{audio/AMR-WB=http://www.iana.org/assignments/media-types/audio/AMR-WB}'
   xrefs: !ruby/hash:MIME::Types::Container
-    rfc:
+    rfc: &70157066392380
     - rfc4867
-    template:
+    template: &70157066389840
     - audio/AMR-WB
   registered: true
 - !ruby/object:MIME::Type
@@ -112,10 +112,11 @@
   encoding: base64
   references:
   - IANA
-  - RFC4352
+  - RFC4867
+  - ! '{audio/AMR-WB=http://www.iana.org/assignments/media-types/audio/AMR-WB}'
   xrefs: !ruby/hash:MIME::Types::Container
-    rfc:
-    - rfc4352
+    rfc: *70157066392380
+    template: *70157066389840
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/amr-wb+
@@ -135,11 +136,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-payload-rtp-aptx-05
+  - RFC7310
   - ! '{audio/aptx=http://www.iana.org/assignments/media-types/audio/aptx}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-payload-rtp-aptx-05
+    rfc:
+    - rfc7310
     template:
     - audio/aptx
   registered: true

@@ -133,11 +133,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-httpbis-p1-messaging-26
+  - RFC7230
   - ! '{message/http=http://www.iana.org/assignments/media-types/message/http}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-httpbis-p1-messaging-26
+    rfc:
+    - rfc7230
     template:
     - message/http
   registered: true

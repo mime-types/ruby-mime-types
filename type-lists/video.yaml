@@ -37,9 +37,12 @@
   references:
   - IANA
   - RFC4396
+  - ! '{video/3gpp-tt=http://www.iana.org/assignments/media-types/video/3gpp-tt}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4396
+    template:
+    - video/3gpp-tt
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/3gpp2
@@ -66,9 +69,12 @@
   references:
   - IANA
   - RFC3555
+  - ! '{video/BMPEG=http://www.iana.org/assignments/media-types/video/BMPEG}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
+    template:
+    - video/BMPEG
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/BT656
@@ -76,9 +82,12 @@
   references:
   - IANA
   - RFC3555
+  - ! '{video/BT656=http://www.iana.org/assignments/media-types/video/BT656}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
+    template:
+    - video/BT656
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/CelB
@@ -86,9 +95,12 @@
   references:
   - IANA
   - RFC3555
+  - ! '{video/CelB=http://www.iana.org/assignments/media-types/video/CelB}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
+    template:
+    - video/CelB
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/dl
@@ -158,9 +170,12 @@
   references:
   - IANA
   - RFC4587
+  - ! '{video/H261=http://www.iana.org/assignments/media-types/video/H261}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4587
+    template:
+    - video/H261
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/H263
@@ -171,9 +186,12 @@
   references:
   - IANA
   - RFC3555
+  - ! '{video/H263=http://www.iana.org/assignments/media-types/video/H263}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
+    template:
+    - video/H263
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/H263-1998
@@ -181,9 +199,12 @@
   references:
   - IANA
   - RFC4629
+  - ! '{video/H263-1998=http://www.iana.org/assignments/media-types/video/H263-1998}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4629
+    template:
+    - video/H263-1998
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/H263-2000
@@ -191,9 +212,12 @@
   references:
   - IANA
   - RFC4629
+  - ! '{video/H263-2000=http://www.iana.org/assignments/media-types/video/H263-2000}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4629
+    template:
+    - video/H263-2000
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/H264
@@ -204,9 +228,12 @@
   references:
   - IANA
   - RFC6184
+  - ! '{video/H264=http://www.iana.org/assignments/media-types/video/H264}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6184
+    template:
+    - video/H264
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/H264-RCDO
@@ -214,9 +241,12 @@
   references:
   - IANA
   - RFC6185
+  - ! '{video/H264-RCDO=http://www.iana.org/assignments/media-types/video/H264-RCDO}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6185
+    template:
+    - video/H264-RCDO
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/H264-SVC
@@ -224,9 +254,12 @@
   references:
   - IANA
   - RFC6190
+  - ! '{video/H264-SVC=http://www.iana.org/assignments/media-types/video/H264-SVC}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6190
+    template:
+    - video/H264-SVC
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/iso.segment
@@ -252,9 +285,12 @@
   references:
   - IANA
   - RFC3555
+  - ! '{video/JPEG=http://www.iana.org/assignments/media-types/video/JPEG}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
+    template:
+    - video/JPEG
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/jpeg2000
@@ -263,10 +299,13 @@
   - IANA
   - RFC5371
   - RFC5372
+  - ! '{video/jpeg2000=http://www.iana.org/assignments/media-types/video/jpeg2000}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5371
     - rfc5372
+    template:
+    - video/jpeg2000
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/jpm
@@ -286,9 +325,12 @@
   references:
   - IANA
   - RFC3745
+  - ! '{video/mj2=http://www.iana.org/assignments/media-types/video/mj2}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3745
+    template:
+    - video/mj2
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/MP1S
@@ -296,9 +338,12 @@
   references:
   - IANA
   - RFC3555
+  - ! '{video/MP1S=http://www.iana.org/assignments/media-types/video/MP1S}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
+    template:
+    - video/MP1S
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/MP2P
@@ -306,9 +351,12 @@
   references:
   - IANA
   - RFC3555
+  - ! '{video/MP2P=http://www.iana.org/assignments/media-types/video/MP2P}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
+    template:
+    - video/MP2P
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/MP2T
@@ -318,9 +366,12 @@
   references:
   - IANA
   - RFC3555
+  - ! '{video/MP2T=http://www.iana.org/assignments/media-types/video/MP2T}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
+    template:
+    - video/MP2T
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/mp4
@@ -397,9 +448,12 @@
   references:
   - IANA
   - RFC3555
+  - ! '{video/MPV=http://www.iana.org/assignments/media-types/video/MPV}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
+    template:
+    - video/MPV
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/nv
@@ -447,9 +501,12 @@
   references:
   - IANA
   - RFC2862
+  - ! '{video/pointer=http://www.iana.org/assignments/media-types/video/pointer}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2862
+    template:
+    - video/pointer
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/quicktime
@@ -539,9 +596,12 @@
   references:
   - IANA
   - RFC3497
+  - ! '{video/SMPTE292M=http://www.iana.org/assignments/media-types/video/SMPTE292M}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3497
+    template:
+    - video/SMPTE292M
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/ulpfec
@@ -562,9 +622,12 @@
   references:
   - IANA
   - RFC4425
+  - ! '{video/vc1=http://www.iana.org/assignments/media-types/video/vc1}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4425
+    template:
+    - video/vc1
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/vnd.CCTV

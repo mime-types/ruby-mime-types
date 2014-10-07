@@ -74,11 +74,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-alto-protocol-27
+  - RFC7285
   - ! '{application/alto-costmap+json=http://www.iana.org/assignments/media-types/application/alto-costmap+json}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-alto-protocol-27
+    rfc:
+    - rfc7285
     template:
     - application/alto-costmap+json
   registered: true
@@ -87,11 +87,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-alto-protocol-27
+  - RFC7285
   - ! '{application/alto-costmapfilter+json=http://www.iana.org/assignments/media-types/application/alto-costmapfilter+json}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-alto-protocol-27
+    rfc:
+    - rfc7285
     template:
     - application/alto-costmapfilter+json
   registered: true
@@ -100,11 +100,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-alto-protocol-27
+  - RFC7285
   - ! '{application/alto-directory+json=http://www.iana.org/assignments/media-types/application/alto-directory+json}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-alto-protocol-27
+    rfc:
+    - rfc7285
     template:
     - application/alto-directory+json
   registered: true
@@ -113,11 +113,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-alto-protocol-27
+  - RFC7285
   - ! '{application/alto-endpointcost+json=http://www.iana.org/assignments/media-types/application/alto-endpointcost+json}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-alto-protocol-27
+    rfc:
+    - rfc7285
     template:
     - application/alto-endpointcost+json
   registered: true
@@ -126,11 +126,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-alto-protocol-27
+  - RFC7285
   - ! '{application/alto-endpointcostparams+json=http://www.iana.org/assignments/media-types/application/alto-endpointcostparams+json}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-alto-protocol-27
+    rfc:
+    - rfc7285
     template:
     - application/alto-endpointcostparams+json
   registered: true
@@ -139,11 +139,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-alto-protocol-27
+  - RFC7285
   - ! '{application/alto-endpointprop+json=http://www.iana.org/assignments/media-types/application/alto-endpointprop+json}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-alto-protocol-27
+    rfc:
+    - rfc7285
     template:
     - application/alto-endpointprop+json
   registered: true
@@ -152,11 +152,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-alto-protocol-27
+  - RFC7285
   - ! '{application/alto-endpointpropparams+json=http://www.iana.org/assignments/media-types/application/alto-endpointpropparams+json}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-alto-protocol-27
+    rfc:
+    - rfc7285
     template:
     - application/alto-endpointpropparams+json
   registered: true
@@ -165,11 +165,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-alto-protocol-27
+  - RFC7285
   - ! '{application/alto-error+json=http://www.iana.org/assignments/media-types/application/alto-error+json}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-alto-protocol-27
+    rfc:
+    - rfc7285
     template:
     - application/alto-error+json
   registered: true
@@ -178,11 +178,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-alto-protocol-27
+  - RFC7285
   - ! '{application/alto-networkmap+json=http://www.iana.org/assignments/media-types/application/alto-networkmap+json}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-alto-protocol-27
+    rfc:
+    - rfc7285
     template:
     - application/alto-networkmap+json
   registered: true
@@ -191,11 +191,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-alto-protocol-27
+  - RFC7285
   - ! '{application/alto-networkmapfilter+json=http://www.iana.org/assignments/media-types/application/alto-networkmapfilter+json}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-alto-protocol-27
+    rfc:
+    - rfc7285
     template:
     - application/alto-networkmapfilter+json
   registered: true
@@ -239,6 +239,21 @@
   extensions:
   - aw
   registered: false
+- !ruby/object:MIME::Type
+  content-type: application/ATF
+  encoding: base64
+  references:
+  - IANA
+  - ! '[ASAM]'
+  - ! '[Thomas_Thomsen]'
+  - ! '{application/ATF=http://www.iana.org/assignments/media-types/application/ATF}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - ASAM
+    - Thomas_Thomsen
+    template:
+    - application/ATF
+  registered: true
 - !ruby/object:MIME::Type
   content-type: application/atom+xml
   friendly: Atom Syndication Format
@@ -383,11 +398,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-jcardcal-jcal-10
+  - RFC7265
   - ! '{application/calendar+json=http://www.iana.org/assignments/media-types/application/calendar+json}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-jcardcal-jcal-10
+    rfc:
+    - rfc7265
     template:
     - application/calendar+json
   registered: true
@@ -629,6 +644,19 @@
     - application/cnrp+xml
   registered: true
 - !ruby/object:MIME::Type
+  content-type: application/coap-group+json
+  encoding: base64
+  references:
+  - IANA
+  - DRAFT:draft-ietf-core-groupcomm-25
+  - ! '{application/coap-group+json=http://www.iana.org/assignments/media-types/application/coap-group+json}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-ietf-core-groupcomm-25
+    template:
+    - application/coap-group+json
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/commonground
   encoding: base64
   references:
@@ -784,6 +812,21 @@
     - application/dca-rft
   registered: true
 - !ruby/object:MIME::Type
+  content-type: application/DCD
+  encoding: base64
+  references:
+  - IANA
+  - ! '[ASAM]'
+  - ! '[Thomas_Thomsen]'
+  - ! '{application/DCD=http://www.iana.org/assignments/media-types/application/DCD}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - ASAM
+    - Thomas_Thomsen
+    template:
+    - application/DCD
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/dec-dx
   encoding: base64
   references:
@@ -926,16 +969,6 @@
     - application/ecmascript
   registered: true
 - !ruby/object:MIME::Type
-  content-type: application/EDI-Consent
-  encoding: base64
-  references:
-  - IANA
-  - RFC1767
-  xrefs: !ruby/hash:MIME::Types::Container
-    rfc:
-    - rfc1767
-  registered: true
-- !ruby/object:MIME::Type
   content-type: application/EDI-consent
   encoding: base64
   references:
@@ -943,10 +976,21 @@
   - RFC1767
   - ! '{application/EDI-consent=http://www.iana.org/assignments/media-types/application/EDI-consent}'
   xrefs: !ruby/hash:MIME::Types::Container
-    rfc:
+    rfc: &70157068053260
     - rfc1767
-    template:
+    template: &70157068051940
     - application/EDI-consent
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/EDI-Consent
+  encoding: base64
+  references:
+  - IANA
+  - RFC1767
+  - ! '{application/EDI-consent=http://www.iana.org/assignments/media-types/application/EDI-consent}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc: *70157068053260
+    template: *70157068051940
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/EDI-X12
@@ -1300,11 +1344,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-httpbis-p1-messaging-26
+  - RFC7230
   - ! '{application/http=http://www.iana.org/assignments/media-types/application/http}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-httpbis-p1-messaging-26
+    rfc:
+    - rfc7230
     template:
     - application/http
   registered: true
@@ -2113,6 +2157,19 @@
     - rfc5022
     template:
     - application/mediaservercontrol+xml
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/merge-patch+json
+  encoding: base64
+  references:
+  - IANA
+  - DRAFT:draft-ietf-appsawg-json-merge-patch-07
+  - ! '{application/merge-patch+json=http://www.iana.org/assignments/media-types/application/merge-patch+json}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-ietf-appsawg-json-merge-patch-07
+    template:
+    - application/merge-patch+json
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/metalink+xml
@@ -3489,6 +3546,21 @@
     - application/sbml+xml
   registered: true
 - !ruby/object:MIME::Type
+  content-type: application/scaip+xml
+  encoding: base64
+  references:
+  - IANA
+  - ! '[SIS]'
+  - ! '[Oskar_Jonsson]'
+  - ! '{application/scaip+xml=http://www.iana.org/assignments/media-types/application/scaip+xml}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Oskar_Jonsson
+    - SIS
+    template:
+    - application/scaip+xml
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/scvp-cv-request
   friendly: Server-Based Certificate Validation Protocol - Validation Request
   encoding: base64
@@ -4857,6 +4929,19 @@
     - application/vnd.antix.game-component
   registered: true
 - !ruby/object:MIME::Type
+  content-type: application/vnd.apache.thrift.binary
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Roger_Meier]'
+  - ! '{application/vnd.apache.thrift.binary=http://www.iana.org/assignments/media-types/application/vnd.apache.thrift.binary}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Roger_Meier
+    template:
+    - application/vnd.apache.thrift.binary
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/vnd.api+json
   encoding: base64
   references:
@@ -4942,6 +5027,19 @@
     - Bill_Fenner
     template:
     - application/vnd.aristanetworks.swi
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/vnd.artsquare
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Christopher_Smith]'
+  - ! '{application/vnd.artsquare=http://www.iana.org/assignments/media-types/application/vnd.artsquare}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Christopher_Smith
+    template:
+    - application/vnd.artsquare
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.astraea-software.iota
@@ -5886,6 +5984,19 @@
     - application/vnd.dolby.mobile.2
   registered: true
 - !ruby/object:MIME::Type
+  content-type: application/vnd.doremir.scorecloud-binary-document
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Erik_Ronström]'
+  - ! '{application/vnd.doremir.scorecloud-binary-document=http://www.iana.org/assignments/media-types/application/vnd.doremir.scorecloud-binary-document}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Erik_Ronström
+    template:
+    - application/vnd.doremir.scorecloud-binary-document
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/vnd.dpgraph
   friendly: DPGraph
   encoding: base64
@@ -6251,6 +6362,19 @@
     - Roland_Mechling
     template:
     - application/vnd.dynageo
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/vnd.dzr
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Carl_Anderson]'
+  - ! '{application/vnd.dzr=http://www.iana.org/assignments/media-types/application/vnd.dzr}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Carl_Anderson
+    template:
+    - application/vnd.dzr
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.easykaraoke.cdgdownload
@@ -8132,6 +8256,8 @@
 - !ruby/object:MIME::Type
   content-type: application/vnd.informix-visionary
   encoding: base64
+  obsolete: true
+  use-instead: application/vnd.visionary
   references:
   - IANA
   - ! '[Christopher_Gales]'
@@ -9110,6 +9236,19 @@
     - Jorn_Wildt
     template:
     - application/vnd.mason+json
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/vnd.maxmind.maxmind-db
+  encoding: base64
+  references:
+  - IANA
+  - ! '[William_Stevenson]'
+  - ! '{application/vnd.maxmind.maxmind-db=http://www.iana.org/assignments/media-types/application/vnd.maxmind.maxmind-db}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - William_Stevenson
+    template:
+    - application/vnd.maxmind.maxmind-db
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.mcd
@@ -10512,6 +10651,7 @@
 - !ruby/object:MIME::Type
   content-type: application/vnd.nokia.n-gage.symbian.install
   friendly: N-Gage Game Installer
+  obsolete: true
   encoding: base64
   extensions:
   - n-gage
@@ -10679,6 +10819,19 @@
     - NTT-local
     template:
     - application/vnd.ntt-local.file-transfer
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/vnd.ntt-local.ogw_remote-access
+  encoding: base64
+  references:
+  - IANA
+  - ! '[NTT-local]'
+  - ! '{application/vnd.ntt-local.ogw_remote-access=http://www.iana.org/assignments/media-types/application/vnd.ntt-local.ogw_remote-access}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - NTT-local
+    template:
+    - application/vnd.ntt-local.ogw_remote-access
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ntt-local.sip-ta_remote
@@ -17388,11 +17541,11 @@
   - xsl
   references:
   - IANA
-  - DRAFT:draft-ietf-appsawg-xml-mediatypes-10
+  - RFC7303
   - ! '{application/xml=http://www.iana.org/assignments/media-types/application/xml}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-appsawg-xml-mediatypes-10
+    rfc:
+    - rfc7303
     template:
     - application/xml
   registered: true
@@ -17404,11 +17557,11 @@
   - dtd
   references:
   - IANA
-  - DRAFT:draft-ietf-appsawg-xml-mediatypes-10
+  - RFC7303
   - ! '{application/xml-dtd=http://www.iana.org/assignments/media-types/application/xml-dtd}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-appsawg-xml-mediatypes-10
+    rfc:
+    - rfc7303
     template:
     - application/xml-dtd
   registered: true
@@ -17417,13 +17570,26 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-appsawg-xml-mediatypes-10
+  - RFC7303
   - ! '{application/xml-external-parsed-entity=http://www.iana.org/assignments/media-types/application/xml-external-parsed-entity}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-appsawg-xml-mediatypes-10
+    rfc:
+    - rfc7303
     template:
     - application/xml-external-parsed-entity
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/xml-patch+xml
+  encoding: base64
+  references:
+  - IANA
+  - RFC7351
+  - ! '{application/xml-patch+xml=http://www.iana.org/assignments/media-types/application/xml-patch+xml}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc7351
+    template:
+    - application/xml-patch+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/xmpp+xml
