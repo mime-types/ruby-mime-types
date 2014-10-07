@@ -621,7 +621,7 @@ class MIME::Type
 
       if matchdata
         matchdata.captures.map { |e|
-          e.downcase.gsub(I18N_RE, '-')
+          e.downcase.gsub(UNREGISTERED_RE, '').gsub(I18N_RE, '-')
         }.join('.')
       end
     end

@@ -12,10 +12,15 @@
     implementation to change over time.
   * Added MIME::Type#friendly based on the concept presented by Łukasz Śliwa’s
     {friendly_mime}[https://github.com/lukaszsliwa/friendly_mime] gem. The
-    initial data for this is pulled from +friendly_mime+.
+    initial English data for this is pulled from +friendly_mime+.
+  * Added MIME::Type#i18n_key and MIME::Type.i18n_key to represent and convert
+    MIME content types as translation keys for the I18n library.
+
 * MIME Type Development Tools:
   * Adding documentation to conversion methods.
   * Adding some robustness to missing Nokogiri support.
+  * Extending coverage to fully cover new code. Tests now cover all of
+    mime-types.
 
 == 2.3 / 2014-05-23
 

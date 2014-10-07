@@ -8,11 +8,28 @@ class TestMIMEType < Minitest::Test
     MIME::Type.new(content_type) { |mt| yield mt if block_given? }
   end
 
+  def make_javascript
+    make('application/javascript') do |js|
+      js.friendly('en' => 'JavaScript')
+      js.xrefs = {
+        'rfc' => %w(rfc4239 rfc4239),
+        'template' => %w(application/javascript)
+      }
+      js.encoding = '8bit'
+      js.extensions = %w(js sj)
+      js.references = %w(IANA RFC4329 {application/javascript=http://www.iana.org/assignments/media-types/application/javascript})
+      js.registered = true
+
+      yield js if block_given?
+    end
+  end
+
   def make_yaml_mime_type
     make('text/x-yaml') do |yaml|
       yaml.extensions = %w(yaml yml)
       yaml.encoding   = '8bit'
       yaml.system     = 'd9d172f608'
+      yaml.friendly('en' => 'YAML Structured Document')
     end
   end
 
@@ -72,6 +89,16 @@ class TestMIMEType < Minitest::Test
     assert_equal('application/pkcs7-mime', MIME::Type.simplified('application/pkcs7-mime'))
     assert_equal('xyz/abc', MIME::Type.simplified('x-xyz/abc'))
     assert_nil(MIME::Type.simplified('text'))
+  end
+
+  def test_class_i18n_key
+    assert_equal('text.plain', MIME::Type.i18n_key('text/plain'))
+    assert_equal('image.jpeg', MIME::Type.i18n_key('image/jpeg'))
+    assert_equal('application.msword', MIME::Type.i18n_key('application/x-msword'))
+    assert_equal('text.vcard', MIME::Type.i18n_key('text/vCard'))
+    assert_equal('application.pkcs7-mime', MIME::Type.i18n_key('application/pkcs7-mime'))
+    assert_equal('xyz.abc', MIME::Type.i18n_key('x-xyz/abc'))
+    assert_nil(MIME::Type.i18n_key('text'))
   end
 
   def test_CMP # '<=>'
@@ -461,6 +488,40 @@ class TestMIMEType < Minitest::Test
     assert_equal(%W(IANA), yaml.references)
   end
 
+  def test_xrefs
+    assert_equal(
+      {
+        'rfc' => %w(rfc4239),
+        'template' => %w(application/javascript)
+      },
+      make_javascript.xrefs
+    )
+  end
+
+  def test_xref_urls
+    js = make_javascript do |j|
+      j.xrefs = j.xrefs.merge({
+        'draft'      => [ 'RFC-ietf-appsawg-json-merge-patch-07' ],
+        'person'     => [ 'David_Singer' ],
+        'rfc-errata' => [ '3245' ],
+        'uri'        => [ 'http://exmple.org' ],
+        'text'       => [ 'text' ]
+      })
+    end
+    assert_equal(
+      [
+        "http://www.iana.org/go/rfc4239",
+        "http://www.iana.org/assignments/media-types/application/javascript",
+        "http://www.iana.org/go/draft-ietf-appsawg-json-merge-patch-07",
+        "http://www.iana.org/assignments/media-types/media-types.xhtml#David_Singer",
+        "http://www.rfc-editor.org/errata_search.php?eid=3245",
+        "http://exmple.org",
+        "text"
+      ],
+      js.xref_urls
+    )
+  end
+
   def test_url
     assert_deprecated("MIME::Type#url", "and has been renamed to #references") do
       assert_empty(make_yaml_mime_type.url)
@@ -505,6 +566,29 @@ class TestMIMEType < Minitest::Test
     assert_nil(t.use_instead)
     t.use_instead = 't/2'
     assert_equal('t/2', t.use_instead)
+  end
+
+  def test_preferred_extension
+    assert_equal('zip', @applzip.preferred_extension)
+  end
+
+  def test_friendly_read
+    yaml = make_yaml_mime_type
+    assert_equal('YAML Structured Document', yaml.friendly)
+    assert_equal('YAML Structured Document', yaml.friendly('en'))
+    assert_equal(nil, yaml.friendly('fr'))
+  end
+
+  def test_friendly_set
+    assert_equal({ 'en' => 'Zip' }, @applzip.friendly([ 'en', 'Zip' ]))
+    assert_equal({ 'en' => 'Zip Archive' }, @applzip.friendly('en' => 'Zip Archive'))
+  end
+
+  def test_i18n_key
+    assert_equal('text.plain', make('text/plain').i18n_key)
+    assert_equal('application.vnd-3gpp-bsf-xml',
+                 make('application/vnd.3gpp.bsf+xml').i18n_key)
+    assert_equal('application.msword', make('application/x-msword').i18n_key)
   end
 
   def test_deprecated_constant
