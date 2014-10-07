@@ -32,6 +32,14 @@ spec = Hoe.spec 'mime-types' do
   self.extra_dev_deps << ['coveralls', '~> 0.7']
 end
 
+task nokogiri: :support do
+  begin
+    gem 'nokogiri'
+  rescue Gem::LoadError
+    fail "Nokogiri is not installed. Please install it."
+  end
+end
+
 task :support do
   %w(lib support).each { |path|
     $LOAD_PATH.unshift(File.join(Rake.application.original_dir, path))
@@ -85,13 +93,13 @@ end
 
 namespace :mime do
   desc "Download the current MIME type registrations from IANA."
-  task :iana, [ :destination ] => :support do |t, args|
+  task :iana, [ :destination ] => :nokogiri do |t, args|
     require 'iana_registry'
     IANARegistry.download(to: args.destination)
   end
 
   desc "Download the current MIME type configuration from Apache."
-  task :apache, [ :destination ] => :support do |t, args|
+  task :apache, [ :destination ] => :nokogiri do |t, args|
     require 'apache_mime_types'
     ApacheMIMETypes.download(to: args.destination)
   end
