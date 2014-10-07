@@ -32,12 +32,40 @@ spec = Hoe.spec 'mime-types' do
   self.extra_dev_deps << ['coveralls', '~> 0.7']
 end
 
-desc 'Benchmark'
-task :benchmark, :repeats do |t, args|
-  $LOAD_PATH.unshift('support')
-  require 'benchmarker'
+task nokogiri: :support do
+  begin
+    gem 'nokogiri'
+  rescue Gem::LoadError
+    fail "Nokogiri is not installed. Please install it."
+  end
+end
 
-  Benchmarker.benchmark(args.repeats)
+task :support do
+  %w(lib support).each { |path|
+    $LOAD_PATH.unshift(File.join(Rake.application.original_dir, path))
+  }
+end
+
+namespace :benchmark do
+  desc 'Benchmark Load Times'
+  task :load, [ :repeats ] => :support do |t, args|
+    require 'benchmarks/load'
+    Benchmarks::Load.report(File.join(Rake.application.original_dir, 'lib'),
+                            args.repeats)
+  end
+
+  desc 'Show object counts'
+  task objects: :support do
+    GC.start
+    objects_before = ObjectSpace.count_objects
+
+    require "mime/types"
+    GC.start
+    objects_after = ObjectSpace.count_objects
+    for key, delta in objects_before.keys.grep(/T_/).map { |key| [key, objects_after[key] - objects_before[key]] }.sort_by { |key, delta| -delta }
+      printf "%10s +%6d\n", key, delta
+    end
+  end
 end
 
 namespace :test do
@@ -65,27 +93,22 @@ end
 
 namespace :mime do
   desc "Download the current MIME type registrations from IANA."
-  task :iana, :destination do |t, args|
-    $LOAD_PATH.unshift('support')
+  task :iana, [ :destination ] => :nokogiri do |t, args|
     require 'iana_registry'
     IANARegistry.download(to: args.destination)
   end
 
   desc "Download the current MIME type configuration from Apache."
-  task :apache, :destination do |t, args|
-    $LOAD_PATH.unshift('support')
+  task :apache, [ :destination ] => :nokogiri do |t, args|
     require 'apache_mime_types'
     ApacheMIMETypes.download(to: args.destination)
   end
 end
 
-Rake::Task['gem'].prerequisites.unshift("convert:yaml:json")
-
 namespace :convert do
   namespace :yaml do
     desc "Convert from YAML to JSON"
-    task :json, :source, :destination, :multiple_files do |t, args|
-      $LOAD_PATH.unshift('support')
+    task :json, [ :source, :destination, :multiple_files ] => :support do |t, args|
       require 'convert'
       Convert.from_yaml_to_json(args)
     end
@@ -93,8 +116,7 @@ namespace :convert do
 
   namespace :json do
     desc "Convert from JSON to YAML"
-    task :yaml, :source, :destination, :multiple_files do |t, args|
-      $LOAD_PATH.unshift('support')
+    task :yaml, [ :source, :destination, :multiple_files ] => :support do |t, args|
       require 'convert'
       Convert.from_json_to_yaml(args)
     end
@@ -102,5 +124,6 @@ namespace :convert do
 end
 
 Rake::Task['travis'].prerequisites.replace(%w(test:coveralls))
+Rake::Task['gem'].prerequisites.unshift("convert:yaml:json")
 
 # vim: syntax=ruby

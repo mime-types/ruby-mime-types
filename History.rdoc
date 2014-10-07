@@ -1,3 +1,22 @@
+== 2.4 / 2014-10-07
+
+* Bugs:
+  * Restored the extension sort order from mime-types 1.25.1 and modified
+    MIME::Type#extensions= to no longer sort extensions when set. This resolves
+    {#71}[https://github.com/halostatue/mime-types/issues/71] and should fix
+    Paperclip.
+* API Changes:
+  * Added MIME::Type#preferred_extension to return the preferred extension for
+    the MIME type. This should be used in preference to the current mechanism
+    used by many clients, <tt>type.extensions.first</tt>. This will allow the
+    implementation to change over time.
+  * Added MIME::Type#friendly based on the concept presented by Łukasz Śliwa’s
+    {friendly_mime}[https://github.com/lukaszsliwa/friendly_mime] gem. The
+    initial data for this is pulled from +friendly_mime+.
+* MIME Type Development Tools:
+  * Adding documentation to conversion methods.
+  * Adding some robustness to missing Nokogiri support.
+
 == 2.3 / 2014-05-23
 
 * Bugs:

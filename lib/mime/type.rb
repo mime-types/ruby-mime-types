@@ -57,7 +57,7 @@ class MIME::Type
   end
 
   # The released version of the mime-types library.
-  VERSION = '2.3'
+  VERSION = '2.4'
 
   include Comparable
 
@@ -94,6 +94,7 @@ class MIME::Type
     self.registered  = nil
     self.use_instead = nil
     self.signature   = nil
+    self.friendly    = nil
 
     case content_type
     when Hash
@@ -219,18 +220,29 @@ class MIME::Type
   #   text/plain        => text/plain
   #   x-chemical/x-pdb  => chemical/pdb
   attr_reader :simplified
+
   # The list of extensions which are known to be used for this MIME::Type.
   # Non-array values will be coerced into an array with #to_a. Array values
-  # will be flattened, +nil+ values removed, sorted, and made unique.
+  # will be flattened, +nil+ values removed, and made unique.
   attr_reader :extensions
   def extensions=(ext) # :nodoc:
-    @extensions = Array(ext).flatten.compact.sort.uniq
+    @extensions = Array(ext).flatten.compact.uniq
   end
 
   # Merge the extensions provided into this MIME::Type. The extensions added
   # will be merged uniquely.
   def add_extensions(*ext)
     self.extensions = self.extensions + ext
+  end
+
+  ##
+  # The preferred extension for this MIME type, if one is set.
+  #
+  # :attr_reader: preferred_extension
+
+  ##
+  def preferred_extension
+    extensions.first
   end
 
   # The encoding (7bit, 8bit, quoted-printable, or base64) required to
@@ -295,6 +307,9 @@ class MIME::Type
 
   # The documentation for this MIME::Type.
   attr_accessor :docs
+
+  # A friendly short description for this MIME::Type.
+  attr_accessor :friendly
 
   # The encoded references URL list for this MIME::Type. See #urls for more
   # information.
@@ -512,6 +527,7 @@ class MIME::Type
   def encode_with(coder)
     coder['content-type']   = @content_type
     coder['docs']           = @docs unless @docs.nil? or @docs.empty?
+    coder['friendly']       = @friendly if @friendly
     coder['encoding']       = @encoding
     coder['extensions']     = @extensions unless @extensions.empty?
     if obsolete?
@@ -529,6 +545,7 @@ class MIME::Type
   def init_with(coder)
     self.content_type = coder['content-type']
     self.docs         = coder['docs'] || []
+    self.friendly     = coder['friendly']
     self.encoding     = coder['encoding']
     self.extensions   = coder['extensions'] || []
     self.obsolete     = coder['obsolete']

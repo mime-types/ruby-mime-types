@@ -48,10 +48,10 @@
   content-type: application/access
   encoding: base64
   extensions:
+  - mdf
   - mda
   - mdb
   - mde
-  - mdf
   obsolete: true
   use-instead:
   - application/x-msaccess
@@ -74,11 +74,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-alto-protocol-27
+  - RFC7285
   - ! '{application/alto-costmap+json=http://www.iana.org/assignments/media-types/application/alto-costmap+json}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-alto-protocol-27
+    rfc:
+    - rfc7285
     template:
     - application/alto-costmap+json
   registered: true
@@ -87,11 +87,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-alto-protocol-27
+  - RFC7285
   - ! '{application/alto-costmapfilter+json=http://www.iana.org/assignments/media-types/application/alto-costmapfilter+json}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-alto-protocol-27
+    rfc:
+    - rfc7285
     template:
     - application/alto-costmapfilter+json
   registered: true
@@ -100,11 +100,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-alto-protocol-27
+  - RFC7285
   - ! '{application/alto-directory+json=http://www.iana.org/assignments/media-types/application/alto-directory+json}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-alto-protocol-27
+    rfc:
+    - rfc7285
     template:
     - application/alto-directory+json
   registered: true
@@ -113,11 +113,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-alto-protocol-27
+  - RFC7285
   - ! '{application/alto-endpointcost+json=http://www.iana.org/assignments/media-types/application/alto-endpointcost+json}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-alto-protocol-27
+    rfc:
+    - rfc7285
     template:
     - application/alto-endpointcost+json
   registered: true
@@ -126,11 +126,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-alto-protocol-27
+  - RFC7285
   - ! '{application/alto-endpointcostparams+json=http://www.iana.org/assignments/media-types/application/alto-endpointcostparams+json}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-alto-protocol-27
+    rfc:
+    - rfc7285
     template:
     - application/alto-endpointcostparams+json
   registered: true
@@ -139,11 +139,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-alto-protocol-27
+  - RFC7285
   - ! '{application/alto-endpointprop+json=http://www.iana.org/assignments/media-types/application/alto-endpointprop+json}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-alto-protocol-27
+    rfc:
+    - rfc7285
     template:
     - application/alto-endpointprop+json
   registered: true
@@ -152,11 +152,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-alto-protocol-27
+  - RFC7285
   - ! '{application/alto-endpointpropparams+json=http://www.iana.org/assignments/media-types/application/alto-endpointpropparams+json}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-alto-protocol-27
+    rfc:
+    - rfc7285
     template:
     - application/alto-endpointpropparams+json
   registered: true
@@ -165,11 +165,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-alto-protocol-27
+  - RFC7285
   - ! '{application/alto-error+json=http://www.iana.org/assignments/media-types/application/alto-error+json}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-alto-protocol-27
+    rfc:
+    - rfc7285
     template:
     - application/alto-error+json
   registered: true
@@ -178,11 +178,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-alto-protocol-27
+  - RFC7285
   - ! '{application/alto-networkmap+json=http://www.iana.org/assignments/media-types/application/alto-networkmap+json}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-alto-protocol-27
+    rfc:
+    - rfc7285
     template:
     - application/alto-networkmap+json
   registered: true
@@ -191,16 +191,17 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-alto-protocol-27
+  - RFC7285
   - ! '{application/alto-networkmapfilter+json=http://www.iana.org/assignments/media-types/application/alto-networkmapfilter+json}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-alto-protocol-27
+    rfc:
+    - rfc7285
     template:
     - application/alto-networkmapfilter+json
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/andrew-inset
+  friendly: Andrew Toolkit
   encoding: base64
   extensions:
   - ez
@@ -233,12 +234,29 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/applixware
+  friendly: Applixware
   encoding: base64
   extensions:
   - aw
   registered: false
 - !ruby/object:MIME::Type
+  content-type: application/ATF
+  encoding: base64
+  references:
+  - IANA
+  - ! '[ASAM]'
+  - ! '[Thomas_Thomsen]'
+  - ! '{application/ATF=http://www.iana.org/assignments/media-types/application/ATF}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - ASAM
+    - Thomas_Thomsen
+    template:
+    - application/ATF
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/atom+xml
+  friendly: Atom Syndication Format
   encoding: 8bit
   extensions:
   - atom
@@ -256,6 +274,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/atomcat+xml
+  friendly: Atom Publishing Protocol
   encoding: 8bit
   extensions:
   - atomcat
@@ -297,6 +316,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/atomsvc+xml
+  friendly: Atom Publishing Protocol Service Document
   encoding: 8bit
   extensions:
   - atomsvc
@@ -378,11 +398,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-jcardcal-jcal-10
+  - RFC7265
   - ! '{application/calendar+json=http://www.iana.org/assignments/media-types/application/calendar+json}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-jcardcal-jcal-10
+    rfc:
+    - rfc7265
     template:
     - application/calendar+json
   registered: true
@@ -460,6 +480,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/ccxml+xml
+  friendly: Voice Browser Call Control
   encoding: base64
   extensions:
   - ccxml
@@ -475,6 +496,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/cdmi-capability
+  friendly: Cloud Data Management Interface (CDMI) - Capability
   encoding: base64
   extensions:
   - cdmia
@@ -490,6 +512,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/cdmi-container
+  friendly: Cloud Data Management Interface (CDMI) - Contaimer
   encoding: base64
   extensions:
   - cdmic
@@ -505,6 +528,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/cdmi-domain
+  friendly: Cloud Data Management Interface (CDMI) - Domain
   encoding: base64
   extensions:
   - cdmid
@@ -520,6 +544,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/cdmi-object
+  friendly: Cloud Data Management Interface (CDMI) - Object
   encoding: base64
   extensions:
   - cdmio
@@ -535,6 +560,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/cdmi-queue
+  friendly: Cloud Data Management Interface (CDMI) - Queue
   encoding: base64
   extensions:
   - cdmiq
@@ -618,6 +644,19 @@
     - application/cnrp+xml
   registered: true
 - !ruby/object:MIME::Type
+  content-type: application/coap-group+json
+  encoding: base64
+  references:
+  - IANA
+  - DRAFT:draft-ietf-core-groupcomm-25
+  - ! '{application/coap-group+json=http://www.iana.org/assignments/media-types/application/coap-group+json}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-ietf-core-groupcomm-25
+    template:
+    - application/coap-group+json
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/commonground
   encoding: base64
   references:
@@ -697,6 +736,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/cu-seeme
+  friendly: CU-SeeMe
   encoding: base64
   extensions:
   - cu
@@ -744,6 +784,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/davmount+xml
+  friendly: Web Distributed Authoring and Versioning
   encoding: base64
   extensions:
   - davmount
@@ -769,6 +810,21 @@
     - Larry_Campbell
     template:
     - application/dca-rft
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/DCD
+  encoding: base64
+  references:
+  - IANA
+  - ! '[ASAM]'
+  - ! '[Thomas_Thomsen]'
+  - ! '{application/DCD=http://www.iana.org/assignments/media-types/application/DCD}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - ASAM
+    - Thomas_Thomsen
+    template:
+    - application/DCD
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/dec-dx
@@ -849,6 +905,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/dssc+der
+  friendly: Data Structure for the Security Suitability of Cryptographic Algorithms
   encoding: base64
   extensions:
   - dssc
@@ -864,6 +921,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/dssc+xml
+  friendly: Data Structure for the Security Suitability of Cryptographic Algorithms
   encoding: base64
   extensions:
   - xdssc
@@ -896,6 +954,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/ecmascript
+  friendly: ECMAScript
   encoding: base64
   extensions:
   - ecma
@@ -910,16 +969,6 @@
     - application/ecmascript
   registered: true
 - !ruby/object:MIME::Type
-  content-type: application/EDI-Consent
-  encoding: base64
-  references:
-  - IANA
-  - RFC1767
-  xrefs: !ruby/hash:MIME::Types::Container
-    rfc:
-    - rfc1767
-  registered: true
-- !ruby/object:MIME::Type
   content-type: application/EDI-consent
   encoding: base64
   references:
@@ -927,10 +976,21 @@
   - RFC1767
   - ! '{application/EDI-consent=http://www.iana.org/assignments/media-types/application/EDI-consent}'
   xrefs: !ruby/hash:MIME::Types::Container
-    rfc:
+    rfc: &70157068053260
     - rfc1767
-    template:
+    template: &70157068051940
     - application/EDI-consent
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/EDI-Consent
+  encoding: base64
+  references:
+  - IANA
+  - RFC1767
+  - ! '{application/EDI-consent=http://www.iana.org/assignments/media-types/application/EDI-consent}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc: *70157068053260
+    template: *70157068051940
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/EDI-X12
@@ -960,6 +1020,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/emma+xml
+  friendly: Extensible MultiModal Annotation
   encoding: base64
   extensions:
   - emma
@@ -1018,6 +1079,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/epub+zip
+  friendly: Electronic Publication
   encoding: base64
   extensions:
   - epub
@@ -1060,6 +1122,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/exi
+  friendly: Efficient XML Interchange
   encoding: base64
   extensions:
   - exi
@@ -1145,6 +1208,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/font-tdpfr
+  friendly: Portable Font Resource
   encoding: base64
   extensions:
   - pfr
@@ -1160,6 +1224,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/font-woff
+  friendly: Web Open Font Format
   encoding: base64
   extensions:
   - woff
@@ -1279,16 +1344,17 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-httpbis-p1-messaging-26
+  - RFC7230
   - ! '{application/http=http://www.iana.org/assignments/media-types/application/http}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-httpbis-p1-messaging-26
+    rfc:
+    - rfc7230
     template:
     - application/http
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/hyperstudio
+  friendly: Hyperstudio
   encoding: base64
   extensions:
   - stk
@@ -1477,6 +1543,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/ipfix
+  friendly: Internet Protocol Flow Information Export
   encoding: base64
   extensions:
   - ipfix
@@ -1533,24 +1600,28 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/java-archive
+  friendly: Java Archive
   encoding: base64
   extensions:
   - jar
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/java-serialized-object
+  friendly: Java Serialized Object
   encoding: base64
   extensions:
   - ser
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/java-vm
+  friendly: Java Bytecode File
   encoding: base64
   extensions:
   - class
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/javascript
+  friendly: JavaScript
   encoding: 8bit
   extensions:
   - js
@@ -1580,6 +1651,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/json
+  friendly: JavaScript Object Notation (JSON)
   encoding: 8bit
   extensions:
   - json
@@ -1718,6 +1790,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/mac-binhex40
+  friendly: Macintosh BinHex 4.0
   encoding: 8bit
   extensions:
   - hqx
@@ -1733,6 +1806,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/mac-compactpro
+  friendly: Compact Pro
   encoding: base64
   extensions:
   - cpt
@@ -1759,6 +1833,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/mads+xml
+  friendly: Metadata Authority Description Schema
   encoding: base64
   extensions:
   - mads
@@ -1774,6 +1849,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/marc
+  friendly: MARC Formats
   encoding: base64
   extensions:
   - mrc
@@ -1789,6 +1865,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/marcxml+xml
+  friendly: MARC21 XML Schema
   encoding: base64
   extensions:
   - mrcx
@@ -1813,6 +1890,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/mathematica
+  friendly: Mathematica Notebooks
   encoding: base64
   extensions:
   - ma
@@ -1837,6 +1915,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/mathml+xml
+  friendly: Mathematical Markup Language
   encoding: base64
   extensions:
   - mathml
@@ -2023,6 +2102,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/mbox
+  friendly: Mbox database files
   encoding: base64
   extensions:
   - mbox
@@ -2064,6 +2144,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/mediaservercontrol+xml
+  friendly: Media Server Control Markup Language
   encoding: base64
   extensions:
   - mscml
@@ -2078,6 +2159,19 @@
     - application/mediaservercontrol+xml
   registered: true
 - !ruby/object:MIME::Type
+  content-type: application/merge-patch+json
+  encoding: base64
+  references:
+  - IANA
+  - DRAFT:draft-ietf-appsawg-json-merge-patch-07
+  - ! '{application/merge-patch+json=http://www.iana.org/assignments/media-types/application/merge-patch+json}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-ietf-appsawg-json-merge-patch-07
+    template:
+    - application/merge-patch+json
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/metalink+xml
   encoding: base64
   extensions:
@@ -2085,6 +2179,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/metalink4+xml
+  friendly: Metalink
   encoding: base64
   extensions:
   - meta4
@@ -2100,6 +2195,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/mets+xml
+  friendly: Metadata Encoding and Transmission Standard
   encoding: base64
   extensions:
   - mets
@@ -2128,6 +2224,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/mods+xml
+  friendly: Metadata Object Description Schema
   encoding: base64
   extensions:
   - mods
@@ -2195,6 +2292,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/mp21
+  friendly: MPEG-21
   encoding: base64
   extensions:
   - m21
@@ -2214,11 +2312,12 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/mp4
+  friendly: MPEG4
   encoding: base64
   extensions:
   - mp4
-  - mp4s
   - mpg4
+  - mp4s
   references:
   - IANA
   - RFC4337
@@ -2324,6 +2423,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/msword
+  friendly: Microsoft Word
   encoding: base64
   extensions:
   - doc
@@ -2341,6 +2441,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/mxf
+  friendly: Material Exchange Format
   encoding: base64
   extensions:
   - mxf
@@ -2371,8 +2472,8 @@
   content-type: application/netcdf
   encoding: base64
   extensions:
-  - cdf
   - nc
+  - cdf
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/news-checkgroups
@@ -2476,28 +2577,29 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/octet-stream
+  friendly: Binary Data
   encoding: base64
   extensions:
-  - ani
   - bin
-  - bpk
+  - dms
+  - lha
+  - lzh
+  - exe
   - class
+  - ani
+  - pgp
+  - so
+  - dll
+  - dylib
+  - bpk
   - deploy
   - dist
   - distz
-  - dll
-  - dms
   - dump
-  - dylib
   - elc
-  - exe
-  - lha
   - lrf
-  - lzh
   - mar
-  - pgp
   - pkg
-  - so
   references:
   - IANA
   - RFC2045
@@ -2512,6 +2614,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/oda
+  friendly: Office Document Architecture
   encoding: base64
   extensions:
   - oda
@@ -2544,6 +2647,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/oebps-package+xml
+  friendly: Open eBook Publication Structure
   encoding: base64
   extensions:
   - opf
@@ -2559,6 +2663,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/ogg
+  friendly: Ogg
   encoding: base64
   extensions:
   - ogx
@@ -2580,6 +2685,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/onenote
+  friendly: Microsoft OneNote
   encoding: base64
   extensions:
   - onepkg
@@ -2627,6 +2733,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/patch-ops-error+xml
+  friendly: XML Patch Framework
   encoding: base64
   extensions:
   - xer
@@ -2642,6 +2749,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/pdf
+  friendly: Adobe Portable Document Format
   encoding: base64
   extensions:
   - pdf
@@ -2672,6 +2780,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/pgp-encrypted
+  friendly: Pretty Good Privacy
   encoding: 7bit
   extensions:
   - pgp
@@ -2698,6 +2807,7 @@
   signature: true
 - !ruby/object:MIME::Type
   content-type: application/pgp-signature
+  friendly: Pretty Good Privacy - Signature
   encoding: base64
   extensions:
   - asc
@@ -2715,6 +2825,7 @@
   signature: true
 - !ruby/object:MIME::Type
   content-type: application/pics-rules
+  friendly: PICSRules
   encoding: base64
   extensions:
   - prf
@@ -2747,6 +2858,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/pkcs10
+  friendly: ! 'PKCS #10 - Certification Request Standard'
   encoding: base64
   extensions:
   - p10
@@ -2763,10 +2875,11 @@
   signature: true
 - !ruby/object:MIME::Type
   content-type: application/pkcs7-mime
+  friendly: ! 'PKCS #7 - Cryptographic Message Syntax Standard'
   encoding: base64
   extensions:
-  - p7c
   - p7m
+  - p7c
   references:
   - IANA
   - RFC5751
@@ -2782,6 +2895,7 @@
   signature: true
 - !ruby/object:MIME::Type
   content-type: application/pkcs7-signature
+  friendly: ! 'PKCS #7 - Cryptographic Message Syntax Standard'
   encoding: base64
   extensions:
   - p7s
@@ -2798,6 +2912,7 @@
   signature: true
 - !ruby/object:MIME::Type
   content-type: application/pkcs8
+  friendly: ! 'PKCS #8 - Private-Key Information Syntax Standard'
   encoding: base64
   extensions:
   - p8
@@ -2813,6 +2928,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/pkix-attr-cert
+  friendly: Attribute Certificate
   encoding: base64
   extensions:
   - ac
@@ -2828,6 +2944,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/pkix-cert
+  friendly: Internet Public Key Infrastructure - Certificate
   encoding: base64
   extensions:
   - cer
@@ -2843,6 +2960,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/pkix-crl
+  friendly: Internet Public Key Infrastructure - Certificate Revocation Lists
   encoding: base64
   extensions:
   - crl
@@ -2858,6 +2976,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/pkix-pkipath
+  friendly: Internet Public Key Infrastructure - Certification Path
   encoding: base64
   extensions:
   - pkipath
@@ -2873,6 +2992,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/pkixcmp
+  friendly: Internet Public Key Infrastructure - Certificate Management Protocole
   encoding: base64
   extensions:
   - pki
@@ -2888,6 +3008,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/pls+xml
+  friendly: Pronunciation Lexicon Specification
   encoding: base64
   extensions:
   - pls
@@ -2916,6 +3037,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/postscript
+  friendly: PostScript
   encoding: 8bit
   extensions:
   - ai
@@ -2937,9 +3059,9 @@
   content-type: application/powerpoint
   encoding: base64
   extensions:
-  - pot
-  - pps
   - ppt
+  - pps
+  - pot
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/pro_eng
@@ -2975,6 +3097,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/prs.cww
+  friendly: CU-Writer
   encoding: base64
   extensions:
   - cw
@@ -3006,8 +3129,8 @@
   content-type: application/prs.nprend
   encoding: base64
   extensions:
-  - rct
   - rnd
+  - rct
   references:
   - IANA
   - ! '[Jay_Doggett]'
@@ -3059,6 +3182,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/pskc+xml
+  friendly: Portable Symmetric Key Container
   encoding: base64
   extensions:
   - pskcxml
@@ -3109,6 +3233,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/rdf+xml
+  friendly: Resource Description Framework
   encoding: 8bit
   extensions:
   - rdf
@@ -3124,6 +3249,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/reginfo+xml
+  friendly: IMS Networks
   encoding: base64
   extensions:
   - rif
@@ -3139,6 +3265,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/relax-ng-compact-syntax
+  friendly: Relax NG Compact Syntax
   encoding: base64
   extensions:
   - rnc
@@ -3190,6 +3317,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/resource-lists+xml
+  friendly: XML Resource Lists
   encoding: base64
   extensions:
   - rl
@@ -3205,6 +3333,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/resource-lists-diff+xml
+  friendly: XML Resource Lists Diff
   encoding: base64
   extensions:
   - rld
@@ -3246,6 +3375,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/rls-services+xml
+  friendly: XML Resource Lists
   encoding: base64
   extensions:
   - rs
@@ -3319,18 +3449,21 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/rsd+xml
+  friendly: Really Simple Discovery
   encoding: base64
   extensions:
   - rsd
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/rss+xml
+  friendly: RSS - Really Simple Syndication
   encoding: base64
   extensions:
   - rss
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/rtf
+  friendly: Rich Text Format
   encoding: base64
   extensions:
   - rtf
@@ -3398,6 +3531,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/sbml+xml
+  friendly: Systems Biology Markup Language
   encoding: base64
   extensions:
   - sbml
@@ -3412,7 +3546,23 @@
     - application/sbml+xml
   registered: true
 - !ruby/object:MIME::Type
+  content-type: application/scaip+xml
+  encoding: base64
+  references:
+  - IANA
+  - ! '[SIS]'
+  - ! '[Oskar_Jonsson]'
+  - ! '{application/scaip+xml=http://www.iana.org/assignments/media-types/application/scaip+xml}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Oskar_Jonsson
+    - SIS
+    template:
+    - application/scaip+xml
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/scvp-cv-request
+  friendly: Server-Based Certificate Validation Protocol - Validation Request
   encoding: base64
   extensions:
   - scq
@@ -3428,6 +3578,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/scvp-cv-response
+  friendly: Server-Based Certificate Validation Protocol - Validation Response
   encoding: base64
   extensions:
   - scs
@@ -3443,6 +3594,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/scvp-vp-request
+  friendly: Server-Based Certificate Validation Protocol - Validation Policies - Request
   encoding: base64
   extensions:
   - spq
@@ -3458,6 +3610,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/scvp-vp-response
+  friendly: Server-Based Certificate Validation Protocol - Validation Policies - Response
   encoding: base64
   extensions:
   - spp
@@ -3473,6 +3626,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/sdp
+  friendly: Session Description Protocol
   encoding: base64
   extensions:
   - sdp
@@ -3550,6 +3704,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/set-payment-initiation
+  friendly: Secure Electronic Transaction - Payment
   encoding: base64
   extensions:
   - setpay
@@ -3578,6 +3733,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/set-registration-initiation
+  friendly: Secure Electronic Transaction - Registration
   encoding: base64
   extensions:
   - setreg
@@ -3623,6 +3779,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/shf+xml
+  friendly: S Hexdump Format
   encoding: base64
   extensions:
   - shf
@@ -3728,6 +3885,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/smil+xml
+  friendly: Synchronized Multimedia Integration Language
   encoding: 8bit
   extensions:
   - smi
@@ -3787,6 +3945,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/sparql-query
+  friendly: SPARQL - Query
   encoding: base64
   extensions:
   - rq
@@ -3802,6 +3961,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/sparql-results+xml
+  friendly: SPARQL - Results
   encoding: base64
   extensions:
   - srx
@@ -3843,6 +4003,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/srgs
+  friendly: Speech Recognition Grammar Specification
   encoding: base64
   extensions:
   - gram
@@ -3858,6 +4019,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/srgs+xml
+  friendly: Speech Recognition Grammar Specification - XML
   encoding: base64
   extensions:
   - grxml
@@ -3873,6 +4035,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/sru+xml
+  friendly: Search/Retrieve via URL Response Format
   encoding: base64
   extensions:
   - sru
@@ -3894,6 +4057,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/ssml+xml
+  friendly: Speech Synthesis Markup Language
   encoding: base64
   extensions:
   - ssml
@@ -4056,6 +4220,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/tei+xml
+  friendly: Text Encoding and Interchange
   encoding: base64
   extensions:
   - tei
@@ -4072,6 +4237,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/thraud+xml
+  friendly: Sharing Transaction Fraud Data
   encoding: base64
   extensions:
   - tfi
@@ -4113,6 +4279,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/timestamped-data
+  friendly: Time Stamped Data Envelope
   encoding: base64
   extensions:
   - tsd
@@ -4301,6 +4468,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.3gpp.pic-bw-large
+  friendly: 3rd Generation Partnership Project - Pic Large
   encoding: base64
   extensions:
   - plb
@@ -4316,6 +4484,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.3gpp.pic-bw-small
+  friendly: 3rd Generation Partnership Project - Pic Small
   encoding: base64
   extensions:
   - psb
@@ -4331,6 +4500,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.3gpp.pic-bw-var
+  friendly: 3rd Generation Partnership Project - Pic Var
   encoding: base64
   extensions:
   - pvb
@@ -4387,6 +4557,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.3gpp2.tcap
+  friendly: 3rd Generation Partnership Project - Transaction Capabilities Application
+    Part
   encoding: base64
   extensions:
   - tcap
@@ -4402,6 +4574,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.3M.Post-it-Notes
+  friendly: 3M Post It Notes
   encoding: base64
   extensions:
   - pwn
@@ -4417,6 +4590,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.accpac.simply.aso
+  friendly: Simply Accounting
   encoding: base64
   extensions:
   - aso
@@ -4432,6 +4606,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.accpac.simply.imp
+  friendly: Simply Accounting - Data Import
   encoding: base64
   extensions:
   - imp
@@ -4447,6 +4622,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.acucobol
+  friendly: ACU Cobol
   encoding: base64
   extensions:
   - acu
@@ -4462,10 +4638,11 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.acucorp
+  friendly: ACU Cobol
   encoding: 7bit
   extensions:
-  - acutc
   - atc
+  - acutc
   references:
   - IANA
   - ! '[Dovid_Lubin]'
@@ -4478,6 +4655,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.adobe.air-application-installer-package+zip
+  friendly: Adobe AIR Application
   encoding: base64
   extensions:
   - air
@@ -4512,6 +4690,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.adobe.fxp
+  friendly: Adobe Flex Project
   encoding: base64
   extensions:
   - fxp
@@ -4543,6 +4722,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.adobe.xdp+xml
+  friendly: Adobe XML Data Package
   encoding: base64
   extensions:
   - xdp
@@ -4558,6 +4738,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.adobe.xfdf
+  friendly: Adobe XML Forms Data Format
   encoding: base64
   extensions:
   - xfdf
@@ -4599,6 +4780,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ahead.space
+  friendly: Ahead AIR Application
   encoding: base64
   extensions:
   - ahead
@@ -4614,6 +4796,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.airzip.filesecure.azf
+  friendly: AirZip FileSECURE
   encoding: base64
   extensions:
   - azf
@@ -4631,6 +4814,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.airzip.filesecure.azs
+  friendly: AirZip FileSECURE
   encoding: base64
   extensions:
   - azs
@@ -4648,12 +4832,14 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.amazon.ebook
+  friendly: Amazon Kindle eBook format
   encoding: base64
   extensions:
   - azw
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/vnd.americandynamics.acc
+  friendly: Active Content Compression
   encoding: base64
   extensions:
   - acc
@@ -4669,6 +4855,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.amiga.ami
+  friendly: AmigaDE
   encoding: base64
   extensions:
   - ami
@@ -4697,12 +4884,14 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.android.package-archive
+  friendly: Android Package Archive
   encoding: base64
   extensions:
   - apk
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/vnd.anser-web-certificate-issue-initiation
+  friendly: ANSER-WEB Terminal Client - Certificate Issue
   encoding: base64
   extensions:
   - cii
@@ -4718,12 +4907,14 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.anser-web-funds-transfer-initiation
+  friendly: ANSER-WEB Terminal Client - Web Funds Transfer
   encoding: base64
   extensions:
   - fti
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/vnd.antix.game-component
+  friendly: Antix Game Player
   encoding: base64
   extensions:
   - atx
@@ -4736,6 +4927,19 @@
     - Daniel_Shelton
     template:
     - application/vnd.antix.game-component
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/vnd.apache.thrift.binary
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Roger_Meier]'
+  - ! '{application/vnd.apache.thrift.binary=http://www.iana.org/assignments/media-types/application/vnd.apache.thrift.binary}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Roger_Meier
+    template:
+    - application/vnd.apache.thrift.binary
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.api+json
@@ -4752,6 +4956,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.apple.installer+xml
+  friendly: Apple Installer Package
   encoding: base64
   extensions:
   - mpkg
@@ -4767,6 +4972,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.apple.mpegurl
+  friendly: Multimedia Playlist Unicode
   encoding: base64
   extensions:
   - m3u8
@@ -4808,6 +5014,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.aristanetworks.swi
+  friendly: Arista Networks Software Image
   encoding: base64
   extensions:
   - swi
@@ -4820,6 +5027,19 @@
     - Bill_Fenner
     template:
     - application/vnd.aristanetworks.swi
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/vnd.artsquare
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Christopher_Smith]'
+  - ! '{application/vnd.artsquare=http://www.iana.org/assignments/media-types/application/vnd.artsquare}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Christopher_Smith
+    template:
+    - application/vnd.artsquare
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.astraea-software.iota
@@ -4838,6 +5058,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.audiograph
+  friendly: Audiograph
   encoding: base64
   extensions:
   - aep
@@ -4905,6 +5126,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.blueice.multipass
+  friendly: Blueice Research Multipass
   encoding: base64
   extensions:
   - mpm
@@ -4946,6 +5168,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.bmi
+  friendly: BMI Drawing Data Interchange
   encoding: base64
   extensions:
   - bmi
@@ -4961,6 +5184,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.businessobjects
+  friendly: BusinessObjects
   encoding: base64
   extensions:
   - rep
@@ -5041,6 +5265,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.chemdraw+xml
+  friendly: CambridgeSoft Chem Draw
   encoding: base64
   extensions:
   - cdxml
@@ -5056,6 +5281,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.chipnuts.karaoke-mmd
+  friendly: Karaoke on Chipnuts Chipsets
   encoding: base64
   extensions:
   - mmd
@@ -5071,6 +5297,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.cinderella
+  friendly: Interactive Geometry Software Cinderella
   encoding: base64
   extensions:
   - cdy
@@ -5099,6 +5326,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.claymore
+  friendly: Claymore Data Files
   encoding: base64
   extensions:
   - cla
@@ -5114,6 +5342,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.cloanto.rp9
+  friendly: RetroPlatform Player
   encoding: base64
   extensions:
   - rp9
@@ -5129,6 +5358,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.clonk.c4group
+  friendly: Clonk Game
   encoding: base64
   extensions:
   - c4d
@@ -5148,6 +5378,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.cluetrust.cartomobile-config
+  friendly: ClueTrust CartoMobile - Config
   encoding: base64
   extensions:
   - c11amc
@@ -5163,6 +5394,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.cluetrust.cartomobile-config-pkg
+  friendly: ClueTrust CartoMobile - Config Package
   encoding: base64
   extensions:
   - c11amz
@@ -5230,6 +5462,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.commonspace
+  friendly: Sixth Floor Media - CommonSpace
   encoding: base64
   extensions:
   - csp
@@ -5245,6 +5478,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.contact.cmsg
+  friendly: CIM Database
   encoding: base64
   extensions:
   - cdbcmsg
@@ -5260,6 +5494,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.cosmocaller
+  friendly: CosmoCaller
   encoding: base64
   extensions:
   - cmc
@@ -5275,6 +5510,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.crick.clicker
+  friendly: CrickSoftware - Clicker
   encoding: base64
   extensions:
   - clkx
@@ -5290,6 +5526,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.crick.clicker.keyboard
+  friendly: CrickSoftware - Clicker - Keyboard
   encoding: base64
   extensions:
   - clkk
@@ -5305,6 +5542,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.crick.clicker.palette
+  friendly: CrickSoftware - Clicker - Palette
   encoding: base64
   extensions:
   - clkp
@@ -5320,6 +5558,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.crick.clicker.template
+  friendly: CrickSoftware - Clicker - Template
   encoding: base64
   extensions:
   - clkt
@@ -5335,6 +5574,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.crick.clicker.wordbank
+  friendly: CrickSoftware - Clicker - Wordbank
   encoding: base64
   extensions:
   - clkw
@@ -5350,6 +5590,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.criticaltools.wbs+xml
+  friendly: Critical Tools - PERT Chart EXPERT
   encoding: base64
   extensions:
   - wbs
@@ -5365,6 +5606,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ctc-posml
+  friendly: PosML
   encoding: base64
   extensions:
   - pml
@@ -5419,6 +5661,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.cups-ppd
+  friendly: Adobe PostScript Printer Description File Format
   encoding: base64
   extensions:
   - ppd
@@ -5475,12 +5718,14 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.curl.car
+  friendly: CURL Applet
   encoding: base64
   extensions:
   - car
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/vnd.curl.pcurl
+  friendly: CURL Applet
   encoding: base64
   extensions:
   - pcurl
@@ -5528,6 +5773,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.data-vision.rdz
+  friendly: RemoteDocs R-Viewer
   encoding: base64
   extensions:
   - rdz
@@ -5622,6 +5868,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.denovo.fcselayout-link
+  friendly: FCS Express Layout Link
   encoding: base64
   extensions:
   - fe_launch
@@ -5676,6 +5923,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.dna
+  friendly: New Moon Liftoff/DNA
   encoding: base64
   extensions:
   - dna
@@ -5704,6 +5952,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.dolby.mlp
+  friendly: Dolby Meridian Lossless Packing
   encoding: base64
   extensions:
   - mlp
@@ -5735,7 +5984,21 @@
     - application/vnd.dolby.mobile.2
   registered: true
 - !ruby/object:MIME::Type
+  content-type: application/vnd.doremir.scorecloud-binary-document
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Erik_Ronström]'
+  - ! '{application/vnd.doremir.scorecloud-binary-document=http://www.iana.org/assignments/media-types/application/vnd.doremir.scorecloud-binary-document}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Erik_Ronström
+    template:
+    - application/vnd.doremir.scorecloud-binary-document
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/vnd.dpgraph
+  friendly: DPGraph
   encoding: base64
   extensions:
   - dpg
@@ -5751,6 +6014,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.dreamfactory
+  friendly: DreamFactory
   encoding: base64
   extensions:
   - dfac
@@ -5811,6 +6075,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.dvb.ait
+  friendly: Digital Video Broadcasting
   encoding: base64
   extensions:
   - ait
@@ -6053,6 +6318,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.dvb.service
+  friendly: Digital Video Broadcasting
   encoding: base64
   extensions:
   - svc
@@ -6083,6 +6349,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.dynageo
+  friendly: DynaGeo
   encoding: base64
   extensions:
   - geo
@@ -6095,6 +6362,19 @@
     - Roland_Mechling
     template:
     - application/vnd.dynageo
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/vnd.dzr
+  encoding: base64
+  references:
+  - IANA
+  - ! '[Carl_Anderson]'
+  - ! '{application/vnd.dzr=http://www.iana.org/assignments/media-types/application/vnd.dzr}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Carl_Anderson
+    template:
+    - application/vnd.dzr
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.easykaraoke.cdgdownload
@@ -6124,6 +6404,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ecowin.chart
+  friendly: EcoWin Chart
   encoding: base64
   extensions:
   - mag
@@ -6217,6 +6498,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.enliven
+  friendly: Enliven Viewer
   encoding: base64
   extensions:
   - nml
@@ -6245,6 +6527,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.epson.esf
+  friendly: QUASS Stream Player
   encoding: base64
   extensions:
   - esf
@@ -6260,6 +6543,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.epson.msf
+  friendly: QUASS Stream Player
   encoding: base64
   extensions:
   - msf
@@ -6275,6 +6559,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.epson.quickanime
+  friendly: QuickAnime Player
   encoding: base64
   extensions:
   - qam
@@ -6290,6 +6575,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.epson.salt
+  friendly: SimpleAnimeLite Player
   encoding: base64
   extensions:
   - slt
@@ -6305,6 +6591,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.epson.ssf
+  friendly: QUASS Stream Player
   encoding: base64
   extensions:
   - ssf
@@ -6333,6 +6620,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.eszigno3+xml
+  friendly: MICROSEC e-Szign¢
   encoding: base64
   extensions:
   - es3
@@ -6652,6 +6940,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ezpix-album
+  friendly: EZPix Secure Photo Album
   encoding: base64
   extensions:
   - ez2
@@ -6667,6 +6956,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ezpix-package
+  friendly: EZPix Secure Photo Album
   encoding: base64
   extensions:
   - ez3
@@ -6695,6 +6985,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.fdf
+  friendly: Forms Data Format
   encoding: base64
   extensions:
   - fdf
@@ -6725,6 +7016,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.fdsn.seed
+  friendly: Digital Siesmograph Networks - SEED Datafiles
   encoding: base64
   extensions:
   - dataless
@@ -6767,6 +7059,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.FloGraphIt
+  friendly: NpGraphIt
   encoding: base64
   extensions:
   - gph
@@ -6782,6 +7075,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.fluxtime.clip
+  friendly: FluxTime Clip
   encoding: base64
   extensions:
   - ftc
@@ -6810,15 +7104,16 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.framemaker
+  friendly: FrameMaker Normal Format
   encoding: base64
   extensions:
-  - book
-  - fb
-  - fbdoc
-  - fm
-  - frame
   - frm
   - maker
+  - frame
+  - fm
+  - fb
+  - book
+  - fbdoc
   references:
   - IANA
   - ! '[Mike_Wexler]'
@@ -6831,6 +7126,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.frogans.fnc
+  friendly: Frogans Player
   encoding: base64
   extensions:
   - fnc
@@ -6846,6 +7142,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.frogans.ltf
+  friendly: Frogans Player
   encoding: base64
   extensions:
   - ltf
@@ -6861,6 +7158,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.fsc.weblaunch
+  friendly: Friendly Software Corporation
   encoding: 7bit
   extensions:
   - fsc
@@ -6876,6 +7174,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.fujitsu.oasys
+  friendly: Fujitsu Oasys
   encoding: base64
   extensions:
   - oas
@@ -6891,6 +7190,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.fujitsu.oasys2
+  friendly: Fujitsu Oasys
   encoding: base64
   extensions:
   - oa2
@@ -6906,6 +7206,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.fujitsu.oasys3
+  friendly: Fujitsu Oasys
   encoding: base64
   extensions:
   - oa3
@@ -6921,6 +7222,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.fujitsu.oasysgp
+  friendly: Fujitsu Oasys
   encoding: base64
   extensions:
   - fg5
@@ -6936,6 +7238,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.fujitsu.oasysprs
+  friendly: Fujitsu Oasys
   encoding: base64
   extensions:
   - bh2
@@ -6977,6 +7280,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.fujixerox.ddd
+  friendly: Fujitsu - Xerox 2D CAD Data
   encoding: base64
   extensions:
   - ddd
@@ -6992,6 +7296,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.fujixerox.docuworks
+  friendly: Fujitsu - Xerox DocuWorks
   encoding: base64
   extensions:
   - xdw
@@ -7007,6 +7312,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.fujixerox.docuworks.binder
+  friendly: Fujitsu - Xerox DocuWorks Binder
   encoding: base64
   extensions:
   - xbd
@@ -7061,6 +7367,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.fuzzysheet
+  friendly: FuzzySheet
   encoding: base64
   extensions:
   - fzs
@@ -7076,6 +7383,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.genomatix.tuxedo
+  friendly: Genomatix Tuxedo Framework
   encoding: base64
   extensions:
   - txd
@@ -7118,6 +7426,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.geogebra.file
+  friendly: GeoGebra
   encoding: base64
   extensions:
   - ggb
@@ -7135,6 +7444,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.geogebra.tool
+  friendly: GeoGebra
   encoding: base64
   extensions:
   - ggt
@@ -7152,6 +7462,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.geometry-explorer
+  friendly: GeoMetry Explorer
   encoding: base64
   extensions:
   - gex
@@ -7168,6 +7479,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.geonext
+  friendly: GEONExT and JSXGraph
   encoding: base64
   extensions:
   - gxt
@@ -7183,6 +7495,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.geoplan
+  friendly: GeoplanW
   encoding: base64
   extensions:
   - g2w
@@ -7198,6 +7511,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.geospace
+  friendly: GeospacW
   encoding: base64
   extensions:
   - g3w
@@ -7239,6 +7553,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.gmx
+  friendly: GameMaker ActiveX
   encoding: base64
   extensions:
   - gmx
@@ -7255,6 +7570,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.google-earth.kml+xml
+  friendly: Google Earth - KML
   encoding: 8bit
   extensions:
   - kml
@@ -7270,6 +7586,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.google-earth.kmz
+  friendly: Google Earth - Zipped KML
   encoding: 8bit
   extensions:
   - kmz
@@ -7285,6 +7602,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.grafeq
+  friendly: GrafEq
   encoding: base64
   extensions:
   - gqf
@@ -7314,6 +7632,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.groove-account
+  friendly: Groove - Account
   encoding: base64
   extensions:
   - gac
@@ -7329,6 +7648,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.groove-help
+  friendly: Groove - Help
   encoding: base64
   extensions:
   - ghf
@@ -7344,6 +7664,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.groove-identity-message
+  friendly: Groove - Identity Message
   encoding: base64
   extensions:
   - gim
@@ -7359,6 +7680,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.groove-injector
+  friendly: Groove - Injector
   encoding: base64
   extensions:
   - grv
@@ -7374,6 +7696,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.groove-tool-message
+  friendly: Groove - Tool Message
   encoding: base64
   extensions:
   - gtm
@@ -7389,6 +7712,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.groove-tool-template
+  friendly: Groove - Tool Template
   encoding: base64
   extensions:
   - tpl
@@ -7404,6 +7728,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.groove-vcard
+  friendly: Groove - Vcard
   encoding: base64
   extensions:
   - vcg
@@ -7432,6 +7757,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.hal+xml
+  friendly: Hypertext Application Language
   encoding: base64
   extensions:
   - hal
@@ -7447,6 +7773,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.HandHeld-Entertainment+xml
+  friendly: ZVUE Media Manager
   encoding: base64
   extensions:
   - zmm
@@ -7462,14 +7789,15 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.hbci
+  friendly: Homebanking Computer Interface (HBCI)
   encoding: base64
   extensions:
-  - bpd
-  - hbc
   - hbci
+  - hbc
   - kom
-  - pkd
   - upa
+  - pkd
+  - bpd
   references:
   - IANA
   - ! '[Ingo_Hammann]'
@@ -7508,6 +7836,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.hhe.lesson-player
+  friendly: Archipelago Lesson Player
   encoding: base64
   extensions:
   - les
@@ -7523,10 +7852,11 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.hp-HPGL
+  friendly: HP-GL/2 and HP RTL
   encoding: base64
   extensions:
-  - hpgl
   - plt
+  - hpgl
   references:
   - IANA
   - ! '[Bob_Pentecost]'
@@ -7539,6 +7869,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.hp-hpid
+  friendly: Hewlett Packard Instant Delivery
   encoding: base64
   extensions:
   - hpid
@@ -7554,6 +7885,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.hp-hps
+  friendly: Hewlett-Packard's WebPrintSmart
   encoding: base64
   extensions:
   - hps
@@ -7569,6 +7901,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.hp-jlyt
+  friendly: HP Indigo Digital Press - Job Layout Languate
   encoding: base64
   extensions:
   - jlt
@@ -7584,6 +7917,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.hp-PCL
+  friendly: HP Printer Command Language
   encoding: base64
   extensions:
   - pcl
@@ -7599,6 +7933,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.hp-PCLXL
+  friendly: PCL 6 Enhanced (Formely PCL XL)
   encoding: base64
   extensions:
   - pclxl
@@ -7627,6 +7962,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.hydrostatix.sof-data
+  friendly: Hydrostatix Master Suite
   encoding: base64
   extensions:
   - sfd-hdstx
@@ -7642,6 +7978,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.hzn-3d-crossword
+  friendly: 3D Crossword Plugin
   encoding: base64
   references:
   - IANA
@@ -7683,6 +8020,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ibm.MiniPay
+  friendly: MiniPay
   encoding: base64
   extensions:
   - mpy
@@ -7698,6 +8036,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ibm.modcap
+  friendly: MO:DCA-P
   encoding: base64
   extensions:
   - afp
@@ -7715,6 +8054,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ibm.rights-management
+  friendly: IBM DB2 Rights Manager
   encoding: base64
   extensions:
   - irm
@@ -7730,6 +8070,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ibm.secure-container
+  friendly: IBM Electronic Media Management System - Secure Container
   encoding: base64
   extensions:
   - sc
@@ -7745,6 +8086,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.iccprofile
+  friendly: ICC profile
   encoding: base64
   extensions:
   - icc
@@ -7774,6 +8116,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.igloader
+  friendly: igLoader
   encoding: base64
   extensions:
   - igl
@@ -7789,6 +8132,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.immervision-ivp
+  friendly: ImmerVision PURE Players
   encoding: base64
   extensions:
   - ivp
@@ -7804,6 +8148,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.immervision-ivu
+  friendly: ImmerVision PURE Players
   encoding: base64
   extensions:
   - ivu
@@ -7911,6 +8256,8 @@
 - !ruby/object:MIME::Type
   content-type: application/vnd.informix-visionary
   encoding: base64
+  obsolete: true
+  use-instead: application/vnd.visionary
   references:
   - IANA
   - ! '[Christopher_Gales]'
@@ -7962,6 +8309,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.insors.igm
+  friendly: IOCOM Visimeet
   encoding: base64
   extensions:
   - igm
@@ -7977,6 +8325,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.intercon.formnet
+  friendly: Intercon FormNet
   encoding: base64
   extensions:
   - xpw
@@ -7993,6 +8342,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.intergeo
+  friendly: Interactive Geometry Software
   encoding: base64
   extensions:
   - i2g
@@ -8034,6 +8384,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.intu.qbo
+  friendly: Open Financial Exchange
   encoding: base64
   extensions:
   - qbo
@@ -8049,6 +8400,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.intu.qfx
+  friendly: Quicken
   encoding: base64
   extensions:
   - qfx
@@ -8155,6 +8507,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ipunplugged.rcprofile
+  friendly: IP Unplugged Roaming Client
   encoding: base64
   extensions:
   - rcprofile
@@ -8170,6 +8523,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.irepository.package+xml
+  friendly: iRepository / Lucidoc Editor
   encoding: base64
   extensions:
   - irp
@@ -8185,6 +8539,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.is-xpr
+  friendly: Express by Infoseek
   encoding: base64
   extensions:
   - xpr
@@ -8200,6 +8555,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.isac.fcs
+  friendly: International Society for Advancement of Cytometry
   encoding: base64
   extensions:
   - fcs
@@ -8215,6 +8571,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.jam
+  friendly: Lightspeed Audio Lab
   encoding: base64
   extensions:
   - jam
@@ -8334,6 +8691,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.jcp.javame.midlet-rms
+  friendly: Mobile Information Device Profile
   encoding: base64
   extensions:
   - rms
@@ -8349,6 +8707,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.jisp
+  friendly: RhymBox
   encoding: base64
   extensions:
   - jisp
@@ -8364,6 +8723,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.joost.joda-archive
+  friendly: Joda Archive
   encoding: base64
   extensions:
   - joda
@@ -8392,6 +8752,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.kahootz
+  friendly: Kahootz
   encoding: base64
   extensions:
   - ktr
@@ -8408,6 +8769,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.kde.karbon
+  friendly: KDE KOffice Office Suite - Karbon
   encoding: base64
   extensions:
   - karbon
@@ -8423,6 +8785,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.kde.kchart
+  friendly: KDE KOffice Office Suite - KChart
   encoding: base64
   extensions:
   - chrt
@@ -8438,6 +8801,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.kde.kformula
+  friendly: KDE KOffice Office Suite - Kformula
   encoding: base64
   extensions:
   - kfo
@@ -8453,6 +8817,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.kde.kivio
+  friendly: KDE KOffice Office Suite - Kivio
   encoding: base64
   extensions:
   - flw
@@ -8468,6 +8833,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.kde.kontour
+  friendly: KDE KOffice Office Suite - Kontour
   encoding: base64
   extensions:
   - kon
@@ -8483,6 +8849,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.kde.kpresenter
+  friendly: KDE KOffice Office Suite - Kpresenter
   encoding: base64
   extensions:
   - kpr
@@ -8499,6 +8866,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.kde.kspread
+  friendly: KDE KOffice Office Suite - Kspread
   encoding: base64
   extensions:
   - ksp
@@ -8514,6 +8882,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.kde.kword
+  friendly: KDE KOffice Office Suite - Kword
   encoding: base64
   extensions:
   - kwd
@@ -8530,6 +8899,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.kenameaapp
+  friendly: Kenamea App
   encoding: base64
   extensions:
   - htke
@@ -8545,6 +8915,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.kidspiration
+  friendly: Kidspiration
   encoding: base64
   extensions:
   - kia
@@ -8560,6 +8931,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.Kinar
+  friendly: Kinar Applications
   encoding: base64
   extensions:
   - kne
@@ -8577,6 +8949,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.koan
+  friendly: SSEYO Koan Play File
   encoding: base64
   extensions:
   - skd
@@ -8595,6 +8968,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.kodak-descriptor
+  friendly: Kodak Storyshare
   encoding: base64
   extensions:
   - sse
@@ -8610,6 +8984,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.las.las+xml
+  friendly: Laser App Enterprise
   encoding: base64
   extensions:
   - lasxml
@@ -8638,6 +9013,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.llamagraphics.life-balance.desktop
+  friendly: Life Balance - Desktop Edition
   encoding: base64
   extensions:
   - lbd
@@ -8653,6 +9029,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.llamagraphics.life-balance.exchange+xml
+  friendly: Life Balance - Exchange Format
   encoding: base64
   extensions:
   - lbe
@@ -8668,10 +9045,11 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.lotus-1-2-3
+  friendly: Lotus 1-2-3
   encoding: base64
   extensions:
-  - '123'
   - wks
+  - '123'
   references:
   - IANA
   - ! '[Paul_Wattenberger]'
@@ -8684,6 +9062,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.lotus-approach
+  friendly: Lotus Approach
   encoding: base64
   extensions:
   - apr
@@ -8699,6 +9078,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.lotus-freelance
+  friendly: Lotus Freelance
   encoding: base64
   extensions:
   - pre
@@ -8714,6 +9094,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.lotus-notes
+  friendly: Lotus Notes
   encoding: base64
   extensions:
   - nsf
@@ -8729,6 +9110,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.lotus-organizer
+  friendly: Lotus Organizer
   encoding: base64
   extensions:
   - org
@@ -8744,6 +9126,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.lotus-screencam
+  friendly: Lotus Screencam
   encoding: base64
   extensions:
   - scm
@@ -8759,6 +9142,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.lotus-wordpro
+  friendly: Lotus Wordpro
   encoding: base64
   extensions:
   - lwp
@@ -8774,6 +9158,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.macports.portpkg
+  friendly: MacPorts Port System
   encoding: base64
   extensions:
   - portpkg
@@ -8853,7 +9238,21 @@
     - application/vnd.mason+json
   registered: true
 - !ruby/object:MIME::Type
+  content-type: application/vnd.maxmind.maxmind-db
+  encoding: base64
+  references:
+  - IANA
+  - ! '[William_Stevenson]'
+  - ! '{application/vnd.maxmind.maxmind-db=http://www.iana.org/assignments/media-types/application/vnd.maxmind.maxmind-db}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - William_Stevenson
+    template:
+    - application/vnd.maxmind.maxmind-db
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/vnd.mcd
+  friendly: Micro CADAM Helix D&D
   encoding: base64
   extensions:
   - mcd
@@ -8869,6 +9268,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.medcalcdata
+  friendly: MedCalc
   encoding: base64
   extensions:
   - mc1
@@ -8884,6 +9284,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.mediastation.cdkey
+  friendly: MediaRemote
   encoding: base64
   extensions:
   - cdkey
@@ -8912,6 +9313,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.MFER
+  friendly: Medical Waveform Encoding Format
   encoding: base64
   extensions:
   - mwf
@@ -8927,6 +9329,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.mfmp
+  friendly: Melody Format for Mobile Platform
   encoding: base64
   extensions:
   - mfm
@@ -8942,6 +9345,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.micrografx.flo
+  friendly: Micrografx
   encoding: base64
   extensions:
   - flo
@@ -8957,6 +9361,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.micrografx.igx
+  friendly: Micrografx iGrafx Professional
   encoding: base64
   extensions:
   - igx
@@ -8985,6 +9390,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.mif
+  friendly: FrameMaker Interchange Format
   encoding: base64
   extensions:
   - mif
@@ -9026,6 +9432,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.Mobius.DAF
+  friendly: Mobius Management Systems - UniversalArchive
   encoding: base64
   extensions:
   - daf
@@ -9041,6 +9448,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.Mobius.DIS
+  friendly: Mobius Management Systems - Distribution Database
   encoding: base64
   extensions:
   - dis
@@ -9056,6 +9464,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.Mobius.MBK
+  friendly: Mobius Management Systems - Basket file
   encoding: base64
   extensions:
   - mbk
@@ -9071,6 +9480,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.Mobius.MQY
+  friendly: Mobius Management Systems - Query File
   encoding: base64
   extensions:
   - mqy
@@ -9086,6 +9496,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.Mobius.MSL
+  friendly: Mobius Management Systems - Script Language
   encoding: base64
   extensions:
   - msl
@@ -9101,6 +9512,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.Mobius.PLC
+  friendly: Mobius Management Systems - Policy Definition Language File
   encoding: base64
   extensions:
   - plc
@@ -9116,6 +9528,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.Mobius.TXF
+  friendly: Mobius Management Systems - Topic Index File
   encoding: base64
   extensions:
   - txf
@@ -9131,6 +9544,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.mophun.application
+  friendly: Mophun VM
   encoding: base64
   extensions:
   - mpn
@@ -9146,6 +9560,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.mophun.certificate
+  friendly: Mophun Certificate
   encoding: base64
   extensions:
   - mpc
@@ -9265,6 +9680,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.mozilla.xul+xml
+  friendly: XUL - XML User Interface Language
   encoding: base64
   extensions:
   - xul
@@ -9293,6 +9709,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ms-artgalry
+  friendly: Microsoft Artgalry
   encoding: base64
   extensions:
   - cil
@@ -9323,6 +9740,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ms-cab-compressed
+  friendly: Microsoft Cabinet File
   encoding: base64
   extensions:
   - cab
@@ -9338,13 +9756,14 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ms-excel
+  friendly: Microsoft Excel
   encoding: base64
   extensions:
+  - xls
+  - xlt
   - xla
   - xlc
   - xlm
-  - xls
-  - xlt
   - xlw
   references:
   - IANA
@@ -9358,6 +9777,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ms-excel.addin.macroEnabled.12
+  friendly: Microsoft Excel - Add-In File
   encoding: base64
   extensions:
   - xlam
@@ -9373,6 +9793,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ms-excel.sheet.binary.macroEnabled.12
+  friendly: Microsoft Excel - Binary Workbook
   encoding: base64
   extensions:
   - xlsb
@@ -9388,6 +9809,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ms-excel.sheet.macroEnabled.12
+  friendly: Microsoft Excel - Macro-Enabled Workbook
   encoding: base64
   extensions:
   - xlsm
@@ -9403,6 +9825,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ms-excel.template.macroEnabled.12
+  friendly: Microsoft Excel - Macro-Enabled Template File
   encoding: base64
   extensions:
   - xltm
@@ -9418,6 +9841,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ms-fontobject
+  friendly: Microsoft Embedded OpenType
   encoding: base64
   extensions:
   - eot
@@ -9433,6 +9857,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ms-htmlhelp
+  friendly: Microsoft Html Help File
   encoding: base64
   extensions:
   - chm
@@ -9448,6 +9873,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ms-ims
+  friendly: Microsoft Class Server
   encoding: base64
   extensions:
   - ims
@@ -9463,6 +9889,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ms-lrm
+  friendly: Microsoft Learning Resource Module
   encoding: base64
   extensions:
   - lrm
@@ -9491,6 +9918,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ms-officetheme
+  friendly: Microsoft Office System Release Theme
   encoding: base64
   extensions:
   - thmx
@@ -9505,13 +9933,21 @@
     - application/vnd.ms-officetheme
   registered: true
 - !ruby/object:MIME::Type
+  content-type: application/vnd.ms-outlook
+  encoding: base64
+  extensions:
+  - msg
+  registered: false
+- !ruby/object:MIME::Type
   content-type: application/vnd.ms-pki.seccat
+  friendly: Microsoft Trust UI Provider - Security Catalog
   encoding: base64
   extensions:
   - cat
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/vnd.ms-pki.stl
+  friendly: Microsoft Trust UI Provider - Certificate Trust Link
   encoding: base64
   extensions:
   - stl
@@ -9531,11 +9967,12 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ms-powerpoint
+  friendly: Microsoft PowerPoint
   encoding: base64
   extensions:
-  - pot
-  - pps
   - ppt
+  - pps
+  - pot
   references:
   - IANA
   - ! '[Sukvinder_S._Gill]'
@@ -9548,6 +9985,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ms-powerpoint.addin.macroEnabled.12
+  friendly: Microsoft PowerPoint - Add-in file
   encoding: base64
   extensions:
   - ppam
@@ -9563,6 +10001,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ms-powerpoint.presentation.macroEnabled.12
+  friendly: Microsoft PowerPoint - Macro-Enabled Presentation File
   encoding: base64
   extensions:
   - pptm
@@ -9578,6 +10017,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ms-powerpoint.slide.macroEnabled.12
+  friendly: Microsoft PowerPoint - Macro-Enabled Open XML Slide
   encoding: base64
   extensions:
   - sldm
@@ -9593,6 +10033,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ms-powerpoint.slideshow.macroEnabled.12
+  friendly: Microsoft PowerPoint - Macro-Enabled Slide Show File
   encoding: base64
   extensions:
   - ppsm
@@ -9608,6 +10049,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ms-powerpoint.template.macroEnabled.12
+  friendly: Micosoft PowerPoint - Macro-Enabled Template File
   encoding: base64
   extensions:
   - potm
@@ -9623,6 +10065,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ms-project
+  friendly: Microsoft Project
   encoding: base64
   extensions:
   - mpp
@@ -9717,6 +10160,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ms-word.document.macroEnabled.12
+  friendly: Micosoft Word - Macro-Enabled Document
   encoding: base64
   extensions:
   - docm
@@ -9732,6 +10176,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ms-word.template.macroEnabled.12
+  friendly: Micosoft Word - Macro-Enabled Template
   encoding: base64
   extensions:
   - dotm
@@ -9747,6 +10192,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ms-works
+  friendly: Microsoft Works
   encoding: base64
   extensions:
   - wcm
@@ -9765,6 +10211,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ms-wpl
+  friendly: Microsoft Windows Media Player Playlist
   encoding: base64
   extensions:
   - wpl
@@ -9780,6 +10227,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ms-xpsdocument
+  friendly: Microsoft XML Paper Specification
   encoding: 8bit
   extensions:
   - xps
@@ -9795,6 +10243,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.mseq
+  friendly: 3GPP MSEQ File
   encoding: base64
   extensions:
   - mseq
@@ -9862,6 +10311,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.musician
+  friendly: MUsical Score Interpreted Code Invented for the ASCII designation of Notation
   encoding: base64
   extensions:
   - mus
@@ -9877,6 +10327,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.muvee.style
+  friendly: Muvee Automatic Video Editing
   encoding: base64
   extensions:
   - msty
@@ -9935,12 +10386,12 @@
   content-type: application/vnd.nervana
   encoding: base64
   extensions:
-  - bkm
   - ent
   - entity
-  - kcm
   - req
   - request
+  - bkm
+  - kcm
   references:
   - IANA
   - ! '[Steve_Judkins]'
@@ -9966,6 +10417,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.neurolanguage.nlu
+  friendly: neuroLanguage
   encoding: base64
   extensions:
   - nlu
@@ -10023,6 +10475,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.noblenet-directory
+  friendly: NobleNet Directory
   encoding: base64
   extensions:
   - nnd
@@ -10038,6 +10491,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.noblenet-sealer
+  friendly: NobleNet Sealer
   encoding: base64
   extensions:
   - nns
@@ -10053,6 +10507,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.noblenet-web
+  friendly: NobleNet Web
   encoding: base64
   extensions:
   - nnw
@@ -10185,6 +10640,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.nokia.n-gage.data
+  friendly: N-Gage Game Data
   encoding: base64
   extensions:
   - ngdat
@@ -10200,6 +10656,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.nokia.n-gage.symbian.install
+  friendly: N-Gage Game Installer
+  obsolete: true
   encoding: base64
   extensions:
   - n-gage
@@ -10264,6 +10722,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.nokia.radio-preset
+  friendly: Nokia Radio Application - Preset
   encoding: base64
   extensions:
   - rpst
@@ -10279,6 +10738,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.nokia.radio-presets
+  friendly: Nokia Radio Application - Preset
   encoding: base64
   extensions:
   - rpss
@@ -10294,6 +10754,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.novadigm.EDM
+  friendly: Novadigm's RADIA and EDM products
   encoding: base64
   extensions:
   - edm
@@ -10309,6 +10770,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.novadigm.EDX
+  friendly: Novadigm's RADIA and EDM products
   encoding: base64
   extensions:
   - edx
@@ -10324,6 +10786,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.novadigm.EXT
+  friendly: Novadigm's RADIA and EDM products
   encoding: base64
   extensions:
   - ext
@@ -10364,6 +10827,19 @@
     - application/vnd.ntt-local.file-transfer
   registered: true
 - !ruby/object:MIME::Type
+  content-type: application/vnd.ntt-local.ogw_remote-access
+  encoding: base64
+  references:
+  - IANA
+  - ! '[NTT-local]'
+  - ! '{application/vnd.ntt-local.ogw_remote-access=http://www.iana.org/assignments/media-types/application/vnd.ntt-local.ogw_remote-access}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - NTT-local
+    template:
+    - application/vnd.ntt-local.ogw_remote-access
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/vnd.ntt-local.sip-ta_remote
   encoding: base64
   references:
@@ -10391,6 +10867,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.oasis.opendocument.chart
+  friendly: OpenDocument Chart
   encoding: base64
   extensions:
   - odc
@@ -10408,6 +10885,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.oasis.opendocument.chart-template
+  friendly: OpenDocument Chart Template
   encoding: base64
   extensions:
   - odc
@@ -10426,6 +10904,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.oasis.opendocument.database
+  friendly: OpenDocument Database
   encoding: base64
   extensions:
   - odb
@@ -10443,6 +10922,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.oasis.opendocument.formula
+  friendly: OpenDocument Formula
   encoding: base64
   extensions:
   - odf
@@ -10460,6 +10940,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.oasis.opendocument.formula-template
+  friendly: OpenDocument Formula Template
   encoding: base64
   extensions:
   - odf
@@ -10478,6 +10959,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.oasis.opendocument.graphics
+  friendly: OpenDocument Graphics
   encoding: base64
   extensions:
   - odg
@@ -10495,6 +10977,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.oasis.opendocument.graphics-template
+  friendly: OpenDocument Graphics Template
   encoding: base64
   extensions:
   - otg
@@ -10512,6 +10995,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.oasis.opendocument.image
+  friendly: OpenDocument Image
   encoding: base64
   extensions:
   - odi
@@ -10529,6 +11013,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.oasis.opendocument.image-template
+  friendly: OpenDocument Image Template
   encoding: base64
   extensions:
   - odi
@@ -10547,6 +11032,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.oasis.opendocument.presentation
+  friendly: OpenDocument Presentation
   encoding: base64
   extensions:
   - odp
@@ -10564,6 +11050,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.oasis.opendocument.presentation-template
+  friendly: OpenDocument Presentation Template
   encoding: base64
   extensions:
   - otp
@@ -10581,6 +11068,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.oasis.opendocument.spreadsheet
+  friendly: OpenDocument Spreadsheet
   encoding: base64
   extensions:
   - ods
@@ -10598,6 +11086,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.oasis.opendocument.spreadsheet-template
+  friendly: OpenDocument Spreadsheet Template
   encoding: base64
   extensions:
   - ots
@@ -10615,6 +11104,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.oasis.opendocument.text
+  friendly: OpenDocument Text
   encoding: base64
   extensions:
   - odt
@@ -10632,6 +11122,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.oasis.opendocument.text-master
+  friendly: OpenDocument Text Master
   encoding: base64
   extensions:
   - odm
@@ -10649,6 +11140,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.oasis.opendocument.text-template
+  friendly: OpenDocument Text Template
   encoding: base64
   extensions:
   - ott
@@ -10666,6 +11158,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.oasis.opendocument.text-web
+  friendly: Open Document Text Web
   encoding: base64
   extensions:
   - oth
@@ -10852,6 +11345,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.olpc-sugar
+  friendly: Sugar Linux Application Bundle
   encoding: base64
   extensions:
   - xo
@@ -11206,6 +11700,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.oma.dd2+xml
+  friendly: OMA Download Agents
   encoding: base64
   extensions:
   - dd2
@@ -11445,6 +11940,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.openofficeorg.extension
+  friendly: Open Office Extension
   encoding: base64
   extensions:
   - oxt
@@ -11649,6 +12145,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.openxmlformats-officedocument.presentationml.presentation
+  friendly: Microsoft Office - OOXML - Presentation
   encoding: base64
   extensions:
   - pptx
@@ -11690,6 +12187,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.openxmlformats-officedocument.presentationml.slide
+  friendly: Microsoft Office - OOXML - Presentation (Slide)
   encoding: base64
   extensions:
   - sldx
@@ -11744,6 +12242,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.openxmlformats-officedocument.presentationml.slideshow
+  friendly: Microsoft Office - OOXML - Presentation (Slideshow)
   encoding: base64
   extensions:
   - ppsx
@@ -11811,6 +12310,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.openxmlformats-officedocument.presentationml.template
+  friendly: Microsoft Office - OOXML - Presentation Template
   encoding: base64
   extensions:
   - potx
@@ -12021,6 +12521,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+  friendly: Microsoft Office - OOXML - Spreadsheet
   encoding: base64
   extensions:
   - xlsx
@@ -12101,6 +12602,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.openxmlformats-officedocument.spreadsheetml.template
+  friendly: Microsoft Office - OOXML - Spreadsheet Teplate
   encoding: base64
   extensions:
   - xltx
@@ -12220,6 +12722,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+  friendly: Microsoft Office - OOXML - Word Document
   encoding: base64
   extensions:
   - docx
@@ -12352,6 +12855,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.openxmlformats-officedocument.wordprocessingml.template
+  friendly: Microsoft Office - OOXML - Word Document Template
   encoding: base64
   extensions:
   - dotx
@@ -12458,6 +12962,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.osgeo.mapguide.package
+  friendly: MapGuide DBXML
   encoding: base64
   extensions:
   - mgp
@@ -12486,6 +12991,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.osgi.dp
+  friendly: OSGi Deployment Package
   encoding: base64
   extensions:
   - dp
@@ -12529,12 +13035,13 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.palm
+  friendly: PalmOS Data
   encoding: base64
   extensions:
-  - oprc
+  - prc
   - pdb
   - pqa
-  - prc
+  - oprc
   references:
   - IANA
   - ! '[Gavin_Peacock]'
@@ -12573,6 +13080,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.pawaafile
+  friendly: PawaaFILE
   encoding: base64
   extensions:
   - paw
@@ -12601,6 +13109,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.pg.format
+  friendly: Proprietary P&G Standard Reporting System
   encoding: base64
   extensions:
   - str
@@ -12616,6 +13125,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.pg.osasli
+  friendly: Proprietary P&G Standard Reporting System
   encoding: base64
   extensions:
   - ei6
@@ -12644,6 +13154,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.picsel
+  friendly: Pcsel eFIF File
   encoding: base64
   extensions:
   - efif
@@ -12659,6 +13170,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.pmi.widget
+  friendly: Qualcomm's Plaza Mobile Internet
   encoding: base64
   extensions:
   - wg
@@ -12689,6 +13201,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.pocketlearn
+  friendly: PocketLearn Viewers
   encoding: base64
   extensions:
   - plf
@@ -12704,6 +13217,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.powerbuilder6
+  friendly: PowerBuilder
   encoding: base64
   extensions:
   - pbd
@@ -12797,6 +13311,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.previewsystems.box
+  friendly: Preview Systems ZipLock/VBox
   encoding: base64
   extensions:
   - box
@@ -12812,6 +13327,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.proteus.magazine
+  friendly: EFI Proteus
   encoding: base64
   extensions:
   - mgz
@@ -12827,6 +13343,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.publishare-delta-tree
+  friendly: PubliShare Objects
   encoding: base64
   extensions:
   - qps
@@ -12842,6 +13359,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.pvi.ptid1
+  friendly: Princeton Video Image
   encoding: base64
   extensions:
   - pti
@@ -12897,14 +13415,15 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.Quark.QuarkXPress
+  friendly: QuarkXPress
   encoding: 8bit
   extensions:
+  - qxd
+  - qxt
   - qwd
   - qwt
-  - qxb
-  - qxd
   - qxl
-  - qxt
+  - qxb
   references:
   - IANA
   - ! '[Hannes_Scheidler]'
@@ -13151,6 +13670,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.realvnc.bed
+  friendly: RealVNC
   encoding: base64
   extensions:
   - bed
@@ -13166,6 +13686,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.recordare.musicxml
+  friendly: Recordare Applications
   encoding: base64
   extensions:
   - mxl
@@ -13181,6 +13702,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.recordare.musicxml+xml
+  friendly: Recordare Applications
   encoding: base64
   extensions:
   - musicxml
@@ -13209,6 +13731,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.rig.cryptonote
+  friendly: CryptoNote
   encoding: base64
   extensions:
   - cryptonote
@@ -13224,12 +13747,14 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.rim.cod
+  friendly: Blackberry COD File
   encoding: base64
   extensions:
   - cod
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/vnd.rn-realmedia
+  friendly: RealMedia
   encoding: base64
   extensions:
   - rm
@@ -13242,6 +13767,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/vnd.route66.link66+xml
+  friendly: ROUTE 66 Location Based Services
   encoding: base64
   extensions:
   - link66
@@ -13296,6 +13822,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.sailingtracker.track
+  friendly: SailingTracker
   encoding: base64
   extensions:
   - st
@@ -13378,9 +13905,9 @@
   content-type: application/vnd.sealed.doc
   encoding: base64
   extensions:
-  - s1w
-  - sdo
   - sdoc
+  - sdo
+  - s1w
   references:
   - IANA
   - ! '[David_Petersen]'
@@ -13395,8 +13922,8 @@
   content-type: application/vnd.sealed.eml
   encoding: base64
   extensions:
-  - sem
   - seml
+  - sem
   references:
   - IANA
   - ! '[David_Petersen]'
@@ -13411,8 +13938,8 @@
   content-type: application/vnd.sealed.mht
   encoding: base64
   extensions:
-  - smh
   - smht
+  - smh
   references:
   - IANA
   - ! '[David_Petersen]'
@@ -13440,9 +13967,9 @@
   content-type: application/vnd.sealed.ppt
   encoding: base64
   extensions:
-  - s1p
-  - spp
   - sppt
+  - spp
+  - s1p
   references:
   - IANA
   - ! '[David_Petersen]'
@@ -13472,9 +13999,9 @@
   content-type: application/vnd.sealed.xls
   encoding: base64
   extensions:
-  - s1e
-  - sxl
   - sxls
+  - sxl
+  - s1e
   references:
   - IANA
   - ! '[David_Petersen]'
@@ -13489,9 +14016,9 @@
   content-type: application/vnd.sealedmedia.softseal.html
   encoding: base64
   extensions:
-  - s1h
-  - stm
   - stml
+  - stm
+  - s1h
   references:
   - IANA
   - ! '[David_Petersen]'
@@ -13506,9 +14033,9 @@
   content-type: application/vnd.sealedmedia.softseal.pdf
   encoding: base64
   extensions:
-  - s1a
-  - spd
   - spdf
+  - spd
+  - s1a
   references:
   - IANA
   - ! '[David_Petersen]'
@@ -13521,6 +14048,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.seemail
+  friendly: SeeMail
   encoding: base64
   extensions:
   - see
@@ -13536,6 +14064,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.sema
+  friendly: Secured eMail
   encoding: base64
   extensions:
   - sema
@@ -13551,6 +14080,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.semd
+  friendly: Secured eMail
   encoding: base64
   extensions:
   - semd
@@ -13566,6 +14096,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.semf
+  friendly: Secured eMail
   encoding: base64
   extensions:
   - semf
@@ -13581,6 +14112,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.shana.informed.formdata
+  friendly: Shana Informed Filler
   encoding: base64
   extensions:
   - ifm
@@ -13596,6 +14128,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.shana.informed.formtemplate
+  friendly: Shana Informed Filler
   encoding: base64
   extensions:
   - itp
@@ -13611,6 +14144,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.shana.informed.interchange
+  friendly: Shana Informed Filler
   encoding: base64
   extensions:
   - iif
@@ -13626,6 +14160,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.shana.informed.package
+  friendly: Shana Informed Filler
   encoding: base64
   extensions:
   - ipk
@@ -13641,6 +14176,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.SimTech-MindMapper
+  friendly: SimTech MindMapper
   encoding: base64
   extensions:
   - twd
@@ -13670,6 +14206,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.smaf
+  friendly: SMAF File
   encoding: base64
   extensions:
   - mmf
@@ -13698,6 +14235,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.smart.teacher
+  friendly: SMART Technologies Apps
   encoding: base64
   extensions:
   - teacher
@@ -13743,6 +14281,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.solent.sdkm+xml
+  friendly: SudokuMagic
   encoding: base64
   extensions:
   - sdkd
@@ -13759,6 +14298,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.spotfire.dxp
+  friendly: TIBCO Spotfire
   encoding: base64
   extensions:
   - dxp
@@ -13774,6 +14314,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.spotfire.sfs
+  friendly: TIBCO Spotfire
   encoding: base64
   extensions:
   - sfs
@@ -13828,6 +14369,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.stardivision.calc
+  friendly: StarOffice - Calc
   encoding: base64
   extensions:
   - sdc
@@ -13840,18 +14382,21 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/vnd.stardivision.draw
+  friendly: StarOffice - Draw
   encoding: base64
   extensions:
   - sda
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/vnd.stardivision.impress
+  friendly: StarOffice - Impress
   encoding: base64
   extensions:
   - sdd
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/vnd.stardivision.math
+  friendly: StarOffice - Math
   encoding: base64
   extensions:
   - sdf
@@ -13859,6 +14404,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/vnd.stardivision.writer
+  friendly: StarOffice - Writer
   encoding: base64
   extensions:
   - sdw
@@ -13866,6 +14412,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/vnd.stardivision.writer-global
+  friendly: StarOffice - Writer (Global)
   encoding: base64
   extensions:
   - sgl
@@ -13887,6 +14434,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.stepmania.stepchart
+  friendly: StepMania
   encoding: base64
   extensions:
   - sm
@@ -13928,66 +14476,77 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.sun.xml.calc
+  friendly: OpenOffice - Calc (Spreadsheet)
   encoding: base64
   extensions:
   - sxc
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/vnd.sun.xml.calc.template
+  friendly: OpenOffice - Calc Template (Spreadsheet)
   encoding: base64
   extensions:
   - stc
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/vnd.sun.xml.draw
+  friendly: OpenOffice - Draw (Graphics)
   encoding: base64
   extensions:
   - sxd
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/vnd.sun.xml.draw.template
+  friendly: OpenOffice - Draw Template (Graphics)
   encoding: base64
   extensions:
   - std
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/vnd.sun.xml.impress
+  friendly: OpenOffice - Impress (Presentation)
   encoding: base64
   extensions:
   - sxi
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/vnd.sun.xml.impress.template
+  friendly: OpenOffice - Impress Template (Presentation)
   encoding: base64
   extensions:
   - sti
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/vnd.sun.xml.math
+  friendly: OpenOffice - Math (Formula)
   encoding: base64
   extensions:
   - sxm
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/vnd.sun.xml.writer
+  friendly: OpenOffice - Writer (Text - HTML)
   encoding: base64
   extensions:
   - sxw
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/vnd.sun.xml.writer.global
+  friendly: OpenOffice - Writer (Text - HTML)
   encoding: base64
   extensions:
   - sxg
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/vnd.sun.xml.writer.template
+  friendly: OpenOffice - Writer Template (Text - HTML)
   encoding: base64
   extensions:
   - stw
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/vnd.sus-calendar
+  friendly: ScheduleUs
   encoding: base64
   extensions:
   - sus
@@ -14004,6 +14563,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.svd
+  friendly: SourceView Document
   encoding: base64
   extensions:
   - svd
@@ -14032,6 +14592,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.symbian.install
+  friendly: Symbian Install Package
   encoding: base64
   extensions:
   - sis
@@ -14039,6 +14600,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/vnd.syncml+xml
+  friendly: SyncML
   encoding: base64
   extensions:
   - xsm
@@ -14054,6 +14616,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.syncml.dm+wbxml
+  friendly: SyncML - Device Management
   encoding: base64
   extensions:
   - bdm
@@ -14069,6 +14632,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.syncml.dm+xml
+  friendly: SyncML - Device Management
   encoding: base64
   extensions:
   - xdm
@@ -14166,6 +14730,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.tao.intent-module-archive
+  friendly: Tao Intent
   encoding: base64
   extensions:
   - tao
@@ -14200,6 +14765,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.tmobile-livetv
+  friendly: MobileTV
   encoding: base64
   extensions:
   - tmo
@@ -14215,6 +14781,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.trid.tpt
+  friendly: TRI Systems Config
   encoding: base64
   extensions:
   - tpt
@@ -14230,6 +14797,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.triscape.mxs
+  friendly: Triscape Map Explorer
   encoding: base64
   extensions:
   - mxs
@@ -14245,6 +14813,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.trueapp
+  friendly: True BASIC
   encoding: base64
   extensions:
   - tra
@@ -14286,6 +14855,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ufdl
+  friendly: Universal Forms Description Language
   encoding: base64
   extensions:
   - ufd
@@ -14302,6 +14872,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.uiq.theme
+  friendly: User Interface Quartz - Theme (Symbian)
   encoding: base64
   extensions:
   - utz
@@ -14317,6 +14888,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.umajin
+  friendly: UMAJIN
   encoding: base64
   extensions:
   - umj
@@ -14332,6 +14904,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.unity
+  friendly: Unity 3d
   encoding: base64
   extensions:
   - unityweb
@@ -14347,6 +14920,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.uoml+xml
+  friendly: Unique Object Markup Language
   encoding: base64
   extensions:
   - uoml
@@ -14544,6 +15118,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.vcx
+  friendly: VirtualCatalog
   encoding: base64
   extensions:
   - vcx
@@ -14615,12 +15190,13 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.visio
+  friendly: Microsoft Visio
   encoding: base64
   extensions:
   - vsd
-  - vss
   - vst
   - vsw
+  - vss
   references:
   - IANA
   - ! '[Troy_Sandal]'
@@ -14633,6 +15209,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.visionary
+  friendly: Visionary
   encoding: base64
   extensions:
   - vis
@@ -14661,6 +15238,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.vsf
+  friendly: Viewport+
   encoding: base64
   extensions:
   - vsf
@@ -14706,6 +15284,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.wap.wbxml
+  friendly: WAP Binary XML (WBXML)
   encoding: base64
   extensions:
   - wbxml
@@ -14721,6 +15300,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.wap.wmlc
+  friendly: Compiled Wireless Markup Language (WMLC)
   encoding: base64
   extensions:
   - wmlc
@@ -14736,6 +15316,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.wap.wmlscriptc
+  friendly: WMLScript
   encoding: base64
   extensions:
   - wmlsc
@@ -14751,6 +15332,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.webturbo
+  friendly: WebTurbo
   encoding: base64
   extensions:
   - wtb
@@ -14859,6 +15441,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.wolfram.player
+  friendly: Mathematica Notebook Player
   encoding: base64
   extensions:
   - nbp
@@ -14874,6 +15457,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.wordperfect
+  friendly: Wordperfect
   encoding: base64
   extensions:
   - wpd
@@ -14889,6 +15473,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.wqd
+  friendly: SundaHus WQ
   encoding: base64
   extensions:
   - wqd
@@ -14917,6 +15502,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.wt.stf
+  friendly: Worldtalk
   encoding: base64
   extensions:
   - stf
@@ -14986,6 +15572,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.xara
+  friendly: CorelXARA
   encoding: base64
   extensions:
   - xar
@@ -15001,6 +15588,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.xfdl
+  friendly: Extensible Forms Description Language
   encoding: base64
   extensions:
   - xfdl
@@ -15107,6 +15695,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.yamaha.hv-dic
+  friendly: HV Voice Dictionary
   encoding: base64
   extensions:
   - hvd
@@ -15122,6 +15711,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.yamaha.hv-script
+  friendly: HV Script
   encoding: base64
   extensions:
   - hvs
@@ -15137,6 +15727,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.yamaha.hv-voice
+  friendly: HV Voice Parameter
   encoding: base64
   extensions:
   - hvp
@@ -15152,6 +15743,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.yamaha.openscoreformat
+  friendly: Open Score Format
   encoding: base64
   extensions:
   - osf
@@ -15167,6 +15759,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.yamaha.openscoreformat.osfpvg+xml
+  friendly: OSFPVG
   encoding: base64
   extensions:
   - osfpvg
@@ -15195,6 +15788,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.yamaha.smaf-audio
+  friendly: SMAF Audio
   encoding: base64
   extensions:
   - saf
@@ -15210,6 +15804,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.yamaha.smaf-phrase
+  friendly: SMAF Phrase
   encoding: base64
   extensions:
   - spf
@@ -15264,6 +15859,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.yellowriver-custom-menu
+  friendly: CustomMenu
   encoding: base64
   extensions:
   - cmp
@@ -15279,6 +15875,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.zul
+  friendly: Z.U.L. Geometry
   encoding: base64
   extensions:
   - zir
@@ -15295,6 +15892,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.zzazz.deck+xml
+  friendly: Zzazz Deck
   encoding: base64
   extensions:
   - zaz
@@ -15310,6 +15908,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/voicexml+xml
+  friendly: VoiceXML
   encoding: base64
   extensions:
   - vxml
@@ -15379,6 +15978,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/widget
+  friendly: Widget Packaging and XML Configuration
   encoding: base64
   extensions:
   - wgt
@@ -15396,6 +15996,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/winhlp
+  friendly: WinHelp
   encoding: base64
   extensions:
   - hlp
@@ -15433,8 +16034,8 @@
   content-type: application/wordperfect5.1
   encoding: base64
   extensions:
-  - wp
   - wp5
+  - wp
   references:
   - IANA
   - ! '[Paul_Lindner]'
@@ -15465,6 +16066,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/wsdl+xml
+  friendly: WSDL - Web Services Description Language
   encoding: base64
   extensions:
   - wsdl
@@ -15480,6 +16082,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/wspolicy+xml
+  friendly: Web Services Policy
   encoding: base64
   extensions:
   - wspolicy
@@ -15504,6 +16107,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-7z-compressed
+  friendly: 7-Zip
   encoding: base64
   extensions:
   - 7z
@@ -15512,6 +16116,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-abiword
+  friendly: AbiWord
   encoding: base64
   extensions:
   - abw
@@ -15520,16 +16125,17 @@
   content-type: application/x-access
   encoding: base64
   extensions:
+  - mdf
   - mda
   - mdb
   - mde
-  - mdf
   obsolete: true
   use-instead:
   - application/x-msaccess
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-ace-compressed
+  friendly: Ace Archive
   encoding: base64
   extensions:
   - ace
@@ -15543,6 +16149,7 @@
   system: !ruby/regexp /(?-mix:mac)/
 - !ruby/object:MIME::Type
   content-type: application/x-authorware-bin
+  friendly: Adobe (Macropedia) Authorware - Binary File
   encoding: base64
   extensions:
   - aab
@@ -15552,24 +16159,28 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-authorware-map
+  friendly: Adobe (Macropedia) Authorware - Map
   encoding: base64
   extensions:
   - aam
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-authorware-seg
+  friendly: Adobe (Macropedia) Authorware - Segment File
   encoding: base64
   extensions:
   - aas
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-bcpio
+  friendly: Binary CPIO Archive
   encoding: base64
   extensions:
   - bcpio
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-bittorrent
+  friendly: BitTorrent
   encoding: base64
   extensions:
   - torrent
@@ -15589,12 +16200,14 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-bzip
+  friendly: Bzip Archive
   encoding: base64
   extensions:
   - bz
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-bzip2
+  friendly: Bzip2 Archive
   encoding: base64
   extensions:
   - boz
@@ -15612,6 +16225,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-cdlink
+  friendly: Video CD
   encoding: base64
   extensions:
   - vcd
@@ -15624,12 +16238,14 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-chat
+  friendly: pIRCh
   encoding: base64
   extensions:
   - chat
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-chess-pgn
+  friendly: Portable Game Notation (Chess Games)
   encoding: base64
   extensions:
   - pgn
@@ -15648,8 +16264,8 @@
   content-type: application/x-compress
   encoding: base64
   extensions:
-  - Z
   - z
+  - Z
   obsolete: true
   use-instead:
   - application/x-compressed
@@ -15658,8 +16274,8 @@
   content-type: application/x-compressed
   encoding: base64
   extensions:
-  - Z
   - z
+  - Z
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-conference
@@ -15669,12 +16285,14 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-cpio
+  friendly: CPIO Archive
   encoding: base64
   extensions:
   - cpio
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-csh
+  friendly: C Shell Script
   encoding: 8bit
   extensions:
   - csh
@@ -15688,6 +16306,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-debian-package
+  friendly: Debian Package
   encoding: base64
   extensions:
   - deb
@@ -15701,12 +16320,15 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-director
+  friendly: Adobe Shockwave Player
   encoding: base64
   extensions:
+  - dcr
+  - ! '@dir'
+  - ! '@dxr'
   - cct
   - cst
   - cxt
-  - dcr
   - dir
   - dxr
   - fgd
@@ -15715,6 +16337,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-doom
+  friendly: Doom Video Game
   encoding: base64
   extensions:
   - wad
@@ -15725,24 +16348,28 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-dtbncx+xml
+  friendly: Navigation Control file for XML (for ePub)
   encoding: base64
   extensions:
   - ncx
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-dtbook+xml
+  friendly: Digital Talking Book
   encoding: base64
   extensions:
   - dtb
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-dtbresource+xml
+  friendly: Digital Talking Book - Resource File
   encoding: base64
   extensions:
   - res
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-dvi
+  friendly: Device Independent File Format (DVI)
   encoding: base64
   extensions:
   - dvi
@@ -15772,18 +16399,21 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-font-bdf
+  friendly: Glyph Bitmap Distribution Format
   encoding: base64
   extensions:
   - bdf
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-font-ghostscript
+  friendly: Ghostscript Font
   encoding: base64
   extensions:
   - gsf
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-font-linux-psf
+  friendly: PSF Fonts
   encoding: base64
   extensions:
   - psf
@@ -15796,18 +16426,21 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-font-otf
+  friendly: OpenType Font File
   encoding: base64
   extensions:
   - otf
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-font-pcf
+  friendly: Portable Compiled Format
   encoding: base64
   extensions:
   - pcf
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-font-snf
+  friendly: Server Normal Format
   encoding: base64
   extensions:
   - snf
@@ -15820,6 +16453,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-font-ttf
+  friendly: TrueType Font
   encoding: base64
   extensions:
   - ttc
@@ -15827,6 +16461,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-font-type1
+  friendly: PostScript Fonts
   encoding: base64
   extensions:
   - afm
@@ -15846,6 +16481,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-futuresplash
+  friendly: FutureSplash Animator
   encoding: base64
   extensions:
   - spl
@@ -15868,6 +16504,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-gnumeric
+  friendly: Gnumeric
   encoding: base64
   extensions:
   - gnumeric
@@ -15880,12 +16517,13 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-gtar
+  friendly: GNU Tar Files
   encoding: base64
   extensions:
   - gtar
-  - tbz
-  - tbz2
   - tgz
+  - tbz2
+  - tbz
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-gzip
@@ -15898,6 +16536,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-hdf
+  friendly: Hierarchical Data Format
   encoding: base64
   extensions:
   - hdf
@@ -15918,9 +16557,9 @@
   content-type: application/x-httpd-php
   encoding: 8bit
   extensions:
-  - php
-  - pht
   - phtml
+  - pht
+  - php
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-ibooks+zip
@@ -15983,6 +16622,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-java-jnlp-file
+  friendly: Java Network Launching Protocol
   encoding: base64
   extensions:
   - jnlp
@@ -16012,17 +16652,18 @@
   content-type: application/x-koan
   encoding: base64
   extensions:
-  - skd
-  - skm
   - skp
+  - skd
   - skt
+  - skm
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-latex
+  friendly: LaTeX
   encoding: 8bit
   extensions:
-  - latex
   - ltx
+  - latex
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-lotus-123
@@ -16068,13 +16709,13 @@
   content-type: application/x-maker
   encoding: base64
   extensions:
-  - book
-  - fb
-  - fbdoc
-  - fm
-  - frame
   - frm
   - maker
+  - frame
+  - fm
+  - fb
+  - book
+  - fbdoc
   obsolete: true
   use-instead:
   - application/vnd.framemaker
@@ -16106,6 +16747,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-mobipocket-ebook
+  friendly: Mobipocket
   encoding: base64
   extensions:
   - mobi
@@ -16113,6 +16755,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-ms-application
+  friendly: Microsoft ClickOnce
   encoding: base64
   extensions:
   - application
@@ -16125,24 +16768,28 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-ms-wmd
+  friendly: Microsoft Windows Media Player Download Package
   encoding: base64
   extensions:
   - wmd
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-ms-wmz
+  friendly: Microsoft Windows Media Player Skin Package
   encoding: base64
   extensions:
   - wmz
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-ms-xbap
+  friendly: Microsoft XAML Browser Application
   encoding: base64
   extensions:
   - xbap
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-msaccess
+  friendly: Microsoft Access
   encoding: base64
   extensions:
   - mda
@@ -16152,18 +16799,21 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-msbinder
+  friendly: Microsoft Office Binder
   encoding: base64
   extensions:
   - obd
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-mscardfile
+  friendly: Microsoft Information Card
   encoding: base64
   extensions:
   - crd
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-msclip
+  friendly: Microsoft Clipboard Clip
   encoding: base64
   extensions:
   - clp
@@ -16172,23 +16822,32 @@
   content-type: application/x-msdos-program
   encoding: base64
   extensions:
-  - bat
   - cmd
+  - bat
   - com
   - exe
+  - reg
+  - ps1
+  - vbs
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-msdownload
+  friendly: Microsoft Application
   encoding: base64
   extensions:
-  - bat
-  - com
-  - dll
   - exe
+  - com
+  - cmd
+  - bat
+  - dll
   - msi
+  - reg
+  - ps1
+  - vbs
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-msmediaview
+  friendly: Microsoft MediaView
   encoding: base64
   extensions:
   - m13
@@ -16197,6 +16856,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-msmetafile
+  friendly: Microsoft Windows Metafile
   encoding: base64
   extensions:
   - emf
@@ -16206,24 +16866,28 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-msmoney
+  friendly: Microsoft Money
   encoding: base64
   extensions:
   - mny
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-mspublisher
+  friendly: Microsoft Publisher
   encoding: base64
   extensions:
   - pub
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-msschedule
+  friendly: Microsoft Schedule+
   encoding: base64
   extensions:
   - scd
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-msterminal
+  friendly: Microsoft Windows Terminal Services
   encoding: base64
   extensions:
   - trm
@@ -16241,16 +16905,18 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-mswrite
+  friendly: Microsoft Wordpad
   encoding: base64
   extensions:
   - wri
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-netcdf
+  friendly: Network Common Data Form (NetCDF)
   encoding: base64
   extensions:
-  - cdf
   - nc
+  - cdf
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-ns-proxy-autoconfig
@@ -16292,6 +16958,7 @@
   signature: true
 - !ruby/object:MIME::Type
   content-type: application/x-pkcs12
+  friendly: ! 'PKCS #12 - Personal Information Exchange Syntax Standard'
   encoding: base64
   extensions:
   - p12
@@ -16299,6 +16966,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-pkcs7-certificates
+  friendly: ! 'PKCS #7 - Cryptographic Message Syntax Standard (Certificates)'
   encoding: base64
   extensions:
   - p7b
@@ -16306,6 +16974,8 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-pkcs7-certreqresp
+  friendly: ! 'PKCS #7 - Cryptographic Message Syntax Standard (Certificate Request
+    Response)'
   encoding: base64
   extensions:
   - p7r
@@ -16324,6 +16994,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-rar-compressed
+  friendly: RAR Archive
   encoding: base64
   extensions:
   - rar
@@ -16360,24 +17031,28 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-sh
+  friendly: Bourne Shell Script
   encoding: 8bit
   extensions:
   - sh
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-shar
+  friendly: Shell Archive
   encoding: 8bit
   extensions:
   - shar
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-shockwave-flash
+  friendly: Adobe Flash
   encoding: base64
   extensions:
   - swf
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-silverlight-app
+  friendly: Microsoft Silverlight
   encoding: base64
   extensions:
   - xap
@@ -16396,9 +17071,9 @@
   extensions:
   - sav
   - sbs
+  - sps
   - spo
   - spp
-  - sps
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-sql
@@ -16412,12 +17087,14 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-stuffit
+  friendly: Stuffit Archive
   encoding: base64
   extensions:
   - sit
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-stuffitx
+  friendly: Stuffit Archive
   encoding: base64
   extensions:
   - sitx
@@ -16430,12 +17107,14 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-sv4cpio
+  friendly: System V Release 4 CPIO Archive
   encoding: base64
   extensions:
   - sv4cpio
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-sv4crc
+  friendly: System V Release 4 CPIO Checksum Data
   encoding: base64
   extensions:
   - sv4crc
@@ -16454,34 +17133,39 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-tar
+  friendly: Tar File (Tape Archive)
   encoding: base64
   extensions:
   - tar
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-tcl
+  friendly: Tcl Script
   encoding: 8bit
   extensions:
   - tcl
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-tex
+  friendly: TeX
   encoding: 8bit
   extensions:
   - tex
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-tex-tfm
+  friendly: TeX Font Metric
   encoding: base64
   extensions:
   - tfm
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-texinfo
+  friendly: GNU Texinfo Document
   encoding: 8bit
   extensions:
-  - texi
   - texinfo
+  - texi
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-tgif
@@ -16499,9 +17183,9 @@
   content-type: application/x-troff
   encoding: base64
   extensions:
-  - roff
   - t
   - tr
+  - roff
   obsolete: true
   use-instead:
   - text/troff
@@ -16533,6 +17217,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-ustar
+  friendly: Ustar (Uniform Standard Tape Archive)
   encoding: base64
   extensions:
   - ustar
@@ -16545,6 +17230,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-wais-source
+  friendly: WAIS Source
   encoding: base64
   extensions:
   - src
@@ -16612,6 +17298,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/x-x509-ca-cert
+  friendly: X.509 Certificate
   encoding: base64
   extensions:
   - crt
@@ -16619,6 +17306,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-xfig
+  friendly: Xfig
   encoding: base64
   extensions:
   - fig
@@ -16631,6 +17319,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-xpinstall
+  friendly: XPInstall - Mozilla
   encoding: base64
   extensions:
   - xpi
@@ -16721,6 +17410,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/xcap-diff+xml
+  friendly: XML Configuration Access Protocol - XCAP Diff
   encoding: base64
   extensions:
   - xdf
@@ -16801,6 +17491,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/xenc+xml
+  friendly: XML Encryption Syntax and Processing
   encoding: base64
   extensions:
   - xenc
@@ -16818,6 +17509,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/xhtml+xml
+  friendly: XHTML - The Extensible HyperText Markup Language
   encoding: 8bit
   extensions:
   - xht
@@ -16848,32 +17540,34 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/xml
+  friendly: XML - Extensible Markup Language
   encoding: 8bit
   extensions:
   - xml
   - xsl
   references:
   - IANA
-  - DRAFT:draft-ietf-appsawg-xml-mediatypes-10
+  - RFC7303
   - ! '{application/xml=http://www.iana.org/assignments/media-types/application/xml}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-appsawg-xml-mediatypes-10
+    rfc:
+    - rfc7303
     template:
     - application/xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/xml-dtd
+  friendly: Document Type Definition
   encoding: 8bit
   extensions:
   - dtd
   references:
   - IANA
-  - DRAFT:draft-ietf-appsawg-xml-mediatypes-10
+  - RFC7303
   - ! '{application/xml-dtd=http://www.iana.org/assignments/media-types/application/xml-dtd}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-appsawg-xml-mediatypes-10
+    rfc:
+    - rfc7303
     template:
     - application/xml-dtd
   registered: true
@@ -16882,13 +17576,26 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-appsawg-xml-mediatypes-10
+  - RFC7303
   - ! '{application/xml-external-parsed-entity=http://www.iana.org/assignments/media-types/application/xml-external-parsed-entity}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-appsawg-xml-mediatypes-10
+    rfc:
+    - rfc7303
     template:
     - application/xml-external-parsed-entity
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/xml-patch+xml
+  encoding: base64
+  references:
+  - IANA
+  - RFC7351
+  - ! '{application/xml-patch+xml=http://www.iana.org/assignments/media-types/application/xml-patch+xml}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc7351
+    template:
+    - application/xml-patch+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/xmpp+xml
@@ -16905,6 +17612,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/xop+xml
+  friendly: XML-Binary Optimized Packaging
   encoding: base64
   extensions:
   - xop
@@ -16926,6 +17634,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/xslt+xml
+  friendly: XML Transformations
   encoding: base64
   extensions:
   - xslt
@@ -16941,12 +17650,14 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/xspf+xml
+  friendly: XSPF - XML Shareable Playlist Format
   encoding: base64
   extensions:
   - xspf
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/xv+xml
+  friendly: MXML
   encoding: base64
   extensions:
   - mxml
@@ -16965,6 +17676,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/yang
+  friendly: YANG Data Modeling Language
   encoding: base64
   extensions:
   - yang
@@ -16980,6 +17692,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/yin+xml
+  friendly: YIN (YANG - XML)
   encoding: base64
   extensions:
   - yin
@@ -16995,6 +17708,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/zip
+  friendly: Zip Archive
   encoding: base64
   extensions:
   - zip

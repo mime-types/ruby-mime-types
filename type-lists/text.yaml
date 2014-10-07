@@ -32,6 +32,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/calendar
+  friendly: iCalendar
   encoding: quoted-printable
   extensions:
   - ics
@@ -39,9 +40,12 @@
   references:
   - IANA
   - RFC5545
+  - ! '{text/calendar=http://www.iana.org/assignments/media-types/text/calendar}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5545
+    template:
+    - text/calendar
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/comma-separated-values
@@ -54,18 +58,23 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: text/css
+  friendly: Cascading Style Sheets (CSS)
   encoding: 8bit
   extensions:
   - css
   references:
   - IANA
   - RFC2318
+  - ! '{text/css=http://www.iana.org/assignments/media-types/text/css}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2318
+    template:
+    - text/css
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/csv
+  friendly: Comma-Seperated Values
   encoding: 8bit
   extensions:
   - csv
@@ -85,7 +94,6 @@
   content-type: text/directory
   encoding: quoted-printable
   obsolete: true
-  use-instead: ''
   references:
   - IANA
   - RFC2425
@@ -94,6 +102,21 @@
     rfc:
     - rfc2425
     - rfc6350
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/directory - DEPRECATED by RFC6350
+  encoding: quoted-printable
+  references:
+  - IANA
+  - RFC2425
+  - RFC6350
+  - ! '{text/directory=http://www.iana.org/assignments/media-types/text/directory}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc2425
+    - rfc6350
+    template:
+    - text/directory
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/dns
@@ -112,6 +135,8 @@
   content-type: text/ecmascript
   encoding: quoted-printable
   obsolete: true
+  use-instead:
+  - application/ecmascript
   references:
   - IANA
   - RFC4329
@@ -186,21 +211,22 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/html
+  friendly: HyperText Markup Language (HTML)
   encoding: 8bit
   extensions:
-  - htm
   - html
+  - htm
   - htmlx
-  - htx
   - shtml
+  - htx
   references:
   - IANA
-  - ! '[Michael_TM_Smith]'
   - ! '[W3C]'
+  - ! '[Robin_Berjon]'
   - ! '{text/html=http://www.iana.org/assignments/media-types/text/html}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Michael_TM_Smith
+    - Robin_Berjon
     - W3C
     template:
     - text/html
@@ -211,6 +237,8 @@
   extensions:
   - js
   obsolete: true
+  use-instead:
+  - application/javascript
   references:
   - IANA
   - RFC4329
@@ -249,13 +277,14 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/n3
+  friendly: Notation3
   encoding: quoted-printable
   extensions:
   - n3
   references:
   - IANA
-  - ! '[Eric_Prudhommeaux]'
   - ! '[W3C]'
+  - ! '[Eric_Prudhommeaux]'
   - ! '{text/n3=http://www.iana.org/assignments/media-types/text/n3}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
@@ -289,20 +318,22 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/plain
+  friendly: Text File
   encoding: quoted-printable
   extensions:
+  - txt
   - asc
   - c
   - cc
-  - conf
-  - cpp
-  - dat
-  - def
-  - doc
   - h
   - hh
-  - hlp
+  - cpp
   - hpp
+  - dat
+  - hlp
+  - conf
+  - def
+  - doc
   - in
   - list
   - log
@@ -311,7 +342,6 @@
   - rst
   - text
   - textile
-  - txt
   references:
   - IANA
   - RFC2046
@@ -328,12 +358,15 @@
   encoding: quoted-printable
   references:
   - IANA
-  - ! '[Ivan_Herman]'
   - ! '[W3C]'
+  - ! '[Ivan_Herman]'
+  - ! '{text/provenance-notation=http://www.iana.org/assignments/media-types/text/provenance-notation}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Ivan_Herman
     - W3C
+    template:
+    - text/provenance-notation
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/prs.fallenstein.rst
@@ -352,6 +385,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/prs.lines.tag
+  friendly: PRS Lines Tag
   encoding: quoted-printable
   extensions:
   - dsc
@@ -384,9 +418,12 @@
   references:
   - IANA
   - RFC4102
+  - ! '{text/RED=http://www.iana.org/assignments/media-types/text/RED}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4102
+    template:
+    - text/RED
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/rfc822-headers
@@ -394,12 +431,16 @@
   references:
   - IANA
   - RFC6522
+  - ! '{text/rfc822-headers=http://www.iana.org/assignments/media-types/text/rfc822-headers}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6522
+    template:
+    - text/rfc822-headers
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/richtext
+  friendly: Rich Text Format (RTF)
   encoding: 8bit
   extensions:
   - rtx
@@ -468,10 +509,11 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/sgml
+  friendly: Standard Generalized Markup Language (SGML)
   encoding: quoted-printable
   extensions:
-  - sgm
   - sgml
+  - sgm
   references:
   - IANA
   - RFC1874
@@ -488,12 +530,16 @@
   references:
   - IANA
   - RFC4103
+  - ! '{text/t140=http://www.iana.org/assignments/media-types/text/t140}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4103
+    template:
+    - text/t140
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/tab-separated-values
+  friendly: Tab Seperated Values
   encoding: quoted-printable
   extensions:
   - tsv
@@ -509,31 +555,36 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/troff
+  friendly: troff
   encoding: 8bit
   extensions:
+  - t
+  - tr
+  - roff
+  - troff
   - man
   - me
   - ms
-  - roff
-  - t
-  - tr
-  - troff
   references:
   - IANA
   - RFC4263
+  - ! '{text/troff=http://www.iana.org/assignments/media-types/text/troff}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4263
+    template:
+    - text/troff
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/turtle
+  friendly: Turtle (Terse RDF Triple Language)
   encoding: quoted-printable
   extensions:
   - ttl
   references:
   - IANA
-  - ! '[Eric_Prudhommeaux]'
   - ! '[W3C]'
+  - ! '[Eric_Prudhommeaux]'
   - ! '{text/turtle=http://www.iana.org/assignments/media-types/text/turtle}'
   xrefs: !ruby/hash:MIME::Types::Container
     person:
@@ -557,6 +608,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/uri-list
+  friendly: URI Resolution Services
   encoding: quoted-printable
   extensions:
   - uri
@@ -565,9 +617,12 @@
   references:
   - IANA
   - RFC2483
+  - ! '{text/uri-list=http://www.iana.org/assignments/media-types/text/uri-list}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2483
+    template:
+    - text/uri-list
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/vcard
@@ -577,9 +632,12 @@
   references:
   - IANA
   - RFC6350
+  - ! '{text/vcard=http://www.iana.org/assignments/media-types/text/vcard}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6350
+    template:
+    - text/vcard
   registered: true
   signature: true
 - !ruby/object:MIME::Type
@@ -610,6 +668,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/vnd.curl
+  friendly: Curl - Applet
   encoding: quoted-printable
   extensions:
   - curl
@@ -625,18 +684,21 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/vnd.curl.dcurl
+  friendly: Curl - Detached Applet
   encoding: quoted-printable
   extensions:
   - dcurl
   registered: false
 - !ruby/object:MIME::Type
   content-type: text/vnd.curl.mcurl
+  friendly: Curl - Manifest File
   encoding: quoted-printable
   extensions:
   - mcurl
   registered: false
 - !ruby/object:MIME::Type
   content-type: text/vnd.curl.scurl
+  friendly: Curl - Source Code
   encoding: quoted-printable
   extensions:
   - scurl
@@ -706,6 +768,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: text/vnd.fly
+  friendly: mod_fly / fly.cgi
   encoding: quoted-printable
   extensions:
   - fly
@@ -721,6 +784,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/vnd.fmi.flexstor
+  friendly: FLEXSTOR
   encoding: quoted-printable
   extensions:
   - flx
@@ -736,6 +800,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/vnd.graphviz
+  friendly: Graphviz
   encoding: quoted-printable
   extensions:
   - gv
@@ -751,6 +816,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/vnd.in3d.3dml
+  friendly: In3D - 3DML
   encoding: quoted-printable
   extensions:
   - 3dml
@@ -766,6 +832,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/vnd.in3d.spot
+  friendly: In3D - 3DML
   encoding: quoted-printable
   extensions:
   - spot
@@ -888,6 +955,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/vnd.sun.j2me.app-descriptor
+  friendly: J2ME App Descriptor
   encoding: 8bit
   extensions:
   - jad
@@ -946,6 +1014,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/vnd.wap.wml
+  friendly: Wireless Markup Language (WML)
   encoding: quoted-printable
   extensions:
   - wml
@@ -961,6 +1030,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/vnd.wap.wmlscript
+  friendly: Wireless Markup Language Script (WMLScript)
   encoding: quoted-printable
   extensions:
   - wmls
@@ -976,6 +1046,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/x-asm
+  friendly: Assembler Source File
   encoding: quoted-printable
   extensions:
   - asm
@@ -983,6 +1054,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: text/x-c
+  friendly: C Source File
   encoding: quoted-printable
   extensions:
   - c
@@ -1007,6 +1079,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: text/x-fortran
+  friendly: Fortran Source File
   encoding: quoted-printable
   extensions:
   - f
@@ -1016,6 +1089,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: text/x-java-source
+  friendly: Java Source File
   encoding: quoted-printable
   extensions:
   - java
@@ -1034,6 +1108,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: text/x-pascal
+  friendly: Pascal Source File
   encoding: quoted-printable
   extensions:
   - p
@@ -1050,6 +1125,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: text/x-setext
+  friendly: Setext
   encoding: quoted-printable
   extensions:
   - etx
@@ -1062,18 +1138,21 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: text/x-uuencode
+  friendly: UUEncode
   encoding: quoted-printable
   extensions:
   - uu
   registered: false
 - !ruby/object:MIME::Type
   content-type: text/x-vcalendar
+  friendly: vCalendar
   encoding: 8bit
   extensions:
   - vcs
   registered: false
 - !ruby/object:MIME::Type
   content-type: text/x-vcard
+  friendly: vCard
   encoding: 8bit
   extensions:
   - vcf
@@ -1097,15 +1176,15 @@
   content-type: text/xml
   encoding: 8bit
   extensions:
-  - dtd
   - xml
+  - dtd
   references:
   - IANA
-  - DRAFT:draft-ietf-appsawg-xml-mediatypes-10
+  - RFC7303
   - ! '{text/xml=http://www.iana.org/assignments/media-types/text/xml}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-appsawg-xml-mediatypes-10
+    rfc:
+    - rfc7303
     template:
     - text/xml
   registered: true
@@ -1114,11 +1193,11 @@
   encoding: quoted-printable
   references:
   - IANA
-  - DRAFT:draft-ietf-appsawg-xml-mediatypes-10
+  - RFC7303
   - ! '{text/xml-external-parsed-entity=http://www.iana.org/assignments/media-types/text/xml-external-parsed-entity}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-appsawg-xml-mediatypes-10
+    rfc:
+    - rfc7303
     template:
     - text/xml-external-parsed-entity
   registered: true

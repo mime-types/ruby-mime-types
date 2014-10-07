@@ -72,6 +72,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/adpcm
+  friendly: Adaptive differential pulse-code modulation
   encoding: base64
   extensions:
   - adp
@@ -101,9 +102,9 @@
   - RFC4867
   - ! '{audio/AMR-WB=http://www.iana.org/assignments/media-types/audio/AMR-WB}'
   xrefs: !ruby/hash:MIME::Types::Container
-    rfc:
+    rfc: &70157066392380
     - rfc4867
-    template:
+    template: &70157066389840
     - audio/AMR-WB
   registered: true
 - !ruby/object:MIME::Type
@@ -111,10 +112,11 @@
   encoding: base64
   references:
   - IANA
-  - RFC4352
+  - RFC4867
+  - ! '{audio/AMR-WB=http://www.iana.org/assignments/media-types/audio/AMR-WB}'
   xrefs: !ruby/hash:MIME::Types::Container
-    rfc:
-    - rfc4352
+    rfc: *70157066392380
+    template: *70157066389840
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/amr-wb+
@@ -134,11 +136,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-payload-rtp-aptx-05
+  - RFC7310
   - ! '{audio/aptx=http://www.iana.org/assignments/media-types/audio/aptx}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-payload-rtp-aptx-05
+    rfc:
+    - rfc7310
     template:
     - audio/aptx
   registered: true
@@ -196,6 +198,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/basic
+  friendly: Sun Audio - Au file format
   encoding: base64
   extensions:
   - au
@@ -896,6 +899,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/midi
+  friendly: MIDI - Musical Instrument Digital Interface
   encoding: base64
   extensions:
   - kar
@@ -918,13 +922,14 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/mp4
+  friendly: MPEG-4 Audio
   encoding: base64
   extensions:
+  - mp4
+  - mpg4
   - f4a
   - f4b
-  - mp4
   - mp4a
-  - mpg4
   references:
   - IANA
   - RFC4337
@@ -980,14 +985,15 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/mpeg
+  friendly: MPEG Audio
   encoding: base64
   extensions:
+  - mpga
+  - mp2
+  - mp3
   - m2a
   - m3a
-  - mp2
   - mp2a
-  - mp3
-  - mpga
   references:
   - IANA
   - RFC3003
@@ -1017,6 +1023,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/ogg
+  friendly: Ogg Audio
   encoding: base64
   extensions:
   - oga
@@ -1490,6 +1497,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/vnd.dece.audio
+  friendly: DECE Audio
   encoding: base64
   extensions:
   - uva
@@ -1506,6 +1514,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/vnd.digital-winds
+  friendly: Digital Winds Music
   encoding: 7bit
   extensions:
   - eol
@@ -1638,6 +1647,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/vnd.dra
+  friendly: DRA Audio
   encoding: base64
   extensions:
   - dra
@@ -1653,6 +1663,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/vnd.dts
+  friendly: DTS Audio
   encoding: base64
   extensions:
   - dts
@@ -1668,6 +1679,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/vnd.dts.hd
+  friendly: DTS High Definition Audio
   encoding: base64
   extensions:
   - dtshd
@@ -1724,6 +1736,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/vnd.lucent.voice
+  friendly: Lucent Voice
   encoding: base64
   extensions:
   - lvp
@@ -1739,6 +1752,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/vnd.ms-playready.media.pya
+  friendly: Microsoft PlayReady Ecosystem
   encoding: base64
   extensions:
   - pya
@@ -1784,6 +1798,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/vnd.nuera.ecelp4800
+  friendly: Nuera ECELP 4800
   encoding: base64
   extensions:
   - ecelp4800
@@ -1799,6 +1814,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/vnd.nuera.ecelp7470
+  friendly: Nuera ECELP 7470
   encoding: base64
   extensions:
   - ecelp7470
@@ -1814,6 +1830,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/vnd.nuera.ecelp9600
+  friendly: Nuera ECELP 9600
   encoding: base64
   extensions:
   - ecelp9600
@@ -1872,6 +1889,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/vnd.rip
+  friendly: Hit'n'Mix
   encoding: base64
   extensions:
   - rip
@@ -1889,9 +1907,9 @@
   content-type: audio/vnd.sealedmedia.softseal.mpeg
   encoding: base64
   extensions:
-  - s1m
-  - smp
   - smp3
+  - smp
+  - s1m
   references:
   - IANA
   - ! '[David_Petersen]'
@@ -1943,6 +1961,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/webm
+  friendly: Open Web Media Project - Audio
   encoding: base64
   extensions:
   - weba
@@ -1952,12 +1971,14 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: audio/x-aac
+  friendly: Advanced Audio Coding (AAC)
   encoding: base64
   extensions:
   - aac
   registered: false
 - !ruby/object:MIME::Type
   content-type: audio/x-aiff
+  friendly: Audio Interchange File Format
   encoding: base64
   extensions:
   - aif
@@ -1986,24 +2007,27 @@
   content-type: audio/x-midi
   encoding: base64
   extensions:
-  - kar
   - mid
   - midi
+  - kar
   registered: false
 - !ruby/object:MIME::Type
   content-type: audio/x-mpegurl
+  friendly: M3U (Multimedia Playlist)
   encoding: base64
   extensions:
   - m3u
   registered: false
 - !ruby/object:MIME::Type
   content-type: audio/x-ms-wax
+  friendly: Microsoft Windows Media Audio Redirector
   encoding: base64
   extensions:
   - wax
   registered: false
 - !ruby/object:MIME::Type
   content-type: audio/x-ms-wma
+  friendly: Microsoft Windows Media Audio
   encoding: base64
   extensions:
   - wma
@@ -2016,6 +2040,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: audio/x-pn-realaudio
+  friendly: Real Audio Sound
   encoding: base64
   extensions:
   - ra
@@ -2023,6 +2048,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: audio/x-pn-realaudio-plugin
+  friendly: Real Audio Sound
   encoding: base64
   extensions:
   - rmp
@@ -2036,6 +2062,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: audio/x-wav
+  friendly: Waveform Audio File Format (WAV)
   encoding: base64
   extensions:
   - wav

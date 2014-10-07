@@ -29,11 +29,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-httpbis-p5-range-26
+  - RFC7233
   - ! '{multipart/byteranges=http://www.iana.org/assignments/media-types/multipart/byteranges}'
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-httpbis-p5-range-26
+    rfc:
+    - rfc7233
     template:
     - multipart/byteranges
   registered: true
@@ -55,9 +55,12 @@
   references:
   - IANA
   - RFC1847
+  - ! '{multipart/encrypted=http://www.iana.org/assignments/media-types/multipart/encrypted}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc1847
+    template:
+    - multipart/encrypted
   registered: true
 - !ruby/object:MIME::Type
   content-type: multipart/example
@@ -78,9 +81,12 @@
   references:
   - IANA
   - RFC2388
+  - ! '{multipart/form-data=http://www.iana.org/assignments/media-types/multipart/form-data}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2388
+    template:
+    - multipart/form-data
   registered: true
 - !ruby/object:MIME::Type
   content-type: multipart/header-set
@@ -125,9 +131,12 @@
   references:
   - IANA
   - RFC2387
+  - ! '{multipart/related=http://www.iana.org/assignments/media-types/multipart/related}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2387
+    template:
+    - multipart/related
   registered: true
 - !ruby/object:MIME::Type
   content-type: multipart/report
@@ -135,9 +144,12 @@
   references:
   - IANA
   - RFC6522
+  - ! '{multipart/report=http://www.iana.org/assignments/media-types/multipart/report}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6522
+    template:
+    - multipart/report
   registered: true
 - !ruby/object:MIME::Type
   content-type: multipart/signed
@@ -145,9 +157,12 @@
   references:
   - IANA
   - RFC1847
+  - ! '{multipart/signed=http://www.iana.org/assignments/media-types/multipart/signed}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc1847
+    template:
+    - multipart/signed
   registered: true
 - !ruby/object:MIME::Type
   content-type: multipart/voice-message
@@ -156,10 +171,13 @@
   - IANA
   - RFC2421
   - RFC2423
+  - ! '{multipart/voice-message=http://www.iana.org/assignments/media-types/multipart/voice-message}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2421
     - rfc2423
+    template:
+    - multipart/voice-message
   registered: true
 - !ruby/object:MIME::Type
   content-type: multipart/x-gzip
@@ -169,7 +187,16 @@
   content-type: multipart/x-mixed-replace
   encoding: base64
   references:
-  - ! '{HTML5=http://www.w3.org/TR/html5/iana.html#multipart/x-mixed-replace}'
+  - IANA
+  - ! '[W3C]'
+  - ! '[Robin_Berjon]'
+  - ! '{multipart/x-mixed-replace=http://www.iana.org/assignments/media-types/multipart/x-mixed-replace}'
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Robin_Berjon
+    - W3C
+    template:
+    - multipart/x-mixed-replace
   registered: true
 - !ruby/object:MIME::Type
   content-type: multipart/x-parallel

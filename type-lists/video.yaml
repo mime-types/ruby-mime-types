@@ -14,6 +14,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/3gpp
+  friendly: 3GP
   encoding: base64
   extensions:
   - 3gp
@@ -36,12 +37,16 @@
   references:
   - IANA
   - RFC4396
+  - ! '{video/3gpp-tt=http://www.iana.org/assignments/media-types/video/3gpp-tt}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4396
+    template:
+    - video/3gpp-tt
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/3gpp2
+  friendly: 3GP2
   encoding: base64
   extensions:
   - 3g2
@@ -64,9 +69,12 @@
   references:
   - IANA
   - RFC3555
+  - ! '{video/BMPEG=http://www.iana.org/assignments/media-types/video/BMPEG}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
+    template:
+    - video/BMPEG
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/BT656
@@ -74,9 +82,12 @@
   references:
   - IANA
   - RFC3555
+  - ! '{video/BT656=http://www.iana.org/assignments/media-types/video/BT656}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
+    template:
+    - video/BT656
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/CelB
@@ -84,9 +95,12 @@
   references:
   - IANA
   - RFC3555
+  - ! '{video/CelB=http://www.iana.org/assignments/media-types/video/CelB}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
+    template:
+    - video/CelB
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/dl
@@ -149,27 +163,35 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/H261
+  friendly: H.261
   encoding: base64
   extensions:
   - h261
   references:
   - IANA
   - RFC4587
+  - ! '{video/H261=http://www.iana.org/assignments/media-types/video/H261}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4587
+    template:
+    - video/H261
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/H263
+  friendly: H.263
   encoding: base64
   extensions:
   - h263
   references:
   - IANA
   - RFC3555
+  - ! '{video/H263=http://www.iana.org/assignments/media-types/video/H263}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
+    template:
+    - video/H263
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/H263-1998
@@ -177,9 +199,12 @@
   references:
   - IANA
   - RFC4629
+  - ! '{video/H263-1998=http://www.iana.org/assignments/media-types/video/H263-1998}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4629
+    template:
+    - video/H263-1998
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/H263-2000
@@ -187,21 +212,28 @@
   references:
   - IANA
   - RFC4629
+  - ! '{video/H263-2000=http://www.iana.org/assignments/media-types/video/H263-2000}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4629
+    template:
+    - video/H263-2000
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/H264
+  friendly: H.264
   encoding: base64
   extensions:
   - h264
   references:
   - IANA
   - RFC6184
+  - ! '{video/H264=http://www.iana.org/assignments/media-types/video/H264}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6184
+    template:
+    - video/H264
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/H264-RCDO
@@ -209,9 +241,12 @@
   references:
   - IANA
   - RFC6185
+  - ! '{video/H264-RCDO=http://www.iana.org/assignments/media-types/video/H264-RCDO}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6185
+    template:
+    - video/H264-RCDO
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/H264-SVC
@@ -219,9 +254,12 @@
   references:
   - IANA
   - RFC6190
+  - ! '{video/H264-SVC=http://www.iana.org/assignments/media-types/video/H264-SVC}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6190
+    template:
+    - video/H264-SVC
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/iso.segment
@@ -240,15 +278,19 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/JPEG
+  friendly: JPGVideo
   encoding: base64
   extensions:
   - jpgv
   references:
   - IANA
   - RFC3555
+  - ! '{video/JPEG=http://www.iana.org/assignments/media-types/video/JPEG}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
+    template:
+    - video/JPEG
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/jpeg2000
@@ -257,13 +299,17 @@
   - IANA
   - RFC5371
   - RFC5372
+  - ! '{video/jpeg2000=http://www.iana.org/assignments/media-types/video/jpeg2000}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5371
     - rfc5372
+    template:
+    - video/jpeg2000
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/jpm
+  friendly: JPEG 2000 Compound Image File Format
   encoding: base64
   extensions:
   - jpgm
@@ -271,6 +317,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/MJ2
+  friendly: Motion JPEG 2000
   encoding: base64
   extensions:
   - mj2
@@ -278,9 +325,12 @@
   references:
   - IANA
   - RFC3745
+  - ! '{video/mj2=http://www.iana.org/assignments/media-types/video/mj2}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3745
+    template:
+    - video/mj2
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/MP1S
@@ -288,9 +338,12 @@
   references:
   - IANA
   - RFC3555
+  - ! '{video/MP1S=http://www.iana.org/assignments/media-types/video/MP1S}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
+    template:
+    - video/MP1S
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/MP2P
@@ -298,9 +351,12 @@
   references:
   - IANA
   - RFC3555
+  - ! '{video/MP2P=http://www.iana.org/assignments/media-types/video/MP2P}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
+    template:
+    - video/MP2P
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/MP2T
@@ -310,19 +366,23 @@
   references:
   - IANA
   - RFC3555
+  - ! '{video/MP2T=http://www.iana.org/assignments/media-types/video/MP2T}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
+    template:
+    - video/MP2T
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/mp4
+  friendly: MPEG-4 Video
   encoding: base64
   extensions:
-  - f4p
-  - f4v
   - mp4
-  - mp4v
   - mpg4
+  - f4v
+  - f4p
+  - mp4v
   references:
   - IANA
   - RFC4337
@@ -350,15 +410,16 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/mpeg
+  friendly: MPEG Video
   encoding: base64
   extensions:
-  - m1v
-  - m2v
   - mp2
   - mp3g
   - mpe
   - mpeg
   - mpg
+  - m1v
+  - m2v
   references:
   - IANA
   - RFC2045
@@ -387,9 +448,12 @@
   references:
   - IANA
   - RFC3555
+  - ! '{video/MPV=http://www.iana.org/assignments/media-types/video/MPV}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
+    template:
+    - video/MPV
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/nv
@@ -406,6 +470,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/ogg
+  friendly: Ogg Video
   encoding: base64
   extensions:
   - ogg
@@ -436,16 +501,20 @@
   references:
   - IANA
   - RFC2862
+  - ! '{video/pointer=http://www.iana.org/assignments/media-types/video/pointer}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2862
+    template:
+    - video/pointer
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/quicktime
+  friendly: Quicktime Video
   encoding: base64
   extensions:
-  - mov
   - qt
+  - mov
   references:
   - IANA
   - RFC6381
@@ -527,9 +596,12 @@
   references:
   - IANA
   - RFC3497
+  - ! '{video/SMPTE292M=http://www.iana.org/assignments/media-types/video/SMPTE292M}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3497
+    template:
+    - video/SMPTE292M
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/ulpfec
@@ -550,9 +622,12 @@
   references:
   - IANA
   - RFC4425
+  - ! '{video/vc1=http://www.iana.org/assignments/media-types/video/vc1}'
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4425
+    template:
+    - video/vc1
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/vnd.CCTV
@@ -569,6 +644,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/vnd.dece.hd
+  friendly: DECE High Definition Video
   encoding: base64
   extensions:
   - uvh
@@ -585,6 +661,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/vnd.dece.mobile
+  friendly: DECE Mobile Video
   encoding: base64
   extensions:
   - uvm
@@ -614,6 +691,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/vnd.dece.pd
+  friendly: DECE PD Video
   encoding: base64
   extensions:
   - uvp
@@ -630,6 +708,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/vnd.dece.sd
+  friendly: DECE SD Video
   encoding: base64
   extensions:
   - uvs
@@ -646,6 +725,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/vnd.dece.video
+  friendly: DECE Video
   encoding: base64
   extensions:
   - uvv
@@ -718,6 +798,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/vnd.fvt
+  friendly: FAST Search & Transfer ASA
   encoding: base64
   extensions:
   - fvt
@@ -850,10 +931,11 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/vnd.mpegurl
+  friendly: MPEG Url
   encoding: 8bit
   extensions:
-  - m4u
   - mxu
+  - m4u
   references:
   - IANA
   - ! '[Heiko_Recktenwald]'
@@ -866,6 +948,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/vnd.ms-playready.media.pyv
+  friendly: Microsoft PlayReady Ecosystem Video
   encoding: base64
   extensions:
   - pyv
@@ -911,8 +994,8 @@
   content-type: video/vnd.objectvideo
   encoding: base64
   extensions:
-  - m4v
   - mp4
+  - m4v
   references:
   - IANA
   - ! '[John_Clark]'
@@ -968,8 +1051,8 @@
   content-type: video/vnd.sealed.mpeg4
   encoding: base64
   extensions:
-  - s14
   - smpg
+  - s14
   references:
   - IANA
   - ! '[David_Petersen]'
@@ -984,8 +1067,8 @@
   content-type: video/vnd.sealed.swf
   encoding: base64
   extensions:
-  - ssw
   - sswf
+  - ssw
   references:
   - IANA
   - ! '[David_Petersen]'
@@ -1000,9 +1083,9 @@
   content-type: video/vnd.sealedmedia.softseal.mov
   encoding: base64
   extensions:
-  - s1q
-  - smo
   - smov
+  - smo
+  - s1q
   references:
   - IANA
   - ! '[David_Petersen]'
@@ -1015,6 +1098,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/vnd.uvvu.mp4
+  friendly: DECE MP4
   encoding: base64
   extensions:
   - uvu
@@ -1031,6 +1115,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/vnd.vivo
+  friendly: Vivo
   encoding: base64
   extensions:
   - viv
@@ -1047,6 +1132,7 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/webm
+  friendly: Open Web Media Project - Video
   encoding: base64
   extensions:
   - webm
@@ -1069,18 +1155,21 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/x-f4v
+  friendly: Flash Video
   encoding: base64
   extensions:
   - f4v
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/x-fli
+  friendly: FLI/FLC Animation Format
   encoding: base64
   extensions:
   - fli
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/x-flv
+  friendly: Flash Video
   encoding: base64
   extensions:
   - flv
@@ -1099,6 +1188,7 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/x-m4v
+  friendly: M4v
   encoding: base64
   extensions:
   - m4v
@@ -1121,11 +1211,12 @@
   content-type: video/x-motion-jpeg
   encoding: base64
   extensions:
-  - mjpeg
   - mjpg
+  - mjpeg
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/x-ms-asf
+  friendly: Microsoft Advanced Systems Format (ASF)
   encoding: base64
   extensions:
   - asf
@@ -1139,36 +1230,42 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/x-ms-wm
+  friendly: Microsoft Windows Media
   encoding: base64
   extensions:
   - wm
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/x-ms-wmv
+  friendly: Microsoft Windows Media Video
   encoding: base64
   extensions:
   - wmv
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/x-ms-wmx
+  friendly: Microsoft Windows Media Audio/Video Playlist
   encoding: base64
   extensions:
   - wmx
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/x-ms-wvx
+  friendly: Microsoft Windows Media Video Playlist
   encoding: base64
   extensions:
   - wvx
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/x-msvideo
+  friendly: Audio Video Interleave (AVI)
   encoding: base64
   extensions:
   - avi
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/x-sgi-movie
+  friendly: SGI Movie
   encoding: base64
   extensions:
   - movie

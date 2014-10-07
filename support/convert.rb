@@ -6,28 +6,36 @@ require 'fileutils'
 
 class Convert
   class << self
+    # Create a Convert instance that converts from YAML.
     def from_yaml(path = nil)
       new(path: path, from: :yaml)
     end
 
+    # Create a Convert instance that converts from JSON.
     def from_json(path = nil)
       new(path: path, from: :json)
     end
 
+    # Create a Convert instance that converts from the mime-types 1.x file
+    # format.
     def from_v1(path = nil)
       new(path: path, from: :v1)
     end
 
+    # Converts from YAML to JSON. Defaults to converting to a single file.
     def from_yaml_to_json(args)
+      mf = args.multiple_files || "single"
       from_yaml(yaml_path(args.source)).
         to_json(destination:    json_path(args.destination),
-                multiple_files: multiple_files(args.multiple_files))
+                multiple_files: multiple_files(mf))
     end
 
+    # Converts from JSON to YAML. Defaults to converting to multiple files.
     def from_json_to_yaml(args)
+      mf = args.multiple_files || "multiple"
       from_json(json_path(args.source)).
         to_yaml(destination:    yaml_path(args.destination),
-                multiple_files: multiple_files(args.multiple_files))
+                multiple_files: multiple_files(mf))
     end
 
     private :new
@@ -50,8 +58,8 @@ class Convert
     end
 
     def multiple_files(flag)
-      case flag
-      when "true", "yes"
+      case flag.to_s.downcase
+      when "true", "yes", "multiple"
         true
       else
         false
@@ -73,11 +81,13 @@ class Convert
     load_from(options[:from])
   end
 
+  # Convert the data to JSON.
   def to_json(options = {})
     raise ArgumentError, 'destination is required' unless options[:destination]
     write_types(options.merge(format: :json))
   end
 
+  # Convert the data to YAML.
   def to_yaml(options = {})
     raise ArgumentError, 'destination is required' unless options[:destination]
     write_types(options.merge(format: :yaml))

@@ -204,7 +204,7 @@ class TestMIMEType < Minitest::Test
     assert_equal(%w(yaml), yaml.extensions)
 
     yaml.extensions = %w(yz yaml yz yml)
-    assert_equal(%w(yaml yml yz), yaml.extensions)
+    assert_equal(%w(yz yaml yml), yaml.extensions)
   end
 
   def test_like_eh
