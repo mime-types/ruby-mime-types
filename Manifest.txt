@@ -26,6 +26,7 @@ support/apache_mime_types.rb
 support/benchmarks/load.rb
 support/convert.rb
 support/iana_registry.rb
+test/bad-fixtures/malformed
 test/fixture/json.json
 test/fixture/old-data
 test/fixture/yaml.yaml

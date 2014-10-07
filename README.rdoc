@@ -24,12 +24,25 @@ add additional type definitions (see Contributing.rdoc). The primary sources
 for MIME type definitions found in mime-types is the IANA collection of
 registrations (see below for the link), RFCs, and W3C recommendations.
 
-This is release 2.2, mostly changing how the MIME type registry is updated from
-the IANA registry (the format of which was incompatibly changed shortly before
-this release) and taking advantage of the extra data available from IANA
-registry in the form of MIME::Type#xrefs. In addition, the {LTSW
-list}[http://www.ltsw.se/knbase/internet/mime.htp] has been dropped as a
-supported list.
+This is release 2.4.1 (2.4 was pulled), fixing a bug in observed use of the
+mime-types library where extensions were not previously sorted, such that
+
+    MIME::Types.of('image.jpg').first.extensions.first
+
+returned a value of +jpeg+ in mime-types 1, but +jpe+ in mime-types 2. This was
+introduced because extensions were sorted during assignment
+(MIME::Type#extensions=). This behaviour has been reverted to protect clients
+that work as noted above. The preferred way to express this is the new method:
+
+    MIME::Type.of('image.jpg').first.preferred_extension
+
+Łukasz Śliwa created the
+{friendly_mime}[https://github.com/lukaszsliwa/friendly_mime] gem, which offers
+friendly descriptive names for MIME types. This functionality and
+English-language data has been added to mime-types as MIME::Type#friendly. To
+make it easy for internationalization, MIME::Type#i18n_key has been added,
+which will return a key suitable for use with the
+{I18n}[https://github.com/svenfuchs/i18n] library.
 
 As a reminder, mime-types 2.x is no longer compatible with Ruby 1.8 and
 mime-types 1.x is only being maintained for security issues. No new MIME types
@@ -49,13 +62,14 @@ files). A MIME::Type stores the known information about one MIME type.
 
     require 'mime/types'
 
-    plaintext = MIME::Types['text/plain']
-    # returns [text/plain, text/plain]
-    text      = plaintext.first
+    plaintext = MIME::Types['text/plain'] # => [ text/plain ]
+    text = plaintext.first
     puts text.media_type            # => 'text'
     puts text.sub_type              # => 'plain'
 
     puts text.extensions.join(" ")  # => 'txt asc c cc h hh cpp hpp dat hlp'
+    puts text.friendly              # => 'Text Document'
+    puts text.i18n_key              # => 'text.plain'
 
     puts text.encoding              # => quoted-printable
     puts text.binary?               # => false
@@ -63,6 +77,7 @@ files). A MIME::Type stores the known information about one MIME type.
     puts text.obsolete?             # => false
     puts text.registered?           # => true
     puts text == 'text/plain'       # => true
+    puts 'text/plain' == text       # => true
     puts MIME::Type.simplified('x-appl/x-zip')
                                     # => 'appl/zip'
 
