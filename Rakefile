@@ -32,18 +32,18 @@ spec = Hoe.spec 'mime-types' do
   self.extra_dev_deps << ['coveralls', '~> 0.7']
 end
 
-task nokogiri: :support do
+task :support do
+  %w(lib support).each { |path|
+    $LOAD_PATH.unshift(File.join(Rake.application.original_dir, path))
+  }
+end
+
+task 'support:nokogiri' => :support do
   begin
     gem 'nokogiri'
   rescue Gem::LoadError
     fail "Nokogiri is not installed. Please install it."
   end
-end
-
-task :support do
-  %w(lib support).each { |path|
-    $LOAD_PATH.unshift(File.join(Rake.application.original_dir, path))
-  }
 end
 
 namespace :benchmark do
@@ -62,9 +62,11 @@ namespace :benchmark do
     require "mime/types"
     GC.start
     objects_after = ObjectSpace.count_objects
-    for key, delta in objects_before.keys.grep(/T_/).map { |key| [key, objects_after[key] - objects_before[key]] }.sort_by { |key, delta| -delta }
-      printf "%10s +%6d\n", key, delta
-    end
+    objects_before.keys.grep(/T_/).map { |key|
+      [ key, objects_after[key] - objects_before[key] ]
+    }.sort_by { |key, delta| -delta }.each { |key, delta|
+      puts "%10s +%6d" % [ key, delta ]
+    }
   end
 end
 
@@ -81,6 +83,7 @@ namespace :test do
     Rake::Task['test'].execute
   end
 
+  desc 'Run test coverage'
   task :coverage do
     spec.test_prelude = [
       'require "simplecov"',
@@ -93,13 +96,13 @@ end
 
 namespace :mime do
   desc "Download the current MIME type registrations from IANA."
-  task :iana, [ :destination ] => :nokogiri do |t, args|
+  task :iana, [ :destination ] => 'support:nokogiri' do |t, args|
     require 'iana_registry'
     IANARegistry.download(to: args.destination)
   end
 
   desc "Download the current MIME type configuration from Apache."
-  task :apache, [ :destination ] => :nokogiri do |t, args|
+  task :apache, [ :destination ] => 'support:nokogiri' do |t, args|
     require 'apache_mime_types'
     ApacheMIMETypes.download(to: args.destination)
   end
