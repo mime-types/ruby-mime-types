@@ -1,4 +1,4 @@
-== 2.4 / 2014-10-DD
+== 2.4 / 2014-10-07
 
 * Bugs:
   * Restored the extension sort order from mime-types 1.25.1 and modified
@@ -13,6 +13,9 @@
   * Added MIME::Type#friendly based on the concept presented by Łukasz Śliwa’s
     {friendly_mime}[https://github.com/lukaszsliwa/friendly_mime] gem. The
     initial data for this is pulled from +friendly_mime+.
+* MIME Type Development Tools:
+  * Adding documentation to conversion methods.
+  * Adding some robustness to missing Nokogiri support.
 
 == 2.3 / 2014-05-23
 

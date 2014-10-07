@@ -1,13 +1,30 @@
 = MIME Types Changes by Version
 
-== 2.4 / 2014-10-DD
+== 2.4 / 2014-10-07
 
 * Changed the sort order of many of the extensions to restore behaviour
   from mime-types 1.25.1.
-* Added +friendly+ MIME::Type descriptions.
+* Added +friendly+ MIME::Type descriptions where known.
 * Added +reg+, +ps1+, and +vbs+ extensions to application/x-msdos-program and
   application/x-msdownload.
 * Updated the IANA media registry entries as of release date.
+  * Several MIME types had updated metadata (application/alto-*, RFC7285;
+    application/calendar\+json, RFC7265; application/http, RFC7230;
+    application/xml, RFC7303; application/xml-dtd, RFC7303;
+    application/xml-external-parsed-entity, RFC7303; audio/AMR-WB, RFC4867;
+    audio/aptx, RFC7310; message/http, RFC7230; multipart/byteranges, RFC7233;
+    text/xml, RFC7303; text/xml-external-parsed-entity, RFC7303)
+  * MIME::Type application/EDI-Consent was renamed to application/EDI-consent.
+  * Obsoleted application/vnd.informix-visionary in favour of
+    application/vnd.visionary. Obsoleted
+    application/vnd.nokia.n-gage.symbian.install with no replacement.
+  * Added MIME types: application/ATF, application/coap-group\+json,
+    application/DCD, application/merge-patch\+json, application/scaip\+xml,
+    application/vnd.apache.thrift.binary, application/vnd.artsquare,
+    application/vnd.doremir.scorecloud-binary-document, application/vnd.dzr,
+    application/vnd.maxmind.maxmind-db,
+    application/vnd.ntt-local.ogw_remote-access, application/xml-patch+xml,
+    image/vnd.tencent.tap.
 
 == 2.3 / 2014-05-23
 
