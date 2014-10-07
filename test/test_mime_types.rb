@@ -16,6 +16,8 @@ class TestMIMETypes < Minitest::Test
 
   def test_enumerable
     assert(@mime_types.any? {|type| type.content_type == 'text/plain'})
+    assert_kind_of(Enumerator, @mime_types.each)
+    assert_equal(6, @mime_types.each.count)
   end
 
   def test_index_with_mime_type
