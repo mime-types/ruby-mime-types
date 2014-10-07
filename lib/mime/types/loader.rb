@@ -11,10 +11,8 @@ require 'mime/types/loader_path'
 # 3.  The value of MIME::Types::Loader::PATH.
 #
 # When #load is called, the +path+ will be searched recursively for all YAML
-# (.yml or .yaml) files. By convention, there is one file for each media type
-# (application.yml, audio.yml, etc.), but this is not required.
-#
-#
+# (.yml or .yaml) files. By convention, there is one file for each media
+# type (application.yml, audio.yml, etc.), but this is not required.
 class MIME::Types::Loader
   # The path that will be read for the MIME::Types files.
   attr_reader :path
@@ -81,6 +79,8 @@ class MIME::Types::Loader
     container
   end
 
+  BadV1Format = Class.new(Exception)
+
   class << self
     # Loads the default MIME::Type registry.
     def load
@@ -124,36 +124,27 @@ class MIME::Types::Loader
     # more information that's available, though, the richer the values that can
     # be provided.
     def load_from_v1(filename)
+      MIME.deprecated(self.class, __method__)
       data = read_file(filename).split($/)
       mime = MIME::Types.new
       data.each_with_index { |line, index|
         item = line.chomp.strip
         next if item.empty?
 
-        begin
-          m = MIME::Types::Loader::V1_FORMAT.match(item).captures
-        rescue Exception
+        m = MIME::Types::Loader::V1_FORMAT.match(item)
+
+        unless m
           warn <<-EOS
-#{filename}:#{index}: Parsing error in v1 MIME type definition.
+#{filename}:#{index + 1}: Parsing error in v1 MIME type definition.
 => #{line}
           EOS
-          raise
+          raise BadV1Format, line
         end
 
         unregistered, obsolete, platform, mediatype, subtype, extensions,
-          encoding, urls, docs, comment = *m
+          encoding, urls, docs, comment = *m.captures
 
-        if mediatype.nil?
-          if comment.nil?
-            warn <<-EOS
-#{filename}:#{index}: Parsing error in v1 MIME type definition (no media type).
-=> #{line}
-            EOS
-            raise
-          end
-
-          next
-        end
+        next if mediatype.nil?
 
         extensions &&= extensions.split(/,/)
         urls &&= urls.split(/,/)

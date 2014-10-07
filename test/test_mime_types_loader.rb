@@ -5,8 +5,9 @@ require 'minitest_helper'
 
 class TestMIMETypesLoader < Minitest::Test
   def setup
-    @path   = File.expand_path('../fixture', __FILE__)
-    @loader = MIME::Types::Loader.new(@path)
+    @path     = File.expand_path('../fixture', __FILE__)
+    @loader   = MIME::Types::Loader.new(@path)
+    @bad_path = File.expand_path('../bad-fixtures', __FILE__)
   end
 
   def assert_correctly_loaded(types)
@@ -38,5 +39,13 @@ class TestMIMETypesLoader < Minitest::Test
 
   def test_load_v1
     assert_correctly_loaded(@loader.load_v1)
+  end
+
+  def test_malformed_v1
+    assert_output(nil, /1: Parsing error in v1 MIME type definition/) {
+      assert_raises(MIME::Types::Loader::BadV1Format) {
+        MIME::Types::Loader.load_from_v1(File.join(@bad_path, 'malformed'))
+      }
+    }
   end
 end
