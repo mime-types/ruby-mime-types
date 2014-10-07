@@ -32,7 +32,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/calendar
-  friendly: iCalendar
+  friendly:
+    en: iCalendar
   encoding: quoted-printable
   extensions:
   - ics
@@ -58,7 +59,8 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: text/css
-  friendly: Cascading Style Sheets (CSS)
+  friendly:
+    en: Cascading Style Sheets (CSS)
   encoding: 8bit
   extensions:
   - css
@@ -74,7 +76,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/csv
-  friendly: Comma-Seperated Values
+  friendly:
+    en: Comma-Seperated Values
   encoding: 8bit
   extensions:
   - csv
@@ -211,7 +214,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/html
-  friendly: HyperText Markup Language (HTML)
+  friendly:
+    en: HyperText Markup Language (HTML)
   encoding: 8bit
   extensions:
   - html
@@ -277,7 +281,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/n3
-  friendly: Notation3
+  friendly:
+    en: Notation3
   encoding: quoted-printable
   extensions:
   - n3
@@ -318,7 +323,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/plain
-  friendly: Text File
+  friendly:
+    en: Text File
   encoding: quoted-printable
   extensions:
   - txt
@@ -385,7 +391,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/prs.lines.tag
-  friendly: PRS Lines Tag
+  friendly:
+    en: PRS Lines Tag
   encoding: quoted-printable
   extensions:
   - dsc
@@ -440,7 +447,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/richtext
-  friendly: Rich Text Format (RTF)
+  friendly:
+    en: Rich Text Format (RTF)
   encoding: 8bit
   extensions:
   - rtx
@@ -509,7 +517,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/sgml
-  friendly: Standard Generalized Markup Language (SGML)
+  friendly:
+    en: Standard Generalized Markup Language (SGML)
   encoding: quoted-printable
   extensions:
   - sgml
@@ -539,7 +548,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/tab-separated-values
-  friendly: Tab Seperated Values
+  friendly:
+    en: Tab Seperated Values
   encoding: quoted-printable
   extensions:
   - tsv
@@ -555,7 +565,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/troff
-  friendly: troff
+  friendly:
+    en: troff
   encoding: 8bit
   extensions:
   - t
@@ -577,7 +588,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/turtle
-  friendly: Turtle (Terse RDF Triple Language)
+  friendly:
+    en: Turtle (Terse RDF Triple Language)
   encoding: quoted-printable
   extensions:
   - ttl
@@ -608,7 +620,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/uri-list
-  friendly: URI Resolution Services
+  friendly:
+    en: URI Resolution Services
   encoding: quoted-printable
   extensions:
   - uri
@@ -668,7 +681,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/vnd.curl
-  friendly: Curl - Applet
+  friendly:
+    en: Curl - Applet
   encoding: quoted-printable
   extensions:
   - curl
@@ -684,21 +698,24 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/vnd.curl.dcurl
-  friendly: Curl - Detached Applet
+  friendly:
+    en: Curl - Detached Applet
   encoding: quoted-printable
   extensions:
   - dcurl
   registered: false
 - !ruby/object:MIME::Type
   content-type: text/vnd.curl.mcurl
-  friendly: Curl - Manifest File
+  friendly:
+    en: Curl - Manifest File
   encoding: quoted-printable
   extensions:
   - mcurl
   registered: false
 - !ruby/object:MIME::Type
   content-type: text/vnd.curl.scurl
-  friendly: Curl - Source Code
+  friendly:
+    en: Curl - Source Code
   encoding: quoted-printable
   extensions:
   - scurl
@@ -768,7 +785,8 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: text/vnd.fly
-  friendly: mod_fly / fly.cgi
+  friendly:
+    en: mod_fly / fly.cgi
   encoding: quoted-printable
   extensions:
   - fly
@@ -784,7 +802,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/vnd.fmi.flexstor
-  friendly: FLEXSTOR
+  friendly:
+    en: FLEXSTOR
   encoding: quoted-printable
   extensions:
   - flx
@@ -800,7 +819,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/vnd.graphviz
-  friendly: Graphviz
+  friendly:
+    en: Graphviz
   encoding: quoted-printable
   extensions:
   - gv
@@ -816,7 +836,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/vnd.in3d.3dml
-  friendly: In3D - 3DML
+  friendly:
+    en: In3D - 3DML
   encoding: quoted-printable
   extensions:
   - 3dml
@@ -832,7 +853,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/vnd.in3d.spot
-  friendly: In3D - 3DML
+  friendly:
+    en: In3D - 3DML
   encoding: quoted-printable
   extensions:
   - spot
@@ -955,7 +977,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/vnd.sun.j2me.app-descriptor
-  friendly: J2ME App Descriptor
+  friendly:
+    en: J2ME App Descriptor
   encoding: 8bit
   extensions:
   - jad
@@ -1014,7 +1037,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/vnd.wap.wml
-  friendly: Wireless Markup Language (WML)
+  friendly:
+    en: Wireless Markup Language (WML)
   encoding: quoted-printable
   extensions:
   - wml
@@ -1030,7 +1054,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/vnd.wap.wmlscript
-  friendly: Wireless Markup Language Script (WMLScript)
+  friendly:
+    en: Wireless Markup Language Script (WMLScript)
   encoding: quoted-printable
   extensions:
   - wmls
@@ -1046,7 +1071,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/x-asm
-  friendly: Assembler Source File
+  friendly:
+    en: Assembler Source File
   encoding: quoted-printable
   extensions:
   - asm
@@ -1054,7 +1080,8 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: text/x-c
-  friendly: C Source File
+  friendly:
+    en: C Source File
   encoding: quoted-printable
   extensions:
   - c
@@ -1079,7 +1106,8 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: text/x-fortran
-  friendly: Fortran Source File
+  friendly:
+    en: Fortran Source File
   encoding: quoted-printable
   extensions:
   - f
@@ -1089,7 +1117,8 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: text/x-java-source
-  friendly: Java Source File
+  friendly:
+    en: Java Source File
   encoding: quoted-printable
   extensions:
   - java
@@ -1108,7 +1137,8 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: text/x-pascal
-  friendly: Pascal Source File
+  friendly:
+    en: Pascal Source File
   encoding: quoted-printable
   extensions:
   - p
@@ -1125,7 +1155,8 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: text/x-setext
-  friendly: Setext
+  friendly:
+    en: Setext
   encoding: quoted-printable
   extensions:
   - etx
@@ -1138,21 +1169,24 @@
   registered: false
 - !ruby/object:MIME::Type
   content-type: text/x-uuencode
-  friendly: UUEncode
+  friendly:
+    en: UUEncode
   encoding: quoted-printable
   extensions:
   - uu
   registered: false
 - !ruby/object:MIME::Type
   content-type: text/x-vcalendar
-  friendly: vCalendar
+  friendly:
+    en: vCalendar
   encoding: 8bit
   extensions:
   - vcs
   registered: false
 - !ruby/object:MIME::Type
   content-type: text/x-vcard
-  friendly: vCard
+  friendly:
+    en: vCard
   encoding: 8bit
   extensions:
   - vcf

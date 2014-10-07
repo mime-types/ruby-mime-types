@@ -14,7 +14,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: model/iges
-  friendly: Initial Graphics Exchange Specification (IGES)
+  friendly:
+    en: Initial Graphics Exchange Specification (IGES)
   encoding: base64
   extensions:
   - igs
@@ -31,7 +32,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: model/mesh
-  friendly: Mesh Data Type
+  friendly:
+    en: Mesh Data Type
   encoding: base64
   extensions:
   - msh
@@ -46,7 +48,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: model/vnd.collada+xml
-  friendly: COLLADA
+  friendly:
+    en: COLLADA
   encoding: base64
   extensions:
   - dae
@@ -62,7 +65,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: model/vnd.dwf
-  friendly: Autodesk Design Web Format (DWF)
+  friendly:
+    en: Autodesk Design Web Format (DWF)
   encoding: base64
   extensions:
   - dwf
@@ -91,7 +95,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: model/vnd.gdl
-  friendly: Geometric Description Language (GDL)
+  friendly:
+    en: Geometric Description Language (GDL)
   encoding: base64
   extensions:
   - gdl
@@ -120,7 +125,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: model/vnd.gtw
-  friendly: Gen-Trix Studio
+  friendly:
+    en: Gen-Trix Studio
   encoding: base64
   extensions:
   - gtw
@@ -149,7 +155,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: model/vnd.mts
-  friendly: Virtue MTS
+  friendly:
+    en: Virtue MTS
   encoding: base64
   extensions:
   - mts
@@ -223,7 +230,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: model/vnd.vtu
-  friendly: Virtue VTU
+  friendly:
+    en: Virtue VTU
   encoding: base64
   extensions:
   - vtu
@@ -239,7 +247,8 @@
   registered: true
 - !ruby/object:MIME::Type
   content-type: model/vrml
-  friendly: Virtual Reality Modeling Language
+  friendly:
+    en: Virtual Reality Modeling Language
   encoding: base64
   extensions:
   - wrl

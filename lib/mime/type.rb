@@ -10,7 +10,7 @@ require 'json'
 #
 #  plaintext = MIME::Types['text/plain'].first
 #  # returns [text/plain, text/plain]
-#  text      = plaintext.first
+#  text = plaintext.first
 #  print text.media_type           # => 'text'
 #  print text.sub_type             # => 'plain'
 #
@@ -64,6 +64,7 @@ class MIME::Type
   # :stopdoc:
   MEDIA_TYPE_RE     = %r{([-\w.+]+)/([-\w.+]*)}o
   UNREGISTERED_RE   = %r{[Xx]-}o
+  I18N_RE           = %r{[^[:alnum:]]}o
   PLATFORM_RE       = %r{#{RUBY_PLATFORM}}o
 
   DEFAULT_ENCODINGS = [ nil, :default ]
@@ -94,7 +95,6 @@ class MIME::Type
     self.registered  = nil
     self.use_instead = nil
     self.signature   = nil
-    self.friendly    = nil
 
     case content_type
     when Hash
@@ -111,6 +111,7 @@ class MIME::Type
     self.extensions   ||= []
     self.docs         ||= nil
     self.encoding     ||= :default
+    self.friendly({})
     # This value will be deprecated in the future, as it will be an
     # alternative view on #xrefs. Silence an unnecessary warning for now by
     # assigning directly to the instance variable.
@@ -309,7 +310,33 @@ class MIME::Type
   attr_accessor :docs
 
   # A friendly short description for this MIME::Type.
-  attr_accessor :friendly
+  #
+  # call-seq:
+  #   text_plain.friendly         # => "Text File"
+  #   text_plain.friendly('en')   # => "Text File"
+  def friendly(lang = 'en')
+    @friendly ||= {}
+
+    case lang
+    when String
+      @friendly[lang]
+    when Array
+      @friendly.merge!(Hash[*lang])
+    when Hash
+      @friendly.merge!(lang)
+    end
+  end
+
+  # A key suitable for use as a lookup key for translations, such as with
+  # the I18n library.
+  #
+  # call-seq:
+  #    text_plain.i18n_key # => "text.plain"
+  #    3gpp_xml.i18n_key   # => "application.vnd-3gpp-bsf-xml"
+  #      # from application/vnd.3gpp.bsf+xml
+  #    x_msword.i18n_key   # => "application.word"
+  #      # from application/x-msword
+  attr_reader :i18n_key
 
   # The encoded references URL list for this MIME::Type. See #urls for more
   # information.
@@ -527,7 +554,7 @@ class MIME::Type
   def encode_with(coder)
     coder['content-type']   = @content_type
     coder['docs']           = @docs unless @docs.nil? or @docs.empty?
-    coder['friendly']       = @friendly if @friendly
+    coder['friendly']       = @friendly unless @friendly.empty?
     coder['encoding']       = @encoding
     coder['extensions']     = @extensions unless @extensions.empty?
     if obsolete?
@@ -545,7 +572,7 @@ class MIME::Type
   def init_with(coder)
     self.content_type = coder['content-type']
     self.docs         = coder['docs'] || []
-    self.friendly     = coder['friendly']
+    self.friendly(coder['friendly'] || {})
     self.encoding     = coder['encoding']
     self.extensions   = coder['extensions'] || []
     self.obsolete     = coder['obsolete']
@@ -568,14 +595,34 @@ class MIME::Type
     # proliferation of MIME types. The simplified string has the <tt>x-</tt>
     # removed and are translated to lowercase.
     def simplified(content_type)
-      matchdata = MEDIA_TYPE_RE.match(content_type)
+      matchdata = case content_type
+                  when MatchData
+                    content_type
+                  else
+                    MEDIA_TYPE_RE.match(content_type)
+                  end
 
-      if matchdata.nil?
-        nil
-      else
+      if matchdata
         matchdata.captures.map { |e|
           e.downcase.gsub(UNREGISTERED_RE, '')
         }.join('/')
+      end
+    end
+
+    # Converts a provided content type into a translation key suitable for
+    # use with the I18n library.
+    def i18n_key(content_type)
+      matchdata = case content_type
+                  when MatchData
+                    content_type
+                  else
+                    MEDIA_TYPE_RE.match(content_type)
+                  end
+
+      if matchdata
+        matchdata.captures.map { |e|
+          e.downcase.gsub(I18N_RE, '-')
+        }.join('.')
       end
     end
 
@@ -682,7 +729,8 @@ class MIME::Type
 
     @content_type                  = type_string
     @raw_media_type, @raw_sub_type = *match.captures
-    @simplified                    = MIME::Type.simplified(type_string)
+    @simplified                    = MIME::Type.simplified(match)
+    @i18n_key                      = MIME::Type.i18n_key(match)
     @media_type, @sub_type         =
       *MEDIA_TYPE_RE.match(@simplified).captures
   end
