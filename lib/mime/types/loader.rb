@@ -79,6 +79,7 @@ class MIME::Types::Loader
     container
   end
 
+  # Raised when a V1 format file is discovered.
   BadV1Format = Class.new(Exception)
 
   class << self
@@ -131,7 +132,7 @@ class MIME::Types::Loader
         item = line.chomp.strip
         next if item.empty?
 
-        m = MIME::Types::Loader::V1_FORMAT.match(item)
+        m = V1_FORMAT.match(item)
 
         unless m
           warn <<-EOS
@@ -222,18 +223,19 @@ class MIME::Types::Loader
 
   # The regular expression used to match a v1-format file-based MIME type
   # definition.
-  MIME::Types::Loader::V1_FORMAT = # :nodoc:
+  V1_FORMAT = # :nodoc:
     %r{\A\s*
-    ([*])?                                 # 0: Unregistered?
-    (!)?                                   # 1: Obsolete?
-    (?:(\w+):)?                            # 2: Platform marker
-    #{MIME::Type::MEDIA_TYPE_RE}?          # 3,4: Media type
-    (?:\s+@(\S+))?                         # 5: Extensions
-    (?:\s+:(base64|7bit|8bit|quoted\-printable))?  # 6: Encoding
-    (?:\s+'(\S+))?                         # 7: URL list
-    (?:\s+=(.+))?                          # 8: Documentation
-    (?:\s*([#].*)?)?
+    ([*])?                                        # 0:    Unregistered?
+    (!)?                                          # 1:    Obsolete?
+    (?:(\w+):)?                                   # 2:    Platform marker
+    ([-\w.+]+)/([-\w.+]*)                         # 3, 4: Media Type
+    (?:\s+@(\S+))?                                # 5:    Extensions
+    (?:\s+:(base64|7bit|8bit|quoted\-printable))? # 6:    Encoding
+    (?:\s+'(\S+))?                                # 7:    URL list
+    (?:\s+=(.+))?                                 # 8:    Documentation
+    (?:\s*([#].*)?)?                              #       Comments
     \s*
     \z
     }x
+  private_constant :V1_FORMAT
 end

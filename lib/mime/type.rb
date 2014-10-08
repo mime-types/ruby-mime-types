@@ -50,8 +50,7 @@ class MIME::Type
     end
 
     def to_s
-      "Invalid Encoding #{@encoding.inspect} (valid values are " +
-        "#{MIME::Type::VALID_ENCODINGS.inspect})."
+      "Invalid Encoding #{@encoding.inspect} (valid values: #{VALID_ENCODINGS.inspect})."
     end
     # :startdoc:
   end
@@ -61,7 +60,6 @@ class MIME::Type
 
   include Comparable
 
-  # :stopdoc:
   MEDIA_TYPE_RE     = %r{([-\w.+]+)/([-\w.+]*)}o
   UNREGISTERED_RE   = %r{[Xx]-}o
   I18N_RE           = %r{[^[:alnum:]]}o
@@ -76,7 +74,9 @@ class MIME::Type
   RFC_URL           = "http://rfc-editor.org/rfc/rfc%s.txt"
   DRAFT_URL         = "http://datatracker.ietf.org/public/idindex.cgi?command=id_details&filename=%s"
   CONTACT_URL       = "http://www.iana.org/assignments/contact-people.htm#%s"
-  # :startdoc:
+  private_constant :MEDIA_TYPE_RE, :UNREGISTERED_RE, :I18N_RE, :PLATFORM_RE,
+    :DEFAULT_ENCODINGS, :BINARY_ENCODINGS, :TEXT_ENCODINGS, :VALID_ENCODINGS,
+    :IANA_URL, :RFC_URL, :DRAFT_URL, :CONTACT_URL
 
   # Builds a MIME::Type object from the provided MIME Content Type value
   # (e.g., 'text/plain' or 'applicaton/x-eruby'). The constructed object is
@@ -552,7 +552,9 @@ class MIME::Type
     encode_with({})
   end
 
-  # :stopdoc:
+  # Populates the +coder+ with attributes about this record for
+  # serialization. The structure of +coder+ should match the structure used
+  # with #init_with.
   def encode_with(coder)
     coder['content-type']   = @content_type
     coder['docs']           = @docs unless @docs.nil? or @docs.empty?
@@ -571,6 +573,8 @@ class MIME::Type
     coder
   end
 
+  # Initialize an empty object from +coder+, which must contain the
+  # attributes necessary for initializing an empty object.
   def init_with(coder)
     self.content_type = coder['content-type']
     self.docs         = coder['docs'] || []

@@ -167,11 +167,9 @@ class TestMIMEType < Minitest::Test
     assert_equal('base64', yaml.encoding)
     yaml.encoding = :default
     assert_equal('quoted-printable', yaml.encoding)
-    begin
+    assert_raises(MIME::Type::InvalidEncoding) {
       yaml.encoding = 'binary'
-    rescue MIME::Type::InvalidEncoding => ex
-      assert_equal('Invalid Encoding "binary" (valid values are [nil, :default, "base64", "8bit", "7bit", "quoted-printable"]).', ex.message)
-    end
+    }
   end
 
   def test_default_encoding
