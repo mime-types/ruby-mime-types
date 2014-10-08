@@ -101,7 +101,7 @@ class TestMIMEType < Minitest::Test
     assert_nil(MIME::Type.i18n_key('text'))
   end
 
-  def test_CMP # '<=>'
+  def test_spaceship_compare # '<=>'
     assert(MIME::Type.new('text/plain') == MIME::Type.new('text/plain'))
     assert(MIME::Type.new('text/plain') != MIME::Type.new('image/jpeg'))
     assert(MIME::Type.new('text/plain') == 'text/plain')
