@@ -324,6 +324,8 @@ class MIME::Type
       @friendly.merge!(Hash[*lang])
     when Hash
       @friendly.merge!(lang)
+    else
+      raise ArgumentError
     end
   end
 
@@ -425,7 +427,7 @@ class MIME::Type
         values.map { |data|
           "http://www.iana.org/assignments/media-types/#{data}"
         }
-      when 'uri', 'text'
+      else # 'uri', 'text', etc.
         values
       end
     }.flatten
