@@ -1,0 +1,55 @@
+---
+languages:
+  - ruby
+excludes:
+  - data
+  - docs
+  - type-lists
+  - .minitest.rb
+rules:
+  documentation:
+    except:
+      - test/**
+      - support/**
+  style:
+    except:
+      - db/**
+      - config/deploy/**
+      - config/environments/**
+      - config/application.rb
+      - config/routes.rb
+  duplication:
+    except:
+      - db/**
+      - config/deploy/**
+      - config/environments/**
+      - config/application.rb
+      - config/routes.rb
+  complexity:
+    except:
+      - config/routes.rb
+# ignore:
+#   - add_underscores_to_large_numeric
+#   - avoid_using_curly_braces_for_multi-line_blocks
+#   - don_t_use_parentheses_around_the_condition
+#   - extra_blank_line_detected
+#   - extra_blank_line_detected_at_body_end
+#   - extra_blank_line_detected_at_body_beginning
+#   - indent_when_as_deep_as_case
+#   - missing_class_documentation
+#   - missing_method_documentation
+#   - prefer_map_over_collect
+#   - prefer_reduce_over_inject
+#   - prefer_ruby_19_new_hash_syntax
+#   - prefer_ruby_19_new_lambda_syntax
+#   - prefer_single_quoted_strings
+#   - space_between_curly_brace_and_pipe_missing
+#   - space_inside_parentheses_detected
+#   - space_inside_opening_curly_brace_missing
+#   - space_inside_closing_curly_brace_missing
+#   - space_inside_square_brackets_detected
+#   - space_missing_inside_opening_curly_brace
+#   - space_missing_inside_closing_curly_brace
+#   - space_missing_after_hash_sign
+#   - surrounding_space_missing_for_opening_curly_brace
+#   - use_def_with_parentheses_when_there_are_arguments
