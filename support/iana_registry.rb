@@ -52,62 +52,8 @@ class IANARegistry
 
   def parse
     @registry.css('record').each do |record|
-      subtype = record.at_css('name').text
-      refs    = record.css('xref').map do |xref|
-        case xref["type"]
-        when 'person'
-          "[#{xref["data"]}]"
-        when 'rfc'
-          xref["data"].upcase
-        when 'draft'
-          "DRAFT:#{xref["data"].sub(/^RFC-/, 'draft-')}"
-        when 'rfc-errata'
-          "{RFC Errata #{xref["data"]}=http://www.rfc-editor.org/errata_search.php?eid=#{xref["data"]}}"
-        when 'uri'
-          # Fix a couple of known-broken links:
-          case xref["data"]
-          when /contact-people.htmll#Dolan\z/
-            "[Dolan]"
-          when /contact-people.htmll#Rottmann?\z/
-            "[Frank_Rottman]"
-          else
-            "{#{xref["data"]}}"
-          end
-        when 'text'
-          xref["data"]
-        end
-      end
-
-      xrefs   = MIME::Types::Container.new
-      record.css('xref').map do |xref|
-        type, data = xref["type"], xref["data"]
-
-        case type
-        when 'uri'
-          case data
-          when /contact-people.htmll#Dolan\z/
-            type, data = "person", "Dolan"
-          when /contact-people.htmll#Rottmann?\z/
-            type, data = "person", "Frank_Rottman"
-          end
-        end
-
-        xrefs[type] << data
-      end
-
-      record.css('file').each do |file|
-        file_name = if file.text == subtype
-                      [ @type, subtype ].join('/')
-                    else
-                      file.text
-                    end
-
-        if file["type"] == "template"
-          refs << (ASSIGNMENT_FILE_REF % [ file_name, file_name ])
-        end
-
-        xrefs[file["type"]] << file_name
-      end
+      subtype       = record.at_css('name').text
+      refs, xrefs   = parse_refs_and_files(record.css('xref'), record.css('file'))
 
       content_type  = [ @type, subtype ].join('/')
       obsolete      = record.at_css('obsolete')
@@ -149,6 +95,64 @@ class IANARegistry
       MIME::Types::Loader.load_from_yaml(file)
     else
       MIME::Types.new
+    end
+  end
+
+  def parse_refs_and_files(refs, files)
+    xr = MIME::Types::Container.new
+    r  = []
+
+    refs.each do |xref|
+      type, data = xref["type"], xref["data"]
+
+      # Fix some known-broken links that are actually people.
+      if type == 'uri'
+        case data
+        when /contact-people.htmll#Dolan\z/
+          type, data = "person", "Dolan"
+        when /contact-people.htmll#Rottmann?\z/
+          type, data = "person", "Frank_Rottman"
+        else
+          nil # There’s no error with this URI.
+        end
+      end
+
+      r << xref_to_ref(type, data)
+
+      xrefs[type] << data
+    end
+
+    files.each do |file|
+      file_name = if file.text == subtype
+                    [ @type, subtype ].join('/')
+                  else
+                    file.text
+                  end
+
+      if file["type"] == "template"
+        refs << (ASSIGNMENT_FILE_REF % [ file_name, file_name ])
+      end
+
+      xrefs[file["type"]] << file_name
+    end
+
+    r, xr
+  end
+
+  def ref_from_type(type, data)
+    case type
+    when 'person'
+      "[#{data}]"
+    when 'rfc'
+      data.upcase
+    when 'draft'
+      "DRAFT:#{data.sub(/^RFC-/, 'draft-')}"
+    when 'rfc-errata'
+      "{RFC Errata #{data}=http://www.rfc-editor.org/errata_search.php?eid=#{data}}"
+    when 'uri'
+      "{#{data}}"
+    else # 'text' or something else
+      data
     end
   end
 end
