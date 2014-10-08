@@ -15,7 +15,7 @@ class TestMIMETypes < Minitest::Test
   end
 
   def test_enumerable
-    assert(@mime_types.any? {|type| type.content_type == 'text/plain'})
+    assert(@mime_types.any? { |type| type.content_type == 'text/plain' })
     assert_kind_of(Enumerator, @mime_types.each)
     assert_equal(6, @mime_types.each.count)
   end
@@ -56,6 +56,7 @@ class TestMIMETypes < Minitest::Test
       assert_empty(MIME::Types['text/plain', platform: true])
     end
   end
+
   def test_add
     eruby = MIME::Type.new("application/x-eruby") do |t|
       t.extensions = "rhtml"

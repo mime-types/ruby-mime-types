@@ -18,7 +18,7 @@ class TestMIMETypesLoader < Minitest::Test
     assert_equal(%w(webm), types['audio/webm'].first.extensions)
     refute(types['audio/webm'].first.registered?)
 
-    assert_equal("Fixes a bug with IE6 and progressive JPEGs",
+    assert_equal('Fixes a bug with IE6 and progressive JPEGs',
                  types['image/pjpeg'].first.docs)
 
     assert(types['application/x-apple-diskimage'].first.system?)

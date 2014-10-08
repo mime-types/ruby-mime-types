@@ -415,15 +415,18 @@ class TestMIMEType < Minitest::Test
   def test_to_hash
     yaml = make_yaml_mime_type
     assert_deprecated("MIME::Type#to_hash") do
-      assert_equal({'Content-Type'              => 'text/x-yaml',
-                    'Content-Transfer-Encoding' => '8bit',
-                    'Extensions'                => %w(yaml yml),
-                    'System'                    => /d9d172f608/,
-                    'Registered'                => false,
-                    'URL'                       => [],
-                    'Obsolete'                  => false,
-                    'Docs'                      => nil },
-                    yaml.to_hash)
+      assert_equal(
+        {
+          'Content-Type'              => 'text/x-yaml',
+          'Content-Transfer-Encoding' => '8bit',
+          'Extensions'                => %w(yaml yml),
+          'System'                    => /d9d172f608/,
+          'Registered'                => false,
+          'URL'                       => [],
+          'Obsolete'                  => false,
+          'Docs'                      => nil
+        },
+        yaml.to_hash)
     end
   end
 

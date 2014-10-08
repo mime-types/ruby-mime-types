@@ -9,7 +9,7 @@ class TestMIMETypesQueryClassMethods < Minitest::Test
   end
 
   def test_enumerable
-    assert(MIME::Types.any? {|type| type.content_type == 'text/plain'})
+    assert(MIME::Types.any? { |type| type.content_type == 'text/plain' })
     assert_kind_of(Enumerator, MIME::Types.each)
     assert(MIME::Types.each.count > 999)
   end

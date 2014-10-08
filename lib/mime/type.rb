@@ -157,13 +157,13 @@ class MIME::Type
   def priority_compare(other)
     pc = simplified <=> other.simplified
     if pc.zero?
-      pc = if ((reg = registered?) != other.registered?)
+      pc = if (reg = registered?) != other.registered?
              reg ? -1 : 1 # registered < unregistered
-           elsif ((plat = platform?(true)) != other.platform?(true))
+           elsif (plat = platform?(true)) != other.platform?(true)
              plat ? 1 : -1 # generic < platform
-           elsif ((comp = complete?) != other.complete?)
+           elsif (comp = complete?) != other.complete?
              comp ? -1 : 1 # complete < incomplete
-           elsif ((obs = obsolete?) != other.obsolete?)
+           elsif (obs = obsolete?) != other.obsolete?
              obs ? 1 : -1 # current < obsolete
            elsif obs and ((ui = use_instead) != (oui = other.use_instead))
              if ui.nil?
@@ -275,6 +275,7 @@ class MIME::Type
     MIME.deprecated(self, __method__)
     @system
   end
+
   def system=(os) # :nodoc:
     if os.nil? or os.kind_of?(Regexp)
       @system = os
@@ -302,6 +303,7 @@ class MIME::Type
   def obsolete?
     !!@obsolete
   end
+
   def obsolete=(v) # :nodoc:
     @obsolete = !!v
   end
@@ -354,6 +356,7 @@ class MIME::Type
     MIME.deprecated(self, __method__, "and has been renamed to #references")
     references
   end
+
   def url=(r) # :nodoc:
     MIME.deprecated(self, __method__)
     self.references = r
@@ -451,6 +454,7 @@ class MIME::Type
       !!@registered
     end
   end
+
   def registered=(v) # :nodoc:
     @registered = v.nil? ? v : !!v
   end
@@ -474,6 +478,7 @@ class MIME::Type
   def signature?
     !!@signature
   end
+
   def signature=(v) # :nodoc:
     @signature = !!v
   end

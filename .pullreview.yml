@@ -6,6 +6,7 @@ excludes:
   - docs
   - type-lists
   - .minitest.rb
+  - lib/mime-types.rb
 rules:
   documentation:
     except:
@@ -14,21 +15,14 @@ rules:
   style:
     except:
       - db/**
-      - config/deploy/**
-      - config/environments/**
-      - config/application.rb
-      - config/routes.rb
   duplication:
     except:
-      - db/**
-      - config/deploy/**
-      - config/environments/**
-      - config/application.rb
-      - config/routes.rb
+      - test/**
   complexity:
     except:
-      - config/routes.rb
-# ignore:
+      - test/**
+  ignore:
+    - space_inside_square_brackets_detected
 #   - add_underscores_to_large_numeric
 #   - avoid_using_curly_braces_for_multi-line_blocks
 #   - don_t_use_parentheses_around_the_condition
@@ -47,7 +41,6 @@ rules:
 #   - space_inside_parentheses_detected
 #   - space_inside_opening_curly_brace_missing
 #   - space_inside_closing_curly_brace_missing
-#   - space_inside_square_brackets_detected
 #   - space_missing_inside_opening_curly_brace
 #   - space_missing_inside_closing_curly_brace
 #   - space_missing_after_hash_sign
