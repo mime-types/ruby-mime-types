@@ -142,7 +142,7 @@ class MIME::Types::Loader
         end
 
         unregistered, obsolete, platform, mediatype, subtype, extensions,
-          encoding, urls, docs, comment = *m.captures
+          encoding, urls, docs, _ = *m.captures
 
         next if mediatype.nil?
 

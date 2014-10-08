@@ -75,8 +75,6 @@ class Convert
       raise ArgumentError, ':from is required'
     end
 
-    path = options[:path]
-
     @loader = MIME::Types::Loader.new(options[:path])
     load_from(options[:from])
   end
