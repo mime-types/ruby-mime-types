@@ -199,7 +199,7 @@ class MIME::Types::Loader
     # shipped with the mime-types library.
     def load_from_json(filename)
       require 'json'
-      JSON.load(read_file(filename)).map { |type| MIME::Type.new(type) }
+      JSON.parse(read_file(filename)).map { |type| MIME::Type.new(type) }
     end
 
     private
