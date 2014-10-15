@@ -56,9 +56,7 @@ class MIME::Types::Loader
   # This method is aliased to #load.
   def load_json
     Dir[json_path].sort.each do |f|
-      types = self.class.load_from_json(f).map { |type|
-        MIME::Type.new(type)
-      }
+      types = self.class.load_from_json(f)
       container.add(*types, :silent)
     end
     container
