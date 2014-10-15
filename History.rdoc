@@ -1,4 +1,18 @@
-== 2.4 / 2014-10-07
+== 2.4.2 / 2014-10-15
+
+* Bugs:
+  * Aaron Patterson (@tenderlove) found a loading bug and provided a fix that
+    nearly doubled registry load performance
+    ({#74}[https://github.com/halostatue/mime-types/pull/74]).
+  * Godfrey Chan (@chancancode) provided a prophylactic security fix to use
+    <tt>JSON.parse</tt> instead of <tt>JSON.load</tt> in
+    {#75}[https://github.com/halostatue/mime-types/pull/75]. This provides a
+    20% improvement over the already improved result, resulting in a total 55%
+    performance boost.
+
+== 2.4.1 / 2014-10-07
+
+mime-types 2.4 was pulled.
 
 * Bugs:
   * Restored the extension sort order from mime-types 1.25.1 and modified

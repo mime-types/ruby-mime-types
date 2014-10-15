@@ -24,8 +24,12 @@ add additional type definitions (see Contributing.rdoc). The primary sources
 for MIME type definitions found in mime-types is the IANA collection of
 registrations (see below for the link), RFCs, and W3C recommendations.
 
-This is release 2.4.1 (2.4 was pulled), fixing a bug in observed use of the
-mime-types library where extensions were not previously sorted, such that
+This is release 2.4.2, fixing bugs with unnecessary object duplication and
+using JSON.parse instead of JSON.load. These fixes improve the JSON registry
+loading time by about 55% over previous 2.x releases. Cached registry load
+times are not changed. This release builds on the 2.4.1 release, which fixed a
+bug in observed use of the mime-types library where extensions were not
+previously sorted, such that
 
     MIME::Types.of('image.jpg').first.extensions.first
 

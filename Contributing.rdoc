@@ -109,3 +109,5 @@ Thanks to everyone else who has contributed to mime-types:
 * Greg Brockman
 * Łukasz Śliwa (for the friendly names)
 * Keerthi Siva
+* Aaron Patterson
+* Godfrey Chan

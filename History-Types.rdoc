@@ -1,6 +1,11 @@
 = MIME Types Changes by Version
 
-== 2.4 / 2014-10-07
+== 2.4.2 / 2014-10-15
+* Added application/vnd.ms-outlook as an unregistered MIME type with the
+  extension +msg+. Provided by @keerthisiv in
+  {#72}[https://github.com/halostatue/mime-types/pull/72].
+
+== 2.4.1 / 2014-10-07
 
 * Changed the sort order of many of the extensions to restore behaviour
   from mime-types 1.25.1.
