@@ -124,6 +124,11 @@ class MIME::Type
     yield self if block_given?
   end
 
+  #Returns the mime type
+  def mime_type
+    return "#{self.media_type}/#{self.sub_type}"
+  end
+
   # Returns +true+ if the simplified type matches the current
   def like?(other)
     if other.respond_to?(:simplified)
