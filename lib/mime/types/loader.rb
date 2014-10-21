@@ -235,5 +235,6 @@ class MIME::Types::Loader
     \s*
     \z
     }x
-  private_constant :V1_FORMAT
+
+  private_constant :V1_FORMAT if respond_to? :private_constant
 end

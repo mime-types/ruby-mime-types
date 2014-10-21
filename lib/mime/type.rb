@@ -56,7 +56,7 @@ class MIME::Type
   end
 
   # The released version of the mime-types library.
-  VERSION = '2.4.2'
+  VERSION = '2.4.3'
 
   include Comparable
 
@@ -74,9 +74,12 @@ class MIME::Type
   RFC_URL           = "http://rfc-editor.org/rfc/rfc%s.txt"
   DRAFT_URL         = "http://datatracker.ietf.org/public/idindex.cgi?command=id_details&filename=%s"
   CONTACT_URL       = "http://www.iana.org/assignments/contact-people.htm#%s"
-  private_constant :MEDIA_TYPE_RE, :UNREGISTERED_RE, :I18N_RE, :PLATFORM_RE,
-    :DEFAULT_ENCODINGS, :BINARY_ENCODINGS, :TEXT_ENCODINGS, :VALID_ENCODINGS,
-    :IANA_URL, :RFC_URL, :DRAFT_URL, :CONTACT_URL
+
+  if respond_to? :private_constant
+    private_constant :MEDIA_TYPE_RE, :UNREGISTERED_RE, :I18N_RE, :PLATFORM_RE,
+      :DEFAULT_ENCODINGS, :BINARY_ENCODINGS, :TEXT_ENCODINGS, :VALID_ENCODINGS,
+      :IANA_URL, :RFC_URL, :DRAFT_URL, :CONTACT_URL
+  end
 
   # Builds a MIME::Type object from the provided MIME Content Type value
   # (e.g., 'text/plain' or 'applicaton/x-eruby'). The constructed object is

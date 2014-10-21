@@ -1,3 +1,12 @@
+== 2.4.3 / 2014-10-21
+
+* Bugs:
+  * Restored Ruby 1.9.2 support by using +private_constant+ conditionally.
+    Fixes {#77}[https://github.com/halostatue/mime-types/issues/77] found by
+    Kris Leech (@krisleech). The conditional use of +private_constant+ here
+    will be removed for mime-types 3.0, when Ruby 1.9.2 support will be
+    unconditionally removed.
+
 == 2.4.2 / 2014-10-15
 
 * Bugs:
