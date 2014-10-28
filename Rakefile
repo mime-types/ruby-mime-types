@@ -2,6 +2,7 @@
 
 require 'rubygems'
 require 'hoe'
+require 'rake/clean'
 
 Hoe.plugin :doofus
 Hoe.plugin :gemspec2
@@ -117,15 +118,24 @@ namespace :convert do
     end
 
     %w(README History History-Types).each do |name|
-      file "#{name}.md" => [ "#{name}.rdoc", :setup ] do |t|
+      rdoc = "#{name}.rdoc"
+      mark = "#{name}.md"
+
+      file mark => [ rdoc, :setup ] do |t|
+        puts "#{rdoc} => #{mark}"
         File.open(t.name, 'wb') { |target|
           target.write @doc_converter.convert(IO.read(t.prerequisites.first))
         }
       end
 
-      task docs: [ name ]
+      CLEAN.add mark
+
+      task run: [ mark ]
     end
   end
+
+  desc "Convert documentation from RDoc to Markdown"
+  task docs: 'convert:docs:run'
 
   namespace :yaml do
     desc "Convert from YAML to JSON"

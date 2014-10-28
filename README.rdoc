@@ -19,7 +19,7 @@ HTTP traffic, to indicate the type of content which is transmitted. The
 mime-types library provides the ability for detailed information about MIME
 entities (provided as an enumerable collection of MIME::Type objects) to be
 determined and used programmatically. There are many types defined by RFCs and
-vendors, so the list is long but by definition incomplete; don't hesitate to to
+vendors, so the list is long but by definition incomplete; don't hesitate to
 add additional type definitions (see Contributing.rdoc). The primary sources
 for MIME type definitions found in mime-types is the IANA collection of
 registrations (see below for the link), RFCs, and W3C recommendations.
