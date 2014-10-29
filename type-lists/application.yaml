@@ -17763,6 +17763,7 @@
   encoding: base64
   extensions:
   - wz
+  - wkz
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-word

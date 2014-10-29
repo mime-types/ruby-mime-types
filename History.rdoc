@@ -1,7 +1,9 @@
 == NEXT / YYYY-MM-DD
 
 * Documentation:
-  * Tibor Szolár fixed a typo in the README.
+  * Tibor Szolár (@flexik) fixed a typo in the README.
+  * Fixed #80, clarifying the relationship of MIME::Type#content_type and
+    MIME::Type#simplified, with Ken Ip (@kenips).
 
 == 2.4.3 / 2014-10-21
 

@@ -24,28 +24,7 @@ add additional type definitions (see Contributing.rdoc). The primary sources
 for MIME type definitions found in mime-types is the IANA collection of
 registrations (see below for the link), RFCs, and W3C recommendations.
 
-This is release 2.4.3, restoring full compatibility with Ruby 1.9.2 (which will
-be dropped in mime-types 3.0). It also includes the performance improvements
-from mime-types 2.4.2 (since yanked because of the broken Ruby 1.9.2 support)
-and the 2.4.1 fix of a bug in observed use of the mime-types library where
-extensions were not previously sorted, such that
-
-    MIME::Types.of('image.jpg').first.extensions.first
-
-returned a value of +jpeg+ in mime-types 1, but +jpe+ in mime-types 2. This was
-introduced because extensions were sorted during assignment
-(MIME::Type#extensions=). This behaviour has been reverted to protect clients
-that work as noted above. The preferred way to express this is the new method:
-
-    MIME::Types.of('image.jpg').first.preferred_extension
-
-Łukasz Śliwa created the
-{friendly_mime}[https://github.com/lukaszsliwa/friendly_mime] gem, which offers
-friendly descriptive names for MIME types. This functionality and
-English-language data has been added to mime-types as MIME::Type#friendly. To
-make it easy for internationalization, MIME::Type#i18n_key has been added,
-which will return a key suitable for use with the
-{I18n}[https://github.com/svenfuchs/i18n] library.
+This is release 2.5, …
 
 As a reminder, mime-types 2.x is no longer compatible with Ruby 1.8 and
 mime-types 1.x is only being maintained for security issues. No new MIME types
@@ -71,6 +50,7 @@ files). A MIME::Type stores the known information about one MIME type.
     puts text.sub_type              # => 'plain'
 
     puts text.extensions.join(" ")  # => 'txt asc c cc h hh cpp hpp dat hlp'
+    puts text.preferred_extension   # => 'txt'
     puts text.friendly              # => 'Text Document'
     puts text.i18n_key              # => 'text.plain'
 
@@ -89,6 +69,17 @@ files). A MIME::Type stores the known information about one MIME type.
     }                               # => true
     puts MIME::Types.all?(&:registered?)
                                     # => false
+
+    # Various string representations of MIME types
+
+    qcelp = MIME::Types['audio/QCELP'].first # => audio/QCELP
+    puts qcelp.content_type         # => 'audio/QCELP'
+    puts qcelp.simplified           # => 'audio/qcelp'
+
+    xwingz = MIME::Types['application/x-Wingz'].first # => application/x-Wingz
+    puts xwingz.content_type        # => 'application/x-Wingz'
+    puts xwingz.simplified          # => 'application/wingz'
+
 
 == mime-types Modified Semantic Versioning
 

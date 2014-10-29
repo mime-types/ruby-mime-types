@@ -192,9 +192,22 @@ class MIME::Type
 
   # Returns the whole MIME content-type string.
   #
+  # The content type is a presentation value from the MIME type registry and
+  # should not be used for comparison. The case of the content type is
+  # preserved, and extension markers (<tt>x-</tt>) are kept.
+  #
   #   text/plain        => text/plain
   #   x-chemical/x-pdb  => x-chemical/x-pdb
+  #   audio/QCELP       => audio/QCELP
   attr_reader :content_type
+  # A simplified form of the MIME content-type string, suitable for
+  # case-insensitive comparison, with any extension markers (<tt>x-</tt)
+  # removed and converted to lowercase.
+  #
+  #   text/plain        => text/plain
+  #   x-chemical/x-pdb  => chemical/pdb
+  #   audio/QCELP       => audio/qcelp
+  attr_reader :simplified
   # Returns the media type of the simplified MIME::Type.
   #
   #   text/plain        => text
@@ -215,15 +228,6 @@ class MIME::Type
   #   text/plain        => plain
   #   x-chemical/x-pdb  => x-pdb
   attr_reader :raw_sub_type
-  # The MIME types main- and sub-label can both start with <tt>x-</tt>,
-  # which indicates that it is a non-registered name. Of course, after
-  # registration this flag can disappear, adds to the confusing
-  # proliferation of MIME types. The simplified string has the <tt>x-</tt>
-  # removed and are translated to lowercase.
-  #
-  #   text/plain        => text/plain
-  #   x-chemical/x-pdb  => chemical/pdb
-  attr_reader :simplified
 
   # The list of extensions which are known to be used for this MIME::Type.
   # Non-array values will be coerced into an array with #to_a. Array values
@@ -511,7 +515,7 @@ class MIME::Type
 
   # Returns the MIME::Type as a string.
   def to_s
-    @content_type
+    content_type
   end
 
   # Returns the MIME::Type as a string for implicit conversions. This allows
@@ -519,7 +523,7 @@ class MIME::Type
   #
   #   'text/plain' == MIME::Type.new('text/plain')
   def to_str
-    @content_type
+    content_type
   end
 
   # Returns the MIME::Type as an array suitable for use with
