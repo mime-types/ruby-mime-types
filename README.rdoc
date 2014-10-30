@@ -37,7 +37,7 @@ introduced because extensions were sorted during assignment
 (MIME::Type#extensions=). This behaviour has been reverted to protect clients
 that work as noted above. The preferred way to express this is the new method:
 
-    MIME::Type.of('image.jpg').first.preferred_extension
+    MIME::Types.of('image.jpg').first.preferred_extension
 
 Łukasz Śliwa created the
 {friendly_mime}[https://github.com/lukaszsliwa/friendly_mime] gem, which offers
