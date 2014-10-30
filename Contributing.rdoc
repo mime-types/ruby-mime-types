@@ -111,3 +111,4 @@ Thanks to everyone else who has contributed to mime-types:
 * Keerthi Siva
 * Aaron Patterson
 * Godfrey Chan
+* Tibor Szolár

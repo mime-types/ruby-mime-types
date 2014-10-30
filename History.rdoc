@@ -1,3 +1,8 @@
+== NEXT / YYYY-MM-DD
+
+* Documentation:
+  * Tibor Szolár fixed a typo in the README.
+
 == 2.4.3 / 2014-10-21
 
 * Bugs:
