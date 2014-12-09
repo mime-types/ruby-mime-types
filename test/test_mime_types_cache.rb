@@ -75,4 +75,16 @@ class TestMIMETypesCache < Minitest::Test
       MIME::Types['text/html']
     end
   end
+
+  def test_container_marshalling
+    container = MIME::Types::Container.new
+    # default proc should return []
+    assert_equal([], container['abc'])
+
+    marshalled = Marshal.dump(container)
+    loaded_container = Marshal.load(marshalled)
+
+    # default proc should still return []
+    assert_equal([], loaded_container['abcd'])
+  end
 end

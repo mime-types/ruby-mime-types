@@ -67,6 +67,7 @@ class MIME::Types
     end
 
     def marshal_load(hash)
+      self.default_proc = ->(h, k) { h[k] = [] }
       self.merge!(hash)
     end
   end
