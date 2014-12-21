@@ -1,3 +1,4 @@
+*.md
 *.swp
 *~
 .rake_tasks~
@@ -11,4 +12,3 @@ html
 pkg
 publish
 test/cache.tst
-*.md

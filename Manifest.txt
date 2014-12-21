@@ -1,11 +1,8 @@
 .autotest
-.coveralls.yml
 .gemtest
+.gitignore
 .hoerc
-.minitest.rb
-.travis.yml
 Contributing.rdoc
-Gemfile
 History-Types.rdoc
 History.rdoc
 Licence.rdoc
