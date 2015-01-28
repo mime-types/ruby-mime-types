@@ -77,7 +77,7 @@
 - !ruby/object:MIME::Type
   content-type: text/csv
   friendly:
-    en: Comma-Seperated Values
+    en: Comma-Separated Values
   encoding: 8bit
   extensions:
   - csv
@@ -549,7 +549,7 @@
 - !ruby/object:MIME::Type
   content-type: text/tab-separated-values
   friendly:
-    en: Tab Seperated Values
+    en: Tab Separated Values
   encoding: quoted-printable
   extensions:
   - tsv
