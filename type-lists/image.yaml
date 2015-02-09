@@ -11,6 +11,15 @@
   - image/x-bmp
   registered: false
 - !ruby/object:MIME::Type
+  content-type: image/x-ms-bmp
+  friendly:
+    en: Bitmap Image File
+  encoding: base64
+  extensions:
+  - bmp
+  obsolete: true
+  registered: false
+- !ruby/object:MIME::Type
   content-type: image/cgm
   friendly:
     en: Computer Graphics Metafile
