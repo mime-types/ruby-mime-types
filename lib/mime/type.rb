@@ -93,6 +93,7 @@ class MIME::Type
   #   extensions.
   # * Otherwise, the content_type will be used as a string.
   def initialize(content_type) # :yields self:
+    @friendly         = {}
     self.system      = nil
     self.obsolete    = false
     self.registered  = nil
@@ -114,7 +115,6 @@ class MIME::Type
     self.extensions   ||= []
     self.docs         ||= nil
     self.encoding     ||= :default
-    self.friendly({})
     # This value will be deprecated in the future, as it will be an
     # alternative view on #xrefs. Silence an unnecessary warning for now by
     # assigning directly to the instance variable.
@@ -618,8 +618,10 @@ class MIME::Type
 
       if matchdata
         matchdata.captures.map { |e|
-          e.downcase.gsub(UNREGISTERED_RE, '')
-        }.join('/')
+          e.downcase!
+          e.gsub!(UNREGISTERED_RE, ''.freeze)
+          e
+        }.join('/'.freeze)
       end
     end
 
@@ -635,8 +637,11 @@ class MIME::Type
 
       if matchdata
         matchdata.captures.map { |e|
-          e.downcase.gsub(UNREGISTERED_RE, '').gsub(I18N_RE, '-')
-        }.join('.')
+          e.downcase!
+          e.gsub!(UNREGISTERED_RE, ''.freeze)
+          e.gsub!(I18N_RE, '-'.freeze)
+          e
+        }.join('.'.freeze)
       end
     end
 
@@ -742,10 +747,11 @@ class MIME::Type
     raise InvalidContentType, type_string if match.nil?
 
     @content_type                  = type_string
-    @raw_media_type, @raw_sub_type = *match.captures
+    @raw_media_type, @raw_sub_type = match.captures
     @simplified                    = MIME::Type.simplified(match)
     @i18n_key                      = MIME::Type.i18n_key(match)
-    @media_type, @sub_type         =
-      *MEDIA_TYPE_RE.match(@simplified).captures
+    captures                       = MEDIA_TYPE_RE.match(@simplified).captures
+    @media_type                    = captures.first
+    @sub_type                      = captures.last
   end
 end

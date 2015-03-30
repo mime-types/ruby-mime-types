@@ -33,6 +33,34 @@ spec = Hoe.spec 'mime-types' do
   self.extra_dev_deps << ['coveralls', '~> 0.7']
 end
 
+desc 'Allocation counts'
+task allocations: :support do
+  require 'pp'
+
+  if RUBY_VERSION < '2.1'
+    $stderr.puts "Cannot count allocations on #{RUBY_VERSION}."
+    exit 1
+  end
+
+  begin
+    require 'allocation_tracer'
+  rescue LoadError => e
+    puts e
+    $stderr.puts "Allocation tracking requires the gem 'allocation_tracer'."
+    exit 1
+  end
+
+  r = ObjectSpace::AllocationTracer.trace do
+    require 'mime/types'
+  end
+
+  count = ObjectSpace::AllocationTracer.allocated_count_table.values.
+    inject(:+)
+
+  pp r.sort {|x, y| x.last.first <=> y.last.first }.reverse.first(100)
+  puts "TOTAL Allocations: #{count}"
+end
+
 task :support do
   %w(lib support).each { |path|
     $LOAD_PATH.unshift(File.join(Rake.application.original_dir, path))
