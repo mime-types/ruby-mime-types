@@ -34,34 +34,6 @@ spec = Hoe.spec 'mime-types' do
   self.extra_dev_deps << ['coveralls', '~> 0.7']
 end
 
-desc 'Allocation counts'
-task allocations: :support do
-  require 'pp'
-
-  if RUBY_VERSION < '2.1'
-    $stderr.puts "Cannot count allocations on #{RUBY_VERSION}."
-    exit 1
-  end
-
-  begin
-    require 'allocation_tracer'
-  rescue LoadError => e
-    puts e
-    $stderr.puts "Allocation tracking requires the gem 'allocation_tracer'."
-    exit 1
-  end
-
-  r = ObjectSpace::AllocationTracer.trace do
-    require 'mime/types'
-  end
-
-  count = ObjectSpace::AllocationTracer.allocated_count_table.values.
-    inject(:+)
-
-  pp r.sort {|x, y| x.last.first <=> y.last.first }.reverse.first(100)
-  puts "TOTAL Allocations: #{count}"
-end
-
 task :support do
   %w(lib support).each { |path|
     $LOAD_PATH.unshift(File.join(Rake.application.original_dir, path))
@@ -78,10 +50,67 @@ end
 
 namespace :benchmark do
   desc 'Benchmark Load Times'
-  task :load, [ :repeats ] => :support do |t, args|
+  task :load, [ :repeats ] => :support do |_, args|
     require 'benchmarks/load'
     Benchmarks::Load.report(File.join(Rake.application.original_dir, 'lib'),
                             args.repeats)
+  end
+
+  desc 'Allocation counts'
+  task :allocations, [ :top_x, :mime_types_only ] => :support do |_, args|
+    if RUBY_VERSION < '2.1'
+      $stderr.puts "Cannot count allocations on #{RUBY_VERSION}."
+      exit 1
+    end
+
+    begin
+      require 'allocation_tracer'
+    rescue LoadError
+      $stderr.puts "Allocation tracking requires the gem 'allocation_tracer'."
+      exit 1
+    end
+
+    allocations = ObjectSpace::AllocationTracer.trace do
+      require 'mime/types'
+    end
+
+    count = ObjectSpace::AllocationTracer.allocated_count_table.values.
+      inject(:+)
+
+    if args.top_x
+      require 'pp'
+      top_x = args.top_x.to_i
+      top_x = 10 if top_x <= 0
+
+      mime_types_only = !!args.mime_types_only
+
+      table = allocations.sort_by { |_, v| v.first }.reverse.first(top_x)
+      table.map! { |(location, allocs)|
+        next if mime_types_only and location.first !~ %r{mime-types/lib}
+        [ location.join(':').gsub(%r{^#{Dir.pwd}/}, ''), *allocs ]
+      }.compact!
+
+      head = (ObjectSpace::AllocationTracer.header - [ :line ]).map {|h|
+        h.to_s.split(/_/).map(&:capitalize).join(' ')
+      }
+      table.unshift head
+
+      max_widths = [].tap do |mw|
+        table.map { |row| row.lazy.map(&:to_s).map(&:length).to_a }.tap do |w|
+          w.first.each_index do |i|
+            mw << w.lazy.map { |r| r[i] }.max
+          end
+        end
+      end
+
+      pattern = [ "%%-%ds" ]
+      pattern << ([ "%% %ds" ] * (max_widths.length - 1))
+      pattern = pattern.join("\t") % max_widths
+      table.each { |row| puts pattern % row }
+      puts
+    end
+
+    puts "TOTAL Allocations: #{count}"
   end
 
   desc 'Show object counts'

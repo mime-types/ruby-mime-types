@@ -754,8 +754,6 @@ class MIME::Type
     @raw_media_type, @raw_sub_type = match.captures
     @simplified                    = MIME::Type.simplified(match)
     @i18n_key                      = MIME::Type.i18n_key(match)
-    captures                       = MEDIA_TYPE_RE.match(@simplified).captures
-    @media_type                    = captures.first
-    @sub_type                      = captures.last
+    @media_type, @sub_type         = MEDIA_TYPE_RE.match(@simplified).captures
   end
 end
