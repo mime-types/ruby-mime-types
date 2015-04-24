@@ -94,6 +94,21 @@
     - text/csv
   registered: true
 - !ruby/object:MIME::Type
+  content-type: text/csv-schema
+  encoding: quoted-printable
+  references:
+  - IANA
+  - "[National_Archives_UK]"
+  - "[David_Underdown]"
+  - "{text/csv-schema=http://www.iana.org/assignments/media-types/text/csv-schema}"
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - David_Underdown
+    - National_Archives_UK
+    template:
+    - text/csv-schema
+  registered: true
+- !ruby/object:MIME::Type
   content-type: text/directory
   encoding: quoted-printable
   obsolete: true
@@ -101,10 +116,15 @@
   - IANA
   - RFC2425
   - RFC6350
+  - "{text/directory=http://www.iana.org/assignments/media-types/text/directory}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2425
     - rfc6350
+    template:
+    - text/directory
+    notes:
+    - "- DEPRECATED by RFC6350"
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/directory - DEPRECATED by RFC6350
@@ -149,6 +169,8 @@
     - rfc4329
     template:
     - text/ecmascript
+    notes:
+    - "- OBSOLETED in favor of application/ecmascript"
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/encaprtp
@@ -252,6 +274,8 @@
     - rfc4329
     template:
     - text/javascript
+    notes:
+    - "- OBSOLETED in favor of application/javascript"
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/jcr-cnd
@@ -265,6 +289,21 @@
     - Peeter_Piegaze
     template:
     - text/jcr-cnd
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/markdown
+  encoding: quoted-printable
+  references:
+  - IANA
+  - DRAFT:draft-ietf-appsawg-text-markdown
+  - "{text/markdown=http://www.iana.org/assignments/media-types/text/markdown}"
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - draft-ietf-appsawg-text-markdown
+    template:
+    - text/markdown
+    notes:
+    - "(TEMPORARY - registered 2014-11-11, expires 2015-11-11)"
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/mizar
@@ -974,6 +1013,8 @@
     - Nicholas_Parks_Young
     template:
     - text/vnd.si.uricatalogue
+    notes:
+    - "- OBSOLETED by request"
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/vnd.sun.j2me.app-descriptor

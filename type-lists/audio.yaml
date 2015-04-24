@@ -103,9 +103,9 @@
   - RFC4867
   - "{audio/AMR-WB=http://www.iana.org/assignments/media-types/audio/AMR-WB}"
   xrefs: !ruby/hash:MIME::Types::Container
-    rfc:
+    rfc: &1
     - rfc4867
-    template:
+    template: &2
     - audio/AMR-WB
   registered: true
 - !ruby/object:MIME::Type
@@ -116,10 +116,8 @@
   - RFC4867
   - "{audio/AMR-WB=http://www.iana.org/assignments/media-types/audio/AMR-WB}"
   xrefs: !ruby/hash:MIME::Types::Container
-    rfc:
-    - rfc4867
-    template:
-    - audio/AMR-WB
+    rfc: *1
+    template: *2
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/amr-wb+
@@ -1048,6 +1046,19 @@
     - audio/ogg
   registered: true
 - !ruby/object:MIME::Type
+  content-type: audio/opus
+  encoding: base64
+  references:
+  - IANA
+  - DRAFT:draft-ietf-payload-rtp-opus-11
+  - "{audio/opus=http://www.iana.org/assignments/media-types/audio/opus}"
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-ietf-payload-rtp-opus-11
+    template:
+    - audio/opus
+  registered: true
+- !ruby/object:MIME::Type
   content-type: audio/parityfec
   encoding: base64
   references:
@@ -1881,7 +1892,8 @@
   extensions:
   - qcp
   obsolete: true
-  use-instead: audio/qcelp
+  use-instead:
+  - audio/qcelp
   references:
   - IANA
   - RFC3625
@@ -1891,6 +1903,8 @@
     - rfc3625
     template:
     - audio/vnd.qcelp
+    notes:
+    - "- DEPRECATED in favor of audio/qcelp"
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/vnd.rhetorex.32kadpcm

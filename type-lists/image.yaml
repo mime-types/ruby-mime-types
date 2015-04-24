@@ -793,6 +793,19 @@
     - image/vnd.xiff
   registered: true
 - !ruby/object:MIME::Type
+  content-type: image/vnd.zbrush.pcx
+  encoding: base64
+  references:
+  - IANA
+  - "[Chris_Charabaruk]"
+  - "{image/vnd.zbrush.pcx=http://www.iana.org/assignments/media-types/image/vnd.zbrush.pcx}"
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Chris_Charabaruk
+    template:
+    - image/vnd.zbrush.pcx
+  registered: true
+- !ruby/object:MIME::Type
   content-type: image/webp
   friendly:
     en: WebP Image

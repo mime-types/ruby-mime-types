@@ -646,11 +646,11 @@
   encoding: base64
   references:
   - IANA
-  - "[Frank_Rottman]"
+  - "[Frank_Rottmann]"
   - "{video/vnd.CCTV=http://www.iana.org/assignments/media-types/video/vnd.CCTV}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Frank_Rottman
+    - Frank_Rottmann
     template:
     - video/vnd.CCTV
   registered: true
@@ -664,11 +664,11 @@
   - uvvh
   references:
   - IANA
-  - "[Dolan]"
+  - "[Michael_A_Dolan]"
   - "{video/vnd.dece.hd=http://www.iana.org/assignments/media-types/video/vnd.dece.hd}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Dolan
+    - Michael_A_Dolan
     template:
     - video/vnd.dece.hd
   registered: true
@@ -682,11 +682,11 @@
   - uvvm
   references:
   - IANA
-  - "[Dolan]"
+  - "[Michael_A_Dolan]"
   - "{video/vnd.dece.mobile=http://www.iana.org/assignments/media-types/video/vnd.dece.mobile}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Dolan
+    - Michael_A_Dolan
     template:
     - video/vnd.dece.mobile
   registered: true
@@ -695,11 +695,11 @@
   encoding: base64
   references:
   - IANA
-  - "[Dolan]"
+  - "[Michael_A_Dolan]"
   - "{video/vnd.dece-mp4=http://www.iana.org/assignments/media-types/video/vnd.dece-mp4}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Dolan
+    - Michael_A_Dolan
     template:
     - video/vnd.dece-mp4
   registered: true
@@ -713,11 +713,11 @@
   - uvvp
   references:
   - IANA
-  - "[Dolan]"
+  - "[Michael_A_Dolan]"
   - "{video/vnd.dece.pd=http://www.iana.org/assignments/media-types/video/vnd.dece.pd}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Dolan
+    - Michael_A_Dolan
     template:
     - video/vnd.dece.pd
   registered: true
@@ -731,11 +731,11 @@
   - uvvs
   references:
   - IANA
-  - "[Dolan]"
+  - "[Michael_A_Dolan]"
   - "{video/vnd.dece.sd=http://www.iana.org/assignments/media-types/video/vnd.dece.sd}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Dolan
+    - Michael_A_Dolan
     template:
     - video/vnd.dece.sd
   registered: true
@@ -749,11 +749,11 @@
   - uvvv
   references:
   - IANA
-  - "[Dolan]"
+  - "[Michael_A_Dolan]"
   - "{video/vnd.dece.video=http://www.iana.org/assignments/media-types/video/vnd.dece.video}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Dolan
+    - Michael_A_Dolan
     template:
     - video/vnd.dece.video
   registered: true
@@ -1126,11 +1126,11 @@
   - uvvu
   references:
   - IANA
-  - "[Dolan]"
+  - "[Michael_A_Dolan]"
   - "{video/vnd.uvvu-mp4=http://www.iana.org/assignments/media-types/video/vnd.uvvu-mp4}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - Dolan
+    - Michael_A_Dolan
     template:
     - video/vnd.uvvu-mp4
   registered: true

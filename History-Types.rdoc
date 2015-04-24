@@ -1,6 +1,32 @@
 = MIME Types Changes by Version
 
+== 2.5 / 2015-04-24
+
+* Updated the IANA media registry entries as of release date:
+  * Added MIME types: application/A2L, application/AML, application/ATFX,
+    application/ATXML, application/CDFX+XML, application/CEA, application/DII, 
+    application/DIT, application/jose, application/jose+json,
+    application/json-seq, application/jwk+json, application/jwk-set+json,
+    application/jwt, application/LXF, application/MF4, application/rdap+json,
+    application/vnd.apache.thrift.compact, vnd.apache.thrift.json,
+    application/vnd.citationstyles.style+xml, application/vnd.coffeescript,
+    application/vnd.enphase.envoy, application/vnd.fastcopy-disk-image,
+    application/vnd.gerber, application/vnd.gov.sk.e-form+xml,
+    application/vnd.gov.sk.e-form+zip,
+    application/vnd.gov.sk.xmldatacontainer+xml, application/vnd.ims.imsccv1p1,
+    application/vnd.ims.imsccv1p2, application/vnd.ims.imsccv1p3,
+    application/vnd.micro+json, application/vnd.microsoft.portable-executable,
+    application/vnd.msa-disk-image, application/vnd.oracle.resource+json,
+    application/vnd.tmd.mediaflex.api+xml, audio/opus, image/vnd.zbrush.pcx,
+    text/csv-schema, text/markdown (marked as TEMPORARY).
+  * Updated metadata for application/coap-group+json (RFC7390),
+    application/epub+zip (now registered), application/merge-patch+json
+    (RFC7396), application/smil, application/vnd.arastra.swi,
+    application/vnd.geocube+xml, application/vnd.gmx, application/xhtml+xml,
+    text/directory.
+
 == 2.4.2 / 2014-10-15
+
 * Added application/vnd.ms-outlook as an unregistered MIME type with the
   extension +msg+. Provided by @keerthisiv in
   {#72}[https://github.com/halostatue/mime-types/pull/72].

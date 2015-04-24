@@ -170,6 +170,8 @@
     - Henry_Spencer
     template:
     - message/news
+    notes:
+    - "- OBSOLETED by RFC5537"
   registered: true
 - !ruby/object:MIME::Type
   content-type: message/partial
@@ -265,6 +267,8 @@
     - Nicholas_Parks_Young
     template:
     - message/vnd.si.simp
+    notes:
+    - "- OBSOLETED by request"
   registered: true
 - !ruby/object:MIME::Type
   content-type: message/vnd.wfa.wsc
