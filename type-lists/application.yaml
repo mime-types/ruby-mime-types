@@ -68,8 +68,7 @@
   - mdb
   - mde
   obsolete: true
-  use-instead:
-  - application/x-msaccess
+  use-instead: application/x-msaccess
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/activemessage
@@ -455,8 +454,7 @@
   extensions:
   - bleep
   obsolete: true
-  use-instead:
-  - application/x-bleeper
+  use-instead: application/x-bleeper
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/calendar+json
@@ -514,8 +512,7 @@
   content-type: application/cals1840
   encoding: base64
   obsolete: true
-  use-instead:
-  - application/cals-1840
+  use-instead: application/cals-1840
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/cbor
@@ -1266,8 +1263,7 @@
   - xls
   - xlt
   obsolete: true
-  use-instead:
-  - application/vnd.ms-excel
+  use-instead: application/vnd.ms-excel
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/exi
@@ -1413,15 +1409,13 @@
   extensions:
   - spl
   obsolete: true
-  use-instead:
-  - application/x-futuresplash
+  use-instead: application/x-futuresplash
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/ghostview
   encoding: base64
   obsolete: true
-  use-instead:
-  - application/x-ghostview
+  use-instead: application/x-ghostview
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/gml+xml
@@ -1488,8 +1482,7 @@
   extensions:
   - hep
   obsolete: true
-  use-instead:
-  - application/x-hep
+  use-instead: application/x-hep
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/http
@@ -1597,8 +1590,7 @@
   - imagemap
   - imap
   obsolete: true
-  use-instead:
-  - application/x-imagemap
+  use-instead: application/x-imagemap
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/index
@@ -2022,8 +2014,7 @@
   extensions:
   - wks
   obsolete: true
-  use-instead:
-  - application/vnd.lotus-1-2-3
+  use-instead: application/vnd.lotus-1-2-3
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/LXF
@@ -2065,8 +2056,7 @@
   extensions:
   - cpt
   obsolete: true
-  use-instead:
-  - application/x-mac-compactpro
+  use-instead: application/x-mac-compactpro
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/macbinary
@@ -2142,8 +2132,7 @@
   extensions:
   - mcd
   obsolete: true
-  use-instead:
-  - application/vnd.mcd
+  use-instead: application/vnd.mcd
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/mathematica
@@ -2168,8 +2157,7 @@
   content-type: application/mathematica-old
   encoding: base64
   obsolete: true
-  use-instead:
-  - application/x-mathematica-old
+  use-instead: application/x-mathematica-old
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/mathml+xml
@@ -3521,8 +3509,7 @@
   extensions:
   - qtl
   obsolete: true
-  use-instead:
-  - application/x-quicktimeplayer
+  use-instead: application/x-quicktimeplayer
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/raptorfec
@@ -3621,8 +3608,7 @@
   content-type: application/remote_printing
   encoding: base64
   obsolete: true
-  use-instead:
-  - application/remote-printing
+  use-instead: application/remote-printing
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/reputon+json
@@ -4208,8 +4194,7 @@
   - smi
   - smil
   obsolete: true
-  use-instead:
-  - application/smil+xml
+  use-instead: application/smil+xml
   references:
   - IANA
   - RFC4536
@@ -4648,8 +4633,7 @@
   extensions:
   - tbk
   obsolete: true
-  use-instead:
-  - application/x-toolbook
+  use-instead: application/x-toolbook
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/ttml+xml
@@ -4799,8 +4783,7 @@
   extensions:
   - bck
   obsolete: true
-  use-instead:
-  - application/x-VMSBACKUP
+  use-instead: application/x-VMSBACKUP
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/vnd.3gpp.bsf+xml
@@ -5400,8 +5383,7 @@
   content-type: application/vnd.arastra.swi
   encoding: base64
   obsolete: true
-  use-instead:
-  - application/vnd.aristanetworks.swi
+  use-instead: application/vnd.aristanetworks.swi
   references:
   - IANA
   - "[Bill_Fenner]"
@@ -8912,8 +8894,7 @@
   content-type: application/vnd.informix-visionary
   encoding: base64
   obsolete: true
-  use-instead:
-  - application/vnd.visionary
+  use-instead: application/vnd.visionary
   references:
   - IANA
   - "[Christopher_Gales]"
@@ -11478,8 +11459,7 @@
   content-type: application/vnd.nokia.ncd+xml
   encoding: base64
   obsolete: true
-  use-instead:
-  - application/vnd.nokia.ncd
+  use-instead: application/vnd.nokia.ncd
   references:
   - IANA
   - "[Nokia]"
@@ -16973,8 +16953,7 @@
   extensions:
   - wp
   obsolete: true
-  use-instead:
-  - application/vnd.wordperfect
+  use-instead: application/vnd.wordperfect
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/wordperfect5.1
@@ -16998,8 +16977,7 @@
   extensions:
   - wp6
   obsolete: true
-  use-instead:
-  - application/x-wordperfect6.1
+  use-instead: application/x-wordperfect6.1
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/wordperfectd
@@ -17007,8 +16985,7 @@
   extensions:
   - wpd
   obsolete: true
-  use-instead:
-  - application/vnd.wordperfect
+  use-instead: application/vnd.wordperfect
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/wsdl+xml
@@ -17050,8 +17027,7 @@
   extensions:
   - wk
   obsolete: true
-  use-instead:
-  - application/vnd.lotus-1-2-3
+  use-instead: application/vnd.lotus-1-2-3
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-7z-compressed
@@ -17080,8 +17056,7 @@
   - mdb
   - mde
   obsolete: true
-  use-instead:
-  - application/x-msaccess
+  use-instead: application/x-msaccess
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-ace-compressed
@@ -17228,8 +17203,7 @@
   - z
   - Z
   obsolete: true
-  use-instead:
-  - application/x-compressed
+  use-instead: application/x-compressed
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-compressed
@@ -17364,8 +17338,7 @@
   content-type: application/x-excel
   encoding: base64
   obsolete: true
-  use-instead:
-  - application/vnd.ms-excel
+  use-instead: application/vnd.ms-excel
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-font-bdf
@@ -17512,8 +17485,7 @@
   extensions:
   - gz
   obsolete: true
-  use-instead:
-  - application/gzip
+  use-instead: application/gzip
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-hdf
@@ -17628,8 +17600,7 @@
   extensions:
   - js
   obsolete: true
-  use-instead:
-  - application/javascript
+  use-instead: application/javascript
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-koan
@@ -17655,8 +17626,7 @@
   extensions:
   - wks
   obsolete: true
-  use-instead:
-  - application/vnd.lotus-1-2-3
+  use-instead: application/vnd.lotus-1-2-3
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-lzh-compressed
@@ -17701,8 +17671,7 @@
   - book
   - fbdoc
   obsolete: true
-  use-instead:
-  - application/vnd.framemaker
+  use-instead: application/vnd.framemaker
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-mathcad
@@ -17710,8 +17679,7 @@
   extensions:
   - mcd
   obsolete: true
-  use-instead:
-  - application/vnd.mcd
+  use-instead: application/vnd.mcd
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-mathematica-old
@@ -17900,8 +17868,7 @@
   - dot
   - wrd
   obsolete: true
-  use-instead:
-  - application/msword
+  use-instead: application/msword
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-mswrite
@@ -18020,8 +17987,7 @@
   extensions:
   - rtf
   obsolete: true
-  use-instead:
-  - application/rtf
+  use-instead: application/rtf
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-ruby
@@ -18205,8 +18171,7 @@
   - tr
   - roff
   obsolete: true
-  use-instead:
-  - text/troff
+  use-instead: text/troff
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-troff-man
@@ -18230,8 +18195,7 @@
   content-type: application/x-u-star
   encoding: base64
   obsolete: true
-  use-instead:
-  - application/x-ustar
+  use-instead: application/x-ustar
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-ustar
@@ -18275,8 +18239,7 @@
   - doc
   - dot
   obsolete: true
-  use-instead:
-  - application/msword
+  use-instead: application/msword
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-wordperfect
@@ -18284,8 +18247,7 @@
   extensions:
   - wp
   obsolete: true
-  use-instead:
-  - application/vnd.wordperfect
+  use-instead: application/vnd.wordperfect
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-wordperfect6.1
@@ -18299,8 +18261,7 @@
   extensions:
   - wpd
   obsolete: true
-  use-instead:
-  - application/vnd.wordperfect
+  use-instead: application/vnd.wordperfect
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/x-www-form-urlencoded
@@ -18384,8 +18345,7 @@
   content-type: application/x400.bp
   encoding: base64
   obsolete: true
-  use-instead:
-  - application/x400-bp
+  use-instead: application/x400-bp
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/xacml+xml

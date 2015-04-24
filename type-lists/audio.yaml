@@ -1892,8 +1892,7 @@
   extensions:
   - qcp
   obsolete: true
-  use-instead:
-  - audio/qcelp
+  use-instead: audio/qcelp
   references:
   - IANA
   - RFC3625

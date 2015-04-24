@@ -54,8 +54,7 @@
   extensions:
   - csv
   obsolete: true
-  use-instead:
-  - text/csv
+  use-instead: text/csv
   registered: false
 - !ruby/object:MIME::Type
   content-type: text/css
@@ -158,8 +157,7 @@
   content-type: text/ecmascript
   encoding: quoted-printable
   obsolete: true
-  use-instead:
-  - application/ecmascript
+  use-instead: application/ecmascript
   references:
   - IANA
   - RFC4329
@@ -263,8 +261,7 @@
   extensions:
   - js
   obsolete: true
-  use-instead:
-  - application/javascript
+  use-instead: application/javascript
   references:
   - IANA
   - RFC4329
@@ -819,8 +816,7 @@
   content-type: text/vnd.flatland.3dml
   encoding: quoted-printable
   obsolete: true
-  use-instead:
-  - model/vnd.flatland.3dml
+  use-instead: model/vnd.flatland.3dml
   registered: false
 - !ruby/object:MIME::Type
   content-type: text/vnd.fly
@@ -1191,8 +1187,7 @@
   extensions:
   - rtf
   obsolete: true
-  use-instead:
-  - text/rtf
+  use-instead: text/rtf
   registered: false
 - !ruby/object:MIME::Type
   content-type: text/x-setext
@@ -1237,8 +1232,7 @@
   content-type: text/x-vnd.flatland.3dml
   encoding: quoted-printable
   obsolete: true
-  use-instead:
-  - model/vnd.flatland.3dml
+  use-instead: model/vnd.flatland.3dml
   registered: false
 - !ruby/object:MIME::Type
   content-type: text/x-yaml

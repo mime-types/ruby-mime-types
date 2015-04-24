@@ -54,19 +54,14 @@ class IANARegistry
     @registry.css('record').each do |record|
       subtype       = record.at_css('name').text
       obsolete      = record.at_css('obsolete').text rescue nil
-      use_instead   = [ record.at_css('deprecated').text ] rescue []
+      use_instead   = record.at_css('deprecated').text rescue nil
 
       if subtype =~ /OBSOLETE|DEPRECATE/i
-        if subtype =~ /in favou?r of (.*)/
-          use_instead = [ use_instead, $1 ]
-        end
+        use_instead ||= $1 if subtype =~ /in favou?r of (.*)/
         obsolete = true
       end
 
       subtype, notes = subtype.split(/ /, 2)
-
-      use_instead.flatten!
-      use_instead.compact!
 
       refs, xrefs   = parse_refs_and_files(record.css('xref'),
                                            record.css('file'),
@@ -86,7 +81,7 @@ class IANARegistry
           mt.xrefs       = xrefs
           mt.registered  = true
           mt.obsolete    = obsolete if obsolete
-          mt.use_instead = use_instead unless use_instead.empty?
+          mt.use_instead = use_instead if use_instead
           @types << mt
         end
       else
@@ -95,7 +90,7 @@ class IANARegistry
           mt.registered  = true
           mt.xrefs       = xrefs
           mt.obsolete    = obsolete if obsolete
-          mt.use_instead = use_instead unless use_instead.empty?
+          mt.use_instead = use_instead if use_instead
         }
       end
     end

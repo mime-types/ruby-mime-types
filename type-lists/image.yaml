@@ -7,8 +7,7 @@
   extensions:
   - bmp
   obsolete: true
-  use-instead:
-  - image/x-bmp
+  use-instead: image/x-bmp
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/cgm
@@ -31,8 +30,7 @@
   content-type: image/cmu-raster
   encoding: base64
   obsolete: true
-  use-instead:
-  - image/x-cmu-raster
+  use-instead: image/x-cmu-raster
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/example
@@ -313,8 +311,7 @@
   extensions:
   - tga
   obsolete: true
-  use-instead:
-  - image/x-targa
+  use-instead: image/x-targa
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/tiff
@@ -416,8 +413,7 @@
   extensions:
   - dgn
   obsolete: true
-  use-instead:
-  - image/x-vnd.dgn
+  use-instead: image/x-vnd.dgn
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/vnd.djvu
@@ -662,8 +658,7 @@
   content-type: image/vnd.net.fpx
   encoding: base64
   obsolete: true
-  use-instead:
-  - image/vnd.net-fpx
+  use-instead: image/vnd.net-fpx
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/vnd.radiance

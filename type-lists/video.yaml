@@ -110,8 +110,7 @@
   extensions:
   - dl
   obsolete: true
-  use-instead:
-  - video/x-dl
+  use-instead: video/x-dl
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/DV
@@ -160,8 +159,7 @@
   extensions:
   - gl
   obsolete: true
-  use-instead:
-  - video/x-gl
+  use-instead: video/x-gl
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/H261

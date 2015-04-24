@@ -202,8 +202,7 @@
   content-type: multipart/x-parallel
   encoding: base64
   obsolete: true
-  use-instead:
-  - multipart/parallel
+  use-instead: multipart/parallel
   registered: false
 - !ruby/object:MIME::Type
   content-type: multipart/x-tar
