@@ -11,6 +11,10 @@ require 'yaml'
 ENV['RUBY_MIME_TYPES_LAZY_LOAD'] = 'yes'
 require 'mime/types'
 
+class MIME::Type
+  public_constant :UNREGISTERED_RE
+end
+
 class ApacheMIMETypes
   DEFAULTS = {
     url: %q(http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types),
