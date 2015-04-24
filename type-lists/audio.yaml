@@ -5,7 +5,7 @@
   references:
   - IANA
   - RFC6015
-  - ! '{audio/1d-interleaved-parityfec=http://www.iana.org/assignments/media-types/audio/1d-interleaved-parityfec}'
+  - "{audio/1d-interleaved-parityfec=http://www.iana.org/assignments/media-types/audio/1d-interleaved-parityfec}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6015
@@ -19,7 +19,7 @@
   - IANA
   - RFC3802
   - RFC2421
-  - ! '{audio/32kadpcm=http://www.iana.org/assignments/media-types/audio/32kadpcm}'
+  - "{audio/32kadpcm=http://www.iana.org/assignments/media-types/audio/32kadpcm}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2421
@@ -34,7 +34,7 @@
   - IANA
   - RFC3839
   - RFC6381
-  - ! '{audio/3gpp=http://www.iana.org/assignments/media-types/audio/3gpp}'
+  - "{audio/3gpp=http://www.iana.org/assignments/media-types/audio/3gpp}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3839
@@ -49,7 +49,7 @@
   - IANA
   - RFC4393
   - RFC6381
-  - ! '{audio/3gpp2=http://www.iana.org/assignments/media-types/audio/3gpp2}'
+  - "{audio/3gpp2=http://www.iana.org/assignments/media-types/audio/3gpp2}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4393
@@ -63,7 +63,7 @@
   references:
   - IANA
   - RFC4184
-  - ! '{audio/ac3=http://www.iana.org/assignments/media-types/audio/ac3}'
+  - "{audio/ac3=http://www.iana.org/assignments/media-types/audio/ac3}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4184
@@ -86,7 +86,7 @@
   references:
   - IANA
   - RFC4867
-  - ! '{audio/AMR=http://www.iana.org/assignments/media-types/audio/AMR}'
+  - "{audio/AMR=http://www.iana.org/assignments/media-types/audio/AMR}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4867
@@ -101,7 +101,7 @@
   references:
   - IANA
   - RFC4867
-  - ! '{audio/AMR-WB=http://www.iana.org/assignments/media-types/audio/AMR-WB}'
+  - "{audio/AMR-WB=http://www.iana.org/assignments/media-types/audio/AMR-WB}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4867
@@ -114,7 +114,7 @@
   references:
   - IANA
   - RFC4867
-  - ! '{audio/AMR-WB=http://www.iana.org/assignments/media-types/audio/AMR-WB}'
+  - "{audio/AMR-WB=http://www.iana.org/assignments/media-types/audio/AMR-WB}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4867
@@ -127,7 +127,7 @@
   references:
   - IANA
   - RFC4352
-  - ! '{audio/amr-wb+=http://www.iana.org/assignments/media-types/audio/amr-wb+}'
+  - "{audio/amr-wb+=http://www.iana.org/assignments/media-types/audio/amr-wb+}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4352
@@ -140,7 +140,7 @@
   references:
   - IANA
   - RFC7310
-  - ! '{audio/aptx=http://www.iana.org/assignments/media-types/audio/aptx}'
+  - "{audio/aptx=http://www.iana.org/assignments/media-types/audio/aptx}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc7310
@@ -153,7 +153,7 @@
   references:
   - IANA
   - RFC6295
-  - ! '{audio/asc=http://www.iana.org/assignments/media-types/audio/asc}'
+  - "{audio/asc=http://www.iana.org/assignments/media-types/audio/asc}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6295
@@ -166,7 +166,7 @@
   references:
   - IANA
   - RFC5584
-  - ! '{audio/ATRAC-ADVANCED-LOSSLESS=http://www.iana.org/assignments/media-types/audio/ATRAC-ADVANCED-LOSSLESS}'
+  - "{audio/ATRAC-ADVANCED-LOSSLESS=http://www.iana.org/assignments/media-types/audio/ATRAC-ADVANCED-LOSSLESS}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5584
@@ -179,7 +179,7 @@
   references:
   - IANA
   - RFC5584
-  - ! '{audio/ATRAC-X=http://www.iana.org/assignments/media-types/audio/ATRAC-X}'
+  - "{audio/ATRAC-X=http://www.iana.org/assignments/media-types/audio/ATRAC-X}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5584
@@ -192,7 +192,7 @@
   references:
   - IANA
   - RFC5584
-  - ! '{audio/ATRAC3=http://www.iana.org/assignments/media-types/audio/ATRAC3}'
+  - "{audio/ATRAC3=http://www.iana.org/assignments/media-types/audio/ATRAC3}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5584
@@ -211,7 +211,7 @@
   - IANA
   - RFC2045
   - RFC2046
-  - ! '{audio/basic=http://www.iana.org/assignments/media-types/audio/basic}'
+  - "{audio/basic=http://www.iana.org/assignments/media-types/audio/basic}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2045
@@ -225,7 +225,7 @@
   references:
   - IANA
   - RFC4298
-  - ! '{audio/BV16=http://www.iana.org/assignments/media-types/audio/BV16}'
+  - "{audio/BV16=http://www.iana.org/assignments/media-types/audio/BV16}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4298
@@ -238,7 +238,7 @@
   references:
   - IANA
   - RFC4298
-  - ! '{audio/BV32=http://www.iana.org/assignments/media-types/audio/BV32}'
+  - "{audio/BV32=http://www.iana.org/assignments/media-types/audio/BV32}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4298
@@ -251,7 +251,7 @@
   references:
   - IANA
   - RFC4040
-  - ! '{audio/clearmode=http://www.iana.org/assignments/media-types/audio/clearmode}'
+  - "{audio/clearmode=http://www.iana.org/assignments/media-types/audio/clearmode}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4040
@@ -264,7 +264,7 @@
   references:
   - IANA
   - RFC3389
-  - ! '{audio/CN=http://www.iana.org/assignments/media-types/audio/CN}'
+  - "{audio/CN=http://www.iana.org/assignments/media-types/audio/CN}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3389
@@ -277,7 +277,7 @@
   references:
   - IANA
   - RFC3190
-  - ! '{audio/DAT12=http://www.iana.org/assignments/media-types/audio/DAT12}'
+  - "{audio/DAT12=http://www.iana.org/assignments/media-types/audio/DAT12}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3190
@@ -290,7 +290,7 @@
   references:
   - IANA
   - RFC4613
-  - ! '{audio/dls=http://www.iana.org/assignments/media-types/audio/dls}'
+  - "{audio/dls=http://www.iana.org/assignments/media-types/audio/dls}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4613
@@ -303,7 +303,7 @@
   references:
   - IANA
   - RFC3557
-  - ! '{audio/dsr-es201108=http://www.iana.org/assignments/media-types/audio/dsr-es201108}'
+  - "{audio/dsr-es201108=http://www.iana.org/assignments/media-types/audio/dsr-es201108}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3557
@@ -316,7 +316,7 @@
   references:
   - IANA
   - RFC4060
-  - ! '{audio/dsr-es202050=http://www.iana.org/assignments/media-types/audio/dsr-es202050}'
+  - "{audio/dsr-es202050=http://www.iana.org/assignments/media-types/audio/dsr-es202050}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4060
@@ -329,7 +329,7 @@
   references:
   - IANA
   - RFC4060
-  - ! '{audio/dsr-es202211=http://www.iana.org/assignments/media-types/audio/dsr-es202211}'
+  - "{audio/dsr-es202211=http://www.iana.org/assignments/media-types/audio/dsr-es202211}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4060
@@ -342,7 +342,7 @@
   references:
   - IANA
   - RFC4060
-  - ! '{audio/dsr-es202212=http://www.iana.org/assignments/media-types/audio/dsr-es202212}'
+  - "{audio/dsr-es202212=http://www.iana.org/assignments/media-types/audio/dsr-es202212}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4060
@@ -355,7 +355,7 @@
   references:
   - IANA
   - RFC6469
-  - ! '{audio/DV=http://www.iana.org/assignments/media-types/audio/DV}'
+  - "{audio/DV=http://www.iana.org/assignments/media-types/audio/DV}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6469
@@ -368,7 +368,7 @@
   references:
   - IANA
   - RFC4856
-  - ! '{audio/DVI4=http://www.iana.org/assignments/media-types/audio/DVI4}'
+  - "{audio/DVI4=http://www.iana.org/assignments/media-types/audio/DVI4}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
@@ -381,7 +381,7 @@
   references:
   - IANA
   - RFC4598
-  - ! '{audio/eac3=http://www.iana.org/assignments/media-types/audio/eac3}'
+  - "{audio/eac3=http://www.iana.org/assignments/media-types/audio/eac3}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4598
@@ -394,7 +394,7 @@
   references:
   - IANA
   - RFC6849
-  - ! '{audio/encaprtp=http://www.iana.org/assignments/media-types/audio/encaprtp}'
+  - "{audio/encaprtp=http://www.iana.org/assignments/media-types/audio/encaprtp}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6849
@@ -409,7 +409,7 @@
   references:
   - IANA
   - RFC4788
-  - ! '{audio/EVRC=http://www.iana.org/assignments/media-types/audio/EVRC}'
+  - "{audio/EVRC=http://www.iana.org/assignments/media-types/audio/EVRC}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4788
@@ -422,7 +422,7 @@
   references:
   - IANA
   - RFC3625
-  - ! '{audio/EVRC-QCP=http://www.iana.org/assignments/media-types/audio/EVRC-QCP}'
+  - "{audio/EVRC-QCP=http://www.iana.org/assignments/media-types/audio/EVRC-QCP}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3625
@@ -435,7 +435,7 @@
   references:
   - IANA
   - RFC4788
-  - ! '{audio/EVRC0=http://www.iana.org/assignments/media-types/audio/EVRC0}'
+  - "{audio/EVRC0=http://www.iana.org/assignments/media-types/audio/EVRC0}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4788
@@ -448,7 +448,7 @@
   references:
   - IANA
   - RFC4788
-  - ! '{audio/EVRC1=http://www.iana.org/assignments/media-types/audio/EVRC1}'
+  - "{audio/EVRC1=http://www.iana.org/assignments/media-types/audio/EVRC1}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4788
@@ -461,7 +461,7 @@
   references:
   - IANA
   - RFC5188
-  - ! '{audio/EVRCB=http://www.iana.org/assignments/media-types/audio/EVRCB}'
+  - "{audio/EVRCB=http://www.iana.org/assignments/media-types/audio/EVRCB}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5188
@@ -474,7 +474,7 @@
   references:
   - IANA
   - RFC5188
-  - ! '{audio/EVRCB0=http://www.iana.org/assignments/media-types/audio/EVRCB0}'
+  - "{audio/EVRCB0=http://www.iana.org/assignments/media-types/audio/EVRCB0}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5188
@@ -487,7 +487,7 @@
   references:
   - IANA
   - RFC4788
-  - ! '{audio/EVRCB1=http://www.iana.org/assignments/media-types/audio/EVRCB1}'
+  - "{audio/EVRCB1=http://www.iana.org/assignments/media-types/audio/EVRCB1}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4788
@@ -500,7 +500,7 @@
   references:
   - IANA
   - RFC6884
-  - ! '{audio/EVRCNW=http://www.iana.org/assignments/media-types/audio/EVRCNW}'
+  - "{audio/EVRCNW=http://www.iana.org/assignments/media-types/audio/EVRCNW}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6884
@@ -513,7 +513,7 @@
   references:
   - IANA
   - RFC6884
-  - ! '{audio/EVRCNW0=http://www.iana.org/assignments/media-types/audio/EVRCNW0}'
+  - "{audio/EVRCNW0=http://www.iana.org/assignments/media-types/audio/EVRCNW0}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6884
@@ -526,7 +526,7 @@
   references:
   - IANA
   - RFC6884
-  - ! '{audio/EVRCNW1=http://www.iana.org/assignments/media-types/audio/EVRCNW1}'
+  - "{audio/EVRCNW1=http://www.iana.org/assignments/media-types/audio/EVRCNW1}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6884
@@ -539,7 +539,7 @@
   references:
   - IANA
   - RFC5188
-  - ! '{audio/EVRCWB=http://www.iana.org/assignments/media-types/audio/EVRCWB}'
+  - "{audio/EVRCWB=http://www.iana.org/assignments/media-types/audio/EVRCWB}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5188
@@ -552,7 +552,7 @@
   references:
   - IANA
   - RFC5188
-  - ! '{audio/EVRCWB0=http://www.iana.org/assignments/media-types/audio/EVRCWB0}'
+  - "{audio/EVRCWB0=http://www.iana.org/assignments/media-types/audio/EVRCWB0}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5188
@@ -565,7 +565,7 @@
   references:
   - IANA
   - RFC5188
-  - ! '{audio/EVRCWB1=http://www.iana.org/assignments/media-types/audio/EVRCWB1}'
+  - "{audio/EVRCWB1=http://www.iana.org/assignments/media-types/audio/EVRCWB1}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5188
@@ -578,7 +578,7 @@
   references:
   - IANA
   - RFC4735
-  - ! '{audio/example=http://www.iana.org/assignments/media-types/audio/example}'
+  - "{audio/example=http://www.iana.org/assignments/media-types/audio/example}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4735
@@ -591,7 +591,7 @@
   references:
   - IANA
   - RFC6354
-  - ! '{audio/fwdred=http://www.iana.org/assignments/media-types/audio/fwdred}'
+  - "{audio/fwdred=http://www.iana.org/assignments/media-types/audio/fwdred}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6354
@@ -604,8 +604,8 @@
   references:
   - IANA
   - RFC5404
-  - ! '{RFC Errata 3245=http://www.rfc-editor.org/errata_search.php?eid=3245}'
-  - ! '{audio/G719=http://www.iana.org/assignments/media-types/audio/G719}'
+  - "{RFC Errata 3245=http://www.rfc-editor.org/errata_search.php?eid=3245}"
+  - "{audio/G719=http://www.iana.org/assignments/media-types/audio/G719}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5404
@@ -620,7 +620,7 @@
   references:
   - IANA
   - RFC4856
-  - ! '{audio/G722=http://www.iana.org/assignments/media-types/audio/G722}'
+  - "{audio/G722=http://www.iana.org/assignments/media-types/audio/G722}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
@@ -633,7 +633,7 @@
   references:
   - IANA
   - RFC5577
-  - ! '{audio/G721=http://www.iana.org/assignments/media-types/audio/G721}'
+  - "{audio/G721=http://www.iana.org/assignments/media-types/audio/G721}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5577
@@ -646,7 +646,7 @@
   references:
   - IANA
   - RFC4856
-  - ! '{audio/G723=http://www.iana.org/assignments/media-types/audio/G723}'
+  - "{audio/G723=http://www.iana.org/assignments/media-types/audio/G723}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
@@ -659,7 +659,7 @@
   references:
   - IANA
   - RFC4856
-  - ! '{audio/G726-16=http://www.iana.org/assignments/media-types/audio/G726-16}'
+  - "{audio/G726-16=http://www.iana.org/assignments/media-types/audio/G726-16}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
@@ -672,7 +672,7 @@
   references:
   - IANA
   - RFC4856
-  - ! '{audio/G726-24=http://www.iana.org/assignments/media-types/audio/G726-24}'
+  - "{audio/G726-24=http://www.iana.org/assignments/media-types/audio/G726-24}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
@@ -685,7 +685,7 @@
   references:
   - IANA
   - RFC4856
-  - ! '{audio/G726-32=http://www.iana.org/assignments/media-types/audio/G726-32}'
+  - "{audio/G726-32=http://www.iana.org/assignments/media-types/audio/G726-32}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
@@ -698,7 +698,7 @@
   references:
   - IANA
   - RFC4856
-  - ! '{audio/G726-40=http://www.iana.org/assignments/media-types/audio/G726-40}'
+  - "{audio/G726-40=http://www.iana.org/assignments/media-types/audio/G726-40}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
@@ -711,7 +711,7 @@
   references:
   - IANA
   - RFC4856
-  - ! '{audio/G728=http://www.iana.org/assignments/media-types/audio/G728}'
+  - "{audio/G728=http://www.iana.org/assignments/media-types/audio/G728}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
@@ -724,7 +724,7 @@
   references:
   - IANA
   - RFC4856
-  - ! '{audio/G729=http://www.iana.org/assignments/media-types/audio/G729}'
+  - "{audio/G729=http://www.iana.org/assignments/media-types/audio/G729}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
@@ -749,7 +749,7 @@
   references:
   - IANA
   - RFC4856
-  - ! '{audio/G729D=http://www.iana.org/assignments/media-types/audio/G729D}'
+  - "{audio/G729D=http://www.iana.org/assignments/media-types/audio/G729D}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
@@ -762,7 +762,7 @@
   references:
   - IANA
   - RFC4856
-  - ! '{audio/G729E=http://www.iana.org/assignments/media-types/audio/G729E}'
+  - "{audio/G729E=http://www.iana.org/assignments/media-types/audio/G729E}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
@@ -775,7 +775,7 @@
   references:
   - IANA
   - RFC4856
-  - ! '{audio/GSM=http://www.iana.org/assignments/media-types/audio/GSM}'
+  - "{audio/GSM=http://www.iana.org/assignments/media-types/audio/GSM}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
@@ -788,7 +788,7 @@
   references:
   - IANA
   - RFC4856
-  - ! '{audio/GSM-EFR=http://www.iana.org/assignments/media-types/audio/GSM-EFR}'
+  - "{audio/GSM-EFR=http://www.iana.org/assignments/media-types/audio/GSM-EFR}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
@@ -801,7 +801,7 @@
   references:
   - IANA
   - RFC5993
-  - ! '{audio/GSM-HR-08=http://www.iana.org/assignments/media-types/audio/GSM-HR-08}'
+  - "{audio/GSM-HR-08=http://www.iana.org/assignments/media-types/audio/GSM-HR-08}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5993
@@ -814,7 +814,7 @@
   references:
   - IANA
   - RFC3952
-  - ! '{audio/iLBC=http://www.iana.org/assignments/media-types/audio/iLBC}'
+  - "{audio/iLBC=http://www.iana.org/assignments/media-types/audio/iLBC}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3952
@@ -827,7 +827,7 @@
   references:
   - IANA
   - RFC6262
-  - ! '{audio/ip-mr_v2.5=http://www.iana.org/assignments/media-types/audio/ip-mr_v2.5}'
+  - "{audio/ip-mr_v2.5=http://www.iana.org/assignments/media-types/audio/ip-mr_v2.5}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6262
@@ -842,7 +842,7 @@
   references:
   - IANA
   - RFC4856
-  - ! '{audio/L16=http://www.iana.org/assignments/media-types/audio/L16}'
+  - "{audio/L16=http://www.iana.org/assignments/media-types/audio/L16}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
@@ -855,7 +855,7 @@
   references:
   - IANA
   - RFC3190
-  - ! '{audio/L20=http://www.iana.org/assignments/media-types/audio/L20}'
+  - "{audio/L20=http://www.iana.org/assignments/media-types/audio/L20}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3190
@@ -868,7 +868,7 @@
   references:
   - IANA
   - RFC3190
-  - ! '{audio/L24=http://www.iana.org/assignments/media-types/audio/L24}'
+  - "{audio/L24=http://www.iana.org/assignments/media-types/audio/L24}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3190
@@ -881,7 +881,7 @@
   references:
   - IANA
   - RFC4856
-  - ! '{audio/L8=http://www.iana.org/assignments/media-types/audio/L8}'
+  - "{audio/L8=http://www.iana.org/assignments/media-types/audio/L8}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
@@ -894,7 +894,7 @@
   references:
   - IANA
   - RFC4856
-  - ! '{audio/LPC=http://www.iana.org/assignments/media-types/audio/LPC}'
+  - "{audio/LPC=http://www.iana.org/assignments/media-types/audio/LPC}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
@@ -918,7 +918,7 @@
   references:
   - IANA
   - RFC4723
-  - ! '{audio/mobile-xmf=http://www.iana.org/assignments/media-types/audio/mobile-xmf}'
+  - "{audio/mobile-xmf=http://www.iana.org/assignments/media-types/audio/mobile-xmf}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4723
@@ -940,7 +940,7 @@
   - IANA
   - RFC4337
   - RFC6381
-  - ! '{audio/mp4=http://www.iana.org/assignments/media-types/audio/mp4}'
+  - "{audio/mp4=http://www.iana.org/assignments/media-types/audio/mp4}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4337
@@ -956,7 +956,7 @@
   references:
   - IANA
   - RFC6416
-  - ! '{audio/MP4A-LATM=http://www.iana.org/assignments/media-types/audio/MP4A-LATM}'
+  - "{audio/MP4A-LATM=http://www.iana.org/assignments/media-types/audio/MP4A-LATM}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6416
@@ -969,7 +969,7 @@
   references:
   - IANA
   - RFC3555
-  - ! '{audio/MPA=http://www.iana.org/assignments/media-types/audio/MPA}'
+  - "{audio/MPA=http://www.iana.org/assignments/media-types/audio/MPA}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
@@ -982,7 +982,7 @@
   references:
   - IANA
   - RFC5219
-  - ! '{audio/mpa-robust=http://www.iana.org/assignments/media-types/audio/mpa-robust}'
+  - "{audio/mpa-robust=http://www.iana.org/assignments/media-types/audio/mpa-robust}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5219
@@ -1004,7 +1004,7 @@
   references:
   - IANA
   - RFC3003
-  - ! '{audio/mpeg=http://www.iana.org/assignments/media-types/audio/mpeg}'
+  - "{audio/mpeg=http://www.iana.org/assignments/media-types/audio/mpeg}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3003
@@ -1019,7 +1019,7 @@
   - RFC3640
   - RFC5691
   - RFC6295
-  - ! '{audio/mpeg4-generic=http://www.iana.org/assignments/media-types/audio/mpeg4-generic}'
+  - "{audio/mpeg4-generic=http://www.iana.org/assignments/media-types/audio/mpeg4-generic}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3640
@@ -1040,7 +1040,7 @@
   references:
   - IANA
   - RFC5334
-  - ! '{audio/ogg=http://www.iana.org/assignments/media-types/audio/ogg}'
+  - "{audio/ogg=http://www.iana.org/assignments/media-types/audio/ogg}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5334
@@ -1063,7 +1063,7 @@
   references:
   - IANA
   - RFC4856
-  - ! '{audio/PCMA=http://www.iana.org/assignments/media-types/audio/PCMA}'
+  - "{audio/PCMA=http://www.iana.org/assignments/media-types/audio/PCMA}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
@@ -1076,7 +1076,7 @@
   references:
   - IANA
   - RFC5391
-  - ! '{audio/PCMA-WB=http://www.iana.org/assignments/media-types/audio/PCMA-WB}'
+  - "{audio/PCMA-WB=http://www.iana.org/assignments/media-types/audio/PCMA-WB}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5391
@@ -1089,7 +1089,7 @@
   references:
   - IANA
   - RFC4856
-  - ! '{audio/PCMU=http://www.iana.org/assignments/media-types/audio/PCMU}'
+  - "{audio/PCMU=http://www.iana.org/assignments/media-types/audio/PCMU}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
@@ -1102,7 +1102,7 @@
   references:
   - IANA
   - RFC5391
-  - ! '{audio/PCMU-WB=http://www.iana.org/assignments/media-types/audio/PCMU-WB}'
+  - "{audio/PCMU-WB=http://www.iana.org/assignments/media-types/audio/PCMU-WB}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5391
@@ -1114,8 +1114,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Linus_Walleij]'
-  - ! '{audio/prs.sid=http://www.iana.org/assignments/media-types/audio/prs.sid}'
+  - "[Linus_Walleij]"
+  - "{audio/prs.sid=http://www.iana.org/assignments/media-types/audio/prs.sid}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Linus_Walleij
@@ -1140,7 +1140,7 @@
   references:
   - IANA
   - RFC6682
-  - ! '{audio/raptorfec=http://www.iana.org/assignments/media-types/audio/raptorfec}'
+  - "{audio/raptorfec=http://www.iana.org/assignments/media-types/audio/raptorfec}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6682
@@ -1153,7 +1153,7 @@
   references:
   - IANA
   - RFC3555
-  - ! '{audio/RED=http://www.iana.org/assignments/media-types/audio/RED}'
+  - "{audio/RED=http://www.iana.org/assignments/media-types/audio/RED}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
@@ -1165,8 +1165,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[ThreeGPP]'
-  - ! '{audio/rtp-enc-aescm128=http://www.iana.org/assignments/media-types/audio/rtp-enc-aescm128}'
+  - "[ThreeGPP]"
+  - "{audio/rtp-enc-aescm128=http://www.iana.org/assignments/media-types/audio/rtp-enc-aescm128}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - ThreeGPP
@@ -1179,7 +1179,7 @@
   references:
   - IANA
   - RFC6295
-  - ! '{audio/rtp-midi=http://www.iana.org/assignments/media-types/audio/rtp-midi}'
+  - "{audio/rtp-midi=http://www.iana.org/assignments/media-types/audio/rtp-midi}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6295
@@ -1192,7 +1192,7 @@
   references:
   - IANA
   - RFC6849
-  - ! '{audio/rtploopback=http://www.iana.org/assignments/media-types/audio/rtploopback}'
+  - "{audio/rtploopback=http://www.iana.org/assignments/media-types/audio/rtploopback}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6849
@@ -1205,7 +1205,7 @@
   references:
   - IANA
   - RFC4588
-  - ! '{audio/rtx=http://www.iana.org/assignments/media-types/audio/rtx}'
+  - "{audio/rtx=http://www.iana.org/assignments/media-types/audio/rtx}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4588
@@ -1232,7 +1232,7 @@
   references:
   - IANA
   - RFC3558
-  - ! '{audio/SMV=http://www.iana.org/assignments/media-types/audio/SMV}'
+  - "{audio/SMV=http://www.iana.org/assignments/media-types/audio/SMV}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3558
@@ -1245,7 +1245,7 @@
   references:
   - IANA
   - RFC3625
-  - ! '{audio/SMV-QCP=http://www.iana.org/assignments/media-types/audio/SMV-QCP}'
+  - "{audio/SMV-QCP=http://www.iana.org/assignments/media-types/audio/SMV-QCP}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3625
@@ -1258,7 +1258,7 @@
   references:
   - IANA
   - RFC3558
-  - ! '{audio/SMV0=http://www.iana.org/assignments/media-types/audio/SMV0}'
+  - "{audio/SMV0=http://www.iana.org/assignments/media-types/audio/SMV0}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3558
@@ -1270,9 +1270,9 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Timo_Kosonen]'
-  - ! '[Tom_White]'
-  - ! '{audio/sp-midi=http://www.iana.org/assignments/media-types/audio/sp-midi}'
+  - "[Timo_Kosonen]"
+  - "[Tom_White]"
+  - "{audio/sp-midi=http://www.iana.org/assignments/media-types/audio/sp-midi}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Timo_Kosonen
@@ -1286,7 +1286,7 @@
   references:
   - IANA
   - RFC5574
-  - ! '{audio/speex=http://www.iana.org/assignments/media-types/audio/speex}'
+  - "{audio/speex=http://www.iana.org/assignments/media-types/audio/speex}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5574
@@ -1299,7 +1299,7 @@
   references:
   - IANA
   - RFC4351
-  - ! '{audio/t140c=http://www.iana.org/assignments/media-types/audio/t140c}'
+  - "{audio/t140c=http://www.iana.org/assignments/media-types/audio/t140c}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4351
@@ -1312,7 +1312,7 @@
   references:
   - IANA
   - RFC4612
-  - ! '{audio/t38=http://www.iana.org/assignments/media-types/audio/t38}'
+  - "{audio/t38=http://www.iana.org/assignments/media-types/audio/t38}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4612
@@ -1325,7 +1325,7 @@
   references:
   - IANA
   - RFC4733
-  - ! '{audio/telephone-event=http://www.iana.org/assignments/media-types/audio/telephone-event}'
+  - "{audio/telephone-event=http://www.iana.org/assignments/media-types/audio/telephone-event}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4733
@@ -1338,7 +1338,7 @@
   references:
   - IANA
   - RFC4733
-  - ! '{audio/tone=http://www.iana.org/assignments/media-types/audio/tone}'
+  - "{audio/tone=http://www.iana.org/assignments/media-types/audio/tone}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4733
@@ -1351,7 +1351,7 @@
   references:
   - IANA
   - RFC5686
-  - ! '{audio/UEMCLIP=http://www.iana.org/assignments/media-types/audio/UEMCLIP}'
+  - "{audio/UEMCLIP=http://www.iana.org/assignments/media-types/audio/UEMCLIP}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5686
@@ -1364,7 +1364,7 @@
   references:
   - IANA
   - RFC5109
-  - ! '{audio/ulpfec=http://www.iana.org/assignments/media-types/audio/ulpfec}'
+  - "{audio/ulpfec=http://www.iana.org/assignments/media-types/audio/ulpfec}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5109
@@ -1377,7 +1377,7 @@
   references:
   - IANA
   - RFC4856
-  - ! '{audio/VDVI=http://www.iana.org/assignments/media-types/audio/VDVI}'
+  - "{audio/VDVI=http://www.iana.org/assignments/media-types/audio/VDVI}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
@@ -1391,7 +1391,7 @@
   - IANA
   - RFC4348
   - RFC4424
-  - ! '{audio/VMR-WB=http://www.iana.org/assignments/media-types/audio/VMR-WB}'
+  - "{audio/VMR-WB=http://www.iana.org/assignments/media-types/audio/VMR-WB}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4348
@@ -1404,8 +1404,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Thomas_Belling]'
-  - ! '{audio/vnd.3gpp.iufp=http://www.iana.org/assignments/media-types/audio/vnd.3gpp.iufp}'
+  - "[Thomas_Belling]"
+  - "{audio/vnd.3gpp.iufp=http://www.iana.org/assignments/media-types/audio/vnd.3gpp.iufp}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Thomas_Belling
@@ -1417,8 +1417,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Serge_De_Jaham]'
-  - ! '{audio/vnd.4SB=http://www.iana.org/assignments/media-types/audio/vnd.4SB}'
+  - "[Serge_De_Jaham]"
+  - "{audio/vnd.4SB=http://www.iana.org/assignments/media-types/audio/vnd.4SB}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Serge_De_Jaham
@@ -1430,8 +1430,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Vicki_DeBarros]'
-  - ! '{audio/vnd.audiokoz=http://www.iana.org/assignments/media-types/audio/vnd.audiokoz}'
+  - "[Vicki_DeBarros]"
+  - "{audio/vnd.audiokoz=http://www.iana.org/assignments/media-types/audio/vnd.audiokoz}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Vicki_DeBarros
@@ -1443,8 +1443,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Serge_De_Jaham]'
-  - ! '{audio/vnd.CELP=http://www.iana.org/assignments/media-types/audio/vnd.CELP}'
+  - "[Serge_De_Jaham]"
+  - "{audio/vnd.CELP=http://www.iana.org/assignments/media-types/audio/vnd.CELP}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Serge_De_Jaham
@@ -1456,8 +1456,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Rajesh_Kumar]'
-  - ! '{audio/vnd.cisco.nse=http://www.iana.org/assignments/media-types/audio/vnd.cisco.nse}'
+  - "[Rajesh_Kumar]"
+  - "{audio/vnd.cisco.nse=http://www.iana.org/assignments/media-types/audio/vnd.cisco.nse}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Rajesh_Kumar
@@ -1469,8 +1469,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Jean-Philippe_Goulet]'
-  - ! '{audio/vnd.cmles.radio-events=http://www.iana.org/assignments/media-types/audio/vnd.cmles.radio-events}'
+  - "[Jean-Philippe_Goulet]"
+  - "{audio/vnd.cmles.radio-events=http://www.iana.org/assignments/media-types/audio/vnd.cmles.radio-events}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Jean-Philippe_Goulet
@@ -1482,8 +1482,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Ann_McLaughlin]'
-  - ! '{audio/vnd.cns.anp1=http://www.iana.org/assignments/media-types/audio/vnd.cns.anp1}'
+  - "[Ann_McLaughlin]"
+  - "{audio/vnd.cns.anp1=http://www.iana.org/assignments/media-types/audio/vnd.cns.anp1}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Ann_McLaughlin
@@ -1495,8 +1495,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Ann_McLaughlin]'
-  - ! '{audio/vnd.cns.inf1=http://www.iana.org/assignments/media-types/audio/vnd.cns.inf1}'
+  - "[Ann_McLaughlin]"
+  - "{audio/vnd.cns.inf1=http://www.iana.org/assignments/media-types/audio/vnd.cns.inf1}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Ann_McLaughlin
@@ -1513,8 +1513,8 @@
   - uvva
   references:
   - IANA
-  - ! '[Michael_A_Dolan]'
-  - ! '{audio/vnd.dece.audio=http://www.iana.org/assignments/media-types/audio/vnd.dece.audio}'
+  - "[Michael_A_Dolan]"
+  - "{audio/vnd.dece.audio=http://www.iana.org/assignments/media-types/audio/vnd.dece.audio}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Michael_A_Dolan
@@ -1530,8 +1530,8 @@
   - eol
   references:
   - IANA
-  - ! '[Armands_Strazds]'
-  - ! '{audio/vnd.digital-winds=http://www.iana.org/assignments/media-types/audio/vnd.digital-winds}'
+  - "[Armands_Strazds]"
+  - "{audio/vnd.digital-winds=http://www.iana.org/assignments/media-types/audio/vnd.digital-winds}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Armands_Strazds
@@ -1543,8 +1543,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Edwin_Heredia]'
-  - ! '{audio/vnd.dlna.adts=http://www.iana.org/assignments/media-types/audio/vnd.dlna.adts}'
+  - "[Edwin_Heredia]"
+  - "{audio/vnd.dlna.adts=http://www.iana.org/assignments/media-types/audio/vnd.dlna.adts}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Edwin_Heredia
@@ -1556,8 +1556,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Steve_Hattersley]'
-  - ! '{audio/vnd.dolby.heaac.1=http://www.iana.org/assignments/media-types/audio/vnd.dolby.heaac.1}'
+  - "[Steve_Hattersley]"
+  - "{audio/vnd.dolby.heaac.1=http://www.iana.org/assignments/media-types/audio/vnd.dolby.heaac.1}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Steve_Hattersley
@@ -1569,8 +1569,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Steve_Hattersley]'
-  - ! '{audio/vnd.dolby.heaac.2=http://www.iana.org/assignments/media-types/audio/vnd.dolby.heaac.2}'
+  - "[Steve_Hattersley]"
+  - "{audio/vnd.dolby.heaac.2=http://www.iana.org/assignments/media-types/audio/vnd.dolby.heaac.2}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Steve_Hattersley
@@ -1582,8 +1582,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Mike_Ward]'
-  - ! '{audio/vnd.dolby.mlp=http://www.iana.org/assignments/media-types/audio/vnd.dolby.mlp}'
+  - "[Mike_Ward]"
+  - "{audio/vnd.dolby.mlp=http://www.iana.org/assignments/media-types/audio/vnd.dolby.mlp}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Mike_Ward
@@ -1595,8 +1595,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Steve_Hattersley]'
-  - ! '{audio/vnd.dolby.mps=http://www.iana.org/assignments/media-types/audio/vnd.dolby.mps}'
+  - "[Steve_Hattersley]"
+  - "{audio/vnd.dolby.mps=http://www.iana.org/assignments/media-types/audio/vnd.dolby.mps}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Steve_Hattersley
@@ -1608,8 +1608,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Steve_Hattersley]'
-  - ! '{audio/vnd.dolby.pl2=http://www.iana.org/assignments/media-types/audio/vnd.dolby.pl2}'
+  - "[Steve_Hattersley]"
+  - "{audio/vnd.dolby.pl2=http://www.iana.org/assignments/media-types/audio/vnd.dolby.pl2}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Steve_Hattersley
@@ -1621,8 +1621,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Steve_Hattersley]'
-  - ! '{audio/vnd.dolby.pl2x=http://www.iana.org/assignments/media-types/audio/vnd.dolby.pl2x}'
+  - "[Steve_Hattersley]"
+  - "{audio/vnd.dolby.pl2x=http://www.iana.org/assignments/media-types/audio/vnd.dolby.pl2x}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Steve_Hattersley
@@ -1634,8 +1634,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Steve_Hattersley]'
-  - ! '{audio/vnd.dolby.pl2z=http://www.iana.org/assignments/media-types/audio/vnd.dolby.pl2z}'
+  - "[Steve_Hattersley]"
+  - "{audio/vnd.dolby.pl2z=http://www.iana.org/assignments/media-types/audio/vnd.dolby.pl2z}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Steve_Hattersley
@@ -1647,8 +1647,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Steve_Hattersley]'
-  - ! '{audio/vnd.dolby.pulse.1=http://www.iana.org/assignments/media-types/audio/vnd.dolby.pulse.1}'
+  - "[Steve_Hattersley]"
+  - "{audio/vnd.dolby.pulse.1=http://www.iana.org/assignments/media-types/audio/vnd.dolby.pulse.1}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Steve_Hattersley
@@ -1664,8 +1664,8 @@
   - dra
   references:
   - IANA
-  - ! '[Jiang_Tian]'
-  - ! '{audio/vnd.dra=http://www.iana.org/assignments/media-types/audio/vnd.dra}'
+  - "[Jiang_Tian]"
+  - "{audio/vnd.dra=http://www.iana.org/assignments/media-types/audio/vnd.dra}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Jiang_Tian
@@ -1681,8 +1681,8 @@
   - dts
   references:
   - IANA
-  - ! '[William_Zou]'
-  - ! '{audio/vnd.dts=http://www.iana.org/assignments/media-types/audio/vnd.dts}'
+  - "[William_Zou]"
+  - "{audio/vnd.dts=http://www.iana.org/assignments/media-types/audio/vnd.dts}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - William_Zou
@@ -1698,8 +1698,8 @@
   - dtshd
   references:
   - IANA
-  - ! '[William_Zou]'
-  - ! '{audio/vnd.dts.hd=http://www.iana.org/assignments/media-types/audio/vnd.dts.hd}'
+  - "[William_Zou]"
+  - "{audio/vnd.dts.hd=http://www.iana.org/assignments/media-types/audio/vnd.dts.hd}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - William_Zou
@@ -1711,8 +1711,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Peter_Siebert]'
-  - ! '{audio/vnd.dvb.file=http://www.iana.org/assignments/media-types/audio/vnd.dvb.file}'
+  - "[Peter_Siebert]"
+  - "{audio/vnd.dvb.file=http://www.iana.org/assignments/media-types/audio/vnd.dvb.file}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Peter_Siebert
@@ -1726,8 +1726,8 @@
   - plj
   references:
   - IANA
-  - ! '[Shay_Cicelsky]'
-  - ! '{audio/vnd.everad.plj=http://www.iana.org/assignments/media-types/audio/vnd.everad.plj}'
+  - "[Shay_Cicelsky]"
+  - "{audio/vnd.everad.plj=http://www.iana.org/assignments/media-types/audio/vnd.everad.plj}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Shay_Cicelsky
@@ -1739,8 +1739,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Swaminathan]'
-  - ! '{audio/vnd.hns.audio=http://www.iana.org/assignments/media-types/audio/vnd.hns.audio}'
+  - "[Swaminathan]"
+  - "{audio/vnd.hns.audio=http://www.iana.org/assignments/media-types/audio/vnd.hns.audio}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Swaminathan
@@ -1756,8 +1756,8 @@
   - lvp
   references:
   - IANA
-  - ! '[Greg_Vaudreuil]'
-  - ! '{audio/vnd.lucent.voice=http://www.iana.org/assignments/media-types/audio/vnd.lucent.voice}'
+  - "[Greg_Vaudreuil]"
+  - "{audio/vnd.lucent.voice=http://www.iana.org/assignments/media-types/audio/vnd.lucent.voice}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Greg_Vaudreuil
@@ -1773,8 +1773,8 @@
   - pya
   references:
   - IANA
-  - ! '[Steve_DiAcetis]'
-  - ! '{audio/vnd.ms-playready.media.pya=http://www.iana.org/assignments/media-types/audio/vnd.ms-playready.media.pya}'
+  - "[Steve_DiAcetis]"
+  - "{audio/vnd.ms-playready.media.pya=http://www.iana.org/assignments/media-types/audio/vnd.ms-playready.media.pya}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Steve_DiAcetis
@@ -1788,8 +1788,8 @@
   - mxmf
   references:
   - IANA
-  - ! '[Nokia]'
-  - ! '{audio/vnd.nokia.mobile-xmf=http://www.iana.org/assignments/media-types/audio/vnd.nokia.mobile-xmf}'
+  - "[Nokia]"
+  - "{audio/vnd.nokia.mobile-xmf=http://www.iana.org/assignments/media-types/audio/vnd.nokia.mobile-xmf}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Nokia
@@ -1803,8 +1803,8 @@
   - vbk
   references:
   - IANA
-  - ! '[Glenn_Parsons]'
-  - ! '{audio/vnd.nortel.vbk=http://www.iana.org/assignments/media-types/audio/vnd.nortel.vbk}'
+  - "[Glenn_Parsons]"
+  - "{audio/vnd.nortel.vbk=http://www.iana.org/assignments/media-types/audio/vnd.nortel.vbk}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Glenn_Parsons
@@ -1820,8 +1820,8 @@
   - ecelp4800
   references:
   - IANA
-  - ! '[Michael_Fox]'
-  - ! '{audio/vnd.nuera.ecelp4800=http://www.iana.org/assignments/media-types/audio/vnd.nuera.ecelp4800}'
+  - "[Michael_Fox]"
+  - "{audio/vnd.nuera.ecelp4800=http://www.iana.org/assignments/media-types/audio/vnd.nuera.ecelp4800}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Michael_Fox
@@ -1837,8 +1837,8 @@
   - ecelp7470
   references:
   - IANA
-  - ! '[Michael_Fox]'
-  - ! '{audio/vnd.nuera.ecelp7470=http://www.iana.org/assignments/media-types/audio/vnd.nuera.ecelp7470}'
+  - "[Michael_Fox]"
+  - "{audio/vnd.nuera.ecelp7470=http://www.iana.org/assignments/media-types/audio/vnd.nuera.ecelp7470}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Michael_Fox
@@ -1854,8 +1854,8 @@
   - ecelp9600
   references:
   - IANA
-  - ! '[Michael_Fox]'
-  - ! '{audio/vnd.nuera.ecelp9600=http://www.iana.org/assignments/media-types/audio/vnd.nuera.ecelp9600}'
+  - "[Michael_Fox]"
+  - "{audio/vnd.nuera.ecelp9600=http://www.iana.org/assignments/media-types/audio/vnd.nuera.ecelp9600}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Michael_Fox
@@ -1867,8 +1867,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Greg_Vaudreuil]'
-  - ! '{audio/vnd.octel.sbc=http://www.iana.org/assignments/media-types/audio/vnd.octel.sbc}'
+  - "[Greg_Vaudreuil]"
+  - "{audio/vnd.octel.sbc=http://www.iana.org/assignments/media-types/audio/vnd.octel.sbc}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Greg_Vaudreuil
@@ -1885,7 +1885,7 @@
   references:
   - IANA
   - RFC3625
-  - ! '{audio/vnd.qcelp=http://www.iana.org/assignments/media-types/audio/vnd.qcelp}'
+  - "{audio/vnd.qcelp=http://www.iana.org/assignments/media-types/audio/vnd.qcelp}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3625
@@ -1897,8 +1897,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Greg_Vaudreuil]'
-  - ! '{audio/vnd.rhetorex.32kadpcm=http://www.iana.org/assignments/media-types/audio/vnd.rhetorex.32kadpcm}'
+  - "[Greg_Vaudreuil]"
+  - "{audio/vnd.rhetorex.32kadpcm=http://www.iana.org/assignments/media-types/audio/vnd.rhetorex.32kadpcm}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Greg_Vaudreuil
@@ -1914,8 +1914,8 @@
   - rip
   references:
   - IANA
-  - ! '[Martin_Dawe]'
-  - ! '{audio/vnd.rip=http://www.iana.org/assignments/media-types/audio/vnd.rip}'
+  - "[Martin_Dawe]"
+  - "{audio/vnd.rip=http://www.iana.org/assignments/media-types/audio/vnd.rip}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Martin_Dawe
@@ -1931,8 +1931,8 @@
   - s1m
   references:
   - IANA
-  - ! '[David_Petersen]'
-  - ! '{audio/vnd.sealedmedia.softseal-mpeg=http://www.iana.org/assignments/media-types/audio/vnd.sealedmedia.softseal-mpeg}'
+  - "[David_Petersen]"
+  - "{audio/vnd.sealedmedia.softseal-mpeg=http://www.iana.org/assignments/media-types/audio/vnd.sealedmedia.softseal-mpeg}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - David_Petersen
@@ -1944,8 +1944,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Greg_Vaudreuil]'
-  - ! '{audio/vnd.vmx.cvsd=http://www.iana.org/assignments/media-types/audio/vnd.vmx.cvsd}'
+  - "[Greg_Vaudreuil]"
+  - "{audio/vnd.vmx.cvsd=http://www.iana.org/assignments/media-types/audio/vnd.vmx.cvsd}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Greg_Vaudreuil
@@ -1958,7 +1958,7 @@
   references:
   - IANA
   - RFC5215
-  - ! '{audio/vorbis=http://www.iana.org/assignments/media-types/audio/vorbis}'
+  - "{audio/vorbis=http://www.iana.org/assignments/media-types/audio/vorbis}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5215
@@ -1971,7 +1971,7 @@
   references:
   - IANA
   - RFC5215
-  - ! '{audio/vorbis-config=http://www.iana.org/assignments/media-types/audio/vorbis-config}'
+  - "{audio/vorbis-config=http://www.iana.org/assignments/media-types/audio/vorbis-config}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5215
@@ -1987,7 +1987,7 @@
   - weba
   - webm
   references:
-  - ! '{WebM=http://www.webmproject.org/code/specs/container/}'
+  - "{WebM=http://www.webmproject.org/code/specs/container/}"
   registered: false
 - !ruby/object:MIME::Type
   content-type: audio/x-aac

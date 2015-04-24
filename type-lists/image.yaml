@@ -11,15 +11,6 @@
   - image/x-bmp
   registered: false
 - !ruby/object:MIME::Type
-  content-type: image/x-ms-bmp
-  friendly:
-    en: Bitmap Image File
-  encoding: base64
-  extensions:
-  - bmp
-  obsolete: true
-  registered: false
-- !ruby/object:MIME::Type
   content-type: image/cgm
   friendly:
     en: Computer Graphics Metafile
@@ -28,8 +19,8 @@
   - cgm
   references:
   - IANA
-  - ! '[Alan_Francis]'
-  - ! '{image/cgm=http://www.iana.org/assignments/media-types/image/cgm}'
+  - "[Alan_Francis]"
+  - "{image/cgm=http://www.iana.org/assignments/media-types/image/cgm}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Alan_Francis
@@ -49,7 +40,7 @@
   references:
   - IANA
   - RFC4735
-  - ! '{image/example=http://www.iana.org/assignments/media-types/image/example}'
+  - "{image/example=http://www.iana.org/assignments/media-types/image/example}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4735
@@ -62,7 +53,7 @@
   references:
   - IANA
   - RFC4047
-  - ! '{image/fits=http://www.iana.org/assignments/media-types/image/fits}'
+  - "{image/fits=http://www.iana.org/assignments/media-types/image/fits}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4047
@@ -79,7 +70,7 @@
   references:
   - IANA
   - RFC1494
-  - ! '{image/g3fax=http://www.iana.org/assignments/media-types/image/g3fax}'
+  - "{image/g3fax=http://www.iana.org/assignments/media-types/image/g3fax}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc1494
@@ -125,7 +116,7 @@
   references:
   - IANA
   - RFC3745
-  - ! '{image/jp2=http://www.iana.org/assignments/media-types/image/jp2}'
+  - "{image/jp2=http://www.iana.org/assignments/media-types/image/jp2}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3745
@@ -159,7 +150,7 @@
   references:
   - IANA
   - RFC3745
-  - ! '{image/jpm=http://www.iana.org/assignments/media-types/image/jpm}'
+  - "{image/jpm=http://www.iana.org/assignments/media-types/image/jpm}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3745
@@ -175,7 +166,7 @@
   references:
   - IANA
   - RFC3745
-  - ! '{image/jpx=http://www.iana.org/assignments/media-types/image/jpx}'
+  - "{image/jpx=http://www.iana.org/assignments/media-types/image/jpx}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3745
@@ -191,9 +182,9 @@
   - ktx
   references:
   - IANA
-  - ! '[Mark_Callow]'
-  - ! '[Khronos]'
-  - ! '{http://www.khronos.org/opengles/sdk/tools/KTX/file_format_spec/#mimeregistration}'
+  - "[Mark_Callow]"
+  - "[Khronos]"
+  - "{http://www.khronos.org/opengles/sdk/tools/KTX/file_format_spec/#mimeregistration}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Khronos
@@ -206,8 +197,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Ilya_Ferber]'
-  - ! '{image/naplps=http://www.iana.org/assignments/media-types/image/naplps}'
+  - "[Ilya_Ferber]"
+  - "{image/naplps=http://www.iana.org/assignments/media-types/image/naplps}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Ilya_Ferber
@@ -228,8 +219,8 @@
   - png
   references:
   - IANA
-  - ! '[Glenn_Randers-Pehrson]'
-  - ! '{image/png=http://www.iana.org/assignments/media-types/image/png}'
+  - "[Glenn_Randers-Pehrson]"
+  - "{image/png=http://www.iana.org/assignments/media-types/image/png}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Glenn_Randers-Pehrson
@@ -245,8 +236,8 @@
   - btif
   references:
   - IANA
-  - ! '[Ben_Simon]'
-  - ! '{image/prs.btif=http://www.iana.org/assignments/media-types/image/prs.btif}'
+  - "[Ben_Simon]"
+  - "{image/prs.btif=http://www.iana.org/assignments/media-types/image/prs.btif}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Ben_Simon
@@ -258,8 +249,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Juern_Laun]'
-  - ! '{image/prs.pti=http://www.iana.org/assignments/media-types/image/prs.pti}'
+  - "[Juern_Laun]"
+  - "{image/prs.pti=http://www.iana.org/assignments/media-types/image/prs.pti}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Juern_Laun
@@ -271,8 +262,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Michael_Sweet]'
-  - ! '{image/pwg-raster=http://www.iana.org/assignments/media-types/image/pwg-raster}'
+  - "[Michael_Sweet]"
+  - "{image/pwg-raster=http://www.iana.org/assignments/media-types/image/pwg-raster}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Michael_Sweet
@@ -295,8 +286,8 @@
   - svgz
   references:
   - IANA
-  - ! '[W3C]'
-  - ! '{http://www.w3.org/TR/SVG/mimereg.html}'
+  - "[W3C]"
+  - "{http://www.w3.org/TR/SVG/mimereg.html}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - W3C
@@ -309,7 +300,7 @@
   references:
   - IANA
   - RFC3362
-  - ! '{image/t38=http://www.iana.org/assignments/media-types/image/t38}'
+  - "{image/t38=http://www.iana.org/assignments/media-types/image/t38}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3362
@@ -336,7 +327,7 @@
   references:
   - IANA
   - RFC3302
-  - ! '{image/tiff=http://www.iana.org/assignments/media-types/image/tiff}'
+  - "{image/tiff=http://www.iana.org/assignments/media-types/image/tiff}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3302
@@ -349,7 +340,7 @@
   references:
   - IANA
   - RFC3950
-  - ! '{image/tiff-fx=http://www.iana.org/assignments/media-types/image/tiff-fx}'
+  - "{image/tiff-fx=http://www.iana.org/assignments/media-types/image/tiff-fx}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3950
@@ -365,8 +356,8 @@
   - psd
   references:
   - IANA
-  - ! '[Kim_Scarborough]'
-  - ! '{image/vnd.adobe.photoshop=http://www.iana.org/assignments/media-types/image/vnd.adobe.photoshop}'
+  - "[Kim_Scarborough]"
+  - "{image/vnd.adobe.photoshop=http://www.iana.org/assignments/media-types/image/vnd.adobe.photoshop}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Kim_Scarborough
@@ -378,8 +369,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Gary_Clueit]'
-  - ! '{image/vnd.airzip.accelerator.azv=http://www.iana.org/assignments/media-types/image/vnd.airzip.accelerator.azv}'
+  - "[Gary_Clueit]"
+  - "{image/vnd.airzip.accelerator.azv=http://www.iana.org/assignments/media-types/image/vnd.airzip.accelerator.azv}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Gary_Clueit
@@ -391,8 +382,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Ann_McLaughlin]'
-  - ! '{image/vnd.cns.inf2=http://www.iana.org/assignments/media-types/image/vnd.cns.inf2}'
+  - "[Ann_McLaughlin]"
+  - "{image/vnd.cns.inf2=http://www.iana.org/assignments/media-types/image/vnd.cns.inf2}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Ann_McLaughlin
@@ -411,8 +402,8 @@
   - uvvi
   references:
   - IANA
-  - ! '[Michael_A_Dolan]'
-  - ! '{image/vnd.dece.graphic=http://www.iana.org/assignments/media-types/image/vnd.dece.graphic}'
+  - "[Michael_A_Dolan]"
+  - "{image/vnd.dece.graphic=http://www.iana.org/assignments/media-types/image/vnd.dece.graphic}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Michael_A_Dolan
@@ -438,8 +429,8 @@
   - djv
   references:
   - IANA
-  - ! '[Leon_Bottou]'
-  - ! '{image/vnd-djvu=http://www.iana.org/assignments/media-types/image/vnd-djvu}'
+  - "[Leon_Bottou]"
+  - "{image/vnd-djvu=http://www.iana.org/assignments/media-types/image/vnd-djvu}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Leon_Bottou
@@ -455,9 +446,9 @@
   - sub
   references:
   - IANA
-  - ! '[Peter_Siebert]'
-  - ! '[Michael_Lagally]'
-  - ! '{image/vnd.dvb.subtitle=http://www.iana.org/assignments/media-types/image/vnd.dvb.subtitle}'
+  - "[Peter_Siebert]"
+  - "[Michael_Lagally]"
+  - "{image/vnd.dvb.subtitle=http://www.iana.org/assignments/media-types/image/vnd.dvb.subtitle}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Michael_Lagally
@@ -474,8 +465,8 @@
   - dwg
   references:
   - IANA
-  - ! '[Jodi_Moline]'
-  - ! '{image/vnd.dwg=http://www.iana.org/assignments/media-types/image/vnd.dwg}'
+  - "[Jodi_Moline]"
+  - "{image/vnd.dwg=http://www.iana.org/assignments/media-types/image/vnd.dwg}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Jodi_Moline
@@ -491,8 +482,8 @@
   - dxf
   references:
   - IANA
-  - ! '[Jodi_Moline]'
-  - ! '{image/vnd.dxf=http://www.iana.org/assignments/media-types/image/vnd.dxf}'
+  - "[Jodi_Moline]"
+  - "{image/vnd.dxf=http://www.iana.org/assignments/media-types/image/vnd.dxf}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Jodi_Moline
@@ -508,8 +499,8 @@
   - fbs
   references:
   - IANA
-  - ! '[Scott_Becker]'
-  - ! '{image/vnd.fastbidsheet=http://www.iana.org/assignments/media-types/image/vnd.fastbidsheet}'
+  - "[Scott_Becker]"
+  - "{image/vnd.fastbidsheet=http://www.iana.org/assignments/media-types/image/vnd.fastbidsheet}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Scott_Becker
@@ -525,8 +516,8 @@
   - fpx
   references:
   - IANA
-  - ! '[Marc_Douglas_Spencer]'
-  - ! '{image/vnd.fpx=http://www.iana.org/assignments/media-types/image/vnd.fpx}'
+  - "[Marc_Douglas_Spencer]"
+  - "{image/vnd.fpx=http://www.iana.org/assignments/media-types/image/vnd.fpx}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Marc_Douglas_Spencer
@@ -542,8 +533,8 @@
   - fst
   references:
   - IANA
-  - ! '[Arild_Fuldseth]'
-  - ! '{image/vnd.fst=http://www.iana.org/assignments/media-types/image/vnd.fst}'
+  - "[Arild_Fuldseth]"
+  - "{image/vnd.fst=http://www.iana.org/assignments/media-types/image/vnd.fst}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Arild_Fuldseth
@@ -559,8 +550,8 @@
   - mmr
   references:
   - IANA
-  - ! '[Masanori_Onda]'
-  - ! '{image/vnd.fujixerox.edmics-mmr=http://www.iana.org/assignments/media-types/image/vnd.fujixerox.edmics-mmr}'
+  - "[Masanori_Onda]"
+  - "{image/vnd.fujixerox.edmics-mmr=http://www.iana.org/assignments/media-types/image/vnd.fujixerox.edmics-mmr}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Masanori_Onda
@@ -576,8 +567,8 @@
   - rlc
   references:
   - IANA
-  - ! '[Masanori_Onda]'
-  - ! '{image/vnd.fujixerox.edmics-rlc=http://www.iana.org/assignments/media-types/image/vnd.fujixerox.edmics-rlc}'
+  - "[Masanori_Onda]"
+  - "{image/vnd.fujixerox.edmics-rlc=http://www.iana.org/assignments/media-types/image/vnd.fujixerox.edmics-rlc}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Masanori_Onda
@@ -591,8 +582,8 @@
   - pgb
   references:
   - IANA
-  - ! '[Martin_Bailey]'
-  - ! '{image/vnd.globalgraphics.pgb=http://www.iana.org/assignments/media-types/image/vnd.globalgraphics.pgb}'
+  - "[Martin_Bailey]"
+  - "{image/vnd.globalgraphics.pgb=http://www.iana.org/assignments/media-types/image/vnd.globalgraphics.pgb}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Martin_Bailey
@@ -606,8 +597,8 @@
   - ico
   references:
   - IANA
-  - ! '[Simon_Butcher]'
-  - ! '{image/vnd.microsoft.icon=http://www.iana.org/assignments/media-types/image/vnd.microsoft.icon}'
+  - "[Simon_Butcher]"
+  - "{image/vnd.microsoft.icon=http://www.iana.org/assignments/media-types/image/vnd.microsoft.icon}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Simon_Butcher
@@ -619,8 +610,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Saveen_Reddy]'
-  - ! '{image/vnd.mix=http://www.iana.org/assignments/media-types/image/vnd.mix}'
+  - "[Saveen_Reddy]"
+  - "{image/vnd.mix=http://www.iana.org/assignments/media-types/image/vnd.mix}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Saveen_Reddy
@@ -636,8 +627,8 @@
   - mdi
   references:
   - IANA
-  - ! '[Gregory_Vaughan]'
-  - ! '{image/vnd.ms-modi=http://www.iana.org/assignments/media-types/image/vnd.ms-modi}'
+  - "[Gregory_Vaughan]"
+  - "{image/vnd.ms-modi=http://www.iana.org/assignments/media-types/image/vnd.ms-modi}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Gregory_Vaughan
@@ -659,8 +650,8 @@
   - npx
   references:
   - IANA
-  - ! '[Marc_Douglas_Spencer]'
-  - ! '{image/vnd.net-fpx=http://www.iana.org/assignments/media-types/image/vnd.net-fpx}'
+  - "[Marc_Douglas_Spencer]"
+  - "{image/vnd.net-fpx=http://www.iana.org/assignments/media-types/image/vnd.net-fpx}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Marc_Douglas_Spencer
@@ -679,9 +670,9 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Randolph_Fritz]'
-  - ! '[Greg_Ward]'
-  - ! '{image/vnd.radiance=http://www.iana.org/assignments/media-types/image/vnd.radiance}'
+  - "[Randolph_Fritz]"
+  - "[Greg_Ward]"
+  - "{image/vnd.radiance=http://www.iana.org/assignments/media-types/image/vnd.radiance}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Greg_Ward
@@ -694,8 +685,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[David_Petersen]'
-  - ! '{image/vnd.sealed-png=http://www.iana.org/assignments/media-types/image/vnd.sealed-png}'
+  - "[David_Petersen]"
+  - "{image/vnd.sealed-png=http://www.iana.org/assignments/media-types/image/vnd.sealed-png}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - David_Petersen
@@ -707,8 +698,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[David_Petersen]'
-  - ! '{image/vnd.sealedmedia.softseal-gif=http://www.iana.org/assignments/media-types/image/vnd.sealedmedia.softseal-gif}'
+  - "[David_Petersen]"
+  - "{image/vnd.sealedmedia.softseal-gif=http://www.iana.org/assignments/media-types/image/vnd.sealedmedia.softseal-gif}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - David_Petersen
@@ -720,8 +711,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[David_Petersen]'
-  - ! '{image/vnd.sealedmedia.softseal-jpg=http://www.iana.org/assignments/media-types/image/vnd.sealedmedia.softseal-jpg}'
+  - "[David_Petersen]"
+  - "{image/vnd.sealedmedia.softseal-jpg=http://www.iana.org/assignments/media-types/image/vnd.sealedmedia.softseal-jpg}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - David_Petersen
@@ -733,8 +724,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Jodi_Moline]'
-  - ! '{image/vnd-svf=http://www.iana.org/assignments/media-types/image/vnd-svf}'
+  - "[Jodi_Moline]"
+  - "{image/vnd-svf=http://www.iana.org/assignments/media-types/image/vnd-svf}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Jodi_Moline
@@ -746,8 +737,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Ni_Hui]'
-  - ! '{image/vnd.tencent.tap=http://www.iana.org/assignments/media-types/image/vnd.tencent.tap}'
+  - "[Ni_Hui]"
+  - "{image/vnd.tencent.tap=http://www.iana.org/assignments/media-types/image/vnd.tencent.tap}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Ni_Hui
@@ -759,8 +750,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Henrik_Andersson]'
-  - ! '{image/vnd.valve.source.texture=http://www.iana.org/assignments/media-types/image/vnd.valve.source.texture}'
+  - "[Henrik_Andersson]"
+  - "{image/vnd.valve.source.texture=http://www.iana.org/assignments/media-types/image/vnd.valve.source.texture}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Henrik_Andersson
@@ -776,8 +767,8 @@
   - wbmp
   references:
   - IANA
-  - ! '[Peter_Stark]'
-  - ! '{image/vnd-wap-wbmp=http://www.iana.org/assignments/media-types/image/vnd-wap-wbmp}'
+  - "[Peter_Stark]"
+  - "{image/vnd-wap-wbmp=http://www.iana.org/assignments/media-types/image/vnd-wap-wbmp}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Peter_Stark
@@ -793,8 +784,8 @@
   - xif
   references:
   - IANA
-  - ! '[Steven_Martin]'
-  - ! '{image/vnd.xiff=http://www.iana.org/assignments/media-types/image/vnd.xiff}'
+  - "[Steven_Martin]"
+  - "{image/vnd.xiff=http://www.iana.org/assignments/media-types/image/vnd.xiff}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Steven_Martin
@@ -809,7 +800,7 @@
   extensions:
   - webp
   references:
-  - ! '{WebP=https://developers.google.com/speed/webp/}'
+  - "{WebP=https://developers.google.com/speed/webp/}"
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/x-3ds
@@ -878,6 +869,15 @@
   encoding: base64
   extensions:
   - sid
+  registered: false
+- !ruby/object:MIME::Type
+  content-type: image/x-ms-bmp
+  friendly:
+    en: Bitmap Image File
+  encoding: base64
+  extensions:
+  - bmp
+  obsolete: true
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/x-paintshoppro
@@ -985,7 +985,7 @@
   extensions:
   - xcf
   references:
-  - ! '{XCF=http://git.gnome.org/browse/gimp/tree/devel-docs/xcf.txt}'
+  - "{XCF=http://git.gnome.org/browse/gimp/tree/devel-docs/xcf.txt}"
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/x-xpixmap

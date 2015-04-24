@@ -5,7 +5,7 @@
   references:
   - IANA
   - RFC6015
-  - ! '{video/1d-interleaved-parityfec=http://www.iana.org/assignments/media-types/video/1d-interleaved-parityfec}'
+  - "{video/1d-interleaved-parityfec=http://www.iana.org/assignments/media-types/video/1d-interleaved-parityfec}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6015
@@ -24,7 +24,7 @@
   - IANA
   - RFC3839
   - RFC6381
-  - ! '{video/3gpp=http://www.iana.org/assignments/media-types/video/3gpp}'
+  - "{video/3gpp=http://www.iana.org/assignments/media-types/video/3gpp}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3839
@@ -38,7 +38,7 @@
   references:
   - IANA
   - RFC4396
-  - ! '{video/3gpp-tt=http://www.iana.org/assignments/media-types/video/3gpp-tt}'
+  - "{video/3gpp-tt=http://www.iana.org/assignments/media-types/video/3gpp-tt}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4396
@@ -57,7 +57,7 @@
   - IANA
   - RFC4393
   - RFC6381
-  - ! '{video/3gpp2=http://www.iana.org/assignments/media-types/video/3gpp2}'
+  - "{video/3gpp2=http://www.iana.org/assignments/media-types/video/3gpp2}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4393
@@ -71,7 +71,7 @@
   references:
   - IANA
   - RFC3555
-  - ! '{video/BMPEG=http://www.iana.org/assignments/media-types/video/BMPEG}'
+  - "{video/BMPEG=http://www.iana.org/assignments/media-types/video/BMPEG}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
@@ -84,7 +84,7 @@
   references:
   - IANA
   - RFC3555
-  - ! '{video/BT656=http://www.iana.org/assignments/media-types/video/BT656}'
+  - "{video/BT656=http://www.iana.org/assignments/media-types/video/BT656}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
@@ -97,7 +97,7 @@
   references:
   - IANA
   - RFC3555
-  - ! '{video/CelB=http://www.iana.org/assignments/media-types/video/CelB}'
+  - "{video/CelB=http://www.iana.org/assignments/media-types/video/CelB}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
@@ -121,7 +121,7 @@
   references:
   - IANA
   - RFC6469
-  - ! '{video/DV=http://www.iana.org/assignments/media-types/video/DV}'
+  - "{video/DV=http://www.iana.org/assignments/media-types/video/DV}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6469
@@ -134,7 +134,7 @@
   references:
   - IANA
   - RFC6849
-  - ! '{video/encaprtp=http://www.iana.org/assignments/media-types/video/encaprtp}'
+  - "{video/encaprtp=http://www.iana.org/assignments/media-types/video/encaprtp}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6849
@@ -147,7 +147,7 @@
   references:
   - IANA
   - RFC4735
-  - ! '{video/example=http://www.iana.org/assignments/media-types/video/example}'
+  - "{video/example=http://www.iana.org/assignments/media-types/video/example}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4735
@@ -173,7 +173,7 @@
   references:
   - IANA
   - RFC4587
-  - ! '{video/H261=http://www.iana.org/assignments/media-types/video/H261}'
+  - "{video/H261=http://www.iana.org/assignments/media-types/video/H261}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4587
@@ -190,7 +190,7 @@
   references:
   - IANA
   - RFC3555
-  - ! '{video/H263=http://www.iana.org/assignments/media-types/video/H263}'
+  - "{video/H263=http://www.iana.org/assignments/media-types/video/H263}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
@@ -203,7 +203,7 @@
   references:
   - IANA
   - RFC4629
-  - ! '{video/H263-1998=http://www.iana.org/assignments/media-types/video/H263-1998}'
+  - "{video/H263-1998=http://www.iana.org/assignments/media-types/video/H263-1998}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4629
@@ -216,7 +216,7 @@
   references:
   - IANA
   - RFC4629
-  - ! '{video/H263-2000=http://www.iana.org/assignments/media-types/video/H263-2000}'
+  - "{video/H263-2000=http://www.iana.org/assignments/media-types/video/H263-2000}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4629
@@ -233,7 +233,7 @@
   references:
   - IANA
   - RFC6184
-  - ! '{video/H264=http://www.iana.org/assignments/media-types/video/H264}'
+  - "{video/H264=http://www.iana.org/assignments/media-types/video/H264}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6184
@@ -246,7 +246,7 @@
   references:
   - IANA
   - RFC6185
-  - ! '{video/H264-RCDO=http://www.iana.org/assignments/media-types/video/H264-RCDO}'
+  - "{video/H264-RCDO=http://www.iana.org/assignments/media-types/video/H264-RCDO}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6185
@@ -259,7 +259,7 @@
   references:
   - IANA
   - RFC6190
-  - ! '{video/H264-SVC=http://www.iana.org/assignments/media-types/video/H264-SVC}'
+  - "{video/H264-SVC=http://www.iana.org/assignments/media-types/video/H264-SVC}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6190
@@ -271,9 +271,9 @@
   encoding: base64
   references:
   - IANA
-  - ! '[David_Singer]'
-  - ! '[ISO-IEC_JTC1]'
-  - ! '{video/iso.segment=http://www.iana.org/assignments/media-types/video/iso.segment}'
+  - "[David_Singer]"
+  - "[ISO-IEC_JTC1]"
+  - "{video/iso.segment=http://www.iana.org/assignments/media-types/video/iso.segment}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - David_Singer
@@ -291,7 +291,7 @@
   references:
   - IANA
   - RFC3555
-  - ! '{video/JPEG=http://www.iana.org/assignments/media-types/video/JPEG}'
+  - "{video/JPEG=http://www.iana.org/assignments/media-types/video/JPEG}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
@@ -305,7 +305,7 @@
   - IANA
   - RFC5371
   - RFC5372
-  - ! '{video/jpeg2000=http://www.iana.org/assignments/media-types/video/jpeg2000}'
+  - "{video/jpeg2000=http://www.iana.org/assignments/media-types/video/jpeg2000}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5371
@@ -333,7 +333,7 @@
   references:
   - IANA
   - RFC3745
-  - ! '{video/mj2=http://www.iana.org/assignments/media-types/video/mj2}'
+  - "{video/mj2=http://www.iana.org/assignments/media-types/video/mj2}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3745
@@ -346,7 +346,7 @@
   references:
   - IANA
   - RFC3555
-  - ! '{video/MP1S=http://www.iana.org/assignments/media-types/video/MP1S}'
+  - "{video/MP1S=http://www.iana.org/assignments/media-types/video/MP1S}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
@@ -359,7 +359,7 @@
   references:
   - IANA
   - RFC3555
-  - ! '{video/MP2P=http://www.iana.org/assignments/media-types/video/MP2P}'
+  - "{video/MP2P=http://www.iana.org/assignments/media-types/video/MP2P}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
@@ -374,7 +374,7 @@
   references:
   - IANA
   - RFC3555
-  - ! '{video/MP2T=http://www.iana.org/assignments/media-types/video/MP2T}'
+  - "{video/MP2T=http://www.iana.org/assignments/media-types/video/MP2T}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
@@ -396,7 +396,7 @@
   - IANA
   - RFC4337
   - RFC6381
-  - ! '{video/mp4=http://www.iana.org/assignments/media-types/video/mp4}'
+  - "{video/mp4=http://www.iana.org/assignments/media-types/video/mp4}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4337
@@ -410,7 +410,7 @@
   references:
   - IANA
   - RFC6416
-  - ! '{video/MP4V-ES=http://www.iana.org/assignments/media-types/video/MP4V-ES}'
+  - "{video/MP4V-ES=http://www.iana.org/assignments/media-types/video/MP4V-ES}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6416
@@ -445,7 +445,7 @@
   references:
   - IANA
   - RFC3640
-  - ! '{video/mpeg4-generic=http://www.iana.org/assignments/media-types/video/mpeg4-generic}'
+  - "{video/mpeg4-generic=http://www.iana.org/assignments/media-types/video/mpeg4-generic}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3640
@@ -458,7 +458,7 @@
   references:
   - IANA
   - RFC3555
-  - ! '{video/MPV=http://www.iana.org/assignments/media-types/video/MPV}'
+  - "{video/MPV=http://www.iana.org/assignments/media-types/video/MPV}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
@@ -471,7 +471,7 @@
   references:
   - IANA
   - RFC4856
-  - ! '{video/nv=http://www.iana.org/assignments/media-types/video/nv}'
+  - "{video/nv=http://www.iana.org/assignments/media-types/video/nv}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
@@ -489,7 +489,7 @@
   references:
   - IANA
   - RFC5334
-  - ! '{video/ogg=http://www.iana.org/assignments/media-types/video/ogg}'
+  - "{video/ogg=http://www.iana.org/assignments/media-types/video/ogg}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5334
@@ -512,7 +512,7 @@
   references:
   - IANA
   - RFC2862
-  - ! '{video/pointer=http://www.iana.org/assignments/media-types/video/pointer}'
+  - "{video/pointer=http://www.iana.org/assignments/media-types/video/pointer}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2862
@@ -530,8 +530,8 @@
   references:
   - IANA
   - RFC6381
-  - ! '[Paul_Lindner]'
-  - ! '{video/quicktime=http://www.iana.org/assignments/media-types/video/quicktime}'
+  - "[Paul_Lindner]"
+  - "{video/quicktime=http://www.iana.org/assignments/media-types/video/quicktime}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6381
@@ -546,7 +546,7 @@
   references:
   - IANA
   - RFC6682
-  - ! '{video/raptorfec=http://www.iana.org/assignments/media-types/video/raptorfec}'
+  - "{video/raptorfec=http://www.iana.org/assignments/media-types/video/raptorfec}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6682
@@ -568,8 +568,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[ThreeGPP]'
-  - ! '{video/rtp-enc-aescm128=http://www.iana.org/assignments/media-types/video/rtp-enc-aescm128}'
+  - "[ThreeGPP]"
+  - "{video/rtp-enc-aescm128=http://www.iana.org/assignments/media-types/video/rtp-enc-aescm128}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - ThreeGPP
@@ -582,7 +582,7 @@
   references:
   - IANA
   - RFC6849
-  - ! '{video/rtploopback=http://www.iana.org/assignments/media-types/video/rtploopback}'
+  - "{video/rtploopback=http://www.iana.org/assignments/media-types/video/rtploopback}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6849
@@ -595,7 +595,7 @@
   references:
   - IANA
   - RFC4588
-  - ! '{video/rtx=http://www.iana.org/assignments/media-types/video/rtx}'
+  - "{video/rtx=http://www.iana.org/assignments/media-types/video/rtx}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4588
@@ -608,7 +608,7 @@
   references:
   - IANA
   - RFC3497
-  - ! '{video/SMPTE292M=http://www.iana.org/assignments/media-types/video/SMPTE292M}'
+  - "{video/SMPTE292M=http://www.iana.org/assignments/media-types/video/SMPTE292M}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3497
@@ -621,7 +621,7 @@
   references:
   - IANA
   - RFC5109
-  - ! '{video/ulpfec=http://www.iana.org/assignments/media-types/video/ulpfec}'
+  - "{video/ulpfec=http://www.iana.org/assignments/media-types/video/ulpfec}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5109
@@ -634,7 +634,7 @@
   references:
   - IANA
   - RFC4425
-  - ! '{video/vc1=http://www.iana.org/assignments/media-types/video/vc1}'
+  - "{video/vc1=http://www.iana.org/assignments/media-types/video/vc1}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4425
@@ -646,8 +646,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Frank_Rottman]'
-  - ! '{video/vnd.CCTV=http://www.iana.org/assignments/media-types/video/vnd.CCTV}'
+  - "[Frank_Rottman]"
+  - "{video/vnd.CCTV=http://www.iana.org/assignments/media-types/video/vnd.CCTV}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Frank_Rottman
@@ -664,8 +664,8 @@
   - uvvh
   references:
   - IANA
-  - ! '[Dolan]'
-  - ! '{video/vnd.dece.hd=http://www.iana.org/assignments/media-types/video/vnd.dece.hd}'
+  - "[Dolan]"
+  - "{video/vnd.dece.hd=http://www.iana.org/assignments/media-types/video/vnd.dece.hd}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Dolan
@@ -682,8 +682,8 @@
   - uvvm
   references:
   - IANA
-  - ! '[Dolan]'
-  - ! '{video/vnd.dece.mobile=http://www.iana.org/assignments/media-types/video/vnd.dece.mobile}'
+  - "[Dolan]"
+  - "{video/vnd.dece.mobile=http://www.iana.org/assignments/media-types/video/vnd.dece.mobile}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Dolan
@@ -695,8 +695,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Dolan]'
-  - ! '{video/vnd.dece-mp4=http://www.iana.org/assignments/media-types/video/vnd.dece-mp4}'
+  - "[Dolan]"
+  - "{video/vnd.dece-mp4=http://www.iana.org/assignments/media-types/video/vnd.dece-mp4}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Dolan
@@ -713,8 +713,8 @@
   - uvvp
   references:
   - IANA
-  - ! '[Dolan]'
-  - ! '{video/vnd.dece.pd=http://www.iana.org/assignments/media-types/video/vnd.dece.pd}'
+  - "[Dolan]"
+  - "{video/vnd.dece.pd=http://www.iana.org/assignments/media-types/video/vnd.dece.pd}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Dolan
@@ -731,8 +731,8 @@
   - uvvs
   references:
   - IANA
-  - ! '[Dolan]'
-  - ! '{video/vnd.dece.sd=http://www.iana.org/assignments/media-types/video/vnd.dece.sd}'
+  - "[Dolan]"
+  - "{video/vnd.dece.sd=http://www.iana.org/assignments/media-types/video/vnd.dece.sd}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Dolan
@@ -749,8 +749,8 @@
   - uvvv
   references:
   - IANA
-  - ! '[Dolan]'
-  - ! '{video/vnd.dece.video=http://www.iana.org/assignments/media-types/video/vnd.dece.video}'
+  - "[Dolan]"
+  - "{video/vnd.dece.video=http://www.iana.org/assignments/media-types/video/vnd.dece.video}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Dolan
@@ -762,8 +762,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Nathan_Zerbe]'
-  - ! '{video/vnd.directv-mpeg=http://www.iana.org/assignments/media-types/video/vnd.directv-mpeg}'
+  - "[Nathan_Zerbe]"
+  - "{video/vnd.directv-mpeg=http://www.iana.org/assignments/media-types/video/vnd.directv-mpeg}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Nathan_Zerbe
@@ -775,8 +775,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Nathan_Zerbe]'
-  - ! '{video/vnd.directv.mpeg-tts=http://www.iana.org/assignments/media-types/video/vnd.directv.mpeg-tts}'
+  - "[Nathan_Zerbe]"
+  - "{video/vnd.directv.mpeg-tts=http://www.iana.org/assignments/media-types/video/vnd.directv.mpeg-tts}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Nathan_Zerbe
@@ -788,8 +788,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Edwin_Heredia]'
-  - ! '{video/vnd.dlna.mpeg-tts=http://www.iana.org/assignments/media-types/video/vnd.dlna.mpeg-tts}'
+  - "[Edwin_Heredia]"
+  - "{video/vnd.dlna.mpeg-tts=http://www.iana.org/assignments/media-types/video/vnd.dlna.mpeg-tts}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Edwin_Heredia
@@ -803,9 +803,9 @@
   - dvb
   references:
   - IANA
-  - ! '[Peter_Siebert]'
-  - ! '[Kevin_Murray]'
-  - ! '{video/vnd.dvb.file=http://www.iana.org/assignments/media-types/video/vnd.dvb.file}'
+  - "[Peter_Siebert]"
+  - "[Kevin_Murray]"
+  - "{video/vnd.dvb.file=http://www.iana.org/assignments/media-types/video/vnd.dvb.file}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Kevin_Murray
@@ -822,8 +822,8 @@
   - fvt
   references:
   - IANA
-  - ! '[Arild_Fuldseth]'
-  - ! '{video/vnd.fvt=http://www.iana.org/assignments/media-types/video/vnd.fvt}'
+  - "[Arild_Fuldseth]"
+  - "{video/vnd.fvt=http://www.iana.org/assignments/media-types/video/vnd.fvt}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Arild_Fuldseth
@@ -835,8 +835,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Swaminathan]'
-  - ! '{video/vnd.hns.video=http://www.iana.org/assignments/media-types/video/vnd.hns.video}'
+  - "[Swaminathan]"
+  - "{video/vnd.hns.video=http://www.iana.org/assignments/media-types/video/vnd.hns.video}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Swaminathan
@@ -848,8 +848,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Shuji_Nakamura]'
-  - ! '{video/vnd.iptvforum.1dparityfec-1010=http://www.iana.org/assignments/media-types/video/vnd.iptvforum.1dparityfec-1010}'
+  - "[Shuji_Nakamura]"
+  - "{video/vnd.iptvforum.1dparityfec-1010=http://www.iana.org/assignments/media-types/video/vnd.iptvforum.1dparityfec-1010}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Shuji_Nakamura
@@ -861,8 +861,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Shuji_Nakamura]'
-  - ! '{video/vnd.iptvforum.1dparityfec-2005=http://www.iana.org/assignments/media-types/video/vnd.iptvforum.1dparityfec-2005}'
+  - "[Shuji_Nakamura]"
+  - "{video/vnd.iptvforum.1dparityfec-2005=http://www.iana.org/assignments/media-types/video/vnd.iptvforum.1dparityfec-2005}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Shuji_Nakamura
@@ -874,8 +874,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Shuji_Nakamura]'
-  - ! '{video/vnd.iptvforum.2dparityfec-1010=http://www.iana.org/assignments/media-types/video/vnd.iptvforum.2dparityfec-1010}'
+  - "[Shuji_Nakamura]"
+  - "{video/vnd.iptvforum.2dparityfec-1010=http://www.iana.org/assignments/media-types/video/vnd.iptvforum.2dparityfec-1010}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Shuji_Nakamura
@@ -887,8 +887,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Shuji_Nakamura]'
-  - ! '{video/vnd.iptvforum.2dparityfec-2005=http://www.iana.org/assignments/media-types/video/vnd.iptvforum.2dparityfec-2005}'
+  - "[Shuji_Nakamura]"
+  - "{video/vnd.iptvforum.2dparityfec-2005=http://www.iana.org/assignments/media-types/video/vnd.iptvforum.2dparityfec-2005}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Shuji_Nakamura
@@ -900,8 +900,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Shuji_Nakamura]'
-  - ! '{video/vnd.iptvforum.ttsavc=http://www.iana.org/assignments/media-types/video/vnd.iptvforum.ttsavc}'
+  - "[Shuji_Nakamura]"
+  - "{video/vnd.iptvforum.ttsavc=http://www.iana.org/assignments/media-types/video/vnd.iptvforum.ttsavc}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Shuji_Nakamura
@@ -913,8 +913,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Shuji_Nakamura]'
-  - ! '{video/vnd.iptvforum.ttsmpeg2=http://www.iana.org/assignments/media-types/video/vnd.iptvforum.ttsmpeg2}'
+  - "[Shuji_Nakamura]"
+  - "{video/vnd.iptvforum.ttsmpeg2=http://www.iana.org/assignments/media-types/video/vnd.iptvforum.ttsmpeg2}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Shuji_Nakamura
@@ -926,8 +926,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Tom_McGinty]'
-  - ! '{video/vnd.motorola.video=http://www.iana.org/assignments/media-types/video/vnd.motorola.video}'
+  - "[Tom_McGinty]"
+  - "{video/vnd.motorola.video=http://www.iana.org/assignments/media-types/video/vnd.motorola.video}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Tom_McGinty
@@ -939,8 +939,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Tom_McGinty]'
-  - ! '{video/vnd.motorola.videop=http://www.iana.org/assignments/media-types/video/vnd.motorola.videop}'
+  - "[Tom_McGinty]"
+  - "{video/vnd.motorola.videop=http://www.iana.org/assignments/media-types/video/vnd.motorola.videop}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Tom_McGinty
@@ -957,8 +957,8 @@
   - m4u
   references:
   - IANA
-  - ! '[Heiko_Recktenwald]'
-  - ! '{video/vnd-mpegurl=http://www.iana.org/assignments/media-types/video/vnd-mpegurl}'
+  - "[Heiko_Recktenwald]"
+  - "{video/vnd-mpegurl=http://www.iana.org/assignments/media-types/video/vnd-mpegurl}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Heiko_Recktenwald
@@ -974,8 +974,8 @@
   - pyv
   references:
   - IANA
-  - ! '[Steve_DiAcetis]'
-  - ! '{video/vnd.ms-playready.media.pyv=http://www.iana.org/assignments/media-types/video/vnd.ms-playready.media.pyv}'
+  - "[Steve_DiAcetis]"
+  - "{video/vnd.ms-playready.media.pyv=http://www.iana.org/assignments/media-types/video/vnd.ms-playready.media.pyv}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Steve_DiAcetis
@@ -989,8 +989,8 @@
   - nim
   references:
   - IANA
-  - ! '[Petteri_Kangaslampi]'
-  - ! '{video/vnd.nokia.interleaved-multimedia=http://www.iana.org/assignments/media-types/video/vnd.nokia.interleaved-multimedia}'
+  - "[Petteri_Kangaslampi]"
+  - "{video/vnd.nokia.interleaved-multimedia=http://www.iana.org/assignments/media-types/video/vnd.nokia.interleaved-multimedia}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Petteri_Kangaslampi
@@ -1002,8 +1002,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Nokia]'
-  - ! '{video/vnd.nokia.videovoip=http://www.iana.org/assignments/media-types/video/vnd.nokia.videovoip}'
+  - "[Nokia]"
+  - "{video/vnd.nokia.videovoip=http://www.iana.org/assignments/media-types/video/vnd.nokia.videovoip}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Nokia
@@ -1018,8 +1018,8 @@
   - m4v
   references:
   - IANA
-  - ! '[John_Clark]'
-  - ! '{video/vnd.objectvideo=http://www.iana.org/assignments/media-types/video/vnd.objectvideo}'
+  - "[John_Clark]"
+  - "{video/vnd.objectvideo=http://www.iana.org/assignments/media-types/video/vnd.objectvideo}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - John_Clark
@@ -1031,8 +1031,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Henrik_Andersson]'
-  - ! '{video/vnd.radgamettools.bink=http://www.iana.org/assignments/media-types/video/vnd.radgamettools.bink}'
+  - "[Henrik_Andersson]"
+  - "{video/vnd.radgamettools.bink=http://www.iana.org/assignments/media-types/video/vnd.radgamettools.bink}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Henrik_Andersson
@@ -1044,8 +1044,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Henrik_Andersson]'
-  - ! '{video/vnd.radgamettools.smacker=http://www.iana.org/assignments/media-types/video/vnd.radgamettools.smacker}'
+  - "[Henrik_Andersson]"
+  - "{video/vnd.radgamettools.smacker=http://www.iana.org/assignments/media-types/video/vnd.radgamettools.smacker}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Henrik_Andersson
@@ -1059,8 +1059,8 @@
   - s11
   references:
   - IANA
-  - ! '[David_Petersen]'
-  - ! '{video/vnd.sealed.mpeg1=http://www.iana.org/assignments/media-types/video/vnd.sealed.mpeg1}'
+  - "[David_Petersen]"
+  - "{video/vnd.sealed.mpeg1=http://www.iana.org/assignments/media-types/video/vnd.sealed.mpeg1}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - David_Petersen
@@ -1075,8 +1075,8 @@
   - s14
   references:
   - IANA
-  - ! '[David_Petersen]'
-  - ! '{video/vnd.sealed.mpeg4=http://www.iana.org/assignments/media-types/video/vnd.sealed.mpeg4}'
+  - "[David_Petersen]"
+  - "{video/vnd.sealed.mpeg4=http://www.iana.org/assignments/media-types/video/vnd.sealed.mpeg4}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - David_Petersen
@@ -1091,8 +1091,8 @@
   - ssw
   references:
   - IANA
-  - ! '[David_Petersen]'
-  - ! '{video/vnd.sealed-swf=http://www.iana.org/assignments/media-types/video/vnd.sealed-swf}'
+  - "[David_Petersen]"
+  - "{video/vnd.sealed-swf=http://www.iana.org/assignments/media-types/video/vnd.sealed-swf}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - David_Petersen
@@ -1108,8 +1108,8 @@
   - s1q
   references:
   - IANA
-  - ! '[David_Petersen]'
-  - ! '{video/vnd.sealedmedia.softseal-mov=http://www.iana.org/assignments/media-types/video/vnd.sealedmedia.softseal-mov}'
+  - "[David_Petersen]"
+  - "{video/vnd.sealedmedia.softseal-mov=http://www.iana.org/assignments/media-types/video/vnd.sealedmedia.softseal-mov}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - David_Petersen
@@ -1126,8 +1126,8 @@
   - uvvu
   references:
   - IANA
-  - ! '[Dolan]'
-  - ! '{video/vnd.uvvu-mp4=http://www.iana.org/assignments/media-types/video/vnd.uvvu-mp4}'
+  - "[Dolan]"
+  - "{video/vnd.uvvu-mp4=http://www.iana.org/assignments/media-types/video/vnd.uvvu-mp4}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Dolan
@@ -1144,8 +1144,8 @@
   - vivo
   references:
   - IANA
-  - ! '[John_Wolfe]'
-  - ! '{video/vnd-vivo=http://www.iana.org/assignments/media-types/video/vnd-vivo}'
+  - "[John_Wolfe]"
+  - "{video/vnd-vivo=http://www.iana.org/assignments/media-types/video/vnd-vivo}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - John_Wolfe
@@ -1160,7 +1160,7 @@
   extensions:
   - webm
   references:
-  - ! '{WebM=http://www.webmproject.org/code/specs/container/}'
+  - "{WebM=http://www.webmproject.org/code/specs/container/}"
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/x-dl

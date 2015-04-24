@@ -5,7 +5,7 @@
   references:
   - IANA
   - RFC4735
-  - ! '{model/example=http://www.iana.org/assignments/media-types/model/example}'
+  - "{model/example=http://www.iana.org/assignments/media-types/model/example}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4735
@@ -22,8 +22,8 @@
   - iges
   references:
   - IANA
-  - ! '[Curtis_Parks]'
-  - ! '{model/iges=http://www.iana.org/assignments/media-types/model/iges}'
+  - "[Curtis_Parks]"
+  - "{model/iges=http://www.iana.org/assignments/media-types/model/iges}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Curtis_Parks
@@ -55,8 +55,8 @@
   - dae
   references:
   - IANA
-  - ! '[James_Riordon]'
-  - ! '{model/vnd.collada+xml=http://www.iana.org/assignments/media-types/model/vnd.collada+xml}'
+  - "[James_Riordon]"
+  - "{model/vnd.collada+xml=http://www.iana.org/assignments/media-types/model/vnd.collada+xml}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - James_Riordon
@@ -72,8 +72,8 @@
   - dwf
   references:
   - IANA
-  - ! '[Jason_Pratt]'
-  - ! '{model/vnd-dwf=http://www.iana.org/assignments/media-types/model/vnd-dwf}'
+  - "[Jason_Pratt]"
+  - "{model/vnd-dwf=http://www.iana.org/assignments/media-types/model/vnd-dwf}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Jason_Pratt
@@ -85,8 +85,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Michael_Powers]'
-  - ! '{model/vnd.flatland.3dml=http://www.iana.org/assignments/media-types/model/vnd.flatland.3dml}'
+  - "[Michael_Powers]"
+  - "{model/vnd.flatland.3dml=http://www.iana.org/assignments/media-types/model/vnd.flatland.3dml}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Michael_Powers
@@ -102,8 +102,8 @@
   - gdl
   references:
   - IANA
-  - ! '[Attila_Babits]'
-  - ! '{model/vnd.gdl=http://www.iana.org/assignments/media-types/model/vnd.gdl}'
+  - "[Attila_Babits]"
+  - "{model/vnd.gdl=http://www.iana.org/assignments/media-types/model/vnd.gdl}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Attila_Babits
@@ -115,8 +115,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Attila_Babits]'
-  - ! '{model/vnd.gs-gdl=http://www.iana.org/assignments/media-types/model/vnd.gs-gdl}'
+  - "[Attila_Babits]"
+  - "{model/vnd.gs-gdl=http://www.iana.org/assignments/media-types/model/vnd.gs-gdl}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Attila_Babits
@@ -132,8 +132,8 @@
   - gtw
   references:
   - IANA
-  - ! '[Yutaka_Ozaki]'
-  - ! '{model/vnd.gtw=http://www.iana.org/assignments/media-types/model/vnd.gtw}'
+  - "[Yutaka_Ozaki]"
+  - "{model/vnd.gtw=http://www.iana.org/assignments/media-types/model/vnd.gtw}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Yutaka_Ozaki
@@ -145,8 +145,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Christopher_Brooks]'
-  - ! '{model/vnd.moml+xml=http://www.iana.org/assignments/media-types/model/vnd.moml+xml}'
+  - "[Christopher_Brooks]"
+  - "{model/vnd.moml+xml=http://www.iana.org/assignments/media-types/model/vnd.moml+xml}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Christopher_Brooks
@@ -162,8 +162,8 @@
   - mts
   references:
   - IANA
-  - ! '[Boris_Rabinovitch]'
-  - ! '{model/vnd.mts=http://www.iana.org/assignments/media-types/model/vnd.mts}'
+  - "[Boris_Rabinovitch]"
+  - "{model/vnd.mts=http://www.iana.org/assignments/media-types/model/vnd.mts}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Boris_Rabinovitch
@@ -175,8 +175,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Eric_Lengyel]'
-  - ! '{model/vnd.opengex=http://www.iana.org/assignments/media-types/model/vnd.opengex}'
+  - "[Eric_Lengyel]"
+  - "{model/vnd.opengex=http://www.iana.org/assignments/media-types/model/vnd.opengex}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Eric_Lengyel
@@ -191,8 +191,8 @@
   - xmt_bin
   references:
   - IANA
-  - ! '[Parasolid]'
-  - ! '{model/vnd.parasolid.transmit-binary=http://www.iana.org/assignments/media-types/model/vnd.parasolid.transmit-binary}'
+  - "[Parasolid]"
+  - "{model/vnd.parasolid.transmit-binary=http://www.iana.org/assignments/media-types/model/vnd.parasolid.transmit-binary}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Parasolid
@@ -207,8 +207,8 @@
   - xmt_txt
   references:
   - IANA
-  - ! '[Parasolid]'
-  - ! '{model/vnd.parasolid.transmit-text=http://www.iana.org/assignments/media-types/model/vnd.parasolid.transmit-text}'
+  - "[Parasolid]"
+  - "{model/vnd.parasolid.transmit-text=http://www.iana.org/assignments/media-types/model/vnd.parasolid.transmit-text}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Parasolid
@@ -220,8 +220,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Henrik_Andersson]'
-  - ! '{model/vnd.valve.source.compiled-map=http://www.iana.org/assignments/media-types/model/vnd.valve.source.compiled-map}'
+  - "[Henrik_Andersson]"
+  - "{model/vnd.valve.source.compiled-map=http://www.iana.org/assignments/media-types/model/vnd.valve.source.compiled-map}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Henrik_Andersson
@@ -237,8 +237,8 @@
   - vtu
   references:
   - IANA
-  - ! '[Boris_Rabinovitch]'
-  - ! '{model/vnd.vtu=http://www.iana.org/assignments/media-types/model/vnd.vtu}'
+  - "[Boris_Rabinovitch]"
+  - "{model/vnd.vtu=http://www.iana.org/assignments/media-types/model/vnd.vtu}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Boris_Rabinovitch
@@ -272,8 +272,8 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Web3D_X3D]'
-  - ! '{model/x3d+fastinfoset=http://www.iana.org/assignments/media-types/model/x3d+fastinfoset}'
+  - "[Web3D_X3D]"
+  - "{model/x3d+fastinfoset=http://www.iana.org/assignments/media-types/model/x3d+fastinfoset}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Web3D_X3D
@@ -295,9 +295,9 @@
   - x3dz
   references:
   - IANA
-  - ! '[Web3D]'
-  - ! '[Web3D_X3D]'
-  - ! '{model/x3d+xml=http://www.iana.org/assignments/media-types/model/x3d+xml}'
+  - "[Web3D]"
+  - "[Web3D_X3D]"
+  - "{model/x3d+xml=http://www.iana.org/assignments/media-types/model/x3d+xml}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Web3D
@@ -310,9 +310,9 @@
   encoding: base64
   references:
   - IANA
-  - ! '[Web3D]'
-  - ! '[Web3D_X3D]'
-  - ! '{model/x3d-vrml=http://www.iana.org/assignments/media-types/model/x3d-vrml}'
+  - "[Web3D]"
+  - "[Web3D_X3D]"
+  - "{model/x3d-vrml=http://www.iana.org/assignments/media-types/model/x3d-vrml}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Web3D

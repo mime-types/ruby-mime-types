@@ -5,7 +5,7 @@
   references:
   - IANA
   - RFC6015
-  - ! '{text/1d-interleaved-parityfec=http://www.iana.org/assignments/media-types/text/1d-interleaved-parityfec}'
+  - "{text/1d-interleaved-parityfec=http://www.iana.org/assignments/media-types/text/1d-interleaved-parityfec}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6015
@@ -20,9 +20,9 @@
   - manifest
   references:
   - IANA
-  - ! '[W3C]'
-  - ! '[Robin_Berjon]'
-  - ! '{text/cache-manifest=http://www.iana.org/assignments/media-types/text/cache-manifest}'
+  - "[W3C]"
+  - "[Robin_Berjon]"
+  - "{text/cache-manifest=http://www.iana.org/assignments/media-types/text/cache-manifest}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Robin_Berjon
@@ -41,7 +41,7 @@
   references:
   - IANA
   - RFC5545
-  - ! '{text/calendar=http://www.iana.org/assignments/media-types/text/calendar}'
+  - "{text/calendar=http://www.iana.org/assignments/media-types/text/calendar}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5545
@@ -67,7 +67,7 @@
   references:
   - IANA
   - RFC2318
-  - ! '{text/css=http://www.iana.org/assignments/media-types/text/css}'
+  - "{text/css=http://www.iana.org/assignments/media-types/text/css}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2318
@@ -85,7 +85,7 @@
   - IANA
   - RFC4180
   - RFC7111
-  - ! '{text/csv=http://www.iana.org/assignments/media-types/text/csv}'
+  - "{text/csv=http://www.iana.org/assignments/media-types/text/csv}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4180
@@ -113,7 +113,7 @@
   - IANA
   - RFC2425
   - RFC6350
-  - ! '{text/directory=http://www.iana.org/assignments/media-types/text/directory}'
+  - "{text/directory=http://www.iana.org/assignments/media-types/text/directory}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2425
@@ -127,7 +127,7 @@
   references:
   - IANA
   - RFC4027
-  - ! '{text/dns=http://www.iana.org/assignments/media-types/text/dns}'
+  - "{text/dns=http://www.iana.org/assignments/media-types/text/dns}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4027
@@ -143,7 +143,7 @@
   references:
   - IANA
   - RFC4329
-  - ! '{text/ecmascript=http://www.iana.org/assignments/media-types/text/ecmascript}'
+  - "{text/ecmascript=http://www.iana.org/assignments/media-types/text/ecmascript}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4329
@@ -156,7 +156,7 @@
   references:
   - IANA
   - RFC6849
-  - ! '{text/encaprtp=http://www.iana.org/assignments/media-types/text/encaprtp}'
+  - "{text/encaprtp=http://www.iana.org/assignments/media-types/text/encaprtp}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6849
@@ -179,7 +179,7 @@
   references:
   - IANA
   - RFC4735
-  - ! '{text/example=http://www.iana.org/assignments/media-types/text/example}'
+  - "{text/example=http://www.iana.org/assignments/media-types/text/example}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4735
@@ -192,7 +192,7 @@
   references:
   - IANA
   - RFC6354
-  - ! '{text/fwdred=http://www.iana.org/assignments/media-types/text/fwdred}'
+  - "{text/fwdred=http://www.iana.org/assignments/media-types/text/fwdred}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6354
@@ -205,7 +205,7 @@
   references:
   - IANA
   - RFC6787
-  - ! '{text/grammar-ref-list=http://www.iana.org/assignments/media-types/text/grammar-ref-list}'
+  - "{text/grammar-ref-list=http://www.iana.org/assignments/media-types/text/grammar-ref-list}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6787
@@ -225,9 +225,9 @@
   - htx
   references:
   - IANA
-  - ! '[W3C]'
-  - ! '[Robin_Berjon]'
-  - ! '{text/html=http://www.iana.org/assignments/media-types/text/html}'
+  - "[W3C]"
+  - "[Robin_Berjon]"
+  - "{text/html=http://www.iana.org/assignments/media-types/text/html}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Robin_Berjon
@@ -246,7 +246,7 @@
   references:
   - IANA
   - RFC4329
-  - ! '{text/javascript=http://www.iana.org/assignments/media-types/text/javascript}'
+  - "{text/javascript=http://www.iana.org/assignments/media-types/text/javascript}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4329
@@ -258,8 +258,8 @@
   encoding: quoted-printable
   references:
   - IANA
-  - ! '[Peeter_Piegaze]'
-  - ! '{text/jcr-cnd=http://www.iana.org/assignments/media-types/text/jcr-cnd}'
+  - "[Peeter_Piegaze]"
+  - "{text/jcr-cnd=http://www.iana.org/assignments/media-types/text/jcr-cnd}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Peeter_Piegaze
@@ -271,8 +271,8 @@
   encoding: quoted-printable
   references:
   - IANA
-  - ! '[Jesse_Alama]'
-  - ! '{text/mizar=http://www.iana.org/assignments/media-types/text/mizar}'
+  - "[Jesse_Alama]"
+  - "{text/mizar=http://www.iana.org/assignments/media-types/text/mizar}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Jesse_Alama
@@ -288,9 +288,9 @@
   - n3
   references:
   - IANA
-  - ! '[W3C]'
-  - ! '[Eric_Prudhommeaux]'
-  - ! '{text/n3=http://www.iana.org/assignments/media-types/text/n3}'
+  - "[W3C]"
+  - "[Eric_Prudhommeaux]"
+  - "{text/n3=http://www.iana.org/assignments/media-types/text/n3}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Eric_Prudhommeaux
@@ -304,7 +304,7 @@
   references:
   - IANA
   - DRAFT:draft-ietf-mmusic-rfc2326bis-40
-  - ! '{text/parameters=http://www.iana.org/assignments/media-types/text/parameters}'
+  - "{text/parameters=http://www.iana.org/assignments/media-types/text/parameters}"
   xrefs: !ruby/hash:MIME::Types::Container
     draft:
     - RFC-ietf-mmusic-rfc2326bis-40
@@ -364,9 +364,9 @@
   encoding: quoted-printable
   references:
   - IANA
-  - ! '[W3C]'
-  - ! '[Ivan_Herman]'
-  - ! '{text/provenance-notation=http://www.iana.org/assignments/media-types/text/provenance-notation}'
+  - "[W3C]"
+  - "[Ivan_Herman]"
+  - "{text/provenance-notation=http://www.iana.org/assignments/media-types/text/provenance-notation}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Ivan_Herman
@@ -381,8 +381,8 @@
   - rst
   references:
   - IANA
-  - ! '[Benja_Fallenstein]'
-  - ! '{text/prs.fallenstein.rst=http://www.iana.org/assignments/media-types/text/prs.fallenstein.rst}'
+  - "[Benja_Fallenstein]"
+  - "{text/prs.fallenstein.rst=http://www.iana.org/assignments/media-types/text/prs.fallenstein.rst}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Benja_Fallenstein
@@ -398,8 +398,8 @@
   - dsc
   references:
   - IANA
-  - ! '[John_Lines]'
-  - ! '{text/prs.lines.tag=http://www.iana.org/assignments/media-types/text/prs.lines.tag}'
+  - "[John_Lines]"
+  - "{text/prs.lines.tag=http://www.iana.org/assignments/media-types/text/prs.lines.tag}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - John_Lines
@@ -412,7 +412,7 @@
   references:
   - IANA
   - RFC6682
-  - ! '{text/raptorfec=http://www.iana.org/assignments/media-types/text/raptorfec}'
+  - "{text/raptorfec=http://www.iana.org/assignments/media-types/text/raptorfec}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6682
@@ -425,7 +425,7 @@
   references:
   - IANA
   - RFC4102
-  - ! '{text/RED=http://www.iana.org/assignments/media-types/text/RED}'
+  - "{text/RED=http://www.iana.org/assignments/media-types/text/RED}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4102
@@ -438,7 +438,7 @@
   references:
   - IANA
   - RFC6522
-  - ! '{text/rfc822-headers=http://www.iana.org/assignments/media-types/text/rfc822-headers}'
+  - "{text/rfc822-headers=http://www.iana.org/assignments/media-types/text/rfc822-headers}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6522
@@ -468,8 +468,8 @@
   - rtf
   references:
   - IANA
-  - ! '[Paul_Lindner]'
-  - ! '{text/rtf=http://www.iana.org/assignments/media-types/text/rtf}'
+  - "[Paul_Lindner]"
+  - "{text/rtf=http://www.iana.org/assignments/media-types/text/rtf}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Paul_Lindner
@@ -481,8 +481,8 @@
   encoding: quoted-printable
   references:
   - IANA
-  - ! '[ThreeGPP]'
-  - ! '{text/rtp-enc-aescm128=http://www.iana.org/assignments/media-types/text/rtp-enc-aescm128}'
+  - "[ThreeGPP]"
+  - "{text/rtp-enc-aescm128=http://www.iana.org/assignments/media-types/text/rtp-enc-aescm128}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - ThreeGPP
@@ -495,7 +495,7 @@
   references:
   - IANA
   - RFC6849
-  - ! '{text/rtploopback=http://www.iana.org/assignments/media-types/text/rtploopback}'
+  - "{text/rtploopback=http://www.iana.org/assignments/media-types/text/rtploopback}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6849
@@ -508,7 +508,7 @@
   references:
   - IANA
   - RFC4588
-  - ! '{text/rtx=http://www.iana.org/assignments/media-types/text/rtx}'
+  - "{text/rtx=http://www.iana.org/assignments/media-types/text/rtx}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4588
@@ -526,7 +526,7 @@
   references:
   - IANA
   - RFC1874
-  - ! '{text/SGML=http://www.iana.org/assignments/media-types/text/SGML}'
+  - "{text/SGML=http://www.iana.org/assignments/media-types/text/SGML}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc1874
@@ -539,7 +539,7 @@
   references:
   - IANA
   - RFC4103
-  - ! '{text/t140=http://www.iana.org/assignments/media-types/text/t140}'
+  - "{text/t140=http://www.iana.org/assignments/media-types/text/t140}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4103
@@ -555,8 +555,8 @@
   - tsv
   references:
   - IANA
-  - ! '[Paul_Lindner]'
-  - ! '{text/tab-separated-values=http://www.iana.org/assignments/media-types/text/tab-separated-values}'
+  - "[Paul_Lindner]"
+  - "{text/tab-separated-values=http://www.iana.org/assignments/media-types/text/tab-separated-values}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Paul_Lindner
@@ -579,7 +579,7 @@
   references:
   - IANA
   - RFC4263
-  - ! '{text/troff=http://www.iana.org/assignments/media-types/text/troff}'
+  - "{text/troff=http://www.iana.org/assignments/media-types/text/troff}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4263
@@ -595,9 +595,9 @@
   - ttl
   references:
   - IANA
-  - ! '[W3C]'
-  - ! '[Eric_Prudhommeaux]'
-  - ! '{text/turtle=http://www.iana.org/assignments/media-types/text/turtle}'
+  - "[W3C]"
+  - "[Eric_Prudhommeaux]"
+  - "{text/turtle=http://www.iana.org/assignments/media-types/text/turtle}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Eric_Prudhommeaux
@@ -611,7 +611,7 @@
   references:
   - IANA
   - RFC5109
-  - ! '{text/ulpfec=http://www.iana.org/assignments/media-types/text/ulpfec}'
+  - "{text/ulpfec=http://www.iana.org/assignments/media-types/text/ulpfec}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5109
@@ -630,7 +630,7 @@
   references:
   - IANA
   - RFC2483
-  - ! '{text/uri-list=http://www.iana.org/assignments/media-types/text/uri-list}'
+  - "{text/uri-list=http://www.iana.org/assignments/media-types/text/uri-list}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2483
@@ -645,7 +645,7 @@
   references:
   - IANA
   - RFC6350
-  - ! '{text/vcard=http://www.iana.org/assignments/media-types/text/vcard}'
+  - "{text/vcard=http://www.iana.org/assignments/media-types/text/vcard}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6350
@@ -658,8 +658,8 @@
   encoding: quoted-printable
   references:
   - IANA
-  - ! '[Regis_Dehoux]'
-  - ! '{text/vnd-a=http://www.iana.org/assignments/media-types/text/vnd-a}'
+  - "[Regis_Dehoux]"
+  - "{text/vnd-a=http://www.iana.org/assignments/media-types/text/vnd-a}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Regis_Dehoux
@@ -671,8 +671,8 @@
   encoding: quoted-printable
   references:
   - IANA
-  - ! '[Steve_Allen]'
-  - ! '{text/vnd.abc=http://www.iana.org/assignments/media-types/text/vnd.abc}'
+  - "[Steve_Allen]"
+  - "{text/vnd.abc=http://www.iana.org/assignments/media-types/text/vnd.abc}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Steve_Allen
@@ -688,8 +688,8 @@
   - curl
   references:
   - IANA
-  - ! '[Robert_Byrnes]'
-  - ! '{text/vnd-curl=http://www.iana.org/assignments/media-types/text/vnd-curl}'
+  - "[Robert_Byrnes]"
+  - "{text/vnd-curl=http://www.iana.org/assignments/media-types/text/vnd-curl}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Robert_Byrnes
@@ -725,8 +725,8 @@
   encoding: quoted-printable
   references:
   - IANA
-  - ! '[Charles_Plessy]'
-  - ! '{text/vnd.debian.copyright=http://www.iana.org/assignments/media-types/text/vnd.debian.copyright}'
+  - "[Charles_Plessy]"
+  - "{text/vnd.debian.copyright=http://www.iana.org/assignments/media-types/text/vnd.debian.copyright}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Charles_Plessy
@@ -738,8 +738,8 @@
   encoding: quoted-printable
   references:
   - IANA
-  - ! '[Dan_Bradley]'
-  - ! '{text/vnd.DMClientScript=http://www.iana.org/assignments/media-types/text/vnd.DMClientScript}'
+  - "[Dan_Bradley]"
+  - "{text/vnd.DMClientScript=http://www.iana.org/assignments/media-types/text/vnd.DMClientScript}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Dan_Bradley
@@ -753,9 +753,9 @@
   - sub
   references:
   - IANA
-  - ! '[Peter_Siebert]'
-  - ! '[Michael_Lagally]'
-  - ! '{text/vnd.dvb.subtitle=http://www.iana.org/assignments/media-types/text/vnd.dvb.subtitle}'
+  - "[Peter_Siebert]"
+  - "[Michael_Lagally]"
+  - "{text/vnd.dvb.subtitle=http://www.iana.org/assignments/media-types/text/vnd.dvb.subtitle}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Michael_Lagally
@@ -768,8 +768,8 @@
   encoding: quoted-printable
   references:
   - IANA
-  - ! '[Stefan_Eilemann]'
-  - ! '{text/vnd.esmertec.theme-descriptor=http://www.iana.org/assignments/media-types/text/vnd.esmertec.theme-descriptor}'
+  - "[Stefan_Eilemann]"
+  - "{text/vnd.esmertec.theme-descriptor=http://www.iana.org/assignments/media-types/text/vnd.esmertec.theme-descriptor}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Stefan_Eilemann
@@ -792,8 +792,8 @@
   - fly
   references:
   - IANA
-  - ! '[John-Mark_Gurney]'
-  - ! '{text/vnd.fly=http://www.iana.org/assignments/media-types/text/vnd.fly}'
+  - "[John-Mark_Gurney]"
+  - "{text/vnd.fly=http://www.iana.org/assignments/media-types/text/vnd.fly}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - John-Mark_Gurney
@@ -809,8 +809,8 @@
   - flx
   references:
   - IANA
-  - ! '[Kari_E._Hurtta]'
-  - ! '{text/vnd.fmi.flexstor=http://www.iana.org/assignments/media-types/text/vnd.fmi.flexstor}'
+  - "[Kari_E._Hurtta]"
+  - "{text/vnd.fmi.flexstor=http://www.iana.org/assignments/media-types/text/vnd.fmi.flexstor}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Kari_E._Hurtta
@@ -826,8 +826,8 @@
   - gv
   references:
   - IANA
-  - ! '[John_Ellson]'
-  - ! '{text/vnd.graphviz=http://www.iana.org/assignments/media-types/text/vnd.graphviz}'
+  - "[John_Ellson]"
+  - "{text/vnd.graphviz=http://www.iana.org/assignments/media-types/text/vnd.graphviz}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - John_Ellson
@@ -843,8 +843,8 @@
   - 3dml
   references:
   - IANA
-  - ! '[Michael_Powers]'
-  - ! '{text/vnd.in3d.3dml=http://www.iana.org/assignments/media-types/text/vnd.in3d.3dml}'
+  - "[Michael_Powers]"
+  - "{text/vnd.in3d.3dml=http://www.iana.org/assignments/media-types/text/vnd.in3d.3dml}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Michael_Powers
@@ -860,8 +860,8 @@
   - spot
   references:
   - IANA
-  - ! '[Michael_Powers]'
-  - ! '{text/vnd.in3d.spot=http://www.iana.org/assignments/media-types/text/vnd.in3d.spot}'
+  - "[Michael_Powers]"
+  - "{text/vnd.in3d.spot=http://www.iana.org/assignments/media-types/text/vnd.in3d.spot}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Michael_Powers
@@ -873,8 +873,8 @@
   encoding: quoted-printable
   references:
   - IANA
-  - ! '[IPTC]'
-  - ! '{text/vnd.IPTC.NewsML=http://www.iana.org/assignments/media-types/text/vnd.IPTC.NewsML}'
+  - "[IPTC]"
+  - "{text/vnd.IPTC.NewsML=http://www.iana.org/assignments/media-types/text/vnd.IPTC.NewsML}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - IPTC
@@ -886,8 +886,8 @@
   encoding: quoted-printable
   references:
   - IANA
-  - ! '[IPTC]'
-  - ! '{text/vnd.IPTC.NITF=http://www.iana.org/assignments/media-types/text/vnd.IPTC.NITF}'
+  - "[IPTC]"
+  - "{text/vnd.IPTC.NITF=http://www.iana.org/assignments/media-types/text/vnd.IPTC.NITF}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - IPTC
@@ -899,8 +899,8 @@
   encoding: quoted-printable
   references:
   - IANA
-  - ! '[Mikusiak_Lubos]'
-  - ! '{text/vnd.latex-z=http://www.iana.org/assignments/media-types/text/vnd.latex-z}'
+  - "[Mikusiak_Lubos]"
+  - "{text/vnd.latex-z=http://www.iana.org/assignments/media-types/text/vnd.latex-z}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Mikusiak_Lubos
@@ -912,8 +912,8 @@
   encoding: quoted-printable
   references:
   - IANA
-  - ! '[Mark_Patton]'
-  - ! '{text/vnd.motorola.reflex=http://www.iana.org/assignments/media-types/text/vnd.motorola.reflex}'
+  - "[Mark_Patton]"
+  - "{text/vnd.motorola.reflex=http://www.iana.org/assignments/media-types/text/vnd.motorola.reflex}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Mark_Patton
@@ -925,8 +925,8 @@
   encoding: quoted-printable
   references:
   - IANA
-  - ! '[Jan_Nelson]'
-  - ! '{text/vnd.ms-mediapackage=http://www.iana.org/assignments/media-types/text/vnd.ms-mediapackage}'
+  - "[Jan_Nelson]"
+  - "{text/vnd.ms-mediapackage=http://www.iana.org/assignments/media-types/text/vnd.ms-mediapackage}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Jan_Nelson
@@ -940,8 +940,8 @@
   - ccc
   references:
   - IANA
-  - ! '[Feiyu_Xie]'
-  - ! '{text/vnd.net2phone.commcenter.command=http://www.iana.org/assignments/media-types/text/vnd.net2phone.commcenter.command}'
+  - "[Feiyu_Xie]"
+  - "{text/vnd.net2phone.commcenter.command=http://www.iana.org/assignments/media-types/text/vnd.net2phone.commcenter.command}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Feiyu_Xie
@@ -954,7 +954,7 @@
   references:
   - IANA
   - RFC5707
-  - ! '{text/vnd.radisys.msml-basic-layout=http://www.iana.org/assignments/media-types/text/vnd.radisys.msml-basic-layout}'
+  - "{text/vnd.radisys.msml-basic-layout=http://www.iana.org/assignments/media-types/text/vnd.radisys.msml-basic-layout}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5707
@@ -967,8 +967,8 @@
   obsolete: true
   references:
   - IANA
-  - ! '[Nicholas_Parks_Young]'
-  - ! '{text/vnd.si.uricatalogue=http://www.iana.org/assignments/media-types/text/vnd.si.uricatalogue}'
+  - "[Nicholas_Parks_Young]"
+  - "{text/vnd.si.uricatalogue=http://www.iana.org/assignments/media-types/text/vnd.si.uricatalogue}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Nicholas_Parks_Young
@@ -984,8 +984,8 @@
   - jad
   references:
   - IANA
-  - ! '[Gary_Adams]'
-  - ! '{text/vnd.sun.j2me.app-descriptor=http://www.iana.org/assignments/media-types/text/vnd.sun.j2me.app-descriptor}'
+  - "[Gary_Adams]"
+  - "{text/vnd.sun.j2me.app-descriptor=http://www.iana.org/assignments/media-types/text/vnd.sun.j2me.app-descriptor}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Gary_Adams
@@ -997,8 +997,8 @@
   encoding: quoted-printable
   references:
   - IANA
-  - ! '[David_Lee_Lambert]'
-  - ! '{text/vnd.trolltech.linguist=http://www.iana.org/assignments/media-types/text/vnd.trolltech.linguist}'
+  - "[David_Lee_Lambert]"
+  - "{text/vnd.trolltech.linguist=http://www.iana.org/assignments/media-types/text/vnd.trolltech.linguist}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - David_Lee_Lambert
@@ -1012,8 +1012,8 @@
   - si
   references:
   - IANA
-  - ! '[WAP-Forum]'
-  - ! '{text/vnd.wap.si=http://www.iana.org/assignments/media-types/text/vnd.wap.si}'
+  - "[WAP-Forum]"
+  - "{text/vnd.wap.si=http://www.iana.org/assignments/media-types/text/vnd.wap.si}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - WAP-Forum
@@ -1027,8 +1027,8 @@
   - sl
   references:
   - IANA
-  - ! '[WAP-Forum]'
-  - ! '{text/vnd.wap.sl=http://www.iana.org/assignments/media-types/text/vnd.wap.sl}'
+  - "[WAP-Forum]"
+  - "{text/vnd.wap.sl=http://www.iana.org/assignments/media-types/text/vnd.wap.sl}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - WAP-Forum
@@ -1044,8 +1044,8 @@
   - wml
   references:
   - IANA
-  - ! '[Peter_Stark]'
-  - ! '{text/vnd.wap-wml=http://www.iana.org/assignments/media-types/text/vnd.wap-wml}'
+  - "[Peter_Stark]"
+  - "{text/vnd.wap-wml=http://www.iana.org/assignments/media-types/text/vnd.wap-wml}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Peter_Stark
@@ -1061,8 +1061,8 @@
   - wmls
   references:
   - IANA
-  - ! '[Peter_Stark]'
-  - ! '{text/vnd.wap.wmlscript=http://www.iana.org/assignments/media-types/text/vnd.wap.wmlscript}'
+  - "[Peter_Stark]"
+  - "{text/vnd.wap.wmlscript=http://www.iana.org/assignments/media-types/text/vnd.wap.wmlscript}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Peter_Stark
@@ -1215,7 +1215,7 @@
   references:
   - IANA
   - RFC7303
-  - ! '{text/xml=http://www.iana.org/assignments/media-types/text/xml}'
+  - "{text/xml=http://www.iana.org/assignments/media-types/text/xml}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc7303
@@ -1228,7 +1228,7 @@
   references:
   - IANA
   - RFC7303
-  - ! '{text/xml-external-parsed-entity=http://www.iana.org/assignments/media-types/text/xml-external-parsed-entity}'
+  - "{text/xml-external-parsed-entity=http://www.iana.org/assignments/media-types/text/xml-external-parsed-entity}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc7303
