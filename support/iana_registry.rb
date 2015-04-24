@@ -53,11 +53,28 @@ class IANARegistry
   def parse
     @registry.css('record').each do |record|
       subtype       = record.at_css('name').text
-      refs, xrefs   = parse_refs_and_files(record.css('xref'), record.css('file'))
+      obsolete      = record.at_css('obsolete').text rescue nil
+      use_instead   = [ record.at_css('deprecated').text ] rescue []
+
+      if subtype =~ /OBSOLETE|DEPRECATE/i
+        if subtype =~ /in favou?r of (.*)/
+          use_instead = [ use_instead, $1 ]
+        end
+        obsolete = true
+      end
+
+      subtype, notes = subtype.split(/ /, 2)
+
+      use_instead.flatten!
+      use_instead.compact!
+
+      refs, xrefs   = parse_refs_and_files(record.css('xref'),
+                                           record.css('file'),
+                                           subtype)
+
+      xrefs['notes'] << notes if notes
 
       content_type  = [ @type, subtype ].join('/')
-      obsolete      = record.at_css('obsolete')
-      use_instead   = record.at_css('deprecated').text rescue nil
 
       types         = @types.select { |t|
         (t.content_type.downcase == content_type.downcase)
@@ -69,7 +86,7 @@ class IANARegistry
           mt.xrefs       = xrefs
           mt.registered  = true
           mt.obsolete    = obsolete if obsolete
-          mt.use_instead = use_instead if use_instead
+          mt.use_instead = use_instead unless use_instead.empty?
           @types << mt
         end
       else
@@ -78,7 +95,7 @@ class IANARegistry
           mt.registered  = true
           mt.xrefs       = xrefs
           mt.obsolete    = obsolete if obsolete
-          mt.use_instead = use_instead if use_instead
+          mt.use_instead = use_instead unless use_instead.empty?
         }
       end
     end
@@ -86,7 +103,7 @@ class IANARegistry
 
   def save
     @to.mkpath
-    File.open(@file, 'wb') { |f| f.puts @types.map.to_a.sort.to_yaml }
+    File.open(@file, 'wb') { |f| f.puts @types.map.to_a.sort.uniq.to_yaml }
   end
 
   private
@@ -98,28 +115,16 @@ class IANARegistry
     end
   end
 
-  def parse_refs_and_files(refs, files)
+  def parse_refs_and_files(refs, files, subtype)
     xr = MIME::Types::Container.new
     r  = []
 
     refs.each do |xref|
       type, data = xref["type"], xref["data"]
 
-      # Fix some known-broken links that are actually people.
-      if type == 'uri'
-        case data
-        when /contact-people.htmll#Dolan\z/
-          type, data = "person", "Dolan"
-        when /contact-people.htmll#Rottmann?\z/
-          type, data = "person", "Frank_Rottman"
-        else
-          nil # There’s no error with this URI.
-        end
-      end
+      r << ref_from_type(type, data)
 
-      r << xref_to_ref(type, data)
-
-      xrefs[type] << data
+      xr[type] << data
     end
 
     files.each do |file|
@@ -130,13 +135,13 @@ class IANARegistry
                   end
 
       if file["type"] == "template"
-        refs << (ASSIGNMENT_FILE_REF % [ file_name, file_name ])
+        r << (ASSIGNMENT_FILE_REF % [ file_name, file_name ])
       end
 
-      xrefs[file["type"]] << file_name
+      xr[file["type"]] << file_name
     end
 
-    r, xr
+    [ r, xr ]
   end
 
   def ref_from_type(type, data)
