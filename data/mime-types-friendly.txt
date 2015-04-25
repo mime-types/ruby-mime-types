@@ -1,0 +1,1909 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Andrew Toolkit
+
+
+Applixware
+
+
+Atom Syndication Format
+Atom Publishing Protocol
+
+
+Atom Publishing Protocol Service Document
+
+
+
+
+
+
+
+
+
+
+
+
+
+Voice Browser Call Control
+
+Cloud Data Management Interface (CDMI) - Capability
+Cloud Data Management Interface (CDMI) - Contaimer
+Cloud Data Management Interface (CDMI) - Domain
+Cloud Data Management Interface (CDMI) - Object
+Cloud Data Management Interface (CDMI) - Queue
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CU-SeeMe
+
+
+
+Web Distributed Authoring and Versioning
+
+
+
+
+
+
+
+
+
+
+
+Data Structure for the Security Suitability of Cryptographic Algorithms
+Data Structure for the Security Suitability of Cryptographic Algorithms
+
+
+ECMAScript
+
+
+
+
+Extensible MultiModal Annotation
+
+
+
+Electronic Publication
+
+
+
+Efficient XML Interchange
+
+
+
+
+
+Portable Font Resource
+Web Open Font Format
+
+
+
+
+
+
+
+
+
+
+
+
+Hyperstudio
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Internet Protocol Flow Information Export
+
+
+
+Java Archive
+Java Serialized Object
+Java Bytecode File
+JavaScript
+
+
+
+JavaScript Object Notation (JSON)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Macintosh BinHex 4.0
+Compact Pro
+
+
+Metadata Authority Description Schema
+MARC Formats
+MARC21 XML Schema
+
+Mathematica Notebooks
+
+Mathematical Markup Language
+
+
+
+
+
+
+
+
+
+
+
+
+
+Mbox database files
+
+
+Media Server Control Markup Language
+
+
+Metalink
+Metadata Encoding and Transmission Standard
+
+
+Metadata Object Description Schema
+
+
+
+
+MPEG-21
+MPEG4
+
+
+
+
+
+
+
+Microsoft Word
+Material Exchange Format
+
+
+
+
+
+
+
+
+
+
+Binary Data
+Office Document Architecture
+
+Open eBook Publication Structure
+Ogg
+
+Microsoft OneNote
+
+
+
+XML Patch Framework
+Adobe Portable Document Format
+
+Pretty Good Privacy
+
+Pretty Good Privacy - Signature
+PICSRules
+
+
+PKCS #10 - Certification Request Standard
+PKCS #7 - Cryptographic Message Syntax Standard
+PKCS #7 - Cryptographic Message Syntax Standard
+PKCS #8 - Private-Key Information Syntax Standard
+Attribute Certificate
+Internet Public Key Infrastructure - Certificate
+Internet Public Key Infrastructure - Certificate Revocation Lists
+Internet Public Key Infrastructure - Certification Path
+Internet Public Key Infrastructure - Certificate Management Protocole
+Pronunciation Lexicon Specification
+
+PostScript
+
+
+
+
+CU-Writer
+
+
+
+
+
+Portable Symmetric Key Container
+
+
+
+
+Resource Description Framework
+IMS Networks
+Relax NG Compact Syntax
+
+
+
+XML Resource Lists
+XML Resource Lists Diff
+
+
+XML Resource Lists
+
+
+
+
+Really Simple Discovery
+RSS - Really Simple Syndication
+Rich Text Format
+
+
+
+
+Systems Biology Markup Language
+
+Server-Based Certificate Validation Protocol - Validation Request
+Server-Based Certificate Validation Protocol - Validation Response
+Server-Based Certificate Validation Protocol - Validation Policies - Request
+Server-Based Certificate Validation Protocol - Validation Policies - Response
+Session Description Protocol
+
+
+
+
+
+Secure Electronic Transaction - Payment
+
+Secure Electronic Transaction - Registration
+
+
+S Hexdump Format
+
+
+
+
+
+
+
+Synchronized Multimedia Integration Language
+
+
+
+
+SPARQL - Query
+SPARQL - Results
+
+
+Speech Recognition Grammar Specification
+Speech Recognition Grammar Specification - XML
+Search/Retrieve via URL Response Format
+
+Speech Synthesis Markup Language
+
+
+
+
+
+
+
+
+
+
+
+
+Text Encoding and Interchange
+Sharing Transaction Fraud Data
+
+
+Time Stamped Data Envelope
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3rd Generation Partnership Project - Pic Large
+3rd Generation Partnership Project - Pic Small
+3rd Generation Partnership Project - Pic Var
+
+
+
+3rd Generation Partnership Project - Transaction Capabilities Application Part
+3M Post It Notes
+Simply Accounting
+Simply Accounting - Data Import
+ACU Cobol
+ACU Cobol
+Adobe AIR Application
+
+
+Adobe Flex Project
+
+Adobe XML Data Package
+Adobe XML Forms Data Format
+
+
+Ahead AIR Application
+AirZip FileSECURE
+AirZip FileSECURE
+Amazon Kindle eBook format
+Active Content Compression
+AmigaDE
+
+Android Package Archive
+ANSER-WEB Terminal Client - Certificate Issue
+ANSER-WEB Terminal Client - Web Funds Transfer
+Antix Game Player
+
+
+
+
+Apple Installer Package
+Multimedia Playlist Unicode
+
+
+Arista Networks Software Image
+
+
+Audiograph
+
+
+
+
+Blueice Research Multipass
+
+
+BMI Drawing Data Interchange
+BusinessObjects
+
+
+
+
+
+CambridgeSoft Chem Draw
+Karaoke on Chipnuts Chipsets
+Interactive Geometry Software Cinderella
+
+
+Claymore Data Files
+RetroPlatform Player
+Clonk Game
+ClueTrust CartoMobile - Config
+ClueTrust CartoMobile - Config Package
+
+
+
+
+
+Sixth Floor Media - CommonSpace
+CIM Database
+CosmoCaller
+CrickSoftware - Clicker
+CrickSoftware - Clicker - Keyboard
+CrickSoftware - Clicker - Palette
+CrickSoftware - Clicker - Template
+CrickSoftware - Clicker - Wordbank
+Critical Tools - PERT Chart EXPERT
+PosML
+
+
+
+Adobe PostScript Printer Description File Format
+
+
+
+CURL Applet
+CURL Applet
+
+
+
+RemoteDocs R-Viewer
+
+
+
+
+
+FCS Express Layout Link
+
+
+
+New Moon Liftoff/DNA
+
+Dolby Meridian Lossless Packing
+
+
+
+DPGraph
+DreamFactory
+
+
+
+
+Digital Video Broadcasting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Digital Video Broadcasting
+
+DynaGeo
+
+
+
+EcoWin Chart
+
+
+
+
+
+
+Enliven Viewer
+
+
+QUASS Stream Player
+QUASS Stream Player
+QuickAnime Player
+SimpleAnimeLite Player
+QUASS Stream Player
+
+MICROSEC e-Szign¢
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EZPix Secure Photo Album
+EZPix Secure Photo Album
+
+
+Forms Data Format
+
+Digital Siesmograph Networks - SEED Datafiles
+
+
+NpGraphIt
+FluxTime Clip
+
+FrameMaker Normal Format
+Frogans Player
+Frogans Player
+Friendly Software Corporation
+Fujitsu Oasys
+Fujitsu Oasys
+Fujitsu Oasys
+Fujitsu Oasys
+Fujitsu Oasys
+
+
+Fujitsu - Xerox 2D CAD Data
+Fujitsu - Xerox DocuWorks
+Fujitsu - Xerox DocuWorks Binder
+
+
+
+FuzzySheet
+Genomatix Tuxedo Framework
+
+
+GeoGebra
+GeoGebra
+GeoMetry Explorer
+GEONExT and JSXGraph
+GeoplanW
+GeospacW
+
+
+
+GameMaker ActiveX
+Google Earth - KML
+Google Earth - Zipped KML
+
+
+
+GrafEq
+
+Groove - Account
+Groove - Help
+Groove - Identity Message
+Groove - Injector
+Groove - Tool Message
+Groove - Tool Template
+Groove - Vcard
+
+Hypertext Application Language
+ZVUE Media Manager
+Homebanking Computer Interface (HBCI)
+
+
+Archipelago Lesson Player
+HP-GL/2 and HP RTL
+Hewlett Packard Instant Delivery
+Hewlett-Packard's WebPrintSmart
+HP Indigo Digital Press - Job Layout Languate
+HP Printer Command Language
+PCL 6 Enhanced (Formely PCL XL)
+
+Hydrostatix Master Suite
+3D Crossword Plugin
+
+
+MiniPay
+MO:DCA-P
+IBM DB2 Rights Manager
+IBM Electronic Media Management System - Secure Container
+ICC profile
+
+igLoader
+ImmerVision PURE Players
+ImmerVision PURE Players
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+IOCOM Visimeet
+Intercon FormNet
+Interactive Geometry Software
+
+
+Open Financial Exchange
+Quicken
+
+
+
+
+
+
+
+IP Unplugged Roaming Client
+iRepository / Lucidoc Editor
+Express by Infoseek
+International Society for Advancement of Cytometry
+Lightspeed Audio Lab
+
+
+
+
+
+
+
+
+Mobile Information Device Profile
+RhymBox
+Joda Archive
+
+Kahootz
+KDE KOffice Office Suite - Karbon
+KDE KOffice Office Suite - KChart
+KDE KOffice Office Suite - Kformula
+KDE KOffice Office Suite - Kivio
+KDE KOffice Office Suite - Kontour
+KDE KOffice Office Suite - Kpresenter
+KDE KOffice Office Suite - Kspread
+KDE KOffice Office Suite - Kword
+Kenamea App
+Kidspiration
+Kinar Applications
+SSEYO Koan Play File
+Kodak Storyshare
+Laser App Enterprise
+
+Life Balance - Desktop Edition
+Life Balance - Exchange Format
+Lotus 1-2-3
+Lotus Approach
+Lotus Freelance
+Lotus Notes
+Lotus Organizer
+Lotus Screencam
+Lotus Wordpro
+MacPorts Port System
+
+
+
+
+
+
+Micro CADAM Helix D&D
+MedCalc
+MediaRemote
+
+Medical Waveform Encoding Format
+Melody Format for Mobile Platform
+
+Micrografx
+Micrografx iGrafx Professional
+
+
+FrameMaker Interchange Format
+
+
+Mobius Management Systems - UniversalArchive
+Mobius Management Systems - Distribution Database
+Mobius Management Systems - Basket file
+Mobius Management Systems - Query File
+Mobius Management Systems - Script Language
+Mobius Management Systems - Policy Definition Language File
+Mobius Management Systems - Topic Index File
+Mophun VM
+Mophun Certificate
+
+
+
+
+
+
+
+
+XUL - XML User Interface Language
+
+Microsoft Artgalry
+
+Microsoft Cabinet File
+Microsoft Excel
+Microsoft Excel - Add-In File
+Microsoft Excel - Binary Workbook
+Microsoft Excel - Macro-Enabled Workbook
+Microsoft Excel - Macro-Enabled Template File
+Microsoft Embedded OpenType
+Microsoft Html Help File
+Microsoft Class Server
+Microsoft Learning Resource Module
+
+Microsoft Office System Release Theme
+
+Microsoft Trust UI Provider - Security Catalog
+Microsoft Trust UI Provider - Certificate Trust Link
+
+Microsoft PowerPoint
+Microsoft PowerPoint - Add-in file
+Microsoft PowerPoint - Macro-Enabled Presentation File
+Microsoft PowerPoint - Macro-Enabled Open XML Slide
+Microsoft PowerPoint - Macro-Enabled Slide Show File
+Micosoft PowerPoint - Macro-Enabled Template File
+Microsoft Project
+
+
+
+
+
+
+Micosoft Word - Macro-Enabled Document
+Micosoft Word - Macro-Enabled Template
+Microsoft Works
+Microsoft Windows Media Player Playlist
+Microsoft XML Paper Specification
+
+3GPP MSEQ File
+
+
+
+
+MUsical Score Interpreted Code Invented for the ASCII designation of Notation
+Muvee Automatic Video Editing
+
+
+
+
+
+neuroLanguage
+
+
+
+NobleNet Directory
+NobleNet Sealer
+NobleNet Web
+
+
+
+
+
+
+
+
+
+N-Gage Game Data
+N-Gage Game Installer
+
+
+
+
+Nokia Radio Application - Preset
+Nokia Radio Application - Preset
+Novadigm's RADIA and EDM products
+Novadigm's RADIA and EDM products
+Novadigm's RADIA and EDM products
+
+
+
+
+
+OpenDocument Chart
+OpenDocument Chart Template
+OpenDocument Database
+OpenDocument Formula
+OpenDocument Formula Template
+OpenDocument Graphics
+OpenDocument Graphics Template
+OpenDocument Image
+OpenDocument Image Template
+OpenDocument Presentation
+OpenDocument Presentation Template
+OpenDocument Spreadsheet
+OpenDocument Spreadsheet Template
+OpenDocument Text
+OpenDocument Text Master
+OpenDocument Text Template
+Open Document Text Web
+
+
+
+
+
+
+
+
+
+
+
+
+
+Sugar Linux Application Bundle
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+OMA Download Agents
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Open Office Extension
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Microsoft Office - OOXML - Presentation
+
+
+Microsoft Office - OOXML - Presentation (Slide)
+
+
+
+Microsoft Office - OOXML - Presentation (Slideshow)
+
+
+
+
+Microsoft Office - OOXML - Presentation Template
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Microsoft Office - OOXML - Spreadsheet
+
+
+
+
+
+Microsoft Office - OOXML - Spreadsheet Teplate
+
+
+
+
+
+
+
+
+Microsoft Office - OOXML - Word Document
+
+
+
+
+
+
+
+
+
+Microsoft Office - OOXML - Word Document Template
+
+
+
+
+
+
+
+
+MapGuide DBXML
+
+OSGi Deployment Package
+
+
+PalmOS Data
+
+
+PawaaFILE
+
+Proprietary P&G Standard Reporting System
+Proprietary P&G Standard Reporting System
+
+Pcsel eFIF File
+Qualcomm's Plaza Mobile Internet
+
+PocketLearn Viewers
+PowerBuilder
+
+
+
+
+
+
+Preview Systems ZipLock/VBox
+EFI Proteus
+PubliShare Objects
+Princeton Video Image
+
+
+
+QuarkXPress
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+RealVNC
+Recordare Applications
+Recordare Applications
+
+CryptoNote
+Blackberry COD File
+RealMedia
+
+ROUTE 66 Location Based Services
+
+
+
+SailingTracker
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SeeMail
+Secured eMail
+Secured eMail
+Secured eMail
+Shana Informed Filler
+Shana Informed Filler
+Shana Informed Filler
+Shana Informed Filler
+SimTech MindMapper
+
+SMAF File
+
+SMART Technologies Apps
+
+
+SudokuMagic
+TIBCO Spotfire
+TIBCO Spotfire
+
+
+
+StarOffice - Calc
+
+StarOffice - Draw
+StarOffice - Impress
+StarOffice - Math
+StarOffice - Writer
+StarOffice - Writer (Global)
+
+StepMania
+
+
+OpenOffice - Calc (Spreadsheet)
+OpenOffice - Calc Template (Spreadsheet)
+OpenOffice - Draw (Graphics)
+OpenOffice - Draw Template (Graphics)
+OpenOffice - Impress (Presentation)
+OpenOffice - Impress Template (Presentation)
+OpenOffice - Math (Formula)
+OpenOffice - Writer (Text - HTML)
+OpenOffice - Writer (Text - HTML)
+OpenOffice - Writer Template (Text - HTML)
+ScheduleUs
+SourceView Document
+
+Symbian Install Package
+SyncML
+SyncML - Device Management
+SyncML - Device Management
+
+
+
+
+
+
+Tao Intent
+
+
+MobileTV
+TRI Systems Config
+Triscape Map Explorer
+True BASIC
+
+
+Universal Forms Description Language
+User Interface Quartz - Theme (Symbian)
+UMAJIN
+Unity 3d
+Unique Object Markup Language
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+VirtualCatalog
+
+
+
+
+Microsoft Visio
+Visionary
+
+Viewport+
+
+
+WAP Binary XML (WBXML)
+Compiled Wireless Markup Language (WMLC)
+WMLScript
+WebTurbo
+
+
+
+
+
+
+
+Mathematica Notebook Player
+Wordperfect
+SundaHus WQ
+
+Worldtalk
+
+
+
+
+CorelXARA
+Extensible Forms Description Language
+
+
+
+
+
+
+
+HV Voice Dictionary
+HV Script
+HV Voice Parameter
+Open Score Format
+OSFPVG
+
+SMAF Audio
+SMAF Phrase
+
+
+
+CustomMenu
+Z.U.L. Geometry
+Zzazz Deck
+VoiceXML
+
+
+
+
+Widget Packaging and XML Configuration
+WinHelp
+
+
+
+
+
+
+WSDL - Web Services Description Language
+Web Services Policy
+
+7-Zip
+AbiWord
+
+Ace Archive
+
+Adobe (Macropedia) Authorware - Binary File
+Adobe (Macropedia) Authorware - Map
+Adobe (Macropedia) Authorware - Segment File
+Binary CPIO Archive
+BitTorrent
+
+
+Bzip Archive
+Bzip2 Archive
+
+Video CD
+
+pIRCh
+Portable Game Notation (Chess Games)
+
+
+
+
+
+CPIO Archive
+C Shell Script
+
+Debian Package
+
+Adobe Shockwave Player
+Doom Video Game
+
+Navigation Control file for XML (for ePub)
+Digital Talking Book
+Digital Talking Book - Resource File
+Device Independent File Format (DVI)
+
+
+
+
+Glyph Bitmap Distribution Format
+Ghostscript Font
+PSF Fonts
+
+OpenType Font File
+Portable Compiled Format
+Server Normal Format
+
+TrueType Font
+PostScript Fonts
+
+
+FutureSplash Animator
+
+
+
+Gnumeric
+
+GNU Tar Files
+
+Hierarchical Data Format
+
+
+
+
+
+
+
+
+
+
+
+
+
+Java Network Launching Protocol
+
+
+
+
+LaTeX
+
+
+
+
+
+
+
+
+
+
+
+Mobipocket
+Microsoft ClickOnce
+
+Microsoft Windows Media Player Download Package
+Microsoft Windows Media Player Skin Package
+Microsoft XAML Browser Application
+Microsoft Access
+Microsoft Office Binder
+Microsoft Information Card
+Microsoft Clipboard Clip
+
+Microsoft Application
+Microsoft MediaView
+Microsoft Windows Metafile
+Microsoft Money
+Microsoft Publisher
+Microsoft Schedule+
+Microsoft Windows Terminal Services
+
+Microsoft Wordpad
+Network Common Data Form (NetCDF)
+
+
+
+
+
+
+PKCS #12 - Personal Information Exchange Syntax Standard
+PKCS #7 - Cryptographic Message Syntax Standard (Certificates)
+PKCS #7 - Cryptographic Message Syntax Standard (Certificate Request Response)
+
+
+RAR Archive
+
+
+
+
+
+Bourne Shell Script
+Shell Archive
+Adobe Flash
+Microsoft Silverlight
+
+
+
+
+
+Stuffit Archive
+Stuffit Archive
+
+System V Release 4 CPIO Archive
+System V Release 4 CPIO Checksum Data
+
+
+Tar File (Tape Archive)
+Tcl Script
+TeX
+TeX Font Metric
+GNU Texinfo Document
+
+
+
+
+
+
+
+Ustar (Uniform Standard Tape Archive)
+
+WAIS Source
+
+
+
+
+
+
+
+X.509 Certificate
+Xfig
+
+XPInstall - Mozilla
+
+
+
+
+
+
+
+
+XML Configuration Access Protocol - XCAP Diff
+
+
+
+
+
+XML Encryption Syntax and Processing
+XHTML - The Extensible HyperText Markup Language
+
+XML - Extensible Markup Language
+Document Type Definition
+
+
+
+XML-Binary Optimized Packaging
+
+XML Transformations
+XSPF - XML Shareable Playlist Format
+MXML
+YANG Data Modeling Language
+YIN (YANG - XML)
+Zip Archive
+
+
+
+
+
+
+Adaptive differential pulse-code modulation
+
+
+
+
+
+
+
+
+
+Sun Audio - Au file format
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+MIDI - Musical Instrument Digital Interface
+
+MPEG-4 Audio
+
+
+
+MPEG Audio
+
+Ogg Audio
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DECE Audio
+Digital Winds Music
+
+
+
+
+
+
+
+
+
+DRA Audio
+DTS Audio
+DTS High Definition Audio
+
+
+
+Lucent Voice
+Microsoft PlayReady Ecosystem
+
+
+Nuera ECELP 4800
+Nuera ECELP 7470
+Nuera ECELP 9600
+
+
+
+Hit'n'Mix
+
+
+
+
+Open Web Media Project - Audio
+Advanced Audio Coding (AAC)
+Audio Interchange File Format
+
+
+
+
+M3U (Multimedia Playlist)
+Microsoft Windows Media Audio Redirector
+Microsoft Windows Media Audio
+
+Real Audio Sound
+Real Audio Sound
+
+Waveform Audio File Format (WAV)
+
+ChemDraw eXchange file
+Crystallographic Interchange Format
+CrystalMaker Data Format
+Chemical Markup Language
+Chemical Style Markup Language
+
+XYZ File Format
+
+Bitmap Image File
+Computer Graphics Metafile
+
+
+
+G3 Fax Image
+Graphics Interchange Format
+Image Exchange Format
+
+JPEG Image
+
+
+OpenGL Textures (KTX)
+
+
+Portable Network Graphics (PNG)
+BTIF
+
+
+
+Scalable Vector Graphics (SVG)
+
+
+Tagged Image File Format
+
+Photoshop Document
+
+
+DECE Graphic
+
+DjVu
+Close Captioning - Subtitle
+DWG Drawing
+AutoCAD DXF
+FastBid Sheet
+FlashPix
+FAST Search & Transfer ASA
+EDMICS 2000
+EDMICS 2000
+
+
+
+Microsoft Document Imaging Format
+
+FlashPix
+
+
+
+
+
+
+
+
+WAP Bitamp (WBMP)
+eXtended Image File Format (XIFF)
+
+WebP Image
+
+
+CMU Image
+Corel Metafile Exchange (CMX)
+
+FreeHand MX
+
+Icon Image
+
+Bitmap Image File
+
+PCX Image
+PICT Image
+Portable Anymap Image
+Portable Bitmap Format
+Portable Graymap Format
+Portable Pixmap Format
+Silicon Graphics RGB Bitmap
+
+
+
+
+X BitMap
+
+
+X PixMap
+X Window Dump
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Email Message
+
+
+
+
+
+
+
+Initial Graphics Exchange Specification (IGES)
+Mesh Data Type
+COLLADA
+Autodesk Design Web Format (DWF)
+
+Geometric Description Language (GDL)
+
+Gen-Trix Studio
+
+Virtue MTS
+
+
+
+
+Virtue VTU
+Virtual Reality Modeling Language
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+iCalendar
+
+Cascading Style Sheets (CSS)
+Comma-Separated Values
+
+
+
+
+
+
+
+
+
+
+HyperText Markup Language (HTML)
+
+
+
+
+Notation3
+
+
+Text File
+
+
+PRS Lines Tag
+
+
+
+Rich Text Format (RTF)
+
+
+
+
+Standard Generalized Markup Language (SGML)
+
+Tab Separated Values
+troff
+Turtle (Terse RDF Triple Language)
+
+URI Resolution Services
+
+
+
+Curl - Applet
+Curl - Detached Applet
+Curl - Manifest File
+Curl - Source Code
+
+
+
+
+
+mod_fly / fly.cgi
+FLEXSTOR
+Graphviz
+In3D - 3DML
+In3D - 3DML
+
+
+
+
+
+
+
+
+J2ME App Descriptor
+
+
+
+Wireless Markup Language (WML)
+Wireless Markup Language Script (WMLScript)
+Assembler Source File
+C Source File
+
+
+Fortran Source File
+Java Source File
+
+
+Pascal Source File
+
+Setext
+
+UUEncode
+vCalendar
+vCard
+
+
+
+
+
+3GP
+
+3GP2
+
+
+
+
+
+
+
+
+H.261
+H.263
+
+
+H.264
+
+
+
+JPGVideo
+
+JPEG 2000 Compound Image File Format
+Motion JPEG 2000
+
+
+
+MPEG-4 Video
+
+MPEG Video
+
+
+
+Ogg Video
+
+
+Quicktime Video
+
+
+
+
+
+
+
+
+
+DECE High Definition Video
+DECE Mobile Video
+
+DECE PD Video
+DECE SD Video
+DECE Video
+
+
+
+
+FAST Search & Transfer ASA
+
+
+
+
+
+
+
+
+
+MPEG Url
+Microsoft PlayReady Ecosystem Video
+
+
+
+
+
+
+
+
+
+DECE MP4
+Vivo
+Open Web Media Project - Video
+
+
+Flash Video
+FLI/FLC Animation Format
+Flash Video
+
+
+M4v
+
+
+
+Microsoft Advanced Systems Format (ASF)
+
+Microsoft Windows Media
+Microsoft Windows Media Video
+Microsoft Windows Media Audio/Video Playlist
+Microsoft Windows Media Video Playlist
+Audio Video Interleave (AVI)
+SGI Movie
+
+
+
+CoolTalk
+
+
