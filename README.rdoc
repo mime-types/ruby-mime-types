@@ -1,11 +1,11 @@
 = mime-types
 
-home :: https://github.com/halostatue/mime-types/
-code :: https://github.com/halostatue/mime-types/
-bugs :: https://github.com/halostatue/mime-types/issues
+home :: https://github.com/mime-types/ruby-mime-types/
+code :: https://github.com/mime-types/ruby-mime-types/
+bugs :: https://github.com/mime-types/ruby-mime-types/issues
 rdoc :: http://rdoc.info/gems/mime-types/
-continuous integration :: {<img src="https://travis-ci.org/halostatue/mime-types.png" />}[https://travis-ci.org/halostatue/mime-types]
-test coverage :: {<img src="https://coveralls.io/repos/halostatue/mime-types/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/halostatue/mime-types]
+continuous integration :: {<img src="https://travis-ci.org/mime-types/ruby-mime-types.png" />}[https://travis-ci.org/mime-types/ruby-mime-types]
+test coverage :: {<img src="https://coveralls.io/repos/mime-types/ruby-mime-types/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/mime-types/ruby-mime-types]
 
 == Description
 
@@ -21,20 +21,40 @@ entities (provided as an enumerable collection of MIME::Type objects) to be
 determined and used programmatically. There are many types defined by RFCs and
 vendors, so the list is long but by definition incomplete; don't hesitate to
 add additional type definitions (see Contributing.rdoc). The primary sources
-for MIME type definitions found in mime-types is the IANA collection of
-registrations (see below for the link), RFCs, and W3C recommendations.
+for MIME type definitions found in mime-types is the
+{IANA Media Types registry}[https://www.iana.org/assignments/media-types/media-types.xhtml],
+RFCs, and W3C recommendations. It conforms to RFCs 2045 and 2231.
 
-This is release 2.5, …
+This is release 2.5 with a couple of bug fixes, updating to the latest IANA
+type registry, and adding a user-contributed type. mime-types 2.x supports Ruby
+1.9.2 or later.
 
-As a reminder, mime-types 2.x is no longer compatible with Ruby 1.8 and
-mime-types 1.x is only being maintained for security issues. No new MIME types
-or features will be added.
+=== mime-types 1.x End of Life
 
-mime-types (previously called MIME::Types for Ruby) was originally based on
-MIME::Types for Perl by Mark Overmeer, copyright 2001 - 2009. It is built to
-conform to the MIME types of RFCs 2045 and 2231. It tracks the {IANA Media
-Types registry}[https://www.iana.org/assignments/media-types/media-types.xhtml]
-with some types added by the users of mime-types.
+mime-types 2.0 was released in late 2013, and as of early 2015 there have been
+no reported security issues for mime-types 1.x. With the release of mime-types
+2.5, I setting the formal End of Life for mime-types 1.x for 2015-10-27 (the
+second anniversary of the release of mime-types 2.0). After this date,
+absolutely no pull requests for mime-types 1.x will be accepted.
+
+=== mime-types Future
+
+Even though there are a number of issues open, it is clear to me that there are
+some fundamental changes that need to happen to both the data representation
+and the API provided by mime-types. This cannot happen under the current
+release, so all new development is focussing on an upcoming 3.0 release. The
+target for the release is on or before the beginning of RubyConf 2015
+(2015-11-15).
+
+When 3.0 is released, mime-types 2.x will receive regular updates of the IANA
+registry for two years following the release. It will also receive security
+updates, if needed, for the same period. There will be no further feature
+development on mime-types 2.x following the 3.0 release.
+
+Coincident with the 3.0 release, I will release mime-types 2.99.0 that no
+longer imports the data to fields that have been deprecated. If they work
+because they derive data from that which is imported, they will continue to
+work. The quarterly updates will be against 2.99.x.
 
 == Synopsis
 

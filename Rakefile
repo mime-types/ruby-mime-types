@@ -28,10 +28,10 @@ spec = Hoe.spec 'mime-types' do
   self.extra_dev_deps << ['hoe-rubygems', '~> 1.0']
   self.extra_dev_deps << ['hoe-travis', '~> 1.2']
   self.extra_dev_deps << ['minitest', '~> 5.3']
-  self.extra_dev_deps << ['minitest-autotest', ['>= 1.0.b', '<2']]
+  self.extra_dev_deps << ['minitest-autotest', '~>1.0']
   self.extra_dev_deps << ['rake', '~> 10.0']
   self.extra_dev_deps << ['simplecov', '~> 0.7']
-  self.extra_dev_deps << ['coveralls', '~> 0.7']
+  self.extra_dev_deps << ['coveralls', '~> 0.8']
 end
 
 task :support do

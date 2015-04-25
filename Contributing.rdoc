@@ -88,8 +88,8 @@ Here's the most direct way to get your work merged into the project:
 * Make sure everything still passes by running +rake+.
 * If necessary, rebase your commits into logical chunks, without errors.
 * Push the branch up (<tt>git push origin my\_awesome\_feature</tt>).
-* Create a pull request against halostatue/mime-types and describe what your
-  change does and the why you think it should be merged.
+* Create a pull request against mime-types/ruby-mime-types and describe what
+  your change does and the why you think it should be merged.
 
 === Contributors
 
@@ -105,10 +105,16 @@ Thanks to everyone else who has contributed to mime-types:
 * Hans de Graaff
 * Henrik Hodne
 * Martin d'Allens
-* cgat
+* Chris Gat
 * Greg Brockman
 * Łukasz Śliwa (for the friendly names)
 * Keerthi Siva
 * Aaron Patterson
 * Godfrey Chan
 * Tibor Szolár
+* Ken Ip
+* David Genord
+* Juanito Fatas
+* Andy Brody
+* Aggelow Avgerinos
+* Richard Schneeman
