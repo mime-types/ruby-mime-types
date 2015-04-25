@@ -201,6 +201,12 @@ namespace :convert do
       require 'convert'
       Convert.from_yaml_to_json(args)
     end
+
+    desc "Convert from YAML to TXT"
+    task :txt, [ :source, :destination ] => :support do |t, args|
+      require 'convert'
+      Convert.from_yaml_to_txt(args)
+    end
   end
 
   namespace :json do

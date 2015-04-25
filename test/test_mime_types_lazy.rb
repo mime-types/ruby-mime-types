@@ -5,18 +5,24 @@ require 'minitest_helper'
 
 class TestMIMETypesLazy < Minitest::Test
   def setup
+    @cache_file = File.expand_path('../cache.tst', __FILE__)
     ENV['RUBY_MIME_TYPES_LAZY_LOAD'] = 'true'
-    ENV['RUBY_MIME_TYPES_CACHE'] = File.expand_path('../cache.tst', __FILE__)
+    ENV['RUBY_MIME_TYPES_CACHE'] = @cache_file
     MIME::Types::Cache.save
   end
 
   def teardown
+    clear_cache_file
     reset_mime_types
     if File.exist? ENV['RUBY_MIME_TYPES_CACHE']
       FileUtils.rm ENV['RUBY_MIME_TYPES_CACHE']
       ENV.delete('RUBY_MIME_TYPES_CACHE')
     end
     ENV.delete('RUBY_MIME_TYPES_LAZY_LOAD')
+  end
+
+  def clear_cache_file
+    FileUtils.rm @cache_file if File.exist? @cache_file
   end
 
   def reset_mime_types
