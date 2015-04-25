@@ -25,8 +25,13 @@ class MIME::Types::Loader
   def initialize(path = nil, container = nil)
     path       = path || ENV['RUBY_MIME_TYPES_DATA'] ||
       MIME::Types::Loader::PATH
-    @path      = File.expand_path(File.join(path, '**'))
     @container = container || MIME::Types.new
+    if path
+      @path      = File.expand_path(File.join(path, '**'))
+    else
+      require 'mime/lazy_types'
+      @container.extend(MIME::LazyTypes)
+    end
   end
 
   # Loads a MIME::Types registry from YAML files (<tt>*.yml</tt> or
@@ -61,7 +66,14 @@ class MIME::Types::Loader
     end
     container
   end
-  alias_method :load, :load_json
+
+  def load
+    if path
+      load_json
+    else
+      container._load_base_data
+    end
+  end
 
   # Loads a MIME::Types registry from files found in +path+ that are in the
   # v1 data format. The file search for this will exclude both JSON

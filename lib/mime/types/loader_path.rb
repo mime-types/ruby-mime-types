@@ -12,5 +12,5 @@ class MIME::Types::Loader
   # System repackagers note: this is the constant that you would change if
   # you repackage mime-types for your system. It is recommended that the
   # path be something like /usr/share/ruby/mime-types/.
-  PATH = File.expand_path('../../../../data', __FILE__)
+  PATH = nil
 end
