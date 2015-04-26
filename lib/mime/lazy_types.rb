@@ -16,11 +16,12 @@ module MIME::LazyTypes
       File.open(File.join(ROOT, "mime-types-#{type}.txt"), 'r:UTF-8') do |file|
         i = -1
         file.each_line do |type_line|
+          type_line.chomp!
           if lookup
             next unless mime_type = @mime_types[i+=1]
-            yield mime_type, type_line.chomp
+            yield mime_type, type_line
           else
-            yield type_line.chomp
+            yield type_line
           end
         end
       end
@@ -46,8 +47,10 @@ module MIME::LazyTypes
   end
     
   def _load_encoding
+    pool = {}
     _each_file_line('encoding') do |mime_type, type_line|
-      mime_type.encoding = type_line
+      type_line.freeze
+      mime_type.encoding = (pool[type_line] ||= type_line)
     end
   end
     
