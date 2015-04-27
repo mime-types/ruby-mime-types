@@ -5,8 +5,7 @@
   extensions:
   - dwf
   obsolete: true
-  use-instead:
-  - x-drawing/dwf
+  use-instead: x-drawing/dwf
   registered: false
 - !ruby/object:MIME::Type
   content-type: x-drawing/dwf

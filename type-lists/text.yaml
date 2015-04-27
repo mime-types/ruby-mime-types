@@ -126,21 +126,6 @@
     - "- DEPRECATED by RFC6350"
   registered: true
 - !ruby/object:MIME::Type
-  content-type: text/directory - DEPRECATED by RFC6350
-  encoding: quoted-printable
-  references:
-  - IANA
-  - RFC2425
-  - RFC6350
-  - "{text/directory=http://www.iana.org/assignments/media-types/text/directory}"
-  xrefs: !ruby/hash:MIME::Types::Container
-    rfc:
-    - rfc2425
-    - rfc6350
-    template:
-    - text/directory
-  registered: true
-- !ruby/object:MIME::Type
   content-type: text/dns
   encoding: quoted-printable
   references:

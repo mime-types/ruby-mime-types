@@ -1109,21 +1109,10 @@
   - RFC1767
   - "{application/EDI-consent=http://www.iana.org/assignments/media-types/application/EDI-consent}"
   xrefs: !ruby/hash:MIME::Types::Container
-    rfc: &1
+    rfc:
     - rfc1767
-    template: &2
+    template:
     - application/EDI-consent
-  registered: true
-- !ruby/object:MIME::Type
-  content-type: application/EDI-Consent
-  encoding: base64
-  references:
-  - IANA
-  - RFC1767
-  - "{application/EDI-consent=http://www.iana.org/assignments/media-types/application/EDI-consent}"
-  xrefs: !ruby/hash:MIME::Types::Container
-    rfc: *1
-    template: *2
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/EDI-X12
