@@ -83,7 +83,6 @@ IANA|RFC3029|{application/dvcs=http://www.iana.org/assignments/media-types/appli
 -
 IANA|RFC4329|{application/ecmascript=http://www.iana.org/assignments/media-types/application/ecmascript}
 IANA|RFC1767|{application/EDI-consent=http://www.iana.org/assignments/media-types/application/EDI-consent}
-IANA|RFC1767|{application/EDI-consent=http://www.iana.org/assignments/media-types/application/EDI-consent}
 IANA|RFC1767|{application/EDI-X12=http://www.iana.org/assignments/media-types/application/EDI-X12}
 IANA|RFC1767|{application/EDIFACT=http://www.iana.org/assignments/media-types/application/EDIFACT}
 IANA|[W3C]|{http://www.w3.org/TR/2007/CR-emma-20071211/#media-type-registration}
@@ -1399,7 +1398,6 @@ IANA|RFC4184|{audio/ac3=http://www.iana.org/assignments/media-types/audio/ac3}
 -
 IANA|RFC4867|{audio/AMR=http://www.iana.org/assignments/media-types/audio/AMR}
 IANA|RFC4867|{audio/AMR-WB=http://www.iana.org/assignments/media-types/audio/AMR-WB}
-IANA|RFC4867|{audio/AMR-WB=http://www.iana.org/assignments/media-types/audio/AMR-WB}
 IANA|RFC4352|{audio/amr-wb+=http://www.iana.org/assignments/media-types/audio/amr-wb+}
 IANA|RFC7310|{audio/aptx=http://www.iana.org/assignments/media-types/audio/aptx}
 IANA|RFC6295|{audio/asc=http://www.iana.org/assignments/media-types/audio/asc}
@@ -1716,7 +1714,6 @@ IANA|RFC5545|{text/calendar=http://www.iana.org/assignments/media-types/text/cal
 IANA|RFC2318|{text/css=http://www.iana.org/assignments/media-types/text/css}
 IANA|RFC4180|RFC7111|{text/csv=http://www.iana.org/assignments/media-types/text/csv}
 IANA|[National_Archives_UK]|[David_Underdown]|{text/csv-schema=http://www.iana.org/assignments/media-types/text/csv-schema}
-IANA|RFC2425|RFC6350|{text/directory=http://www.iana.org/assignments/media-types/text/directory}
 IANA|RFC2425|RFC6350|{text/directory=http://www.iana.org/assignments/media-types/text/directory}
 IANA|RFC4027|{text/dns=http://www.iana.org/assignments/media-types/text/dns}
 IANA|RFC4329|{text/ecmascript=http://www.iana.org/assignments/media-types/text/ecmascript}

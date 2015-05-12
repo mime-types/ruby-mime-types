@@ -75,16 +75,19 @@ class MIME::Types
     @data_version     = VERSION.dup.freeze
   end
 
+  # This method is deprecated and will be removed in mime-types 3.0.
   def add_type_variant(mime_type) # :nodoc:
     MIME.deprecated(self, __method__, :private)
     add_type_variant!(mime_type)
   end
 
+  # This method is deprecated and will be removed in mime-types 3.0.
   def index_extensions(mime_type) # :nodoc:
     MIME.deprecated(self, __method__, :private)
     index_extensions!(mime_type)
   end
 
+  # This method is deprecated and will be removed in mime-types 3.0.
   def defined_types # :nodoc:
     MIME.deprecated(self, __method__)
     @type_variants.values.flatten
@@ -223,7 +226,7 @@ class MIME::Types
 
     # Load MIME::Types from a v1 file registry.
     #
-    # This method has been deprecated.
+    # This method has been deprecated and will be removed in mime-types 3.0.
     def load_from_file(filename)
       MIME.deprecated(self, __method__)
       MIME::Types::Loader.load_from_v1(filename)
@@ -260,6 +263,8 @@ class MIME::Types
     end
 
     # Returns the currently defined cache file, if any.
+    #
+    # This method has been deprecated and will be removed in mime-types 3.0.
     def cache_file
       MIME.deprecated(self, __method__)
       ENV['RUBY_MIME_TYPES_CACHE']
@@ -282,10 +287,16 @@ class MIME::Types
       (defined?(@__types__) and @__types__) or load_default_mime_types
     end
 
-    def load_default_mime_types
+    unless private_method_defined?(:load_mode)
+      def load_mode
+        {}
+      end
+    end
+
+    def load_default_mime_types(mode = load_mode())
       @__types__ = MIME::Types::Cache.load
       unless @__types__
-        @__types__ = MIME::Types::Loader.load
+        @__types__ = MIME::Types::Loader.load(mode)
         MIME::Types::Cache.save(@__types__)
       end
       @__types__
@@ -312,7 +323,7 @@ class MIME::Types
     @type_variants.select { |k, v| k =~ pattern }.values.flatten
   end
 
-  load_default_mime_types unless lazy_load?
+  load_default_mime_types(load_mode) unless lazy_load?
 end
 
 # vim: ft=ruby

@@ -29,6 +29,7 @@ spec = Hoe.spec 'mime-types' do
   self.extra_dev_deps << ['hoe-travis', '~> 1.2']
   self.extra_dev_deps << ['minitest', '~> 5.3']
   self.extra_dev_deps << ['minitest-autotest', '~>1.0']
+  self.extra_dev_deps << ['minitest-focus', '~>1.0']
   self.extra_dev_deps << ['rake', '~> 10.0']
   self.extra_dev_deps << ['simplecov', '~> 0.7']
   self.extra_dev_deps << ['coveralls', '~> 0.8']
@@ -58,74 +59,34 @@ namespace :benchmark do
 
   desc 'Allocation counts'
   task :allocations, [ :top_x, :mime_types_only ] => :support do |_, args|
-    if RUBY_VERSION < '2.1'
-      $stderr.puts "Cannot count allocations on #{RUBY_VERSION}."
-      exit 1
-    end
-
-    begin
-      require 'allocation_tracer'
-    rescue LoadError
-      $stderr.puts "Allocation tracking requires the gem 'allocation_tracer'."
-      exit 1
-    end
-
-    allocations = ObjectSpace::AllocationTracer.trace do
-      require 'mime/types'
-    end
-
-    count = ObjectSpace::AllocationTracer.allocated_count_table.values.
-      inject(:+)
-
-    if args.top_x
-      require 'pp'
-      top_x = args.top_x.to_i
-      top_x = 10 if top_x <= 0
-
-      mime_types_only = !!args.mime_types_only
-
-      table = allocations.sort_by { |_, v| v.first }.reverse.first(top_x)
-      table.map! { |(location, allocs)|
-        next if mime_types_only and location.first !~ %r{mime-types/lib}
-        [ location.join(':').gsub(%r{^#{Dir.pwd}/}, ''), *allocs ]
-      }.compact!
-
-      head = (ObjectSpace::AllocationTracer.header - [ :line ]).map {|h|
-        h.to_s.split(/_/).map(&:capitalize).join(' ')
-      }
-      table.unshift head
-
-      max_widths = [].tap do |mw|
-        table.map { |row| row.lazy.map(&:to_s).map(&:length).to_a }.tap do |w|
-          w.first.each_index do |i|
-            mw << w.lazy.map { |r| r[i] }.max
-          end
-        end
-      end
-
-      pattern = [ "%%-%ds" ]
-      pattern << ([ "%% %ds" ] * (max_widths.length - 1))
-      pattern = pattern.join("\t") % max_widths
-      table.each { |row| puts pattern % row }
-      puts
-    end
-
-    puts "TOTAL Allocations: #{count}"
+    require 'benchmarks/load_allocations'
+    p args
+    Benchmarks::LoadAllocations.report(
+      top_x: args.top_x,
+      mime_types_only: args.mime_types_only
+    )
   end
 
-  desc 'Show object counts'
-  task objects: :support do
-    GC.start
-    objects_before = ObjectSpace.count_objects
+  desc 'Columnar allocation counts'
+  task 'allocations:columnar', [ :top_x, :mime_types_only ] => :support do |_, args|
+    require 'benchmarks/load_allocations'
+    Benchmarks::LoadAllocations.report(
+      columnar: true,
+      top_x: args.top_x,
+      mime_types_only: args.mime_types_only
+    )
+  end
 
-    require "mime/types"
-    GC.start
-    objects_after = ObjectSpace.count_objects
-    objects_before.keys.grep(/T_/).map { |key|
-      [ key, objects_after[key] - objects_before[key] ]
-    }.sort_by { |key, delta| -delta }.each { |key, delta|
-      puts "%10s +%6d" % [ key, delta ]
-    }
+  desc 'Object counts'
+  task objects: :support do
+    require 'benchmarks/object_counts'
+    Benchmarks::ObjectCounts.report
+  end
+
+  desc 'Columnar object counts'
+  task 'objects:columnar' => :support do
+    require 'benchmarks/object_counts'
+    Benchmarks::ObjectCounts.report(columnar: true)
   end
 end
 
@@ -202,10 +163,10 @@ namespace :convert do
       Convert.from_yaml_to_json(args)
     end
 
-    desc "Convert from YAML to TXT"
-    task :txt, [ :source, :destination ] => :support do |t, args|
-      require 'convert'
-      Convert.from_yaml_to_txt(args)
+    desc "Convert from YAML to Columnar"
+    task :columnar, [ :source, :destination ] => :support do |t, args|
+      require 'convert/columnar'
+      Convert::Columnar.from_yaml_to_columnar(args)
     end
   end
 

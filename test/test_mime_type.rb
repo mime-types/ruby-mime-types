@@ -17,7 +17,9 @@ class TestMIMEType < Minitest::Test
       }
       js.encoding = '8bit'
       js.extensions = %w(js sj)
-      js.references = %w(IANA RFC4329 {application/javascript=http://www.iana.org/assignments/media-types/application/javascript})
+      assert_deprecated('MIME::Type#references=') do
+        js.references = %w(IANA RFC4329 {application/javascript=http://www.iana.org/assignments/media-types/application/javascript})
+      end
       js.registered = true
 
       yield js if block_given?
@@ -50,18 +52,20 @@ class TestMIMEType < Minitest::Test
 
   def test_class_from_array
     yaml = nil
-    assert_deprecated("MIME::Type.from_array") do
+    assert_deprecated('MIME::Type.from_array') do
       yaml = MIME::Type.from_array('text/x-yaml', %w(yaml yml), '8bit',
                                    'd9d172f608')
     end
     assert_instance_of(MIME::Type, yaml)
     assert_equal('text/yaml', yaml.simplified)
-    assert_raises(ArgumentError) { MIME::Type.from_array }
+    assert_deprecated('MIME::Type.from_array') do
+      assert_raises(ArgumentError) { MIME::Type.from_array }
+    end
   end
 
   def test_class_from_hash
     yaml = nil
-    assert_deprecated("MIME::Type.from_hash") do
+    assert_deprecated('MIME::Type.from_hash') do
       yaml = MIME::Type.from_hash('Content-Type' => 'text/x-yaml',
                                   'Content-Transfer-Encoding' => '8bit',
                                   'System' => 'd9d172f608',
@@ -73,7 +77,7 @@ class TestMIMEType < Minitest::Test
 
   def test_class_from_mime_type
     zip2 = nil
-    assert_deprecated("MIME::Type.from_mime_type") do
+    assert_deprecated('MIME::Type.from_mime_type') do
       zip2 = MIME::Type.from_mime_type(@applzip)
     end
     assert_instance_of(MIME::Type, @applzip)
@@ -188,7 +192,7 @@ class TestMIMEType < Minitest::Test
 
   def test_docs_equals
     yaml = make_yaml_mime_type
-    assert_nil(yaml.docs)
+    assert_equal [], yaml.docs
     yaml.docs = 'YAML docs'
     assert_equal('YAML docs', yaml.docs)
   end
@@ -267,14 +271,18 @@ class TestMIMEType < Minitest::Test
 
   def test_platform_eh
     yaml = nil
-    assert_deprecated("MIME::Type#platform?") do
+    assert_deprecated('MIME::Type#platform?') do
       yaml = make_yaml_mime_type
       refute(yaml.platform?)
     end
     yaml.system = nil
-    refute(yaml.platform?)
+    assert_deprecated('MIME::Type#platform?') do
+      refute(yaml.platform?)
+    end
     yaml.system = %r{#{RUBY_PLATFORM}}
-    assert(yaml.platform?)
+    assert_deprecated('MIME::Type#platform?') do
+      assert(yaml.platform?)
+    end
   end
 
   def assert_priority(l, e, r)
@@ -381,7 +389,7 @@ class TestMIMEType < Minitest::Test
   end
 
   def test_system
-    assert_deprecated("MIME::Type#system") do
+    assert_deprecated('MIME::Type#system') do
       yaml = make_yaml_mime_type
       assert_equal(%r{d9d172f608}, yaml.system)
     end
@@ -390,31 +398,37 @@ class TestMIMEType < Minitest::Test
   def test_system_equals
     yaml = make_yaml_mime_type
     yaml.system = /win32/
-    assert_equal(%r{win32}, yaml.system)
+    assert_deprecated('MIME::Type#system') do
+      assert_equal(%r{win32}, yaml.system)
+    end
     yaml.system = nil
-    assert_nil(yaml.system)
+    assert_deprecated('MIME::Type#system') do
+      assert_nil(yaml.system)
+    end
   end
 
   def test_system_eh
     yaml = make_yaml_mime_type
-    assert_deprecated("MIME::Type#system?") do
+    assert_deprecated('MIME::Type#system?') do
       assert(yaml.system?)
     end
     yaml.system = nil
-    refute(yaml.system?)
+    assert_deprecated('MIME::Type#system?') do
+      refute(yaml.system?)
+    end
   end
 
   def test_to_a
     yaml = make_yaml_mime_type
-    assert_deprecated("MIME::Type#to_a") do
+    assert_deprecated('MIME::Type#to_a') do
       assert_equal(['text/x-yaml', %w(yaml yml), '8bit', /d9d172f608/,
-                    false, nil, [], false], yaml.to_a)
+                    false, [], [], false], yaml.to_a)
     end
   end
 
   def test_to_hash
     yaml = make_yaml_mime_type
-    assert_deprecated("MIME::Type#to_hash") do
+    assert_deprecated('MIME::Type#to_hash') do
       assert_equal(
         {
           'Content-Type'              => 'text/x-yaml',
@@ -424,7 +438,7 @@ class TestMIMEType < Minitest::Test
           'Registered'                => false,
           'URL'                       => [],
           'Obsolete'                  => false,
-          'Docs'                      => nil
+          'Docs'                      => []
         },
         yaml.to_hash)
     end
@@ -443,7 +457,9 @@ class TestMIMEType < Minitest::Test
     assert_type_has_keys(make(t) { |v| v.obsolete = true }, 'obsolete')
     assert_type_has_keys(make(t) { |v| v.obsolete = true; v.use_instead = 'c/d' },
                          'obsolete', 'use-instead')
-    assert_type_has_keys(make(t) { |v| v.references = 'IANA' }, 'references')
+    assert_type_has_keys(make(t) { |v|
+      assert_deprecated('MIME::Type#references=') { v.references = 'IANA' }
+    }, 'references')
     assert_type_has_keys(make(t) { |v| v.signature = true }, 'signature')
     assert_type_has_keys(make(t) { |v| v.system = /xyz/ }, 'system')
   end
@@ -477,16 +493,26 @@ class TestMIMEType < Minitest::Test
   end
 
   def test_references
-    assert_empty(make_yaml_mime_type.references)
+    assert_deprecated('MIME::Type#references') do
+      assert_empty(make_yaml_mime_type.references)
+    end
   end
 
   def test_references_equals
     yaml = make_yaml_mime_type
-    yaml.references = "IANA"
-    assert_equal(%W(IANA), yaml.references)
+    assert_deprecated('MIME::Type#references=') do
+      yaml.references = "IANA"
+    end
+    assert_deprecated('MIME::Type#references') do
+      assert_equal(%W(IANA), yaml.references)
+    end
 
-    yaml.references = %w(IANA IANA)
-    assert_equal(%W(IANA), yaml.references)
+    assert_deprecated('MIME::Type#references=') do
+      yaml.references = %w(IANA IANA)
+    end
+    assert_deprecated('MIME::Type#references') do
+      assert_equal(%W(IANA), yaml.references)
+    end
   end
 
   def test_xrefs
@@ -524,35 +550,67 @@ class TestMIMEType < Minitest::Test
   end
 
   def test_url
-    assert_deprecated("MIME::Type#url", "and has been renamed to #references") do
+    assert_deprecated('MIME::Type#url') do
       assert_empty(make_yaml_mime_type.url)
     end
   end
 
   def test_url_equals
     yaml = make_yaml_mime_type
-    assert_deprecated("MIME::Type#url=") do
+    assert_deprecated('MIME::Type#url=') do
       yaml.url = "IANA"
     end
-    assert_equal(%W(IANA), yaml.url)
+    assert_deprecated('MIME::Type#url') do
+      assert_equal(%W(IANA), yaml.url)
+    end
   end
 
   def test_urls
     yaml = make_yaml_mime_type
-    assert_empty(yaml.urls)
-    yaml.references = %w(IANA RFC123 DRAFT:xyz [abc])
-    assert_equal(%w(http://www.iana.org/assignments/media-types/text/yaml
-                    http://rfc-editor.org/rfc/rfc123.txt
-                    http://datatracker.ietf.org/public/idindex.cgi?command=id_details&filename=xyz
-                    http://www.iana.org/assignments/contact-people.htm#abc),
-                 yaml.urls)
-    yaml.references = '[def=lax]'
-    assert_equal([%w(def http://www.iana.org/assignments/contact-people.htm#lax)],
-                 yaml.urls)
-    yaml.references = '{mno=pqr}'
-    assert_equal([%w(mno pqr)], yaml.urls)
-    yaml.references = 'hoge'
-    assert_equal(%w(hoge), yaml.urls)
+    assert_deprecated('MIME::Type#urls') do
+      assert_empty(yaml.urls)
+    end
+
+    assert_deprecated('MIME::Type#references=') do
+      yaml.references = %w(IANA RFC123 DRAFT:xyz [abc])
+    end
+
+    assert_deprecated('MIME::Type#urls') do
+      assert_equal(
+        %w(
+        http://www.iana.org/assignments/media-types/text/yaml
+        http://rfc-editor.org/rfc/rfc123.txt
+        http://datatracker.ietf.org/public/idindex.cgi?command=id_details&filename=xyz
+        http://www.iana.org/assignments/contact-people.htm#abc
+        ),
+        yaml.urls
+      )
+    end
+
+    assert_deprecated('MIME::Type#references=') do
+      yaml.references = '[def=lax]'
+    end
+
+    assert_deprecated('MIME::Type#urls') do
+      assert_equal([%w(def http://www.iana.org/assignments/contact-people.htm#lax)],
+                   yaml.urls)
+    end
+
+    assert_deprecated('MIME::Type#references=') do
+      yaml.references = '{mno=pqr}'
+    end
+
+    assert_deprecated('MIME::Type#urls') do
+      assert_equal([%w(mno pqr)], yaml.urls)
+    end
+
+    assert_deprecated('MIME::Type#references=') do
+      yaml.references = 'hoge'
+    end
+
+    assert_deprecated('MIME::Type#urls') do
+      assert_equal(%w(hoge), yaml.urls)
+    end
   end
 
   def test_use_instead
@@ -596,7 +654,7 @@ class TestMIMEType < Minitest::Test
     assert_output(nil, /MIME::InvalidContentType/) do
       assert_same(MIME::InvalidContentType, MIME::Type::InvalidContentType)
     end
-    assert_silent do
+    assert_output(nil, /MIME::InvalidContentType/) do
       assert_same(MIME::InvalidContentType, MIME::Type::InvalidContentType)
     end
     assert_raises(NameError) { MIME::Foo }

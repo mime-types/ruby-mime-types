@@ -74,7 +74,9 @@ class TestMIMETypes < Minitest::Test
     assert_equal(%w(image/jpeg), MIME::Types.of('foo.jpeg'))
     assert_equal(%w(image/jpeg text/plain),
                  MIME::Types.type_for(%w(foo.txt foo.jpeg)))
-    assert_equal(@mime_types.of('gif', true), @mime_types['image/gif'])
+    assert_deprecated("MIME::Types#type_for", "using the platform parameter") do
+      assert_equal(@mime_types.of('gif', true), @mime_types['image/gif'])
+    end
     assert_empty(MIME::Types.type_for('coverallsjson'))
     assert_deprecated("MIME::Types#type_for", "using the platform parameter") do
       assert_empty(MIME::Types.type_for('jpeg', true))
@@ -112,6 +114,8 @@ class TestMIMETypes < Minitest::Test
     assert_deprecated("MIME::Types#defined_types") do
       assert_empty(MIME::Types.new.defined_types)
     end
-    refute_empty(@mime_types.defined_types)
+    assert_deprecated("MIME::Types#defined_types") do
+      refute_empty(@mime_types.defined_types)
+    end
   end
 end

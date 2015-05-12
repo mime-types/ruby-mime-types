@@ -83,7 +83,6 @@ rfc^rfc3029|template^application/dvcs
 -
 rfc^rfc4329|template^application/ecmascript
 rfc^rfc1767|template^application/EDI-consent
-rfc^rfc1767|template^application/EDI-consent
 rfc^rfc1767|template^application/EDI-X12
 rfc^rfc1767|template^application/EDIFACT
 person^W3C|text^|uri^http://www.w3.org/TR/2007/CR-emma-20071211/#media-type-registration
@@ -1399,7 +1398,6 @@ rfc^rfc4184|template^audio/ac3
 -
 rfc^rfc4867|template^audio/AMR
 rfc^rfc4867|template^audio/AMR-WB
-rfc^rfc4867|template^audio/AMR-WB
 rfc^rfc4352|template^audio/amr-wb+
 rfc^rfc7310|template^audio/aptx
 rfc^rfc6295|template^audio/asc
@@ -1717,7 +1715,6 @@ rfc^rfc2318|template^text/css
 rfc^rfc4180^rfc7111|template^text/csv
 person^David_Underdown^National_Archives_UK|template^text/csv-schema
 notes^- DEPRECATED by RFC6350|rfc^rfc2425^rfc6350|template^text/directory
-rfc^rfc2425^rfc6350|template^text/directory
 rfc^rfc4027|template^text/dns
 notes^- OBSOLETED in favor of application/ecmascript|rfc^rfc4329|template^text/ecmascript
 rfc^rfc6849|template^text/encaprtp

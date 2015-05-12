@@ -82,7 +82,6 @@ application/dssc+xml xdssc
 application/dvcs 
 application/dxf 
 application/ecmascript ecma
-application/EDI-Consent 
 application/EDI-consent 
 application/EDI-X12 
 application/EDIFACT 
@@ -1399,7 +1398,6 @@ audio/ac3
 audio/adpcm adp
 audio/AMR amr
 audio/AMR-WB awb
-audio/amr-wb 
 audio/amr-wb+ 
 audio/aptx 
 audio/asc 
@@ -1717,7 +1715,6 @@ text/css css
 text/csv csv
 text/csv-schema 
 text/directory 
-text/directory - DEPRECATED by RFC6350 
 text/dns 
 text/ecmascript 
 text/encaprtp 

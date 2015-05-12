@@ -80,7 +80,9 @@ class TestMIMETypesQueryClassMethods < Minitest::Test
       assert_equal('foo', MIME::Types.cache_file)
     end
     ENV.delete('RUBY_MIME_TYPES_CACHE')
-    assert_nil(MIME::Types.cache_file)
+    assert_deprecated("MIME::Types.cache_file") do
+      assert_nil(MIME::Types.cache_file)
+    end
   end
 end
 

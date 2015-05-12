@@ -25,39 +25,36 @@ class Convert
 
     # Converts from YAML to JSON. Defaults to converting to a single file.
     def from_yaml_to_json(args)
-      mf = args.multiple_files || "single"
       from_yaml(yaml_path(args.source)).
-        to_json(destination:    json_path(args.destination),
-                multiple_files: multiple_files(mf))
+        to_json(
+          destination:    json_path(args.destination),
+          multiple_files: multiple_files(args.multiple_files || 'single')
+      )
     end
 
     # Converts from JSON to YAML. Defaults to converting to multiple files.
     def from_json_to_yaml(args)
-      mf = args.multiple_files || "multiple"
       from_json(json_path(args.source)).
-        to_yaml(destination:    yaml_path(args.destination),
-                multiple_files: multiple_files(mf))
-    end
-
-    def from_yaml_to_txt(args)
-      from_yaml(yaml_path(args.source)).
-        to_txt(destination: json_path(args.destination))
+        to_yaml(
+          destination:    yaml_path(args.destination),
+          multiple_files: multiple_files(args.multiple_files || 'multiple')
+      )
     end
 
     private :new
 
     private
     def yaml_path(path)
-      if path.nil? or path.empty?
-        'type-lists'
-      else
-        path
-      end
+      path_or_default(path, 'type-lists'.freeze)
     end
 
     def json_path(path)
+      path_or_default(path, 'data'.freeze)
+    end
+
+    def path_or_default(path, default)
       if path.nil? or path.empty?
-        'data'
+        default
       else
         path
       end
@@ -65,7 +62,7 @@ class Convert
 
     def multiple_files(flag)
       case flag.to_s.downcase
-      when "true", "yes", "multiple"
+      when 'true', 'yes', 'multiple'
         true
       else
         false
@@ -87,55 +84,13 @@ class Convert
 
   # Convert the data to JSON.
   def to_json(options = {})
-    raise ArgumentError, 'destination is required' unless options[:destination]
+    options[:destination] or require_destination!
     write_types(options.merge(format: :json))
-  end
-
-  # Convert the data to multiple text files.
-  def to_txt(options = {})
-    raise ArgumentError, 'destination is required' unless root = options[:destination]
-    data = @loader.container.map.sort.map(&:to_h)
-
-    mapper = lambda do |attr, &block|
-      File.open(File.join(root, "mime-types-#{attr}.txt"), 'wb') do |f|
-        f.puts data.map(&block)
-      end 
-    end
-
-    mapper.call('content_type') { |type| "#{type['content-type']} #{Array(type['extensions']).join(' ')}" }
-    mapper.call('encoding') { |type| type['encoding'] }
-
-    mapper.call('docs') { |type| type['docs'] || '-' }
-    mapper.call('system') { |type| type['system'] || '-' }
-
-    mapper.call('obsolete') { |type| type['obsolete'] ? '1' : '0' }
-    mapper.call('registered') { |type| type['registered'] ? '1' : '0' }
-    mapper.call('signature') { |type| type['signature'] ? '1' : '0' }
-
-    mapper.call('references') { |type| type['references'] ? type['references'].join("|") : '-' }
-    mapper.call('xrefs') { |type| type['xrefs'] ? type['xrefs'].sort.map{|k,v| "#{k}^#{v.join('^')}"}.join("|") : '-' }
-
-    mapper.call('friendly') do |type|
-      friendly = type['friendly']
-      raise if friendly && (friendly.length != 1 || !friendly.has_key?('en') || friendly['en'] =~ /\n/)
-      friendly['en'].to_s if friendly
-    end
-
-    mapper.call('use_instead') do |type|
-      case v = type['use-instead']
-      when Array
-        "|#{v.join('|')}"
-      when String
-        v
-      else
-        '-'
-      end
-    end
   end
 
   # Convert the data to YAML.
   def to_yaml(options = {})
-    raise ArgumentError, 'destination is required' unless options[:destination]
+    options[:destination] or require_destination!
     write_types(options.merge(format: :yaml))
   end
 
@@ -164,11 +119,7 @@ class Convert
 
   def write_multiple_files(options)
     d = options[:destination]
-    if File.exist?(d) and not File.directory?(d)
-      raise ArgumentError, 'Cannot write multiple files to a file.'
-    end
-
-    FileUtils.mkdir_p d unless File.exist?(d)
+    must_be_directory!(d)
 
     media_types = MIME::Types.map(&:media_type).uniq
     media_types.each { |media_type|
@@ -182,5 +133,18 @@ class Convert
 
   def convert(data, format)
     data.send(:"to_#{format}")
+  end
+
+  def require_destination!
+    fail ArgumentError, 'Destination path is required.'
+  end
+
+  def must_be_directory!(path)
+    if File.exist?(path) and not File.directory?(path)
+      raise ArgumentError, 'Cannot write multiple files to a file.'
+    end
+
+    FileUtils.mkdir_p(path) unless File.exist?(path)
+    path
   end
 end
