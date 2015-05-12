@@ -14,19 +14,16 @@ class << MIME
               klass = klass.class
               '#'
             end
-    unless defined?(@__deprecated) and @__deprecated["#{klass}#{level}#{sym}"]
-      message = case message
-                when :private, :protected
-                  "and will be #{message}"
-                when nil
-                  "and will be removed"
-                else
-                  message
-                end
-      warn "#{klass}#{level}#{sym} is deprecated #{message}."
-      (@__deprecated ||= {})["#{klass}#{level}#{sym}"] = true
-      block.call if block
-    end
+    message = case message
+              when :private, :protected
+                "and will be #{message}"
+              when nil
+                "and will be removed"
+              else
+                message
+              end
+    warn "#{caller[1]}: #{klass}#{level}#{sym} is deprecated #{message}."
+    block.call if block
   end
 
   # MIME::InvalidContentType was moved to MIME::Type::InvalidContentType.
@@ -43,9 +40,6 @@ class << MIME
 
   private
   def warn_about_moved_constants(name) # :nodoc:
-    unless defined?(@__warned_constants) and @__warned_constants[name]
-      warn "MIME::#{name} is deprecated. Use MIME::Type::#{name} instead."
-      (@__warned_constants ||= {})[name] = true
-    end
+    warn "#{caller[1]}: MIME::#{name} is deprecated. Use MIME::Type::#{name} instead."
   end
 end
