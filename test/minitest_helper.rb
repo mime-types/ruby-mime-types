@@ -8,12 +8,13 @@ require 'minitest/autorun'
 require 'minitest/focus'
 
 module Minitest::MIMEDeprecated
-  def assert_deprecated(name, message = "and will be removed")
-    assert_output nil,
-      /#{Regexp.escape(name)} is deprecated #{Regexp.escape(message)}./ do
+  def assert_deprecated name, message = 'and will be removed'
+    name = Regexp.escape(name)
+    message = Regexp.escape(message)
+
+    assert_output nil, /#{name} is deprecated #{message}./ do
       yield
     end
-  ensure
   end
 
   Minitest::Test.send(:include, self)

@@ -46,15 +46,19 @@ class TestMIMEType < Minitest::Test
 
   def setup
     @applzip = MIME::Type.new('x-appl/x-zip') { |t|
-      t.extensions = ['zip', 'zp']
+      t.extensions = %w(zip zp)
     }
   end
 
   def test_class_from_array
     yaml = nil
     assert_deprecated('MIME::Type.from_array') do
-      yaml = MIME::Type.from_array('text/x-yaml', %w(yaml yml), '8bit',
-                                   'd9d172f608')
+      yaml = MIME::Type.from_array(
+        'text/x-yaml',
+        %w(yaml yml),
+        '8bit',
+        'd9d172f608'
+      )
     end
     assert_instance_of(MIME::Type, yaml)
     assert_equal('text/yaml', yaml.simplified)
@@ -106,7 +110,7 @@ class TestMIMEType < Minitest::Test
   end
 
   def test_spaceship_compare # '<=>'
-    assert(MIME::Type.new('text/plain') == MIME::Type.new('text/plain'))
+    assert(MIME::Type.new('text/plain') == MIME::Type.new('text/plain')) # rubocop:disable Lint/UselessComparison
     assert(MIME::Type.new('text/plain') != MIME::Type.new('image/jpeg'))
     assert(MIME::Type.new('text/plain') == 'text/plain')
     assert(MIME::Type.new('text/plain') != 'image/jpeg')
@@ -152,7 +156,7 @@ class TestMIMEType < Minitest::Test
     assert_equal('text/vCard', MIME::Type.new('text/vCard').content_type)
     assert_equal('application/pkcs7-mime',
                  MIME::Type.new('application/pkcs7-mime').content_type)
-    assert_equal('x-appl/x-zip', @applzip.content_type);
+    assert_equal('x-appl/x-zip', @applzip.content_type)
     assert_equal('base64', @applzip.encoding)
   end
 
@@ -446,7 +450,7 @@ class TestMIMEType < Minitest::Test
 
   def assert_type_has_keys(type, *keys)
     hash = type.to_h
-    keys.flatten.each { |key| assert(hash.has_key?(key)) }
+    keys.flatten.each { |key| assert(hash.key?(key)) }
   end
 
   def test_to_h
@@ -455,8 +459,10 @@ class TestMIMEType < Minitest::Test
     assert_type_has_keys(make(t) { |v| v.docs = 'Something' }, 'docs')
     assert_type_has_keys(make(t) { |v| v.extensions = %w(b) }, 'extensions')
     assert_type_has_keys(make(t) { |v| v.obsolete = true }, 'obsolete')
-    assert_type_has_keys(make(t) { |v| v.obsolete = true; v.use_instead = 'c/d' },
-                         'obsolete', 'use-instead')
+    assert_type_has_keys(make(t) { |v|
+      v.obsolete = true
+      v.use_instead = 'c/d'
+    }, 'obsolete', 'use-instead')
     assert_type_has_keys(make(t) { |v|
       assert_deprecated('MIME::Type#references=') { v.references = 'IANA' }
     }, 'references')
@@ -484,7 +490,7 @@ class TestMIMEType < Minitest::Test
     begin
       MIME::Type.new(nil)
     rescue MIME::Type::InvalidContentType => ex
-      assert_equal("Invalid Content-Type nil", ex.message)
+      assert_equal('Invalid Content-Type nil', ex.message)
     end
   end
 
@@ -501,17 +507,17 @@ class TestMIMEType < Minitest::Test
   def test_references_equals
     yaml = make_yaml_mime_type
     assert_deprecated('MIME::Type#references=') do
-      yaml.references = "IANA"
+      yaml.references = 'IANA'
     end
     assert_deprecated('MIME::Type#references') do
-      assert_equal(%W(IANA), yaml.references)
+      assert_equal(%w(IANA), yaml.references)
     end
 
     assert_deprecated('MIME::Type#references=') do
       yaml.references = %w(IANA IANA)
     end
     assert_deprecated('MIME::Type#references') do
-      assert_equal(%W(IANA), yaml.references)
+      assert_equal(%w(IANA), yaml.references)
     end
   end
 
@@ -527,23 +533,23 @@ class TestMIMEType < Minitest::Test
 
   def test_xref_urls
     js = make_javascript do |j|
-      j.xrefs = j.xrefs.merge({
+      j.xrefs = j.xrefs.merge(
         'draft'      => [ 'RFC-ietf-appsawg-json-merge-patch-07' ],
         'person'     => [ 'David_Singer' ],
         'rfc-errata' => [ '3245' ],
         'uri'        => [ 'http://exmple.org' ],
         'text'       => [ 'text' ]
-      })
+      )
     end
     assert_equal(
       [
-        "http://www.iana.org/go/rfc4239",
-        "http://www.iana.org/assignments/media-types/application/javascript",
-        "http://www.iana.org/go/draft-ietf-appsawg-json-merge-patch-07",
-        "http://www.iana.org/assignments/media-types/media-types.xhtml#David_Singer",
-        "http://www.rfc-editor.org/errata_search.php?eid=3245",
-        "http://exmple.org",
-        "text"
+        'http://www.iana.org/go/rfc4239',
+        'http://www.iana.org/assignments/media-types/application/javascript',
+        'http://www.iana.org/go/draft-ietf-appsawg-json-merge-patch-07',
+        'http://www.iana.org/assignments/media-types/media-types.xhtml#David_Singer',
+        'http://www.rfc-editor.org/errata_search.php?eid=3245',
+        'http://exmple.org',
+        'text'
       ],
       js.xref_urls
     )
@@ -558,10 +564,10 @@ class TestMIMEType < Minitest::Test
   def test_url_equals
     yaml = make_yaml_mime_type
     assert_deprecated('MIME::Type#url=') do
-      yaml.url = "IANA"
+      yaml.url = 'IANA'
     end
     assert_deprecated('MIME::Type#url') do
-      assert_equal(%W(IANA), yaml.url)
+      assert_equal(%w(IANA), yaml.url)
     end
   end
 
@@ -578,10 +584,10 @@ class TestMIMEType < Minitest::Test
     assert_deprecated('MIME::Type#urls') do
       assert_equal(
         %w(
-        http://www.iana.org/assignments/media-types/text/yaml
-        http://rfc-editor.org/rfc/rfc123.txt
-        http://datatracker.ietf.org/public/idindex.cgi?command=id_details&filename=xyz
-        http://www.iana.org/assignments/contact-people.htm#abc
+          http://www.iana.org/assignments/media-types/text/yaml
+          http://rfc-editor.org/rfc/rfc123.txt
+          http://datatracker.ietf.org/public/idindex.cgi?command=id_details&filename=xyz
+          http://www.iana.org/assignments/contact-people.htm#abc
         ),
         yaml.urls
       )
@@ -639,7 +645,7 @@ class TestMIMEType < Minitest::Test
   end
 
   def test_friendly_set
-    assert_equal({ 'en' => 'Zip' }, @applzip.friendly([ 'en', 'Zip' ]))
+    assert_equal({ 'en' => 'Zip' }, @applzip.friendly(%w(en Zip)))
     assert_equal({ 'en' => 'Zip Archive' }, @applzip.friendly('en' => 'Zip Archive'))
   end
 

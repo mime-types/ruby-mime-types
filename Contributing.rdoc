@@ -3,7 +3,7 @@
 I value any contribution to mime-types you can provide: a bug report, a feature
 request, or code contributions.
 
-As mime-types is a mature codebase, there are a few guidelines:
+There are a few guidelines for contributing to mime-types:
 
 * Code changes *will* *not* be accepted without tests. The test suite is
   written with {Minitest}[https://github.com/seattlerb/minitest].
@@ -18,9 +18,12 @@ As mime-types is a mature codebase, there are a few guidelines:
 
 === Adding or Modifying MIME Types
 
-The mime-types registry is loaded from a JSON file in +data+, but this file is
-not considered editable and cannot be compared in a pull request. New or
-modified MIME types should be edited in the appropriate YAML file under
+The mime-types registry is loaded from encoded files in +data+. These are not
+editable and cannot be compared meaningfully in a pull request; pull requests
+that include changes to these files will require amendment to revert these
+files.
+
+New or modified MIME types should be edited in the appropriate YAML file under
 +type-lists+. The format is as shown below for the +application/xml+ MIME type
 in +type-lists/application.yml+.
 
@@ -46,7 +49,20 @@ to verify that the JSON matches the YAML changes, which is why it is not
 necessary to convert for the pull request.
 
 If you are making a change for a private fork, use <tt>rake
-convert:yaml:json</tt> to convert the YAML to JSON.
+convert:yaml:json</tt> to convert the YAML to JSON, or <tt>rake
+convert:yaml:columnar</tt> to convert it to the new columnar format.
+
+==== Updating Types from the IANA or Apache Lists
+
+If you are maintaining a private fork and wish to update your copy of the MIME
+types registry used by this gem, you can do this with the rake tasks:
+
+    $ rake mime:iana
+    $ rake mime:apache
+
+Both of these require
+{Nokogiri}[http://www.nokogiri.org/tutorials/installing_nokogiri.html], which
+is not installed by default. Install it in the usual way for your Ruby.
 
 === Test Dependencies
 
@@ -77,6 +93,35 @@ can accomplish the same thing with:
 This task will install any missing dependencies, run the tests/specs, and
 generate the RDoc.
 
+You can run tests with code coverage analysis by running:
+
+    $ rake test:coverage
+
+=== Benchmarks
+
+mime-types offers several benchmark tasks to measure different measures of
+performance.
+
+There is a repeated load test, measuring how long it takes to start and load
+mime-types with its full registry. By default, it runs fifty loops and uses the
+built-in benchmark library.
+
+    $ rake benchmark:load
+
+There are two allocation tracing benchmarks (for normal and columnar loads).
+These can only be run on Ruby 2.1 or better and requires the
+{allocation_tracer}[https://github.com/ko1/allocation_tracer] gem (not
+installed by default).
+
+    $ rake benchmark:allocations
+    $ rake benchmark:allocations:columnar
+
+There are two loaded object count benchmarks (for normal and columnar loads).
+These use <tt>ObjectSpace.count_objects</tt>.
+
+    $ rake benchmark:objects
+    $ rake benchmark:objects:columnar
+
 === Workflow
 
 Here's the most direct way to get your work merged into the project:
@@ -97,24 +142,31 @@ Here's the most direct way to get your work merged into the project:
 
 Thanks to everyone else who has contributed to mime-types:
 
+* Aaron Patterson
+* Aggelos Avgerinos
 * Andre Pankratz
-* Mauricio Linhares
-* Richard Hirner
-* Todd Carrico
+* Andy Brody
+* Arnaud Meuret
+* Brandon Galbraith
+* Chris Gat
+* David Genord
+* Eric Marden
 * Garret Alfert
+* Godfrey Chan
+* Greg Brockman
 * Hans de Graaff
 * Henrik Hodne
-* Martin d'Allens
-* Chris Gat
-* Greg Brockman
-* Łukasz Śliwa (for the friendly names)
-* Keerthi Siva
-* Aaron Patterson
-* Godfrey Chan
-* Tibor Szolár
-* Ken Ip
-* David Genord
+* Jeremy Evans
 * Juanito Fatas
-* Andy Brody
-* Aggelow Avgerinos
+* Łukasz Śliwa
+* Keerthi Siva
+* Ken Ip
+* Martin d'Allens
+* Mauricio Linhares
+* nycvotes-dev
+* Postmodern
+* Richard Hirner
+* Richard Hurt
 * Richard Schneeman
+* Tibor Szolár
+* Todd Carrico

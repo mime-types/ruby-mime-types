@@ -25,10 +25,10 @@ class TestMIMETypesLoader < Minitest::Test
     assert_equal('Fixes a bug with IE6 and progressive JPEGs',
                  types['image/pjpeg'].first.docs)
 
-    assert_deprecated("MIME::Type#system?") do
+    assert_deprecated('MIME::Type#system?') do
       assert(types['application/x-apple-diskimage'].first.system?)
     end
-    assert_deprecated("MIME::Type#system") do
+    assert_deprecated('MIME::Type#system') do
       assert_equal(/mac/, types['application/x-apple-diskimage'].first.system)
     end
 
@@ -45,7 +45,7 @@ class TestMIMETypesLoader < Minitest::Test
   end
 
   def test_load_v1
-    assert_deprecated("MIME::Types::Loader.load_v1") do
+    assert_deprecated('MIME::Types::Loader.load_v1') do
       assert_correctly_loaded(@loader.load_v1)
     end
   end

@@ -15,7 +15,7 @@ module Benchmarks
       @load_path  = load_path
     end
 
-    def reload_mime_types(repeats = 1, options = { force_load: false, columnar: false })
+    def reload_mime_types(repeats = 1, options = {})
       force_load = options.fetch(:force_load, false)
       columnar = options.fetch(:columnar, false)
 
@@ -36,22 +36,22 @@ module Benchmarks
       remove_cache
 
       Benchmark.bm(17) do |mark|
-        mark.report("Normal:") { reload_mime_types(@repeats) }
-        mark.report("Columnar:") { reload_mime_types(@repeats, columnar: true) }
+        mark.report('Normal:') { reload_mime_types(@repeats) }
+        mark.report('Columnar:') { reload_mime_types(@repeats, columnar: true) }
 
         ENV['RUBY_MIME_TYPES_LAZY_LOAD'] = 'yes'
-        mark.report("Lazy:") { reload_mime_types(@repeats) }
-        mark.report("Lazy+Load:") { reload_mime_types(@repeats, force_load: true) }
+        mark.report('Lazy:') { reload_mime_types(@repeats) }
+        mark.report('Lazy+Load:') { reload_mime_types(@repeats, force_load: true) }
 
         ENV.delete('RUBY_MIME_TYPES_LAZY_LOAD')
 
         ENV['RUBY_MIME_TYPES_CACHE'] = @cache_file
         reload_mime_types
 
-        mark.report("Cached:") { reload_mime_types(@repeats) }
+        mark.report('Cached:') { reload_mime_types(@repeats) }
         ENV['RUBY_MIME_TYPES_LAZY_LOAD'] = 'yes'
-        mark.report("Lazy Cached:") { reload_mime_types(@repeats) }
-        mark.report("Lazy Cached Load:") { reload_mime_types(@repeats, force_load: true) }
+        mark.report('Lazy Cached:') { reload_mime_types(@repeats) }
+        mark.report('Lazy Cached Load:') { reload_mime_types(@repeats, force_load: true) }
       end
     ensure
       remove_cache

@@ -24,7 +24,7 @@ class Convert::Columnar < Convert
 
     column_file('content_type') do |type|
       [ type['content-type'], Array(type['extensions']).join(' ') ].
-        flatten.join(' ')
+        flatten.join(' ').strip
     end
 
     required_file('encoding')

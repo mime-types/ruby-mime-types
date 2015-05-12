@@ -15,24 +15,24 @@ spec = Hoe.spec 'mime-types' do
   developer('Austin Ziegler', 'halostatue@gmail.com')
   self.need_tar = true
 
-  self.require_ruby_version '>= 1.9.2'
+  require_ruby_version '>= 1.9.2'
 
   self.history_file = 'History.rdoc'
   self.readme_file = 'README.rdoc'
-  self.extra_rdoc_files = FileList["*.rdoc"].to_a
-  self.licenses = ["MIT", "Artistic 2.0", "GPL-2"]
+  self.extra_rdoc_files = FileList['*.rdoc'].to_a
+  self.licenses = ['MIT', 'Artistic 2.0', 'GPL-2']
 
-  self.extra_dev_deps << ['hoe-doofus', '~> 1.0']
-  self.extra_dev_deps << ['hoe-gemspec2', '~> 1.1']
-  self.extra_dev_deps << ['hoe-git', '~> 1.6']
-  self.extra_dev_deps << ['hoe-rubygems', '~> 1.0']
-  self.extra_dev_deps << ['hoe-travis', '~> 1.2']
-  self.extra_dev_deps << ['minitest', '~> 5.3']
-  self.extra_dev_deps << ['minitest-autotest', '~>1.0']
-  self.extra_dev_deps << ['minitest-focus', '~>1.0']
-  self.extra_dev_deps << ['rake', '~> 10.0']
-  self.extra_dev_deps << ['simplecov', '~> 0.7']
-  self.extra_dev_deps << ['coveralls', '~> 0.8']
+  extra_dev_deps << ['hoe-doofus', '~> 1.0']
+  extra_dev_deps << ['hoe-gemspec2', '~> 1.1']
+  extra_dev_deps << ['hoe-git', '~> 1.6']
+  extra_dev_deps << ['hoe-rubygems', '~> 1.0']
+  extra_dev_deps << ['hoe-travis', '~> 1.2']
+  extra_dev_deps << ['minitest', '~> 5.3']
+  extra_dev_deps << ['minitest-autotest', '~>1.0']
+  extra_dev_deps << ['minitest-focus', '~>1.0']
+  extra_dev_deps << ['rake', '~> 10.0']
+  extra_dev_deps << ['simplecov', '~> 0.7']
+  extra_dev_deps << ['coveralls', '~> 0.8']
 end
 
 task :support do
@@ -45,7 +45,7 @@ task 'support:nokogiri' => :support do
   begin
     gem 'nokogiri'
   rescue Gem::LoadError
-    fail "Nokogiri is not installed. Please install it."
+    raise 'Nokogiri is not installed. Please install it.'
   end
 end
 
@@ -53,14 +53,15 @@ namespace :benchmark do
   desc 'Benchmark Load Times'
   task :load, [ :repeats ] => :support do |_, args|
     require 'benchmarks/load'
-    Benchmarks::Load.report(File.join(Rake.application.original_dir, 'lib'),
-                            args.repeats)
+    Benchmarks::Load.report(
+      File.join(Rake.application.original_dir, 'lib'),
+      args.repeats
+    )
   end
 
   desc 'Allocation counts'
   task :allocations, [ :top_x, :mime_types_only ] => :support do |_, args|
     require 'benchmarks/load_allocations'
-    p args
     Benchmarks::LoadAllocations.report(
       top_x: args.top_x,
       mime_types_only: args.mime_types_only
@@ -115,14 +116,14 @@ namespace :test do
 end
 
 namespace :mime do
-  desc "Download the current MIME type registrations from IANA."
-  task :iana, [ :destination ] => 'support:nokogiri' do |t, args|
+  desc 'Download the current MIME type registrations from IANA.'
+  task :iana, [ :destination ] => 'support:nokogiri' do |_, args|
     require 'iana_registry'
     IANARegistry.download(to: args.destination)
   end
 
-  desc "Download the current MIME type configuration from Apache."
-  task :apache, [ :destination ] => 'support:nokogiri' do |t, args|
+  desc 'Download the current MIME type configuration from Apache.'
+  task :apache, [ :destination ] => 'support:nokogiri' do |_, args|
     require 'apache_mime_types'
     ApacheMIMETypes.download(to: args.destination)
   end
@@ -153,26 +154,26 @@ namespace :convert do
     end
   end
 
-  desc "Convert documentation from RDoc to Markdown"
+  desc 'Convert documentation from RDoc to Markdown'
   task docs: 'convert:docs:run'
 
   namespace :yaml do
-    desc "Convert from YAML to JSON"
-    task :json, [ :source, :destination, :multiple_files ] => :support do |t, args|
+    desc 'Convert from YAML to JSON'
+    task :json, [ :source, :destination, :multiple_files ] => :support do |_, args|
       require 'convert'
       Convert.from_yaml_to_json(args)
     end
 
-    desc "Convert from YAML to Columnar"
-    task :columnar, [ :source, :destination ] => :support do |t, args|
+    desc 'Convert from YAML to Columnar'
+    task :columnar, [ :source, :destination ] => :support do |_, args|
       require 'convert/columnar'
       Convert::Columnar.from_yaml_to_columnar(args)
     end
   end
 
   namespace :json do
-    desc "Convert from JSON to YAML"
-    task :yaml, [ :source, :destination, :multiple_files ] => :support do |t, args|
+    desc 'Convert from JSON to YAML'
+    task :yaml, [ :source, :destination, :multiple_files ] => :support do |_, args|
       require 'convert'
       Convert.from_json_to_yaml(args)
     end
@@ -180,6 +181,6 @@ namespace :convert do
 end
 
 Rake::Task['travis'].prerequisites.replace(%w(test:coveralls))
-Rake::Task['gem'].prerequisites.unshift("convert:yaml:json")
+Rake::Task['gem'].prerequisites.unshift('convert:yaml:json')
 
 # vim: syntax=ruby

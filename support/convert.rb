@@ -4,6 +4,13 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 ENV['RUBY_MIME_TYPES_LAZY_LOAD'] = 'true'
 require 'mime/types'
 require 'fileutils'
+require 'json'
+
+class MIME::Types
+  def self.deprecated(*_args, &_block)
+    # We are an internal tool. Silence deprecation warnings.
+  end
+end
 
 class Convert
   class << self
@@ -29,7 +36,7 @@ class Convert
         to_json(
           destination:    json_path(args.destination),
           multiple_files: multiple_files(args.multiple_files || 'single')
-      )
+        )
     end
 
     # Converts from JSON to YAML. Defaults to converting to multiple files.
@@ -38,12 +45,13 @@ class Convert
         to_yaml(
           destination:    yaml_path(args.destination),
           multiple_files: multiple_files(args.multiple_files || 'multiple')
-      )
+        )
     end
 
     private :new
 
     private
+
     def yaml_path(path)
       path_or_default(path, 'type-lists'.freeze)
     end
@@ -72,10 +80,9 @@ class Convert
 
   def initialize(options = {})
     if options[:path].nil? or options[:path].empty?
-      raise ArgumentError, ':path is required'
-    end
-    if options[:from].nil? or options[:from].empty?
-      raise ArgumentError, ':from is required'
+      fail ArgumentError, ':path is required'
+    elsif options[:from].nil? or options[:from].empty?
+      fail ArgumentError, ':from is required'
     end
 
     @loader = MIME::Types::Loader.new(options[:path])
@@ -95,6 +102,7 @@ class Convert
   end
 
   private
+
   def load_from(source_type)
     method = :"load_#{source_type}"
     @loader.send(method)
@@ -140,8 +148,8 @@ class Convert
   end
 
   def must_be_directory!(path)
-    if File.exist?(path) and not File.directory?(path)
-      raise ArgumentError, 'Cannot write multiple files to a file.'
+    if File.exist?(path) and !File.directory?(path)
+      fail ArgumentError, 'Cannot write multiple files to a file.'
     end
 
     FileUtils.mkdir_p(path) unless File.exist?(path)

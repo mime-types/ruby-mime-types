@@ -13,9 +13,9 @@ require 'mime/type/columnar'
 # to an instance of MIME::Types when it is loaded with
 # MIME::Types::Loader#load_columnar.
 module MIME::Types::Columnar
-  LOAD_MUTEX = Mutex.new
+  LOAD_MUTEX = Mutex.new # :nodoc:
 
-  def self.extended(obj)
+  def self.extended(obj) # :nodoc:
     super
     obj.instance_variable_set(:@__mime_data__, [])
     obj.instance_variable_set(:@__attributes__, [])
@@ -49,7 +49,7 @@ module MIME::Types::Columnar
           line.chomp!
 
           if lookup
-            next unless type = @__mime_data__[i += 1]
+            type = @__mime_data__[i += 1] or next
             yield type, line
           else
             yield line
@@ -117,26 +117,19 @@ module MIME::Types::Columnar
   end
 
   def load_use_instead
-    empty = '-'
-    pipe = '|'
     each_file_line('use_instead') do |type, line|
       type.use_instad = (line unless line == '-'.freeze)
     end
   end
 
   def dict(line)
-    empty = '-'.freeze
-    pipe = '|'.freeze
-    caret = '^'.freeze
-
-    if line == empty
+    if line == '-'.freeze
       {}
     else
-      line.split(pipe).inject({}) { |h, l|
-        k, v = line.split(caret)
+      line.split('|'.freeze).each_with_object({}) { |h, l|
+        k, v = l.split('^'.freeze)
         v = [ nil ] if v.empty?
         h[k] = v
-        h
       }
     end
   end

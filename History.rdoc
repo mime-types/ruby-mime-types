@@ -1,7 +1,37 @@
+== 2.6 / 2015-05-25
+
+* New Feature:
+  * Columnar data storage for the MIME::Types registry, contributed by Jeremy
+    Evans (@jeremyevans). Reduces default memory use substantially (the mail
+    gem drops from 19 Mib to about 3 Mib). Resolves
+    {#96}[https://github.com/mime-types/ruby-mime-types/pull/96],
+    {#94}[https://github.com/mime-types/ruby-mime-types/issues/94],
+    {#83}[https://github.com/mime-types/ruby-mime-types/issues/83]. Partially
+    addresses {#64}[https://github.com/mime-types/ruby-mime-types/issues/64]
+    and {#62}[https://github.com/mime-types/ruby-mime-types/issues/62].
+* Development:
+  * Removed caching of deprecation messages in preparation for mime-types 3.0.
+    Now, deprecated methods will always warn their deprecation instead of only
+    warning once.
+  * Added a logger for deprecation messages.
+  * Renamed <tt>lib/mime.rb</tt> to <tt>lib/mime/deprecations.rb</tt> to not
+    conflict with the {mime}[https://rubygems.org/gems/mime] gem on behalf of
+    the maintainers of the {Praxis Framework}[http://praxis-framework.io/].
+    Provided by Josep M. Blanquer (@blanquer),
+    {#100}[https://github.com/mime-types/ruby-mime-types/pull/100].
+  * Added the columnar data conversion tool, also provided by Jeremy Evans.
+* Documentation:
+  * Improved documentation and ensured that all deprecated methods are marked
+    as such in the documentation.
+* Development:
+  * Added more Ruby variants to Travis CI.
+  * Silenced deprecation messages for internal tools. Noisy deprecations are
+    noisy, but that's the point.
+
 == 2.5 / 2015-04-25
 
 * Bugs:
-  * David Genord (@albus522) fixed a bug in loading MIME::types cache where a
+  * David Genord (@albus522) fixed a bug in loading MIME::Types cache where a
     container loaded from cache did not have the expected +default_proc+,
     {#86}[https://github.com/mime-types/ruby-mime-types/pull/86].
   * Richard Schneeman (@schneems) provided a patch that substantially reduces

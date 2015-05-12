@@ -14,8 +14,8 @@ module Benchmarks
       collect
       @before.keys.grep(/T_/).map { |key|
         [ key, @after[key] - @before[key] ]
-      }.sort_by { |key, delta| -delta }.each { |key, delta|
-        puts "%10s +%6d" % [ key, delta ]
+      }.sort_by { |_, delta| -delta }.each { |key, delta|
+        puts '%10s +%6d' % [ key, delta ]
       }
     end
 

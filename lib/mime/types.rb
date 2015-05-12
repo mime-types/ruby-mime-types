@@ -1,5 +1,6 @@
 # -*- ruby encoding: utf-8 -*-
 
+require 'mime/types/deprecations'
 require 'mime/type'
 require 'mime/types/cache'
 require 'mime/types/loader'
@@ -77,19 +78,19 @@ class MIME::Types
 
   # This method is deprecated and will be removed in mime-types 3.0.
   def add_type_variant(mime_type) # :nodoc:
-    MIME.deprecated(self, __method__, :private)
+    MIME::Types.deprecated(self, __method__, :private)
     add_type_variant!(mime_type)
   end
 
   # This method is deprecated and will be removed in mime-types 3.0.
   def index_extensions(mime_type) # :nodoc:
-    MIME.deprecated(self, __method__, :private)
+    MIME::Types.deprecated(self, __method__, :private)
     index_extensions!(mime_type)
   end
 
   # This method is deprecated and will be removed in mime-types 3.0.
   def defined_types # :nodoc:
-    MIME.deprecated(self, __method__)
+    MIME::Types.deprecated(self, __method__)
     @type_variants.values.flatten
   end
 
@@ -140,7 +141,7 @@ class MIME::Types
   # platform) is currently supported but deprecated.
   def [](type_id, flags = {})
     if flags[:platform]
-      MIME.deprecated(self, __method__, "using the :platform flag")
+      MIME::Types.deprecated(self, __method__, 'using the :platform flag')
     end
 
     matches = case type_id
@@ -176,8 +177,7 @@ class MIME::Types
     }.compact.sort { |a, b| a.priority_compare(b) }.uniq
 
     if platform
-      MIME.deprecated(self, __method__,
-                      "using the platform parameter")
+      MIME::Types.deprecated(self, __method__, 'using the platform parameter')
       types.select(&:platform?)
     else
       types
@@ -208,17 +208,18 @@ class MIME::Types
     end
   end
 
-  # Add a single MIME::Type object to the set of known types. If the type is
-  # already known, a warning will be displayed. The +quiet+ parameter may be
-  # a truthy value to suppress that warning.
-  def add_type(mime_type, quiet = false)
-    if !quiet and @type_variants[mime_type.simplified].include?(mime_type)
-      warn('Type %s is already registered as a variant of %s.' %
-           [ mime_type, mime_type.simplified ])
+  # Add a single MIME::Type object to the set of known types. If the +type+ is
+  # already known, a warning will be displayed. The +quiet+ parameter may be a
+  # truthy value to suppress that warning.
+  def add_type(type, quiet = false)
+    if !quiet and @type_variants[type.simplified].include?(type)
+      MIME::Types.logger.warn <<-warning
+Type #{type} is already registered as a variant of #{type.simplified}.
+      warning
     end
 
-    add_type_variant!(mime_type)
-    index_extensions!(mime_type)
+    add_type_variant!(type)
+    index_extensions!(type)
   end
 
   class << self
@@ -228,7 +229,7 @@ class MIME::Types
     #
     # This method has been deprecated and will be removed in mime-types 3.0.
     def load_from_file(filename)
-      MIME.deprecated(self, __method__)
+      MIME::Types.deprecated(self, __method__)
       MIME::Types::Loader.load_from_v1(filename)
     end
 
@@ -266,7 +267,7 @@ class MIME::Types
     #
     # This method has been deprecated and will be removed in mime-types 3.0.
     def cache_file
-      MIME.deprecated(self, __method__)
+      MIME::Types.deprecated(self, __method__)
       ENV['RUBY_MIME_TYPES_CACHE']
     end
 
@@ -279,6 +280,7 @@ class MIME::Types
     end
 
     private
+
     def lazy_load?
       (lazy = ENV['RUBY_MIME_TYPES_LAZY_LOAD']) && (lazy != 'false')
     end
@@ -304,6 +306,7 @@ class MIME::Types
   end
 
   private
+
   def add_type_variant!(mime_type)
     @type_variants[mime_type.simplified] << mime_type
   end
@@ -313,14 +316,14 @@ class MIME::Types
   end
 
   def prune_matches(matches, flags)
-    matches.delete_if { |e| not e.complete? } if flags[:complete]
-    matches.delete_if { |e| not e.platform? } if flags[:platform]
-    matches.delete_if { |e| not e.registered? } if flags[:registered]
+    matches.delete_if { |e| !e.complete? } if flags[:complete]
+    matches.delete_if { |e| !e.platform? } if flags[:platform]
+    matches.delete_if { |e| !e.registered? } if flags[:registered]
     matches
   end
 
   def match(pattern)
-    @type_variants.select { |k, v| k =~ pattern }.values.flatten
+    @type_variants.select { |k, _| k =~ pattern }.values.flatten
   end
 
   load_default_mime_types(load_mode) unless lazy_load?

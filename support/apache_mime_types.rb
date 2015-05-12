@@ -15,6 +15,12 @@ class MIME::Type
   public_constant :UNREGISTERED_RE
 end
 
+class MIME::Types
+  def self.deprecated(*_args, &_block)
+    # We are an internal tool. Silence deprecation warnings.
+  end
+end
+
 class ApacheMIMETypes
   DEFAULTS = {
     url: %q(http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types),
@@ -25,7 +31,7 @@ class ApacheMIMETypes
     dest = Pathname(options[:to] || DEFAULTS[:to]).expand_path
     url  = options.fetch(:url, DEFAULTS[:url])
 
-    puts "Downloading Apache MIME type list."
+    puts 'Downloading Apache MIME type list.'
     puts "\t#{url}"
     data = open(url) { |f| f.read }.split($/)
     data.delete_if { |line| line =~ /\A#/ }
@@ -91,6 +97,7 @@ class ApacheMIMETypes
   end
 
   private
+
   def mime_types_for(file)
     if file.exist?
       MIME::Types::Loader.load_from_yaml(file)

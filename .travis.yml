@@ -1,18 +1,24 @@
 ---
 language: ruby
 rvm:
-  - 2.1.0
+  - 2.2.2
+  - 2.1.6
   - 2.0.0
   - 1.9.3
-  - ruby-head
+  - jruby-1.7
+  - jruby-9.0.0.0.pre2
   - jruby-19mode
   - jruby-head
+  - ruby-head
+  - ruby-head-clang
   - rbx-2
 matrix:
   allow_failures:
     - rvm: rbx-2
     - rvm: jruby-head
+    - rvm: jruby-9.0.0.0.pre2
     - rvm: ruby-head
+    - rvm: ruby-head-clang
 gemfile:
   - Gemfile
 before_script:

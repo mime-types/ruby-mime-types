@@ -11,7 +11,7 @@ class TestMIMETypes < Minitest::Test
                     MIME::Type.new('application/x-wordperfect6.1'),
                     MIME::Type.new('content-type' => 'application/x-www-form-urlencoded', 'registered' => true),
                     MIME::Type.new(['application/x-gzip', %w(gz)]),
-                    MIME::Type.new(['application/gzip', %W(gz)]))
+                    MIME::Type.new(['application/gzip', %w(gz)]))
   end
 
   def test_enumerable
@@ -52,15 +52,15 @@ class TestMIMETypes < Minitest::Test
   end
 
   def test_index_with_platform_flag
-    assert_deprecated("MIME::Types#[]", "using the :platform flag") do
+    assert_deprecated('MIME::Types#[]', 'using the :platform flag') do
       assert_empty(MIME::Types['text/plain', platform: true])
     end
   end
 
   def test_add
-    eruby = MIME::Type.new("application/x-eruby") do |t|
-      t.extensions = "rhtml"
-      t.encoding = "8bit"
+    eruby = MIME::Type.new('application/x-eruby') do |t|
+      t.extensions = 'rhtml'
+      t.encoding = '8bit'
     end
 
     @mime_types.add(eruby)
@@ -74,11 +74,11 @@ class TestMIMETypes < Minitest::Test
     assert_equal(%w(image/jpeg), MIME::Types.of('foo.jpeg'))
     assert_equal(%w(image/jpeg text/plain),
                  MIME::Types.type_for(%w(foo.txt foo.jpeg)))
-    assert_deprecated("MIME::Types#type_for", "using the platform parameter") do
+    assert_deprecated('MIME::Types#type_for', 'using the platform parameter') do
       assert_equal(@mime_types.of('gif', true), @mime_types['image/gif'])
     end
     assert_empty(MIME::Types.type_for('coverallsjson'))
-    assert_deprecated("MIME::Types#type_for", "using the platform parameter") do
+    assert_deprecated('MIME::Types#type_for', 'using the platform parameter') do
       assert_empty(MIME::Types.type_for('jpeg', true))
     end
     assert_empty(@mime_types.type_for('zzz'))
@@ -91,7 +91,7 @@ class TestMIMETypes < Minitest::Test
   # This tests the instance implementation through the class implementation.
   def test_add_type_variant
     xtxp = MIME::Type.new('x-text/x-plain')
-    assert_deprecated("MIME::Types#add_type_variant", "and will be private") do
+    assert_deprecated('MIME::Types#add_type_variant', 'and will be private') do
       @mime_types.add_type_variant(xtxp)
     end
     assert_includes(@mime_types['text/plain'], xtxp)
@@ -104,17 +104,17 @@ class TestMIMETypes < Minitest::Test
   # This tests the instance implementation through the class implementation.
   def test_index_extensions
     xtxp = MIME::Type.new(['x-text/x-plain', %w(tzt)])
-    assert_deprecated("MIME::Types#index_extensions", "and will be private") do
+    assert_deprecated('MIME::Types#index_extensions', 'and will be private') do
       @mime_types.index_extensions(xtxp)
     end
     assert_includes(@mime_types.of('tzt'), xtxp)
   end
 
   def test_defined_types
-    assert_deprecated("MIME::Types#defined_types") do
+    assert_deprecated('MIME::Types#defined_types') do
       assert_empty(MIME::Types.new.defined_types)
     end
-    assert_deprecated("MIME::Types#defined_types") do
+    assert_deprecated('MIME::Types#defined_types') do
       refute_empty(@mime_types.defined_types)
     end
   end

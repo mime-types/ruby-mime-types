@@ -95,9 +95,9 @@ class MIME::Types::Loader
   #
   # This method has been deprecated and will be removed from mime-types 3.0.
   def load_v1
-    MIME.deprecated(self.class, __method__)
+    MIME::Types.deprecated(self.class, __method__)
     Dir[v1_path].sort.each do |f|
-      next if f =~ /\.ya?ml$|\.json$/
+      next if f =~ /\.(?:ya?ml|json|column)$/
       container.add(self.class.load_from_v1(f, true), true)
     end
     container
@@ -152,7 +152,7 @@ class MIME::Types::Loader
     #
     # This method has been deprecated and will be removed in mime-types 3.0.
     def load_from_v1(filename, __internal__ = false)
-      MIME.deprecated(self.class, __method__) unless __internal__
+      MIME::Types.deprecated(self.class, __method__) unless __internal__
       data = read_file(filename).split($/)
       mime = MIME::Types.new
       data.each_with_index { |line, index|
@@ -162,11 +162,11 @@ class MIME::Types::Loader
         m = V1_FORMAT.match(item)
 
         unless m
-          warn <<-EOS
+          MIME::Types.logger.warn <<-EOS
 #{filename}:#{index + 1}: Parsing error in v1 MIME type definition.
 => #{line}
           EOS
-          raise BadV1Format, line
+          fail BadV1Format, line
         end
 
         unregistered, obsolete, platform, mediatype, subtype, extensions,
@@ -181,7 +181,7 @@ class MIME::Types::Loader
           use_instead = nil
         else
           use_instead = docs.scan(%r{use-instead:(\S+)}).flatten.first
-          docs = docs.gsub(%r{use-instead:\S+}, "").squeeze(" \t")
+          docs = docs.gsub(%r{use-instead:\S+}, '').squeeze(' \t')
         end
 
         mime_type = MIME::Type.new("#{mediatype}/#{subtype}") do |t|
@@ -195,7 +195,7 @@ class MIME::Types::Loader
 
           # This is being removed. Cheat to silence it for now.
           t.instance_variable_set :@references,
-            Array(urls).flatten.compact.uniq
+                                  Array(urls).flatten.compact.uniq
         end
 
         mime.add_type(mime_type, true)
@@ -233,12 +233,14 @@ class MIME::Types::Loader
     end
 
     private
+
     def read_file(filename)
       File.open(filename, 'r:UTF-8:-') { |f| f.read }
     end
   end
 
   private
+
   def yaml_path
     File.join(path, '*.y{,a}ml')
   end

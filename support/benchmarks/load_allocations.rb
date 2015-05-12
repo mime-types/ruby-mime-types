@@ -24,11 +24,10 @@ module Benchmarks
       @mime_types_only = !!mime_types_only
 
       @top_x = top_x
-      if @top_x
-        @top_x = top_x.to_i
-        @top_x = 10 if @top_x <= 0
-      end
 
+      return unless @top_x
+      @top_x = top_x.to_i
+      @top_x = 10 if @top_x <= 0
     end
 
     def report
@@ -38,6 +37,7 @@ module Benchmarks
     end
 
     private
+
     def report_top_x
       table = @allocations.sort_by { |_, v| v.first }.reverse.first(@top_x)
       table.map! { |(location, allocs)|
@@ -58,8 +58,8 @@ module Benchmarks
         end
       end
 
-      pattern = [ "%%-%ds" ]
-      pattern << ([ "%% %ds" ] * (max_widths.length - 1))
+      pattern = [ '%%-%ds' ]
+      pattern << ([ '%% %ds' ] * (max_widths.length - 1))
       pattern = pattern.join("\t") % max_widths
       table.each { |row| puts pattern % row }
       puts
