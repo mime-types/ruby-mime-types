@@ -1376,6 +1376,7 @@
   encoding: base64
   extensions:
   - woff
+  - woff2
   references:
   - IANA
   - "[W3C]"
