@@ -13,12 +13,12 @@ data/mime-types.json
 docs/COPYING.txt
 docs/artistic.txt
 lib/mime-types.rb
-lib/mime.rb
 lib/mime/type.rb
 lib/mime/types.rb
 lib/mime/types/cache.rb
 lib/mime/types/loader.rb
 lib/mime/types/loader_path.rb
+lib/mime/types/deprecations.rb
 support/apache_mime_types.rb
 support/benchmarks/load.rb
 support/convert.rb
