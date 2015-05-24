@@ -1,6 +1,6 @@
 # -*- ruby encoding: utf-8 -*-
 
-require 'mime'
+require 'mime/types/deprecations'
 require 'json'
 
 # The definition of one MIME content-type.
