@@ -1,6 +1,7 @@
 # -*- ruby encoding: utf-8 -*-
 
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+ENV['RUBY_MIME_TYPES_LAZY_LOAD'] = 'true'
 require 'mime/types'
 require 'fileutils'
 
@@ -36,6 +37,11 @@ class Convert
       from_json(json_path(args.source)).
         to_yaml(destination:    yaml_path(args.destination),
                 multiple_files: multiple_files(mf))
+    end
+
+    def from_yaml_to_txt(args)
+      from_yaml(yaml_path(args.source)).
+        to_txt(destination: json_path(args.destination))
     end
 
     private :new
@@ -83,6 +89,48 @@ class Convert
   def to_json(options = {})
     raise ArgumentError, 'destination is required' unless options[:destination]
     write_types(options.merge(format: :json))
+  end
+
+  # Convert the data to multiple text files.
+  def to_txt(options = {})
+    raise ArgumentError, 'destination is required' unless root = options[:destination]
+    data = @loader.container.map.sort.map(&:to_h)
+
+    mapper = lambda do |attr, &block|
+      File.open(File.join(root, "mime-types-#{attr}.txt"), 'wb') do |f|
+        f.puts data.map(&block)
+      end 
+    end
+
+    mapper.call('content_type') { |type| "#{type['content-type']} #{Array(type['extensions']).join(' ')}" }
+    mapper.call('encoding') { |type| type['encoding'] }
+
+    mapper.call('docs') { |type| type['docs'] || '-' }
+    mapper.call('system') { |type| type['system'] || '-' }
+
+    mapper.call('obsolete') { |type| type['obsolete'] ? '1' : '0' }
+    mapper.call('registered') { |type| type['registered'] ? '1' : '0' }
+    mapper.call('signature') { |type| type['signature'] ? '1' : '0' }
+
+    mapper.call('references') { |type| type['references'] ? type['references'].join("|") : '-' }
+    mapper.call('xrefs') { |type| type['xrefs'] ? type['xrefs'].sort.map{|k,v| "#{k}^#{v.join('^')}"}.join("|") : '-' }
+
+    mapper.call('friendly') do |type|
+      friendly = type['friendly']
+      raise if friendly && (friendly.length != 1 || !friendly.has_key?('en') || friendly['en'] =~ /\n/)
+      friendly['en'].to_s if friendly
+    end
+
+    mapper.call('use_instead') do |type|
+      case v = type['use-instead']
+      when Array
+        "|#{v.join('|')}"
+      when String
+        v
+      else
+        '-'
+      end
+    end
   end
 
   # Convert the data to YAML.
