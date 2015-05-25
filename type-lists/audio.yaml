@@ -103,21 +103,10 @@
   - RFC4867
   - "{audio/AMR-WB=http://www.iana.org/assignments/media-types/audio/AMR-WB}"
   xrefs: !ruby/hash:MIME::Types::Container
-    rfc: &1
+    rfc:
     - rfc4867
-    template: &2
+    template:
     - audio/AMR-WB
-  registered: true
-- !ruby/object:MIME::Type
-  content-type: audio/amr-wb
-  encoding: base64
-  references:
-  - IANA
-  - RFC4867
-  - "{audio/AMR-WB=http://www.iana.org/assignments/media-types/audio/AMR-WB}"
-  xrefs: !ruby/hash:MIME::Types::Container
-    rfc: *1
-    template: *2
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/amr-wb+

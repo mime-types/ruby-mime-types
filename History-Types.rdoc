@@ -1,5 +1,16 @@
 = MIME Types Changes by Version
 
+== 2.6 / 2015-05-25
+
+* Steven Michael Thomas (@stevenmichaelthomas) added +woff2+ as an extension to
+  application/font-woff,
+  {#99}[https://github.com/mime-types/ruby-mime-types/pull/99].
+* Updated the IANA media registry entries as of release date:
+  * Updated metadata for application/jose, application/jose\+json,
+    application/jwk\+json, applicatoin/jwk-set\+json, application/jwt to
+    reflect the adoption of RFC7519.
+  * Added application/vnd.balsamiq.bmpr.
+
 == 2.5 / 2015-04-25
 
 * Updated the IANA media registry entries as of release date:

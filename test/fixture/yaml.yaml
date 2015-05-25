@@ -6,8 +6,7 @@
   - smi
   - smil
   obsolete: true
-  use-instead:
-  - application/smil+xml
+  use-instead: application/smil+xml
   references:
   - IANA
   - RFC4536
@@ -18,8 +17,7 @@
   extensions:
   - qcp
   obsolete: true
-  use-instead:
-  - audio/QCELP
+  use-instead: audio/QCELP
   references:
   - IANA
   - RFC3625
@@ -30,8 +28,7 @@
   extensions:
   - bmp
   obsolete: true
-  use-instead:
-  - image/x-bmp
+  use-instead: image/x-bmp
   registered: false
 - !ruby/object:MIME::Type
   content-type: application/acad

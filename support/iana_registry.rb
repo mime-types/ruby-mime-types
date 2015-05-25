@@ -11,6 +11,12 @@ require 'yaml'
 ENV['RUBY_MIME_TYPES_LAZY_LOAD'] = 'yes'
 require 'mime/types'
 
+class MIME::Types
+  def self.deprecated(*_args, &_block)
+    # We are an internal tool. Silence deprecation warnings.
+  end
+end
+
 class IANARegistry
   DEFAULTS = {
     url: %q(https://www.iana.org/assignments/media-types/media-types.xml),
@@ -21,7 +27,7 @@ class IANARegistry
     dest = Pathname(options[:to] || DEFAULTS[:to]).expand_path
     url  = options.fetch(:url, DEFAULTS[:url])
 
-    puts "Downloading IANA MIME type assignments."
+    puts 'Downloading IANA MIME type assignments.'
     puts "\t#{url}"
     xml  = Nokogiri::XML(open(url) { |f| f.read })
 
@@ -48,7 +54,7 @@ class IANARegistry
     yield self if block_given?
   end
 
-  ASSIGNMENT_FILE_REF = "{%s=http://www.iana.org/assignments/media-types/%s}"
+  ASSIGNMENT_FILE_REF = '{%s=http://www.iana.org/assignments/media-types/%s}'
 
   def parse
     @registry.css('record').each do |record|
@@ -63,9 +69,11 @@ class IANARegistry
 
       subtype, notes = subtype.split(/ /, 2)
 
-      refs, xrefs   = parse_refs_and_files(record.css('xref'),
-                                           record.css('file'),
-                                           subtype)
+      refs, xrefs = parse_refs_and_files(
+        record.css('xref'),
+        record.css('file'),
+        subtype
+      )
 
       xrefs['notes'] << notes if notes
 
@@ -102,6 +110,7 @@ class IANARegistry
   end
 
   private
+
   def mime_types_for(file)
     if file.exist?
       MIME::Types::Loader.load_from_yaml(file)
@@ -115,7 +124,8 @@ class IANARegistry
     r  = []
 
     refs.each do |xref|
-      type, data = xref["type"], xref["data"]
+      type = xref['type']
+      data = xref['data']
 
       r << ref_from_type(type, data)
 
@@ -129,11 +139,11 @@ class IANARegistry
                     file.text
                   end
 
-      if file["type"] == "template"
+      if file['type'] == 'template'
         r << (ASSIGNMENT_FILE_REF % [ file_name, file_name ])
       end
 
-      xr[file["type"]] << file_name
+      xr[file['type']] << file_name
     end
 
     [ r, xr ]

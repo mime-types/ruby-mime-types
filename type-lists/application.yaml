@@ -1109,21 +1109,10 @@
   - RFC1767
   - "{application/EDI-consent=http://www.iana.org/assignments/media-types/application/EDI-consent}"
   xrefs: !ruby/hash:MIME::Types::Container
-    rfc: &1
+    rfc:
     - rfc1767
-    template: &2
+    template:
     - application/EDI-consent
-  registered: true
-- !ruby/object:MIME::Type
-  content-type: application/EDI-Consent
-  encoding: base64
-  references:
-  - IANA
-  - RFC1767
-  - "{application/EDI-consent=http://www.iana.org/assignments/media-types/application/EDI-consent}"
-  xrefs: !ruby/hash:MIME::Types::Container
-    rfc: *1
-    template: *2
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/EDI-X12
@@ -1167,8 +1156,6 @@
     - W3C
     uri:
     - http://www.w3.org/TR/2007/CR-emma-20071211/#media-type-registration
-    text:
-    - 
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/emotionml+xml
@@ -1347,8 +1334,6 @@
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Levantovsky
-    text:
-    - 
     template:
     - application/font-sfnt
   registered: true
@@ -1792,11 +1777,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-jose-json-web-signature-41
+  - RFC7515
   - "{application/jose=http://www.iana.org/assignments/media-types/application/jose}"
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-jose-json-web-signature-41
+    rfc:
+    - rfc7515
     template:
     - application/jose
   registered: true
@@ -1805,11 +1790,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-jose-json-web-signature-41
+  - RFC7515
   - "{application/jose+json=http://www.iana.org/assignments/media-types/application/jose+json}"
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-jose-json-web-signature-41
+    rfc:
+    - rfc7515
     template:
     - application/jose+json
   registered: true
@@ -1880,11 +1865,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-jose-json-web-key-41
+  - RFC7517
   - "{application/jwk+json=http://www.iana.org/assignments/media-types/application/jwk+json}"
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-jose-json-web-key-41
+    rfc:
+    - rfc7517
     template:
     - application/jwk+json
   registered: true
@@ -1893,11 +1878,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-jose-json-web-key-41
+  - RFC7517
   - "{application/jwk-set+json=http://www.iana.org/assignments/media-types/application/jwk-set+json}"
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-jose-json-web-key-41
+    rfc:
+    - rfc7517
     template:
     - application/jwk-set+json
   registered: true
@@ -1906,11 +1891,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-oauth-json-web-token-32
+  - RFC7519
   - "{application/jwt=http://www.iana.org/assignments/media-types/application/jwt}"
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-oauth-json-web-token-32
+    rfc:
+    - rfc7519
     template:
     - application/jwt
   registered: true
@@ -4687,8 +4672,6 @@
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Gottfried_Zimmermann
-    text:
-    - 
     template:
     - application/urc-grpsheet+xml
   registered: true
@@ -4702,8 +4685,6 @@
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Gottfried_Zimmermann
-    text:
-    - 
     template:
     - application/urc-ressheet+xml
   registered: true
@@ -4717,8 +4698,6 @@
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Gottfried_Zimmermann
-    text:
-    - 
     template:
     - application/urc-targetdesc+xml
   registered: true
@@ -5497,6 +5476,19 @@
     - Giacomo_Guilizzoni
     template:
     - application/vnd.balsamiq.bmml+xml
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/vnd.balsamiq.bmpr
+  encoding: base64
+  references:
+  - IANA
+  - "[Giacomo_Guilizzoni]"
+  - "{application/vnd.balsamiq.bmpr=http://www.iana.org/assignments/media-types/application/vnd.balsamiq.bmpr}"
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Giacomo_Guilizzoni
+    template:
+    - application/vnd.balsamiq.bmpr
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.bekitzur-stech+json

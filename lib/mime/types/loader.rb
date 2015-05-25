@@ -1,5 +1,8 @@
 # -*- ruby encoding: utf-8 -*-
 
+module MIME; end
+class MIME::Types; end
+
 require 'mime/types/loader_path'
 
 # This class is responsible for initializing the MIME::Types registry from
@@ -23,10 +26,13 @@ class MIME::Types::Loader
   # Creates a Loader object that can be used to load MIME::Types registries
   # into memory, using YAML, JSON, or v1 registry format loaders.
   def initialize(path = nil, container = nil)
-    path       = path || ENV['RUBY_MIME_TYPES_DATA'] ||
-      MIME::Types::Loader::PATH
-    @path      = File.expand_path(File.join(path, '**'))
+    path = path || ENV['RUBY_MIME_TYPES_DATA'] || MIME::Types::Loader::PATH
     @container = container || MIME::Types.new
+    @path = File.expand_path(path)
+    # begin
+    #   require 'mime/lazy_types'
+    #   @container.extend(MIME::LazyTypes)
+    # end
   end
 
   # Loads a MIME::Types registry from YAML files (<tt>*.yml</tt> or
@@ -52,8 +58,6 @@ class MIME::Types::Loader
   # It is expected that the JSON objects will be an array of hash objects.
   # The JSON format is the registry format for the MIME types registry
   # shipped with the mime-types library.
-  #
-  # This method is aliased to #load.
   def load_json
     Dir[json_path].sort.each do |f|
       types = self.class.load_from_json(f)
@@ -61,29 +65,52 @@ class MIME::Types::Loader
     end
     container
   end
-  alias_method :load, :load_json
+
+  # Loads a MIME::Types registry from columnar files recursively found in
+  # +path+.
+  def load_columnar
+    require 'mime/types/columnar'
+    container.extend(MIME::Types::Columnar)
+    container.load_base_data(path)
+
+    container
+  end
+
+  # Loads a MIME::Types registry. Loads from JSON files by default
+  # (#load_json).
+  #
+  # This will load from columnar files (#load_columnar) if <tt>columnar:
+  # true</tt> is provided in +options+ and there are columnar files in +path+.
+  def load(options = { columnar: false })
+    if options[:columnar] && !Dir[columnar_path].empty?
+      load_columnar
+    else
+      load_json
+    end
+  end
 
   # Loads a MIME::Types registry from files found in +path+ that are in the
   # v1 data format. The file search for this will exclude both JSON
   # (<tt>*.json</tt>) and YAML (<tt>*.yml</tt> or <tt>*.yaml</tt>) files.
   #
-  # This method has been deprecated.
+  # This method has been deprecated and will be removed from mime-types 3.0.
   def load_v1
-    MIME.deprecated(self.class, __method__)
+    MIME::Types.deprecated(self.class, __method__)
     Dir[v1_path].sort.each do |f|
-      next if f =~ /\.ya?ml$|\.json$/
-      container.add(self.class.load_from_v1(f), true)
+      next if f =~ /\.(?:ya?ml|json|column)$/
+      container.add(self.class.load_from_v1(f, true), true)
     end
     container
   end
 
-  # Raised when a V1 format file is discovered.
+  # Raised when a V1 format file is discovered. This exception will be removed
+  # for mime-types 3.0.
   BadV1Format = Class.new(Exception)
 
   class << self
     # Loads the default MIME::Type registry.
-    def load
-      new.load
+    def load(options = { columnar: false })
+      new.load(options)
     end
 
     # Build the type list from a file in the format:
@@ -122,8 +149,10 @@ class MIME::Types::Loader
     # That is, everything except the media type and the subtype is optional. The
     # more information that's available, though, the richer the values that can
     # be provided.
-    def load_from_v1(filename)
-      MIME.deprecated(self.class, __method__)
+    #
+    # This method has been deprecated and will be removed in mime-types 3.0.
+    def load_from_v1(filename, __internal__ = false)
+      MIME::Types.deprecated(self.class, __method__) unless __internal__
       data = read_file(filename).split($/)
       mime = MIME::Types.new
       data.each_with_index { |line, index|
@@ -133,11 +162,11 @@ class MIME::Types::Loader
         m = V1_FORMAT.match(item)
 
         unless m
-          warn <<-EOS
+          MIME::Types.logger.warn <<-EOS
 #{filename}:#{index + 1}: Parsing error in v1 MIME type definition.
 => #{line}
           EOS
-          raise BadV1Format, line
+          fail BadV1Format, line
         end
 
         unregistered, obsolete, platform, mediatype, subtype, extensions,
@@ -151,8 +180,8 @@ class MIME::Types::Loader
         if docs.nil?
           use_instead = nil
         else
-          use_instead = docs.scan(%r{use-instead:(\S+)}).flatten
-          docs = docs.gsub(%r{use-instead:\S+}, "").squeeze(" \t")
+          use_instead = docs.scan(%r{use-instead:(\S+)}).flatten.first
+          docs = docs.gsub(%r{use-instead:\S+}, '').squeeze(' \t')
         end
 
         mime_type = MIME::Type.new("#{mediatype}/#{subtype}") do |t|
@@ -163,7 +192,10 @@ class MIME::Types::Loader
           t.registered  = false if unregistered
           t.use_instead = use_instead
           t.docs        = docs
-          t.references  = urls
+
+          # This is being removed. Cheat to silence it for now.
+          t.instance_variable_set :@references,
+                                  Array(urls).flatten.compact.uniq
         end
 
         mime.add_type(mime_type, true)
@@ -201,12 +233,14 @@ class MIME::Types::Loader
     end
 
     private
+
     def read_file(filename)
       File.open(filename, 'r:UTF-8:-') { |f| f.read }
     end
   end
 
   private
+
   def yaml_path
     File.join(path, '*.y{,a}ml')
   end
@@ -215,12 +249,18 @@ class MIME::Types::Loader
     File.join(path, '*.json')
   end
 
+  def columnar_path
+    File.join(path, '*.column')
+  end
+
   def v1_path
     File.join(path, '*')
   end
 
   # The regular expression used to match a v1-format file-based MIME type
   # definition.
+  #
+  # This constant has been deprecated and will be removed in mime-types 3.0.
   V1_FORMAT = # :nodoc:
     %r{\A\s*
     ([*])?                                        # 0:    Unregistered?

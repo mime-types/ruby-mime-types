@@ -45,8 +45,7 @@
   extensions:
   - pdb
   obsolete: true
-  use-instead:
-  - x-chemical/x-pdb
+  use-instead: x-chemical/x-pdb
   registered: false
 - !ruby/object:MIME::Type
   content-type: chemical/x-xyz
@@ -56,8 +55,7 @@
   extensions:
   - xyz
   obsolete: true
-  use-instead:
-  - x-chemical/x-xyz
+  use-instead: x-chemical/x-xyz
   registered: false
 - !ruby/object:MIME::Type
   content-type: x-chemical/x-pdb

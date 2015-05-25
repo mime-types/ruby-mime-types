@@ -12,3 +12,4 @@ html
 pkg
 publish
 test/cache.tst
+tmp/

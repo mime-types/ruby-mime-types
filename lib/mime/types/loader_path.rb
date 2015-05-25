@@ -5,9 +5,8 @@ class MIME::Types::Loader
   # location is __FILE__/../../../../data, which is where the data lives
   # in the gem installation of the mime-types library.
   #
-  # The MIME::Types::Loader will load all YAML files contained in this path.
-  # By convention, there is one file for each media type (e.g.,
-  # application.yml, audio.yml, etc.).
+  # The MIME::Types::Loader will load all JSON or columnar files contained in
+  # this path.
   #
   # System repackagers note: this is the constant that you would change if
   # you repackage mime-types for your system. It is recommended that the

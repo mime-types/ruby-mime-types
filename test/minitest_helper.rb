@@ -5,18 +5,17 @@ require 'fileutils'
 
 gem 'minitest'
 require 'minitest/autorun'
+require 'minitest/focus'
 
-module MIME
-  @__deprecated = Hash.new { |h, k| h[k] = true }
+module Minitest::MIMEDeprecated
+  def assert_deprecated name, message = 'and will be removed'
+    name = Regexp.escape(name)
+    message = Regexp.escape(message)
 
-  class << self
-    attr_reader :__deprecated
+    assert_output nil, /#{name} is deprecated #{message}./ do
+      yield
+    end
   end
-end
 
-def assert_deprecated(name, message = "and will be removed")
-  MIME.__deprecated[name] = false
-  assert_output(nil, /#{Regexp.escape(name)} is deprecated #{Regexp.escape(message)}./) { yield }
-ensure
-  MIME.__deprecated[name] = true
+  Minitest::Test.send(:include, self)
 end
