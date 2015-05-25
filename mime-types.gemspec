@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-# stub: mime-types 2.6 ruby lib
+# stub: mime-types 2.6.1 ruby lib
 
 Gem::Specification.new do |s|
   s.name = "mime-types"
