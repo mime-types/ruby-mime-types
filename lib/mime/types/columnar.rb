@@ -26,7 +26,7 @@ module MIME::Types::Columnar
     @__root__ = path
 
     each_file_line('content_type', false) do |line|
-      content_type, extensions = line.split
+      content_type, *extensions = line.split
 
       type = MIME::Type::Columnar.new(self, content_type, extensions)
       @__mime_data__ << type
