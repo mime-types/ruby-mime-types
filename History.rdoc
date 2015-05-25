@@ -1,3 +1,9 @@
+== 2.6.1 / 2015-05-25
+
+* Bugs:
+  * Make columnar store handle all supported extensions, not just the first.
+  * Avoid circular require when using the columnar store.
+
 == 2.6 / 2015-05-25
 
 * New Feature:
