@@ -69,7 +69,7 @@ class MIME::Types::Loader
   # Loads a MIME::Types registry from columnar files recursively found in
   # +path+.
   def load_columnar
-    require 'mime/types/columnar'
+    require 'mime/types/columnar' unless defined?(MIME::Types::Columnar)
     container.extend(MIME::Types::Columnar)
     container.load_base_data(path)
 
