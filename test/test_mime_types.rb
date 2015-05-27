@@ -84,6 +84,14 @@ class TestMIMETypes < Minitest::Test
     assert_empty(@mime_types.type_for('zzz'))
   end
 
+  def test_type_for_after_adding_extensions
+    plain_text = @mime_types['text/plain'].first
+    plain_text.add_extensions('xtxt')
+    # Commenting out the ff. line makes this pass, which shouldn't be necessary
+    # @mime_types.index_extensions(plain_text)
+    assert_equal([plain_text], @mime_types.type_for('xtxt'))
+  end
+
   def test_count
     assert_equal(6, @mime_types.count)
   end

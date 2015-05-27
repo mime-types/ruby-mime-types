@@ -69,6 +69,14 @@ class TestMIMETypesQueryClassMethods < Minitest::Test
     assert_empty(MIME::Types.type_for('zzz'))
   end
 
+  def test_type_for_after_adding_extensions
+    plain_text = MIME::Types['text/plain'].first
+    plain_text.add_extensions('xtxt')
+    # Commenting out the ff. line makes this pass, which shouldn't be necessary
+    # MIME::Types.index_extensions(plain_text)
+    assert_equal([plain_text], MIME::Types.type_for('xtxt'))
+  end
+
   def test_count
     assert(MIME::Types.count.nonzero?,
            'A lot of types are expected to be known.')
