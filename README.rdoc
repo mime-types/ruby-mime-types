@@ -30,11 +30,11 @@ is a new default registry storage format that greatly reduces the initial
 memory use of the mime-types library. This feature is enabled by requiring
 +mime/types/columnar+ instead of +mime/types+ with a small performance cost and
 no change in *total* memory use if certain methods are called (see {Columnar
-Store}[#columnar-store] for more details). The second new feature is a logger
-interface that conforms to the expectations of an ActiveSupport::Logger so that
-warnings can be written to an application's log rather than the default
-location for +warn+. This interface may be used for other logging purposes in
-the future.
+Store}[https://github.com/mime-types/ruby-mime-types#columnar-store] for more details).
+The second new feature is a logger interface that conforms to the expectations of
+an ActiveSupport::Logger so that warnings can be written to an application's log
+rather than the default location for +warn+. This interface may be used for other
+logging purposes in the future.
 
 mime-types 2.6 is the last planned version of mime-types 2.x, so deprecation
 warnings are no longer cached but provided every time the method is called.
