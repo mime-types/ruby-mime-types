@@ -126,7 +126,7 @@ module MIME::Types::Columnar
     if line == '-'.freeze
       {}
     else
-      line.split('|'.freeze).each_with_object({}) { |h, l|
+      line.split('|'.freeze).each_with_object({}) { |l, h|
         k, v = l.split('^'.freeze)
         v = [ nil ] if v.empty?
         h[k] = v
