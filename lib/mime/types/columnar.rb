@@ -118,7 +118,7 @@ module MIME::Types::Columnar
 
   def load_use_instead
     each_file_line('use_instead') do |type, line|
-      type.use_instad = (line unless line == '-'.freeze)
+      type.use_instead = (line unless line == '-'.freeze)
     end
   end
 
