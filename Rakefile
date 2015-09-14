@@ -20,6 +20,7 @@ spec = Hoe.spec 'mime-types' do
   self.history_file = 'History.rdoc'
   self.readme_file = 'README.rdoc'
   self.extra_rdoc_files = FileList['*.rdoc'].to_a
+
   self.licenses = ['MIT', 'Artistic 2.0', 'GPL-2']
 
   extra_dev_deps << ['hoe-doofus', '~> 1.0']
@@ -27,9 +28,9 @@ spec = Hoe.spec 'mime-types' do
   extra_dev_deps << ['hoe-git', '~> 1.6']
   extra_dev_deps << ['hoe-rubygems', '~> 1.0']
   extra_dev_deps << ['hoe-travis', '~> 1.2']
-  extra_dev_deps << ['minitest', '~> 5.3']
-  extra_dev_deps << ['minitest-autotest', '~>1.0']
-  extra_dev_deps << ['minitest-focus', '~>1.0']
+  extra_dev_deps << ['minitest', '~> 5.4']
+  extra_dev_deps << ['minitest-autotest', '~> 1.0']
+  extra_dev_deps << ['minitest-focus', '~> 1.0']
   extra_dev_deps << ['rake', '~> 10.0']
   extra_dev_deps << ['simplecov', '~> 0.7']
   extra_dev_deps << ['coveralls', '~> 0.8']

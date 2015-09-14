@@ -1,8 +1,30 @@
+== 2.6.2 / 2015-09-13
+
+* Bugs:
+  * Emilio Losada (@losadaem) fixed an error where +each_with_object+'s block
+    parameters are the inverse of those used by +inject+. Resolves
+    {#107}[https://github.com/mime-types/ruby-mime-types/issues/107] with pull
+    request {#108}[https://github.com/mime-types/ruby-mime-types/pull/108].
+  * Matt Beedle (@mattbeedle) fixed a typo in MIME::Type::Columnar negatively
+    affecting people who use the +use_instead+ functionality. Resolved in
+    {#109}[https://github.com/mime-types/ruby-mime-types/pull/109].
+* Documentation:
+  * Juanito Fatas (@JuanitoFatas) fixed a documentation issue with the README
+    not properly linking internally on the generated rdoc source. Resolved with
+    {#105}[https://github.com/mime-types/ruby-mime-types/pull/105].
+* Development:
+  * Fixed a minor issue in the IANA registry parser that would generate empty
+    +text+ xrefs if the +text+ section was empty.
+
 == 2.6.1 / 2015-05-25
 
 * Bugs:
   * Make columnar store handle all supported extensions, not just the first.
-  * Avoid circular require when using the columnar store.
+    Resolved in {#103}[https://github.com/mime-types/ruby-mime-types/pull/103]
+    by Jeremy Evans (@jeremyevans).
+  * Avoid circular require when using the columnar store. Resolved in
+    {#102}[https://github.com/mime-types/ruby-mime-types/pull/102] by
+    Jeremy Evans (@jeremyevans).
 
 == 2.6 / 2015-05-25
 
