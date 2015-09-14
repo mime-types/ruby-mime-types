@@ -235,6 +235,7 @@ application/pics-rules prf
 application/pidf+xml
 application/pidf-diff+xml
 application/pkcs10 p10
+application/pkcs12
 application/pkcs7-mime p7m p7c
 application/pkcs7-signature p7s
 application/pkcs8 p8
@@ -285,6 +286,7 @@ application/samlassertion+xml
 application/samlmetadata+xml
 application/sbml+xml sbml
 application/scaip+xml
+application/scim+json
 application/scvp-cv-request scq
 application/scvp-cv-response scs
 application/scvp-vp-request spq
@@ -352,11 +354,16 @@ application/vcard+xml
 application/vda
 application/vemmi
 application/VMSBACKUP bck
+application/vnd.3gpp-prose+xml
+application/vnd.3gpp-prose-pc3ch+xml
 application/vnd.3gpp.bsf+xml
+application/vnd.3gpp.mid-call+xml
 application/vnd.3gpp.pic-bw-large plb
 application/vnd.3gpp.pic-bw-small psb
 application/vnd.3gpp.pic-bw-var pvb
 application/vnd.3gpp.sms sms
+application/vnd.3gpp.state-and-event-info+xml
+application/vnd.3gpp.ussd+xml
 application/vnd.3gpp2.bcmcsinfo+xml
 application/vnd.3gpp2.sms
 application/vnd.3gpp2.tcap tcap
@@ -382,6 +389,7 @@ application/vnd.americandynamics.acc acc
 application/vnd.amiga.ami ami
 application/vnd.amundsen.maze+xml
 application/vnd.android.package-archive apk
+application/vnd.anki
 application/vnd.anser-web-certificate-issue-initiation cii
 application/vnd.anser-web-funds-transfer-initiation fti
 application/vnd.antix.game-component atx
@@ -402,6 +410,7 @@ application/vnd.avistar+xml
 application/vnd.balsamiq.bmml+xml
 application/vnd.balsamiq.bmpr
 application/vnd.bekitzur-stech+json
+application/vnd.biopax.rdf+xml
 application/vnd.blueice.multipass mpm
 application/vnd.bluetooth.ep.oob
 application/vnd.bluetooth.le.oob
@@ -467,6 +476,7 @@ application/vnd.dolby.mobile.2
 application/vnd.doremir.scorecloud-binary-document
 application/vnd.dpgraph dpg
 application/vnd.dreamfactory dfac
+application/vnd.drive+json
 application/vnd.ds-keypoint kpxx
 application/vnd.dtg.local
 application/vnd.dtg.local.flash
@@ -544,6 +554,7 @@ application/vnd.fdsn.mseed mseed
 application/vnd.fdsn.seed dataless seed
 application/vnd.ffsns
 application/vnd.fints
+application/vnd.firemonkeys.cloudcell
 application/vnd.FloGraphIt gph
 application/vnd.fluxtime.clip ftc
 application/vnd.font-fontforge-sfd
@@ -607,6 +618,7 @@ application/vnd.hp-PCL pcl
 application/vnd.hp-PCLXL pclxl
 application/vnd.httphone
 application/vnd.hydrostatix.sof-data sfd-hdstx
+application/vnd.hyperdrive+json
 application/vnd.hzn-3d-crossword
 application/vnd.ibm.afplinedata
 application/vnd.ibm.electronic-media emm
@@ -880,6 +892,8 @@ application/vnd.omads-email+xml
 application/vnd.omads-file+xml
 application/vnd.omads-folder+xml
 application/vnd.omaloc-supl-init
+application/vnd.openblox.game+xml
+application/vnd.openblox.game-binary
 application/vnd.openeye.oeb
 application/vnd.openofficeorg.extension oxt
 application/vnd.openxmlformats-officedocument.custom-properties+xml
@@ -1118,6 +1132,7 @@ application/vnd.uplanet.list-wbxml
 application/vnd.uplanet.listcmd
 application/vnd.uplanet.listcmd-wbxml
 application/vnd.uplanet.signal
+application/vnd.uri-map
 application/vnd.valve.source.material
 application/vnd.vcx vcx
 application/vnd.vd-study
@@ -1435,6 +1450,7 @@ audio/EVRCWB0
 audio/EVRCWB1
 audio/example
 audio/fwdred
+audio/G711-0
 audio/G719
 audio/G722
 audio/G7221
@@ -1602,6 +1618,7 @@ image/vnd.fujixerox.edmics-rlc rlc
 image/vnd.globalgraphics.pgb pgb
 image/vnd.microsoft.icon ico
 image/vnd.mix
+image/vnd.mozilla.apng
 image/vnd.ms-modi mdi
 image/vnd.ms-photo wdp
 image/vnd.net-fpx npx

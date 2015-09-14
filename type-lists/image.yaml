@@ -615,6 +615,19 @@
     - image/vnd.mix
   registered: true
 - !ruby/object:MIME::Type
+  content-type: image/vnd.mozilla.apng
+  encoding: base64
+  references:
+  - IANA
+  - "[Stuart_Parmenter]"
+  - "{image/vnd.mozilla.apng=http://www.iana.org/assignments/media-types/image/vnd.mozilla.apng}"
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Stuart_Parmenter
+    template:
+    - image/vnd.mozilla.apng
+  registered: true
+- !ruby/object:MIME::Type
   content-type: image/vnd.ms-modi
   friendly:
     en: Microsoft Document Imaging Format

@@ -501,12 +501,12 @@
   references:
   - IANA
   - RFC1895
-  - "{application/cals-1840=http://www.iana.org/assignments/media-types/application/cals-1840}"
+  - "{application/CALS-1840=http://www.iana.org/assignments/media-types/application/CALS-1840}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc1895
     template:
-    - application/cals-1840
+    - application/CALS-1840
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/cals1840
@@ -1610,12 +1610,12 @@
   references:
   - IANA
   - RFC2652
-  - "{application/index.obj=http://www.iana.org/assignments/media-types/application/index.obj}"
+  - "{application/index-obj=http://www.iana.org/assignments/media-types/application/index-obj}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2652
     template:
-    - application/index.obj
+    - application/index-obj
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/index.response
@@ -2343,12 +2343,12 @@
   references:
   - IANA
   - RFC4155
-  - "{application/mbox+xml=http://www.iana.org/assignments/media-types/application/mbox+xml}"
+  - "{application/mbox=http://www.iana.org/assignments/media-types/application/mbox}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4155
     template:
-    - application/mbox+xml
+    - application/mbox
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/media-policy-dataset+xml
@@ -2825,12 +2825,12 @@
   references:
   - IANA
   - RFC6960
-  - "{application/oscp-response=http://www.iana.org/assignments/media-types/application/oscp-response}"
+  - "{application/ocsp-response=http://www.iana.org/assignments/media-types/application/ocsp-response}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6960
     template:
-    - application/oscp-response
+    - application/ocsp-response
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/octet-stream
@@ -3141,6 +3141,19 @@
     - application/pkcs10
   registered: true
   signature: true
+- !ruby/object:MIME::Type
+  content-type: application/pkcs12
+  encoding: base64
+  references:
+  - IANA
+  - "[IETF]"
+  - "{application/pkcs12=http://www.iana.org/assignments/media-types/application/pkcs12}"
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - IETF
+    template:
+    - application/pkcs12
+  registered: true
 - !ruby/object:MIME::Type
   content-type: application/pkcs7-mime
   friendly:
@@ -3860,6 +3873,19 @@
     - SIS
     template:
     - application/scaip+xml
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/scim+json
+  encoding: base64
+  references:
+  - IANA
+  - DRAFT:draft-ietf-scim-api-19
+  - "{application/scim+json=http://www.iana.org/assignments/media-types/application/scim+json}"
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-ietf-scim-api-19
+    template:
+    - application/scim+json
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/scvp-cv-request
@@ -4766,6 +4792,32 @@
   use-instead: application/x-VMSBACKUP
   registered: false
 - !ruby/object:MIME::Type
+  content-type: application/vnd.3gpp-prose+xml
+  encoding: base64
+  references:
+  - IANA
+  - "[Frederic_Firmin]"
+  - "{application/vnd.3gpp-prose+xml=http://www.iana.org/assignments/media-types/application/vnd.3gpp-prose+xml}"
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Frederic_Firmin
+    template:
+    - application/vnd.3gpp-prose+xml
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/vnd.3gpp-prose-pc3ch+xml
+  encoding: base64
+  references:
+  - IANA
+  - "[Frederic_Firmin]"
+  - "{application/vnd.3gpp-prose-pc3ch+xml=http://www.iana.org/assignments/media-types/application/vnd.3gpp-prose-pc3ch+xml}"
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Frederic_Firmin
+    template:
+    - application/vnd.3gpp-prose-pc3ch+xml
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/vnd.3gpp.bsf+xml
   encoding: base64
   references:
@@ -4777,6 +4829,19 @@
     - John_M_Meredith
     template:
     - application/vnd.3gpp.bsf+xml
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/vnd.3gpp.mid-call+xml
+  encoding: base64
+  references:
+  - IANA
+  - "[Frederic_Firmin]"
+  - "{application/vnd.3gpp.mid-call+xml=http://www.iana.org/assignments/media-types/application/vnd.3gpp.mid-call+xml}"
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Frederic_Firmin
+    template:
+    - application/vnd.3gpp.mid-call+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.3gpp.pic-bw-large
@@ -4843,6 +4908,32 @@
     - John_M_Meredith
     template:
     - application/vnd.3gpp.sms
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/vnd.3gpp.state-and-event-info+xml
+  encoding: base64
+  references:
+  - IANA
+  - "[Frederic_Firmin]"
+  - "{application/vnd.3gpp.state-and-event-info+xml=http://www.iana.org/assignments/media-types/application/vnd.3gpp.state-and-event-info+xml}"
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Frederic_Firmin
+    template:
+    - application/vnd.3gpp.state-and-event-info+xml
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/vnd.3gpp.ussd+xml
+  encoding: base64
+  references:
+  - IANA
+  - "[Frederic_Firmin]"
+  - "{application/vnd.3gpp.ussd+xml=http://www.iana.org/assignments/media-types/application/vnd.3gpp.ussd+xml}"
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Frederic_Firmin
+    template:
+    - application/vnd.3gpp.ussd+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.3gpp2.bcmcsinfo+xml
@@ -5222,6 +5313,19 @@
   - apk
   registered: false
 - !ruby/object:MIME::Type
+  content-type: application/vnd.anki
+  encoding: base64
+  references:
+  - IANA
+  - "[Kerrick_Staley]"
+  - "{application/vnd.anki=http://www.iana.org/assignments/media-types/application/vnd.anki}"
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Kerrick_Staley
+    template:
+    - application/vnd.anki
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/vnd.anser-web-certificate-issue-initiation
   friendly:
     en: ANSER-WEB Terminal Client - Certificate Issue
@@ -5502,6 +5606,19 @@
     - Jegulsky
     template:
     - application/vnd.bekitzur-stech+json
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/vnd.biopax.rdf+xml
+  encoding: base64
+  references:
+  - IANA
+  - "[Pathway_Commons]"
+  - "{application/vnd.biopax.rdf+xml=http://www.iana.org/assignments/media-types/application/vnd.biopax.rdf+xml}"
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Pathway_Commons
+    template:
+    - application/vnd.biopax.rdf+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.blueice.multipass
@@ -6464,6 +6581,19 @@
     - application/vnd.dreamfactory
   registered: true
 - !ruby/object:MIME::Type
+  content-type: application/vnd.drive+json
+  encoding: base64
+  references:
+  - IANA
+  - "[Keith_Kester]"
+  - "{application/vnd.drive+json=http://www.iana.org/assignments/media-types/application/vnd.drive+json}"
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Keith_Kester
+    template:
+    - application/vnd.drive+json
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/vnd.ds-keypoint
   encoding: base64
   extensions:
@@ -6501,12 +6631,12 @@
   references:
   - IANA
   - "[Ali_Teffahi]"
-  - "{application/vnd.dtg.local.html=http://www.iana.org/assignments/media-types/application/vnd.dtg.local.html}"
+  - "{application/vnd.dtg.local-html=http://www.iana.org/assignments/media-types/application/vnd.dtg.local-html}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Ali_Teffahi
     template:
-    - application/vnd.dtg.local.html
+    - application/vnd.dtg.local-html
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.dvb.ait
@@ -7534,6 +7664,19 @@
     - application/vnd.fints
   registered: true
 - !ruby/object:MIME::Type
+  content-type: application/vnd.firemonkeys.cloudcell
+  encoding: base64
+  references:
+  - IANA
+  - "[Alex_Dubov]"
+  - "{application/vnd.firemonkeys.cloudcell=http://www.iana.org/assignments/media-types/application/vnd.firemonkeys.cloudcell}"
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Alex_Dubov
+    template:
+    - application/vnd.firemonkeys.cloudcell
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/vnd.FloGraphIt
   friendly:
     en: NpGraphIt
@@ -8557,6 +8700,19 @@
     - Allen_Gillam
     template:
     - application/vnd.hydrostatix.sof-data
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/vnd.hyperdrive+json
+  encoding: base64
+  references:
+  - IANA
+  - "[Daniel_Sims]"
+  - "{application/vnd.hyperdrive+json=http://www.iana.org/assignments/media-types/application/vnd.hyperdrive+json}"
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Daniel_Sims
+    template:
+    - application/vnd.hyperdrive+json
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.hzn-3d-crossword
@@ -12713,6 +12869,32 @@
     - application/vnd.omaloc-supl-init
   registered: true
 - !ruby/object:MIME::Type
+  content-type: application/vnd.openblox.game+xml
+  encoding: base64
+  references:
+  - IANA
+  - "[Mark_Otaris]"
+  - "{application/vnd.openblox.game+xml=http://www.iana.org/assignments/media-types/application/vnd.openblox.game+xml}"
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Mark_Otaris
+    template:
+    - application/vnd.openblox.game+xml
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/vnd.openblox.game-binary
+  encoding: base64
+  references:
+  - IANA
+  - "[Mark_Otaris]"
+  - "{application/vnd.openblox.game-binary=http://www.iana.org/assignments/media-types/application/vnd.openblox.game-binary}"
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Mark_Otaris
+    template:
+    - application/vnd.openblox.game-binary
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/vnd.openeye.oeb
   encoding: base64
   references:
@@ -14203,12 +14385,12 @@
   references:
   - IANA
   - RFC3391
-  - "{application/vwg-multiplexed=http://www.iana.org/assignments/media-types/application/vwg-multiplexed}"
+  - "{application/vnd.pwg-multiplexed=http://www.iana.org/assignments/media-types/application/vnd.pwg-multiplexed}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3391
     template:
-    - application/vwg-multiplexed
+    - application/vnd.pwg-multiplexed
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.pwg-xhtml-print+xml
@@ -15994,6 +16176,19 @@
     - Bruce_Martin
     template:
     - application/vnd.uplanet.signal
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/vnd.uri-map
+  encoding: base64
+  references:
+  - IANA
+  - "[Sebastian_Baer]"
+  - "{application/vnd.uri-map=http://www.iana.org/assignments/media-types/application/vnd.uri-map}"
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Sebastian_Baer
+    template:
+    - application/vnd.uri-map
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.valve.source.material

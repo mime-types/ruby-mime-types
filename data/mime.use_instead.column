@@ -258,6 +258,7 @@ application/x-mathematica-old
 -
 -
 -
+-
 application/x-quicktimeplayer
 -
 -
@@ -266,6 +267,7 @@ application/x-quicktimeplayer
 -
 -
 application/remote-printing
+-
 -
 -
 -
@@ -392,7 +394,17 @@ application/x-VMSBACKUP
 -
 -
 -
+-
+-
+-
+-
+-
+-
 application/vnd.aristanetworks.swi
+-
+-
+-
+-
 -
 -
 -
@@ -1182,6 +1194,9 @@ application/vnd.nokia.ncd
 -
 -
 -
+-
+-
+-
 application/vnd.wordperfect
 -
 application/x-wordperfect6.1
@@ -1529,6 +1544,7 @@ application/x400-bp
 -
 -
 -
+-
 audio/qcelp
 -
 -
@@ -1590,6 +1606,7 @@ image/x-targa
 -
 -
 image/x-vnd.dgn
+-
 -
 -
 -

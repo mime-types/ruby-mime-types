@@ -1,5 +1,21 @@
 = MIME Types Changes by Version
 
+== 2.6.2 / 2015-09-13
+
+* Updated the IANA media registry entries as of release date:
+  * Updated metadata for application/cals-1840, application/index.obj,
+    application/ocsp-response, application/vnd.dtg.local.html,
+    application/vnd.pwg-multiplexed, audio/G7221, audio/opus,
+  * Added application/pkcs12, application/scim\+json, multipart/form-data.
+    application/vnd.3gpp-prose\+xml, application/vnd.3gpp-prose-pc3ch\+xml,
+    application/vnd.3gpp.mid-call\+xml,
+    application/vnd.3gpp-state-and-event-info\+xml, application.3gpp.ussd\+xml,
+    application/vnd.anki, application/vnd.biopax.rdf\+xml,
+    application/vnd.drive\+json, application/vnd.firemonkeys.cloudcell,
+    application/vnd.hyperdrive\+json, application/vnd.openblox.game\+xml,
+    application/vnd.openblox.game-binary, application/vnd.uri-map,
+    audio/G711-0, image/vnd.mozilla.apng.
+
 == 2.6 / 2015-05-25
 
 * Steven Michael Thomas (@stevenmichaelthomas) added +woff2+ as an extension to
@@ -7,7 +23,7 @@
   {#99}[https://github.com/mime-types/ruby-mime-types/pull/99].
 * Updated the IANA media registry entries as of release date:
   * Updated metadata for application/jose, application/jose\+json,
-    application/jwk\+json, applicatoin/jwk-set\+json, application/jwt to
+    application/jwk\+json, application/jwk-set\+json, application/jwt to
     reflect the adoption of RFC7519.
   * Added application/vnd.balsamiq.bmpr.
 

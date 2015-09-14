@@ -80,11 +80,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-appsawg-multipart-form-data-11
+  - RFC7578
   - "{multipart/form-data=http://www.iana.org/assignments/media-types/multipart/form-data}"
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-appsawg-multipart-form-data-11
+    rfc:
+    - rfc7578
     template:
     - multipart/form-data
   registered: true

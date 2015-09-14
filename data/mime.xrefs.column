@@ -36,7 +36,7 @@ rfc^rfc3080|template^application/beep+xml
 rfc^rfc7265|template^application/calendar+json
 rfc^rfc6321|template^application/calendar+xml
 rfc^rfc6910|template^application/call-completion
-rfc^rfc1895|template^application/cals-1840
+rfc^rfc1895|template^application/CALS-1840
 -
 rfc^rfc7049|template^application/cbor
 rfc^rfc6503|template^application/ccmp+xml
@@ -123,7 +123,7 @@ rfc^rfc3994|template^application/im-iscomposing+xml
 -
 rfc^rfc2652|template^application/index
 rfc^rfc2652|template^application/index.cmd
-rfc^rfc2652|template^application/index.obj
+rfc^rfc2652|template^application/index-obj
 rfc^rfc2652|template^application/index.response
 rfc^rfc2652|template^application/index.vnd
 person^Kazuyuki_Ashimura|template^application/inkml+xml
@@ -179,7 +179,7 @@ person^ThreeGPP|template^application/mbms-register+xml
 person^ThreeGPP|template^application/mbms-register-response+xml
 person^Eric_Turcotte^ThreeGPP|template^application/mbms-schedule+xml
 person^ThreeGPP|template^application/mbms-user-service-description+xml
-rfc^rfc4155|template^application/mbox+xml
+rfc^rfc4155|template^application/mbox
 rfc^rfc6796|template^application/media-policy-dataset+xml
 rfc^rfc5168|template^application/media_control+xml
 rfc^rfc5022|template^application/mediaservercontrol+xml
@@ -214,7 +214,7 @@ rfc^rfc5537|template^application/news-transmission
 rfc^rfc6787|template^application/nlsml+xml
 person^Michael_Hammer|template^application/nss
 rfc^rfc6960|template^application/ocsp-request
-rfc^rfc6960|template^application/oscp-response
+rfc^rfc6960|template^application/ocsp-response
 rfc^rfc2045^rfc2046|template^application/octet-stream
 rfc^rfc2045^rfc2046|template^application/ODA
 person^ASAM^Thomas_Thomsen|template^application/ODX
@@ -235,6 +235,7 @@ rfc^rfc3156|template^application/pgp-signature
 rfc^rfc3863|template^application/pidf+xml
 rfc^rfc5262|template^application/pidf-diff+xml
 rfc^rfc5967|template^application/pkcs10
+person^IETF|template^application/pkcs12
 rfc^rfc5751^rfc7114|template^application/pkcs7-mime
 rfc^rfc5751|template^application/pkcs7-signature
 rfc^rfc5958|template^application/pkcs8
@@ -285,6 +286,7 @@ person^OASIS_Security_Services_Technical_Committee_SSTC|template^application/sam
 person^OASIS_Security_Services_Technical_Committee_SSTC|template^application/samlmetadata+xml
 rfc^rfc3823|template^application/sbml+xml
 person^Oskar_Jonsson^SIS|template^application/scaip+xml
+draft^RFC-ietf-scim-api-19|template^application/scim+json
 rfc^rfc5055|template^application/scvp-cv-request
 rfc^rfc5055|template^application/scvp-cv-response
 rfc^rfc5055|template^application/scvp-vp-request
@@ -352,11 +354,16 @@ rfc^rfc6351|template^application/vcard+xml
 -
 rfc^rfc2122|template^application/vemmi
 -
+person^Frederic_Firmin|template^application/vnd.3gpp-prose+xml
+person^Frederic_Firmin|template^application/vnd.3gpp-prose-pc3ch+xml
 person^John_M_Meredith|template^application/vnd.3gpp.bsf+xml
+person^Frederic_Firmin|template^application/vnd.3gpp.mid-call+xml
 person^John_M_Meredith|template^application/vnd.3gpp.pic-bw-large
 person^John_M_Meredith|template^application/vnd.3gpp.pic-bw-small
 person^John_M_Meredith|template^application/vnd.3gpp.pic-bw-var
 person^John_M_Meredith|template^application/vnd.3gpp.sms
+person^Frederic_Firmin|template^application/vnd.3gpp.state-and-event-info+xml
+person^Frederic_Firmin|template^application/vnd.3gpp.ussd+xml
 person^Andy_Dryden|template^application/vnd.3gpp2.bcmcsinfo+xml
 person^AC_Mahendran|template^application/vnd.3gpp2.sms
 person^AC_Mahendran|template^application/vnd.3gpp2.tcap
@@ -382,6 +389,7 @@ person^Gary_Sands|template^application/vnd.americandynamics.acc
 person^Kevin_Blumberg|template^application/vnd.amiga.ami
 person^Mike_Amundsen|template^application/vnd.amundsen.maze+xml
 -
+person^Kerrick_Staley|template^application/vnd.anki
 person^Hiroyoshi_Mori|template^application/vnd.anser-web-certificate-issue-initiation
 -
 person^Daniel_Shelton|template^application/vnd.antix.game-component
@@ -402,6 +410,7 @@ person^Vladimir_Vysotsky|template^application/vnd.avistar+xml
 person^Giacomo_Guilizzoni|template^application/vnd.balsamiq.bmml+xml
 person^Giacomo_Guilizzoni|template^application/vnd.balsamiq.bmpr
 person^Jegulsky|template^application/vnd.bekitzur-stech+json
+person^Pathway_Commons|template^application/vnd.biopax.rdf+xml
 person^Thomas_Holmstrom|template^application/vnd.blueice.multipass
 person^Mike_Foley|template^application/vnd.bluetooth.ep.oob
 person^Mark_Powell|template^application/vnd.bluetooth.le.oob
@@ -467,10 +476,11 @@ person^Steve_Hattersley|template^application/vnd.dolby.mobile.2
 person^Erik_Ronström|template^application/vnd.doremir.scorecloud-binary-document
 person^David_Parker|template^application/vnd.dpgraph
 person^William_C._Appleton|template^application/vnd.dreamfactory
+person^Keith_Kester|template^application/vnd.drive+json
 -
 person^Ali_Teffahi|template^application/vnd.dtg.local
 person^Ali_Teffahi|template^application/vnd.dtg.local.flash
-person^Ali_Teffahi|template^application/vnd.dtg.local.html
+person^Ali_Teffahi|template^application/vnd.dtg.local-html
 person^Michael_Lagally^Peter_Siebert|template^application/vnd.dvb.ait
 person^Michael_Lagally^Peter_Siebert|template^application/vnd.dvb.dvbj
 person^Joerg_Heuer|template^application/vnd.dvb.esgcontainer
@@ -544,6 +554,7 @@ person^Chad_Trabant|template^application/vnd.fdsn.mseed
 person^Chad_Trabant|template^application/vnd.fdsn.seed
 person^Holstage|template^application/vnd.ffsns
 person^Ingo_Hammann|template^application/vnd.fints
+person^Alex_Dubov|template^application/vnd.firemonkeys.cloudcell
 person^Dick_Floersch|template^application/vnd.FloGraphIt
 person^Marc_Winter|template^application/vnd.fluxtime.clip
 person^George_Williams|template^application/vnd.font-fontforge-sfd
@@ -607,6 +618,7 @@ person^Bob_Pentecost|template^application/vnd.hp-PCL
 person^Bob_Pentecost|template^application/vnd.hp-PCLXL
 person^Franck_Lefevre|template^application/vnd.httphone
 person^Allen_Gillam|template^application/vnd.hydrostatix.sof-data
+person^Daniel_Sims|template^application/vnd.hyperdrive+json
 person^James_Minnis|template^application/vnd.hzn-3d-crossword
 person^Roger_Buis|template^application/vnd.ibm.afplinedata
 person^Bruce_Tantlinger|template^application/vnd.ibm.electronic-media
@@ -880,6 +892,8 @@ person^OMA_Data_Synchronization_Working_Group|template^application/vnd.omads-ema
 person^OMA_Data_Synchronization_Working_Group|template^application/vnd.omads-file+xml
 person^OMA_Data_Synchronization_Working_Group|template^application/vnd.omads-folder+xml
 person^Julien_Grange|template^application/vnd.omaloc-supl-init
+person^Mark_Otaris|template^application/vnd.openblox.game+xml
+person^Mark_Otaris|template^application/vnd.openblox.game-binary
 person^Craig_Bruce|template^application/vnd.openeye.oeb
 -
 person^Makoto_Murata|template^application/vnd.openxmlformats-officedocument.custom-properties+xml
@@ -987,7 +1001,7 @@ person^Roman_Smolgovsky|template^application/vnd.previewsystems.box
 person^Pete_Hoch|template^application/vnd.proteus.magazine
 person^Oren_Ben-Kiki|template^application/vnd.publishare-delta-tree
 person^Charles_P._Lamb|template^application/vnd.pvi.ptid1
-rfc^rfc3391|template^application/vwg-multiplexed
+rfc^rfc3391|template^application/vnd.pwg-multiplexed
 person^Don_Wright|template^application/vnd.pwg-xhtml-print+xml
 person^Glenn_Forrester|template^application/vnd.qualcomm.brew-app-res
 person^Hannes_Scheidler|template^application/vnd.Quark.QuarkXPress
@@ -1118,6 +1132,7 @@ person^Bruce_Martin|template^application/vnd.uplanet.list-wbxml
 person^Bruce_Martin|template^application/vnd.uplanet.listcmd
 person^Bruce_Martin|template^application/vnd.uplanet.listcmd-wbxml
 person^Bruce_Martin|template^application/vnd.uplanet.signal
+person^Sebastian_Baer|template^application/vnd.uri-map
 person^Henrik_Andersson|template^application/vnd.valve.source.material
 person^Taisuke_Sugimoto|template^application/vnd.vcx
 person^Luc_Rogge|template^application/vnd.vd-study
@@ -1435,9 +1450,10 @@ rfc^rfc5188|template^audio/EVRCWB0
 rfc^rfc5188|template^audio/EVRCWB1
 rfc^rfc4735|template^audio/example
 rfc^rfc6354|template^audio/fwdred
+draft^RFC-ietf-payload-g7110-06|template^audio/G711-0
 rfc^rfc5404|rfc-errata^3245|template^audio/G719
 rfc^rfc4856|template^audio/G722
-rfc^rfc5577|template^audio/G721
+rfc^rfc5577|template^audio/G7221
 rfc^rfc4856|template^audio/G723
 rfc^rfc4856|template^audio/G726-16
 rfc^rfc4856|template^audio/G726-24
@@ -1467,7 +1483,7 @@ rfc^rfc5219|template^audio/mpa-robust
 rfc^rfc3003|template^audio/mpeg
 rfc^rfc3640^rfc5691^rfc6295|template^audio/mpeg4-generic
 rfc^rfc5334|template^audio/ogg
-draft^RFC-ietf-payload-rtp-opus-11|template^audio/opus
+rfc^rfc7587|template^audio/opus
 rfc^rfc5109
 rfc^rfc4856|template^audio/PCMA
 rfc^rfc5391|template^audio/PCMA-WB
@@ -1602,6 +1618,7 @@ person^Masanori_Onda|template^image/vnd.fujixerox.edmics-rlc
 person^Martin_Bailey|template^image/vnd.globalgraphics.pgb
 person^Simon_Butcher|template^image/vnd.microsoft.icon
 person^Saveen_Reddy|template^image/vnd.mix
+person^Stuart_Parmenter|template^image/vnd.mozilla.apng
 person^Gregory_Vaughan|template^image/vnd.ms-modi
 -
 person^Marc_Douglas_Spencer|template^image/vnd.net-fpx
@@ -1693,7 +1710,7 @@ rfc^rfc7233|template^multipart/byteranges
 rfc^rfc2045^rfc2046
 rfc^rfc1847|template^multipart/encrypted
 rfc^rfc4735|template^multipart/example
-draft^RFC-ietf-appsawg-multipart-form-data-11|template^multipart/form-data
+rfc^rfc7578|template^multipart/form-data
 person^Dave_Crocker|template^multipart/header-set
 rfc^rfc2045^rfc2046
 rfc^rfc2045^rfc2046

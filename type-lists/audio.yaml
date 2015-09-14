@@ -586,6 +586,19 @@
     - audio/fwdred
   registered: true
 - !ruby/object:MIME::Type
+  content-type: audio/G711-0
+  encoding: base64
+  references:
+  - IANA
+  - DRAFT:draft-ietf-payload-g7110-06
+  - "{audio/G711-0=http://www.iana.org/assignments/media-types/audio/G711-0}"
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-ietf-payload-g7110-06
+    template:
+    - audio/G711-0
+  registered: true
+- !ruby/object:MIME::Type
   content-type: audio/G719
   encoding: base64
   references:
@@ -620,12 +633,12 @@
   references:
   - IANA
   - RFC5577
-  - "{audio/G721=http://www.iana.org/assignments/media-types/audio/G721}"
+  - "{audio/G7221=http://www.iana.org/assignments/media-types/audio/G7221}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5577
     template:
-    - audio/G721
+    - audio/G7221
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/G723
@@ -1039,11 +1052,11 @@
   encoding: base64
   references:
   - IANA
-  - DRAFT:draft-ietf-payload-rtp-opus-11
+  - RFC7587
   - "{audio/opus=http://www.iana.org/assignments/media-types/audio/opus}"
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-payload-rtp-opus-11
+    rfc:
+    - rfc7587
     template:
     - audio/opus
   registered: true
