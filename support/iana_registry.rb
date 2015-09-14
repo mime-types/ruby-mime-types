@@ -127,6 +127,8 @@ class IANARegistry
       type = xref['type']
       data = xref['data']
 
+      next if data.nil? || data.empty?
+
       r << ref_from_type(type, data)
 
       xr[type] << data
