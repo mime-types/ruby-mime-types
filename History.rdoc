@@ -1,3 +1,11 @@
+== NEXT / YYYY-MM-DD
+
+* 1 governance change
+
+  * This project now has a {Code of Conduct}[Code-of-Conduct_rdoc.html]
+
+
+
 == 2.6.2 / 2015-09-13
 
 * Bugs:

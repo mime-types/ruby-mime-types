@@ -211,6 +211,8 @@ indicate when new API features have been added, but all minor versions of
 mime-types 2.x will be backwards compatible; the interfaces marked deprecated
 will be removed in mime-types 3.x.
 
+:include: Code-of-Conduct.rdoc
+
 :include: Contributing.rdoc
 
 :include: Licence.rdoc
