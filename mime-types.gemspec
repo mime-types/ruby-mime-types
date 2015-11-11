@@ -34,10 +34,12 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<minitest-autotest>, ["~> 1.0"])
       s.add_development_dependency(%q<minitest-focus>, ["~> 1.0"])
       s.add_development_dependency(%q<rake>, ["~> 10.0"])
-      s.add_development_dependency(%q<simplecov>, ["~> 0.7"])
-      s.add_development_dependency(%q<coveralls>, ["~> 0.8"])
       s.add_development_dependency(%q<fivemat>, ["~> 1.3"])
       s.add_development_dependency(%q<minitest-rg>, ["~> 5.2"])
+      if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('2.0')
+        s.add_development_dependency(%q<simplecov>, ["~> 0.7"])
+        s.add_development_dependency(%q<coveralls>, ["~> 0.8"])
+      end
       s.add_development_dependency(%q<hoe>, ["~> 3.14"])
     else
       s.add_dependency(%q<minitest>, ["~> 5.8"])
@@ -50,10 +52,12 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<minitest-autotest>, ["~> 1.0"])
       s.add_dependency(%q<minitest-focus>, ["~> 1.0"])
       s.add_dependency(%q<rake>, ["~> 10.0"])
-      s.add_dependency(%q<simplecov>, ["~> 0.7"])
-      s.add_dependency(%q<coveralls>, ["~> 0.8"])
       s.add_dependency(%q<fivemat>, ["~> 1.3"])
       s.add_dependency(%q<minitest-rg>, ["~> 5.2"])
+      if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('2.0')
+        s.add_dependency(%q<simplecov>, ["~> 0.7"])
+        s.add_dependency(%q<coveralls>, ["~> 0.8"])
+      end
       s.add_dependency(%q<hoe>, ["~> 3.14"])
     end
   else
@@ -67,10 +71,12 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<minitest-autotest>, ["~> 1.0"])
     s.add_dependency(%q<minitest-focus>, ["~> 1.0"])
     s.add_dependency(%q<rake>, ["~> 10.0"])
-    s.add_dependency(%q<simplecov>, ["~> 0.7"])
-    s.add_dependency(%q<coveralls>, ["~> 0.8"])
     s.add_dependency(%q<fivemat>, ["~> 1.3"])
     s.add_dependency(%q<minitest-rg>, ["~> 5.2"])
+    if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('2.0')
+      s.add_dependency(%q<simplecov>, ["~> 0.7"])
+      s.add_dependency(%q<coveralls>, ["~> 0.8"])
+    end
     s.add_dependency(%q<hoe>, ["~> 3.14"])
   end
 end
