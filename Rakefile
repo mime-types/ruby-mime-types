@@ -34,6 +34,8 @@ spec = Hoe.spec 'mime-types' do
   extra_dev_deps << ['rake', '~> 10.0']
   extra_dev_deps << ['simplecov', '~> 0.7']
   extra_dev_deps << ['coveralls', '~> 0.8']
+  extra_dev_deps << ['fivemat', '~> 1.3' ]
+  extra_dev_deps << ['minitest-rg', '~> 5.2']
 end
 
 task :support do
