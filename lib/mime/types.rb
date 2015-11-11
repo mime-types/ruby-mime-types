@@ -130,17 +130,15 @@ class MIME::Types
   #   1. Complete definitions sort before incomplete ones;
   #   2. IANA-registered definitions sort before LTSW-recorded
   #      definitions.
-  #   3. Generic definitions sort before platform-specific ones;
-  #   4. Current definitions sort before obsolete ones;
-  #   5. Obsolete definitions with use-instead clauses sort before those
+  #   3. Current definitions sort before obsolete ones;
+  #   4. Obsolete definitions with use-instead clauses sort before those
   #      without;
-  #   6. Obsolete definitions use-instead clauses are compared.
-  #   7. Sort on name.
+  #   5. Obsolete definitions use-instead clauses are compared.
+  #   6. Sort on name.
   #
-  # An additional flag of :platform (finds only MIME::Types for the current
-  # platform) is currently supported but deprecated.
+  # The previously supported (but deprecated) <tt>:platform</tt> flag is now ignored.
   def [](type_id, flags = {})
-    if flags[:platform]
+    if flags.key?(:platform)
       MIME::Types.deprecated(self, __method__, 'using the :platform flag')
     end
 
@@ -169,19 +167,16 @@ class MIME::Types
   #   puts MIME::Types.type_for(%w(citydesk.xml citydesk.gif))
   #     => [application/xml, image/gif, text/xml]
   #
-  # If +platform+ is +true+, then only file types that are specific to the
-  # current platform will be returned. This parameter has been deprecated.
-  def type_for(filename, platform = false)
+  # The deprecated +platform+ flag is ignored.
+  def type_for(filename, platform = :deprecated)
     types = Array(filename).flat_map { |fn|
       @extension_index[fn.chomp.downcase[/\.?([^.]*?)$/, 1]]
     }.compact.sort { |a, b| a.priority_compare(b) }.uniq
 
-    if platform
+    unless platform == :deprecated
       MIME::Types.deprecated(self, __method__, 'using the platform parameter')
-      types.select(&:platform?)
-    else
-      types
     end
+    types
   end
   alias_method :of, :type_for
 
@@ -253,7 +248,7 @@ Type #{type} is already registered as a variant of #{type.simplified}.
     end
 
     # MIME::Types#type_for against the default MIME::Types registry.
-    def type_for(filename, platform = false)
+    def type_for(filename, platform = :deprecated)
       __types__.type_for(filename, platform)
     end
     alias_method :of, :type_for
@@ -317,7 +312,6 @@ Type #{type} is already registered as a variant of #{type.simplified}.
 
   def prune_matches(matches, flags)
     matches.delete_if { |e| !e.complete? } if flags[:complete]
-    matches.delete_if { |e| !e.platform? } if flags[:platform]
     matches.delete_if { |e| !e.registered? } if flags[:registered]
     matches
   end

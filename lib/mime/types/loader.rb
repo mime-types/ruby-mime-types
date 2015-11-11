@@ -169,8 +169,8 @@ class MIME::Types::Loader
           fail BadV1Format, line
         end
 
-        unregistered, obsolete, platform, mediatype, subtype, extensions,
-          encoding, urls, docs, _ = *m.captures
+        unregistered, obsolete, _, mediatype, subtype, extensions, encoding,
+          urls, docs, _ = *m.captures
 
         next if mediatype.nil?
 
@@ -187,15 +187,10 @@ class MIME::Types::Loader
         mime_type = MIME::Type.new("#{mediatype}/#{subtype}") do |t|
           t.extensions  = extensions
           t.encoding    = encoding
-          t.system      = platform
           t.obsolete    = obsolete
           t.registered  = false if unregistered
           t.use_instead = use_instead
           t.docs        = docs
-
-          # This is being removed. Cheat to silence it for now.
-          t.instance_variable_set :@references,
-                                  Array(urls).flatten.compact.uniq
         end
 
         mime.add_type(mime_type, true)

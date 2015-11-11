@@ -53,7 +53,7 @@ class TestMIMETypes < Minitest::Test
 
   def test_index_with_platform_flag
     assert_deprecated('MIME::Types#[]', 'using the :platform flag') do
-      assert_empty(MIME::Types['text/plain', platform: true])
+      refute_empty MIME::Types['text/plain', platform: true]
     end
   end
 
@@ -79,7 +79,7 @@ class TestMIMETypes < Minitest::Test
     end
     assert_empty(MIME::Types.type_for('coverallsjson'))
     assert_deprecated('MIME::Types#type_for', 'using the platform parameter') do
-      assert_empty(MIME::Types.type_for('jpeg', true))
+      assert_equal @mime_types.type_for('jpeg', true), @mime_types['image/jpeg']
     end
     assert_empty(@mime_types.type_for('zzz'))
   end

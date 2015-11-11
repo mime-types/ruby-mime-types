@@ -2,10 +2,6 @@
 - !ruby/object:MIME::Type
   content-type: multipart/alternative
   encoding: 8bit
-  references:
-  - IANA
-  - RFC2046
-  - RFC2045
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2045
@@ -14,10 +10,6 @@
 - !ruby/object:MIME::Type
   content-type: multipart/appledouble
   encoding: 8bit
-  references:
-  - IANA
-  - "[Patrik_Faltstrom]"
-  - "{multipart/appledouble=http://www.iana.org/assignments/media-types/multipart/appledouble}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Patrik_Faltstrom
@@ -27,10 +19,6 @@
 - !ruby/object:MIME::Type
   content-type: multipart/byteranges
   encoding: base64
-  references:
-  - IANA
-  - RFC7233
-  - "{multipart/byteranges=http://www.iana.org/assignments/media-types/multipart/byteranges}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc7233
@@ -40,10 +28,6 @@
 - !ruby/object:MIME::Type
   content-type: multipart/digest
   encoding: 8bit
-  references:
-  - IANA
-  - RFC2046
-  - RFC2045
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2045
@@ -52,10 +36,6 @@
 - !ruby/object:MIME::Type
   content-type: multipart/encrypted
   encoding: base64
-  references:
-  - IANA
-  - RFC1847
-  - "{multipart/encrypted=http://www.iana.org/assignments/media-types/multipart/encrypted}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc1847
@@ -65,10 +45,6 @@
 - !ruby/object:MIME::Type
   content-type: multipart/example
   encoding: base64
-  references:
-  - IANA
-  - RFC4735
-  - "{multipart/example=http://www.iana.org/assignments/media-types/multipart/example}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4735
@@ -78,10 +54,6 @@
 - !ruby/object:MIME::Type
   content-type: multipart/form-data
   encoding: base64
-  references:
-  - IANA
-  - RFC7578
-  - "{multipart/form-data=http://www.iana.org/assignments/media-types/multipart/form-data}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc7578
@@ -91,10 +63,6 @@
 - !ruby/object:MIME::Type
   content-type: multipart/header-set
   encoding: base64
-  references:
-  - IANA
-  - "[Dave_Crocker]"
-  - "{multipart/header-set=http://www.iana.org/assignments/media-types/multipart/header-set}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Dave_Crocker
@@ -104,10 +72,6 @@
 - !ruby/object:MIME::Type
   content-type: multipart/mixed
   encoding: 8bit
-  references:
-  - IANA
-  - RFC2046
-  - RFC2045
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2045
@@ -116,10 +80,6 @@
 - !ruby/object:MIME::Type
   content-type: multipart/parallel
   encoding: 8bit
-  references:
-  - IANA
-  - RFC2046
-  - RFC2045
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2045
@@ -128,10 +88,6 @@
 - !ruby/object:MIME::Type
   content-type: multipart/related
   encoding: base64
-  references:
-  - IANA
-  - RFC2387
-  - "{multipart/related=http://www.iana.org/assignments/media-types/multipart/related}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2387
@@ -141,10 +97,6 @@
 - !ruby/object:MIME::Type
   content-type: multipart/report
   encoding: base64
-  references:
-  - IANA
-  - RFC6522
-  - "{multipart/report=http://www.iana.org/assignments/media-types/multipart/report}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6522
@@ -154,10 +106,6 @@
 - !ruby/object:MIME::Type
   content-type: multipart/signed
   encoding: base64
-  references:
-  - IANA
-  - RFC1847
-  - "{multipart/signed=http://www.iana.org/assignments/media-types/multipart/signed}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc1847
@@ -167,11 +115,6 @@
 - !ruby/object:MIME::Type
   content-type: multipart/voice-message
   encoding: base64
-  references:
-  - IANA
-  - RFC2421
-  - RFC2423
-  - "{multipart/voice-message=http://www.iana.org/assignments/media-types/multipart/voice-message}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2421
@@ -186,11 +129,6 @@
 - !ruby/object:MIME::Type
   content-type: multipart/x-mixed-replace
   encoding: base64
-  references:
-  - IANA
-  - "[W3C]"
-  - "[Robin_Berjon]"
-  - "{multipart/x-mixed-replace=http://www.iana.org/assignments/media-types/multipart/x-mixed-replace}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Robin_Berjon

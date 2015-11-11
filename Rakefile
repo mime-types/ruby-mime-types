@@ -121,6 +121,8 @@ if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('2.0')
       Rake::Task['test'].execute
     end
   end
+
+  Rake::Task['travis'].prerequisites.replace(%w(test:coveralls))
 end
 
 namespace :mime do
@@ -188,7 +190,6 @@ namespace :convert do
   end
 end
 
-Rake::Task['travis'].prerequisites.replace(%w(test:coveralls))
 Rake::Task['gem'].prerequisites.unshift('convert:yaml:json')
 
 # vim: syntax=ruby

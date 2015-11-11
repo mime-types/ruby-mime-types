@@ -2,10 +2,6 @@
 - !ruby/object:MIME::Type
   content-type: video/1d-interleaved-parityfec
   encoding: base64
-  references:
-  - IANA
-  - RFC6015
-  - "{video/1d-interleaved-parityfec=http://www.iana.org/assignments/media-types/video/1d-interleaved-parityfec}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6015
@@ -20,11 +16,6 @@
   extensions:
   - 3gp
   - 3gpp
-  references:
-  - IANA
-  - RFC3839
-  - RFC6381
-  - "{video/3gpp=http://www.iana.org/assignments/media-types/video/3gpp}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3839
@@ -35,10 +26,6 @@
 - !ruby/object:MIME::Type
   content-type: video/3gpp-tt
   encoding: base64
-  references:
-  - IANA
-  - RFC4396
-  - "{video/3gpp-tt=http://www.iana.org/assignments/media-types/video/3gpp-tt}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4396
@@ -53,11 +40,6 @@
   extensions:
   - 3g2
   - 3gpp2
-  references:
-  - IANA
-  - RFC4393
-  - RFC6381
-  - "{video/3gpp2=http://www.iana.org/assignments/media-types/video/3gpp2}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4393
@@ -68,10 +50,6 @@
 - !ruby/object:MIME::Type
   content-type: video/BMPEG
   encoding: base64
-  references:
-  - IANA
-  - RFC3555
-  - "{video/BMPEG=http://www.iana.org/assignments/media-types/video/BMPEG}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
@@ -81,10 +59,6 @@
 - !ruby/object:MIME::Type
   content-type: video/BT656
   encoding: base64
-  references:
-  - IANA
-  - RFC3555
-  - "{video/BT656=http://www.iana.org/assignments/media-types/video/BT656}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
@@ -94,10 +68,6 @@
 - !ruby/object:MIME::Type
   content-type: video/CelB
   encoding: base64
-  references:
-  - IANA
-  - RFC3555
-  - "{video/CelB=http://www.iana.org/assignments/media-types/video/CelB}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
@@ -117,10 +87,6 @@
   encoding: base64
   extensions:
   - dv
-  references:
-  - IANA
-  - RFC6469
-  - "{video/DV=http://www.iana.org/assignments/media-types/video/DV}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6469
@@ -130,10 +96,6 @@
 - !ruby/object:MIME::Type
   content-type: video/encaprtp
   encoding: base64
-  references:
-  - IANA
-  - RFC6849
-  - "{video/encaprtp=http://www.iana.org/assignments/media-types/video/encaprtp}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6849
@@ -143,10 +105,6 @@
 - !ruby/object:MIME::Type
   content-type: video/example
   encoding: base64
-  references:
-  - IANA
-  - RFC4735
-  - "{video/example=http://www.iana.org/assignments/media-types/video/example}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4735
@@ -168,10 +126,6 @@
   encoding: base64
   extensions:
   - h261
-  references:
-  - IANA
-  - RFC4587
-  - "{video/H261=http://www.iana.org/assignments/media-types/video/H261}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4587
@@ -185,10 +139,6 @@
   encoding: base64
   extensions:
   - h263
-  references:
-  - IANA
-  - RFC3555
-  - "{video/H263=http://www.iana.org/assignments/media-types/video/H263}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
@@ -198,10 +148,6 @@
 - !ruby/object:MIME::Type
   content-type: video/H263-1998
   encoding: base64
-  references:
-  - IANA
-  - RFC4629
-  - "{video/H263-1998=http://www.iana.org/assignments/media-types/video/H263-1998}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4629
@@ -211,10 +157,6 @@
 - !ruby/object:MIME::Type
   content-type: video/H263-2000
   encoding: base64
-  references:
-  - IANA
-  - RFC4629
-  - "{video/H263-2000=http://www.iana.org/assignments/media-types/video/H263-2000}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4629
@@ -228,10 +170,6 @@
   encoding: base64
   extensions:
   - h264
-  references:
-  - IANA
-  - RFC6184
-  - "{video/H264=http://www.iana.org/assignments/media-types/video/H264}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6184
@@ -241,10 +179,6 @@
 - !ruby/object:MIME::Type
   content-type: video/H264-RCDO
   encoding: base64
-  references:
-  - IANA
-  - RFC6185
-  - "{video/H264-RCDO=http://www.iana.org/assignments/media-types/video/H264-RCDO}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6185
@@ -254,10 +188,6 @@
 - !ruby/object:MIME::Type
   content-type: video/H264-SVC
   encoding: base64
-  references:
-  - IANA
-  - RFC6190
-  - "{video/H264-SVC=http://www.iana.org/assignments/media-types/video/H264-SVC}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6190
@@ -267,11 +197,6 @@
 - !ruby/object:MIME::Type
   content-type: video/iso.segment
   encoding: base64
-  references:
-  - IANA
-  - "[David_Singer]"
-  - "[ISO-IEC_JTC1]"
-  - "{video/iso.segment=http://www.iana.org/assignments/media-types/video/iso.segment}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - David_Singer
@@ -286,10 +211,6 @@
   encoding: base64
   extensions:
   - jpgv
-  references:
-  - IANA
-  - RFC3555
-  - "{video/JPEG=http://www.iana.org/assignments/media-types/video/JPEG}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
@@ -299,11 +220,6 @@
 - !ruby/object:MIME::Type
   content-type: video/jpeg2000
   encoding: base64
-  references:
-  - IANA
-  - RFC5371
-  - RFC5372
-  - "{video/jpeg2000=http://www.iana.org/assignments/media-types/video/jpeg2000}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5371
@@ -328,10 +244,6 @@
   extensions:
   - mj2
   - mjp2
-  references:
-  - IANA
-  - RFC3745
-  - "{video/mj2=http://www.iana.org/assignments/media-types/video/mj2}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3745
@@ -341,10 +253,6 @@
 - !ruby/object:MIME::Type
   content-type: video/MP1S
   encoding: base64
-  references:
-  - IANA
-  - RFC3555
-  - "{video/MP1S=http://www.iana.org/assignments/media-types/video/MP1S}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
@@ -354,10 +262,6 @@
 - !ruby/object:MIME::Type
   content-type: video/MP2P
   encoding: base64
-  references:
-  - IANA
-  - RFC3555
-  - "{video/MP2P=http://www.iana.org/assignments/media-types/video/MP2P}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
@@ -369,10 +273,6 @@
   encoding: base64
   extensions:
   - ts
-  references:
-  - IANA
-  - RFC3555
-  - "{video/MP2T=http://www.iana.org/assignments/media-types/video/MP2T}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
@@ -390,11 +290,6 @@
   - f4v
   - f4p
   - mp4v
-  references:
-  - IANA
-  - RFC4337
-  - RFC6381
-  - "{video/mp4=http://www.iana.org/assignments/media-types/video/mp4}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4337
@@ -405,10 +300,6 @@
 - !ruby/object:MIME::Type
   content-type: video/MP4V-ES
   encoding: base64
-  references:
-  - IANA
-  - RFC6416
-  - "{video/MP4V-ES=http://www.iana.org/assignments/media-types/video/MP4V-ES}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6416
@@ -428,10 +319,6 @@
   - mpg
   - m1v
   - m2v
-  references:
-  - IANA
-  - RFC2045
-  - RFC2046
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2045
@@ -440,10 +327,6 @@
 - !ruby/object:MIME::Type
   content-type: video/mpeg4-generic
   encoding: base64
-  references:
-  - IANA
-  - RFC3640
-  - "{video/mpeg4-generic=http://www.iana.org/assignments/media-types/video/mpeg4-generic}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3640
@@ -453,10 +336,6 @@
 - !ruby/object:MIME::Type
   content-type: video/MPV
   encoding: base64
-  references:
-  - IANA
-  - RFC3555
-  - "{video/MPV=http://www.iana.org/assignments/media-types/video/MPV}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3555
@@ -466,10 +345,6 @@
 - !ruby/object:MIME::Type
   content-type: video/nv
   encoding: base64
-  references:
-  - IANA
-  - RFC4856
-  - "{video/nv=http://www.iana.org/assignments/media-types/video/nv}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4856
@@ -484,10 +359,6 @@
   extensions:
   - ogg
   - ogv
-  references:
-  - IANA
-  - RFC5334
-  - "{video/ogg=http://www.iana.org/assignments/media-types/video/ogg}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5334
@@ -497,9 +368,6 @@
 - !ruby/object:MIME::Type
   content-type: video/parityfec
   encoding: base64
-  references:
-  - IANA
-  - RFC5109
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5109
@@ -507,10 +375,6 @@
 - !ruby/object:MIME::Type
   content-type: video/pointer
   encoding: base64
-  references:
-  - IANA
-  - RFC2862
-  - "{video/pointer=http://www.iana.org/assignments/media-types/video/pointer}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2862
@@ -525,11 +389,6 @@
   extensions:
   - qt
   - mov
-  references:
-  - IANA
-  - RFC6381
-  - "[Paul_Lindner]"
-  - "{video/quicktime=http://www.iana.org/assignments/media-types/video/quicktime}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6381
@@ -541,10 +400,6 @@
 - !ruby/object:MIME::Type
   content-type: video/raptorfec
   encoding: base64
-  references:
-  - IANA
-  - RFC6682
-  - "{video/raptorfec=http://www.iana.org/assignments/media-types/video/raptorfec}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6682
@@ -554,9 +409,6 @@
 - !ruby/object:MIME::Type
   content-type: video/raw
   encoding: base64
-  references:
-  - IANA
-  - RFC4175
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4175
@@ -564,10 +416,6 @@
 - !ruby/object:MIME::Type
   content-type: video/rtp-enc-aescm128
   encoding: base64
-  references:
-  - IANA
-  - "[ThreeGPP]"
-  - "{video/rtp-enc-aescm128=http://www.iana.org/assignments/media-types/video/rtp-enc-aescm128}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - ThreeGPP
@@ -577,10 +425,6 @@
 - !ruby/object:MIME::Type
   content-type: video/rtploopback
   encoding: base64
-  references:
-  - IANA
-  - RFC6849
-  - "{video/rtploopback=http://www.iana.org/assignments/media-types/video/rtploopback}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6849
@@ -590,10 +434,6 @@
 - !ruby/object:MIME::Type
   content-type: video/rtx
   encoding: base64
-  references:
-  - IANA
-  - RFC4588
-  - "{video/rtx=http://www.iana.org/assignments/media-types/video/rtx}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4588
@@ -603,10 +443,6 @@
 - !ruby/object:MIME::Type
   content-type: video/SMPTE292M
   encoding: base64
-  references:
-  - IANA
-  - RFC3497
-  - "{video/SMPTE292M=http://www.iana.org/assignments/media-types/video/SMPTE292M}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3497
@@ -616,10 +452,6 @@
 - !ruby/object:MIME::Type
   content-type: video/ulpfec
   encoding: base64
-  references:
-  - IANA
-  - RFC5109
-  - "{video/ulpfec=http://www.iana.org/assignments/media-types/video/ulpfec}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5109
@@ -629,10 +461,6 @@
 - !ruby/object:MIME::Type
   content-type: video/vc1
   encoding: base64
-  references:
-  - IANA
-  - RFC4425
-  - "{video/vc1=http://www.iana.org/assignments/media-types/video/vc1}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4425
@@ -642,10 +470,6 @@
 - !ruby/object:MIME::Type
   content-type: video/vnd.CCTV
   encoding: base64
-  references:
-  - IANA
-  - "[Frank_Rottmann]"
-  - "{video/vnd.CCTV=http://www.iana.org/assignments/media-types/video/vnd.CCTV}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Frank_Rottmann
@@ -660,10 +484,6 @@
   extensions:
   - uvh
   - uvvh
-  references:
-  - IANA
-  - "[Michael_A_Dolan]"
-  - "{video/vnd.dece.hd=http://www.iana.org/assignments/media-types/video/vnd.dece.hd}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Michael_A_Dolan
@@ -678,10 +498,6 @@
   extensions:
   - uvm
   - uvvm
-  references:
-  - IANA
-  - "[Michael_A_Dolan]"
-  - "{video/vnd.dece.mobile=http://www.iana.org/assignments/media-types/video/vnd.dece.mobile}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Michael_A_Dolan
@@ -691,10 +507,6 @@
 - !ruby/object:MIME::Type
   content-type: video/vnd.dece.mp4
   encoding: base64
-  references:
-  - IANA
-  - "[Michael_A_Dolan]"
-  - "{video/vnd.dece-mp4=http://www.iana.org/assignments/media-types/video/vnd.dece-mp4}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Michael_A_Dolan
@@ -709,10 +521,6 @@
   extensions:
   - uvp
   - uvvp
-  references:
-  - IANA
-  - "[Michael_A_Dolan]"
-  - "{video/vnd.dece.pd=http://www.iana.org/assignments/media-types/video/vnd.dece.pd}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Michael_A_Dolan
@@ -727,10 +535,6 @@
   extensions:
   - uvs
   - uvvs
-  references:
-  - IANA
-  - "[Michael_A_Dolan]"
-  - "{video/vnd.dece.sd=http://www.iana.org/assignments/media-types/video/vnd.dece.sd}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Michael_A_Dolan
@@ -745,10 +549,6 @@
   extensions:
   - uvv
   - uvvv
-  references:
-  - IANA
-  - "[Michael_A_Dolan]"
-  - "{video/vnd.dece.video=http://www.iana.org/assignments/media-types/video/vnd.dece.video}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Michael_A_Dolan
@@ -758,10 +558,6 @@
 - !ruby/object:MIME::Type
   content-type: video/vnd.directv.mpeg
   encoding: base64
-  references:
-  - IANA
-  - "[Nathan_Zerbe]"
-  - "{video/vnd.directv-mpeg=http://www.iana.org/assignments/media-types/video/vnd.directv-mpeg}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Nathan_Zerbe
@@ -771,10 +567,6 @@
 - !ruby/object:MIME::Type
   content-type: video/vnd.directv.mpeg-tts
   encoding: base64
-  references:
-  - IANA
-  - "[Nathan_Zerbe]"
-  - "{video/vnd.directv.mpeg-tts=http://www.iana.org/assignments/media-types/video/vnd.directv.mpeg-tts}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Nathan_Zerbe
@@ -784,10 +576,6 @@
 - !ruby/object:MIME::Type
   content-type: video/vnd.dlna.mpeg-tts
   encoding: base64
-  references:
-  - IANA
-  - "[Edwin_Heredia]"
-  - "{video/vnd.dlna.mpeg-tts=http://www.iana.org/assignments/media-types/video/vnd.dlna.mpeg-tts}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Edwin_Heredia
@@ -799,11 +587,6 @@
   encoding: base64
   extensions:
   - dvb
-  references:
-  - IANA
-  - "[Peter_Siebert]"
-  - "[Kevin_Murray]"
-  - "{video/vnd.dvb.file=http://www.iana.org/assignments/media-types/video/vnd.dvb.file}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Kevin_Murray
@@ -818,10 +601,6 @@
   encoding: base64
   extensions:
   - fvt
-  references:
-  - IANA
-  - "[Arild_Fuldseth]"
-  - "{video/vnd.fvt=http://www.iana.org/assignments/media-types/video/vnd.fvt}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Arild_Fuldseth
@@ -831,10 +610,6 @@
 - !ruby/object:MIME::Type
   content-type: video/vnd.hns.video
   encoding: base64
-  references:
-  - IANA
-  - "[Swaminathan]"
-  - "{video/vnd.hns.video=http://www.iana.org/assignments/media-types/video/vnd.hns.video}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Swaminathan
@@ -844,10 +619,6 @@
 - !ruby/object:MIME::Type
   content-type: video/vnd.iptvforum.1dparityfec-1010
   encoding: base64
-  references:
-  - IANA
-  - "[Shuji_Nakamura]"
-  - "{video/vnd.iptvforum.1dparityfec-1010=http://www.iana.org/assignments/media-types/video/vnd.iptvforum.1dparityfec-1010}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Shuji_Nakamura
@@ -857,10 +628,6 @@
 - !ruby/object:MIME::Type
   content-type: video/vnd.iptvforum.1dparityfec-2005
   encoding: base64
-  references:
-  - IANA
-  - "[Shuji_Nakamura]"
-  - "{video/vnd.iptvforum.1dparityfec-2005=http://www.iana.org/assignments/media-types/video/vnd.iptvforum.1dparityfec-2005}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Shuji_Nakamura
@@ -870,10 +637,6 @@
 - !ruby/object:MIME::Type
   content-type: video/vnd.iptvforum.2dparityfec-1010
   encoding: base64
-  references:
-  - IANA
-  - "[Shuji_Nakamura]"
-  - "{video/vnd.iptvforum.2dparityfec-1010=http://www.iana.org/assignments/media-types/video/vnd.iptvforum.2dparityfec-1010}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Shuji_Nakamura
@@ -883,10 +646,6 @@
 - !ruby/object:MIME::Type
   content-type: video/vnd.iptvforum.2dparityfec-2005
   encoding: base64
-  references:
-  - IANA
-  - "[Shuji_Nakamura]"
-  - "{video/vnd.iptvforum.2dparityfec-2005=http://www.iana.org/assignments/media-types/video/vnd.iptvforum.2dparityfec-2005}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Shuji_Nakamura
@@ -896,10 +655,6 @@
 - !ruby/object:MIME::Type
   content-type: video/vnd.iptvforum.ttsavc
   encoding: base64
-  references:
-  - IANA
-  - "[Shuji_Nakamura]"
-  - "{video/vnd.iptvforum.ttsavc=http://www.iana.org/assignments/media-types/video/vnd.iptvforum.ttsavc}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Shuji_Nakamura
@@ -909,10 +664,6 @@
 - !ruby/object:MIME::Type
   content-type: video/vnd.iptvforum.ttsmpeg2
   encoding: base64
-  references:
-  - IANA
-  - "[Shuji_Nakamura]"
-  - "{video/vnd.iptvforum.ttsmpeg2=http://www.iana.org/assignments/media-types/video/vnd.iptvforum.ttsmpeg2}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Shuji_Nakamura
@@ -922,10 +673,6 @@
 - !ruby/object:MIME::Type
   content-type: video/vnd.motorola.video
   encoding: base64
-  references:
-  - IANA
-  - "[Tom_McGinty]"
-  - "{video/vnd.motorola.video=http://www.iana.org/assignments/media-types/video/vnd.motorola.video}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Tom_McGinty
@@ -935,10 +682,6 @@
 - !ruby/object:MIME::Type
   content-type: video/vnd.motorola.videop
   encoding: base64
-  references:
-  - IANA
-  - "[Tom_McGinty]"
-  - "{video/vnd.motorola.videop=http://www.iana.org/assignments/media-types/video/vnd.motorola.videop}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Tom_McGinty
@@ -953,10 +696,6 @@
   extensions:
   - mxu
   - m4u
-  references:
-  - IANA
-  - "[Heiko_Recktenwald]"
-  - "{video/vnd-mpegurl=http://www.iana.org/assignments/media-types/video/vnd-mpegurl}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Heiko_Recktenwald
@@ -970,10 +709,6 @@
   encoding: base64
   extensions:
   - pyv
-  references:
-  - IANA
-  - "[Steve_DiAcetis]"
-  - "{video/vnd.ms-playready.media.pyv=http://www.iana.org/assignments/media-types/video/vnd.ms-playready.media.pyv}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Steve_DiAcetis
@@ -985,10 +720,6 @@
   encoding: base64
   extensions:
   - nim
-  references:
-  - IANA
-  - "[Petteri_Kangaslampi]"
-  - "{video/vnd.nokia.interleaved-multimedia=http://www.iana.org/assignments/media-types/video/vnd.nokia.interleaved-multimedia}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Petteri_Kangaslampi
@@ -998,10 +729,6 @@
 - !ruby/object:MIME::Type
   content-type: video/vnd.nokia.videovoip
   encoding: base64
-  references:
-  - IANA
-  - "[Nokia]"
-  - "{video/vnd.nokia.videovoip=http://www.iana.org/assignments/media-types/video/vnd.nokia.videovoip}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Nokia
@@ -1014,10 +741,6 @@
   extensions:
   - mp4
   - m4v
-  references:
-  - IANA
-  - "[John_Clark]"
-  - "{video/vnd.objectvideo=http://www.iana.org/assignments/media-types/video/vnd.objectvideo}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - John_Clark
@@ -1027,10 +750,6 @@
 - !ruby/object:MIME::Type
   content-type: video/vnd.radgamettools.bink
   encoding: base64
-  references:
-  - IANA
-  - "[Henrik_Andersson]"
-  - "{video/vnd.radgamettools.bink=http://www.iana.org/assignments/media-types/video/vnd.radgamettools.bink}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Henrik_Andersson
@@ -1040,10 +759,6 @@
 - !ruby/object:MIME::Type
   content-type: video/vnd.radgamettools.smacker
   encoding: base64
-  references:
-  - IANA
-  - "[Henrik_Andersson]"
-  - "{video/vnd.radgamettools.smacker=http://www.iana.org/assignments/media-types/video/vnd.radgamettools.smacker}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Henrik_Andersson
@@ -1055,10 +770,6 @@
   encoding: base64
   extensions:
   - s11
-  references:
-  - IANA
-  - "[David_Petersen]"
-  - "{video/vnd.sealed.mpeg1=http://www.iana.org/assignments/media-types/video/vnd.sealed.mpeg1}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - David_Petersen
@@ -1071,10 +782,6 @@
   extensions:
   - smpg
   - s14
-  references:
-  - IANA
-  - "[David_Petersen]"
-  - "{video/vnd.sealed.mpeg4=http://www.iana.org/assignments/media-types/video/vnd.sealed.mpeg4}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - David_Petersen
@@ -1087,10 +794,6 @@
   extensions:
   - sswf
   - ssw
-  references:
-  - IANA
-  - "[David_Petersen]"
-  - "{video/vnd.sealed-swf=http://www.iana.org/assignments/media-types/video/vnd.sealed-swf}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - David_Petersen
@@ -1104,10 +807,6 @@
   - smov
   - smo
   - s1q
-  references:
-  - IANA
-  - "[David_Petersen]"
-  - "{video/vnd.sealedmedia.softseal-mov=http://www.iana.org/assignments/media-types/video/vnd.sealedmedia.softseal-mov}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - David_Petersen
@@ -1122,10 +821,6 @@
   extensions:
   - uvu
   - uvvu
-  references:
-  - IANA
-  - "[Michael_A_Dolan]"
-  - "{video/vnd.uvvu-mp4=http://www.iana.org/assignments/media-types/video/vnd.uvvu-mp4}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Michael_A_Dolan
@@ -1140,15 +835,20 @@
   extensions:
   - viv
   - vivo
-  references:
-  - IANA
-  - "[John_Wolfe]"
-  - "{video/vnd-vivo=http://www.iana.org/assignments/media-types/video/vnd-vivo}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - John_Wolfe
     template:
     - video/vnd-vivo
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: video/VP8
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-ietf-payload-vp8-17
+    template:
+    - video/VP8
   registered: true
 - !ruby/object:MIME::Type
   content-type: video/webm
@@ -1157,8 +857,6 @@
   encoding: base64
   extensions:
   - webm
-  references:
-  - "{WebM=http://www.webmproject.org/code/specs/container/}"
   registered: false
 - !ruby/object:MIME::Type
   content-type: video/x-dl

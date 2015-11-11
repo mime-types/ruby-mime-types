@@ -1,5 +1,17 @@
 = MIME Types Changes by Version
 
+== 2.99 / 2015-11-21
+
+* Removed deprecated fields from the data files.
+* Updated the IANA media registry entries as of release date:
+  * Updated metadata for application/scim+json, audio/G711-0, text/markdown.
+  * Added application/cdni, application/csvm+json, application/rfc+xml,
+    application/vnd.3gpp.access-transfer-events+xml,
+    application/vnd.3gpp.srvcc-ext+xml, application/vnd.3gpp.SRVCC-info+xml,
+    application/vnd.ms-windows.devicepairing,
+    application/vnd.ms-windows.wsd.oob, application/vnd.oxli.countgraph,
+    application/vnd.pagerduty+json, video/VP8.
+
 == 2.6.2 / 2015-09-13
 
 * Updated the IANA media registry entries as of release date:
