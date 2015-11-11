@@ -1,6 +1,12 @@
-# -*- ruby encoding: utf-8 -*-
+##
+module MIME
+  ##
+  class Types
+  end
+end
 
-require 'mime/types/deprecations'
+require 'mime/types/logger'
+require 'mime/types/container'
 require 'mime/type'
 require 'mime/types/cache'
 require 'mime/types/loader'
@@ -66,37 +72,19 @@ class MIME::Types
 
   include Enumerable
 
-  # The data version.
-  attr_reader :data_version
-
   # Creates a new MIME::Types registry.
   def initialize
     @type_variants    = Container.new
     @extension_index  = Container.new
-    @data_version     = VERSION.dup.freeze
-  end
-
-  # This method is deprecated and will be removed in mime-types 3.0.
-  def add_type_variant(mime_type) # :nodoc:
-    MIME::Types.deprecated(self, __method__, :private)
-    add_type_variant!(mime_type)
-  end
-
-  # This method is deprecated and will be removed in mime-types 3.0.
-  def index_extensions(mime_type) # :nodoc:
-    MIME::Types.deprecated(self, __method__, :private)
-    index_extensions!(mime_type)
-  end
-
-  # This method is deprecated and will be removed in mime-types 3.0.
-  def defined_types # :nodoc:
-    MIME::Types.deprecated(self, __method__)
-    @type_variants.values.flatten
   end
 
   # Returns the number of known type variants.
   def count
-    @type_variants.values.reduce(0) { |m, o| m + o.size }
+    @type_variants.values.inject(0) { |a, e| a + e.size }
+  end
+
+  def inspect # :nodoc:
+    "#<#{self.class}: #{count} variants, #{@extension_index.count} extensions>"
   end
 
   # Iterates through the type variants.
@@ -108,7 +96,7 @@ class MIME::Types
     end
   end
 
-  @__types__  = nil
+  @__types__ = nil
 
   # Returns a list of MIME::Type objects, which may be empty. The optional
   # flag parameters are <tt>:complete</tt> (finds only complete MIME::Type
@@ -130,20 +118,12 @@ class MIME::Types
   #   1. Complete definitions sort before incomplete ones;
   #   2. IANA-registered definitions sort before LTSW-recorded
   #      definitions.
-  #   3. Generic definitions sort before platform-specific ones;
-  #   4. Current definitions sort before obsolete ones;
-  #   5. Obsolete definitions with use-instead clauses sort before those
+  #   3. Current definitions sort before obsolete ones;
+  #   4. Obsolete definitions with use-instead clauses sort before those
   #      without;
-  #   6. Obsolete definitions use-instead clauses are compared.
-  #   7. Sort on name.
-  #
-  # An additional flag of :platform (finds only MIME::Types for the current
-  # platform) is currently supported but deprecated.
-  def [](type_id, flags = {})
-    if flags[:platform]
-      MIME::Types.deprecated(self, __method__, 'using the :platform flag')
-    end
-
+  #   5. Obsolete definitions use-instead clauses are compared.
+  #   6. Sort on name.
+  def [](type_id, complete: false, registered: false)
     matches = case type_id
               when MIME::Type
                 @type_variants[type_id.simplified]
@@ -153,7 +133,9 @@ class MIME::Types
                 @type_variants[MIME::Type.simplified(type_id)]
               end
 
-    prune_matches(matches, flags).sort { |a, b| a.priority_compare(b) }
+    prune_matches(matches, complete, registered).sort { |a, b|
+      a.priority_compare(b)
+    }
   end
 
   # Return the list of MIME::Types which belongs to the file based on its
@@ -168,20 +150,12 @@ class MIME::Types
   #     => [image/gif]
   #   puts MIME::Types.type_for(%w(citydesk.xml citydesk.gif))
   #     => [application/xml, image/gif, text/xml]
-  #
-  # If +platform+ is +true+, then only file types that are specific to the
-  # current platform will be returned. This parameter has been deprecated.
-  def type_for(filename, platform = false)
-    types = Array(filename).flat_map { |fn|
+  def type_for(filename)
+    Array(filename).flat_map { |fn|
       @extension_index[fn.chomp.downcase[/\.?([^.]*?)$/, 1]]
-    }.compact.sort { |a, b| a.priority_compare(b) }.uniq
-
-    if platform
-      MIME::Types.deprecated(self, __method__, 'using the platform parameter')
-      types.select(&:platform?)
-    else
-      types
-    end
+    }.compact.inject(:+).sort { |a, b|
+      a.priority_compare(b)
+    }
   end
   alias_method :of, :type_for
 
@@ -199,7 +173,7 @@ class MIME::Types
         nil
       when MIME::Types
         variants = mime_type.instance_variable_get(:@type_variants)
-        add(*variants.values.flatten, quiet)
+        add(*variants.values.inject(:+).to_a, quiet)
       when Array
         add(*mime_type, quiet)
       else
@@ -222,111 +196,33 @@ Type #{type} is already registered as a variant of #{type.simplified}.
     index_extensions!(type)
   end
 
-  class << self
-    include Enumerable
-
-    # Load MIME::Types from a v1 file registry.
-    #
-    # This method has been deprecated and will be removed in mime-types 3.0.
-    def load_from_file(filename)
-      MIME::Types.deprecated(self, __method__)
-      MIME::Types::Loader.load_from_v1(filename)
-    end
-
-    # MIME::Types#[] against the default MIME::Types registry.
-    def [](type_id, flags = {})
-      __types__[type_id, flags]
-    end
-
-    # MIME::Types#count against the default MIME::Types registry.
-    def count
-      __types__.count
-    end
-
-    # MIME::Types#each against the default MIME::Types registry.
-    def each
-      if block_given?
-        __types__.each { |t| yield t }
-      else
-        enum_for(:each)
-      end
-    end
-
-    # MIME::Types#type_for against the default MIME::Types registry.
-    def type_for(filename, platform = false)
-      __types__.type_for(filename, platform)
-    end
-    alias_method :of, :type_for
-
-    # MIME::Types#add against the default MIME::Types registry.
-    def add(*types)
-      __types__.add(*types)
-    end
-
-    # Returns the currently defined cache file, if any.
-    #
-    # This method has been deprecated and will be removed in mime-types 3.0.
-    def cache_file
-      MIME::Types.deprecated(self, __method__)
-      ENV['RUBY_MIME_TYPES_CACHE']
-    end
-
-    def add_type_variant(mime_type) # :nodoc:
-      __types__.add_type_variant(mime_type)
-    end
-
-    def index_extensions(mime_type) # :nodoc:
-      __types__.index_extensions(mime_type)
-    end
-
-    private
-
-    def lazy_load?
-      (lazy = ENV['RUBY_MIME_TYPES_LAZY_LOAD']) && (lazy != 'false')
-    end
-
-    def __types__
-      (defined?(@__types__) and @__types__) or load_default_mime_types
-    end
-
-    unless private_method_defined?(:load_mode)
-      def load_mode
-        {}
-      end
-    end
-
-    def load_default_mime_types(mode = load_mode())
-      @__types__ = MIME::Types::Cache.load
-      unless @__types__
-        @__types__ = MIME::Types::Loader.load(mode)
-        MIME::Types::Cache.save(@__types__)
-      end
-      @__types__
-    end
-  end
-
   private
 
   def add_type_variant!(mime_type)
     @type_variants[mime_type.simplified] << mime_type
   end
 
+  def reindex_extensions!(mime_type)
+    return unless @type_variants[mime_type.simplified].include?(mime_type)
+    index_extensions!(mime_type)
+  end
+
   def index_extensions!(mime_type)
     mime_type.extensions.each { |ext| @extension_index[ext] << mime_type }
   end
 
-  def prune_matches(matches, flags)
-    matches.delete_if { |e| !e.complete? } if flags[:complete]
-    matches.delete_if { |e| !e.platform? } if flags[:platform]
-    matches.delete_if { |e| !e.registered? } if flags[:registered]
+  def prune_matches(matches, complete, registered)
+    matches.delete_if { |e| !e.complete? } if complete
+    matches.delete_if { |e| !e.registered? } if registered
     matches
   end
 
   def match(pattern)
-    @type_variants.select { |k, _| k =~ pattern }.values.flatten
+    @type_variants.select { |k, _|
+      k =~ pattern
+    }.values.inject(:+)
   end
-
-  load_default_mime_types(load_mode) unless lazy_load?
 end
 
-# vim: ft=ruby
+require 'mime/types/columnar' unless defined?(MIME::Types::Columnar)
+require 'mime/types/registry'

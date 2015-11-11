@@ -2,12 +2,13 @@
 
 module Benchmarks
   class ObjectCounts
-    def self.report(columnar: false)
+    def self.report(columnar: false, full: false)
       new(columnar: columnar).report
     end
 
-    def initialize(columnar: false)
+    def initialize(columnar: false, full: false)
       @columnar = columnar
+      @full = full
     end
 
     def report
@@ -25,9 +26,10 @@ module Benchmarks
       @before = count_objects
 
       if @columnar
-        require 'mime/types/columnar'
-      else
         require 'mime/types'
+        MIME::Types.first.to_h if @full
+      else
+        require 'mime/types/full'
       end
 
       @after = count_objects

@@ -3,137 +3,153 @@
 require 'mime/types'
 require 'minitest_helper'
 
-class TestMIMETypesQueryClassMethods < Minitest::Test
+describe MIME::Types, 'registry' do
   def setup
     MIME::Types.send(:load_default_mime_types)
   end
 
-  def test_enumerable
-    assert(MIME::Types.any? { |type| type.content_type == 'text/plain' })
-    assert_kind_of(Enumerator, MIME::Types.each)
-    assert(MIME::Types.each.count > 999)
-  end
+  describe 'is enumerable' do
+    it 'correctly uses an Enumerable method like #any?' do
+      assert MIME::Types.any? { |type| type.content_type == 'text/plain' }
+    end
 
-  def test_load_from_file
-    fn = File.expand_path('../fixture/old-data', __FILE__)
-    assert_deprecated('MIME::Types.load_from_file') do
-      MIME::Types.load_from_file(fn)
+    it 'implements each with no parameters to return an Enumerator' do
+      assert_kind_of Enumerator, MIME::Types.each
+      assert_kind_of Enumerator, MIME::Types.map
+    end
+
+    it 'will create a lazy enumerator' do
+      assert_kind_of Enumerator::Lazy, MIME::Types.lazy
+      assert_kind_of Enumerator::Lazy, MIME::Types.map.lazy
+    end
+
+    it 'is countable with an enumerator' do
+      assert MIME::Types.each.count > 999
+      assert MIME::Types.lazy.count > 999
     end
   end
 
-  def test_index_with_mime_type
-    xtxp = MIME::Type.new('x-text/x-plain')
-    assert_includes(MIME::Types[xtxp], 'text/plain')
-    assert_equal(1, MIME::Types[xtxp].size)
-  end
+  describe '.\[]' do
+    it 'can be searched with a MIME::Type' do
+      text_plain = MIME::Type.new('text/plain')
+      assert_includes MIME::Types[text_plain], 'text/plain'
+      assert_equal 1, MIME::Types[text_plain].size
+    end
 
-  def test_index_with_regex
-    assert_includes(MIME::Types[/plain/], 'text/plain')
-    assert_equal(1, MIME::Types[/plain/].size)
-  end
+    it 'can be searched with a regular expression' do
+      assert_includes MIME::Types[/plain$/], 'text/plain'
+      assert_equal 1, MIME::Types[/plain$/].size
+    end
 
-  def test_index_with_string
-    assert_includes(MIME::Types['text/plain'], 'text/plain')
-    assert_equal(1, MIME::Types['text/plain'].size)
-  end
+    it 'sorts by priority with multiple matches' do
+      assert_equal %w(application/gzip application/x-gzip multipart/x-gzip),
+        MIME::Types[/gzip$/]
+      assert_equal 3, MIME::Types[/gzip$/].size
+    end
 
-  def test_index_with_complete_flag
-    assert_empty(MIME::Types['application/1d-interleaved-parityfec', complete: true])
-    refute_empty(MIME::Types['text/plain', complete: true])
-  end
+    it 'can be searched with a string' do
+      assert_includes MIME::Types['text/plain'], 'text/plain'
+      assert_equal 1, MIME::Types['text/plain'].size
+    end
 
-  def test_index_with_registered_flag
-    assert_empty(MIME::Types['application/x-wordperfect6.1',
-                             registered: true])
-    refute_empty(MIME::Types['application/x-www-form-urlencoded',
-                             registered: true])
-    refute_empty(MIME::Types['application/gzip', registered: true])
-    refute_equal(MIME::Types['application/gzip'].size,
-                 MIME::Types['application/gzip', registered: true])
-  end
+    it 'can be searched with the complete flag' do
+      assert_empty MIME::Types[
+        'application/x-www-form-urlencoded',
+        complete: true
+      ]
+      assert_includes MIME::Types['text/plain', complete: true], 'text/plain'
+      assert_equal 1, MIME::Types['text/plain', complete: true].size
+    end
 
-  def test_index_with_platform_flag
-    assert_deprecated('MIME::Types#[]', 'using the :platform flag') do
-      assert_empty(MIME::Types['text/plain', platform: true])
+    it 'can be searched with the registered flag' do
+      assert_empty MIME::Types['application/x-wordperfect6.1', registered: true]
+      refute_empty MIME::Types[
+        'application/x-www-form-urlencoded',
+        registered: true
+      ]
+      refute_empty MIME::Types[/gzip/, registered: true]
+      refute_equal MIME::Types[/gzip/], MIME::Types[/gzip/, registered: true]
     end
   end
 
-  def test_type_for
-    assert_equal(%w(application/xml text/xml), MIME::Types.type_for('xml'))
-    assert_equal(%w(image/gif), MIME::Types.of('foo.gif'))
-    assert_equal(%w(application/xml image/gif text/xml),
-                 MIME::Types.type_for(%w(xml gif)))
-    assert_deprecated('MIME::Types#type_for', 'using the platform parameter') do
-      assert_empty(MIME::Types.type_for('gif', true))
+  describe '.type_for' do
+    it 'finds all types for a given extension' do
+      assert_equal %w(application/gzip application/x-gzip),
+        MIME::Types.type_for('gz')
     end
-    assert_empty(MIME::Types.type_for('zzz'))
-  end
 
-  def test_count
-    assert(MIME::Types.count.nonzero?,
-           'A lot of types are expected to be known.')
-  end
-
-  def test_cache_file
-    ENV['RUBY_MIME_TYPES_CACHE'] = 'foo'
-    assert_deprecated('MIME::Types.cache_file') do
-      assert_equal('foo', MIME::Types.cache_file)
+    it 'separates the extension from filenames' do
+      assert_equal %w(image/jpeg), MIME::Types.of(['foo.jpeg', 'bar.jpeg'])
     end
-    ENV.delete('RUBY_MIME_TYPES_CACHE')
-    assert_deprecated('MIME::Types.cache_file') do
-      assert_nil(MIME::Types.cache_file)
+
+    it 'finds multiple extensions' do
+      assert_equal %w(image/jpeg text/plain),
+        MIME::Types.type_for(%w(foo.txt foo.jpeg))
     end
-  end
-end
 
-class TestMIMETypesClassMethods < Minitest::Test
-  def setup
-    MIME::Types.instance_variable_set(:@__types__, nil)
-    MIME::Types.send(:load_default_mime_types)
-  end
-
-  def test_add_with_type
-    MIME::Types.add(MIME::Type.new('application/x-eruby'))
-    refute_empty(MIME::Types['application/x-eruby'])
-  end
-
-  def test_add_with_types
-    mt = MIME::Types.new
-    mt.add MIME::Type.new('application/x-eruby')
-    MIME::Types.add(mt)
-    refute_empty(MIME::Types['application/x-eruby'])
-  end
-
-  def test_add_with_array
-    MIME::Types.add([MIME::Type.new('application/x-eruby')])
-    refute_empty(MIME::Types['application/x-eruby'])
-  end
-
-  def test_add_with_noise_suppression
-    assert_silent do
-      MIME::Types.add(MIME::Type.new('application/x-eruby'))
+    it 'does not find unknown extensions' do
+      assert_empty MIME::Types.type_for('zzz')
     end
-    assert_output(nil, %r{application/x-eruby is already registered}) do
-      MIME::Types.add(MIME::Type.new('application/x-eruby'))
-    end
-    assert_silent do
-      MIME::Types.add(MIME::Type.new('application/x-eruby'), :silent)
+
+    it 'modifying type extensions causes reindexing' do
+      plain_text = MIME::Types['text/plain'].first
+      plain_text.add_extensions('xtxt')
+      assert_includes MIME::Types.type_for('xtxt'), 'text/plain'
     end
   end
 
-  def test_add_type_variant
-    xtxp = MIME::Type.new('x-text/x-plain')
-    assert_deprecated('MIME::Types#add_type_variant', 'and will be private') do
-      MIME::Types.add_type_variant(xtxp)
+  describe '.count' do
+    it 'can count the number of types inside' do
+      assert MIME::Types.count > 999
     end
-    assert_includes(MIME::Types['text/plain'], xtxp)
   end
 
-  def test_index_extensions
-    xtxp = MIME::Type.new(['x-text/x-plain', %w(tzt)])
-    assert_deprecated('MIME::Types#index_extensions', 'and will be private') do
-      MIME::Types.index_extensions(xtxp)
+  describe '.add' do
+    def setup
+      MIME::Types.instance_variable_set(:@__types__, nil)
+      MIME::Types.send(:load_default_mime_types)
     end
-    assert_includes(MIME::Types.of('tzt'), xtxp)
+
+    let(:eruby) { MIME::Type.new('application/x-eruby') }
+    let(:jinja) { MIME::Type.new('application/jinja2' )}
+
+    it 'successfully adds a new type' do
+      MIME::Types.add(eruby)
+      assert_equal MIME::Types['application/x-eruby'], [ eruby ]
+    end
+
+    it 'complains about adding a duplicate type' do
+      MIME::Types.add(eruby)
+      assert_output '', /is already registered as a variant/ do
+        MIME::Types.add(eruby)
+      end
+      assert_equal MIME::Types['application/x-eruby'], [eruby]
+    end
+
+    it 'does not complain about adding a duplicate type when quiet' do
+      MIME::Types.add(eruby)
+      assert_silent do
+        MIME::Types.add(eruby, :silent)
+      end
+      assert_equal MIME::Types['application/x-eruby'], [ eruby ]
+    end
+
+    it 'successfully adds from an array' do
+      MIME::Types.add([ eruby, jinja ])
+      assert_equal MIME::Types['application/x-eruby'], [ eruby ]
+      assert_equal MIME::Types['application/jinja2'], [ jinja ]
+    end
+
+    it 'successfully adds from another MIME::Types' do
+      old_count = MIME::Types.count
+
+      mt = MIME::Types.new
+      mt.add(eruby)
+
+      MIME::Types.add(mt)
+      assert_equal old_count + 1, MIME::Types.count
+
+      assert_equal MIME::Types[eruby.content_type], [ eruby ]
+    end
   end
 end

@@ -2,7 +2,7 @@
 exclude: !ruby/regexp '/
   \.(tmp|swp)$
   |
-  CVS/
+  (CVS|tmp)\/
   |
   (?i:TAGS)
   |
@@ -10,11 +10,11 @@ exclude: !ruby/regexp '/
   |
   Gemfile(?:\.lock)?
   |
-  type-lists\/
-  |
-  \.(coveralls|pullreview|travis).yml$
+  \.(rubocop|coveralls|pullreview|travis).yml$
   |
   \.gemspec
+  |
+  \.byebug_history
   |
   Vagrantfile
   /x'

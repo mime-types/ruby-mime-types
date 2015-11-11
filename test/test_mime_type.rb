@@ -3,13 +3,21 @@
 require 'mime/types'
 require 'minitest_helper'
 
-class TestMIMEType < Minitest::Test
-  def make(content_type)
+describe MIME::Type do
+  # it { fail }
+
+  def mime_type(content_type)
     MIME::Type.new(content_type) { |mt| yield mt if block_given? }
   end
 
-  def make_javascript
-    make('application/javascript') do |js|
+  let(:x_appl_x_zip) {
+    mime_type('x-appl/x-zip') { |t| t.extensions = %w(zip zp) }
+  }
+  let(:text_plain) { mime_type('text/plain') }
+  let(:text_html) { mime_type('text/html') }
+  let(:image_jpeg) { mime_type('image/jpeg') }
+  let(:application_javascript) {
+    mime_type('application/javascript') do |js|
       js.friendly('en' => 'JavaScript')
       js.xrefs = {
         'rfc' => %w(rfc4239 rfc4239),
@@ -17,652 +25,579 @@ class TestMIMEType < Minitest::Test
       }
       js.encoding = '8bit'
       js.extensions = %w(js sj)
-      assert_deprecated('MIME::Type#references=') do
-        js.references = %w(IANA RFC4329 {application/javascript=http://www.iana.org/assignments/media-types/application/javascript})
-      end
       js.registered = true
-
-      yield js if block_given?
     end
-  end
-
-  def make_yaml_mime_type
-    make('text/x-yaml') do |yaml|
+  }
+  let(:text_x_yaml) {
+    mime_type('text/x-yaml') do |yaml|
       yaml.extensions = %w(yaml yml)
       yaml.encoding   = '8bit'
-      yaml.system     = 'd9d172f608'
       yaml.friendly('en' => 'YAML Structured Document')
     end
-  end
+  }
+  let(:text_x_yaml_with_docs) {
+    text_x_yaml.dup.tap do |yaml|
+      yaml.docs = 'Test YAML'
+    end
+  }
 
-  def make_yaml_mime_type_with_docs
-    make('text/x-yaml') do |yaml|
-      yaml.extensions = %w(yaml yml)
-      yaml.encoding   = '8bit'
-      yaml.system     = 'd9d172f608'
-      yaml.docs       = 'Test YAML'
+  describe '.simplified' do
+    it 'leaves normal types alone' do
+      assert_equal 'text/plain', MIME::Type.simplified('text/plain')
+    end
+
+    it 'does not remove x- prefixes by default' do
+      assert_equal 'application/x-msword',
+        MIME::Type.simplified('application/x-msword')
+      assert_equal 'x-xyz/abc', MIME::Type.simplified('x-xyz/abc')
+    end
+
+    it 'removes x- prefixes when requested' do
+      assert_equal 'application/msword',
+        MIME::Type.simplified('application/x-msword', remove_x_prefix: true)
+      assert_equal 'xyz/abc',
+        MIME::Type.simplified('x-xyz/abc', remove_x_prefix: true)
+    end
+
+    it 'lowercases mixed-case types' do
+      assert_equal 'text/vcard', MIME::Type.simplified('text/vCard')
+    end
+
+    it 'returns nil when the value provided is not a valid content type' do
+      assert_nil MIME::Type.simplified('text')
     end
   end
 
-  def setup
-    @applzip = MIME::Type.new('x-appl/x-zip') { |t|
-      t.extensions = %w(zip zp)
-    }
+  describe '.i18n_key' do
+    it 'converts text/plain to text.plain' do
+      assert_equal 'text.plain', MIME::Type.i18n_key('text/plain')
+    end
+
+    it 'does not remove x-prefixes' do
+      assert_equal 'application.x-msword',
+        MIME::Type.i18n_key('application/x-msword')
+    end
+
+    it 'converts text/vCard to text.vcard' do
+      assert_equal 'text.vcard', MIME::Type.i18n_key('text/vCard')
+    end
+
+    it 'returns nil when the value provided is not a valid content type' do
+      assert_nil MIME::Type.i18n_key('text')
+    end
   end
 
-  def test_class_from_array
-    yaml = nil
-    assert_deprecated('MIME::Type.from_array') do
-      yaml = MIME::Type.from_array(
-        'text/x-yaml',
-        %w(yaml yml),
-        '8bit',
-        'd9d172f608'
+  describe '.new' do
+    it 'fails if an invalid content type is provided' do
+      exception = assert_raises MIME::Type::InvalidContentType do
+        MIME::Type.new('apps')
+      end
+      assert_equal 'Invalid Content-Type "apps"', exception.to_s
+    end
+
+    it 'creates a valid content type just from a string' do
+      type = MIME::Type.new('text/x-yaml')
+
+      assert_instance_of MIME::Type, type
+      assert_equal 'text/x-yaml', type.content_type
+    end
+
+    it 'yields the content type in a block' do
+      MIME::Type.new('text/x-yaml') do |type|
+        assert_instance_of MIME::Type, type
+        assert_equal 'text/x-yaml', type.content_type
+      end
+    end
+
+    it 'creates a valid content type from a hash' do
+      type = MIME::Type.new(
+        'content-type' => 'text/x-yaml',
+        'obsolete' => true
       )
+      assert_instance_of MIME::Type, type
+      assert_equal 'text/x-yaml', type.content_type
+      assert type.obsolete?
     end
-    assert_instance_of(MIME::Type, yaml)
-    assert_equal('text/yaml', yaml.simplified)
-    assert_deprecated('MIME::Type.from_array') do
-      assert_raises(ArgumentError) { MIME::Type.from_array }
+
+    it 'creates a valid content type from an array' do
+      type = MIME::Type.new(%w(text/x-yaml yaml yml yz))
+      assert_instance_of MIME::Type, type
+      assert_equal 'text/x-yaml', type.content_type
+      assert_equal %w(yaml yml yz), type.extensions
     end
   end
 
-  def test_class_from_hash
-    yaml = nil
-    assert_deprecated('MIME::Type.from_hash') do
-      yaml = MIME::Type.from_hash('Content-Type' => 'text/x-yaml',
-                                  'Content-Transfer-Encoding' => '8bit',
-                                  'System' => 'd9d172f608',
-                                  'Extensions' => %w(yaml yml))
+  describe '#like?' do
+    it 'compares two MIME::Types on #simplified values without x- prefixes' do
+      assert text_plain.like?(text_plain)
+      refute text_plain.like?(text_html)
     end
-    assert_instance_of(MIME::Type, yaml)
-    assert_equal('text/yaml', yaml.simplified)
-  end
 
-  def test_class_from_mime_type
-    zip2 = nil
-    assert_deprecated('MIME::Type.from_mime_type') do
-      zip2 = MIME::Type.from_mime_type(@applzip)
+    it 'compares MIME::Type against string without x- prefixes' do
+      assert text_plain.like?(text_plain.to_s)
+      refute text_plain.like?(text_html.to_s)
     end
-    assert_instance_of(MIME::Type, @applzip)
-    assert_equal('appl/zip', @applzip.simplified)
-    refute_equal(@applzip.object_id, zip2.object_id)
   end
 
-  def test_class_simplified
-    assert_equal('text/plain', MIME::Type.simplified('text/plain'))
-    assert_equal('image/jpeg', MIME::Type.simplified('image/jpeg'))
-    assert_equal('application/msword', MIME::Type.simplified('application/x-msword'))
-    assert_equal('text/vcard', MIME::Type.simplified('text/vCard'))
-    assert_equal('application/pkcs7-mime', MIME::Type.simplified('application/pkcs7-mime'))
-    assert_equal('xyz/abc', MIME::Type.simplified('x-xyz/abc'))
-    assert_nil(MIME::Type.simplified('text'))
+  describe '#<=>' do
+    it 'correctly compares identical types' do
+      assert_equal text_plain, text_plain
+    end
+
+    it 'correctly compares equivalent types' do
+      right = mime_type('text/Plain')
+      refute_same text_plain, right
+      assert_equal text_plain, right
+    end
+
+    it 'correctly compares types that sort earlier' do
+      refute_equal text_html, text_plain
+      assert_operator text_html, :<, text_plain
+    end
+
+    it 'correctly compares types that sort later' do
+      refute_equal text_plain, text_html
+      assert_operator text_plain, :>, text_html
+    end
+
+    it 'correctly compares types against equivalent strings' do
+      assert_equal text_plain, 'text/plain'
+    end
+
+    it 'correctly compares types against strings that sort earlier' do
+      refute_equal text_html, 'text/plain'
+      assert_operator text_html, :<, 'text/plain'
+    end
+
+    it 'correctly compares types against strings that sort later' do
+      refute_equal text_plain, 'text/html'
+      assert_operator text_plain, :>, 'text/html'
+    end
+
+    it 'correctly compares against nil' do
+      refute_equal text_html, nil
+      assert_operator text_plain, :<, nil
+    end
   end
 
-  def test_class_i18n_key
-    assert_equal('text.plain', MIME::Type.i18n_key('text/plain'))
-    assert_equal('image.jpeg', MIME::Type.i18n_key('image/jpeg'))
-    assert_equal('application.msword', MIME::Type.i18n_key('application/x-msword'))
-    assert_equal('text.vcard', MIME::Type.i18n_key('text/vCard'))
-    assert_equal('application.pkcs7-mime', MIME::Type.i18n_key('application/pkcs7-mime'))
-    assert_equal('xyz.abc', MIME::Type.i18n_key('x-xyz/abc'))
-    assert_nil(MIME::Type.i18n_key('text'))
+  describe '#ascii?' do
+    it 'defaults to true for text/* types' do
+      assert text_plain.ascii?
+    end
+
+    it 'defaults to false for non-text/* types' do
+      refute image_jpeg.ascii?
+    end
   end
 
-  def test_spaceship_compare # '<=>'
-    assert(MIME::Type.new('text/plain') == MIME::Type.new('text/plain')) # rubocop:disable Lint/UselessComparison
-    assert(MIME::Type.new('text/plain') != MIME::Type.new('image/jpeg'))
-    assert(MIME::Type.new('text/plain') == 'text/plain')
-    assert(MIME::Type.new('text/plain') != 'image/jpeg')
-    assert(MIME::Type.new('text/plain') > MIME::Type.new('text/html'))
-    assert(MIME::Type.new('text/plain') > 'text/html')
-    assert(MIME::Type.new('text/html') < MIME::Type.new('text/plain'))
-    assert(MIME::Type.new('text/html') < 'text/plain')
-    assert('text/html' == MIME::Type.new('text/html'))
-    assert('text/html' < MIME::Type.new('text/plain'))
-    assert('text/plain' > MIME::Type.new('text/html'))
+  describe '#binary?' do
+    it 'defaults to false for text/* types' do
+      refute text_plain.binary?
+    end
+
+    it 'defaults to true for non-text/* types' do
+      assert image_jpeg.binary?
+    end
   end
 
-  def test_ascii_eh
-    assert(MIME::Type.new('text/plain').ascii?)
-    refute(MIME::Type.new('image/jpeg').ascii?)
-    refute(MIME::Type.new('application/x-msword').ascii?)
-    assert(MIME::Type.new('text/vCard').ascii?)
-    refute(MIME::Type.new('application/pkcs7-mime').ascii?)
-    refute(@applzip.ascii?)
+  describe '#complete?' do
+    it 'is true when there are extensions' do
+      assert text_x_yaml.complete?
+    end
+
+    it 'is false when there are no extensions' do
+      refute mime_type('text/plain').complete?
+    end
   end
 
-  def test_binary_eh
-    refute(MIME::Type.new('text/plain').binary?)
-    assert(MIME::Type.new('image/jpeg').binary?)
-    assert(MIME::Type.new('application/x-msword').binary?)
-    refute(MIME::Type.new('text/vCard').binary?)
-    assert(MIME::Type.new('application/pkcs7-mime').binary?)
-    assert(@applzip.binary?)
+  describe '#content_type' do
+    it 'preserves the original case' do
+      assert_equal 'text/plain', text_plain.content_type
+      assert_equal 'text/vCard', mime_type('text/vCard').content_type
+    end
+
+    it 'does not remove x- prefixes' do
+      assert_equal 'x-appl/x-zip', x_appl_x_zip.content_type
+    end
   end
 
-  def test_complete_eh
-    yaml = make_yaml_mime_type
-    assert(yaml.complete?)
-    yaml.extensions = nil
-    refute(yaml.complete?)
+  describe '#default_encoding' do
+    it 'is quoted-printable for text/* types' do
+      assert_equal 'quoted-printable', text_plain.default_encoding
+    end
+
+    it 'is base64 for non-text/* types' do
+      assert_equal 'base64', image_jpeg.default_encoding
+    end
   end
 
-  def test_content_type
-    assert_equal('text/plain', MIME::Type.new('text/plain').content_type)
-    assert_equal('image/jpeg', MIME::Type.new('image/jpeg').content_type)
-    assert_equal('application/x-msword',
-                 MIME::Type.new('application/x-msword').content_type)
-    assert_equal('text/vCard', MIME::Type.new('text/vCard').content_type)
-    assert_equal('application/pkcs7-mime',
-                 MIME::Type.new('application/pkcs7-mime').content_type)
-    assert_equal('x-appl/x-zip', @applzip.content_type)
-    assert_equal('base64', @applzip.encoding)
+  describe '#encoding, #encoding=' do
+    it 'returns #default_encoding if not set explicitly' do
+      assert_equal 'quoted-printable', text_plain.encoding
+      assert_equal 'base64', image_jpeg.encoding
+    end
+
+    it 'returns the set value when set' do
+      text_plain.encoding = '8bit'
+      assert_equal '8bit', text_plain.encoding
+    end
+
+    it 'resets to the default encoding when set to nil or :default' do
+      text_plain.encoding = '8bit'
+      text_plain.encoding = nil
+      assert_equal text_plain.default_encoding, text_plain.encoding
+      text_plain.encoding = :default
+      assert_equal text_plain.default_encoding, text_plain.encoding
+    end
+
+    it 'raises a MIME::Type::InvalidEncoding for an invalid encoding' do
+      exception = assert_raises MIME::Type::InvalidEncoding do
+        text_plain.encoding = 'binary'
+      end
+      assert_equal 'Invalid Encoding "binary"', exception.to_s
+    end
   end
 
-  def test_encoding
-    assert_equal('quoted-printable', MIME::Type.new('text/plain').encoding)
-    assert_equal('base64', MIME::Type.new('image/jpeg').encoding)
-    assert_equal('base64', MIME::Type.new('application/x-msword').encoding)
-    assert_equal('quoted-printable', MIME::Type.new('text/vCard').encoding)
-    assert_equal('base64', MIME::Type.new('application/pkcs7-mime').encoding)
+  describe '#eql?' do
+    it 'is not true for a non-MIME::Type' do
+      refute text_plain.eql?('text/plain')
+    end
+
+    it 'is not true for a different MIME::Type' do
+      refute text_plain.eql?(image_jpeg)
+    end
+
+    it 'is true for an equivalent MIME::Type' do
+      assert text_plain, mime_type('text/Plain')
+    end
   end
 
-  def test_encoding_equals
-    yaml = make_yaml_mime_type
-    assert_equal('8bit', yaml.encoding)
-    yaml.encoding = 'base64'
-    assert_equal('base64', yaml.encoding)
-    yaml.encoding = :default
-    assert_equal('quoted-printable', yaml.encoding)
-    assert_raises(MIME::Type::InvalidEncoding) {
-      yaml.encoding = 'binary'
+  describe '#extensions, #extensions=' do
+    it 'returns an array of extensions' do
+      assert_equal %w(yaml yml), text_x_yaml.extensions
+      assert_equal %w(zip zp), x_appl_x_zip.extensions
+    end
+
+    it 'sets a single extension when provided a single value' do
+      text_x_yaml.extensions = 'yaml'
+      assert_equal %w(yaml), text_x_yaml.extensions
+    end
+
+    it 'deduplicates extensions' do
+      text_x_yaml.extensions = %w(yaml yaml)
+      assert_equal %w(yaml), text_x_yaml.extensions
+    end
+  end
+
+  describe '#add_extensions' do
+    it 'does not modify extensions when provided nil' do
+      text_x_yaml.add_extensions(nil)
+      assert_equal %w(yaml yml), text_x_yaml.extensions
+    end
+
+    it 'remains deduplicated with duplicate values' do
+      text_x_yaml.add_extensions('yaml')
+      assert_equal %w(yaml yml), text_x_yaml.extensions
+      text_x_yaml.add_extensions(%w(yaml yz))
+      assert_equal %w(yaml yml yz), text_x_yaml.extensions
+    end
+  end
+
+  describe '#priority_compare' do
+    def assert_priority_less(left, right)
+      assert_equal(-1, left.priority_compare(right))
+    end
+
+    def assert_priority_same(left, right)
+      assert_equal 0, left.priority_compare(right)
+    end
+
+    def assert_priority_more(left, right)
+      assert_equal 1, left.priority_compare(right)
+    end
+
+    def assert_priority(left, middle, right)
+      assert_priority_less left, right
+      assert_priority_same left, middle
+      assert_priority_more right, left
+    end
+
+    let(:text_1) { mime_type('text/1') }
+    let(:text_1p) { mime_type('text/1') }
+    let(:text_2) { mime_type('text/2') }
+
+    it 'sorts (1) based on the simplified type' do
+      assert_priority text_1, text_1p, text_2
+    end
+
+    it 'sorts (2) based on the registration state' do
+      text_1.registered = text_1p.registered = true
+      text_1b = mime_type(text_1) { |t| t.registered = false }
+
+      assert_priority text_1, text_1p, text_1b
+    end
+
+    it 'sorts (3) based on the completeness' do
+      text_1.extensions = text_1p.extensions = '1'
+      text_1b = mime_type(text_1) { |t| t.extensions = nil }
+
+      assert_priority text_1, text_1p, text_1b
+    end
+
+    it 'sorts (4) based on obsolete status' do
+      text_1.obsolete = text_1p.obsolete = false
+      text_1b = mime_type(text_1) { |t| t.obsolete = true }
+
+      assert_priority text_1, text_1p, text_1b
+    end
+
+    it 'sorts (5) based on the use-instead value' do
+      text_1.obsolete = text_1p.obsolete = true
+      text_1.use_instead = text_1p.use_instead = 'abc/xyz'
+      text_1b = mime_type(text_1) { |t| t.use_instead = nil }
+
+      assert_priority text_1, text_1p, text_1b
+
+      text_1b.use_instead = 'abc/zzz'
+
+      assert_priority text_1, text_1p, text_1b
+    end
+  end
+
+  describe '#raw_media_type' do
+    it 'extracts the media type as case-preserved' do
+      assert_equal 'Text', mime_type('Text/plain').raw_media_type
+    end
+
+    it 'does not remove x- prefixes' do
+      assert_equal('x-appl', x_appl_x_zip.raw_media_type)
+    end
+  end
+
+  describe '#media_type' do
+    it 'extracts the media type as lowercase' do
+      assert_equal 'text', text_plain.media_type
+    end
+
+    it 'does not remove x- prefixes' do
+      assert_equal('x-appl', x_appl_x_zip.media_type)
+    end
+  end
+
+  describe '#raw_media_type' do
+    it 'extracts the media type as case-preserved' do
+      assert_equal 'Text', mime_type('Text/plain').raw_media_type
+    end
+
+    it 'does not remove x- prefixes' do
+      assert_equal('x-appl', x_appl_x_zip.raw_media_type)
+    end
+  end
+
+  describe '#sub_type' do
+    it 'extracts the sub type as lowercase' do
+      assert_equal 'plain', text_plain.sub_type
+    end
+
+    it 'does not remove x- prefixes' do
+      assert_equal('x-zip', x_appl_x_zip.sub_type)
+    end
+  end
+
+  describe '#raw_sub_type' do
+    it 'extracts the sub type as case-preserved' do
+      assert_equal 'Plain', mime_type('text/Plain').raw_sub_type
+    end
+
+    it 'does not remove x- prefixes' do
+      assert_equal('x-zip', x_appl_x_zip.raw_sub_type)
+    end
+  end
+
+  describe '#to_h' do
+    let(:t) { mime_type('a/b') }
+
+    it 'has the required keys (content-type, registered, encoding)' do
+      assert_has_keys t.to_h, %w(content-type registered encoding)
+    end
+
+    it 'has the docs key if there are documents' do
+      assert_has_keys mime_type(t) { |v| v.docs = 'a' }.to_h, %w(docs)
+    end
+
+    it 'has the extensions key if set' do
+      assert_has_keys mime_type(t) { |v| v.extensions = 'a' }.to_h,
+        'extensions'
+    end
+
+    it 'has the preferred-extension key if set' do
+      assert_has_keys mime_type(t) { |v| v.preferred_extension = 'a' }.to_h,
+        'preferred-extension'
+    end
+
+    it 'has the obsolete key if set' do
+      assert_has_keys mime_type(t) { |v| v.obsolete = true }.to_h, 'obsolete'
+    end
+
+    it 'has the obsolete and use-instead keys if set' do
+      assert_has_keys mime_type(t) { |v|
+        v.obsolete = true
+        v.use_instead = 'c/d'
+      }.to_h, %w(obsolete use-instead)
+    end
+
+    it 'has the signature key if set' do
+      assert_has_keys mime_type(t) { |v| v.signature = true }.to_h, 'signature'
+    end
+  end
+
+  describe '#to_json' do
+    let(:expected) {
+      '{"content-type":"a/b","encoding":"base64","registered":false}'
     }
-  end
 
-  def test_default_encoding
-    %w(text/plain text/html).each { |mt|
-      assert_equal('quoted-printable', MIME::Type.new(mt).default_encoding)
-    }
-    %w(image/jpeg applicatoin/pkcs7-mime).each { |mt|
-      assert_equal('base64', MIME::Type.new(mt).default_encoding)
-    }
-  end
-
-  def test_docs
-    yaml = make_yaml_mime_type_with_docs
-    assert_equal('Test YAML', yaml.docs)
-  end
-
-  def test_docs_equals
-    yaml = make_yaml_mime_type
-    assert_equal [], yaml.docs
-    yaml.docs = 'YAML docs'
-    assert_equal('YAML docs', yaml.docs)
-  end
-
-  def test_eql?
-    assert(MIME::Type.new('text/plain').eql?(MIME::Type.new('text/plain')))
-    refute(MIME::Type.new('text/plain').eql?(MIME::Type.new('image/jpeg')))
-    refute(MIME::Type.new('text/plain').eql?('text/plain'))
-    refute(MIME::Type.new('text/plain').eql?('image/jpeg'))
-  end
-
-  def test_extensions
-    yaml = make_yaml_mime_type
-    assert_equal(%w(yaml yml), yaml.extensions)
-    assert_equal(2, @applzip.extensions.size)
-    assert_equal(%w(zip zp), @applzip.extensions)
-  end
-
-  def test_add_extensions
-    expected = make_yaml_mime_type
-    test_doc = make_yaml_mime_type
-    test_doc.add_extensions(nil)
-    assert_equal(expected.extensions, test_doc.extensions)
-    test_doc.add_extensions('yaml')
-    assert_equal(expected.extensions, test_doc.extensions)
-    test_doc.add_extensions(%w(yaml))
-    assert_equal(expected.extensions, test_doc.extensions)
-    test_doc.add_extensions('yz')
-    assert_equal(%w(yaml yml yz), test_doc.extensions)
-  end
-
-  def test_extensions_equals
-    yaml = make_yaml_mime_type
-    yaml.extensions = 'yaml'
-    assert_equal(%w(yaml), yaml.extensions)
-
-    yaml.extensions = %w(yaml yaml)
-    assert_equal(%w(yaml), yaml.extensions)
-
-    yaml.extensions = %w(yz yaml yz yml)
-    assert_equal(%w(yz yaml yml), yaml.extensions)
-  end
-
-  def test_like_eh
-    assert(MIME::Type.new('text/plain').like?(MIME::Type.new('text/plain')))
-    assert(MIME::Type.new('text/plain').like?(MIME::Type.new('text/x-plain')))
-    refute(MIME::Type.new('text/plain').like?(MIME::Type.new('image/jpeg')))
-    assert(MIME::Type.new('text/plain').like?('text/plain'))
-    assert(MIME::Type.new('text/plain').like?('text/x-plain'))
-    refute(MIME::Type.new('text/plain').like?('image/jpeg'))
-  end
-
-  def test_media_type
-    assert_equal('text', MIME::Type.new('text/plain').media_type)
-    assert_equal('image', MIME::Type.new('image/jpeg').media_type)
-    assert_equal('application', MIME::Type.new('application/x-msword').media_type)
-    assert_equal('text', MIME::Type.new('text/vCard').media_type)
-    assert_equal('application', MIME::Type.new('application/pkcs7-mime').media_type)
-    assert_equal('chemical', MIME::Type.new('x-chemical/x-pdb').media_type)
-    assert_equal('appl', @applzip.media_type)
-  end
-
-  def test_obsolete_eh
-    type = MIME::Type.new('content-type' => 'test/type',
-                          'obsolete'     => true)
-    assert(type.obsolete?)
-    refute(make_yaml_mime_type.obsolete?)
-  end
-
-  def test_obsolete_equals
-    yaml = make_yaml_mime_type
-    refute(yaml.obsolete?)
-    yaml.obsolete = true
-    assert(yaml.obsolete?)
-  end
-
-  def test_platform_eh
-    yaml = nil
-    assert_deprecated('MIME::Type#platform?') do
-      yaml = make_yaml_mime_type
-      refute(yaml.platform?)
-    end
-    yaml.system = nil
-    assert_deprecated('MIME::Type#platform?') do
-      refute(yaml.platform?)
-    end
-    yaml.system = %r{#{RUBY_PLATFORM}}
-    assert_deprecated('MIME::Type#platform?') do
-      assert(yaml.platform?)
+    it 'converts to JSON when requested' do
+      assert_equal expected, mime_type('a/b').to_json
     end
   end
 
-  def assert_priority(l, e, r)
-    assert_equal(-1, l.first.priority_compare(l.last))
-    assert_equal(0, e.first.priority_compare(e.last))
-    assert_equal(1, r.first.priority_compare(r.last))
-  end
+  describe '#to_s, #to_str' do
+    it 'represents itself as a string of the canonical content_type' do
+      assert_equal 'text/plain', "#{text_plain}"
+    end
 
-  def test_priority_compare
-    tl, te, tr = make('text/1'), make('text/1'), make('text/2')
-    assert_priority([tl, tr], [tl, te], [tr, tl])
+    it 'acts like a string of the canonical content_type for comparison' do
+      assert_equal text_plain, 'text/plain'
+    end
 
-    tl.registered = te.registered = true
-    tr = make(tl) { |t| t.registered = false }
-    assert_priority([tl, tr], [tl, te], [tr, tl])
-
-    tl.system = te.system = nil
-    tr = make(tl) { |t| t.system = /#{RUBY_PLATFORM}/ }
-    assert_priority([tl, tr], [tl, te], [tr, tl])
-
-    tl.extensions = te.extensions = %w(1)
-    tr = make(tl) { |t| t.extensions = nil }
-    assert_priority([tl, tr], [tl, te], [tr, tl])
-
-    tl.obsolete = te.obsolete = false
-    tr = make(tl) { |t| t.obsolete = true }
-    assert_priority([tl, tr], [tl, te], [tr, tl])
-
-    tl.obsolete = te.obsolete = true
-    tl.use_instead = te.use_instead = 'abc/xyz'
-    tr = make(tl) { |t| t.use_instead = nil }
-    assert_priority([tl, tr], [tl, te], [tr, tl])
-    tr.use_instead = 'abc/zzz'
-    assert_priority([tl, tr], [tl, te], [tr, tl])
-  end
-
-  def test_raw_media_type
-    assert_equal('text', MIME::Type.new('text/plain').raw_media_type)
-    assert_equal('image', MIME::Type.new('image/jpeg').raw_media_type)
-    assert_equal('application', MIME::Type.new('application/x-msword').raw_media_type)
-    assert_equal('text', MIME::Type.new('text/vCard').raw_media_type)
-    assert_equal('application', MIME::Type.new('application/pkcs7-mime').raw_media_type)
-    assert_equal('x-chemical', MIME::Type.new('x-chemical/x-pdb').raw_media_type)
-    assert_equal('x-appl', @applzip.raw_media_type)
-  end
-
-  def test_raw_sub_type
-    assert_equal('plain', MIME::Type.new('text/plain').raw_sub_type)
-    assert_equal('jpeg', MIME::Type.new('image/jpeg').raw_sub_type)
-    assert_equal('x-msword', MIME::Type.new('application/x-msword').raw_sub_type)
-    assert_equal('vCard', MIME::Type.new('text/vCard').raw_sub_type)
-    assert_equal('pkcs7-mime', MIME::Type.new('application/pkcs7-mime').raw_sub_type)
-    assert_equal('x-zip', @applzip.raw_sub_type)
-  end
-
-  def test_registered_eh
-    assert(MIME::Type.new('text/plain').registered?)
-    assert(MIME::Type.new('image/jpeg').registered?)
-    refute(MIME::Type.new('application/x-msword').registered?)
-    assert(MIME::Type.new('text/vCard').registered?)
-    assert(MIME::Type.new('application/pkcs7-mime').registered?)
-    refute(@applzip.registered?)
-    refute(MIME::Types['image/webp'].first.registered?)
-    # Temporarily broken: requires the new data format to be enabled.
-    assert(MIME::Types['application/x-www-form-urlencoded'].first.registered?)
-  end
-
-  def test_registered_equals
-    [ nil, false, true ].each { |v|
-      @applzip.registered = v
-      assert_equal(v, @applzip.instance_variable_get(:@registered))
-    }
-    @applzip.registered = 1
-    assert_equal(true, @applzip.instance_variable_get(:@registered))
-  end
-
-  def test_signature_eh
-    refute(MIME::Type.new('text/plain').signature?)
-    refute(MIME::Type.new('image/jpeg').signature?)
-    refute(MIME::Type.new('application/x-msword').signature?)
-  end
-
-  def test_signature_equals
-    sig = MIME::Type.new('text/vCard') { |t| t.signature = true }
-    assert(sig.signature?)
-  end
-
-  def test_simplified
-    assert_equal('text/plain', MIME::Type.new('text/plain').simplified)
-    assert_equal('image/jpeg', MIME::Type.new('image/jpeg').simplified)
-    assert_equal('application/msword', MIME::Type.new('application/x-msword').simplified)
-    assert_equal('text/vcard', MIME::Type.new('text/vCard').simplified)
-    assert_equal('application/pkcs7-mime', MIME::Type.new('application/pkcs7-mime').simplified)
-    assert_equal('chemical/pdb', MIME::Type.new('x-chemical/x-pdb').simplified)
-  end
-
-  def test_sub_type
-    assert_equal('plain', MIME::Type.new('text/plain').sub_type)
-    assert_equal('jpeg', MIME::Type.new('image/jpeg').sub_type)
-    assert_equal('msword', MIME::Type.new('application/x-msword').sub_type)
-    assert_equal('vcard', MIME::Type.new('text/vCard').sub_type)
-    assert_equal('pkcs7-mime', MIME::Type.new('application/pkcs7-mime').sub_type)
-    assert_equal('zip', @applzip.sub_type)
-  end
-
-  def test_system
-    assert_deprecated('MIME::Type#system') do
-      yaml = make_yaml_mime_type
-      assert_equal(%r{d9d172f608}, yaml.system)
+    it 'acts like a string for other purposes' do
+      assert_equal 'stringy', 'text/plain'.sub(text_plain, 'stringy')
     end
   end
 
-  def test_system_equals
-    yaml = make_yaml_mime_type
-    yaml.system = /win32/
-    assert_deprecated('MIME::Type#system') do
-      assert_equal(%r{win32}, yaml.system)
-    end
-    yaml.system = nil
-    assert_deprecated('MIME::Type#system') do
-      assert_nil(yaml.system)
-    end
-  end
-
-  def test_system_eh
-    yaml = make_yaml_mime_type
-    assert_deprecated('MIME::Type#system?') do
-      assert(yaml.system?)
-    end
-    yaml.system = nil
-    assert_deprecated('MIME::Type#system?') do
-      refute(yaml.system?)
-    end
-  end
-
-  def test_to_a
-    yaml = make_yaml_mime_type
-    assert_deprecated('MIME::Type#to_a') do
-      assert_equal(['text/x-yaml', %w(yaml yml), '8bit', /d9d172f608/,
-                    false, [], [], false], yaml.to_a)
-    end
-  end
-
-  def test_to_hash
-    yaml = make_yaml_mime_type
-    assert_deprecated('MIME::Type#to_hash') do
-      assert_equal(
-        {
-          'Content-Type'              => 'text/x-yaml',
-          'Content-Transfer-Encoding' => '8bit',
-          'Extensions'                => %w(yaml yml),
-          'System'                    => /d9d172f608/,
-          'Registered'                => false,
-          'URL'                       => [],
-          'Obsolete'                  => false,
-          'Docs'                      => []
-        },
-        yaml.to_hash)
-    end
-  end
-
-  def assert_type_has_keys(type, *keys)
-    hash = type.to_h
-    keys.flatten.each { |key| assert(hash.key?(key)) }
-  end
-
-  def test_to_h
-    t = make('a/b')
-    assert_type_has_keys(t, %w(content-type registered encoding))
-    assert_type_has_keys(make(t) { |v| v.docs = 'Something' }, 'docs')
-    assert_type_has_keys(make(t) { |v| v.extensions = %w(b) }, 'extensions')
-    assert_type_has_keys(make(t) { |v| v.obsolete = true }, 'obsolete')
-    assert_type_has_keys(make(t) { |v|
-      v.obsolete = true
-      v.use_instead = 'c/d'
-    }, 'obsolete', 'use-instead')
-    assert_type_has_keys(make(t) { |v|
-      assert_deprecated('MIME::Type#references=') { v.references = 'IANA' }
-    }, 'references')
-    assert_type_has_keys(make(t) { |v| v.signature = true }, 'signature')
-    assert_type_has_keys(make(t) { |v| v.system = /xyz/ }, 'system')
-  end
-
-  def test_to_json
-    assert_equal('{"content-type":"a/b","encoding":"base64","registered":true}',
-                 make('a/b').to_json)
-  end
-
-  def test_to_s
-    assert_equal('text/plain', "#{MIME::Type.new('text/plain')}")
-  end
-
-  def test_class_constructors
-    assert_instance_of(MIME::Type, MIME::Type.new('text/x-yaml'))
-    assert_instance_of(MIME::Type, MIME::Type.new('text/x-yaml') { |y|
-      assert_instance_of(MIME::Type, y)
-    })
-    assert_instance_of(MIME::Type, MIME::Type.new('content-type' => 'text/x-yaml'))
-    assert_instance_of(MIME::Type, MIME::Type.new(['text/x-yaml', %w(yaml)]))
-    assert_raises(MIME::Type::InvalidContentType) { MIME::Type.new('apps') }
-    begin
-      MIME::Type.new(nil)
-    rescue MIME::Type::InvalidContentType => ex
-      assert_equal('Invalid Content-Type nil', ex.message)
-    end
-  end
-
-  def test_to_str
-    assert_equal('stringy', 'text/plain'.sub(MIME::Type.new('text/plain'), 'stringy'))
-  end
-
-  def test_references
-    assert_deprecated('MIME::Type#references') do
-      assert_empty(make_yaml_mime_type.references)
-    end
-  end
-
-  def test_references_equals
-    yaml = make_yaml_mime_type
-    assert_deprecated('MIME::Type#references=') do
-      yaml.references = 'IANA'
-    end
-    assert_deprecated('MIME::Type#references') do
-      assert_equal(%w(IANA), yaml.references)
-    end
-
-    assert_deprecated('MIME::Type#references=') do
-      yaml.references = %w(IANA IANA)
-    end
-    assert_deprecated('MIME::Type#references') do
-      assert_equal(%w(IANA), yaml.references)
-    end
-  end
-
-  def test_xrefs
-    assert_equal(
+  describe '#xrefs, #xrefs=' do
+    let(:expected) {
       {
-        'rfc' => %w(rfc4239),
-        'template' => %w(application/javascript)
-      },
-      make_javascript.xrefs
-    )
+        'rfc' => Set[*%w(rfc1234 rfc5678)]
+      }
+    }
+
+    it 'returns the expected results' do
+      application_javascript.xrefs = {
+        'rfc' => %w(rfc5678 rfc1234 rfc1234)
+      }
+
+      assert_equal expected, application_javascript.xrefs
+    end
   end
 
-  def test_xref_urls
-    js = make_javascript do |j|
-      j.xrefs = j.xrefs.merge(
-        'draft'      => [ 'RFC-ietf-appsawg-json-merge-patch-07' ],
-        'person'     => [ 'David_Singer' ],
-        'rfc-errata' => [ '3245' ],
-        'uri'        => [ 'http://exmple.org' ],
-        'text'       => [ 'text' ]
-      )
-    end
-    assert_equal(
+  describe '#xref_urls' do
+    let(:expected) {
       [
-        'http://www.iana.org/go/rfc4239',
-        'http://www.iana.org/assignments/media-types/application/javascript',
-        'http://www.iana.org/go/draft-ietf-appsawg-json-merge-patch-07',
-        'http://www.iana.org/assignments/media-types/media-types.xhtml#David_Singer',
-        'http://www.rfc-editor.org/errata_search.php?eid=3245',
-        'http://exmple.org',
+        'http://www.iana.org/go/draft1',
+        'http://www.iana.org/assignments/media-types/a/b',
+        'http://www.iana.org/assignments/media-types/media-types.xhtml#p-1',
+        'http://www.iana.org/go/rfc-1',
+        'http://www.rfc-editor.org/errata_search.php?eid=err-1',
+        'http://example.org',
         'text'
-      ],
-      js.xref_urls
-    )
-  end
+      ]
+    }
 
-  def test_url
-    assert_deprecated('MIME::Type#url') do
-      assert_empty(make_yaml_mime_type.url)
+    let(:type) {
+      mime_type('a/b').tap do |t|
+        t.xrefs = {
+          'draft'      => [ 'RFC1' ],
+          'template'   => [ 'a/b' ],
+          'person'     => [ 'p-1' ],
+          'rfc'        => [ 'rfc-1' ],
+          'rfc-errata' => [ 'err-1' ],
+          'uri'        => [ 'http://example.org' ],
+          'text'       => [ 'text' ]
+        }
+      end
+    }
+
+    it 'translates according to given rules' do
+      assert_equal expected, type.xref_urls
     end
   end
 
-  def test_url_equals
-    yaml = make_yaml_mime_type
-    assert_deprecated('MIME::Type#url=') do
-      yaml.url = 'IANA'
-    end
-    assert_deprecated('MIME::Type#url') do
-      assert_equal(%w(IANA), yaml.url)
-    end
-  end
-
-  def test_urls
-    yaml = make_yaml_mime_type
-    assert_deprecated('MIME::Type#urls') do
-      assert_empty(yaml.urls)
+  describe '#use_instead' do
+    it 'is nil unless the type is obsolete' do
+      assert_nil text_plain.use_instead
     end
 
-    assert_deprecated('MIME::Type#references=') do
-      yaml.references = %w(IANA RFC123 DRAFT:xyz [abc])
+    it 'is nil if not set and the type is obsolete' do
+      text_plain.obsolete = true
+      assert_nil text_plain.use_instead
     end
 
-    assert_deprecated('MIME::Type#urls') do
-      assert_equal(
-        %w(
-          http://www.iana.org/assignments/media-types/text/yaml
-          http://rfc-editor.org/rfc/rfc123.txt
-          http://datatracker.ietf.org/public/idindex.cgi?command=id_details&filename=xyz
-          http://www.iana.org/assignments/contact-people.htm#abc
-        ),
-        yaml.urls
-      )
-    end
-
-    assert_deprecated('MIME::Type#references=') do
-      yaml.references = '[def=lax]'
-    end
-
-    assert_deprecated('MIME::Type#urls') do
-      assert_equal([%w(def http://www.iana.org/assignments/contact-people.htm#lax)],
-                   yaml.urls)
-    end
-
-    assert_deprecated('MIME::Type#references=') do
-      yaml.references = '{mno=pqr}'
-    end
-
-    assert_deprecated('MIME::Type#urls') do
-      assert_equal([%w(mno pqr)], yaml.urls)
-    end
-
-    assert_deprecated('MIME::Type#references=') do
-      yaml.references = 'hoge'
-    end
-
-    assert_deprecated('MIME::Type#urls') do
-      assert_equal(%w(hoge), yaml.urls)
+    it 'is a different type if set and the type is obsolete' do
+      text_plain.obsolete = true
+      text_plain.use_instead = 'text/html'
+      assert_equal 'text/html', text_plain.use_instead
     end
   end
 
-  def test_use_instead
-    t = make('t/1') { |v| v.use_instead = 't/2' }
-    assert_nil(t.use_instead)
-    t.obsolete = true
-    assert_equal('t/2', t.use_instead)
-  end
-
-  def test_use_instead_equals
-    t = make('t/1') { |v| v.obsolete = true }
-    assert_nil(t.use_instead)
-    t.use_instead = 't/2'
-    assert_equal('t/2', t.use_instead)
-  end
-
-  def test_preferred_extension
-    assert_equal('zip', @applzip.preferred_extension)
-  end
-
-  def test_friendly_read
-    yaml = make_yaml_mime_type
-    assert_equal('YAML Structured Document', yaml.friendly)
-    assert_equal('YAML Structured Document', yaml.friendly('en'))
-    assert_equal(nil, yaml.friendly('fr'))
-  end
-
-  def test_friendly_set
-    assert_equal({ 'en' => 'Zip' }, @applzip.friendly(%w(en Zip)))
-    assert_equal({ 'en' => 'Zip Archive' }, @applzip.friendly('en' => 'Zip Archive'))
-  end
-
-  def test_i18n_key
-    assert_equal('text.plain', make('text/plain').i18n_key)
-    assert_equal('application.vnd-3gpp-bsf-xml',
-                 make('application/vnd.3gpp.bsf+xml').i18n_key)
-    assert_equal('application.msword', make('application/x-msword').i18n_key)
-  end
-
-  def test_deprecated_constant
-    assert_output(nil, /MIME::InvalidContentType/) do
-      assert_same(MIME::InvalidContentType, MIME::Type::InvalidContentType)
+  describe '#preferred_extension, #preferred_extension=' do
+    it 'is nil when not set and there are no extensions' do
+      assert_nil text_plain.preferred_extension
     end
-    assert_output(nil, /MIME::InvalidContentType/) do
-      assert_same(MIME::InvalidContentType, MIME::Type::InvalidContentType)
+
+    it 'is the first extension when not set but there are extensions' do
+      assert_equal 'yaml', text_x_yaml.preferred_extension
     end
-    assert_raises(NameError) { MIME::Foo }
+
+    it 'is the extension provided when set' do
+      text_x_yaml.preferred_extension = 'yml'
+      assert_equal 'yml', text_x_yaml.preferred_extension
+    end
+
+    it 'is adds the preferred extension if it does not exist' do
+      text_x_yaml.preferred_extension = 'yz'
+      assert_equal 'yz', text_x_yaml.preferred_extension
+      assert_includes text_x_yaml.extensions, 'yz'
+    end
+  end
+
+  describe '#friendly' do
+    it 'returns English by default' do
+      assert_equal 'YAML Structured Document', text_x_yaml.friendly
+    end
+
+    it 'returns English when requested' do
+      assert_equal 'YAML Structured Document', text_x_yaml.friendly('en')
+      assert_equal 'YAML Structured Document', text_x_yaml.friendly(:en)
+    end
+
+    it 'returns nothing for an unknown language' do
+      assert_nil text_x_yaml.friendly('zz')
+    end
+
+    it 'merges new values from an array parameter' do
+      expected = { 'en' => 'Text files' }
+      assert_equal expected, text_plain.friendly([ 'en', 'Text files' ])
+      expected.update('fr' => 'des fichiers texte')
+      assert_equal expected,
+        text_plain.friendly([ 'fr', 'des fichiers texte' ])
+    end
+
+    it 'merges new values from a hash parameter' do
+      expected = { 'en' => 'Text files' }
+      assert_equal expected, text_plain.friendly(expected)
+      french = { 'fr' => 'des fichiers texte' }
+      expected.update(french)
+      assert_equal expected, text_plain.friendly(french)
+    end
+
+    it 'raises an ArgumentError if an unknown value is provided' do
+      exception = assert_raises ArgumentError do
+        text_plain.friendly(1)
+      end
+
+      assert_equal 'Expected a language or translation set, not 1',
+        exception.message
+    end
   end
 end

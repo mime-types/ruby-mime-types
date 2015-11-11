@@ -3,7 +3,7 @@
 require 'mime/types'
 require 'minitest_helper'
 
-class TestMIMETypesCache < Minitest::Test
+describe MIME::Types::Cache do
   def setup
     require 'fileutils'
     @cache_file = File.expand_path('../cache.tst', __FILE__)
@@ -25,66 +25,76 @@ class TestMIMETypesCache < Minitest::Test
     FileUtils.rm @cache_file if File.exist? @cache_file
   end
 
-  def test_does_not_use_cache_when_unset
-    ENV.delete('RUBY_MIME_TYPES_CACHE')
-    assert_equal(nil, MIME::Types::Cache.load)
-  end
+  describe '.load' do
+    it 'does not use cache when RUBY_MIME_TYPES_CACHE is unset' do
+      ENV.delete('RUBY_MIME_TYPES_CACHE')
+      assert_equal(nil, MIME::Types::Cache.load)
+    end
 
-  def test_does_not_use_cache_when_missing
-    assert_equal(nil, MIME::Types::Cache.load)
-  end
+    it 'does not use cache when missing' do
+      assert_equal(nil, MIME::Types::Cache.load)
+    end
 
-  def test_does_not_create_cache_when_unset
-    ENV.delete('RUBY_MIME_TYPES_CACHE')
-    assert_equal(nil, MIME::Types::Cache.save)
-  end
+    it 'outputs an error when there is an invalid version' do
+      v = MIME::Types::Data::VERSION.dup
+      MIME::Types::Data::VERSION.gsub!(/.*/, '0.0')
+      MIME::Types::Cache.save
+      MIME::Types::Data::VERSION.gsub!(/.*/, v)
+      MIME::Types.instance_variable_set(:@__types__, nil)
+      assert_output '', /MIME::Types cache: invalid version/ do
+        MIME::Types['text/html']
+      end
+    end
 
-  def test_creates_cache
-    assert_equal(false, File.exist?(@cache_file))
-    MIME::Types::Cache.save
-    assert_equal(true, File.exist?(@cache_file))
-  end
-
-  def test_uses_cache
-    MIME::Types['text/html'].first.extensions << 'hex'
-    MIME::Types::Cache.save
-    MIME::Types.instance_variable_set(:@__types__, nil)
-
-    assert_includes(MIME::Types['text/html'].first.extensions, 'hex')
-
-    reset_mime_types
-  end
-
-  def test_load_different_version
-    v = MIME::Types::VERSION.dup
-    MIME::Types::VERSION.gsub!(/.*/, '0.0')
-    MIME::Types::Cache.save
-    MIME::Types::VERSION.gsub!(/.*/, v)
-    MIME::Types.instance_variable_set(:@__types__, nil)
-    assert_output(nil, /MIME::Types cache: invalid version/) do
-      MIME::Types['text/html']
+    it 'outputs an error when there is a marshal file incompatibility' do
+      MIME::Types::Cache.save
+      data = File.binread(@cache_file).reverse
+      File.open(@cache_file, 'wb') { |f| f.write(data) }
+      MIME::Types.instance_variable_set(:@__types__, nil)
+      assert_output '', /incompatible marshal file format/ do
+        MIME::Types['text/html']
+      end
     end
   end
 
-  def test_cache_load_failure
-    MIME::Types::Cache.save
-    data = File.binread(@cache_file).reverse
-    File.open(@cache_file, 'wb') { |f| f.write(data) }
-    MIME::Types.instance_variable_set(:@__types__, nil)
-    assert_output(nil, /Could not load MIME::Types cache: incompatible marshal file format/) do
-      MIME::Types['text/html']
+  describe '.save' do
+    it 'does not create cache when RUBY_MIME_TYPES_CACHE is unset' do
+      ENV.delete('RUBY_MIME_TYPES_CACHE')
+      assert_equal(nil, MIME::Types::Cache.save)
+    end
+
+    it 'creates the cache ' do
+      assert_equal(false, File.exist?(@cache_file))
+      MIME::Types::Cache.save
+      assert_equal(true, File.exist?(@cache_file))
+    end
+
+    it 'uses the cache' do
+      MIME::Types['text/html'].first.add_extensions('hex')
+      MIME::Types::Cache.save
+      MIME::Types.instance_variable_set(:@__types__, nil)
+
+      assert_includes MIME::Types['text/html'].first.extensions, 'hex'
+
+      reset_mime_types
     end
   end
+end
 
-  def test_container_marshalling
+describe MIME::Types::Container do
+  it 'marshals and unmarshals correctly' do
     container = MIME::Types::Container.new
-    # default proc should return []
-    assert_equal([], container['abc'])
+    container['xyz'] << 'abc'
+
+    # default proc should return Set[]
+    assert_equal(Set[], container['abc'])
+    assert_equal(Set['abc'], container['xyz'])
 
     marshalled = Marshal.dump(container)
     loaded_container = Marshal.load(marshalled)
 
-    # default proc should still return []
-    assert_equal([], loaded_container['abcd'])
+    # default proc should still return Set[]
+    assert_equal(Set[], loaded_container['abc'])
+    assert_equal(Set['abc'], container['xyz'])
   end
 end

@@ -13,3 +13,5 @@ pkg
 publish
 test/cache.tst
 tmp/
+.rubocop.yml
+.byebug_history

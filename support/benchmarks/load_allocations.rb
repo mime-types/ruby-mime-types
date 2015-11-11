@@ -14,13 +14,18 @@ end
 
 module Benchmarks
   class LoadAllocations
-    def self.report(columnar: false, top_x: nil, mime_types_only: false)
-      new(columnar: columnar, top_x: top_x, mime_types_only: mime_types_only).
-        report
+    def self.report(columnar: false, full: false, top_x: nil, mime_types_only: false)
+      new(
+        columnar: columnar,
+        top_x: top_x,
+        mime_types_only: mime_types_only,
+        full: full
+      ).report
     end
 
-    def initialize(columnar: false, top_x: nil, mime_types_only: false)
-      @columnar = columnar
+    def initialize(columnar: false, full: false, top_x: nil, mime_types_only: false)
+      @columnar = !!columnar
+      @full = !!full
       @mime_types_only = !!mime_types_only
 
       @top_x = top_x
@@ -68,11 +73,13 @@ module Benchmarks
     def collect
       if @columnar
         @allocations = ObjectSpace::AllocationTracer.trace do
-          require 'mime/types/columnar'
+          require 'mime/types'
+
+          MIME::Types.first.to_h if @full
         end
       else
         @allocations = ObjectSpace::AllocationTracer.trace do
-          require 'mime/types'
+          require 'mime/types/full'
         end
       end
 
