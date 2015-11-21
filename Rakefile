@@ -188,8 +188,8 @@ namespace :convert do
     end
 
     FileList['*.rdoc'].each do |name|
-      rdoc = "#{name}.rdoc"
-      mark = "#{name}.md"
+      rdoc = name
+      mark = "#{File.basename(name, '.rdoc')}.md"
 
       file mark => [ rdoc, :setup ] do |t|
         puts "#{rdoc} => #{mark}"
