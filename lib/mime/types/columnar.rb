@@ -18,7 +18,7 @@ module MIME::Types::Columnar
   def self.extended(obj) # :nodoc:
     super
     obj.instance_variable_set(:@__mime_data__, [])
-    obj.instance_variable_set(:@__attributes__, [])
+    obj.instance_variable_set(:@__files__, Set.new)
   end
 
   # Load the first column data file (type and extensions).
@@ -26,7 +26,10 @@ module MIME::Types::Columnar
     @__root__ = path
 
     each_file_line('content_type', false) do |line|
-      content_type, *extensions = line.split
+      line = line.split
+      content_type = line.shift
+      extensions = line
+      # content_type, *extensions = line.split
 
       type = MIME::Type::Columnar.new(self, content_type, extensions)
       @__mime_data__ << type
@@ -40,96 +43,81 @@ module MIME::Types::Columnar
 
   def each_file_line(name, lookup = true)
     LOAD_MUTEX.synchronize do
-      next if @__attributes__.include?(name)
+      next if @__files__.include?(name)
 
-      File.open(File.join(@__root__, "mime.#{name}.column"), 'r:UTF-8') do |f|
-        i = -1
+      i = -1
+      column = File.join(@__root__, "mime.#{name}.column")
 
-        f.each_line do |line|
-          line.chomp!
+      IO.readlines(column, encoding: 'UTF-8'.freeze).each do |line|
+        line.chomp!
 
-          if lookup
-            type = @__mime_data__[i += 1] or next
-            yield type, line
-          else
-            yield line
-          end
+        if lookup
+          type = @__mime_data__[i += 1] or next
+          yield type, line
+        else
+          yield line
         end
       end
 
-      @__attributes__ << name
+      @__files__ << name
     end
   end
 
   def load_encoding
-    pool = {}
     each_file_line('encoding') do |type, line|
+      pool ||= {}
       line.freeze
-      type.encoding = (pool[line] ||= line)
+      type.instance_variable_set(:@encoding, (pool[line] ||= line))
     end
   end
 
   def load_docs
     each_file_line('docs') do |type, line|
-      type.docs = arr(line)
+      type.instance_variable_set(:@docs, opt(line))
     end
   end
 
-  def load_obsolete
-    each_file_line('obsolete') do |type, line|
-      type.obsolete = bool(line)
+  def load_preferred_extension
+    each_file_line('pext') do |type, line|
+      type.instance_variable_set(:@preferred_extension, opt(line))
     end
   end
 
-  def load_references
-    each_file_line('references') do |type, line|
-      type.instance_variable_set(:@references, arr(line))
-    end
-  end
-
-  def load_registered
-    each_file_line('registered') do |type, line|
-      type.registered = bool(line)
-    end
-  end
-
-  def load_signature
-    each_file_line('signature') do |type, line|
-      type.signature = bool(line)
-    end
-  end
-
-  def load_system
-    each_file_line('system') do |type, line|
-      type.system = (line unless line == '-'.freeze)
+  def load_flags
+    each_file_line('flags') do |type, line|
+      line = line.split
+      type.instance_variable_set(:@obsolete, flag(line.shift))
+      type.instance_variable_set(:@registered, flag(line.shift))
+      type.instance_variable_set(:@signature, flag(line.shift))
     end
   end
 
   def load_xrefs
-    each_file_line('xrefs') { |type, line| type.xrefs = dict(line) }
+    each_file_line('xrefs') { |type, line|
+      type.instance_variable_set(:@xrefs, dict(line, array: true))
+    }
   end
 
   def load_friendly
     each_file_line('friendly') { |type, line|
-      v = dict(line)
-      type.friendly = v.empty? ? nil : v
+      type.instance_variable_set(:@friendly, dict(line))
     }
   end
 
   def load_use_instead
     each_file_line('use_instead') do |type, line|
-      type.use_instead = (line unless line == '-'.freeze)
+      type.instance_variable_set(:@use_instead, opt(line))
     end
   end
 
-  def dict(line)
+  def dict(line, array: false)
     if line == '-'.freeze
       {}
     else
       line.split('|'.freeze).each_with_object({}) { |l, h|
         k, v = l.split('^'.freeze)
-        v = [ nil ] if v.empty?
-        h[k] = v
+        v = nil if v.empty?
+        h[k] = array ? Array(v) : v
       }
     end
   end
@@ -142,19 +130,13 @@ module MIME::Types::Columnar
     end
   end
 
-  def bool(line)
+  def opt(line)
+    line unless line == '-'.freeze
+  end
+
+  def flag(line)
     line == '1'.freeze ? true : false
   end
 end
 
-unless MIME::Types.private_method_defined?(:load_mode)
-  class << MIME::Types
-    private
-
-    def load_mode
-      { columnar: true }
-    end
-  end
-
-  require 'mime/types'
-end
+require 'mime/types' unless defined?(MIME::Types::VERSION)

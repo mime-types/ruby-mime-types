@@ -33,9 +33,6 @@ in +type-lists/application.yml+.
     extensions:
     - xml
     - xsl
-    references:
-    - IANA
-    - RFC3023
     xrefs: !ruby/hash:MIME::Types::Container
       rfc:
       - rfc3023

@@ -2,7 +2,9 @@
 
 require 'logger'
 
+##
 module MIME
+  ##
   class Types
     class << self
       # Configure the MIME::Types logger. This defaults to an instance of a

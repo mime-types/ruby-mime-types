@@ -1,4 +1,6 @@
-# -*- ruby encoding: utf-8 -*-
+##
+module MIME
+end
 
 # The definition of one MIME content-type.
 #
@@ -53,33 +55,21 @@ class MIME::Type
   end
 
   # The released version of the mime-types library.
-  VERSION = '2.6.2'
+  VERSION = '3.0'
 
   include Comparable
 
   # :stopdoc:
-  MEDIA_TYPE_RE     = %r{([-\w.+]+)/([-\w.+]*)}o
-  UNREGISTERED_RE   = %r{[Xx]-}o
-  I18N_RE           = %r{[^[:alnum:]]}o
-  PLATFORM_RE       = %r{#{RUBY_PLATFORM}}o
-
-  DEFAULT_ENCODINGS = [ nil, :default ]
-  BINARY_ENCODINGS  = %w(base64 8bit)
-  TEXT_ENCODINGS    = %w(7bit quoted-printable)
-  VALID_ENCODINGS   = DEFAULT_ENCODINGS + BINARY_ENCODINGS + TEXT_ENCODINGS
-
-  IANA_URL          = 'http://www.iana.org/assignments/media-types/%s/%s'
-  RFC_URL           = 'http://rfc-editor.org/rfc/rfc%s.txt'
-  DRAFT_URL         = 'http://datatracker.ietf.org/public/idindex.cgi?command=id_details&filename=%s' # rubocop:disable Metrics/LineLength
-  CONTACT_URL       = 'http://www.iana.org/assignments/contact-people.htm#%s'
+  # TODO verify mime-type character restrictions; I am pretty sure that this is
+  # too wide open.
+  MEDIA_TYPE_RE    = %r{([-\w.+]+)/([-\w.+]*)}
+  I18N_RE          = %r{[^[:alnum:]]}
+  BINARY_ENCODINGS = %w(base64 8bit)
+  ASCII_ENCODINGS  = %w(7bit quoted-printable)
   # :startdoc:
 
-  if respond_to? :private_constant
-    private_constant :MEDIA_TYPE_RE, :UNREGISTERED_RE, :I18N_RE, :PLATFORM_RE,
-                     :DEFAULT_ENCODINGS, :BINARY_ENCODINGS, :TEXT_ENCODINGS,
-                     :VALID_ENCODINGS, :IANA_URL, :RFC_URL, :DRAFT_URL,
-                     :CONTACT_URL
-  end
+  private_constant :MEDIA_TYPE_RE, :I18N_RE, :BINARY_ENCODINGS,
+    :ASCII_ENCODINGS
 
   # Builds a MIME::Type object from the +content_type+, a MIME Content Type
   # value (e.g., 'text/plain' or 'applicaton/x-eruby'). The constructed object
@@ -88,51 +78,45 @@ class MIME::Type
   #
   # * When provided a Hash or a MIME::Type, the MIME::Type will be
   #   constructed with #init_with.
-  # * When provided an Array, the MIME::Type will be constructed only using
-  #   the first two elements of the array as the content type and
-  #   extensions.
+  # * When provided an Array, the MIME::Type will be constructed using
+  #   the first element as the content type and the remaining flattened
+  #   elements as extensions.
   # * Otherwise, the content_type will be used as a string.
   #
   # Yields the newly constructed +self+ object.
   def initialize(content_type) # :yields self:
     @friendly = {}
-    self.system = nil
-    self.obsolete = false
-    self.registered = nil
-    self.use_instead = nil
-    self.signature = nil
+    @obsolete = @registered = false
+    @preferred_extension = @docs = @use_instead = nil
+    self.extensions = []
 
     case content_type
     when Hash
       init_with(content_type)
     when Array
-      self.content_type = content_type[0]
-      self.extensions = content_type[1] || []
+      self.content_type = content_type.shift
+      self.extensions = content_type.flatten
     when MIME::Type
       init_with(content_type.to_h)
     else
       self.content_type = content_type
     end
 
-    self.extensions ||= []
-    self.docs ||= []
     self.encoding ||= :default
-    # This value will be deprecated in the future, as it will be an
-    # alternative view on #xrefs. Silence an unnecessary warning for now by
-    # assigning directly to the instance variable.
-    @references ||= []
     self.xrefs ||= {}
 
     yield self if block_given?
   end
 
-  # Returns +true+ if the +other+ simplified type matches the current type.
+  # Indicates that a MIME type is like another type. This differs from
+  # <tt>==</tt> because <tt>x-</tt> prefixes are removed for this comparison.
   def like?(other)
-    if other.respond_to?(:simplified)
-      @simplified == other.simplified
-    else
-      @simplified == MIME::Type.simplified(other)
-    end
+    other = if other.respond_to?(:simplified)
+              MIME::Type.simplified(other.simplified, remove_x_prefix: true)
+            else
+              MIME::Type.simplified(other.to_s, remove_x_prefix: true)
+            end
+    MIME::Type.simplified(simplified, remove_x_prefix: true) == other
   end
 
   # Compares the +other+ MIME::Type against the exact content type or the
@@ -140,10 +124,12 @@ class MIME::Type
   # something that can be treated as a String with #to_s). In comparisons, this
   # is done against the lowercase version of the MIME::Type.
   def <=>(other)
-    if other.respond_to?(:content_type)
-      @content_type.downcase <=> other.content_type.downcase
-    elsif other.respond_to?(:to_s)
-      @simplified <=> MIME::Type.simplified(other.to_s)
+    if other.nil?
+      -1
+    elsif other.respond_to?(:simplified)
+      simplified <=> other.simplified
+    else
+      simplified <=> MIME::Type.simplified(other.to_s)
     end
   end
 
@@ -154,10 +140,9 @@ class MIME::Type
   # 1. self.simplified <=> other.simplified (ensures that we
   #    don't try to compare different types)
   # 2. IANA-registered definitions < other definitions.
-  # 3. Generic definitions < platform definitions.
   # 3. Complete definitions < incomplete definitions.
   # 4. Current definitions < obsolete definitions.
-  # 5. Obselete with use-instead references < obsolete without.
+  # 5. Obselete with use-instead names < obsolete without.
   # 6. Obsolete use-instead definitions are compared.
   #
   # While this method is public, its use is strongly discouraged by consumers
@@ -169,8 +154,6 @@ class MIME::Type
     if pc.zero?
       pc = if (reg = registered?) != other.registered?
              reg ? -1 : 1 # registered < unregistered
-           elsif (plat = platform?(true)) != other.platform?(true)
-             plat ? 1 : -1 # generic < platform
            elsif (comp = complete?) != other.complete?
              comp ? -1 : 1 # complete < incomplete
            elsif (obs = obsolete?) != other.obsolete?
@@ -212,54 +195,74 @@ class MIME::Type
   # removed and converted to lowercase.
   #
   #   text/plain        => text/plain
-  #   x-chemical/x-pdb  => chemical/pdb
+  #   x-chemical/x-pdb  => x-chemical/x-pdb
   #   audio/QCELP       => audio/qcelp
   attr_reader :simplified
   # Returns the media type of the simplified MIME::Type.
   #
   #   text/plain        => text
-  #   x-chemical/x-pdb  => chemical
+  #   x-chemical/x-pdb  => x-chemical
+  #   audio/QCELP       => audio
   attr_reader :media_type
   # Returns the media type of the unmodified MIME::Type.
   #
   #   text/plain        => text
   #   x-chemical/x-pdb  => x-chemical
+  #   audio/QCELP       => audio
   attr_reader :raw_media_type
   # Returns the sub-type of the simplified MIME::Type.
   #
   #   text/plain        => plain
   #   x-chemical/x-pdb  => pdb
+  #   audio/QCELP       => QCELP
   attr_reader :sub_type
   # Returns the media type of the unmodified MIME::Type.
   #
   #   text/plain        => plain
   #   x-chemical/x-pdb  => x-pdb
+  #   audio/QCELP       => qcelp
   attr_reader :raw_sub_type
 
+  ##
   # The list of extensions which are known to be used for this MIME::Type.
   # Non-array values will be coerced into an array with #to_a. Array values
   # will be flattened, +nil+ values removed, and made unique.
-  attr_reader :extensions
-  def extensions=(ext) # :nodoc:
-    @extensions = Array(ext).flatten.compact.uniq
-    # TODO: In mime-types 3.x, we probably want to have a clue about the
-    # container(s) we belong to so we can trigger reindexing when this is done.
+  #
+  # :attr_accessor: extensions
+  def extensions
+    @extensions.to_a
+  end
+
+  ##
+  def extensions=(value) # :nodoc:
+    @extensions = Set[*Array(value).flatten.compact].freeze
+    MIME::Types.send(:reindex_extensions, self)
   end
 
   # Merge the +extensions+ provided into this MIME::Type. The extensions added
   # will be merged uniquely.
   def add_extensions(*extensions)
-    self.extensions = self.extensions + extensions
+    self.extensions += extensions
   end
 
   ##
-  # The preferred extension for this MIME type, if one is set.
+  # The preferred extension for this MIME type. If one is not set and there are
+  # exceptions defined, the first extension will be used.
   #
-  # :attr_reader: preferred_extension
+  # When setting #preferred_extensions, if #extensions does not contain this
+  # extension, this will be added to #xtensions.
+  #
+  # :attr_accessor: preferred_extension
 
   ##
   def preferred_extension
-    extensions.first
+    @preferred_extension || extensions.first
+  end
+
+  ##
+  def preferred_extension=(value) # :nodoc:
+    add_extensions(value) if value
+    @preferred_extension = value
   end
 
   ##
@@ -278,31 +281,15 @@ class MIME::Type
 
   ##
   attr_reader :encoding
+
+  ##
   def encoding=(enc) # :nodoc:
-    if DEFAULT_ENCODINGS.include?(enc)
+    if enc.nil? or enc == :default
       @encoding = default_encoding
-    elsif BINARY_ENCODINGS.include?(enc) or TEXT_ENCODINGS.include?(enc)
+    elsif BINARY_ENCODINGS.include?(enc) or ASCII_ENCODINGS.include?(enc)
       @encoding = enc
     else
       fail InvalidEncoding, enc
-    end
-  end
-
-  # If the MIME::Type is a system-specific MIME::Type, returns the regular
-  # expression for the operating system indicated.
-  #
-  # This information about MIME content types is deprecated and will be removed
-  # in mime-types 3.
-  def system
-    MIME::Types.deprecated(self, __method__)
-    @system
-  end
-
-  def system=(os) # :nodoc:
-    if os.nil? or os.kind_of?(Regexp)
-      @system = os
-    else
-      @system = %r{#{os}}
     end
   end
 
@@ -312,29 +299,23 @@ class MIME::Type
   end
 
   ##
-  # Returns the media type or types that should be used instead of this
-  # media type, if it is obsolete. If there is no replacement media type, or
-  # it is not obsolete, +nil+ will be returned.
+  # Returns the media type or types that should be used instead of this media
+  # type, if it is obsolete. If there is no replacement media type, or it is
+  # not obsolete, +nil+ will be returned.
   #
   # :attr_accessor: use_instead
 
   ##
   def use_instead
-    return nil unless obsolete?
-    @use_instead
+    obsolete? ? @use_instead : nil
   end
 
   ##
   attr_writer :use_instead
 
   # Returns +true+ if the media type is obsolete.
-  def obsolete?
-    !!@obsolete
-  end
-
-  def obsolete=(v) # :nodoc:
-    @obsolete = !!v
-  end
+  attr_accessor :obsolete
+  alias_method :obsolete?, :obsolete
 
   # The documentation for this MIME::Type.
   attr_accessor :docs
@@ -348,14 +329,15 @@ class MIME::Type
     @friendly ||= {}
 
     case lang
-    when String
-      @friendly[lang]
+    when String, Symbol
+      @friendly[lang.to_s]
     when Array
-      @friendly.merge!(Hash[*lang])
+      @friendly.update(Hash[*lang])
     when Hash
-      @friendly.merge!(lang)
+      @friendly.update(lang)
     else
-      fail ArgumentError
+      fail ArgumentError,
+        "Expected a language or translation set, not #{lang.inspect}"
     end
   end
 
@@ -371,50 +353,6 @@ class MIME::Type
   attr_reader :i18n_key
 
   ##
-  # The encoded references URL list for this MIME::Type. See #urls for more
-  # information.
-  #
-  # This was previously called #url.
-  #
-  # #references has been deprecated and both versions (#references and #url)
-  # will be removed in mime-types 3.
-  #
-  # :attr_accessor: references
-
-  ##
-  def references(__internal__ = false)
-    MIME::Types.deprecated(self, __method__) unless __internal__
-    @references
-  end
-
-  ##
-  def references=(r) # :nodoc:
-    MIME::Types.deprecated(self, __method__)
-    @references = Array(r).flatten.compact.uniq
-  end
-
-  ##
-  # The encoded references URL list for this MIME::Type. See #urls for more
-  # information.
-  #
-  # #urls has been deprecated and both versions (#references and #url) will be
-  # removed in mime-types 3.
-  #
-  # :attr_accessor: url
-
-  ##
-  def url
-    MIME::Types.deprecated(self, __method__)
-    references(true)
-  end
-
-  ##
-  def url=(r) # :nodoc:
-    MIME::Types.deprecated(self, __method__)
-    self.references = r
-  end
-
-  ##
   # The cross-references list for this MIME::Type.
   #
   # :attr_accessor: xrefs
@@ -424,148 +362,44 @@ class MIME::Type
 
   ##
   def xrefs=(x) # :nodoc:
-    @xrefs = MIME::Types::Container.new.merge(x)
-    @xrefs.each_value(&:sort!)
-    @xrefs.each_value(&:uniq!)
-  end
-
-  # The decoded URL list for this MIME::Type.
-  #
-  # The special URL value IANA will be translated into:
-  #   http://www.iana.org/assignments/media-types/<mediatype>/<subtype>
-  #
-  # The special URL value RFC### will be translated into:
-  #   http://www.rfc-editor.org/rfc/rfc###.txt
-  #
-  # The special URL value DRAFT:name will be translated into:
-  #   https://datatracker.ietf.org/public/idindex.cgi?
-  #       command=id_detail&filename=<name>
-  #
-  # The special URL value [token] will be translated into:
-  #   http://www.iana.org/assignments/contact-people.htm#<token>
-  #
-  # These values will be accessible through #urls, which always returns an
-  # array.
-  #
-  # This method is deprecated and will be removed in mime-types 3.
-  def urls
-    MIME::Types.deprecated(self, __method__)
-    references(true).map do |el|
-      case el
-      when %r{^IANA$}
-        IANA_URL % [ @media_type, @sub_type ]
-      when %r{^RFC(\d+)$}
-        RFC_URL % $1
-      when %r{^DRAFT:(.+)$}
-        DRAFT_URL % $1
-      when %r{^\{([^=]+)=([^\}]+)\}}
-        [$1, $2]
-      when %r{^\[([^=]+)=([^\]]+)\]}
-        [$1, CONTACT_URL % $2]
-      when %r{^\[([^\]]+)\]}
-        CONTACT_URL % $1
-      else
-        el
+    MIME::Types::Container.new.merge(x).tap do |xr|
+      xr.each do |k, v|
+        xr[k] = Set[*v] unless v.kind_of? Set
       end
+
+      @xrefs = xr
     end
   end
 
   # The decoded cross-reference URL list for this MIME::Type.
   def xref_urls
-    xrefs.flat_map { |(type, values)|
-      case type
-      when 'rfc'.freeze
-        values.map { |data| 'http://www.iana.org/go/%s'.freeze % data }
-      when 'draft'.freeze
-        values.map { |data|
-          'http://www.iana.org/go/%s'.freeze % data.sub(/\ARFC/, 'draft')
-        }
-      when 'rfc-errata'.freeze
-        values.map { |data|
-          'http://www.rfc-editor.org/errata_search.php?eid=%s'.freeze % data
-        }
-      when 'person'.freeze
-        values.map { |data|
-          'http://www.iana.org/assignments/media-types/media-types.xhtml#%s'.freeze % data # rubocop:disable Metrics/LineLength
-        }
-      when 'template'.freeze
-        values.map { |data|
-          'http://www.iana.org/assignments/media-types/%s'.freeze % data
-        }
-      else # 'uri', 'text', etc.
-        values
-      end
+    xrefs.flat_map { |type, values|
+      name = :"xref_url_for_#{type.tr('-', '_')}"
+      respond_to?(name, true) and xref_map(values, name) or values.to_a
     }
   end
 
-  ##
-  # Prior to BCP 178 (RFC 6648), it could be assumed that MIME content types
-  # that start with <tt>x-</tt> were unregistered MIME. Per this BCP, this
-  # assumption is no longer being made by default in this library.
-  #
-  # There are three possible registration states for a MIME::Type:
-  # - Explicitly registered, like application/x-www-url-encoded.
-  # - Explicitly not registered, like image/webp.
-  # - Unspecified, in which case the media-type and the content-type will be
-  #   scanned to see if they start with <tt>x-</tt>, indicating that they
-  #   are assumed unregistered.
-  #
-  # In mime-types 3, only a MIME content type that is explicitly registered
-  # will be used; there will be assumption that <tt>x-</tt> types are
-  # unregistered.
-  def registered?
-    if @registered.nil?
-      (@raw_media_type !~ UNREGISTERED_RE) and
-        (@raw_sub_type !~ UNREGISTERED_RE)
-    else
-      !!@registered
-    end
-  end
-
-  def registered=(v) # :nodoc:
-    @registered = v.nil? ? v : !!v
-  end
+  # Indicates whether the MIME type has been registered with IANA.
+  attr_accessor :registered
+  alias_method :registered?, :registered
 
   # MIME types can be specified to be sent across a network in particular
   # formats. This method returns +true+ when the MIME::Type encoding is set
   # to <tt>base64</tt>.
   def binary?
-    BINARY_ENCODINGS.include?(@encoding)
+    BINARY_ENCODINGS.include?(encoding)
   end
 
   # MIME types can be specified to be sent across a network in particular
   # formats. This method returns +false+ when the MIME::Type encoding is
   # set to <tt>base64</tt>.
   def ascii?
-    !binary?
+    ASCII_ENCODINGS.include?(encoding)
   end
 
-  # Returns +true+ when the simplified MIME::Type is one of the known digital
-  # signature types.
-  def signature?
-    !!@signature
-  end
-
-  def signature=(v) # :nodoc:
-    @signature = !!v
-  end
-
-  # Returns +true+ if the MIME::Type is specific to an operating system.
-  #
-  # This method is deprecated and will be removed in mime-types 3.
-  def system?(__internal__ = false)
-    MIME::Types.deprecated(self, __method__) unless __internal__
-    !@system.nil?
-  end
-
-  # Returns +true+ if the MIME::Type is specific to the current operating
-  # system as represented by RUBY_PLATFORM.
-  #
-  # This method is deprecated and will be removed in mime-types 3.
-  def platform?(__internal__ = false)
-    MIME::Types.deprecated(self, __method__) unless __internal__
-    system?(__internal__) and (RUBY_PLATFORM =~ @system)
-  end
+  # Indicateswhether the MIME type is declared as a signature type.
+  attr_accessor :signature
+  alias_method :signature?, :signature
 
   # Returns +true+ if the MIME::Type specifies an extension list,
   # indicating that it is a complete MIME::Type.
@@ -586,41 +420,14 @@ class MIME::Type
     content_type
   end
 
-  # Returns the MIME::Type as an array suitable for use with
-  # MIME::Type.from_array.
-  #
-  # This method is deprecated and will be removed in mime-types 3.
-  def to_a
-    MIME::Types.deprecated(self, __method__)
-    [ @content_type, @extensions, @encoding, @system, obsolete?, @docs,
-      @references, registered? ]
-  end
-
-  # Returns the MIME::Type as an array suitable for use with
-  # MIME::Type.from_hash.
-  #
-  # This method is deprecated and will be removed in mime-types 3.
-  def to_hash
-    MIME::Types.deprecated(self, __method__)
-    { 'Content-Type'              => @content_type,
-      'Content-Transfer-Encoding' => @encoding,
-      'Extensions'                => @extensions,
-      'System'                    => @system,
-      'Obsolete'                  => obsolete?,
-      'Docs'                      => @docs,
-      'URL'                       => @references,
-      'Registered'                => registered?,
-    }
-  end
-
   # Converts the MIME::Type to a JSON string.
   def to_json(*args)
     require 'json'
     to_h.to_json(*args)
   end
 
-  # Converts the MIME::Type to a hash suitable for use in JSON. The output
-  # of this method can also be used to initialize a MIME::Type.
+  # Converts the MIME::Type to a hash. The output of this method can also be
+  # used to initialize a MIME::Type.
   def to_h
     encode_with({})
   end
@@ -631,20 +438,21 @@ class MIME::Type
   #
   # This method should be considered a private implementation detail.
   def encode_with(coder)
-    coder['content-type']   = @content_type
-    coder['docs']           = @docs unless @docs.nil? or @docs.empty?
-    coder['friendly']       = @friendly unless @friendly.empty?
-    coder['encoding']       = @encoding
-    coder['extensions']     = @extensions unless @extensions.empty?
-    if obsolete?
-      coder['obsolete']     = obsolete?
-      coder['use-instead']  = use_instead if use_instead
+    coder['content-type']        = @content_type
+    coder['docs']                = @docs unless @docs.nil? or @docs.empty?
+    unless @friendly.nil? or @friendly.empty?
+      coder['friendly']            = @friendly
     end
-    coder['references']     = references(true) unless references(true).empty?
-    coder['xrefs']          = xrefs unless xrefs.empty?
-    coder['registered']     = registered?
-    coder['signature']      = signature? if signature?
-    coder['system']         = @system if @system
+    coder['encoding']            = @encoding
+    coder['extensions']          = @extensions.to_a unless @extensions.empty?
+    coder['preferred-extension'] = @preferred_extension if @preferred_extension
+    if obsolete?
+      coder['obsolete']          = obsolete?
+      coder['use-instead']       = use_instead if use_instead
+    end
+    coder['xrefs']               = xrefs unless xrefs.empty?
+    coder['registered']          = registered?
+    coder['signature']           = signature? if signature?
     coder
   end
 
@@ -653,167 +461,68 @@ class MIME::Type
   #
   # This method should be considered a private implementation detail.
   def init_with(coder)
-    self.content_type = coder['content-type']
-    self.docs         = coder['docs'] || []
+    self.content_type        = coder['content-type']
+    self.docs                = coder['docs'] || ''
+    self.encoding            = coder['encoding']
+    self.extensions          = coder['extensions'] || []
+    self.preferred_extension = coder['preferred-extension']
+    self.obsolete            = coder['obsolete'] || false
+    self.registered          = coder['registered'] || false
+    self.signature           = coder['signature']
+    self.xrefs               = coder['xrefs'] || {}
+    self.use_instead         = coder['use-instead']
+
     friendly(coder['friendly'] || {})
-    self.encoding     = coder['encoding']
-    self.extensions   = coder['extensions'] || []
-    self.obsolete     = coder['obsolete']
-    # This value will be deprecated in the future, as it will be an
-    # alternative view on #xrefs. Silence an unnecessary warning for now by
-    # assigning directly to the instance variable.
-    @references       = Array(coder['references']).flatten.compact.uniq
-    self.registered   = coder['registered']
-    self.signature    = coder['signature']
-    self.system       = coder['system']
-    self.xrefs        = coder['xrefs'] || {}
-    self.use_instead  = coder['use-instead']
+  end
+
+  def inspect # :nodoc:
+    # We are intentionally lying here because MIME::Type::Columnar is an
+    # implementation detail.
+    "#<MIME::Type: #{self}>"
   end
 
   class << self
-    # The MIME types main- and sub-label can both start with <tt>x-</tt>,
-    # which indicates that it is a non-registered name. Of course, after
-    # registration this flag may disappear, adds to the confusing
-    # proliferation of MIME types. The simplified +content_type+ string has the
-    # <tt>x-</tt> removed and is translated to lowercase.
-    def simplified(content_type)
-      matchdata = case content_type
-                  when MatchData
-                    content_type
-                  else
-                    MEDIA_TYPE_RE.match(content_type)
-                  end
-
-      return unless matchdata
-
-      matchdata.captures.map { |e|
-        e.downcase!
-        e.gsub!(UNREGISTERED_RE, ''.freeze)
-        e
-      }.join('/'.freeze)
+    # MIME media types are case-insensitive, but are typically presented in a
+    # case-preserving format in the type registry. This method converts
+    # +content_type+ to lowercase.
+    #
+    # In previous versions of mime-types, this would also remove any extension
+    # prefix (<tt>x-</tt>). This is no longer default behaviour, but may be
+    # provided by providing a truth value to +remove_x_prefix+.
+    def simplified(content_type, remove_x_prefix: false)
+      simplify_matchdata(match(content_type), remove_x_prefix)
     end
 
     # Converts a provided +content_type+ into a translation key suitable for
     # use with the I18n library.
     def i18n_key(content_type)
-      matchdata = case content_type
-                  when MatchData
-                    content_type
-                  else
-                    MEDIA_TYPE_RE.match(content_type)
-                  end
+      simplify_matchdata(match(content_type), joiner: '.') { |e|
+        e.gsub!(I18N_RE, '-'.freeze)
+      }
+    end
 
-      return unless matchdata
+    # Return a +MatchData+ object of the +content_type+ against pattern of
+    # media types.
+    def match(content_type)
+      case content_type
+      when MatchData
+        content_type
+      else
+        MEDIA_TYPE_RE.match(content_type)
+      end
+    end
+
+    private
+
+    def simplify_matchdata(matchdata, remove_x = false, joiner: '/'.freeze)
+      return nil unless matchdata
 
       matchdata.captures.map { |e|
         e.downcase!
-        e.gsub!(UNREGISTERED_RE, ''.freeze)
-        e.gsub!(I18N_RE, '-'.freeze)
+        e.sub!(%r{^x-}, ''.freeze) if remove_x
+        yield e if block_given?
         e
-      }.join('.'.freeze)
-    end
-
-    # Creates a MIME::Type from an +args+ array in the form of:
-    #   [ type-name, [ extensions ], encoding, system ]
-    #
-    # +extensions+, +encoding+, and +system+ are optional.
-    #
-    #   MIME::Type.from_array('application/x-ruby', %w(rb), '8bit')
-    #   MIME::Type.from_array([ 'application/x-ruby', [ 'rb' ], '8bit' ])
-    #
-    # These are equivalent to:
-    #
-    #   MIME::Type.new('application/x-ruby') do |t|
-    #     t.extensions  = %w(rb)
-    #     t.encoding    = '8bit'
-    #   end
-    #
-    # It will yield the type (+t+) if a block is given.
-    #
-    # This method is deprecated and will be removed in mime-types 3.
-    def from_array(*args) # :yields t:
-      MIME::Types.deprecated(self, __method__)
-
-      # Dereferences the array one level, if necessary.
-      args = args.first if args.first.kind_of? Array
-
-      unless args.size.between?(1, 8)
-        fail ArgumentError,
-             'Array provided must contain between one and eight elements.'
-      end
-
-      MIME::Type.new(args.shift) do |t|
-        t.extensions, t.encoding, t.system, t.obsolete, t.docs, t.references,
-          t.registered = *args
-        yield t if block_given?
-      end
-    end
-
-    # Creates a MIME::Type from a +hash+. Keys are case-insensitive, dashes
-    # may be replaced with underscores, and the internal Symbol of the
-    # lowercase-underscore version can be used as well. That is,
-    # Content-Type can be provided as content-type, Content_Type,
-    # content_type, or :content_type.
-    #
-    # Known keys are <tt>Content-Type</tt>,
-    # <tt>Content-Transfer-Encoding</tt>, <tt>Extensions</tt>, and
-    # <tt>System</tt>.
-    #
-    #   MIME::Type.from_hash('Content-Type' => 'text/x-yaml',
-    #                        'Content-Transfer-Encoding' => '8bit',
-    #                        'System' => 'linux',
-    #                        'Extensions' => ['yaml', 'yml'])
-    #
-    # This is equivalent to:
-    #
-    #   MIME::Type.new('text/x-yaml') do |t|
-    #     t.encoding    = '8bit'
-    #     t.system      = 'linux'
-    #     t.extensions  = ['yaml', 'yml']
-    #   end
-    #
-    # It will yield the constructed type +t+ if a block has been provided.
-    #
-    #
-    # This method is deprecated and will be removed in mime-types 3.
-    def from_hash(hash) # :yields t:
-      MIME::Types.deprecated(self, __method__)
-      type = {}
-      hash.each_pair do |k, v|
-        type[k.to_s.tr('A-Z', 'a-z').gsub(/-/, '_').to_sym] = v
-      end
-
-      MIME::Type.new(type[:content_type]) do |t|
-        t.extensions  = type[:extensions]
-        t.encoding    = type[:content_transfer_encoding]
-        t.system      = type[:system]
-        t.obsolete    = type[:obsolete]
-        t.docs        = type[:docs]
-        t.url         = type[:url]
-        t.registered  = type[:registered]
-
-        yield t if block_given?
-      end
-    end
-
-    # Essentially a copy constructor for +mime_type+.
-    #
-    #   MIME::Type.from_mime_type(plaintext)
-    #
-    # is equivalent to:
-    #
-    #   MIME::Type.new(plaintext.content_type.dup) do |t|
-    #     t.extensions  = plaintext.extensions.dup
-    #     t.system      = plaintext.system.dup
-    #     t.encoding    = plaintext.encoding.dup
-    #   end
-    #
-    # It will yield the type (+t+) if a block is given.
-    #
-    # This method is deprecated and will be removed in mime-types 3.
-    def from_mime_type(mime_type) # :yields the new MIME::Type:
-      MIME::Types.deprecated(self, __method__)
-      new(mime_type)
+      }.join(joiner)
     end
   end
 
@@ -828,5 +537,30 @@ class MIME::Type
     @simplified                    = MIME::Type.simplified(match)
     @i18n_key                      = MIME::Type.i18n_key(match)
     @media_type, @sub_type         = MEDIA_TYPE_RE.match(@simplified).captures
+  end
+
+  def xref_map(values, helper)
+    values.map { |value| send(helper, value) }
+  end
+
+  def xref_url_for_rfc(value)
+    'http://www.iana.org/go/%s'.freeze % value
+  end
+
+  def xref_url_for_draft(value)
+    'http://www.iana.org/go/%s'.freeze % value.sub(/\ARFC/, 'draft')
+  end
+
+  def xref_url_for_rfc_errata(value)
+    'http://www.rfc-editor.org/errata_search.php?eid=%s'.freeze % value
+  end
+
+  def xref_url_for_person(value)
+    'http://www.iana.org/assignments/media-types/media-types.xhtml#%s'.freeze %
+      value
+  end
+
+  def xref_url_for_template(value)
+    'http://www.iana.org/assignments/media-types/%s'.freeze % value
   end
 end
