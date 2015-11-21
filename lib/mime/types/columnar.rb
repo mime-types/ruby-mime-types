@@ -81,12 +81,6 @@ module MIME::Types::Columnar
     end
   end
 
-  def load_references
-    each_file_line('references') do |type, line|
-      type.instance_variable_set(:@references, arr(line))
-    end
-  end
-
   def load_registered
     each_file_line('registered') do |type, line|
       type.registered = bool(line)
@@ -96,12 +90,6 @@ module MIME::Types::Columnar
   def load_signature
     each_file_line('signature') do |type, line|
       type.signature = bool(line)
-    end
-  end
-
-  def load_system
-    each_file_line('system') do |type, line|
-      type.system = (line unless line == '-'.freeze)
     end
   end
 

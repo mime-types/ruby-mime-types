@@ -2,10 +2,6 @@
 - !ruby/object:MIME::Type
   content-type: message/CPIM
   encoding: base64
-  references:
-  - IANA
-  - RFC3862
-  - "{message/CPIM=http://www.iana.org/assignments/media-types/message/CPIM}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3862
@@ -15,10 +11,6 @@
 - !ruby/object:MIME::Type
   content-type: message/delivery-status
   encoding: base64
-  references:
-  - IANA
-  - RFC1894
-  - "{message/delivery-status=http://www.iana.org/assignments/media-types/message/delivery-status}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc1894
@@ -28,10 +20,6 @@
 - !ruby/object:MIME::Type
   content-type: message/disposition-notification
   encoding: base64
-  references:
-  - IANA
-  - RFC3798
-  - "{message/disposition-notification=http://www.iana.org/assignments/media-types/message/disposition-notification}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3798
@@ -41,10 +29,6 @@
 - !ruby/object:MIME::Type
   content-type: message/example
   encoding: base64
-  references:
-  - IANA
-  - RFC4735
-  - "{message/example=http://www.iana.org/assignments/media-types/message/example}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4735
@@ -54,10 +38,6 @@
 - !ruby/object:MIME::Type
   content-type: message/external-body
   encoding: 8bit
-  references:
-  - IANA
-  - RFC2045
-  - RFC2046
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2045
@@ -66,10 +46,6 @@
 - !ruby/object:MIME::Type
   content-type: message/feedback-report
   encoding: base64
-  references:
-  - IANA
-  - RFC5965
-  - "{message/feedback-report=http://www.iana.org/assignments/media-types/message/feedback-report}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5965
@@ -79,10 +55,6 @@
 - !ruby/object:MIME::Type
   content-type: message/global
   encoding: base64
-  references:
-  - IANA
-  - RFC6532
-  - "{message/global=http://www.iana.org/assignments/media-types/message/global}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6532
@@ -92,10 +64,6 @@
 - !ruby/object:MIME::Type
   content-type: message/global-delivery-status
   encoding: base64
-  references:
-  - IANA
-  - RFC6533
-  - "{message/global-delivery-status=http://www.iana.org/assignments/media-types/message/global-delivery-status}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6533
@@ -105,10 +73,6 @@
 - !ruby/object:MIME::Type
   content-type: message/global-disposition-notification
   encoding: base64
-  references:
-  - IANA
-  - RFC6533
-  - "{message/global-disposition-notification=http://www.iana.org/assignments/media-types/message/global-disposition-notification}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6533
@@ -118,10 +82,6 @@
 - !ruby/object:MIME::Type
   content-type: message/global-headers
   encoding: base64
-  references:
-  - IANA
-  - RFC6533
-  - "{message/global-headers=http://www.iana.org/assignments/media-types/message/global-headers}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc6533
@@ -131,10 +91,6 @@
 - !ruby/object:MIME::Type
   content-type: message/http
   encoding: base64
-  references:
-  - IANA
-  - RFC7230
-  - "{message/http=http://www.iana.org/assignments/media-types/message/http}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc7230
@@ -144,10 +100,6 @@
 - !ruby/object:MIME::Type
   content-type: message/imdn+xml
   encoding: base64
-  references:
-  - IANA
-  - RFC5438
-  - "{message/imdn+xml=http://www.iana.org/assignments/media-types/message/imdn+xml}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5438
@@ -158,11 +110,6 @@
   content-type: message/news
   encoding: 8bit
   obsolete: true
-  references:
-  - IANA
-  - RFC5537
-  - "[Henry_Spencer]"
-  - "{message/news=http://www.iana.org/assignments/media-types/message/news}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5537
@@ -176,10 +123,6 @@
 - !ruby/object:MIME::Type
   content-type: message/partial
   encoding: 8bit
-  references:
-  - IANA
-  - RFC2045
-  - RFC2046
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2045
@@ -193,10 +136,6 @@
   extensions:
   - eml
   - mime
-  references:
-  - IANA
-  - RFC2045
-  - RFC2046
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2045
@@ -205,10 +144,6 @@
 - !ruby/object:MIME::Type
   content-type: message/s-http
   encoding: base64
-  references:
-  - IANA
-  - RFC2660
-  - "{message/s-http=http://www.iana.org/assignments/media-types/message/s-http}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2660
@@ -218,10 +153,6 @@
 - !ruby/object:MIME::Type
   content-type: message/sip
   encoding: base64
-  references:
-  - IANA
-  - RFC3261
-  - "{message/sip=http://www.iana.org/assignments/media-types/message/sip}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3261
@@ -231,10 +162,6 @@
 - !ruby/object:MIME::Type
   content-type: message/sipfrag
   encoding: base64
-  references:
-  - IANA
-  - RFC3420
-  - "{message/sipfrag=http://www.iana.org/assignments/media-types/message/sipfrag}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3420
@@ -244,10 +171,6 @@
 - !ruby/object:MIME::Type
   content-type: message/tracking-status
   encoding: base64
-  references:
-  - IANA
-  - RFC3886
-  - "{message/tracking-status=http://www.iana.org/assignments/media-types/message/tracking-status}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3886
@@ -258,10 +181,6 @@
   content-type: message/vnd.si.simp
   encoding: base64
   obsolete: true
-  references:
-  - IANA
-  - "[Nicholas_Parks_Young]"
-  - "{message/vnd.si.simp=http://www.iana.org/assignments/media-types/message/vnd.si.simp}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Nicholas_Parks_Young
@@ -273,10 +192,6 @@
 - !ruby/object:MIME::Type
   content-type: message/vnd.wfa.wsc
   encoding: base64
-  references:
-  - IANA
-  - "[Mick_Conley]"
-  - "{message/vnd.wfa.wsc=http://www.iana.org/assignments/media-types/message/vnd.wfa.wsc}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Mick_Conley

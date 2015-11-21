@@ -29,11 +29,9 @@ class Convert::Columnar < Convert
 
     required_file('encoding')
     optional_file('docs')
-    optional_file('system')
     bool_file('obsolete')
     bool_file('registered')
     bool_file('signature')
-    array_file('references')
     dict_file('xrefs')
     dict_file('friendly')
     optional_file('use_instead', 'use-instead')

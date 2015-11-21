@@ -54,7 +54,7 @@ class TestMIMETypesQueryClassMethods < Minitest::Test
 
   def test_index_with_platform_flag
     assert_deprecated('MIME::Types#[]', 'using the :platform flag') do
-      assert_empty(MIME::Types['text/plain', platform: true])
+      refute_empty MIME::Types['text/plain', platform: true]
     end
   end
 
@@ -64,7 +64,7 @@ class TestMIMETypesQueryClassMethods < Minitest::Test
     assert_equal(%w(application/xml image/gif text/xml),
                  MIME::Types.type_for(%w(xml gif)))
     assert_deprecated('MIME::Types#type_for', 'using the platform parameter') do
-      assert_empty(MIME::Types.type_for('gif', true))
+      refute_empty MIME::Types.type_for('gif', true)
     end
     assert_empty(MIME::Types.type_for('zzz'))
   end

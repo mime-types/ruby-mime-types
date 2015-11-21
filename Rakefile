@@ -35,7 +35,7 @@ spec = Hoe.spec 'mime-types' do
   extra_dev_deps << ['fivemat', '~> 1.3' ]
   extra_dev_deps << ['minitest-rg', '~> 5.2']
 
-  if RUBY_VERSION >= '2.0'
+  if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('2.0')
     extra_dev_deps << ['simplecov', '~> 0.7']
     extra_dev_deps << ['coveralls', '~> 0.8']
   end
@@ -97,7 +97,7 @@ namespace :benchmark do
   end
 end
 
-if RUBY_VERSION >= '2.0'
+if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('2.0')
   namespace :test do
     task :coveralls do
       spec.test_prelude = [
@@ -121,6 +121,8 @@ if RUBY_VERSION >= '2.0'
       Rake::Task['test'].execute
     end
   end
+
+  Rake::Task['travis'].prerequisites.replace(%w(test:coveralls))
 end
 
 namespace :mime do
@@ -188,7 +190,6 @@ namespace :convert do
   end
 end
 
-Rake::Task['travis'].prerequisites.replace(%w(test:coveralls))
 Rake::Task['gem'].prerequisites.unshift('convert:yaml:json')
 
 # vim: syntax=ruby

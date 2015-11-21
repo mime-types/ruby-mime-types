@@ -7,9 +7,6 @@
   - smil
   obsolete: true
   use-instead: application/smil+xml
-  references:
-  - IANA
-  - RFC4536
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/vnd.qcelp
@@ -18,9 +15,6 @@
   - qcp
   obsolete: true
   use-instead: audio/QCELP
-  references:
-  - IANA
-  - RFC3625
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/bmp
@@ -33,16 +27,12 @@
 - !ruby/object:MIME::Type
   content-type: application/acad
   encoding: base64
-  references:
-  - LTSW
   registered: false
 - !ruby/object:MIME::Type
   content-type: audio/webm
   encoding: base64
   extensions:
   - webm
-  references:
-  - ! '{WebM=http://www.webmproject.org/code/specs/container/}'
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/pjpeg
@@ -52,16 +42,10 @@
 - !ruby/object:MIME::Type
   content-type: application/1d-interleaved-parityfec
   encoding: base64
-  references:
-  - IANA
-  - RFC6015
   registered: true
 - !ruby/object:MIME::Type
   content-type: audio/1d-interleaved-parityfec
   encoding: base64
-  references:
-  - IANA
-  - RFC6015
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/x-apple-diskimage
@@ -69,4 +53,3 @@
   extensions:
   - dmg
   registered: false
-  system: !ruby/regexp /mac/

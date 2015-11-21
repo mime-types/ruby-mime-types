@@ -16,10 +16,6 @@
   encoding: base64
   extensions:
   - cgm
-  references:
-  - IANA
-  - "[Alan_Francis]"
-  - "{image/cgm=http://www.iana.org/assignments/media-types/image/cgm}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Alan_Francis
@@ -35,10 +31,6 @@
 - !ruby/object:MIME::Type
   content-type: image/example
   encoding: base64
-  references:
-  - IANA
-  - RFC4735
-  - "{image/example=http://www.iana.org/assignments/media-types/image/example}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4735
@@ -48,10 +40,6 @@
 - !ruby/object:MIME::Type
   content-type: image/fits
   encoding: base64
-  references:
-  - IANA
-  - RFC4047
-  - "{image/fits=http://www.iana.org/assignments/media-types/image/fits}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4047
@@ -65,10 +53,6 @@
   encoding: base64
   extensions:
   - g3
-  references:
-  - IANA
-  - RFC1494
-  - "{image/g3fax=http://www.iana.org/assignments/media-types/image/g3fax}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc1494
@@ -82,10 +66,6 @@
   encoding: base64
   extensions:
   - gif
-  references:
-  - IANA
-  - RFC2045
-  - RFC2046
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2045
@@ -98,9 +78,6 @@
   encoding: base64
   extensions:
   - ief
-  references:
-  - IANA
-  - RFC1314
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc1314
@@ -111,10 +88,6 @@
   extensions:
   - jp2
   - jpg2
-  references:
-  - IANA
-  - RFC3745
-  - "{image/jp2=http://www.iana.org/assignments/media-types/image/jp2}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3745
@@ -130,10 +103,6 @@
   - jpeg
   - jpg
   - jpe
-  references:
-  - IANA
-  - RFC2045
-  - RFC2046
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc2045
@@ -145,10 +114,6 @@
   extensions:
   - jpm
   - jpgm
-  references:
-  - IANA
-  - RFC3745
-  - "{image/jpm=http://www.iana.org/assignments/media-types/image/jpm}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3745
@@ -161,10 +126,6 @@
   extensions:
   - jpx
   - jpf
-  references:
-  - IANA
-  - RFC3745
-  - "{image/jpx=http://www.iana.org/assignments/media-types/image/jpx}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3745
@@ -178,11 +139,6 @@
   encoding: base64
   extensions:
   - ktx
-  references:
-  - IANA
-  - "[Mark_Callow]"
-  - "[Khronos]"
-  - "{http://www.khronos.org/opengles/sdk/tools/KTX/file_format_spec/#mimeregistration}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Khronos
@@ -193,10 +149,6 @@
 - !ruby/object:MIME::Type
   content-type: image/naplps
   encoding: base64
-  references:
-  - IANA
-  - "[Ilya_Ferber]"
-  - "{image/naplps=http://www.iana.org/assignments/media-types/image/naplps}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Ilya_Ferber
@@ -215,10 +167,6 @@
   encoding: base64
   extensions:
   - png
-  references:
-  - IANA
-  - "[Glenn_Randers-Pehrson]"
-  - "{image/png=http://www.iana.org/assignments/media-types/image/png}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Glenn_Randers-Pehrson
@@ -232,10 +180,6 @@
   encoding: base64
   extensions:
   - btif
-  references:
-  - IANA
-  - "[Ben_Simon]"
-  - "{image/prs.btif=http://www.iana.org/assignments/media-types/image/prs.btif}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Ben_Simon
@@ -245,10 +189,6 @@
 - !ruby/object:MIME::Type
   content-type: image/prs.pti
   encoding: base64
-  references:
-  - IANA
-  - "[Juern_Laun]"
-  - "{image/prs.pti=http://www.iana.org/assignments/media-types/image/prs.pti}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Juern_Laun
@@ -258,10 +198,6 @@
 - !ruby/object:MIME::Type
   content-type: image/pwg-raster
   encoding: base64
-  references:
-  - IANA
-  - "[Michael_Sweet]"
-  - "{image/pwg-raster=http://www.iana.org/assignments/media-types/image/pwg-raster}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Michael_Sweet
@@ -282,10 +218,6 @@
   extensions:
   - svg
   - svgz
-  references:
-  - IANA
-  - "[W3C]"
-  - "{http://www.w3.org/TR/SVG/mimereg.html}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - W3C
@@ -295,10 +227,6 @@
 - !ruby/object:MIME::Type
   content-type: image/t38
   encoding: base64
-  references:
-  - IANA
-  - RFC3362
-  - "{image/t38=http://www.iana.org/assignments/media-types/image/t38}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3362
@@ -321,10 +249,6 @@
   extensions:
   - tiff
   - tif
-  references:
-  - IANA
-  - RFC3302
-  - "{image/tiff=http://www.iana.org/assignments/media-types/image/tiff}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3302
@@ -334,10 +258,6 @@
 - !ruby/object:MIME::Type
   content-type: image/tiff-fx
   encoding: base64
-  references:
-  - IANA
-  - RFC3950
-  - "{image/tiff-fx=http://www.iana.org/assignments/media-types/image/tiff-fx}"
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc3950
@@ -351,10 +271,6 @@
   encoding: base64
   extensions:
   - psd
-  references:
-  - IANA
-  - "[Kim_Scarborough]"
-  - "{image/vnd.adobe.photoshop=http://www.iana.org/assignments/media-types/image/vnd.adobe.photoshop}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Kim_Scarborough
@@ -364,10 +280,6 @@
 - !ruby/object:MIME::Type
   content-type: image/vnd.airzip.accelerator.azv
   encoding: base64
-  references:
-  - IANA
-  - "[Gary_Clueit]"
-  - "{image/vnd.airzip.accelerator.azv=http://www.iana.org/assignments/media-types/image/vnd.airzip.accelerator.azv}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Gary_Clueit
@@ -377,10 +289,6 @@
 - !ruby/object:MIME::Type
   content-type: image/vnd.cns.inf2
   encoding: base64
-  references:
-  - IANA
-  - "[Ann_McLaughlin]"
-  - "{image/vnd.cns.inf2=http://www.iana.org/assignments/media-types/image/vnd.cns.inf2}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Ann_McLaughlin
@@ -397,10 +305,6 @@
   - uvi
   - uvvg
   - uvvi
-  references:
-  - IANA
-  - "[Michael_A_Dolan]"
-  - "{image/vnd.dece.graphic=http://www.iana.org/assignments/media-types/image/vnd.dece.graphic}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Michael_A_Dolan
@@ -423,10 +327,6 @@
   extensions:
   - djvu
   - djv
-  references:
-  - IANA
-  - "[Leon_Bottou]"
-  - "{image/vnd-djvu=http://www.iana.org/assignments/media-types/image/vnd-djvu}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Leon_Bottou
@@ -440,11 +340,6 @@
   encoding: base64
   extensions:
   - sub
-  references:
-  - IANA
-  - "[Peter_Siebert]"
-  - "[Michael_Lagally]"
-  - "{image/vnd.dvb.subtitle=http://www.iana.org/assignments/media-types/image/vnd.dvb.subtitle}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Michael_Lagally
@@ -459,10 +354,6 @@
   encoding: base64
   extensions:
   - dwg
-  references:
-  - IANA
-  - "[Jodi_Moline]"
-  - "{image/vnd.dwg=http://www.iana.org/assignments/media-types/image/vnd.dwg}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Jodi_Moline
@@ -476,10 +367,6 @@
   encoding: base64
   extensions:
   - dxf
-  references:
-  - IANA
-  - "[Jodi_Moline]"
-  - "{image/vnd.dxf=http://www.iana.org/assignments/media-types/image/vnd.dxf}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Jodi_Moline
@@ -493,10 +380,6 @@
   encoding: base64
   extensions:
   - fbs
-  references:
-  - IANA
-  - "[Scott_Becker]"
-  - "{image/vnd.fastbidsheet=http://www.iana.org/assignments/media-types/image/vnd.fastbidsheet}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Scott_Becker
@@ -510,10 +393,6 @@
   encoding: base64
   extensions:
   - fpx
-  references:
-  - IANA
-  - "[Marc_Douglas_Spencer]"
-  - "{image/vnd.fpx=http://www.iana.org/assignments/media-types/image/vnd.fpx}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Marc_Douglas_Spencer
@@ -527,10 +406,6 @@
   encoding: base64
   extensions:
   - fst
-  references:
-  - IANA
-  - "[Arild_Fuldseth]"
-  - "{image/vnd.fst=http://www.iana.org/assignments/media-types/image/vnd.fst}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Arild_Fuldseth
@@ -544,10 +419,6 @@
   encoding: base64
   extensions:
   - mmr
-  references:
-  - IANA
-  - "[Masanori_Onda]"
-  - "{image/vnd.fujixerox.edmics-mmr=http://www.iana.org/assignments/media-types/image/vnd.fujixerox.edmics-mmr}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Masanori_Onda
@@ -561,10 +432,6 @@
   encoding: base64
   extensions:
   - rlc
-  references:
-  - IANA
-  - "[Masanori_Onda]"
-  - "{image/vnd.fujixerox.edmics-rlc=http://www.iana.org/assignments/media-types/image/vnd.fujixerox.edmics-rlc}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Masanori_Onda
@@ -576,10 +443,6 @@
   encoding: base64
   extensions:
   - pgb
-  references:
-  - IANA
-  - "[Martin_Bailey]"
-  - "{image/vnd.globalgraphics.pgb=http://www.iana.org/assignments/media-types/image/vnd.globalgraphics.pgb}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Martin_Bailey
@@ -591,10 +454,6 @@
   encoding: base64
   extensions:
   - ico
-  references:
-  - IANA
-  - "[Simon_Butcher]"
-  - "{image/vnd.microsoft.icon=http://www.iana.org/assignments/media-types/image/vnd.microsoft.icon}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Simon_Butcher
@@ -604,10 +463,6 @@
 - !ruby/object:MIME::Type
   content-type: image/vnd.mix
   encoding: base64
-  references:
-  - IANA
-  - "[Saveen_Reddy]"
-  - "{image/vnd.mix=http://www.iana.org/assignments/media-types/image/vnd.mix}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Saveen_Reddy
@@ -617,10 +472,6 @@
 - !ruby/object:MIME::Type
   content-type: image/vnd.mozilla.apng
   encoding: base64
-  references:
-  - IANA
-  - "[Stuart_Parmenter]"
-  - "{image/vnd.mozilla.apng=http://www.iana.org/assignments/media-types/image/vnd.mozilla.apng}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Stuart_Parmenter
@@ -634,10 +485,6 @@
   encoding: base64
   extensions:
   - mdi
-  references:
-  - IANA
-  - "[Gregory_Vaughan]"
-  - "{image/vnd.ms-modi=http://www.iana.org/assignments/media-types/image/vnd.ms-modi}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Gregory_Vaughan
@@ -657,10 +504,6 @@
   encoding: base64
   extensions:
   - npx
-  references:
-  - IANA
-  - "[Marc_Douglas_Spencer]"
-  - "{image/vnd.net-fpx=http://www.iana.org/assignments/media-types/image/vnd.net-fpx}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Marc_Douglas_Spencer
@@ -676,11 +519,6 @@
 - !ruby/object:MIME::Type
   content-type: image/vnd.radiance
   encoding: base64
-  references:
-  - IANA
-  - "[Randolph_Fritz]"
-  - "[Greg_Ward]"
-  - "{image/vnd.radiance=http://www.iana.org/assignments/media-types/image/vnd.radiance}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Greg_Ward
@@ -691,10 +529,6 @@
 - !ruby/object:MIME::Type
   content-type: image/vnd.sealed.png
   encoding: base64
-  references:
-  - IANA
-  - "[David_Petersen]"
-  - "{image/vnd.sealed-png=http://www.iana.org/assignments/media-types/image/vnd.sealed-png}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - David_Petersen
@@ -704,10 +538,6 @@
 - !ruby/object:MIME::Type
   content-type: image/vnd.sealedmedia.softseal.gif
   encoding: base64
-  references:
-  - IANA
-  - "[David_Petersen]"
-  - "{image/vnd.sealedmedia.softseal-gif=http://www.iana.org/assignments/media-types/image/vnd.sealedmedia.softseal-gif}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - David_Petersen
@@ -717,10 +547,6 @@
 - !ruby/object:MIME::Type
   content-type: image/vnd.sealedmedia.softseal.jpg
   encoding: base64
-  references:
-  - IANA
-  - "[David_Petersen]"
-  - "{image/vnd.sealedmedia.softseal-jpg=http://www.iana.org/assignments/media-types/image/vnd.sealedmedia.softseal-jpg}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - David_Petersen
@@ -730,10 +556,6 @@
 - !ruby/object:MIME::Type
   content-type: image/vnd.svf
   encoding: base64
-  references:
-  - IANA
-  - "[Jodi_Moline]"
-  - "{image/vnd-svf=http://www.iana.org/assignments/media-types/image/vnd-svf}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Jodi_Moline
@@ -743,10 +565,6 @@
 - !ruby/object:MIME::Type
   content-type: image/vnd.tencent.tap
   encoding: base64
-  references:
-  - IANA
-  - "[Ni_Hui]"
-  - "{image/vnd.tencent.tap=http://www.iana.org/assignments/media-types/image/vnd.tencent.tap}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Ni_Hui
@@ -756,10 +574,6 @@
 - !ruby/object:MIME::Type
   content-type: image/vnd.valve.source.texture
   encoding: base64
-  references:
-  - IANA
-  - "[Henrik_Andersson]"
-  - "{image/vnd.valve.source.texture=http://www.iana.org/assignments/media-types/image/vnd.valve.source.texture}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Henrik_Andersson
@@ -773,10 +587,6 @@
   encoding: base64
   extensions:
   - wbmp
-  references:
-  - IANA
-  - "[Peter_Stark]"
-  - "{image/vnd-wap-wbmp=http://www.iana.org/assignments/media-types/image/vnd-wap-wbmp}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Peter_Stark
@@ -790,10 +600,6 @@
   encoding: base64
   extensions:
   - xif
-  references:
-  - IANA
-  - "[Steven_Martin]"
-  - "{image/vnd.xiff=http://www.iana.org/assignments/media-types/image/vnd.xiff}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Steven_Martin
@@ -803,10 +609,6 @@
 - !ruby/object:MIME::Type
   content-type: image/vnd.zbrush.pcx
   encoding: base64
-  references:
-  - IANA
-  - "[Chris_Charabaruk]"
-  - "{image/vnd.zbrush.pcx=http://www.iana.org/assignments/media-types/image/vnd.zbrush.pcx}"
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Chris_Charabaruk
@@ -820,8 +622,6 @@
   encoding: base64
   extensions:
   - webp
-  references:
-  - "{WebP=https://developers.google.com/speed/webp/}"
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/x-3ds
@@ -1005,8 +805,6 @@
   encoding: base64
   extensions:
   - xcf
-  references:
-  - "{XCF=http://git.gnome.org/browse/gimp/tree/devel-docs/xcf.txt}"
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/x-xpixmap

@@ -13,11 +13,10 @@ class TestMIMETypesLoader < Minitest::Test
   def assert_correctly_loaded(types)
     assert_includes(types, 'application/1d-interleaved-parityfec')
     assert_deprecated('MIME::Type#references') do
-      assert_includes(types['application/acad'].first.references, 'LTSW')
+      assert_empty types['application/acad'].first.references
     end
     assert_deprecated('MIME::Type#urls') do
-      assert_equal([%w(WebM http://www.webmproject.org/code/specs/container/)],
-                   types['audio/webm'].first.urls)
+      assert_empty types['audio/webm'].first.urls
     end
     assert_equal(%w(webm), types['audio/webm'].first.extensions)
     refute(types['audio/webm'].first.registered?)
@@ -26,10 +25,10 @@ class TestMIMETypesLoader < Minitest::Test
                  types['image/pjpeg'].first.docs)
 
     assert_deprecated('MIME::Type#system?') do
-      assert(types['application/x-apple-diskimage'].first.system?)
+      refute types['application/x-apple-diskimage'].first.system?
     end
     assert_deprecated('MIME::Type#system') do
-      assert_equal(/mac/, types['application/x-apple-diskimage'].first.system)
+      assert_nil types['application/x-apple-diskimage'].first.system
     end
 
     assert(types['audio/vnd.qcelp'].first.obsolete?)

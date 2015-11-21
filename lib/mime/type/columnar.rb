@@ -39,11 +39,6 @@ class MIME::Type::Columnar < MIME::Type
     super
   end
 
-  def references(*) # :nodoc:
-    @container.send(:load_references) unless defined?(@references)
-    super if @references
-  end
-
   def registered? # :nodoc:
     @container.send(:load_registered) unless defined?(@registered)
     super
@@ -52,16 +47,6 @@ class MIME::Type::Columnar < MIME::Type
   def signature? # :nodoc:
     @container.send(:load_signature) unless defined?(@signature)
     super
-  end
-
-  def system?(*) # :nodoc:
-    @container.send(:load_system) unless defined?(@system)
-    super
-  end
-
-  def system # :nodoc:
-    @container.send(:load_system) unless defined?(@system)
-    @system
   end
 
   def xrefs # :nodoc:
@@ -81,30 +66,23 @@ class MIME::Type::Columnar < MIME::Type
 
   def to_a # :nodoc:
     @container.send(:load_encoding) unless defined?(@encoding)
-    @container.send(:load_system) unless defined?(@system)
     @container.send(:load_docs) unless defined?(@docs)
-    @container.send(:load_references) unless defined?(@references)
     super
   end
 
   def to_hash # :nodoc:
     @container.send(:load_encoding) unless defined?(@encoding)
-    @container.send(:load_system) unless defined?(@system)
     @container.send(:load_docs) unless defined?(@docs)
-    @container.send(:load_references) unless defined?(@references)
     super
   end
 
   def encode_with(coder) # :nodoc:
     @container.send(:load_friendly) unless defined?(@friendly)
     @container.send(:load_encoding) unless defined?(@encoding)
-    @container.send(:load_system) unless defined?(@system)
     @container.send(:load_docs) unless defined?(@docs)
-    @container.send(:load_references) unless defined?(@references)
     @container.send(:load_obsolete) unless defined?(@obsolete)
     @container.send(:load_use_instead) unless defined?(@use_instead)
     @container.send(:load_xrefs) unless defined?(@xrefs)
-    @container.send(:load_system) unless defined?(@system)
     @container.send(:load_registered) unless defined?(@registered)
     @container.send(:load_signature) unless defined?(@signature)
     super

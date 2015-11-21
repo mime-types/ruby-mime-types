@@ -85,7 +85,6 @@ class IANARegistry
 
       if types.empty?
         MIME::Type.new(content_type) do |mt|
-          mt.references  = %w(IANA) + refs
           mt.xrefs       = xrefs
           mt.registered  = true
           mt.obsolete    = obsolete if obsolete
@@ -94,7 +93,6 @@ class IANARegistry
         end
       else
         types.each { |mt|
-          mt.references  = %w(IANA) + refs
           mt.registered  = true
           mt.xrefs       = xrefs
           mt.obsolete    = obsolete if obsolete

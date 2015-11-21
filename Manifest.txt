@@ -2,6 +2,7 @@
 .gemtest
 .gitignore
 .hoerc
+Code-of-Conduct.rdoc
 Contributing.rdoc
 History-Types.rdoc
 History.rdoc
@@ -15,10 +16,8 @@ data/mime.docs.column
 data/mime.encoding.column
 data/mime.friendly.column
 data/mime.obsolete.column
-data/mime.references.column
 data/mime.registered.column
 data/mime.signature.column
-data/mime.system.column
 data/mime.use_instead.column
 data/mime.xrefs.column
 docs/COPYING.txt
