@@ -208,6 +208,38 @@ namespace :convert do
   task docs: 'convert:docs:run'
 end
 
+task 'deps:top', [ :number ] do |_, args|
+  require 'net/http'
+  require 'json'
+
+  def rubygems_get(gem_name: '', endpoint: '')
+    path = File.join('/api/v1/gems/', gem_name, endpoint).chomp('/') + '.json'
+    Net::HTTP.start('rubygems.org', use_ssl: true) do |http|
+      JSON.parse(http.get(path).body)
+    end
+  end
+
+  results = rubygems_get(
+    gem_name: 'mime-types',
+    endpoint: 'reverse_dependencies'
+  )
+
+  weighted_results = {}
+  results.each do |name|
+    begin
+      weighted_results[name] = rubygems_get(gem_name: name)['downloads']
+    rescue => e
+      puts "#{name} #{e.message}"
+    end
+  end
+
+  weighted_results.sort { |(_k1, v1), (_k2, v2)|
+    v2 <=> v1
+  }.first(args.number || 50).each_with_index do |(k, v), i|
+    puts "#{i}) #{k}: #{v}"
+  end
+end
+
 task :console do
   arguments = %w(pry)
   arguments.push(*spec.spec.require_paths.map { |dir| "-I#{dir}" })
