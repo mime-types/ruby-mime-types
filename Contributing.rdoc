@@ -18,48 +18,9 @@ There are a few guidelines for contributing to mime-types:
 
 === Adding or Modifying MIME Types
 
-The mime-types registry is loaded from encoded files in +data+. These are not
-editable and cannot be compared meaningfully in a pull request; pull requests
-that include changes to these files will require amendment to revert these
-files.
-
-New or modified MIME types should be edited in the appropriate YAML file under
-+type-lists+. The format is as shown below for the +application/xml+ MIME type
-in +type-lists/application.yml+.
-
-  - !ruby/object:MIME::Type
-    content-type: application/xml
-    encoding: 8bit
-    extensions:
-    - xml
-    - xsl
-    xrefs: !ruby/hash:MIME::Types::Container
-      rfc:
-      - rfc3023
-    registered: true
-
-There are other fields that can be added, matching the fields discussed in the
-documentation for MIME::Type. Pull requests for MIME types should just contain
-the changes to the YAML files for the new or modified MIME types; I will
-convert the YAML files to JSON prior to a new release. I would rather not have
-to verify that the JSON matches the YAML changes, which is why it is not
-necessary to convert for the pull request.
-
-If you are making a change for a private fork, use <tt>rake
-convert:yaml:json</tt> to convert the YAML to JSON, or <tt>rake
-convert:yaml:columnar</tt> to convert it to the new columnar format.
-
-==== Updating Types from the IANA or Apache Lists
-
-If you are maintaining a private fork and wish to update your copy of the MIME
-types registry used by this gem, you can do this with the rake tasks:
-
-    $ rake mime:iana
-    $ rake mime:apache
-
-Both of these require
-{Nokogiri}[http://www.nokogiri.org/tutorials/installing_nokogiri.html], which
-is not installed by default. Install it in the usual way for your Ruby.
+The mime-types registry is no longer contained in mime-types, but in
+{mime-types-data}[https://github.com/mime-types/mime-types-data]. Please see
+that project for contributions there.
 
 === Test Dependencies
 

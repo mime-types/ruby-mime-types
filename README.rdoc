@@ -83,8 +83,8 @@ files). A MIME::Type stores the known information about one MIME type.
    puts text == 'text/x-plain'     # => false
    puts 'text/x-plain' == text     # => false
 
-   puts MIME::Type.simplified('x-appl/x-zip') # => 'appl/zip'
-   puts MIME::Type.i18n_key('x-appl/x-zip') # => 'appl.zip'
+   puts MIME::Type.simplified('x-appl/x-zip') # => 'x-appl/x-zip'
+   puts MIME::Type.i18n_key('x-appl/x-zip') # => 'x-appl.x-zip'
 
    puts text.like?('text/x-plain') # => true
    puts text.like?(MIME::Type.new('x-text/x-plain')) # => true
@@ -111,7 +111,7 @@ files). A MIME::Type stores the known information about one MIME type.
 
    xwingz = MIME::Types['application/x-Wingz'].first # => application/x-Wingz
    puts xwingz.content_type        # => 'application/x-Wingz'
-   puts xwingz.simplified          # => 'application/wingz'
+   puts xwingz.simplified          # => 'application/x-wingz'
 
 === Columnar Store
 
@@ -183,19 +183,17 @@ MAJOR.MINOR:
    incremented, MINOR will be set to zero, and PATCH will be reset to the
    implied zero.
 
-2. If an API (code) feature is added that does not break compatibilty OR if
-   there are MIME types added, removed, or changed in the registry, the MINOR
-   version will be incremented and PATCH will be reset to the implied zero.
+2. If an API (code) feature is added that does not break compatibilty, the
+   MINOR version will be incremented and PATCH will be reset to the implied zero.
 
 3. If there is a bugfix to a feature added in the most recent MAJOR.MINOR
-   release, OR if purely typographical errors are fixed in MIME types, the
-   implied PATCH value will be incremented resulting in MAJOR.MINOR.PATCH.
+   release, the implied PATCH value will be incremented resulting in
+   MAJOR.MINOR.PATCH.
 
-In practical terms, there should be a MINOR release roughly monthly to track
-updated or changed MIME types from the official IANA registry. This does not
-indicate when new API features have been added, but all minor versions of
-mime-types 2.x will be backwards compatible; the interfaces marked deprecated
-will be removed in mime-types 3.x.
+In practical terms, there will be fewer releases of mime-types focussing on
+features because of the existence of the [mime-types-data][] gem, and if
+features are marked deprecated in the course of mime-types 3.x, they will not
+be removed until mime-types 4.x or possibly later.
 
 :include: Code-of-Conduct.rdoc
 
