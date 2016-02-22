@@ -92,6 +92,13 @@ application/cals-1840
 -
 -
 -
+-
+-
+-
+-
+-
+-
+-
 application/vnd.ms-excel
 -
 -
@@ -259,6 +266,9 @@ application/x-mathematica-old
 -
 -
 -
+-
+-
+-
 application/x-quicktimeplayer
 -
 -
@@ -267,6 +277,7 @@ application/x-quicktimeplayer
 -
 -
 application/remote-printing
+-
 -
 -
 -
@@ -400,7 +411,12 @@ application/x-VMSBACKUP
 -
 -
 -
+-
+-
+-
 application/vnd.aristanetworks.swi
+-
+-
 -
 -
 -
@@ -809,7 +825,16 @@ application/vnd.visionary
 -
 -
 -
+-
+-
+-
+-
+-
+-
 application/vnd.nokia.ncd
+-
+-
+-
 -
 -
 -
@@ -1545,6 +1570,7 @@ application/x400-bp
 -
 -
 -
+-
 audio/qcelp
 -
 -
@@ -1623,6 +1649,7 @@ image/x-vnd.dgn
 -
 -
 image/vnd.net-fpx
+-
 -
 -
 -
@@ -1829,6 +1856,8 @@ video/x-dl
 -
 -
 video/x-gl
+-
+-
 -
 -
 -

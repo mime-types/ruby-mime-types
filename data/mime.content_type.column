@@ -47,6 +47,7 @@ application/cdmi-container cdmic
 application/cdmi-domain cdmid
 application/cdmi-object cdmio
 application/cdmi-queue cdmiq
+application/cdni
 application/CEA
 application/cea-2018+xml
 application/cellml+xml
@@ -61,6 +62,7 @@ application/cpl+xml
 application/csrattrs
 application/csta+xml
 application/CSTAdata+xml
+application/csvm+json
 application/cu-seeme cu
 application/cybercash
 application/dash+xml
@@ -85,6 +87,11 @@ application/ecmascript ecma
 application/EDI-consent
 application/EDI-X12
 application/EDIFACT
+application/EmergencyCallData.Comment+xml
+application/EmergencyCallData.DeviceInfo+xml
+application/EmergencyCallData.ProviderInfo+xml
+application/EmergencyCallData.ServiceInfo+xml
+application/EmergencyCallData.SubscriberInfo+xml
 application/emma+xml emma
 application/emotionml+xml
 application/encaprtp
@@ -248,7 +255,10 @@ application/pls+xml pls
 application/poc-settings+xml
 application/postscript ai eps ps
 application/powerpoint ppt pps pot
+application/ppsp-tracker+json
 application/pro_eng
+application/problem+json
+application/problem+xml
 application/provenance+xml
 application/prs.alvestrand.titrax-sheet
 application/prs.cww cw cww
@@ -270,6 +280,7 @@ application/remote_printing
 application/reputon+json
 application/resource-lists+xml rl
 application/resource-lists-diff+xml rld
+application/rfc+xml
 application/riscos
 application/rlmi+xml
 application/rls-services+xml rs
@@ -356,12 +367,15 @@ application/vemmi
 application/VMSBACKUP bck
 application/vnd.3gpp-prose+xml
 application/vnd.3gpp-prose-pc3ch+xml
+application/vnd.3gpp.access-transfer-events+xml
 application/vnd.3gpp.bsf+xml
 application/vnd.3gpp.mid-call+xml
 application/vnd.3gpp.pic-bw-large plb
 application/vnd.3gpp.pic-bw-small psb
 application/vnd.3gpp.pic-bw-var pvb
 application/vnd.3gpp.sms sms
+application/vnd.3gpp.srvcc-ext+xml
+application/vnd.3gpp.SRVCC-info+xml
 application/vnd.3gpp.state-and-event-info+xml
 application/vnd.3gpp.ussd+xml
 application/vnd.3gpp2.bcmcsinfo+xml
@@ -553,6 +567,7 @@ application/vnd.fdf fdf
 application/vnd.fdsn.mseed mseed
 application/vnd.fdsn.seed dataless seed
 application/vnd.ffsns
+application/vnd.filmit.zfc
 application/vnd.fints
 application/vnd.firemonkeys.cloudcell
 application/vnd.FloGraphIt gph
@@ -608,6 +623,7 @@ application/vnd.hal+xml hal
 application/vnd.HandHeld-Entertainment+xml zmm
 application/vnd.hbci hbci hbc kom upa pkd bpd
 application/vnd.hcl-bireports
+application/vnd.hdt
 application/vnd.heroku+json
 application/vnd.hhe.lesson-player les
 application/vnd.hp-HPGL plt hpgl
@@ -702,6 +718,7 @@ application/vnd.lotus-organizer org
 application/vnd.lotus-screencam scm
 application/vnd.lotus-wordpro lwp
 application/vnd.macports.portpkg portpkg
+application/vnd.mapbox-vector-tile
 application/vnd.marlin.drm.actiontoken+xml
 application/vnd.marlin.drm.conftoken+xml
 application/vnd.marlin.drm.license+xml
@@ -765,9 +782,14 @@ application/vnd.ms-powerpoint.presentation.macroEnabled.12 pptm
 application/vnd.ms-powerpoint.slide.macroEnabled.12 sldm
 application/vnd.ms-powerpoint.slideshow.macroEnabled.12 ppsm
 application/vnd.ms-powerpoint.template.macroEnabled.12 potm
+application/vnd.ms-PrintDeviceCapabilities+xml
+application/vnd.ms-PrintSchemaTicket+xml
 application/vnd.ms-project mpp mpt
 application/vnd.ms-tnef
+application/vnd.ms-windows.devicepairing
+application/vnd.ms-windows.nwprinting.oob
 application/vnd.ms-windows.printerpairing
+application/vnd.ms-windows.wsd.oob
 application/vnd.ms-wmdrm.lic-chlg-req
 application/vnd.ms-wmdrm.lic-resp
 application/vnd.ms-wmdrm.meter-chlg-req
@@ -978,6 +1000,8 @@ application/vnd.osgi.bundle
 application/vnd.osgi.dp dp
 application/vnd.osgi.subsystem esa
 application/vnd.otps.ct-kip+xml
+application/vnd.oxli.countgraph
+application/vnd.pagerduty+json
 application/vnd.palm prc pdb pqa oprc
 application/vnd.panoply
 application/vnd.paos.xml
@@ -1108,6 +1132,7 @@ application/vnd.syncml.ds.notification
 application/vnd.tao.intent-module-archive tao
 application/vnd.tcpdump.pcap cap dmp pcap
 application/vnd.tmd.mediaflex.api+xml
+application/vnd.tml
 application/vnd.tmobile-livetv tmo
 application/vnd.trid.tpt tpt
 application/vnd.triscape.mxs mxs
@@ -1448,6 +1473,7 @@ audio/EVRCNW1
 audio/EVRCWB
 audio/EVRCWB0
 audio/EVRCWB1
+audio/EVS
 audio/example
 audio/fwdred
 audio/G711-0
@@ -1476,7 +1502,7 @@ audio/L8
 audio/LPC
 audio/midi kar mid midi rmi
 audio/mobile-xmf
-audio/mp4 mp4 mpg4 f4a f4b mp4a
+audio/mp4 mp4 mpg4 f4a f4b mp4a m4a
 audio/MP4A-LATM m4a
 audio/MPA
 audio/mpa-robust
@@ -1696,6 +1722,7 @@ model/vnd.mts mts
 model/vnd.opengex
 model/vnd.parasolid.transmit.binary x_b xmt_bin
 model/vnd.parasolid.transmit.text x_t xmt_txt
+model/vnd.rosette.annotated-data-model
 model/vnd.valve.source.compiled-map
 model/vnd.vtu vtu
 model/vrml wrl vrml
@@ -1836,6 +1863,7 @@ video/H263-2000
 video/H264 h264
 video/H264-RCDO
 video/H264-SVC
+video/H265
 video/iso.segment
 video/JPEG jpgv
 video/jpeg2000
@@ -1896,6 +1924,7 @@ video/vnd.sealed.swf sswf ssw
 video/vnd.sealedmedia.softseal.mov smov smo s1q
 video/vnd.uvvu.mp4 uvu uvvu
 video/vnd.vivo viv vivo
+video/VP8
 video/webm webm
 video/x-dl dl
 video/x-dv dv

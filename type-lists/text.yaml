@@ -370,7 +370,7 @@
   encoding: quoted-printable
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - ThreeGPP
+    - _3GPP
     template:
     - text/rtp-enc-aescm128
   registered: true

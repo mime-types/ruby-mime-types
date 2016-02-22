@@ -1,5 +1,23 @@
 = MIME Types Changes by Version
 
+== 2.99.1 / 2016-02-21
+
+* Updated the known extensions list for audio/mp4.
+* Updated the IANA media registry entries as of release date:
+  * Updated metadata for 3GPP-defined types (there are many),
+    application/cdni, and application/rfc+xml.
+  * Added application/EmergencyCallData.Comment+xml,
+    application/EmergencyCallData.DeviceInfo+xml,
+    application/EmergencyCallData.ProviderInfo+xml,
+    application/EmergencyCallData.ServiceInfo+xml,
+    application/ppsp-tracker+json, application/problem+json,
+    application/problem+xml, application/vnd.filmit.zfc, application/vnd.hdt,
+    application/vnd.mapbox-vector-tile,
+    application/vnd.ms-PrintDeviceCapabilities+xml,
+    application/vnd.ms-PrintSchemaTicket+xml,
+    application/vnd.ms-windows.nwprinting.oob, application/vnd.tml,
+    model/vnd.rosette.annotated-data-model, and video/H265
+
 == 2.99 / 2015-11-21
 
 * Removed deprecated fields from the data files.

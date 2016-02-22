@@ -61,6 +61,8 @@ en^Cloud Data Management Interface (CDMI) - Queue
 -
 -
 -
+-
+-
 en^CU-SeeMe
 -
 -
@@ -82,6 +84,11 @@ en^Data Structure for the Security Suitability of Cryptographic Algorithms
 -
 -
 en^ECMAScript
+-
+-
+-
+-
+-
 -
 -
 -
@@ -251,6 +258,9 @@ en^PostScript
 -
 -
 -
+-
+-
+-
 en^CU-Writer
 -
 -
@@ -270,6 +280,7 @@ en^Relax NG Compact Syntax
 -
 en^XML Resource Lists
 en^XML Resource Lists Diff
+-
 -
 -
 en^XML Resource Lists
@@ -358,9 +369,12 @@ en^Time Stamped Data Envelope
 -
 -
 -
+-
 en^3rd Generation Partnership Project - Pic Large
 en^3rd Generation Partnership Project - Pic Small
 en^3rd Generation Partnership Project - Pic Var
+-
+-
 -
 -
 -
@@ -555,6 +569,7 @@ en^Digital Siesmograph Networks - SEED Datafiles
 -
 -
 -
+-
 en^NpGraphIt
 en^FluxTime Clip
 -
@@ -607,6 +622,7 @@ en^Groove - Vcard
 en^Hypertext Application Language
 en^ZVUE Media Manager
 en^Homebanking Computer Interface (HBCI)
+-
 -
 -
 en^Archipelago Lesson Player
@@ -708,6 +724,7 @@ en^MacPorts Port System
 -
 -
 -
+-
 en^Micro CADAM Helix D&D
 en^MedCalc
 en^MediaRemote
@@ -765,7 +782,12 @@ en^Microsoft PowerPoint - Macro-Enabled Presentation File
 en^Microsoft PowerPoint - Macro-Enabled Open XML Slide
 en^Microsoft PowerPoint - Macro-Enabled Slide Show File
 en^Micosoft PowerPoint - Macro-Enabled Template File
+-
+-
 en^Microsoft Project
+-
+-
+-
 -
 -
 -
@@ -978,6 +1000,8 @@ en^MapGuide DBXML
 en^OSGi Deployment Package
 -
 -
+-
+-
 en^PalmOS Data
 -
 -
@@ -1106,6 +1130,7 @@ en^SyncML - Device Management
 -
 -
 en^Tao Intent
+-
 -
 -
 en^MobileTV
@@ -1474,6 +1499,7 @@ en^Sun Audio - Au file format
 -
 -
 -
+-
 en^MIDI - Musical Instrument Digital Interface
 -
 en^MPEG-4 Audio
@@ -1697,6 +1723,7 @@ en^Virtue MTS
 -
 -
 -
+-
 en^Virtue VTU
 en^Virtual Reality Modeling Language
 -
@@ -1837,6 +1864,7 @@ en^H.264
 -
 -
 -
+-
 en^JPGVideo
 -
 en^JPEG 2000 Compound Image File Format
@@ -1896,6 +1924,7 @@ en^Microsoft PlayReady Ecosystem Video
 -
 en^DECE MP4
 en^Vivo
+-
 en^Open Web Media Project - Video
 -
 -

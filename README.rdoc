@@ -14,10 +14,10 @@ MIME content type definitions. It can be used to determine defined filename
 extensions for MIME types, or to use filename extensions to look up the likely
 MIME type definitions.
 
-This is release 2.99, the deprecation version of mime-types 2.x, where
-deprecation warnings are noisy and data that has been deprecated is now no
-longer available. The data is both dropped from the data files and is stubbed
-out as empty or +nil+ values as appropriate.
+This is release 2.99.1, the first scheduled data update for mime-types 2.x. As
+of mime-types 2.99. deprecation warnings are noisy and data that has been
+deprecated is now no longer available. The data is both dropped from the data
+files and is stubbed out as empty or +nil+ values as appropriate.
 
 mime-types-2.6 was the last version of mime-types 2.x with newly available
 features, and mime-types 2.99 will only receive quarterly updates to the IANA

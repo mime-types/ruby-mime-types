@@ -195,6 +195,15 @@
     - video/H264-SVC
   registered: true
 - !ruby/object:MIME::Type
+  content-type: video/H265
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-ietf-payload-rtp-h265-15
+    template:
+    - video/H265
+  registered: true
+- !ruby/object:MIME::Type
   content-type: video/iso.segment
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
@@ -418,7 +427,7 @@
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - ThreeGPP
+    - _3GPP
     template:
     - video/rtp-enc-aescm128
   registered: true

@@ -392,6 +392,16 @@
     - audio/EVRCWB1
   registered: true
 - !ruby/object:MIME::Type
+  content-type: audio/EVS
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Kyunghun_Jung
+    - _3GPP
+    template:
+    - audio/EVS
+  registered: true
+- !ruby/object:MIME::Type
   content-type: audio/example
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
@@ -659,6 +669,7 @@
   - f4a
   - f4b
   - mp4a
+  - m4a
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc4337
@@ -831,7 +842,7 @@
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - ThreeGPP
+    - _3GPP
     template:
     - audio/rtp-enc-aescm128
   registered: true

@@ -6,7 +6,6 @@ require 'fileutils'
 gem 'minitest'
 require 'fivemat/minitest/autorun'
 require 'minitest/focus'
-require 'minitest/rg'
 
 module Minitest::MIMEDeprecated
   def assert_deprecated name, message = 'and will be removed'

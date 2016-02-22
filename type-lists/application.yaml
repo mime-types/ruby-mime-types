@@ -14,7 +14,7 @@
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Ozgur_Oyman
-    - ThreeGPP
+    - _3GPP
     template:
     - application/3gpdash-qoe-report+xml
   registered: true
@@ -480,8 +480,8 @@
   content-type: application/cdni
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-cdni-media-type-06
+    rfc:
+    - rfc7736
     template:
     - application/cdni
   registered: true
@@ -840,6 +840,51 @@
     - rfc1767
     template:
     - application/EDIFACT
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/EmergencyCallData.Comment+xml
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-ietf-ecrit-additional-data-37
+    template:
+    - application/EmergencyCallData.Comment+xml
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/EmergencyCallData.DeviceInfo+xml
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-ietf-ecrit-additional-data-37
+    template:
+    - application/EmergencyCallData.DeviceInfo+xml
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/EmergencyCallData.ProviderInfo+xml
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-ietf-ecrit-additional-data-37
+    template:
+    - application/EmergencyCallData.ProviderInfo+xml
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/EmergencyCallData.ServiceInfo+xml
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-ietf-ecrit-additional-data-37
+    template:
+    - application/EmergencyCallData.ServiceInfo+xml
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/EmergencyCallData.SubscriberInfo+xml
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-ietf-ecrit-additional-data-37
+    template:
+    - application/EmergencyCallData.SubscriberInfo+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/emma+xml
@@ -1633,7 +1678,7 @@
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - ThreeGPP
+    - _3GPP
     template:
     - application/mbms-associated-procedure-description+xml
   registered: true
@@ -1642,7 +1687,7 @@
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - ThreeGPP
+    - _3GPP
     template:
     - application/mbms-deregister+xml
   registered: true
@@ -1651,7 +1696,7 @@
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - ThreeGPP
+    - _3GPP
     template:
     - application/mbms-envelope+xml
   registered: true
@@ -1660,7 +1705,7 @@
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - ThreeGPP
+    - _3GPP
     template:
     - application/mbms-msk+xml
   registered: true
@@ -1669,7 +1714,7 @@
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - ThreeGPP
+    - _3GPP
     template:
     - application/mbms-msk-response+xml
   registered: true
@@ -1678,7 +1723,7 @@
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - ThreeGPP
+    - _3GPP
     template:
     - application/mbms-protection-description+xml
   registered: true
@@ -1687,7 +1732,7 @@
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - ThreeGPP
+    - _3GPP
     template:
     - application/mbms-reception-report+xml
   registered: true
@@ -1696,7 +1741,7 @@
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - ThreeGPP
+    - _3GPP
     template:
     - application/mbms-register+xml
   registered: true
@@ -1705,7 +1750,7 @@
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - ThreeGPP
+    - _3GPP
     template:
     - application/mbms-register-response+xml
   registered: true
@@ -1715,7 +1760,7 @@
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Eric_Turcotte
-    - ThreeGPP
+    - _3GPP
     template:
     - application/mbms-schedule+xml
   registered: true
@@ -1724,7 +1769,7 @@
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - ThreeGPP
+    - _3GPP
     template:
     - application/mbms-user-service-description+xml
   registered: true
@@ -2491,9 +2536,36 @@
   - pot
   registered: false
 - !ruby/object:MIME::Type
+  content-type: application/ppsp-tracker+json
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-ietf-ppsp-base-tracker-protocol-11
+    template:
+    - application/ppsp-tracker+json
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/pro_eng
   encoding: base64
   registered: false
+- !ruby/object:MIME::Type
+  content-type: application/problem+json
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-ietf-appsawg-http-problem-03
+    template:
+    - application/problem+json
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/problem+xml
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-ietf-appsawg-http-problem-03
+    template:
+    - application/problem+xml
+  registered: true
 - !ruby/object:MIME::Type
   content-type: application/provenance+xml
   encoding: base64
@@ -2718,8 +2790,8 @@
   content-type: application/rfc+xml
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-iab-xml2rfcv2-02
+    rfc:
+    - rfc7749
     template:
     - application/rfc+xml
   registered: true
@@ -2984,7 +3056,7 @@
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Frederic_Firmin
-    - ThreeGPP
+    - _3GPP
     template:
     - application/session-info
   registered: true
@@ -3105,7 +3177,7 @@
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - ThreeGPP
+    - _3GPP
     template:
     - application/simpleSymbolContainer
   registered: true
@@ -5672,6 +5744,15 @@
     - application/vnd.ffsns
   registered: true
 - !ruby/object:MIME::Type
+  content-type: application/vnd.filmit.zfc
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Harms_Moeller
+    template:
+    - application/vnd.filmit.zfc
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/vnd.fints
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
@@ -6333,6 +6414,15 @@
     - Doug_R._Serres
     template:
     - application/vnd.hcl-bireports
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/vnd.hdt
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Javier_D._Fernández
+    template:
+    - application/vnd.hdt
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.heroku+json
@@ -7419,6 +7509,15 @@
     - application/vnd.macports.portpkg
   registered: true
 - !ruby/object:MIME::Type
+  content-type: application/vnd.mapbox-vector-tile
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Blake_Thompson
+    template:
+    - application/vnd.mapbox-vector-tile
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/vnd.marlin.drm.actiontoken+xml
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
@@ -8134,6 +8233,24 @@
     - application/vnd.ms-powerpoint.template.macroEnabled.12
   registered: true
 - !ruby/object:MIME::Type
+  content-type: application/vnd.ms-PrintDeviceCapabilities+xml
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Justin_Hutchings
+    template:
+    - application/vnd.ms-PrintDeviceCapabilities+xml
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/vnd.ms-PrintSchemaTicket+xml
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Justin_Hutchings
+    template:
+    - application/vnd.ms-PrintSchemaTicket+xml
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/vnd.ms-project
   friendly:
     en: Microsoft Project
@@ -8164,6 +8281,15 @@
     - Justin_Hutchings
     template:
     - application/vnd.ms-windows.devicepairing
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/vnd.ms-windows.nwprinting.oob
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Justin_Hutchings
+    template:
+    - application/vnd.ms-windows.nwprinting.oob
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.ms-windows.printerpairing
@@ -11705,6 +11831,15 @@
     - Alex_Sibilev
     template:
     - application/vnd.tmd.mediaflex.api+xml
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/vnd.tml
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Joey_Smith
+    template:
+    - application/vnd.tml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.tmobile-livetv

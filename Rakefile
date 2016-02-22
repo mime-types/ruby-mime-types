@@ -21,7 +21,7 @@ spec = Hoe.spec 'mime-types' do
   self.readme_file = 'README.rdoc'
   self.extra_rdoc_files = FileList['*.rdoc'].to_a
 
-  self.licenses = ['MIT', 'Artistic 2.0', 'GPL-2']
+  self.licenses = ['MIT', 'Artistic-2.0', 'GPL-2.0']
 
   extra_dev_deps << ['hoe-doofus', '~> 1.0']
   extra_dev_deps << ['hoe-gemspec2', '~> 1.1']
