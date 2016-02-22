@@ -1,3 +1,11 @@
+== NEXT / 2016-MM-DD
+
+* 1 documentation change:
+
+  * Tim Smith (@tas50) updated the build badges to be SVGs to improve
+    readability on high-density (retina) screens with pull request
+    {#112}[https://github.com/mime-types/ruby-mime-types/pull/112].
+
 == 3.0 / 2015-11-21
 
 * 2 governance changes
