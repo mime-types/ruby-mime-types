@@ -87,6 +87,7 @@ application/ecmascript ecma
 application/EDI-consent
 application/EDI-X12
 application/EDIFACT
+application/efi
 application/EmergencyCallData.Comment+xml
 application/EmergencyCallData.DeviceInfo+xml
 application/EmergencyCallData.ProviderInfo+xml
@@ -222,7 +223,7 @@ application/nlsml+xml
 application/nss
 application/ocsp-request
 application/ocsp-response
-application/octet-stream bin dms lha lzh exe class ani pgp so dll dylib bpk deploy dist distz dump elc lrf mar pkg
+application/octet-stream bin dms lha lzh exe class ani pgp gpg so dll dylib bpk deploy dist distz dump elc lrf mar pkg
 application/oda oda
 application/ODX
 application/oebps-package+xml opf
@@ -235,7 +236,7 @@ application/parityfec
 application/patch-ops-error+xml xer
 application/pdf pdf
 application/PDX
-application/pgp-encrypted pgp
+application/pgp-encrypted pgp gpg
 application/pgp-keys
 application/pgp-signature asc sig
 application/pics-rules prf
@@ -374,6 +375,7 @@ application/vnd.3gpp.pic-bw-large plb
 application/vnd.3gpp.pic-bw-small psb
 application/vnd.3gpp.pic-bw-var pvb
 application/vnd.3gpp.sms sms
+application/vnd.3gpp.sms+xml
 application/vnd.3gpp.srvcc-ext+xml
 application/vnd.3gpp.SRVCC-info+xml
 application/vnd.3gpp.state-and-event-info+xml
@@ -381,6 +383,7 @@ application/vnd.3gpp.ussd+xml
 application/vnd.3gpp2.bcmcsinfo+xml
 application/vnd.3gpp2.sms
 application/vnd.3gpp2.tcap tcap
+application/vnd.3lightssoftware.imagescal
 application/vnd.3M.Post-it-Notes pwn
 application/vnd.accpac.simply.aso aso
 application/vnd.accpac.simply.imp imp
@@ -452,6 +455,7 @@ application/vnd.collection.next+json
 application/vnd.commerce-battelle
 application/vnd.commonspace csp
 application/vnd.contact.cmsg cdbcmsg
+application/vnd.coreos.ignition+json
 application/vnd.cosmocaller cmc
 application/vnd.crick.clicker clkx
 application/vnd.crick.clicker.keyboard clkk
@@ -901,6 +905,7 @@ application/vnd.oma.dcdc
 application/vnd.oma.dd2+xml dd2
 application/vnd.oma.drm.risd+xml
 application/vnd.oma.group-usage-list+xml
+application/vnd.oma.lwm2m+json
 application/vnd.oma.pal+xml
 application/vnd.oma.poc.detailed-progress-report+xml
 application/vnd.oma.poc.final-report+xml
@@ -914,6 +919,7 @@ application/vnd.omads-email+xml
 application/vnd.omads-file+xml
 application/vnd.omads-folder+xml
 application/vnd.omaloc-supl-init
+application/vnd.onepager
 application/vnd.openblox.game+xml
 application/vnd.openblox.game-binary
 application/vnd.openeye.oeb
@@ -1028,6 +1034,7 @@ application/vnd.pvi.ptid1 pti ptid
 application/vnd.pwg-multiplexed
 application/vnd.pwg-xhtml-print+xml
 application/vnd.qualcomm.brew-app-res
+application/vnd.quarantainenet
 application/vnd.Quark.QuarkXPress qxd qxt qwd qwt qxl qxb
 application/vnd.quobject-quoxdocument
 application/vnd.radisys.moml+xml
@@ -1162,6 +1169,7 @@ application/vnd.valve.source.material
 application/vnd.vcx vcx
 application/vnd.vd-study
 application/vnd.vectorworks
+application/vnd.vel+json
 application/vnd.verimatrix.vcas
 application/vnd.vidsoft.vidconference vsc
 application/vnd.visio vsd vst vsw vss
@@ -1605,6 +1613,7 @@ drawing/dwf dwf
 image/bmp bmp
 image/cgm cgm
 image/cmu-raster
+image/emf
 image/example
 image/fits
 image/g3fax g3
@@ -1660,6 +1669,7 @@ image/vnd.wap.wbmp wbmp
 image/vnd.xiff xif
 image/vnd.zbrush.pcx
 image/webp webp
+image/wmf
 image/x-3ds 3ds
 image/x-bmp bmp
 image/x-cmu-raster ras
@@ -1779,6 +1789,7 @@ text/plain txt asc c cc h hh cpp hpp dat hlp conf def doc in list log markdown m
 text/provenance-notation
 text/prs.fallenstein.rst rst
 text/prs.lines.tag dsc
+text/prs.prop.logic
 text/raptorfec
 text/RED
 text/rfc822-headers

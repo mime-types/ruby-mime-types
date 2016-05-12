@@ -6,9 +6,12 @@
   encoding: base64
   extensions:
   - bmp
-  obsolete: true
-  use-instead: image/x-bmp
-  registered: false
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-seantek-windows-image-03
+    template:
+    - image/bmp
+  registered: true
 - !ruby/object:MIME::Type
   content-type: image/cgm
   friendly:
@@ -28,6 +31,15 @@
   obsolete: true
   use-instead: image/x-cmu-raster
   registered: false
+- !ruby/object:MIME::Type
+  content-type: image/emf
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-seantek-windows-image-03
+    template:
+    - image/emf
+  registered: true
 - !ruby/object:MIME::Type
   content-type: image/example
   encoding: base64
@@ -624,6 +636,15 @@
   - webp
   registered: false
 - !ruby/object:MIME::Type
+  content-type: image/wmf
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-seantek-windows-image-03
+    template:
+    - image/wmf
+  registered: true
+- !ruby/object:MIME::Type
   content-type: image/x-3ds
   encoding: base64
   extensions:
@@ -634,6 +655,8 @@
   encoding: base64
   extensions:
   - bmp
+  obsolete: true
+  use-instead: image/bmp
   registered: false
 - !ruby/object:MIME::Type
   content-type: image/x-cmu-raster

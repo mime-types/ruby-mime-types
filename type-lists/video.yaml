@@ -198,8 +198,8 @@
   content-type: video/H265
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-payload-rtp-h265-15
+    rfc:
+    - rfc7798
     template:
     - video/H265
   registered: true
@@ -371,6 +371,7 @@
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5334
+    - rfc7845
     template:
     - video/ogg
   registered: true

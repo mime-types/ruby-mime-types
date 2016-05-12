@@ -1,7 +1,3 @@
-.autotest
-.gemtest
-.gitignore
-.hoerc
 Code-of-Conduct.rdoc
 Contributing.rdoc
 History-Types.rdoc

@@ -1,4 +1,4 @@
-# -*- ruby encoding: utf-8 -*-
+# frozen_string_literal: true
 
 require 'rubygems'
 require 'hoe'
@@ -190,6 +190,11 @@ namespace :convert do
   end
 end
 
-Rake::Task['gem'].prerequisites.unshift('convert:yaml:json')
+desc 'Default conversion from YAML to JSON and Columnar'
+task convert: [ 'convert:yaml:json', 'convert:yaml:columnar' ]
+
+Rake::Task['gem'].prerequisites.unshift('convert')
+Rake::Task['gem'].prerequisites.unshift('git:manifest')
+Rake::Task['gem'].prerequisites.unshift('gemspec')
 
 # vim: syntax=ruby

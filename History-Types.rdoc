@@ -1,20 +1,41 @@
 = MIME Types Changes by Version
 
+== 2.99.2 / 2016-05-21
+
+* Updated the known extension list for application/octet-stream and
+  application/pgp-encrypted to include gpg as an extension.
+* Updated the IANA media registry entries as of release date:
+  * Updated metadata for application/EmergencyCallData.Comment\+xml,
+    application/EmergencyCallData.DeviceInfo\+xml,
+    application/EmergencyCallData.ProviderInfo\+xml,
+    application/EmergencyCallData.ServiceInfo\+xml,
+    application/EmergencyCallData.SubscriberInfo\+xml,
+    application/ogg, application/problem\+json, application/problem\+xml,
+    audio/ogg, teext/markdown, video/H265, video/ogg.
+  * Added application/efi, application/vnd.3gpp.sms\+xml,
+    application/vnd.3lightssoftware.imagescal,
+    application/vnd.coreos.ignition\+json, application/vnd.oma.lwm2m\+json,
+    application/vnd.onepager, application/vnd.quarantainenet,
+    application/vnd.vel\+json, image/emf, image/wmf, text/prs.prop.logic.
+  * image/bmp has a draft RFC which would make it official; it has been finally
+    been registered. As such, this version *reverses* the use-instead
+    relationship of image/bmp and image/x-bmp.
+
 == 2.99.1 / 2016-02-21
 
 * Updated the known extensions list for audio/mp4.
 * Updated the IANA media registry entries as of release date:
   * Updated metadata for 3GPP-defined types (there are many),
-    application/cdni, and application/rfc+xml.
-  * Added application/EmergencyCallData.Comment+xml,
-    application/EmergencyCallData.DeviceInfo+xml,
-    application/EmergencyCallData.ProviderInfo+xml,
-    application/EmergencyCallData.ServiceInfo+xml,
-    application/ppsp-tracker+json, application/problem+json,
-    application/problem+xml, application/vnd.filmit.zfc, application/vnd.hdt,
+    application/cdni, and application/rfc\+xml.
+  * Added application/EmergencyCallData.Comment\+xml,
+    application/EmergencyCallData.DeviceInfo\+xml,
+    application/EmergencyCallData.ProviderInfo\+xml,
+    application/EmergencyCallData.ServiceInfo\+xml,
+    application/ppsp-tracker\+json, application/problem\+json,
+    application/problem\+xml, application/vnd.filmit.zfc, application/vnd.hdt,
     application/vnd.mapbox-vector-tile,
-    application/vnd.ms-PrintDeviceCapabilities+xml,
-    application/vnd.ms-PrintSchemaTicket+xml,
+    application/vnd.ms-PrintDeviceCapabilities\+xml,
+    application/vnd.ms-PrintSchemaTicket\+xml,
     application/vnd.ms-windows.nwprinting.oob, application/vnd.tml,
     model/vnd.rosette.annotated-data-model, and video/H265
 
@@ -22,13 +43,13 @@
 
 * Removed deprecated fields from the data files.
 * Updated the IANA media registry entries as of release date:
-  * Updated metadata for application/scim+json, audio/G711-0, text/markdown.
-  * Added application/cdni, application/csvm+json, application/rfc+xml,
-    application/vnd.3gpp.access-transfer-events+xml,
-    application/vnd.3gpp.srvcc-ext+xml, application/vnd.3gpp.SRVCC-info+xml,
+  * Updated metadata for application/scim\+json, audio/G711-0, text/markdown.
+  * Added application/cdni, application/csvm\+json, application/rfc\+xml,
+    application/vnd.3gpp.access-transfer-events\+xml,
+    application/vnd.3gpp.srvcc-ext\+xml, application/vnd.3gpp.SRVCC-info\+xml,
     application/vnd.ms-windows.devicepairing,
     application/vnd.ms-windows.wsd.oob, application/vnd.oxli.countgraph,
-    application/vnd.pagerduty+json, video/VP8.
+    application/vnd.pagerduty\+json, video/VP8.
 
 == 2.6.2 / 2015-09-13
 
@@ -118,7 +139,7 @@
     application/vnd.apache.thrift.binary, application/vnd.artsquare,
     application/vnd.doremir.scorecloud-binary-document, application/vnd.dzr,
     application/vnd.maxmind.maxmind-db,
-    application/vnd.ntt-local.ogw_remote-access, application/xml-patch+xml,
+    application/vnd.ntt-local.ogw_remote-access, application/xml-patch\+xml,
     image/vnd.tencent.tap.
 
 == 2.3 / 2014-05-23

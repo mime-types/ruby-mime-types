@@ -747,6 +747,7 @@
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc5334
+    - rfc7845
     template:
     - audio/ogg
   registered: true
