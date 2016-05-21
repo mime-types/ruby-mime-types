@@ -165,5 +165,6 @@ Thanks to everyone else who has contributed to mime-types:
 * Richard Hirner
 * Richard Hurt
 * Richard Schneeman
+* Tao Guo
 * Tibor Szolár
 * Todd Carrico

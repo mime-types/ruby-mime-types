@@ -1,3 +1,13 @@
+== 2.99.2 / 2016-05-21
+
+* Data release. This release reflects updates to the embedded MIME type
+  data on the specified quarterly schedule.
+
+* Minor improvement to the Rakefile, .hoerc, and Manifest to ensure that builds
+  work correctly on Travis.
+
+* Updated to {Contributor Covenant 1.4}[Code-of-Conduct_rdoc.html].
+
 == 2.99.1 / 2016-02-21
 
 * Data release. This release reflects only updates to the embedded MIME type

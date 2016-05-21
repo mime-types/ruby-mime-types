@@ -204,8 +204,8 @@
   content-type: text/markdown
   encoding: quoted-printable
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-appsawg-text-markdown-12
+    rfc:
+    - rfc7763
     template:
     - text/markdown
   registered: true
@@ -314,6 +314,15 @@
     - John_Lines
     template:
     - text/prs.lines.tag
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: text/prs.prop.logic
+  encoding: quoted-printable
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Hans-Dieter_A._Hiep
+    template:
+    - text/prs.prop.logic
   registered: true
 - !ruby/object:MIME::Type
   content-type: text/raptorfec

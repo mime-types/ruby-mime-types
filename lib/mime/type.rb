@@ -53,7 +53,7 @@ class MIME::Type
   end
 
   # The released version of the mime-types library.
-  VERSION = '2.99.1'
+  VERSION = '2.99.2'
 
   include Comparable
 

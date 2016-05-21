@@ -99,6 +99,7 @@ application/cals-1840
 -
 -
 -
+-
 application/vnd.ms-excel
 -
 -
@@ -414,7 +415,10 @@ application/x-VMSBACKUP
 -
 -
 -
+-
+-
 application/vnd.aristanetworks.swi
+-
 -
 -
 -
@@ -1222,6 +1226,10 @@ application/vnd.nokia.ncd
 -
 -
 -
+-
+-
+-
+-
 application/vnd.wordperfect
 -
 application/x-wordperfect6.1
@@ -1602,9 +1610,10 @@ audio/qcelp
 x-chemical/x-pdb
 x-chemical/x-xyz
 x-drawing/dwf
-image/x-bmp
+-
 -
 image/x-cmu-raster
+-
 -
 -
 -
@@ -1662,6 +1671,7 @@ image/vnd.net-fpx
 -
 -
 -
+image/bmp
 -
 -
 -
@@ -1769,6 +1779,7 @@ application/ecmascript
 -
 -
 application/javascript
+-
 -
 -
 -

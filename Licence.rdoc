@@ -9,7 +9,7 @@ Artistic Licence and the GNU GPL ("the same terms as Perl itself") and given
 that the Ruby implementation originally hewed pretty closely to the Perl
 version, I chose to maintain the additional licensing terms.
 
-* Copyright 2003–2015 Austin Ziegler.
+* Copyright 2003–2016 Austin Ziegler and other contributors.
 * Adapted from MIME::Types (Perl) by Mark Overmeer.
 
 === MIT License
