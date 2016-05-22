@@ -4,16 +4,23 @@ require 'mime/types'
 require 'minitest_helper'
 
 describe MIME::Types::Cache do
-  def setup
-    require 'fileutils'
-    @cache_file = File.expand_path('../cache.tst', __FILE__)
-    ENV['RUBY_MIME_TYPES_CACHE'] = @cache_file
-    clear_cache_file
-  end
+  include Minitest::Hooks
 
-  def teardown
-    clear_cache_file
-    ENV.delete('RUBY_MIME_TYPES_CACHE')
+  MUTEX = Mutex.new
+
+  def around
+    require 'fileutils'
+
+    MUTEX.synchronize do
+      @cache_file = File.expand_path('../cache.tst', __FILE__)
+      ENV['RUBY_MIME_TYPES_CACHE'] = @cache_file
+      clear_cache_file
+
+      super
+
+      clear_cache_file
+      ENV.delete('RUBY_MIME_TYPES_CACHE')
+    end
   end
 
   def reset_mime_types
@@ -36,10 +43,12 @@ describe MIME::Types::Cache do
     end
 
     it 'outputs an error when there is an invalid version' do
-      v = MIME::Types::Data::VERSION.dup
-      MIME::Types::Data::VERSION.gsub!(/.*/, '0.0')
+      v = MIME::Types::Data::VERSION
+      MIME::Types::Data.send(:remove_const, :VERSION)
+      MIME::Types::Data.const_set(:VERSION, '0.0')
       MIME::Types::Cache.save
-      MIME::Types::Data::VERSION.gsub!(/.*/, v)
+      MIME::Types::Data.send(:remove_const, :VERSION)
+      MIME::Types::Data.const_set(:VERSION, v)
       MIME::Types.instance_variable_set(:@__types__, nil)
       assert_output '', /MIME::Types cache: invalid version/ do
         MIME::Types['text/html']

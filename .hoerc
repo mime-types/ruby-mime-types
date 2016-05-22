@@ -2,19 +2,27 @@
 exclude: !ruby/regexp '/
   \.(tmp|swp)$
   |
-  (CVS|tmp)\/
+  \.(?:autotest|gemtest|gitignore|hoerc|minitest.rb|simplecov-prelude.rb)
   |
-  (?i:TAGS)
+  ^(?i:TAGS)
   |
-  \.(svn|git|hg|DS_Store|idea|vagrant)\/
+  \.(?:
+      DS_Store|
+      bundle|
+      git|
+      hg|
+      idea|
+      svn|
+      vagrant
+    )\/
   |
-  Gemfile(?:\.lock)?
+  [gG]emfile(?:\.lock)?
   |
-  \.(rubocop|coveralls|pullreview|travis).yml$
+  support\/
   |
-  \.gemspec
+  \.(?:coveralls|pullreview|travis|rubocop.*)\.yml
   |
-  \.byebug_history
+  .byebug_history
   |
-  Vagrantfile
+  \.gemspec$
   /x'

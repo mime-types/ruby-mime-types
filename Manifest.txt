@@ -1,7 +1,3 @@
-.autotest
-.gemtest
-.gitignore
-.hoerc
 Code-of-Conduct.rdoc
 Contributing.rdoc
 History.rdoc
@@ -13,6 +9,7 @@ lib/mime-types.rb
 lib/mime/type.rb
 lib/mime/type/columnar.rb
 lib/mime/types.rb
+lib/mime/types/_columnar.rb
 lib/mime/types/cache.rb
 lib/mime/types/columnar.rb
 lib/mime/types/container.rb
@@ -21,12 +18,6 @@ lib/mime/types/full.rb
 lib/mime/types/loader.rb
 lib/mime/types/logger.rb
 lib/mime/types/registry.rb
-support/benchmarks/load.rb
-support/benchmarks/load_allocations.rb
-support/benchmarks/object_counts.rb
-support/profile/columnar.rb
-support/profile/columnar_full.rb
-support/profile/full.rb
 test/bad-fixtures/malformed
 test/fixture/json.json
 test/fixture/old-data

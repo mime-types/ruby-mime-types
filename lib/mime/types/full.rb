@@ -10,8 +10,8 @@ module MIME
           { columnar: false }
         end
       end
-
-      require 'mime/types'
     end
   end
 end
+
+require 'mime/types'

@@ -1,10 +1,31 @@
-== NEXT / 2016-MM-DD
+== 3.1 / 2016-05-22
 
 * 1 documentation change:
 
   * Tim Smith (@tas50) updated the build badges to be SVGs to improve
     readability on high-density (retina) screens with pull request
     {#112}[https://github.com/mime-types/ruby-mime-types/pull/112].
+
+* 3 bug fixes
+
+  * A test for MIME::Types::Cache fails under Ruby 2.3 because of frozen
+    strings, {#118}[https://github.com/mime-types/ruby-mime-types/issues/118].
+    This has been fixed.
+
+  * The JSON data has been incorrectly encoded since the release of mime-types
+    3 on the +xrefs+ field, because of the switch to using a Set to store
+    cross-reference information. This has been fixed.
+
+  * A tentative fix for
+    {#117}[https://github.com/mime-types/ruby-mime-types/issues/117] has been
+    applied, removing the only circular require dependencies that exist (and
+    for which there was code to prevent, but the current fix is simpler).
+    I have no way to verify this fix and depending on how things are loaded by
+    +delayed_job+, this fix may not be sufficient.
+
+* 1 governance change
+
+  * Updated to {Contributor Covenant 1.4}[Code-of-Conduct_rdoc.html].
 
 == 3.0 / 2015-11-21
 
