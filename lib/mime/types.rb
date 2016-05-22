@@ -5,11 +5,7 @@ module MIME
   end
 end
 
-require 'mime/types/logger'
-require 'mime/types/container'
 require 'mime/type'
-require 'mime/types/cache'
-require 'mime/types/loader'
 
 # MIME::Types is a registry of MIME types. It is both a class (created with
 # MIME::Types.new) and a default registry (loaded automatically or through
@@ -224,5 +220,9 @@ Type #{type} is already registered as a variant of #{type.simplified}.
   end
 end
 
-require 'mime/types/columnar' unless defined?(MIME::Types::Columnar)
+require 'mime/types/cache'
+require 'mime/types/container'
+require 'mime/types/loader'
+require 'mime/types/logger'
+require 'mime/types/_columnar'
 require 'mime/types/registry'

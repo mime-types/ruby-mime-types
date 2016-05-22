@@ -55,7 +55,7 @@ class MIME::Type
   end
 
   # The released version of the mime-types library.
-  VERSION = '3.0'
+  VERSION = '3.1'
 
   include Comparable
 
@@ -450,7 +450,14 @@ class MIME::Type
       coder['obsolete']          = obsolete?
       coder['use-instead']       = use_instead if use_instead
     end
-    coder['xrefs']               = xrefs unless xrefs.empty?
+    unless xrefs.empty?
+      {}.tap do |hash|
+        xrefs.each do |k, v|
+          hash[k] = v.sort.to_a
+        end
+        coder['xrefs'] = hash
+      end
+    end
     coder['registered']          = registered?
     coder['signature']           = signature? if signature?
     coder

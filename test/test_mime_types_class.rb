@@ -29,7 +29,7 @@ describe MIME::Types, 'registry' do
     end
   end
 
-  describe '.\[]' do
+  describe '.[]' do
     it 'can be searched with a MIME::Type' do
       text_plain = MIME::Type.new('text/plain')
       assert_includes MIME::Types[text_plain], 'text/plain'

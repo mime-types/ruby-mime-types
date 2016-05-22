@@ -43,7 +43,7 @@ describe MIME::Types do
     end
   end
 
-  describe '#\[]' do
+  describe '#[]' do
     it 'can be searched with a MIME::Type' do
       text_plain = MIME::Type.new('text/plain')
       assert_includes mime_types[text_plain], 'text/plain'
