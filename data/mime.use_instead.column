@@ -100,6 +100,7 @@ application/cals-1840
 -
 -
 -
+-
 application/vnd.ms-excel
 -
 -
@@ -112,6 +113,7 @@ application/vnd.ms-excel
 -
 -
 application/x-futuresplash
+-
 application/x-ghostview
 -
 -
@@ -129,6 +131,7 @@ application/x-hep
 -
 -
 application/x-imagemap
+-
 -
 -
 -
@@ -417,6 +420,7 @@ application/x-VMSBACKUP
 -
 -
 -
+-
 application/vnd.aristanetworks.swi
 -
 -
@@ -597,6 +601,9 @@ application/vnd.aristanetworks.swi
 -
 -
 -
+-
+-
+application/geo+json
 -
 -
 -
@@ -835,7 +842,10 @@ application/vnd.visionary
 -
 -
 -
+-
 application/vnd.nokia.ncd
+-
+-
 -
 -
 -
@@ -1633,6 +1643,8 @@ image/x-cmu-raster
 -
 -
 -
+-
+-
 image/x-targa
 -
 -
@@ -1675,6 +1687,7 @@ image/bmp
 -
 -
 -
+image/emf
 -
 -
 -
@@ -1691,6 +1704,8 @@ image/bmp
 -
 -
 -
+-
+image/wmf
 -
 -
 -
@@ -1779,6 +1794,7 @@ application/ecmascript
 -
 -
 application/javascript
+-
 -
 -
 -

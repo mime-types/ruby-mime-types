@@ -855,8 +855,8 @@
   content-type: video/VP8
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-payload-vp8-17
+    rfc:
+    - rfc7741
     template:
     - video/VP8
   registered: true

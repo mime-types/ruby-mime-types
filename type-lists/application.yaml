@@ -527,6 +527,15 @@
   encoding: base64
   registered: false
 - !ruby/object:MIME::Type
+  content-type: application/clue_info+xml
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-ietf-clue-data-model-schema-17
+    template:
+    - application/clue_info+xml
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/cms
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
@@ -855,8 +864,8 @@
   content-type: application/EmergencyCallData.Comment+xml
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-ecrit-additional-data-38
+    rfc:
+    - rfc7852
     template:
     - application/EmergencyCallData.Comment+xml
   registered: true
@@ -864,8 +873,8 @@
   content-type: application/EmergencyCallData.DeviceInfo+xml
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-ecrit-additional-data-38
+    rfc:
+    - rfc7852
     template:
     - application/EmergencyCallData.DeviceInfo+xml
   registered: true
@@ -873,8 +882,8 @@
   content-type: application/EmergencyCallData.ProviderInfo+xml
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-ecrit-additional-data-38
+    rfc:
+    - rfc7852
     template:
     - application/EmergencyCallData.ProviderInfo+xml
   registered: true
@@ -882,8 +891,8 @@
   content-type: application/EmergencyCallData.ServiceInfo+xml
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-ecrit-additional-data-38
+    rfc:
+    - rfc7852
     template:
     - application/EmergencyCallData.ServiceInfo+xml
   registered: true
@@ -891,8 +900,8 @@
   content-type: application/EmergencyCallData.SubscriberInfo+xml
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-ecrit-additional-data-38
+    rfc:
+    - rfc7852
     template:
     - application/EmergencyCallData.SubscriberInfo+xml
   registered: true
@@ -1087,6 +1096,15 @@
   obsolete: true
   use-instead: application/x-futuresplash
   registered: false
+- !ruby/object:MIME::Type
+  content-type: application/geo+json
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc7946
+    template:
+    - application/geo+json
+  registered: true
 - !ruby/object:MIME::Type
   content-type: application/ghostview
   encoding: base64
@@ -1311,8 +1329,8 @@
   content-type: application/ipp
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
-    rfc:
-    - rfc2910
+    draft:
+    - RFC-sweet-rfc2910bis-09
     template:
     - application/ipp
   registered: true
@@ -1409,7 +1427,7 @@
   - json
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
-    - rfc7158
+    - rfc7159
     template:
     - application/json
   registered: true
@@ -1491,6 +1509,15 @@
     - W3C
     template:
     - application/ld+json
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/lgr+xml
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc7940
+    template:
+    - application/lgr+xml
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/link-format
@@ -2552,8 +2579,8 @@
   content-type: application/ppsp-tracker+json
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
-    draft:
-    - RFC-ietf-ppsp-base-tracker-protocol-11
+    rfc:
+    - rfc7846
     template:
     - application/ppsp-tracker+json
   registered: true
@@ -2803,8 +2830,8 @@
   content-type: application/rfc+xml
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
-    rfc:
-    - rfc7749
+    draft:
+    - RFC-iab-xml2rfc-04
     template:
     - application/rfc+xml
   registered: true
@@ -4035,6 +4062,15 @@
   - azw
   registered: false
 - !ruby/object:MIME::Type
+  content-type: application/vnd.amazon.mobi8-ebook
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Kim_Scarborough
+    template:
+    - application/vnd.amazon.mobi8-ebook
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/vnd.americandynamics.acc
   friendly:
     en: Active Content Compression
@@ -4418,6 +4454,15 @@
     - application/vnd.chemdraw+xml
   registered: true
 - !ruby/object:MIME::Type
+  content-type: application/vnd.chess-pgn
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Kim_Scarborough
+    template:
+    - application/vnd.chess-pgn
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/vnd.chipnuts.karaoke-mmd
   friendly:
     en: Karaoke on Chipnuts Chipsets
@@ -4565,6 +4610,15 @@
     - Ioseb_Dzmanashvili
     template:
     - application/vnd.collection.next+json
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/vnd.comicbook+zip
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Kim_Scarborough
+    template:
+    - application/vnd.comicbook+zip
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.commerce-battelle
@@ -5470,6 +5524,15 @@
     - application/vnd.ericsson.quickcall
   registered: true
 - !ruby/object:MIME::Type
+  content-type: application/vnd.espass-espass+zip
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Marcus_Ligi_Büschleb
+    template:
+    - application/vnd.espass-espass+zip
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/vnd.eszigno3+xml
   friendly:
     en: MICROSEC e-Szign¢
@@ -6081,11 +6144,17 @@
 - !ruby/object:MIME::Type
   content-type: application/vnd.geo+json
   encoding: base64
+  obsolete: true
+  use-instead: application/geo+json
   xrefs: !ruby/hash:MIME::Types::Container
+    rfc:
+    - rfc7946
     person:
     - Sean_Gillies
     template:
     - application/vnd.geo+json
+    notes:
+    - "(OBSOLETED by  in favor of application/geo+json)"
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.geocube+xml
@@ -8567,6 +8636,15 @@
     - application/vnd.ncd.reference
   registered: true
 - !ruby/object:MIME::Type
+  content-type: application/vnd.nearst.inv+json
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Thomas_Schoffelen
+    template:
+    - application/vnd.nearst.inv+json
+  registered: true
+- !ruby/object:MIME::Type
   content-type: application/vnd.nervana
   encoding: base64
   extensions:
@@ -9329,7 +9407,7 @@
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - OMNA-Open_Mobile_Naming_Authority
+    - Open_Mobile_Naming_Authority
     - Uwe_Rauschenbach
     template:
     - application/vnd.oma.bcast.associated-procedure-parameter+xml
@@ -9339,7 +9417,7 @@
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - OMNA-Open_Mobile_Naming_Authority
+    - Open_Mobile_Naming_Authority
     - Uwe_Rauschenbach
     template:
     - application/vnd.oma.bcast.drm-trigger+xml
@@ -9349,7 +9427,7 @@
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - OMNA-Open_Mobile_Naming_Authority
+    - Open_Mobile_Naming_Authority
     - Uwe_Rauschenbach
     template:
     - application/vnd.oma.bcast.imd+xml
@@ -9359,7 +9437,7 @@
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - OMNA-Open_Mobile_Naming_Authority
+    - Open_Mobile_Naming_Authority
     - Uwe_Rauschenbach
     template:
     - application/vnd.oma.bcast.ltkm
@@ -9369,7 +9447,7 @@
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - OMNA-Open_Mobile_Naming_Authority
+    - Open_Mobile_Naming_Authority
     - Uwe_Rauschenbach
     template:
     - application/vnd.oma.bcast.notification+xml
@@ -9379,7 +9457,7 @@
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - OMNA-Open_Mobile_Naming_Authority
+    - Open_Mobile_Naming_Authority
     - Uwe_Rauschenbach
     template:
     - application/vnd.oma.bcast.provisioningtrigger
@@ -9389,7 +9467,7 @@
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - OMNA-Open_Mobile_Naming_Authority
+    - Open_Mobile_Naming_Authority
     - Uwe_Rauschenbach
     template:
     - application/vnd.oma.bcast.sgboot
@@ -9399,7 +9477,7 @@
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - OMNA-Open_Mobile_Naming_Authority
+    - Open_Mobile_Naming_Authority
     - Uwe_Rauschenbach
     template:
     - application/vnd.oma.bcast.sgdd+xml
@@ -9409,7 +9487,7 @@
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - OMNA-Open_Mobile_Naming_Authority
+    - Open_Mobile_Naming_Authority
     - Uwe_Rauschenbach
     template:
     - application/vnd.oma.bcast.sgdu
@@ -9419,7 +9497,7 @@
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - OMNA-Open_Mobile_Naming_Authority
+    - Open_Mobile_Naming_Authority
     - Uwe_Rauschenbach
     template:
     - application/vnd.oma.bcast.simple-symbol-container
@@ -9429,7 +9507,7 @@
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - OMNA-Open_Mobile_Naming_Authority
+    - Open_Mobile_Naming_Authority
     - Uwe_Rauschenbach
     template:
     - application/vnd.oma.bcast.smartcard-trigger+xml
@@ -9439,7 +9517,7 @@
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - OMNA-Open_Mobile_Naming_Authority
+    - Open_Mobile_Naming_Authority
     - Uwe_Rauschenbach
     template:
     - application/vnd.oma.bcast.sprov+xml
@@ -9449,7 +9527,7 @@
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - OMNA-Open_Mobile_Naming_Authority
+    - Open_Mobile_Naming_Authority
     - Uwe_Rauschenbach
     template:
     - application/vnd.oma.bcast.stkm
@@ -9510,7 +9588,7 @@
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Avi_Primo
-    - OMNA-Open_Mobile_Naming_Authority
+    - Open_Mobile_Naming_Authority
     template:
     - application/vnd.oma.dcd
   registered: true
@@ -9520,7 +9598,7 @@
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Avi_Primo
-    - OMNA-Open_Mobile_Naming_Authority
+    - Open_Mobile_Naming_Authority
     template:
     - application/vnd.oma.dcdc
   registered: true
@@ -9543,7 +9621,7 @@
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - OMNA-Open_Mobile_Naming_Authority
+    - Open_Mobile_Naming_Authority
     - Uwe_Rauschenbach
     template:
     - application/vnd.oma.drm.risd+xml
@@ -9564,9 +9642,19 @@
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - John_Mudge
-    - OMNA-Open_Mobile_Naming_Authority
+    - Open_Mobile_Naming_Authority
     template:
     - application/vnd.oma.lwm2m+json
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/vnd.oma.lwm2m+tlv
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - John_Mudge
+    - Open_Mobile_Naming_Authority
+    template:
+    - application/vnd.oma.lwm2m+tlv
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.oma.pal+xml
@@ -9574,7 +9662,7 @@
   xrefs: !ruby/hash:MIME::Types::Container
     person:
     - Brian_McColgan
-    - OMNA-Open_Mobile_Naming_Authority
+    - Open_Mobile_Naming_Authority
     template:
     - application/vnd.oma.pal+xml
   registered: true
@@ -9639,7 +9727,7 @@
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
     person:
-    - OMNA-Open_Mobile_Naming_Authority
+    - Open_Mobile_Naming_Authority
     - Wenjun_Zeng
     template:
     - application/vnd.oma.scidm.messages+xml
@@ -11007,6 +11095,15 @@
     - Etay_Szekely
     template:
     - application/vnd.rapid
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: application/vnd.rar
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Kim_Scarborough
+    template:
+    - application/vnd.rar
   registered: true
 - !ruby/object:MIME::Type
   content-type: application/vnd.realvnc.bed

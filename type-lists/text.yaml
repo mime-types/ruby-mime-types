@@ -525,6 +525,15 @@
     - text/vnd.abc
   registered: true
 - !ruby/object:MIME::Type
+  content-type: text/vnd.ascii-art
+  encoding: quoted-printable
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Kim_Scarborough
+    template:
+    - text/vnd.ascii-art
+  registered: true
+- !ruby/object:MIME::Type
   content-type: text/vnd.curl
   friendly:
     en: Curl - Applet
