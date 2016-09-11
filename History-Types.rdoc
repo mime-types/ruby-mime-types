@@ -1,5 +1,38 @@
 = MIME Types Changes by Version
 
+== 2.99.3 / 2016-09-10
+
+* Updated the IANA media registry entries as of release date:
+  * Updated metadata for application/EmergencyCallData.Comment\+xml,
+    application/EmergencyCallData.DeviceInfo\+xml,
+    application/EmergencyCallData.ProviderInfo\+xml,
+    application/EmergencyCallData.ServiceInfo\+xml,
+    application/EmergencyCallData.SubscriberInfo\+xml, application/ipp,
+    application/json, application/ppsp-tracker\+json, application/rfc\+xml,
+    application/vnd.geo\+json (obsoleted, use application/geo\+json instead),
+    application/vnd.oma.bcast.associated-procedure-parameter+xml,
+    application/vnd.oma.bcast.drm-trigger+xml,
+    application/vnd.oma.bcast.imd+xml, application/vnd.oma.bcast.ltkm,
+    application/vnd.oma.bcast.notification+xml,
+    application/vnd.oma.bcast.provisioningtrigger,
+    application/vnd.oma.bcast.sgboot, application/vnd.oma.bcast.sgdd+xml,
+    application/vnd.oma.bcast.sgdu,
+    application/vnd.oma.bcast.simple-symbol-container,
+    application/vnd.oma.bcast.smartcard-trigger+xml,
+    application/vnd.oma.bcast.sprov+xml, application/vnd.oma.bcast.stkm,
+    application/vnd.oma.dcd, application/vnd.oma.dcdc,
+    application/vnd.oma.drm.risd+xml, application/vnd.oma.lwm2m+json,
+    application/vnd.oma.pal+xml, application/vnd.oma.scidm.messages+xml,
+    multipart/voice-message, video/VP8.
+  * Added application/clue_info\+xml, application/geo\+json,
+    application/lgr\+xml, application/vnd.amazon.mobi8-ebook,
+    application/vnd.chess-pgn, application/vnd.comicbook\+zip,
+    application/vnd.espass-espass\+zip, application/vnd.nearst.inv\+json,
+    application/vnd.oma.lwm2m+tlv, application/vnd.rar, image/dicom-rle,
+    image/jls, image/x-emf (registered & obsoleted, use image/emf instead),
+    image/x-wmf (registered & obsoleted, use image/wmf instead),
+    model/gltf+json, text/vnd.ascii-art.
+
 == 2.99.2 / 2016-05-21
 
 * Updated the known extension list for application/octet-stream and

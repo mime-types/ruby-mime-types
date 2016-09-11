@@ -9,6 +9,16 @@
     - model/example
   registered: true
 - !ruby/object:MIME::Type
+  content-type: model/gltf+json
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - Khronos
+    - Uli_Klumpp
+    template:
+    - model/gltf+json
+  registered: true
+- !ruby/object:MIME::Type
   content-type: model/iges
   friendly:
     en: Initial Graphics Exchange Specification (IGES)

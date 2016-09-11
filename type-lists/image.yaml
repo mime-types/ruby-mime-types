@@ -32,6 +32,16 @@
   use-instead: image/x-cmu-raster
   registered: false
 - !ruby/object:MIME::Type
+  content-type: image/dicom-rle
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - DICOM_Standards_Committee
+    - David_Clunie
+    template:
+    - image/dicom-rle
+  registered: true
+- !ruby/object:MIME::Type
   content-type: image/emf
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
@@ -93,6 +103,16 @@
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
     - rfc1314
+  registered: true
+- !ruby/object:MIME::Type
+  content-type: image/jls
+  encoding: base64
+  xrefs: !ruby/hash:MIME::Types::Container
+    person:
+    - DICOM_Standards_Committee
+    - David_Clunie
+    template:
+    - image/jls
   registered: true
 - !ruby/object:MIME::Type
   content-type: image/jp2
@@ -683,6 +703,19 @@
   - xcfgz
   registered: false
 - !ruby/object:MIME::Type
+  content-type: image/x-emf
+  encoding: base64
+  obsolete: true
+  use-instead: image/emf
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-seantek-windows-image-03
+    template:
+    - image/emf
+    notes:
+    - "- DEPRECATED in favor of image/emf"
+  registered: true
+- !ruby/object:MIME::Type
   content-type: image/x-freehand
   friendly:
     en: FreeHand MX
@@ -809,6 +842,19 @@
   content-type: image/x-win-bmp
   encoding: base64
   registered: false
+- !ruby/object:MIME::Type
+  content-type: image/x-wmf
+  encoding: base64
+  obsolete: true
+  use-instead: image/wmf
+  xrefs: !ruby/hash:MIME::Types::Container
+    draft:
+    - RFC-seantek-windows-image-03
+    template:
+    - image/wmf
+    notes:
+    - "- DEPRECATED in favor of image/wmf"
+  registered: true
 - !ruby/object:MIME::Type
   content-type: image/x-xbitmap
   friendly:

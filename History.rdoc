@@ -1,7 +1,15 @@
+== 2.99.3 / 2016-09-10
+
+* Data release. This release reflects updates to the embedded MIME type data on
+  the specified quarterly schedule.
+
+* Minor improvement to the support build script to only extract supported MIME
+  type name characters from obsoletion or deprecation notes.
+
 == 2.99.2 / 2016-05-21
 
-* Data release. This release reflects updates to the embedded MIME type
-  data on the specified quarterly schedule.
+* Data release. This release reflects updates to the embedded MIME type data on
+  the specified quarterly schedule.
 
 * Minor improvement to the Rakefile, .hoerc, and Manifest to ensure that builds
   work correctly on Travis.

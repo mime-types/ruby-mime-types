@@ -53,6 +53,7 @@ application/cea-2018+xml
 application/cellml+xml
 application/cfw
 application/clariscad
+application/clue_info+xml
 application/cms
 application/cnrp+xml
 application/coap-group+json
@@ -112,6 +113,7 @@ application/font-woff woff woff2
 application/fractals
 application/framework-attributes+xml
 application/futuresplash spl
+application/geo+json
 application/ghostview
 application/gml+xml gml
 application/gpx+xml gpx
@@ -157,6 +159,7 @@ application/jwt
 application/kpml-request+xml
 application/kpml-response+xml
 application/ld+json
+application/lgr+xml
 application/link-format
 application/load-control+xml
 application/lost+xml lostxml
@@ -402,6 +405,7 @@ application/vnd.ahead.space ahead
 application/vnd.airzip.filesecure.azf azf
 application/vnd.airzip.filesecure.azs azs
 application/vnd.amazon.ebook azw
+application/vnd.amazon.mobi8-ebook
 application/vnd.americandynamics.acc acc
 application/vnd.amiga.ami ami
 application/vnd.amundsen.maze+xml
@@ -439,6 +443,7 @@ application/vnd.canon-lips
 application/vnd.cendio.thinlinc.clientconf
 application/vnd.century-systems.tcp_stream
 application/vnd.chemdraw+xml cdxml
+application/vnd.chess-pgn
 application/vnd.chipnuts.karaoke-mmd mmd
 application/vnd.cinderella cdy
 application/vnd.cirpack.isdn-ext
@@ -452,6 +457,7 @@ application/vnd.coffeescript
 application/vnd.collection+json
 application/vnd.collection.doc+json
 application/vnd.collection.next+json
+application/vnd.comicbook+zip
 application/vnd.commerce-battelle
 application/vnd.commonspace csp
 application/vnd.contact.cmsg cdbcmsg
@@ -539,6 +545,7 @@ application/vnd.epson.quickanime qam
 application/vnd.epson.salt slt
 application/vnd.epson.ssf ssf
 application/vnd.ericsson.quickcall
+application/vnd.espass-espass+zip
 application/vnd.eszigno3+xml es3 et3
 application/vnd.etsi.aoc+xml
 application/vnd.etsi.asic-e+zip
@@ -814,6 +821,7 @@ application/vnd.muvee.style msty
 application/vnd.mynfc taglet
 application/vnd.ncd.control
 application/vnd.ncd.reference
+application/vnd.nearst.inv+json
 application/vnd.nervana ent entity req request bkm kcm
 application/vnd.netfpx
 application/vnd.neurolanguage.nlu nlu
@@ -906,6 +914,7 @@ application/vnd.oma.dd2+xml dd2
 application/vnd.oma.drm.risd+xml
 application/vnd.oma.group-usage-list+xml
 application/vnd.oma.lwm2m+json
+application/vnd.oma.lwm2m+tlv
 application/vnd.oma.pal+xml
 application/vnd.oma.poc.detailed-progress-report+xml
 application/vnd.oma.poc.final-report+xml
@@ -1054,6 +1063,7 @@ application/vnd.radisys.msml-dialog-speech+xml
 application/vnd.radisys.msml-dialog-transform+xml
 application/vnd.rainstor.data
 application/vnd.rapid
+application/vnd.rar
 application/vnd.realvnc.bed bed
 application/vnd.recordare.musicxml mxl
 application/vnd.recordare.musicxml+xml musicxml
@@ -1613,12 +1623,14 @@ drawing/dwf dwf
 image/bmp bmp
 image/cgm cgm
 image/cmu-raster
+image/dicom-rle
 image/emf
 image/example
 image/fits
 image/g3fax g3
 image/gif gif
 image/ief ief
+image/jls
 image/jp2 jp2 jpg2
 image/jpeg jpeg jpg jpe
 image/jpm jpm jpgm
@@ -1675,6 +1687,7 @@ image/x-bmp bmp
 image/x-cmu-raster ras
 image/x-cmx cmx
 image/x-compressed-xcf xcfbz2 xcfgz
+image/x-emf
 image/x-freehand fh fh4 fh5 fh7 fhc
 image/x-hasselblad-3fr 3fr
 image/x-icon ico
@@ -1692,6 +1705,7 @@ image/x-targa tga
 image/x-tga tga
 image/x-vnd.dgn dgn
 image/x-win-bmp
+image/x-wmf
 image/x-xbitmap xbm
 image/x-xbm xbm
 image/x-xcf xcf
@@ -1719,6 +1733,7 @@ message/tracking-status
 message/vnd.si.simp
 message/vnd.wfa.wsc
 model/example
+model/gltf+json
 model/iges igs iges
 model/mesh msh mesh silo
 model/vnd.collada+xml dae
@@ -1808,6 +1823,7 @@ text/uri-list uri uris urls
 text/vcard vcard
 text/vnd.a
 text/vnd.abc
+text/vnd.ascii-art
 text/vnd.curl curl
 text/vnd.curl.dcurl dcurl
 text/vnd.curl.mcurl mcurl

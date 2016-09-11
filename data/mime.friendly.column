@@ -63,6 +63,7 @@ en^Cloud Data Management Interface (CDMI) - Queue
 -
 -
 -
+-
 en^CU-SeeMe
 -
 -
@@ -121,6 +122,7 @@ en^Web Open Font Format
 -
 -
 -
+-
 en^Hyperstudio
 -
 -
@@ -148,6 +150,7 @@ en^JavaScript
 -
 -
 en^JavaScript Object Notation (JSON)
+-
 -
 -
 -
@@ -402,6 +405,7 @@ en^Ahead AIR Application
 en^AirZip FileSECURE
 en^AirZip FileSECURE
 en^Amazon Kindle eBook format
+-
 en^Active Content Compression
 en^AmigaDE
 -
@@ -439,6 +443,7 @@ en^BusinessObjects
 -
 -
 en^CambridgeSoft Chem Draw
+-
 en^Karaoke on Chipnuts Chipsets
 en^Interactive Geometry Software Cinderella
 -
@@ -448,6 +453,7 @@ en^RetroPlatform Player
 en^Clonk Game
 en^ClueTrust CartoMobile - Config
 en^ClueTrust CartoMobile - Config Package
+-
 -
 -
 -
@@ -538,6 +544,7 @@ en^QUASS Stream Player
 en^QuickAnime Player
 en^SimpleAnimeLite Player
 en^QUASS Stream Player
+-
 -
 en^MICROSEC e-Szign¢
 -
@@ -816,6 +823,7 @@ en^Muvee Automatic Video Editing
 -
 -
 -
+-
 en^neuroLanguage
 -
 -
@@ -903,6 +911,7 @@ en^Sugar Linux Application Bundle
 -
 -
 en^OMA Download Agents
+-
 -
 -
 -
@@ -1036,6 +1045,7 @@ en^Princeton Video Image
 -
 -
 en^QuarkXPress
+-
 -
 -
 -
@@ -1616,9 +1626,11 @@ en^Computer Graphics Metafile
 -
 -
 -
+-
 en^G3 Fax Image
 en^Graphics Interchange Format
 en^Image Exchange Format
+-
 -
 en^JPEG Image
 -
@@ -1675,6 +1687,7 @@ en^WebP Image
 en^CMU Image
 en^Corel Metafile Exchange (CMX)
 -
+-
 en^FreeHand MX
 -
 en^Icon Image
@@ -1688,6 +1701,7 @@ en^Portable Bitmap Format
 en^Portable Graymap Format
 en^Portable Pixmap Format
 en^Silicon Graphics RGB Bitmap
+-
 -
 -
 -
@@ -1712,6 +1726,7 @@ en^X Window Dump
 -
 -
 en^Email Message
+-
 -
 -
 -
@@ -1805,6 +1820,7 @@ en^troff
 en^Turtle (Terse RDF Triple Language)
 -
 en^URI Resolution Services
+-
 -
 -
 -

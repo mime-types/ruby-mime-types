@@ -117,8 +117,7 @@
   encoding: base64
   xrefs: !ruby/hash:MIME::Types::Container
     rfc:
-    - rfc2421
-    - rfc2423
+    - rfc3801
     template:
     - multipart/voice-message
   registered: true

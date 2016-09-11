@@ -17,6 +17,10 @@ class MIME::Types
   end
 end
 
+class MIME::Type
+  public_constant :MEDIA_TYPE_RE if respond_to? :public_constant
+end
+
 class IANARegistry
   DEFAULTS = {
     url: %q(https://www.iana.org/assignments/media-types/media-types.xml),
@@ -63,7 +67,7 @@ class IANARegistry
       use_instead   = record.at_css('deprecated').text rescue nil
 
       if subtype =~ /OBSOLETE|DEPRECATE/i
-        use_instead ||= $1 if subtype =~ /in favou?r of (.*)/
+        use_instead ||= $1 if subtype =~ /in favou?r of (#{MIME::Type::MEDIA_TYPE_RE})/
         obsolete = true
       end
 
