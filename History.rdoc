@@ -6,6 +6,10 @@
 * Minor improvement to the support build script to only extract supported MIME
   type name characters from obsoletion or deprecation notes.
 
+* Removed SimpleCov from the build process. The code here is no longer
+  changing, and its presence causes substantial breakage on Travis for Rubies
+  that are not 2.x-compatible.
+
 == 2.99.2 / 2016-05-21
 
 * Data release. This release reflects updates to the embedded MIME type data on

@@ -1,8 +1,6 @@
 # -*- encoding: utf-8 -*-
 # stub: mime-types 2.99.3 ruby lib
 
-coverage = Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('2.0')
-
 Gem::Specification.new do |s|
   s.name = "mime-types"
   s.version = "2.99.3"
@@ -38,8 +36,6 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<rake>, ["~> 10.0"])
       s.add_development_dependency(%q<fivemat>, ["~> 1.3"])
       s.add_development_dependency(%q<minitest-rg>, ["~> 5.2"])
-      s.add_development_dependency(%q<simplecov>, ["~> 0.7"]) if coverage
-      s.add_development_dependency(%q<coveralls>, ["~> 0.8"]) if coverage
       s.add_development_dependency(%q<hoe>, ["~> 3.15"])
     else
       s.add_dependency(%q<minitest>, ["~> 5.9"])
@@ -54,8 +50,6 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<rake>, ["~> 10.0"])
       s.add_dependency(%q<fivemat>, ["~> 1.3"])
       s.add_dependency(%q<minitest-rg>, ["~> 5.2"])
-      s.add_dependency(%q<simplecov>, ["~> 0.7"]) if coverage
-      s.add_dependency(%q<coveralls>, ["~> 0.8"]) if coverage
       s.add_dependency(%q<hoe>, ["~> 3.15"])
     end
   else
@@ -71,8 +65,6 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<rake>, ["~> 10.0"])
     s.add_dependency(%q<fivemat>, ["~> 1.3"])
     s.add_dependency(%q<minitest-rg>, ["~> 5.2"])
-    s.add_dependency(%q<simplecov>, ["~> 0.7"]) if coverage
-    s.add_dependency(%q<coveralls>, ["~> 0.8"]) if coverage
     s.add_dependency(%q<hoe>, ["~> 3.15"])
   end
 end

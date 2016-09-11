@@ -34,11 +34,6 @@ spec = Hoe.spec 'mime-types' do
   extra_dev_deps << ['rake', '~> 10.0']
   extra_dev_deps << ['fivemat', '~> 1.3' ]
   extra_dev_deps << ['minitest-rg', '~> 5.2']
-
-  if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('2.0')
-    extra_dev_deps << ['simplecov', '~> 0.7']
-    extra_dev_deps << ['coveralls', '~> 0.8']
-  end
 end
 
 task :support do
@@ -95,34 +90,6 @@ namespace :benchmark do
     require 'benchmarks/object_counts'
     Benchmarks::ObjectCounts.report(columnar: true)
   end
-end
-
-if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('2.0')
-  namespace :test do
-    task :coveralls do
-      spec.test_prelude = [
-        'require "psych"',
-        'require "simplecov"',
-        'require "coveralls"',
-        'SimpleCov.formatter = Coveralls::SimpleCov::Formatter',
-        'SimpleCov.start("test_frameworks") { command_name "Minitest" }',
-        'gem "minitest"'
-      ].join('; ')
-      Rake::Task['test'].execute
-    end
-
-    desc 'Run test coverage'
-    task :coverage do
-      spec.test_prelude = [
-        'require "simplecov"',
-        'SimpleCov.start("test_frameworks") { command_name "Minitest" }',
-        'gem "minitest"'
-      ].join('; ')
-      Rake::Task['test'].execute
-    end
-  end
-
-  Rake::Task['travis'].prerequisites.replace(%w(test:coveralls))
 end
 
 namespace :mime do
