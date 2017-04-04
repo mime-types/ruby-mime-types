@@ -1,6 +1,8 @@
 ---
 language: ruby
 rvm:
+  - 2.4.1
+  - 2.3.4
   - 2.2.3
   - 2.1.6
   - 2.0.0
@@ -16,6 +18,7 @@ matrix:
     - rvm: jruby-9.0.0.0.pre2
     - rvm: ruby-head
     - rvm: ruby-head-clang
+  fast_finish: true
 gemfile:
   - Gemfile
 before_script:
