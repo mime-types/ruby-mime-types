@@ -55,8 +55,9 @@ class << MIME::Types
   end
 
   def load_default_mime_types(mode = load_mode)
-    @__types__ = MIME::Types::Cache.load
-    unless @__types__
+    if @__types__ = MIME::Types::Cache.load
+      __instances__.add(@__types__)
+    else
       @__types__ = MIME::Types::Loader.load(mode)
       MIME::Types::Cache.save(@__types__)
     end
