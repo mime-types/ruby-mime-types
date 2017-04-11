@@ -42,6 +42,15 @@ describe MIME::Types::Cache do
       assert_equal(nil, MIME::Types::Cache.load)
     end
 
+    it 'registers the data to be updated by #add_extensions' do
+      MIME::Types::Cache.save
+      reset_mime_types
+      assert_equal([], MIME::Types.type_for('foo.additional'))
+      html = MIME::Types['text/html'][0]
+      html.add_extensions('additional')
+      assert_equal([html], MIME::Types.type_for('foo.additional'))
+    end
+
     it 'outputs an error when there is an invalid version' do
       v = MIME::Types::Data::VERSION
       MIME::Types::Data.send(:remove_const, :VERSION)
