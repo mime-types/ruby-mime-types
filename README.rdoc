@@ -183,7 +183,7 @@ MAJOR.MINOR:
    incremented, MINOR will be set to zero, and PATCH will be reset to the
    implied zero.
 
-2. If an API (code) feature is added that does not break compatibilty, the
+2. If an API (code) feature is added that does not break compatibility, the
    MINOR version will be incremented and PATCH will be reset to the implied zero.
 
 3. If there is a bugfix to a feature added in the most recent MAJOR.MINOR
