@@ -330,21 +330,32 @@ describe MIME::Type do
       assert_priority text_1, text_1p, text_2
     end
 
-    it 'sorts (2) based on the registration state' do
+    it 'sorts (2) based on extensions' do
+      text_1.extensions = ["foo", "bar"]
+      text_2.extensions = ["foo"]
+
+      assert_priority_same text_1, text_2
+
+      text_2.registered = true
+
+      assert_priority_more text_1, text_2
+    end
+
+    it 'sorts (3) based on the registration state' do
       text_1.registered = text_1p.registered = true
       text_1b = mime_type(text_1) { |t| t.registered = false }
 
       assert_priority text_1, text_1p, text_1b
     end
 
-    it 'sorts (3) based on the completeness' do
+    it 'sorts (4) based on the completeness' do
       text_1.extensions = text_1p.extensions = '1'
       text_1b = mime_type(text_1) { |t| t.extensions = nil }
 
       assert_priority text_1, text_1p, text_1b
     end
 
-    it 'sorts (4) based on obsolete status' do
+    it 'sorts (5) based on obsolete status' do
       text_1.obsolete = text_1p.obsolete = false
       text_1b = mime_type(text_1) { |t| t.obsolete = true }
 
