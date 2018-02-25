@@ -151,7 +151,7 @@ class MIME::Type
   # before unregistered or obsolete content types.
   def priority_compare(other)
     pc = simplified <=> other.simplified
-    if pc.zero?
+    if pc.zero? || !(extensions & other.extensions).empty?
       pc = if (reg = registered?) != other.registered?
              reg ? -1 : 1 # registered < unregistered
            elsif (comp = complete?) != other.complete?
