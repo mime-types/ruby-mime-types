@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 MIME::Types::Cache = Struct.new(:version, :data) # :nodoc:
 
 # Caching of MIME::Types registries is advisable if you will be loading

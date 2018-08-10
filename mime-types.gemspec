@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib".freeze]
   s.authors = ["Austin Ziegler".freeze]
-  s.date = "2016-05-22"
+  s.date = "2018-08-10"
   s.description = "The mime-types library provides a library and registry for information about\nMIME content type definitions. It can be used to determine defined filename\nextensions for MIME types, or to use filename extensions to look up the likely\nMIME type definitions.\n\nVersion 3.0 is a major release that requires Ruby 2.0 compatibility and removes\ndeprecated functions. The columnar registry format introduced in 2.6 has been\nmade the primary format; the registry data has been extracted from this library\nand put into {mime-types-data}[https://github.com/mime-types/mime-types-data].\nAdditionally, mime-types is now licensed exclusively under the MIT licence and\nthere is a code of conduct in effect. There are a number of other smaller\nchanges described in the History file.".freeze
   s.email = ["halostatue@gmail.com".freeze]
   s.extra_rdoc_files = ["Code-of-Conduct.rdoc".freeze, "Contributing.rdoc".freeze, "History.rdoc".freeze, "Licence.rdoc".freeze, "Manifest.txt".freeze, "README.rdoc".freeze]
@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT".freeze]
   s.rdoc_options = ["--main".freeze, "README.rdoc".freeze]
   s.required_ruby_version = Gem::Requirement.new(">= 2.0".freeze)
-  s.rubygems_version = "2.6.4".freeze
+  s.rubygems_version = "2.7.7".freeze
   s.summary = "The mime-types library provides a library and registry for information about MIME content type definitions".freeze
 
   if s.respond_to? :specification_version then
@@ -25,8 +25,7 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<mime-types-data>.freeze, ["~> 3.2015"])
-      s.add_development_dependency(%q<minitest>.freeze, ["~> 5.9"])
-      s.add_development_dependency(%q<rdoc>.freeze, ["~> 4.0"])
+      s.add_development_dependency(%q<minitest>.freeze, ["~> 5.11"])
       s.add_development_dependency(%q<hoe-doofus>.freeze, ["~> 1.0"])
       s.add_development_dependency(%q<hoe-gemspec2>.freeze, ["~> 1.1"])
       s.add_development_dependency(%q<hoe-git>.freeze, ["~> 1.6"])
@@ -40,11 +39,11 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<fivemat>.freeze, ["~> 1.3"])
       s.add_development_dependency(%q<minitest-rg>.freeze, ["~> 5.2"])
       s.add_development_dependency(%q<simplecov>.freeze, ["~> 0.7"])
-      s.add_development_dependency(%q<hoe>.freeze, ["~> 3.15"])
+      s.add_development_dependency(%q<rdoc>.freeze, ["< 6", ">= 4.0"])
+      s.add_development_dependency(%q<hoe>.freeze, ["~> 3.17"])
     else
       s.add_dependency(%q<mime-types-data>.freeze, ["~> 3.2015"])
-      s.add_dependency(%q<minitest>.freeze, ["~> 5.9"])
-      s.add_dependency(%q<rdoc>.freeze, ["~> 4.0"])
+      s.add_dependency(%q<minitest>.freeze, ["~> 5.11"])
       s.add_dependency(%q<hoe-doofus>.freeze, ["~> 1.0"])
       s.add_dependency(%q<hoe-gemspec2>.freeze, ["~> 1.1"])
       s.add_dependency(%q<hoe-git>.freeze, ["~> 1.6"])
@@ -58,12 +57,12 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<fivemat>.freeze, ["~> 1.3"])
       s.add_dependency(%q<minitest-rg>.freeze, ["~> 5.2"])
       s.add_dependency(%q<simplecov>.freeze, ["~> 0.7"])
-      s.add_dependency(%q<hoe>.freeze, ["~> 3.15"])
+      s.add_dependency(%q<rdoc>.freeze, ["< 6", ">= 4.0"])
+      s.add_dependency(%q<hoe>.freeze, ["~> 3.17"])
     end
   else
     s.add_dependency(%q<mime-types-data>.freeze, ["~> 3.2015"])
-    s.add_dependency(%q<minitest>.freeze, ["~> 5.9"])
-    s.add_dependency(%q<rdoc>.freeze, ["~> 4.0"])
+    s.add_dependency(%q<minitest>.freeze, ["~> 5.11"])
     s.add_dependency(%q<hoe-doofus>.freeze, ["~> 1.0"])
     s.add_dependency(%q<hoe-gemspec2>.freeze, ["~> 1.1"])
     s.add_dependency(%q<hoe-git>.freeze, ["~> 1.6"])
@@ -77,6 +76,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<fivemat>.freeze, ["~> 1.3"])
     s.add_dependency(%q<minitest-rg>.freeze, ["~> 5.2"])
     s.add_dependency(%q<simplecov>.freeze, ["~> 0.7"])
-    s.add_dependency(%q<hoe>.freeze, ["~> 3.15"])
+    s.add_dependency(%q<rdoc>.freeze, ["< 6", ">= 4.0"])
+    s.add_dependency(%q<hoe>.freeze, ["~> 3.17"])
   end
 end

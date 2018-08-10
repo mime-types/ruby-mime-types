@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'mime/type'
 
 # A version of MIME::Type that works hand-in-hand with a MIME::Types::Columnar

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ##
 module MIME
 end
@@ -129,7 +131,11 @@ class MIME::Type
     elsif other.respond_to?(:simplified)
       simplified <=> other.simplified
     else
-      simplified <=> MIME::Type.simplified(other.to_s)
+      filtered = 'silent' if other == :silent
+      filtered ||= 'true' if other == true
+      filtered ||= other.to_s
+
+      simplified <=> MIME::Type.simplified(filtered)
     end
   end
 

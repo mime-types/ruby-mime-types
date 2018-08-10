@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'set'
 
 # MIME::Types requires a container Hash with a default values for keys
