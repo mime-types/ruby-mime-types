@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'mime/type/columnar'
 
 # MIME::Types::Columnar is used to extend a MIME::Types container to load data

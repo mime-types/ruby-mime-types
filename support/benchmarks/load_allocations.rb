@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # -*- ruby encoding: utf-8 -*-
 
 if RUBY_VERSION < '2.1'
