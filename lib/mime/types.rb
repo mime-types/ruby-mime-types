@@ -151,7 +151,7 @@ class MIME::Types
   def type_for(filename)
     Array(filename).flat_map { |fn|
       @extension_index[fn.chomp.downcase[/\.?([^.]*?)$/, 1]]
-    }.compact.inject(:+).sort { |a, b|
+    }.compact.inject(Set.new, :+).sort { |a, b|
       a.priority_compare(b)
     }
   end
@@ -171,7 +171,7 @@ class MIME::Types
         nil
       when MIME::Types
         variants = mime_type.instance_variable_get(:@type_variants)
-        add(*variants.values.inject(:+).to_a, quiet)
+        add(*variants.values.inject(Set.new, :+).to_a, quiet)
       when Array
         add(*mime_type, quiet)
       else
@@ -218,7 +218,7 @@ Type #{type} is already registered as a variant of #{type.simplified}.
   def match(pattern)
     @type_variants.select { |k, _|
       k =~ pattern
-    }.values.inject(:+)
+    }.values.inject(Set.new, :+)
   end
 end
 

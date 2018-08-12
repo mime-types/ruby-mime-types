@@ -85,6 +85,12 @@ describe MIME::Types do
       refute_empty mime_types[/gzip/, registered: true]
       refute_equal mime_types[/gzip/], mime_types[/gzip/, registered: true]
     end
+
+    it 'properly returns an empty result on a regular expression miss' do
+      assert_empty mime_types[/^foo/]
+      assert_empty mime_types[/^foo/, registered: true]
+      assert_empty mime_types[/^foo/, complete: true]
+    end
   end
 
   describe '#add' do

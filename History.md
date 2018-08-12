@@ -11,9 +11,17 @@
         true` to files so that modern Rubies can automatically reduce duplicate
         string allocations. [#135][]
 
-*   1 bug fix
+*   2 bug fixes
 
     *   Burke Libbey fixed a problem with cached data loading. [#126][]
+
+    *   Resolved an issue where Enumerable#inject returns +nil+ when provided
+        an empty enumerable and a default value has not been provided. This is
+        because when Enumerable#inject isn't provided a starting value, the
+        first value is used as the default value. In every case where this
+        error was happening, the result was supposed to be an array containing
+        Set objects so they can be reduced to a single Set. [#117][], [#127][],
+        [#134][].
 
 *   Deprecations:
 

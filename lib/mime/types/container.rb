@@ -3,9 +3,9 @@
 require 'set'
 
 # MIME::Types requires a container Hash with a default values for keys
-# resulting in an empty array (<tt>[]</tt>), but this cannot be dumped through
-# Marshal because of the presence of that default Proc. This class exists
-# solely to satisfy that need.
+# resulting in an empty Set, but this cannot be dumped through Marshal because
+# of the presence of that default Proc. This class exists solely to satisfy
+# that need.
 class MIME::Types::Container < Hash # :nodoc:
   def initialize
     super
