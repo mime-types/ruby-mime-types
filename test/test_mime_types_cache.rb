@@ -104,7 +104,7 @@ end
 describe MIME::Types::Container do
   it 'marshals and unmarshals correctly' do
     container = MIME::Types::Container.new
-    container['xyz'] << 'abc'
+    container.add('xyz', 'abc')
 
     # default proc should return Set[]
     assert_equal(Set[], container['abc'])

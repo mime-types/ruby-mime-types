@@ -197,7 +197,7 @@ Type #{type} is already registered as a variant of #{type.simplified}.
   private
 
   def add_type_variant!(mime_type)
-    @type_variants[mime_type.simplified] << mime_type
+    @type_variants.add(mime_type.simplified, mime_type)
   end
 
   def reindex_extensions!(mime_type)
@@ -206,7 +206,7 @@ Type #{type} is already registered as a variant of #{type.simplified}.
   end
 
   def index_extensions!(mime_type)
-    mime_type.extensions.each { |ext| @extension_index[ext] << mime_type }
+    mime_type.extensions.each { |ext| @extension_index.add(ext, mime_type) }
   end
 
   def prune_matches(matches, complete, registered)

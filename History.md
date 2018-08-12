@@ -23,6 +23,15 @@
         Set objects so they can be reduced to a single Set. [#117][], [#127][],
         [#134][].
 
+    *   Fixed an uncontrolled growth bug in MIME::Types::Container where a key
+        miss would create a new entry with an empty Set in the container. This
+        was working as designed (this particular feature was heavily used
+        during MIME::Type registry construction), but the design was flawed in
+        that it did not have any way of determining the difference between
+        construction and querying. This would mean that, if you have a function
+        in your web app that queries the MIME::Types registry by extension, the
+        extension registry would grow uncontrollably. [#136][]
+
 *   Deprecations:
 
     *   Lazy loading (`$RUBY_MIME_TYPES_LAZY_LOAD`) has been deprecated.
@@ -163,16 +172,24 @@
             The internal format of the columnar store has changed; many of the
             boolean flags are now loaded from a single file. Resolves [#85][].
 
-[#112]: https://github.com/mime-types/ruby-mime-types/pull/112
-[#117]: https://github.com/mime-types/ruby-mime-types/pull/117
-[#118]: https://github.com/mime-types/ruby-mime-types/pull/118
-[#132]: https://github.com/mime-types/ruby-mime-types/pull/132
-[#135]: https://github.com/mime-types/ruby-mime-types/pull/135
 [#79]: https://github.com/mime-types/ruby-mime-types/pull/79
 [#84]: https://github.com/mime-types/ruby-mime-types/pull/84
 [#85]: https://github.com/mime-types/ruby-mime-types/pull/85
 [#95]: https://github.com/mime-types/ruby-mime-types/pull/95
 [#97]: https://github.com/mime-types/ruby-mime-types/pull/97
+[#112]: https://github.com/mime-types/ruby-mime-types/pull/112
+[#117]: https://github.com/mime-types/ruby-mime-types/issues/117
+[#118]: https://github.com/mime-types/ruby-mime-types/pull/118
+[#125]: https://github.com/mime-types/ruby-mime-types/pull/125
+[#126]: https://github.com/mime-types/ruby-mime-types/pull/126
+[#127]: https://github.com/mime-types/ruby-mime-types/issues/127
+[#129]: https://github.com/mime-types/ruby-mime-types/pull/129
+[#130]: https://github.com/mime-types/ruby-mime-types/pull/130
+[#127]: https://github.com/mime-types/ruby-mime-types/issues/127
+[#132]: https://github.com/mime-types/ruby-mime-types/pull/132
+[#134]: https://github.com/mime-types/ruby-mime-types/issues/134
+[#135]: https://github.com/mime-types/ruby-mime-types/pull/135
+[#136]: https://github.com/mime-types/ruby-mime-types/issues/136
 [Code-of-Conduct.md]: Code-of-Conduct_md.html
 [Contributor Covenant]: http://contributor-covenant.org
 [mime-types-data]: https://github.com/mime-types/mime-types-data

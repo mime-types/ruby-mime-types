@@ -151,7 +151,9 @@ describe MIME::Types do
     end
 
     it 'does not find unknown extensions' do
+      keys = mime_types.instance_variable_get(:@extension_index).keys
       assert_empty mime_types.type_for('zzz')
+      assert_equal keys, mime_types.instance_variable_get(:@extension_index).keys
     end
 
     it 'modifying type extensions causes reindexing' do

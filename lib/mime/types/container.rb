@@ -1,32 +1,58 @@
 # frozen_string_literal: true
 
 require 'set'
+require 'forwardable'
 
-# MIME::Types requires a container Hash with a default values for keys
-# resulting in an empty Set, but this cannot be dumped through Marshal because
-# of the presence of that default Proc. This class exists solely to satisfy
-# that need.
-class MIME::Types::Container < Hash # :nodoc:
+# MIME::Types requires a serializable keyed container that returns an empty Set
+# on a key miss. Hash#default_value cannot be used because, while it traverses
+# the Marshal format correctly, it won't survive any other serialization
+# format (plus, a default of a mutable object resuls in a shared mess).
+# Hash#default_proc cannot be used without a wrapper because it prevents
+# Marshal serialization (and doesn't survive the round-trip).
+class MIME::Types::Container
+  extend Forwardable
+
   def initialize
-    super
-    self.default_proc = ->(h, k) { h[k] = Set.new }
+    @container = {}
+  end
+
+  def [](key)
+    container[key] || EMPTY_SET
+  end
+
+  def_delegators :@container,
+    :count,
+    :each_value,
+    :keys,
+    :merge,
+    :merge!,
+    :select,
+    :values
+
+  def add(key, value)
+    (container[key] ||= Set.new).add(value)
   end
 
   def marshal_dump
-    {}.merge(self)
+    {}.merge(container)
   end
 
   def marshal_load(hash)
-    self.default_proc = ->(h, k) { h[k] = Set.new }
-    merge!(hash)
+    @container = hash
   end
 
   def encode_with(coder)
-    each { |k, v| coder[k] = v.to_a }
+    container.each { |k, v| coder[k] = v.to_a }
   end
 
   def init_with(coder)
-    self.default_proc = ->(h, k) { h[k] = Set.new }
-    coder.map.each { |k, v| self[k] = Set[*v] }
+    coder.map.each { |k, v| container[k] = Set[*v] }
   end
+
+  private
+
+  attr_reader :container
+
+  EMPTY_SET = Set.new.freeze
+  private_constant :EMPTY_SET
 end
