@@ -4,6 +4,9 @@
 # be accepted.
 
 source 'https://rubygems.org/'
+
+gem 'mime-types-data', path: '../mime-types-data' if ENV['DEV']
+
 gemspec
 
 # vim: syntax=ruby

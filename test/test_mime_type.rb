@@ -490,9 +490,7 @@ describe MIME::Type do
 
   describe '#xrefs, #xrefs=' do
     let(:expected) {
-      {
-        'rfc' => Set[*%w(rfc1234 rfc5678)]
-      }
+      MIME::Types::Container.new({ 'rfc' => Set[*%w(rfc1234 rfc5678)] })
     }
 
     it 'returns the expected results' do

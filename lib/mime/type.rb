@@ -57,7 +57,7 @@ class MIME::Type
   end
 
   # The released version of the mime-types library.
-  VERSION = '3.2'
+  VERSION = '3.2.1'
 
   include Comparable
 
@@ -368,13 +368,7 @@ class MIME::Type
 
   ##
   def xrefs=(x) # :nodoc:
-    MIME::Types::Container.new.merge(x).tap do |xr|
-      xr.each do |k, v|
-        xr[k] = Set[*v] unless v.kind_of? Set
-      end
-
-      @xrefs = xr
-    end
+    @xrefs = MIME::Types::Container.new(x)
   end
 
   # The decoded cross-reference URL list for this MIME::Type.
@@ -459,7 +453,7 @@ class MIME::Type
     unless xrefs.empty?
       {}.tap do |hash|
         xrefs.each do |k, v|
-          hash[k] = v.sort.to_a
+          hash[k] = v.to_a.sort
         end
         coder['xrefs'] = hash
       end

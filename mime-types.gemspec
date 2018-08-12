@@ -1,9 +1,9 @@
 # -*- encoding: utf-8 -*-
-# stub: mime-types 3.2 ruby lib
+# stub: mime-types 3.2.1 ruby lib
 
 Gem::Specification.new do |s|
   s.name = "mime-types".freeze
-  s.version = "3.2"
+  s.version = "3.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib".freeze]
@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT".freeze]
   s.rdoc_options = ["--main".freeze, "README.rdoc".freeze]
   s.required_ruby_version = Gem::Requirement.new(">= 2.0".freeze)
-  s.rubygems_version = "2.7.6".freeze
+  s.rubygems_version = "2.7.7".freeze
   s.summary = "The mime-types library provides a library and registry for information about MIME content type definitions".freeze
 
   if s.respond_to? :specification_version then

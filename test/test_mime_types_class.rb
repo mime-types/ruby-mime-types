@@ -44,9 +44,13 @@ describe MIME::Types, 'registry' do
     end
 
     it 'sorts by priority with multiple matches' do
-      assert_equal %w(application/gzip application/x-gzip multipart/x-gzip),
-        MIME::Types[/gzip$/]
-      assert_equal 3, MIME::Types[/gzip$/].size
+      types = MIME::Types[/gzip$/].select { |t|
+        t == 'application/gzip' || t == 'application/x-gzip' || t == 'multipart/x-gzip'
+      }
+      # This is this way because of a new type ending with gzip that only
+      # appears in some data files.
+      assert_equal %w(application/gzip application/x-gzip multipart/x-gzip), types
+      assert_equal 3, types.size
     end
 
     it 'can be searched with a string' do

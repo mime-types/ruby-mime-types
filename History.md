@@ -1,3 +1,9 @@
+## 3.2.1 / 2018-08-12
+
+*   A few bugs related to MIME::Types::Container and its use in the
+    mime-types-data helper tools reared their head because I released 3.2
+    before verifying against mime-types-data.
+
 ## 3.2 / 2018-08-12
 
 *   2 minor enhancements
