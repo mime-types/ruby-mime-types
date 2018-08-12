@@ -49,10 +49,11 @@
 *   Administrivia:
 
     *   CI configuration for more modern versions of Ruby were added by Nicolas
-        Leger ([#130][]) and Jun Aruga ([#125][]).
+        Leger ([#130][]), Jun Aruga ([#125][]), and Austin Ziegler. Removed
+        ruby-head-clang and rbx (Rubinius) from CI.
 
-    *   Fixed test which were asserting equality against nil, which will become
-        an error in Minitest 6.
+    *   Fixed tests which were asserting equality against nil, which will
+        become an error in Minitest 6.
 
 ## 3.1 / 2016-05-22
 

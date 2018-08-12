@@ -1,42 +1,27 @@
 ---
 language: ruby
 rvm:
-  - 2.5.0
-  - 2.4.3
-  - 2.3.6
-  - 2.2.9
+  - 2.6.0-preview1
+  - 2.5.1
+  - 2.4.4
+  - 2.3.7
+  - 2.2.10
   - 2.1.10
-  - 2.0.0
-  - jruby-9.0.0.0.pre2
+  - jruby-9.1.9.0
+  - jruby-9.0.5.0
   - jruby-head
   - ruby-head
-  - ruby-head-clang
-  - rbx-2
 matrix:
   allow_failures:
-    - rvm: rbx-2
+    - rvm: 2.6.0-preview1
     - rvm: jruby-head
-    - rvm: jruby-9.0.0.0.pre2
     - rvm: ruby-head
-    - rvm: ruby-head-clang
   fast_finish: true
 gemfile:
   - Gemfile
 before_script:
-  - |
-    case "${TRAVIS_RUBY_VERSION}" in
-      rbx*)
-        gem install psych
-        ;;
-    esac
   - rake travis:before -t
 script: rake travis
 after_script:
   - rake travis:after -t
-notifications:
-  email:
-    recipients:
-      - austin@rubyforge.org
-    on_success: change
-    on_failure: always
 sudo: false
