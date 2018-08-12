@@ -19,7 +19,7 @@ spec = Hoe.spec 'mime-types' do
 
   require_ruby_version '>= 2.0'
 
-  self.history_file = 'History.rdoc'
+  self.history_file = 'History.md'
   self.readme_file = 'README.rdoc'
 
   license 'MIT'
@@ -34,9 +34,9 @@ spec = Hoe.spec 'mime-types' do
   extra_dev_deps << ['minitest', '~> 5.4']
   extra_dev_deps << ['minitest-autotest', '~> 1.0']
   extra_dev_deps << ['minitest-focus', '~> 1.0']
-  extra_dev_deps << ['minitest-bonus-assertions', '~> 2.0']
+  extra_dev_deps << ['minitest-bonus-assertions', '~> 3.0']
   extra_dev_deps << ['minitest-hooks', '~> 1.4']
-  extra_dev_deps << ['rake', '~> 10.0']
+  extra_dev_deps << ['rake', '>= 10.0', '< 13.0']
   extra_dev_deps << ['fivemat', '~> 1.3' ]
   extra_dev_deps << ['minitest-rg', '~> 5.2']
 

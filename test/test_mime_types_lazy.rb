@@ -22,17 +22,23 @@ describe MIME::Types, 'lazy loading' do
 
   describe '.lazy_load?' do
     it 'is true when RUBY_MIME_TYPES_LAZY_LOAD is set' do
-      assert_equal true, MIME::Types.send(:lazy_load?)
+      assert_output '', /RUBY_MIME_TYPES_LAZY_LOAD/ do
+        assert_equal true, MIME::Types.send(:lazy_load?)
+      end
     end
 
     it 'is nil when RUBY_MIME_TYPES_LAZY_LOAD is unset' do
       ENV['RUBY_MIME_TYPES_LAZY_LOAD'] = nil
-      assert_equal nil, MIME::Types.send(:lazy_load?)
+      assert_output '', '' do
+        assert_nil MIME::Types.send(:lazy_load?)
+      end
     end
 
     it 'is false when RUBY_MIME_TYPES_LAZY_LOAD is false' do
       ENV['RUBY_MIME_TYPES_LAZY_LOAD'] = 'false'
-      assert_equal false, MIME::Types.send(:lazy_load?)
+      assert_output '', /RUBY_MIME_TYPES_LAZY_LOAD/ do
+        assert_equal false, MIME::Types.send(:lazy_load?)
+      end
     end
   end
 

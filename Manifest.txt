@@ -1,7 +1,7 @@
-Code-of-Conduct.rdoc
-Contributing.rdoc
-History.rdoc
-Licence.rdoc
+Code-of-Conduct.md
+Contributing.md
+History.md
+Licence.md
 Manifest.txt
 README.rdoc
 Rakefile

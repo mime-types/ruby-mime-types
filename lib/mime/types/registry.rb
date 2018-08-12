@@ -43,7 +43,13 @@ class << MIME::Types
   private
 
   def lazy_load?
-    (lazy = ENV['RUBY_MIME_TYPES_LAZY_LOAD']) && (lazy != 'false')
+    if ENV.key?('RUBY_MIME_TYPES_LAZY_LOAD')
+      MIME::Types.logger.warn <<-WARNING.chomp
+Lazy loading ($RUBY_MIME_TYPES_LAZY_LOAD) is deprecated and will be removed.
+      WARNING
+
+      (lazy = ENV['RUBY_MIME_TYPES_LAZY_LOAD']) && (lazy != 'false')
+    end
   end
 
   def __types__

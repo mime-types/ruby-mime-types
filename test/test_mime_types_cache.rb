@@ -37,11 +37,11 @@ describe MIME::Types::Cache do
   describe '.load' do
     it 'does not use cache when RUBY_MIME_TYPES_CACHE is unset' do
       ENV.delete('RUBY_MIME_TYPES_CACHE')
-      assert_equal(nil, MIME::Types::Cache.load)
+      assert_nil MIME::Types::Cache.load
     end
 
     it 'does not use cache when missing' do
-      assert_equal(nil, MIME::Types::Cache.load)
+      assert_nil MIME::Types::Cache.load
     end
 
     it 'registers the data to be updated by #add_extensions' do
@@ -80,7 +80,7 @@ describe MIME::Types::Cache do
   describe '.save' do
     it 'does not create cache when RUBY_MIME_TYPES_CACHE is unset' do
       ENV.delete('RUBY_MIME_TYPES_CACHE')
-      assert_equal(nil, MIME::Types::Cache.save)
+      assert_nil MIME::Types::Cache.save
     end
 
     it 'creates the cache ' do

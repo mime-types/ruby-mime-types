@@ -41,9 +41,7 @@ mime-types 1.x is no longer supported as of 2015-10-27.
 
 === mime-types 2.x End of Life
 
-mime-types 2.x is supported as 2.99.x receiving quarterly updates of the IANA
-registry and security updates for two years. It will reach full end of life on
-2017-11-21.
+mime-types 2.x is no longer supported as of 2017-11-21.
 
 === mime-types 3.x
 
@@ -195,8 +193,8 @@ features because of the existence of the [mime-types-data][] gem, and if
 features are marked deprecated in the course of mime-types 3.x, they will not
 be removed until mime-types 4.x or possibly later.
 
-:include: Code-of-Conduct.rdoc
+{Code of Conduct}[Code-of-Conduct_md.html]
 
-:include: Contributing.rdoc
+{Contributing}[Contributing_md.html]
 
-:include: Licence.rdoc
+{Licence}[Licence_md.html]

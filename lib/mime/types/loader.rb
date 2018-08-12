@@ -33,10 +33,6 @@ class MIME::Types::Loader
     path = path || ENV['RUBY_MIME_TYPES_DATA'] || MIME::Types::Data::PATH
     @container = container || MIME::Types.new
     @path = File.expand_path(path)
-    # begin
-    #   require 'mime/lazy_types'
-    #   @container.extend(MIME::LazyTypes)
-    # end
   end
 
   # Loads a MIME::Types registry from YAML files (<tt>*.yml</tt> or
