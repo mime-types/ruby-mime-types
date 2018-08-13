@@ -1,3 +1,8 @@
+## 3.2.2 / 2018-08-12
+
+*   Hiroto Fukui removed a stray `debugger` statement that I had used in
+    producing v3.2.1. [#137][]
+
 ## 3.2.1 / 2018-08-12
 
 *   A few bugs related to MIME::Types::Container and its use in the
@@ -197,6 +202,7 @@
 [#134]: https://github.com/mime-types/ruby-mime-types/issues/134
 [#135]: https://github.com/mime-types/ruby-mime-types/pull/135
 [#136]: https://github.com/mime-types/ruby-mime-types/issues/136
+[#137]: https://github.com/mime-types/ruby-mime-types/pull/137
 [Code-of-Conduct.md]: Code-of-Conduct_md.html
 [Contributor Covenant]: http://contributor-covenant.org
 [mime-types-data]: https://github.com/mime-types/mime-types-data
