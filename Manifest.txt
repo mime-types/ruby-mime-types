@@ -10,6 +10,7 @@ SECURITY.md
 lib/mime-types.rb
 lib/mime/type.rb
 lib/mime/type/columnar.rb
+lib/mime/type/value_pool.rb
 lib/mime/types.rb
 lib/mime/types/_columnar.rb
 lib/mime/types/cache.rb
@@ -23,7 +24,6 @@ lib/mime/types/registry.rb
 lib/mime/types/version.rb
 test/bad-fixtures/malformed
 test/fixture/json.json
-test/fixture/old-data
 test/fixture/yaml.yaml
 test/minitest_helper.rb
 test/test_mime_type.rb
