@@ -70,7 +70,6 @@ class MIME::Types::Container #:nodoc:
   end
 
   def encode_with(coder)
-    debugger
     container.each { |k, v| coder[k] = v.to_a }
   end
 
