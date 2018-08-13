@@ -79,4 +79,10 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<rdoc>.freeze, ["< 6", ">= 4.0"])
     s.add_dependency(%q<hoe>.freeze, ["~> 3.17"])
   end
+
+  if s.respond_to?(:metadata)
+    s.metadata['changelog_uri'] = 'https://github.com/mime-types/ruby-mime-types/blob/master/History.md'
+    s.metadata['source_code_uri'] = 'https://github.com/mime-types/ruby-mime-types'
+    s.metadata['bug_tracker_uri'] = 'https://github.com/mime-types/ruby-mime-types/issues'
+  end
 end
