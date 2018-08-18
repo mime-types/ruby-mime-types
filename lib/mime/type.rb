@@ -331,7 +331,7 @@ class MIME::Type
   # call-seq:
   #   text_plain.friendly         # => "Text File"
   #   text_plain.friendly('en')   # => "Text File"
-  def friendly(lang = 'en'.freeze)
+  def friendly(lang = 'en')
     @friendly ||= {}
 
     case lang
@@ -504,7 +504,7 @@ class MIME::Type
     # use with the I18n library.
     def i18n_key(content_type)
       simplify_matchdata(match(content_type), joiner: '.') { |e|
-        e.gsub!(I18N_RE, '-'.freeze)
+        e.gsub!(I18N_RE, '-')
       }
     end
 
@@ -521,12 +521,12 @@ class MIME::Type
 
     private
 
-    def simplify_matchdata(matchdata, remove_x = false, joiner: '/'.freeze)
+    def simplify_matchdata(matchdata, remove_x = false, joiner: '/')
       return nil unless matchdata
 
       matchdata.captures.map { |e|
         e.downcase!
-        e.sub!(%r{^x-}, ''.freeze) if remove_x
+        e.sub!(%r{^x-}, '') if remove_x
         yield e if block_given?
         e
       }.join(joiner)
@@ -551,23 +551,22 @@ class MIME::Type
   end
 
   def xref_url_for_rfc(value)
-    'http://www.iana.org/go/%s'.freeze % value
+    'http://www.iana.org/go/%s' % value
   end
 
   def xref_url_for_draft(value)
-    'http://www.iana.org/go/%s'.freeze % value.sub(/\ARFC/, 'draft')
+    'http://www.iana.org/go/%s' % value.sub(/\ARFC/, 'draft')
   end
 
   def xref_url_for_rfc_errata(value)
-    'http://www.rfc-editor.org/errata_search.php?eid=%s'.freeze % value
+    'http://www.rfc-editor.org/errata_search.php?eid=%s' % value
   end
 
   def xref_url_for_person(value)
-    'http://www.iana.org/assignments/media-types/media-types.xhtml#%s'.freeze %
-      value
+    'http://www.iana.org/assignments/media-types/media-types.xhtml#%s' % value
   end
 
   def xref_url_for_template(value)
-    'http://www.iana.org/assignments/media-types/%s'.freeze % value
+    'http://www.iana.org/assignments/media-types/%s' % value
   end
 end

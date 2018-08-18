@@ -45,7 +45,7 @@ module MIME::Types::Columnar
       i = -1
       column = File.join(@__root__, "mime.#{name}.column")
 
-      IO.readlines(column, encoding: 'UTF-8'.freeze).each do |line|
+      IO.readlines(column, encoding: 'UTF-8').each do |line|
         line.chomp!
 
         if lookup
@@ -63,7 +63,7 @@ module MIME::Types::Columnar
   def load_encoding
     each_file_line('encoding') do |type, line|
       pool ||= {}
-      line.freeze
+      line
       type.instance_variable_set(:@encoding, (pool[line] ||= line))
     end
   end
@@ -108,11 +108,11 @@ module MIME::Types::Columnar
   end
 
   def dict(line, array: false)
-    if line == '-'.freeze
+    if line == '-'
       {}
     else
-      line.split('|'.freeze).each_with_object({}) { |l, h|
-        k, v = l.split('^'.freeze)
+      line.split('|').each_with_object({}) { |l, h|
+        k, v = l.split('^')
         v = nil if v.empty?
         h[k] = array ? Array(v) : v
       }
@@ -120,18 +120,18 @@ module MIME::Types::Columnar
   end
 
   def arr(line)
-    if line == '-'.freeze
+    if line == '-'
       []
     else
-      line.split('|'.freeze).flatten.compact.uniq
+      line.split('|').flatten.compact.uniq
     end
   end
 
   def opt(line)
-    line unless line == '-'.freeze
+    line unless line == '-'
   end
 
   def flag(line)
-    line == '1'.freeze ? true : false
+    line == '1' ? true : false
   end
 end
