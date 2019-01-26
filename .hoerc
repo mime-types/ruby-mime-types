@@ -24,6 +24,7 @@ exclude: !ruby/regexp '/
   \.(?:
     appveyor |
     coveralls |
+    fasterer |
     pullreview |
     rubocop.* |
     travis |
@@ -46,5 +47,5 @@ exclude: !ruby/regexp '/
   |
   \.gemspec$
   |
-  ^Vagrantfile$
+  Vagrantfile$
   /x'
