@@ -64,10 +64,10 @@ class MIME::Type
   # :stopdoc:
   # TODO verify mime-type character restrictions; I am pretty sure that this is
   # too wide open.
-  MEDIA_TYPE_RE    = %r{([-\w.+]+)/([-\w.+]*)}
-  I18N_RE          = %r{[^[:alnum:]]}
-  BINARY_ENCODINGS = %w(base64 8bit)
-  ASCII_ENCODINGS  = %w(7bit quoted-printable)
+  MEDIA_TYPE_RE    = %r{([-\w.+]+)/([-\w.+]*)}.freeze
+  I18N_RE          = /[^[:alnum:]]/.freeze
+  BINARY_ENCODINGS = %w(base64 8bit).freeze
+  ASCII_ENCODINGS  = %w(7bit quoted-printable).freeze
   # :startdoc:
 
   private_constant :MEDIA_TYPE_RE, :I18N_RE, :BINARY_ENCODINGS,
@@ -301,7 +301,7 @@ class MIME::Type
 
   # Returns the default encoding for the MIME::Type based on the media type.
   def default_encoding
-    (@media_type == 'text') ? 'quoted-printable' : 'base64'
+    @media_type == 'text' ? 'quoted-printable' : 'base64'
   end
 
   ##
@@ -321,7 +321,7 @@ class MIME::Type
 
   # Returns +true+ if the media type is obsolete.
   attr_accessor :obsolete
-  alias_method :obsolete?, :obsolete
+  alias obsolete? obsolete
 
   # The documentation for this MIME::Type.
   attr_accessor :docs
@@ -367,8 +367,8 @@ class MIME::Type
   attr_reader :xrefs
 
   ##
-  def xrefs=(x) # :nodoc:
-    @xrefs = MIME::Types::Container.new(x)
+  def xrefs=(xrefs) # :nodoc:
+    @xrefs = MIME::Types::Container.new(xrefs)
   end
 
   # The decoded cross-reference URL list for this MIME::Type.
@@ -381,7 +381,7 @@ class MIME::Type
 
   # Indicates whether the MIME type has been registered with IANA.
   attr_accessor :registered
-  alias_method :registered?, :registered
+  alias registered? registered
 
   # MIME types can be specified to be sent across a network in particular
   # formats. This method returns +true+ when the MIME::Type encoding is set
@@ -399,7 +399,7 @@ class MIME::Type
 
   # Indicateswhether the MIME type is declared as a signature type.
   attr_accessor :signature
-  alias_method :signature?, :signature
+  alias signature? signature
 
   # Returns +true+ if the MIME::Type specifies an extension list,
   # indicating that it is a complete MIME::Type.
@@ -438,17 +438,15 @@ class MIME::Type
   #
   # This method should be considered a private implementation detail.
   def encode_with(coder)
-    coder['content-type']        = @content_type
-    coder['docs']                = @docs unless @docs.nil? or @docs.empty?
-    unless @friendly.nil? or @friendly.empty?
-      coder['friendly']            = @friendly
-    end
-    coder['encoding']            = @encoding
-    coder['extensions']          = @extensions.to_a unless @extensions.empty?
+    coder['content-type'] = @content_type
+    coder['docs'] = @docs unless @docs.nil? or @docs.empty?
+    coder['friendly'] = @friendly unless @friendly.nil? or @friendly.empty?
+    coder['encoding'] = @encoding
+    coder['extensions'] = @extensions.to_a unless @extensions.empty?
     coder['preferred-extension'] = @preferred_extension if @preferred_extension
     if obsolete?
-      coder['obsolete']          = obsolete?
-      coder['use-instead']       = use_instead if use_instead
+      coder['obsolete'] = obsolete?
+      coder['use-instead'] = use_instead if use_instead
     end
     unless xrefs.empty?
       {}.tap do |hash|
@@ -458,8 +456,8 @@ class MIME::Type
         coder['xrefs'] = hash
       end
     end
-    coder['registered']          = registered?
-    coder['signature']           = signature? if signature?
+    coder['registered'] = registered?
+    coder['signature'] = signature? if signature?
     coder
   end
 
@@ -526,7 +524,7 @@ class MIME::Type
 
       matchdata.captures.map { |e|
         e.downcase!
-        e.sub!(%r{^x-}, '') if remove_x
+        e.sub!(/^x-/, '') if remove_x
         yield e if block_given?
         e
       }.join(joiner)

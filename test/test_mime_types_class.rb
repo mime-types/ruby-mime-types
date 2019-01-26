@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# -*- ruby encoding: utf-8 -*-
-
 require 'mime/types'
 require 'minitest_helper'
 
@@ -12,7 +10,7 @@ describe MIME::Types, 'registry' do
 
   describe 'is enumerable' do
     it 'correctly uses an Enumerable method like #any?' do
-      assert MIME::Types.any? { |type| type.content_type == 'text/plain' }
+      assert(MIME::Types.any? { |type| type.content_type == 'text/plain' })
     end
 
     it 'implements each with no parameters to return an Enumerator' do
@@ -45,7 +43,7 @@ describe MIME::Types, 'registry' do
 
     it 'sorts by priority with multiple matches' do
       types = MIME::Types[/gzip$/].select { |t|
-        t == 'application/gzip' || t == 'application/x-gzip' || t == 'multipart/x-gzip'
+        %w(application/gzip application/x-gzip multipart/x-gzip).include?(t)
       }
       # This is this way because of a new type ending with gzip that only
       # appears in some data files.
@@ -117,11 +115,11 @@ describe MIME::Types, 'registry' do
     end
 
     let(:eruby) { MIME::Type.new('application/x-eruby') }
-    let(:jinja) { MIME::Type.new('application/jinja2' )}
+    let(:jinja) { MIME::Type.new('application/jinja2') }
 
     it 'successfully adds a new type' do
       MIME::Types.add(eruby)
-      assert_equal MIME::Types['application/x-eruby'], [ eruby ]
+      assert_equal MIME::Types['application/x-eruby'], [eruby]
     end
 
     it 'complains about adding a duplicate type' do
@@ -137,13 +135,13 @@ describe MIME::Types, 'registry' do
       assert_silent do
         MIME::Types.add(eruby, :silent)
       end
-      assert_equal MIME::Types['application/x-eruby'], [ eruby ]
+      assert_equal MIME::Types['application/x-eruby'], [eruby]
     end
 
     it 'successfully adds from an array' do
-      MIME::Types.add([ eruby, jinja ])
-      assert_equal MIME::Types['application/x-eruby'], [ eruby ]
-      assert_equal MIME::Types['application/jinja2'], [ jinja ]
+      MIME::Types.add([eruby, jinja])
+      assert_equal MIME::Types['application/x-eruby'], [eruby]
+      assert_equal MIME::Types['application/jinja2'], [jinja]
     end
 
     it 'successfully adds from another MIME::Types' do
@@ -155,7 +153,7 @@ describe MIME::Types, 'registry' do
       MIME::Types.add(mt)
       assert_equal old_count + 1, MIME::Types.count
 
-      assert_equal MIME::Types[eruby.content_type], [ eruby ]
+      assert_equal MIME::Types[eruby.content_type], [eruby]
     end
   end
 end

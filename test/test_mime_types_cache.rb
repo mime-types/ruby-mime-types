@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# -*- ruby encoding: utf-8 -*-
-
 require 'mime/types'
 require 'minitest_helper'
 
@@ -69,7 +67,7 @@ describe MIME::Types::Cache do
     it 'outputs an error when there is a marshal file incompatibility' do
       MIME::Types::Cache.save
       data = File.binread(@cache_file).reverse
-      File.open(@cache_file, 'wb') { |f| f.write(data) }
+      File.open(@cache_file, 'wb') do |f| f.write(data) end
       MIME::Types.instance_variable_set(:@__types__, nil)
       assert_output '', /incompatible marshal file format/ do
         MIME::Types['text/html']

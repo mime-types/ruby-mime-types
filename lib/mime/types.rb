@@ -155,7 +155,7 @@ class MIME::Types
       a.priority_compare(b)
     }
   end
-  alias_method :of, :type_for
+  alias of type_for
 
   # Add one or more MIME::Type objects to the set of known types. If the
   # type is already known, a warning will be displayed.
@@ -185,9 +185,9 @@ class MIME::Types
   # truthy value to suppress that warning.
   def add_type(type, quiet = false)
     if !quiet and @type_variants[type.simplified].include?(type)
-      MIME::Types.logger.warn <<-warning
+      MIME::Types.logger.warn <<-WARNING
 Type #{type} is already registered as a variant of #{type.simplified}.
-      warning
+      WARNING
     end
 
     add_type_variant!(type)
@@ -202,6 +202,7 @@ Type #{type} is already registered as a variant of #{type.simplified}.
 
   def reindex_extensions!(mime_type)
     return unless @type_variants[mime_type.simplified].include?(mime_type)
+
     index_extensions!(mime_type)
   end
 

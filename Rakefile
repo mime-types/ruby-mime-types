@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# -*- ruby encoding: utf-8 -*-
-
 require 'rubygems'
 require 'hoe'
 require 'rake/clean'
@@ -37,7 +35,7 @@ spec = Hoe.spec 'mime-types' do
   extra_dev_deps << ['minitest-bonus-assertions', '~> 3.0']
   extra_dev_deps << ['minitest-hooks', '~> 1.4']
   extra_dev_deps << ['rake', '>= 10.0', '< 13.0']
-  extra_dev_deps << ['fivemat', '~> 1.3' ]
+  extra_dev_deps << ['fivemat', '~> 1.3']
   extra_dev_deps << ['minitest-rg', '~> 5.2']
 
   if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('2.0')
@@ -56,7 +54,7 @@ namespace :benchmark do
   end
 
   desc 'Benchmark Load Times'
-  task :load, [ :repeats ] => 'benchmark:support' do |_, args|
+  task :load, [:repeats] => 'benchmark:support' do |_, args|
     require 'benchmarks/load'
     Benchmarks::Load.report(
       File.join(Rake.application.original_dir, 'lib'),
@@ -65,7 +63,7 @@ namespace :benchmark do
   end
 
   desc 'Allocation counts'
-  task :allocations, [ :top_x, :mime_types_only ] => 'benchmark:support' do |_, args|
+  task :allocations, [:top_x, :mime_types_only] => 'benchmark:support' do |_, args|
     require 'benchmarks/load_allocations'
     Benchmarks::LoadAllocations.report(
       top_x: args.top_x,
@@ -74,7 +72,7 @@ namespace :benchmark do
   end
 
   desc 'Columnar allocation counts'
-  task 'allocations:columnar', [ :top_x, :mime_types_only ] => 'benchmark:support' do |_, args|
+  task 'allocations:columnar', [:top_x, :mime_types_only] => 'benchmark:support' do |_, args|
     require 'benchmarks/load_allocations'
     Benchmarks::LoadAllocations.report(
       columnar: true,
@@ -84,7 +82,7 @@ namespace :benchmark do
   end
 
   desc 'Columnar allocation counts (full load)'
-  task 'allocations:columnar:full', [ :top_x, :mime_types_only ] => 'benchmark:support' do |_, args|
+  task 'allocations:columnar:full', [:top_x, :mime_types_only] => 'benchmark:support' do |_, args|
     require 'benchmarks/load_allocations'
     Benchmarks::LoadAllocations.report(
       columnar: true,
@@ -131,7 +129,7 @@ namespace :profile do
       '-R', 'mime/types',
       '-s', 'self',
       '-p', 'multi',
-      '-f', "#{output}",
+      '-f', output.to_s,
       script.to_s
     ]
     ruby args.join(' ')
@@ -194,7 +192,7 @@ namespace :convert do
       rdoc = name
       mark = "#{File.basename(name, '.rdoc')}.md"
 
-      file mark => [ rdoc, :setup ] do |t|
+      file mark => [rdoc, :setup] do |t|
         puts "#{rdoc} => #{mark}"
         File.open(t.name, 'wb') { |target|
           target.write @doc_converter.convert(IO.read(t.prerequisites.first))
@@ -203,7 +201,7 @@ namespace :convert do
 
       CLEAN.add mark
 
-      task run: [ mark ]
+      task run: [mark]
     end
   end
 
@@ -211,7 +209,7 @@ namespace :convert do
   task docs: 'convert:docs:run'
 end
 
-task 'deps:top', [ :number ] do |_, args|
+task 'deps:top', [:number] do |_, args|
   require 'net/http'
   require 'json'
 

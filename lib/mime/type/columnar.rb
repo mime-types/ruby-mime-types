@@ -20,7 +20,7 @@ class MIME::Type::Columnar < MIME::Type
   end
 
   def self.column(*methods, file: nil) # :nodoc:
-    file = methods.first unless file
+    file ||= methods.first
 
     file_method = :"load_#{file}"
     methods.each do |m|

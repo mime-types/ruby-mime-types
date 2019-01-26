@@ -63,7 +63,6 @@ module MIME::Types::Columnar
   def load_encoding
     each_file_line('encoding') do |type, line|
       pool ||= {}
-      line
       type.instance_variable_set(:@encoding, (pool[line] ||= line))
     end
   end
@@ -132,6 +131,6 @@ module MIME::Types::Columnar
   end
 
   def flag(line)
-    line == '1' ? true : false
+    line == '1'
   end
 end

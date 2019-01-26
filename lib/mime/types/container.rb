@@ -22,12 +22,13 @@ class MIME::Types::Container #:nodoc:
   end
 
   def []=(key, value)
-    case value
-    when Set
-      container[key] = value
-    else
-      container[key] = Set[*value]
-    end
+    container[key] =
+      case value
+      when Set
+        value
+      else
+        Set[*value]
+      end
   end
 
   def merge(other)
@@ -37,7 +38,7 @@ class MIME::Types::Container #:nodoc:
   def merge!(other)
     tap {
       other = other.kind_of?(MIME::Types::Container) ? other.container : other
-      self.container.merge!(other)
+      container.merge!(other)
       normalize
     }
   end
@@ -85,6 +86,7 @@ class MIME::Types::Container #:nodoc:
   def normalize
     container.each do |k, v|
       next if v.kind_of?(Set)
+
       container[k] = Set[*v]
     end
   end

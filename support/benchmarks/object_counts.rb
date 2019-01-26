@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
-# -*- ruby encoding: utf-8 -*-
-
 module Benchmarks
+  # Benchmark object counts
   class ObjectCounts
     def self.report(columnar: false, full: false)
-      new(columnar: columnar).report
+      new(columnar: columnar, full: full).report
     end
 
     def initialize(columnar: false, full: false)
@@ -16,9 +15,9 @@ module Benchmarks
     def report
       collect
       @before.keys.grep(/T_/).map { |key|
-        [ key, @after[key] - @before[key] ]
+        [key, @after[key] - @before[key]]
       }.sort_by { |_, delta| -delta }.each { |key, delta|
-        puts '%10s +%6d' % [ key, delta ]
+        puts '%10s +%6d' % [key, delta]
       }
     end
 

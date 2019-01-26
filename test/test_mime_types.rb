@@ -1,13 +1,11 @@
 # frozen_string_literal: true
 
-# -*- ruby encoding: utf-8 -*-
-
 require 'mime/types'
 require 'minitest_helper'
 
 describe MIME::Types do
   def mime_types
-    @mime_types ||= MIME::Types.new.tap do |mt|
+    @mime_types ||= MIME::Types.new.tap { |mt|
       mt.add MIME::Type.new(['text/plain', %w(txt)]),
         MIME::Type.new(['image/jpeg', %w(jpg jpeg)]),
         MIME::Type.new('application/x-wordperfect6.1'),
@@ -21,12 +19,12 @@ describe MIME::Types do
           'extensions' => 'gz',
           'registered' => true
         )
-    end
+    }
   end
 
   describe 'is enumerable' do
     it 'correctly uses an Enumerable method like #any?' do
-      assert mime_types.any? { |type| type.content_type == 'text/plain' }
+      assert(mime_types.any? { |type| type.content_type == 'text/plain' })
     end
 
     it 'implements each with no parameters to return an Enumerator' do
@@ -95,11 +93,11 @@ describe MIME::Types do
 
   describe '#add' do
     let(:eruby) { MIME::Type.new('application/x-eruby') }
-    let(:jinja) { MIME::Type.new('application/jinja2' )}
+    let(:jinja) { MIME::Type.new('application/jinja2') }
 
     it 'successfully adds a new type' do
       mime_types.add(eruby)
-      assert_equal mime_types['application/x-eruby'], [ eruby ]
+      assert_equal mime_types['application/x-eruby'], [eruby]
     end
 
     it 'complains about adding a duplicate type' do
@@ -115,13 +113,13 @@ describe MIME::Types do
       assert_output '', '' do
         mime_types.add(eruby, :silent)
       end
-      assert_equal mime_types['application/x-eruby'], [ eruby ]
+      assert_equal mime_types['application/x-eruby'], [eruby]
     end
 
     it 'successfully adds from an array' do
-      mime_types.add([ eruby, jinja ])
-      assert_equal mime_types['application/x-eruby'], [ eruby ]
-      assert_equal mime_types['application/jinja2'], [ jinja ]
+      mime_types.add([eruby, jinja])
+      assert_equal mime_types['application/x-eruby'], [eruby]
+      assert_equal mime_types['application/jinja2'], [jinja]
     end
 
     it 'successfully adds from another MIME::Types' do
@@ -130,7 +128,7 @@ describe MIME::Types do
       assert_equal mime_types.count, mt.count
 
       mime_types.each do |type|
-        assert_equal mt[type.content_type], [ type ]
+        assert_equal mt[type.content_type], [type]
       end
     end
   end

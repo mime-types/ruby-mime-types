@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
-# -*- ruby encoding: utf-8 -*-
-
 require 'benchmark'
 require 'mime/types'
 
 module Benchmarks
+  # Benchmark loading speed
   class Load
     def self.report(load_path, repeats)
       new(load_path, repeats.to_i).report
@@ -35,23 +34,23 @@ module Benchmarks
       remove_cache
 
       Benchmark.bm(30) do |mark|
-        mark.report('Normal') { reload_mime_types(@repeats) }
-        mark.report('Columnar') {
+        mark.report('Normal') do reload_mime_types(@repeats) end
+        mark.report('Columnar') do
           reload_mime_types(@repeats, columnar: true)
-        }
-        mark.report('Columnar Full') {
+        end
+        mark.report('Columnar Full') do
           reload_mime_types(@repeats, columnar: true, force: true)
-        }
+        end
 
         ENV['RUBY_MIME_TYPES_CACHE'] = @cache_file
-        mark.report('Cache Initialize') { reload_mime_types(cache: true) }
-        mark.report('Cached') { reload_mime_types(@repeats, cache: true) }
+        mark.report('Cache Initialize') do reload_mime_types(cache: true) end
+        mark.report('Cached') do reload_mime_types(@repeats, cache: true) end
 
         remove_cache
         ENV['RUBY_MIME_TYPES_CACHE'] = @cache_file
-        mark.report('Columnar Cache Initialize') {
+        mark.report('Columnar Cache Initialize') do
           reload_mime_types(columnar: true, cache: true)
-        }
+        end
         mark.report('Columnar Cached') {
           reload_mime_types(@repeats, columnar: true, cache: true)
         }

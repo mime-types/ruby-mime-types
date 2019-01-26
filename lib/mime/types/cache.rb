@@ -22,16 +22,16 @@ class << MIME::Types::Cache
     if cache.version == MIME::Types::Data::VERSION
       Marshal.load(cache.data)
     else
-      MIME::Types.logger.warn <<-warning.chomp
+      MIME::Types.logger.warn <<-WARNING.chomp
 Could not load MIME::Types cache: invalid version
-      warning
+      WARNING
       nil
     end
   rescue => e
-    MIME::Types.logger.warn <<-warning.chomp
+    MIME::Types.logger.warn <<-WARNING.chomp
 Could not load MIME::Types cache: #{e}
-    warning
-    return nil
+    WARNING
+    nil
   end
 
   # Attempts to save the types provided to the cache file provided.

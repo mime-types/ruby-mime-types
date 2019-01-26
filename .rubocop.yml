@@ -1,0 +1,94 @@
+---
+AllCops:
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  ExtraDetails: true
+  Exclude:
+    - mime-types.gemspec
+
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/DotPosition:
+  EnforcedStyle: trailing
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Metrics/LineLength:
+  Max: 100
+
+Naming/FileName:
+  Exclude:
+    - lib/mime-types.rb
+
+Naming/MemoizedInstanceVariableName:
+  Exclude:
+    - lib/mime/types/registry.rb
+
+Naming/UncommunicativeMethodParamName:
+  Exclude:
+    - lib/mime/types/logger.rb
+
+Naming/VariableNumber:
+  Exclude:
+    - lib/mime/types/logger.rb
+
+Performance/Caller:
+  Exclude:
+    - lib/mime/types/deprecations.rb
+
+Security/MarshalLoad:
+  Exclude:
+    - lib/mime/types/cache.rb
+    - test/test_mime_types_cache.rb
+
+Security/YAMLLoad:
+  Exclude:
+    - lib/mime/types/loader.rb
+
+Style/BlockDelimiters:
+  EnforcedStyle: semantic
+  ProceduralMethods:
+    - trace
+    - assert_raises
+    - spec
+  FunctionalMethods:
+    - let
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    default: ()
+    '%i': '()'
+    '%I': '()'
+    '%r': '{}'
+    '%w': '()'
+    '%W': '()'
+
+Style/RescueStandardError:
+  EnforcedStyle: implicit
+
+Style/SignalException:
+  EnforcedStyle: semantic
+
+Layout/IndentHeredoc: { Enabled: false }
+Metrics/AbcSize: { Enabled: false }
+Metrics/BlockLength: { Enabled: false }
+Metrics/ClassLength: { Enabled: false }
+Metrics/CyclomaticComplexity: { Enabled: false }
+Metrics/MethodLength: { Enabled: false}
+Metrics/PerceivedComplexity: { Enabled: false }
+Style/AndOr: { Enabled: false }
+Style/AsciiComments: { Enabled: false }
+Style/ClassAndModuleChildren: { Enabled: false }
+Style/ClassCheck: { Enabled: false }
+Style/CommentedKeyword: { Enabled: false }
+Style/DoubleNegation: { Enabled: false }
+Style/EmptyMethod: { Enabled: false }
+Style/ExpandPathArguments: { Enabled: false }
+Style/FormatString: { Enabled: false }
+Style/FormatStringToken: { Enabled: false }
+Style/MultilineBlockChain: { Enabled: false }
+Style/SafeNavigation: { Enabled: false }
+Style/WordArray: { Enabled: false }
+Style/SymbolArray: { Enabled: false }

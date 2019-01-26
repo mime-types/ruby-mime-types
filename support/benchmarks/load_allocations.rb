@@ -1,20 +1,19 @@
 # frozen_string_literal: true
 
-# -*- ruby encoding: utf-8 -*-
-
 if RUBY_VERSION < '2.1'
-  $stderr.puts "Cannot count allocations on #{RUBY_VERSION}."
+  warn "Cannot count allocations on #{RUBY_VERSION}."
   exit 1
 end
 
 begin
   require 'allocation_tracer'
 rescue LoadError
-  $stderr.puts "Allocation tracking requires the gem 'allocation_tracer'."
+  warn "Allocation tracking requires the gem 'allocation_tracer'."
   exit 1
 end
 
 module Benchmarks
+  # Calculate the number of allocations during loading.
   class LoadAllocations
     def self.report(columnar: false, full: false, top_x: nil, mime_types_only: false)
       new(
@@ -33,6 +32,7 @@ module Benchmarks
       @top_x = top_x
 
       return unless @top_x
+
       @top_x = top_x.to_i
       @top_x = 10 if @top_x <= 0
     end
@@ -49,41 +49,44 @@ module Benchmarks
       table = @allocations.sort_by { |_, v| v.first }.reverse.first(@top_x)
       table.map! { |(location, allocs)|
         next if @mime_types_only and location.first !~ %r{mime-types/lib}
-        [ location.join(':').gsub(%r{^#{Dir.pwd}/}, ''), *allocs ]
+
+        [location.join(':').gsub(%r{^#{Dir.pwd}/}, ''), *allocs]
       }.compact!
 
-      head = (ObjectSpace::AllocationTracer.header - [ :line ]).map {|h|
+      head = (ObjectSpace::AllocationTracer.header - [:line]).map { |h|
         h.to_s.split(/_/).map(&:capitalize).join(' ')
       }
       table.unshift head
 
-      max_widths = [].tap do |mw|
+      max_widths = [].tap { |mw|
         table.map { |row| row.lazy.map(&:to_s).map(&:length).to_a }.tap do |w|
           w.first.each_index do |i|
             mw << w.lazy.map { |r| r[i] }.max
           end
         end
-      end
+      }
 
-      pattern = [ '%%-%ds' ]
-      pattern << ([ '%% %ds' ] * (max_widths.length - 1))
+      pattern = ['%%-%ds']
+      pattern << (['%% %ds'] * (max_widths.length - 1))
       pattern = pattern.join("\t") % max_widths
-      table.each { |row| puts pattern % row }
+      table.each do |row|
+        puts pattern % row
+      end
       puts
     end
 
     def collect
-      if @columnar
-        @allocations = ObjectSpace::AllocationTracer.trace do
-          require 'mime/types'
-
-          MIME::Types.first.to_h if @full
+      @allocations =
+        if @columnar
+          ObjectSpace::AllocationTracer.trace do
+            require 'mime/types'
+            MIME::Types.first.to_h if @full
+          end
+        else
+          ObjectSpace::AllocationTracer.trace do
+            require 'mime/types/full'
+          end
         end
-      else
-        @allocations = ObjectSpace::AllocationTracer.trace do
-          require 'mime/types/full'
-        end
-      end
 
       @count = ObjectSpace::AllocationTracer.allocated_count_table.values.
         inject(:+)
