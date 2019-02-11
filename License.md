@@ -1,10 +1,7 @@
-## Licence
 
-*   Copyright 2003–2018 Austin Ziegler and contributors.
+Copyright 2003–2019 Austin Ziegler and contributors.
 
 The software in this repository is made available under the MIT license.
-
-### MIT License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
