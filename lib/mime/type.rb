@@ -537,11 +537,28 @@ class MIME::Type
     match = MEDIA_TYPE_RE.match(type_string)
     fail InvalidContentType, type_string if match.nil?
 
-    @content_type                  = type_string
+    @content_type                  = intern_string(type_string)
     @raw_media_type, @raw_sub_type = match.captures
-    @simplified                    = MIME::Type.simplified(match)
-    @i18n_key                      = MIME::Type.i18n_key(match)
+    @simplified                    = intern_string(MIME::Type.simplified(match))
+    @i18n_key                      = intern_string(MIME::Type.i18n_key(match))
     @media_type, @sub_type         = MEDIA_TYPE_RE.match(@simplified).captures
+
+    @raw_media_type = intern_string(@raw_media_type)
+    @raw_sub_type = intern_string(@raw_sub_type)
+    @media_type = intern_string(@media_type)
+    @sub_type = intern_string(@sub_type)
+  end
+
+  if String.method_defined?(:-@)
+    def intern_string(string)
+      -string
+    end
+  else
+    # MRI 2.2 and older don't have a method for string interning,
+    # so we simply freeze them for keeping a similar interface
+    def intern_string(string)
+      string.freeze
+    end
   end
 
   def xref_map(values, helper)
