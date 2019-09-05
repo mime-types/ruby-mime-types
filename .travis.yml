@@ -9,7 +9,6 @@ rvm:
   - 2.1.10
   - jruby-9.2.8.0
   - jruby-9.1.17.0
-  - jruby-9.0.5.0
   - jruby-head
   - ruby-head
 matrix:
