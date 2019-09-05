@@ -115,6 +115,7 @@ Thanks to everyone else who has contributed to mime-types over the years:
 *   Hans de Graaff
 *   Henrik Hodne
 *   Janko Marohnić
+*   Jean Boussier
 *   Jeremy Evans
 *   Juanito Fatas
 *   Jun Aruga
@@ -124,6 +125,7 @@ Thanks to everyone else who has contributed to mime-types over the years:
 *   Martin d'Allens
 *   Mauricio Linhares
 *   Nicolas Leger
+*   Nicholas La Roux
 *   nycvotes-dev
 *   Postmodern
 *   Richard Hirner
