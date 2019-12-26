@@ -1,12 +1,12 @@
 ---
 language: ruby
 rvm:
+  - 2.7.0
   - 2.6.5
   - 2.5.7
   - 2.4.9
   - 2.3.8
   - 2.2.10
-  - 2.1.10
   - jruby-9.2.9.0
   - jruby-9.1.17.0
   - jruby-head
@@ -15,6 +15,7 @@ matrix:
   allow_failures:
     - rvm: jruby-head
     - rvm: ruby-head
+    - rvm: 2.1.10
   fast_finish: true
 gemfile:
   - Gemfile
