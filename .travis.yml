@@ -23,4 +23,3 @@ before_script:
 script: rake travis
 after_script:
   - rake travis:after -t
-sudo: false
