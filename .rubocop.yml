@@ -6,7 +6,7 @@ AllCops:
   Exclude:
     - mime-types.gemspec
 
-Layout/AlignParameters:
+Layout/ParameterAlignment:
   EnforcedStyle: with_fixed_indentation
 
 Layout/DotPosition:
@@ -15,7 +15,7 @@ Layout/DotPosition:
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 100
 
 Naming/FileName:
@@ -26,7 +26,7 @@ Naming/MemoizedInstanceVariableName:
   Exclude:
     - lib/mime/types/registry.rb
 
-Naming/UncommunicativeMethodParamName:
+Naming/MethodParameterName:
   Exclude:
     - lib/mime/types/logger.rb
 
@@ -34,10 +34,10 @@ Naming/VariableNumber:
   Exclude:
     - lib/mime/types/logger.rb
 
-Performance/Caller:
-  Exclude:
-    - lib/mime/types/deprecations.rb
-
+#Performance/Caller:
+#  Exclude:
+#    - lib/mime/types/deprecations.rb
+#
 Security/MarshalLoad:
   Exclude:
     - lib/mime/types/cache.rb
@@ -71,7 +71,7 @@ Style/RescueStandardError:
 Style/SignalException:
   EnforcedStyle: semantic
 
-Layout/IndentHeredoc: { Enabled: false }
+Layout/HeredocIndentation: { Enabled: false }
 Metrics/AbcSize: { Enabled: false }
 Metrics/BlockLength: { Enabled: false }
 Metrics/ClassLength: { Enabled: false }

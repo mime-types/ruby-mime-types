@@ -71,7 +71,7 @@ class MIME::Type
   # :startdoc:
 
   private_constant :MEDIA_TYPE_RE, :I18N_RE, :BINARY_ENCODINGS,
-    :ASCII_ENCODINGS
+                   :ASCII_ENCODINGS
 
   # Builds a MIME::Type object from the +content_type+, a MIME Content Type
   # value (e.g., 'text/plain' or 'applicaton/x-eruby'). The constructed object
@@ -343,7 +343,7 @@ class MIME::Type
       @friendly.update(lang)
     else
       fail ArgumentError,
-        "Expected a language or translation set, not #{lang.inspect}"
+           "Expected a language or translation set, not #{lang.inspect}"
     end
   end
 

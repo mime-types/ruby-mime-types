@@ -36,7 +36,7 @@ class MIME::Type::Columnar < MIME::Type
   column :docs, :docs=
   column :preferred_extension, :preferred_extension=
   column :obsolete, :obsolete=, :obsolete?, :registered, :registered=,
-    :registered?, :signature, :signature=, :signature?, file: 'flags'
+         :registered?, :signature, :signature=, :signature?, file: 'flags'
   column :xrefs, :xrefs=, :xref_urls
   column :use_instead, :use_instead=
 

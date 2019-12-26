@@ -46,15 +46,15 @@ describe MIME::Type do
 
     it 'does not remove x- prefixes by default' do
       assert_equal 'application/x-msword',
-        MIME::Type.simplified('application/x-msword')
+                   MIME::Type.simplified('application/x-msword')
       assert_equal 'x-xyz/abc', MIME::Type.simplified('x-xyz/abc')
     end
 
     it 'removes x- prefixes when requested' do
       assert_equal 'application/msword',
-        MIME::Type.simplified('application/x-msword', remove_x_prefix: true)
+                   MIME::Type.simplified('application/x-msword', remove_x_prefix: true)
       assert_equal 'xyz/abc',
-        MIME::Type.simplified('x-xyz/abc', remove_x_prefix: true)
+                   MIME::Type.simplified('x-xyz/abc', remove_x_prefix: true)
     end
 
     it 'lowercases mixed-case types' do
@@ -73,7 +73,7 @@ describe MIME::Type do
 
     it 'does not remove x-prefixes' do
       assert_equal 'application.x-msword',
-        MIME::Type.i18n_key('application/x-msword')
+                   MIME::Type.i18n_key('application/x-msword')
     end
 
     it 'converts text/vCard to text.vcard' do
@@ -436,12 +436,12 @@ describe MIME::Type do
 
     it 'has the extensions key if set' do
       assert_has_keys mime_type(t) { |v| v.extensions = 'a' }.to_h,
-        'extensions'
+                      'extensions'
     end
 
     it 'has the preferred-extension key if set' do
       assert_has_keys mime_type(t) { |v| v.preferred_extension = 'a' }.to_h,
-        'preferred-extension'
+                      'preferred-extension'
     end
 
     it 'has the obsolete key if set' do
@@ -472,7 +472,7 @@ describe MIME::Type do
 
   describe '#to_s, #to_str' do
     it 'represents itself as a string of the canonical content_type' do
-      assert_equal 'text/plain', "#{text_plain}" # rubocop:disable Style/UnneededInterpolation
+      assert_equal 'text/plain', text_plain.to_s
     end
 
     it 'acts like a string of the canonical content_type for comparison' do
@@ -587,7 +587,7 @@ describe MIME::Type do
       assert_equal expected, text_plain.friendly(['en', 'Text files'])
       expected.update('fr' => 'des fichiers texte')
       assert_equal expected,
-        text_plain.friendly(['fr', 'des fichiers texte'])
+                   text_plain.friendly(['fr', 'des fichiers texte'])
     end
 
     it 'merges new values from a hash parameter' do
@@ -604,7 +604,7 @@ describe MIME::Type do
       end
 
       assert_equal 'Expected a language or translation set, not 1',
-        exception.message
+                   exception.message
     end
   end
 end
