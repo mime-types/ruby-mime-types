@@ -4,6 +4,7 @@ home :: https://github.com/mime-types/ruby-mime-types/
 code :: https://github.com/mime-types/ruby-mime-types/
 bugs :: https://github.com/mime-types/ruby-mime-types/issues
 rdoc :: http://rdoc.info/gems/mime-types/
+clog :: https://github.com/mime-types/ruby-mime-types/blob/master/History.md
 continuous integration :: {<img src="https://travis-ci.org/mime-types/ruby-mime-types.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/mime-types/ruby-mime-types]
 test coverage :: {<img src="https://coveralls.io/repos/mime-types/ruby-mime-types/badge.svg?branch=master&service=github" alt="Coverage Status" />}[https://coveralls.io/github/mime-types/ruby-mime-types?branch=master]
 
@@ -34,14 +35,6 @@ type definitions. MIME type definitions found in mime-types are from RFCs, W3C
 recommendations, the {IANA Media Types
 registry}[https://www.iana.org/assignments/media-types/media-types.xhtml], and
 user contributions. It conforms to RFCs 2045 and 2231.
-
-=== mime-types 1.x End of Life
-
-mime-types 1.x is no longer supported as of 2015-10-27.
-
-=== mime-types 2.x End of Life
-
-mime-types 2.x is no longer supported as of 2017-11-21.
 
 === mime-types 3.x
 

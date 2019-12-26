@@ -99,6 +99,7 @@ Thanks to everyone else who has contributed to mime-types over the years:
 
 *   Aaron Patterson
 *   Aggelos Avgerinos
+*   Al Snow
 *   Andre Pankratz
 *   Andy Brody
 *   Arnaud Meuret
@@ -127,6 +128,7 @@ Thanks to everyone else who has contributed to mime-types over the years:
 *   Nicolas Leger
 *   Nicholas La Roux
 *   nycvotes-dev
+*   Olle Jonsson
 *   Postmodern
 *   Richard Hirner
 *   Richard Hurt
