@@ -79,7 +79,7 @@ describe MIME::Types, 'registry' do
   describe '.type_for' do
     it 'finds all types for a given extension' do
       assert_equal %w(application/gzip application/x-gzip),
-        MIME::Types.type_for('gz')
+                   MIME::Types.type_for('gz')
     end
 
     it 'separates the extension from filenames' do
@@ -88,7 +88,7 @@ describe MIME::Types, 'registry' do
 
     it 'finds multiple extensions' do
       assert_equal %w(image/jpeg text/plain),
-        MIME::Types.type_for(%w(foo.txt foo.jpeg))
+                   MIME::Types.type_for(%w(foo.txt foo.jpeg))
     end
 
     it 'does not find unknown extensions' do

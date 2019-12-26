@@ -7,18 +7,18 @@ describe MIME::Types do
   def mime_types
     @mime_types ||= MIME::Types.new.tap { |mt|
       mt.add MIME::Type.new(['text/plain', %w(txt)]),
-        MIME::Type.new(['image/jpeg', %w(jpg jpeg)]),
-        MIME::Type.new('application/x-wordperfect6.1'),
-        MIME::Type.new(
-          'content-type' => 'application/x-www-form-urlencoded',
-          'registered' => true
-        ),
-        MIME::Type.new(['application/x-gzip', %w(gz)]),
-        MIME::Type.new(
-          'content-type' => 'application/gzip',
-          'extensions' => 'gz',
-          'registered' => true
-        )
+             MIME::Type.new(['image/jpeg', %w(jpg jpeg)]),
+             MIME::Type.new('application/x-wordperfect6.1'),
+             MIME::Type.new(
+               'content-type' => 'application/x-www-form-urlencoded',
+               'registered' => true
+             ),
+             MIME::Type.new(['application/x-gzip', %w(gz)]),
+             MIME::Type.new(
+               'content-type' => 'application/gzip',
+               'extensions' => 'gz',
+               'registered' => true
+             )
     }
   end
 
@@ -136,7 +136,7 @@ describe MIME::Types do
   describe '#type_for' do
     it 'finds all types for a given extension' do
       assert_equal %w(application/gzip application/x-gzip),
-        mime_types.type_for('gz')
+                   mime_types.type_for('gz')
     end
 
     it 'separates the extension from filenames' do
@@ -145,7 +145,7 @@ describe MIME::Types do
 
     it 'finds multiple extensions' do
       assert_equal %w(image/jpeg text/plain),
-        mime_types.type_for(%w(foo.txt foo.jpeg))
+                   mime_types.type_for(%w(foo.txt foo.jpeg))
     end
 
     it 'does not find unknown extensions' do

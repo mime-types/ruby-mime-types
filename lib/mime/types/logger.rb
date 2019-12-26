@@ -27,7 +27,7 @@ module MIME
         end
       end
 
-      def initialize(_1, _2 = nil, _3 = nil)
+      def initialize(_one, _two = nil, _three = nil)
         super nil
         @logdev = WarnLogDevice.new
         @formatter = ->(_s, _d, _p, m) { m }

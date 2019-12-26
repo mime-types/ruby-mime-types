@@ -16,7 +16,7 @@ describe MIME::Types::Loader do
     refute(types['audio/webm'].first.registered?)
 
     assert_equal('Fixes a bug with IE6 and progressive JPEGs',
-      types['image/pjpeg'].first.docs)
+                 types['image/pjpeg'].first.docs)
 
     assert(types['audio/vnd.qcelp'].first.obsolete?)
     assert_equal('audio/QCELP', types['audio/vnd.qcelp'].first.use_instead)

@@ -48,15 +48,15 @@ class MIME::Types::Container #:nodoc:
   end
 
   def_delegators :@container,
-    :==,
-    :count,
-    :each,
-    :each_value,
-    :empty?,
-    :flat_map,
-    :keys,
-    :select,
-    :values
+                 :==,
+                 :count,
+                 :each,
+                 :each_value,
+                 :empty?,
+                 :flat_map,
+                 :keys,
+                 :select,
+                 :values
 
   def add(key, value)
     (container[key] ||= Set.new).add(value)
