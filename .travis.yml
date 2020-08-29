@@ -12,10 +12,13 @@ rvm:
   - jruby-head
   - ruby-head
   - truffleruby-head
+  - truffleruby
 matrix:
   allow_failures:
     - rvm: jruby-head
     - rvm: ruby-head
+    - rvm: truffleruby-head
+    - rvm: truffleruby
   fast_finish: true
 gemfile:
   - Gemfile
