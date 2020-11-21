@@ -1,0 +1,68 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+# This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
+# For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
+
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        os:
+          - ubuntu
+          - macos
+          - windows
+        ruby:
+          - 2.4
+          - 2.5
+          - 2.6
+          - 2.7
+          - head
+          - debug
+          - mingw
+          - mswin
+          - jruby
+          - jruby-head
+          - truffleruby
+          - truffleruby-head
+        exclude:
+          - os: macos
+            ruby: mingw
+          - os: macos
+            ruby: mswin
+          - os: ubuntu
+            ruby: mingw
+          - os: ubuntu
+            ruby: mswin
+          - os: windows
+            ruby: debug
+          - os: windows
+            ruby: truffleruby
+          - os: windows
+            ruby: truffleruby-head
+    runs-on: ${{ matrix.os }}-latest
+    continue-on-error: ${{
+          endsWith(matrix.ruby, 'head') ||
+          matrix.ruby == 'debug' ||
+          (startsWith(matrix.ruby, 'jruby') && matrix.os == 'windows')
+      }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
+      - name: Install dependencies
+        run: bundle install
+      - name: Run tests
+        run: bundle exec ruby -S rake test --trace

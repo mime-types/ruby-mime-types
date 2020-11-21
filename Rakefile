@@ -8,8 +8,7 @@ Hoe.plugin :doofus
 Hoe.plugin :gemspec2
 Hoe.plugin :git
 Hoe.plugin :minitest
-Hoe.plugin :travis
-Hoe.plugin :email unless ENV['CI'] or ENV['TRAVIS']
+Hoe.plugin :email unless ENV['CI']
 
 spec = Hoe.spec 'mime-types' do
   developer('Austin Ziegler', 'halostatue@gmail.com')
@@ -28,21 +27,15 @@ spec = Hoe.spec 'mime-types' do
   extra_dev_deps << ['hoe-gemspec2', '~> 1.1']
   extra_dev_deps << ['hoe-git', '~> 1.6']
   extra_dev_deps << ['hoe-rubygems', '~> 1.0']
-  extra_dev_deps << ['hoe-travis', '~> 1.2']
   extra_dev_deps << ['minitest', '~> 5.4']
   extra_dev_deps << ['minitest-autotest', '~> 1.0']
   extra_dev_deps << ['minitest-focus', '~> 1.0']
   extra_dev_deps << ['minitest-bonus-assertions', '~> 3.0']
   extra_dev_deps << ['minitest-hooks', '~> 1.4']
   extra_dev_deps << ['rake', '>= 10.0', '< 14.0']
-  extra_dev_deps << ['fivemat', '~> 1.3']
-  extra_dev_deps << ['minitest-rg', '~> 5.2']
 
   if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('2.0')
     extra_dev_deps << ['simplecov', '~> 0.7']
-    # if ENV['CI'] or ENV['TRAVIS']
-    #   extra_dev_deps << ['coveralls', '~> 0.8']
-    # end
   end
 end
 
@@ -180,24 +173,6 @@ end
 
 if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('2.0')
   namespace :test do
-    # Coveralls needs to be disabled for now because it transitively depends on
-    # an earlier version of mime-types.
-    # if ENV['CI'] or ENV['TRAVIS']
-    #   task :coveralls do
-    #     spec.test_prelude = [
-    #       'require "psych"',
-    #       'require "simplecov"',
-    #       'require "coveralls"',
-    #       'SimpleCov.formatter = Coveralls::SimpleCov::Formatter',
-    #       'SimpleCov.start("test_frameworks") { command_name "Minitest" }',
-    #       'gem "minitest"'
-    #     ].join('; ')
-    #     Rake::Task['test'].execute
-    #   end
-
-    #   Rake::Task['travis'].prerequisites.replace(%w(test:coveralls))
-    # end
-
     desc 'Run test coverage'
     task :coverage do
       spec.test_prelude = [
