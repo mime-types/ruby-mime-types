@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<mime-types-data>.freeze, ["~> 3.2015"])
-      s.add_development_dependency(%q<minitest>.freeze, ["~> 5.13"])
+      s.add_development_dependency(%q<minitest>.freeze, ["~> 5.14"])
       s.add_development_dependency(%q<hoe-doofus>.freeze, ["~> 1.0"])
       s.add_development_dependency(%q<hoe-gemspec2>.freeze, ["~> 1.1"])
       s.add_development_dependency(%q<hoe-git>.freeze, ["~> 1.6"])
@@ -38,10 +38,10 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<rake>.freeze, [">= 10.0", "< 14.0"])
       s.add_development_dependency(%q<simplecov>.freeze, ["~> 0.7"])
       s.add_development_dependency(%q<rdoc>.freeze, [">= 4.0", "< 7"])
-      s.add_development_dependency(%q<hoe>.freeze, ["~> 3.20"])
+      s.add_development_dependency(%q<hoe>.freeze, ["~> 3.22"])
     else
       s.add_dependency(%q<mime-types-data>.freeze, ["~> 3.2015"])
-      s.add_dependency(%q<minitest>.freeze, ["~> 5.13"])
+      s.add_dependency(%q<minitest>.freeze, ["~> 5.14"])
       s.add_dependency(%q<hoe-doofus>.freeze, ["~> 1.0"])
       s.add_dependency(%q<hoe-gemspec2>.freeze, ["~> 1.1"])
       s.add_dependency(%q<hoe-git>.freeze, ["~> 1.6"])
@@ -53,11 +53,11 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<rake>.freeze, [">= 10.0", "< 14.0"])
       s.add_dependency(%q<simplecov>.freeze, ["~> 0.7"])
       s.add_dependency(%q<rdoc>.freeze, [">= 4.0", "< 7"])
-      s.add_dependency(%q<hoe>.freeze, ["~> 3.20"])
+      s.add_dependency(%q<hoe>.freeze, ["~> 3.22"])
     end
   else
     s.add_dependency(%q<mime-types-data>.freeze, ["~> 3.2015"])
-    s.add_dependency(%q<minitest>.freeze, ["~> 5.13"])
+    s.add_dependency(%q<minitest>.freeze, ["~> 5.14"])
     s.add_dependency(%q<hoe-doofus>.freeze, ["~> 1.0"])
     s.add_dependency(%q<hoe-gemspec2>.freeze, ["~> 1.1"])
     s.add_dependency(%q<hoe-git>.freeze, ["~> 1.6"])
@@ -69,6 +69,6 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<rake>.freeze, [">= 10.0", "< 14.0"])
     s.add_dependency(%q<simplecov>.freeze, ["~> 0.7"])
     s.add_dependency(%q<rdoc>.freeze, [">= 4.0", "< 7"])
-    s.add_dependency(%q<hoe>.freeze, ["~> 3.20"])
+    s.add_dependency(%q<hoe>.freeze, ["~> 3.22"])
   end
 end

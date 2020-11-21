@@ -131,9 +131,7 @@ class MIME::Types
                 @type_variants[MIME::Type.simplified(type_id)]
               end
 
-    prune_matches(matches, complete, registered).sort { |a, b|
-      a.priority_compare(b)
-    }
+    stable_sort(prune_matches(matches, complete, registered))
   end
 
   # Return the list of MIME::Types which belongs to the file based on its
@@ -149,11 +147,12 @@ class MIME::Types
   #   puts MIME::Types.type_for(%w(citydesk.xml citydesk.gif))
   #     => [application/xml, image/gif, text/xml]
   def type_for(filename)
-    Array(filename).flat_map { |fn|
+    results =
+      Array(filename).flat_map { |fn|
       @extension_index[fn.chomp.downcase[/\.?([^.]*?)$/, 1]]
-    }.compact.inject(Set.new, :+).sort { |a, b|
-      a.priority_compare(b)
-    }
+    }.compact.inject(Set.new, :+)
+
+    stable_sort(results)
   end
   alias of type_for
 
@@ -220,6 +219,12 @@ Type #{type} is already registered as a variant of #{type.simplified}.
     @type_variants.select { |k, _|
       k =~ pattern
     }.values.inject(Set.new, :+)
+  end
+
+  def stable_sort(list)
+    list.lazy.each_with_index.sort { |(a, ai), (b, bi)|
+      a.priority_compare(b).nonzero? || ai <=> bi
+    }.map(&:first)
   end
 end
 
