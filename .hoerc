@@ -8,6 +8,7 @@ exclude: !ruby/regexp '/
   \.(?:
       bundle|
       git|
+      github|
       hg|
       idea|
       svn|
