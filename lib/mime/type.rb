@@ -232,8 +232,7 @@ class MIME::Type
   #   audio/QCELP       => audio/QCELP
   attr_reader :content_type
   # A simplified form of the MIME content-type string, suitable for
-  # case-insensitive comparison, with any extension markers (<tt>x-</tt)
-  # removed and converted to lowercase.
+  # case-insensitive comparison, with the content_type converted to lowercase.
   #
   #   text/plain        => text/plain
   #   x-chemical/x-pdb  => x-chemical/x-pdb
