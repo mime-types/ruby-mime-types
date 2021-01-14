@@ -109,7 +109,7 @@ class MIME::Type
                    :ASCII_ENCODINGS
 
   # Builds a MIME::Type object from the +content_type+, a MIME Content Type
-  # value (e.g., 'text/plain' or 'applicaton/x-eruby'). The constructed object
+  # value (e.g., 'text/plain' or 'application/x-eruby'). The constructed object
   # is yielded to an optional block for additional configuration, such as
   # associating extensions and encoding information.
   #
