@@ -26,6 +26,7 @@ jobs:
           - 2.5
           - 2.6
           - 2.7
+          - 3.0
           - head
           - debug
           - mingw
@@ -45,6 +46,10 @@ jobs:
             ruby: mswin
           - os: windows
             ruby: debug
+          - os: windows
+            ruby: jruby
+          - os: windows
+            ruby: jruby-head
           - os: windows
             ruby: truffleruby
           - os: windows

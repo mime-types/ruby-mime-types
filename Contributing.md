@@ -6,11 +6,11 @@ request, or code contributions.
 There are a few guidelines for contributing to mime-types:
 
 - Code changes _will_ _not_ be accepted without tests. The test suite is
-  written with [minitest][].
+  written with [minitest].
 - Match my coding style.
 - Use a thoughtfully-named topic branch that contains your change. Rebase your
   commits into logical chunks as necessary.
-- Use [quality commit messages][].
+- Use [quality commit messages].
 - Do not change the version number; when your patch is accepted and a release
   is made, the version will be updated at that point.
 - Submit a GitHub pull request with your changes.
@@ -19,11 +19,11 @@ There are a few guidelines for contributing to mime-types:
 ## Adding or Modifying MIME Types
 
 The mime-types registry is no longer contained in mime-types, but in
-[mime-types-data][]. Please see that project for contributions there.
+[mime-types-data]. Please see that project for contributions there.
 
 ### Test Dependencies
 
-mime-types uses Ryan Davis’s [Hoe][] to manage the release process, and it adds
+mime-types uses Ryan Davis’s [Hoe] to manage the release process, and it adds
 a number of rake tasks. You will mostly be interested in `rake`, which runs
 the tests the same way that `rake test` or `rake travis` will do.
 
@@ -52,7 +52,7 @@ built-in benchmark library:
 
 There are two allocation tracing benchmarks (for normal and columnar loads).
 These can only be run on Ruby 2.1 or better and requires the
-[allocation\_tracer][] gem (not installed by default).
+[allocation\_tracer] gem (not installed by default).
 
 - `rake benchmark:allocations`
 - `rake benchmark:allocations:columnar`
@@ -101,6 +101,7 @@ Thanks to everyone else who has contributed to mime-types over the years:
 - Greg Brockman
 - Hans de Graaff
 - Henrik Hodne
+- Igor Victor
 - Janko Marohnić
 - Jean Boussier
 - Jeremy Evans
@@ -109,6 +110,8 @@ Thanks to everyone else who has contributed to mime-types over the years:
 - Łukasz Śliwa
 - Keerthi Siva
 - Ken Ip
+- Kevin Menard
+- Koichi ITO
 - Martin d'Allens
 - Mauricio Linhares
 - Nicolas Leger
