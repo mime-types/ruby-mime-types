@@ -461,12 +461,23 @@ describe MIME::Type do
   end
 
   describe "#to_json" do
-    let(:expected) {
+    let(:expected_1) {
       '{"content-type":"a/b","encoding":"base64","registered":false}'
+    }
+    let(:expected_2) {
+      '{"content-type":"a/b","encoding":"base64","registered":true,"provisional":true}'
     }
 
     it "converts to JSON when requested" do
-      assert_equal expected, mime_type("a/b").to_json
+      assert_equal expected_1, mime_type("a/b").to_json
+    end
+
+    it "converts to JSON with provisional when requested" do
+      type = mime_type("a/b") do |t|
+        t.registered = true
+        t.provisional = true
+      end
+      assert_equal expected_2, type.to_json
     end
   end
 

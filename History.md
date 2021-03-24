@@ -1,11 +1,16 @@
 # Changelog
 
-## NEXT / 2021-MM-DD
+## 3.4.0 / 2021-11-15
+
+- 1 minor enhancement:
+
+  - Added a new field to `MIME::Type` for checking provisional registrations
+    from IANA. [#157]
 
 - Documentation:
 
-  - Kevin Menard synced the documentation so that all examples are correct
-    [#153].
+  - Kevin Menard synced the documentation so that all examples are correct.
+    [#153]
 
 - Administrivia:
 
@@ -13,8 +18,8 @@
     CI exclusion list; it refuses to run successfully.
   - Removed the Travis CI configuration and changed it to Github Workflows
     [#150]. Removed Coveralls configuration.
-  - Igor Victor added TruffleRuby to the Travis CI configuration [#149].
-  - Koichi ITO loosened an excessively tight dependency [#147].
+  - Igor Victor added TruffleRuby to the Travis CI configuration. [#149]
+  - Koichi ITO loosened an excessively tight dependency. [#147]
   - Started using `standardrb` for Ruby formatting and validation.
 
 ## 3.3.1 / 2019-12-26
@@ -76,7 +81,7 @@
     because when Enumerable#inject isn't provided a starting value, the first
     value is used as the default value. In every case where this error was
     happening, the result was supposed to be an array containing Set objects
-    so they can be reduced to a single Set. [#117], [#127], [#134].
+    so they can be reduced to a single Set. [#117], [#127], [#134]
 
   - Fixed an uncontrolled growth bug in MIME::Types::Container where a key
     miss would create a new entry with an empty Set in the container. This
