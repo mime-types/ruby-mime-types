@@ -19,7 +19,7 @@ module MIME::Types::Columnar
   end
 
   # Load the first column data file (type and extensions).
-  def load_base_data(path) #:nodoc:
+  def load_base_data(path) # :nodoc:
     @__root__ = path
 
     each_file_line("content_type", false) do |line|
@@ -85,6 +85,7 @@ module MIME::Types::Columnar
       type.instance_variable_set(:@obsolete, flag(line.shift))
       type.instance_variable_set(:@registered, flag(line.shift))
       type.instance_variable_set(:@signature, flag(line.shift))
+      type.instance_variable_set(:@provisional, flag(line.shift))
     end
   end
 

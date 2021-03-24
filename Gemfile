@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-# NOTE: This file is present to keep Travis CI happy. Edits to it will not
-# be accepted.
+# NOTE: This file is not the canonical source of dependencies. Edit the
+# Rakefile, instead.
 
 source "https://rubygems.org/"
 
