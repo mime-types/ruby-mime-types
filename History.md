@@ -15,6 +15,7 @@
     [#150]. Removed Coveralls configuration.
   - Igor Victor added TruffleRuby to the Travis CI configuration [#149].
   - Koichi ITO loosened an excessively tight dependency [#147].
+  - Started using `standardrb` for Ruby formatting and validation.
 
 ## 3.3.1 / 2019-12-26
 
@@ -28,8 +29,7 @@
 
 - Administrivia:
 
-  - Olle Jonsson removed an outdated Travis configuration option (`sudo:
-    false`). [#142]
+  - Olle Jonsson removed an outdated Travis configuration option (`sudo: false`). [#142]
 
 ## 3.3 / 2019-09-04
 
@@ -64,8 +64,7 @@
     to be in the same family even if strict sorting would cause an
     unregistered type to be sorted first. [#132]
 
-  - Dillon Welch contributed a change that added `frozen_string_literal:
-    true` to files so that modern Rubies can automatically reduce duplicate
+  - Dillon Welch contributed a change that added `frozen_string_literal: true` to files so that modern Rubies can automatically reduce duplicate
     string allocations. [#135]
 
 - 2 bug fixes
@@ -169,8 +168,7 @@
       `x-` prefixes.
 
     - Improved initialization with an Array works so that extensions do not
-      need to be wrapped in another array. This means that `%w(text/yaml yaml
-      yml)` works in the same way that `['text/yaml', %w(yaml yml)]` did (and
+      need to be wrapped in another array. This means that `%w(text/yaml yaml yml)` works in the same way that `['text/yaml', %w(yaml yml)]` did (and
       still does).
 
     - Changed `priority_compare` to conform with attributes that no longer

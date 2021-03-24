@@ -9,11 +9,11 @@ module MIME
         private
 
         def load_mode
-          { columnar: false }
+          {columnar: false}
         end
       end
     end
   end
 end
 
-require 'mime/types'
+require "mime/types"

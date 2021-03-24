@@ -7,7 +7,7 @@ module MIME
   end
 end
 
-require 'mime/type'
+require "mime/type"
 
 # MIME::Types is a registry of MIME types. It is both a class (created with
 # MIME::Types.new) and a default registry (loaded automatically or through
@@ -72,8 +72,8 @@ class MIME::Types
 
   # Creates a new MIME::Types registry.
   def initialize
-    @type_variants    = Container.new
-    @extension_index  = Container.new
+    @type_variants = Container.new
+    @extension_index = Container.new
   end
 
   # Returns the number of known type variants.
@@ -122,14 +122,15 @@ class MIME::Types
   #   5. Obsolete definitions use-instead clauses are compared.
   #   6. Sort on name.
   def [](type_id, complete: false, registered: false)
-    matches = case type_id
+    matches =
+      case type_id
               when MIME::Type
                 @type_variants[type_id.simplified]
               when Regexp
                 match(type_id)
               else
                 @type_variants[MIME::Type.simplified(type_id)]
-              end
+      end
 
     prune_matches(matches, complete, registered).sort { |a, b|
       a.priority_compare(b)
@@ -155,7 +156,7 @@ class MIME::Types
       a.priority_compare(b)
     }
   end
-  alias of type_for
+  alias_method :of, :type_for
 
   # Add one or more MIME::Type objects to the set of known types. If the
   # type is already known, a warning will be displayed.
@@ -163,7 +164,7 @@ class MIME::Types
   # The last parameter may be the value <tt>:silent</tt> or +true+ which
   # will suppress duplicate MIME type warnings.
   def add(*types)
-    quiet = ((types.last == :silent) or (types.last == true))
+    quiet = ((types.last == :silent) || (types.last == true))
 
     types.each do |mime_type|
       case mime_type
@@ -184,9 +185,9 @@ class MIME::Types
   # already known, a warning will be displayed. The +quiet+ parameter may be a
   # truthy value to suppress that warning.
   def add_type(type, quiet = false)
-    if !quiet and @type_variants[type.simplified].include?(type)
-      MIME::Types.logger.warn <<-WARNING
-Type #{type} is already registered as a variant of #{type.simplified}.
+    if !quiet && @type_variants[type.simplified].include?(type)
+      MIME::Types.logger.warn <<~WARNING
+        Type #{type} is already registered as a variant of #{type.simplified}.
       WARNING
     end
 
@@ -223,9 +224,9 @@ Type #{type} is already registered as a variant of #{type.simplified}.
   end
 end
 
-require 'mime/types/cache'
-require 'mime/types/container'
-require 'mime/types/loader'
-require 'mime/types/logger'
-require 'mime/types/_columnar'
-require 'mime/types/registry'
+require "mime/types/cache"
+require "mime/types/container"
+require "mime/types/loader"
+require "mime/types/logger"
+require "mime/types/_columnar"
+require "mime/types/registry"

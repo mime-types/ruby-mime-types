@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-if RUBY_VERSION < '2.1'
+if RUBY_VERSION < "2.1"
   warn "Cannot count allocations on #{RUBY_VERSION}."
   exit 1
 end
 
 begin
-  require 'allocation_tracer'
+  require "allocation_tracer"
 rescue LoadError
   warn "Allocation tracking requires the gem 'allocation_tracer'."
   exit 1
@@ -48,13 +48,13 @@ module Benchmarks
     def report_top_x
       table = @allocations.sort_by { |_, v| v.first }.reverse.first(@top_x)
       table.map! { |(location, allocs)|
-        next if @mime_types_only and location.first !~ %r{mime-types/lib}
+        next if @mime_types_only && location.first !~ (%r{mime-types/lib})
 
-        [location.join(':').gsub(%r{^#{Dir.pwd}/}, ''), *allocs]
+        [location.join(":").gsub(%r{^#{Dir.pwd}/}, ""), *allocs]
       }.compact!
 
       head = (ObjectSpace::AllocationTracer.header - [:line]).map { |h|
-        h.to_s.split(/_/).map(&:capitalize).join(' ')
+        h.to_s.split("_").map(&:capitalize).join(" ")
       }
       table.unshift head
 
@@ -66,8 +66,8 @@ module Benchmarks
         end
       }
 
-      pattern = ['%%-%ds']
-      pattern << (['%% %ds'] * (max_widths.length - 1))
+      pattern = ["%%-%ds"]
+      pattern << (["%% %ds"] * (max_widths.length - 1))
       pattern = pattern.join("\t") % max_widths
       table.each do |row|
         puts pattern % row
@@ -79,17 +79,17 @@ module Benchmarks
       @allocations =
         if @columnar
           ObjectSpace::AllocationTracer.trace do
-            require 'mime/types'
+            require "mime/types"
             MIME::Types.first.to_h if @full
           end
         else
           ObjectSpace::AllocationTracer.trace do
-            require 'mime/types/full'
+            require "mime/types/full"
           end
         end
 
-      @count = ObjectSpace::AllocationTracer.allocated_count_table.values.
-        inject(:+)
+      @count = ObjectSpace::AllocationTracer.allocated_count_table.values
+        .inject(:+)
     end
   end
 end

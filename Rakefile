@@ -1,72 +1,74 @@
 # frozen_string_literal: true
 
-require 'rubygems'
-require 'hoe'
-require 'rake/clean'
+require "rubygems"
+require "hoe"
+require "rake/clean"
 
 Hoe.plugin :doofus
 Hoe.plugin :gemspec2
 Hoe.plugin :git
 Hoe.plugin :minitest
-Hoe.plugin :email unless ENV['CI']
+Hoe.plugin :email unless ENV["CI"]
 
-spec = Hoe.spec 'mime-types' do
-  developer('Austin Ziegler', 'halostatue@gmail.com')
+spec = Hoe.spec "mime-types" do
+  developer("Austin Ziegler", "halostatue@gmail.com")
   self.need_tar = true
 
-  require_ruby_version '>= 2.0'
+  require_ruby_version ">= 2.0"
 
-  self.history_file = 'History.md'
-  self.readme_file = 'README.rdoc'
+  self.history_file = "History.md"
+  self.readme_file = "README.rdoc"
 
-  license 'MIT'
+  license "MIT"
 
-  extra_deps << ['mime-types-data', '~> 3.2015']
+  extra_deps << ["mime-types-data", "~> 3.2015"]
 
-  extra_dev_deps << ['hoe-doofus', '~> 1.0']
-  extra_dev_deps << ['hoe-gemspec2', '~> 1.1']
-  extra_dev_deps << ['hoe-git', '~> 1.6']
-  extra_dev_deps << ['hoe-rubygems', '~> 1.0']
-  extra_dev_deps << ['minitest', '~> 5.4']
-  extra_dev_deps << ['minitest-autotest', '~> 1.0']
-  extra_dev_deps << ['minitest-focus', '~> 1.0']
-  extra_dev_deps << ['minitest-bonus-assertions', '~> 3.0']
-  extra_dev_deps << ['minitest-hooks', '~> 1.4']
-  extra_dev_deps << ['rake', '>= 10.0', '< 14.0']
+  extra_dev_deps << ["hoe-doofus", "~> 1.0"]
+  extra_dev_deps << ["hoe-gemspec2", "~> 1.1"]
+  extra_dev_deps << ["hoe-git", "~> 1.6"]
+  extra_dev_deps << ["hoe-rubygems", "~> 1.0"]
+  extra_dev_deps << ["standard", "~> 1.0"]
+  extra_dev_deps << ["minitest", "~> 5.4"]
+  extra_dev_deps << ["minitest-autotest", "~> 1.0"]
+  extra_dev_deps << ["minitest-focus", "~> 1.0"]
+  extra_dev_deps << ["minitest-bonus-assertions", "~> 3.0"]
+  extra_dev_deps << ["minitest-hooks", "~> 1.4"]
+  extra_dev_deps << ["rake", ">= 10.0", "< 14.0"]
+  extra_dev_deps << ["psych", "~> 3.0"]
 
-  if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('2.0')
-    extra_dev_deps << ['simplecov', '~> 0.7']
+  if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new("2.0")
+    extra_dev_deps << ["simplecov", "~> 0.7"]
   end
 end
 
 namespace :benchmark do
   task :support do
-    %w(lib support).each { |path|
+    %w[lib support].each { |path|
       $LOAD_PATH.unshift(File.join(Rake.application.original_dir, path))
     }
   end
 
-  desc 'Benchmark Load Times'
-  task :load, [:repeats] => 'benchmark:support' do |_, args|
-    require 'benchmarks/load'
+  desc "Benchmark Load Times"
+  task :load, [:repeats] => "benchmark:support" do |_, args|
+    require "benchmarks/load"
     Benchmarks::Load.report(
-      File.join(Rake.application.original_dir, 'lib'),
+      File.join(Rake.application.original_dir, "lib"),
       args.repeats
     )
   end
 
-  desc 'Allocation counts'
-  task :allocations, [:top_x, :mime_types_only] => 'benchmark:support' do |_, args|
-    require 'benchmarks/load_allocations'
+  desc "Allocation counts"
+  task :allocations, [:top_x, :mime_types_only] => "benchmark:support" do |_, args|
+    require "benchmarks/load_allocations"
     Benchmarks::LoadAllocations.report(
       top_x: args.top_x,
       mime_types_only: args.mime_types_only
     )
   end
 
-  desc 'Columnar allocation counts'
-  task 'allocations:columnar', [:top_x, :mime_types_only] => 'benchmark:support' do |_, args|
-    require 'benchmarks/load_allocations'
+  desc "Columnar allocation counts"
+  task "allocations:columnar", [:top_x, :mime_types_only] => "benchmark:support" do |_, args|
+    require "benchmarks/load_allocations"
     Benchmarks::LoadAllocations.report(
       columnar: true,
       top_x: args.top_x,
@@ -74,9 +76,9 @@ namespace :benchmark do
     )
   end
 
-  desc 'Columnar allocation counts (full load)'
-  task 'allocations:columnar:full', [:top_x, :mime_types_only] => 'benchmark:support' do |_, args|
-    require 'benchmarks/load_allocations'
+  desc "Columnar allocation counts (full load)"
+  task "allocations:columnar:full", [:top_x, :mime_types_only] => "benchmark:support" do |_, args|
+    require "benchmarks/load_allocations"
     Benchmarks::LoadAllocations.report(
       columnar: true,
       top_x: args.top_x,
@@ -85,18 +87,18 @@ namespace :benchmark do
     )
   end
 
-  desc 'Memory profiler'
-  task :memory, [:top_x, :mime_types_only] => 'benchmark:support' do |_, args|
-    require 'benchmarks/memory_profiler'
+  desc "Memory profiler"
+  task :memory, [:top_x, :mime_types_only] => "benchmark:support" do |_, args|
+    require "benchmarks/memory_profiler"
     Benchmarks::ProfileMemory.report(
       mime_types_only: args.mime_types_only,
       top_x: args.top_x
     )
   end
 
-  desc 'Columnar memory profiler'
-  task 'memory:columnar', [:top_x, :mime_types_only] => 'benchmark:support' do |_, args|
-    require 'benchmarks/memory_profiler'
+  desc "Columnar memory profiler"
+  task "memory:columnar", [:top_x, :mime_types_only] => "benchmark:support" do |_, args|
+    require "benchmarks/memory_profiler"
     Benchmarks::ProfileMemory.report(
       columnar: true,
       mime_types_only: args.mime_types_only,
@@ -104,9 +106,9 @@ namespace :benchmark do
     )
   end
 
-  desc 'Columnar allocation counts (full load)'
-  task 'memory:columnar:full', [:top_x, :mime_types_only] => 'benchmark:support' do |_, args|
-    require 'benchmarks/memory_profiler'
+  desc "Columnar allocation counts (full load)"
+  task "memory:columnar:full", [:top_x, :mime_types_only] => "benchmark:support" do |_, args|
+    require "benchmarks/memory_profiler"
     Benchmarks::ProfileMemory.report(
       columnar: true,
       full: true,
@@ -115,72 +117,72 @@ namespace :benchmark do
     )
   end
 
-  desc 'Object counts'
-  task objects: 'benchmark:support' do
-    require 'benchmarks/object_counts'
+  desc "Object counts"
+  task objects: "benchmark:support" do
+    require "benchmarks/object_counts"
     Benchmarks::ObjectCounts.report
   end
 
-  desc 'Columnar object counts'
-  task 'objects:columnar' => 'benchmark:support' do
-    require 'benchmarks/object_counts'
+  desc "Columnar object counts"
+  task "objects:columnar" => "benchmark:support" do
+    require "benchmarks/object_counts"
     Benchmarks::ObjectCounts.report(columnar: true)
   end
 
-  desc 'Columnar object counts (full load)'
-  task 'objects:columnar:full' => 'benchmark:support' do
-    require 'benchmarks/object_counts'
+  desc "Columnar object counts (full load)"
+  task "objects:columnar:full" => "benchmark:support" do
+    require "benchmarks/object_counts"
     Benchmarks::ObjectCounts.report(columnar: true, full: true)
   end
 end
 
 namespace :profile do
-  directory 'tmp/profile'
+  directory "tmp/profile"
 
-  CLEAN.add 'tmp'
+  CLEAN.add "tmp"
 
   def ruby_prof(script)
-    require 'pathname'
-    output = Pathname('tmp/profile').join(script)
+    require "pathname"
+    output = Pathname("tmp/profile").join(script)
     output.mkpath
-    script = Pathname('support/profile').join("#{script}.rb")
+    script = Pathname("support/profile").join("#{script}.rb")
 
     args = [
-      '-W0',
-      '-Ilib',
-      '-S', 'ruby-prof',
-      '-R', 'mime/types',
-      '-s', 'self',
-      '-p', 'multi',
-      '-f', output.to_s,
+      "-W0",
+      "-Ilib",
+      "-S", "ruby-prof",
+      "-R", "mime/types",
+      "-s", "self",
+      "-p", "multi",
+      "-f", output.to_s,
       script.to_s
     ]
-    ruby args.join(' ')
+    ruby args.join(" ")
   end
 
-  task full: 'tmp/profile' do
-    ruby_prof 'full'
+  task full: "tmp/profile" do
+    ruby_prof "full"
   end
 
   task columnar: :support do
-    ruby_prof 'columnar'
+    ruby_prof "columnar"
   end
 
-  task 'columnar:full' => :support do
-    ruby_prof 'columnar_full'
+  task "columnar:full" => :support do
+    ruby_prof "columnar_full"
   end
 end
 
-if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('2.0')
+if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new("2.0")
   namespace :test do
-    desc 'Run test coverage'
+    desc "Run test coverage"
     task :coverage do
       spec.test_prelude = [
         'require "simplecov"',
         'SimpleCov.start("test_frameworks") { command_name "Minitest" }',
         'gem "minitest"'
-      ].join('; ')
-      Rake::Task['test'].execute
+      ].join("; ")
+      Rake::Task["test"].execute
     end
   end
 end
@@ -188,18 +190,18 @@ end
 namespace :convert do
   namespace :docs do
     task :setup do
-      gem 'rdoc'
-      require 'rdoc/rdoc'
+      gem "rdoc"
+      require "rdoc/rdoc"
       @doc_converter ||= RDoc::Markup::ToMarkdown.new
     end
 
-    FileList['*.rdoc'].each do |name|
+    FileList["*.rdoc"].each do |name|
       rdoc = name
-      mark = "#{File.basename(name, '.rdoc')}.md"
+      mark = "#{File.basename(name, ".rdoc")}.md"
 
       file mark => [rdoc, :setup] do |t|
         puts "#{rdoc} => #{mark}"
-        File.open(t.name, 'wb') { |target|
+        File.open(t.name, "wb") { |target|
           target.write @doc_converter.convert(IO.read(t.prerequisites.first))
         }
       end
@@ -210,30 +212,30 @@ namespace :convert do
     end
   end
 
-  desc 'Convert documentation from RDoc to Markdown'
-  task docs: 'convert:docs:run'
+  desc "Convert documentation from RDoc to Markdown"
+  task docs: "convert:docs:run"
 end
 
-task 'deps:top', [:number] do |_, args|
-  require 'net/http'
-  require 'json'
+task "deps:top", [:number] do |_, args|
+  require "net/http"
+  require "json"
 
-  def rubygems_get(gem_name: '', endpoint: '')
-    path = File.join('/api/v1/gems/', gem_name, endpoint).chomp('/') + '.json'
-    Net::HTTP.start('rubygems.org', use_ssl: true) do |http|
+  def rubygems_get(gem_name: "", endpoint: "")
+    path = File.join("/api/v1/gems/", gem_name, endpoint).chomp("/") + ".json"
+    Net::HTTP.start("rubygems.org", use_ssl: true) do |http|
       JSON.parse(http.get(path).body)
     end
   end
 
   results = rubygems_get(
-    gem_name: 'mime-types',
-    endpoint: 'reverse_dependencies'
+    gem_name: "mime-types",
+    endpoint: "reverse_dependencies"
   )
 
   weighted_results = {}
   results.each do |name|
     begin
-      weighted_results[name] = rubygems_get(gem_name: name)['downloads']
+      weighted_results[name] = rubygems_get(gem_name: name)["downloads"]
     rescue => e
       puts "#{name} #{e.message}"
     end
@@ -247,9 +249,9 @@ task 'deps:top', [:number] do |_, args|
 end
 
 task :console do
-  arguments = %w(pry)
+  arguments = %w[pry]
   arguments.push(*spec.spec.require_paths.map { |dir| "-I#{dir}" })
-  arguments.push("-r#{spec.spec.name.gsub('-', File::SEPARATOR)}")
+  arguments.push("-r#{spec.spec.name.gsub("-", File::SEPARATOR)}")
   unless system(*arguments)
     error "Command failed: #{show_command}"
     abort

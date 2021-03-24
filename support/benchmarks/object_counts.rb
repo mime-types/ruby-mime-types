@@ -17,7 +17,7 @@ module Benchmarks
       @before.keys.grep(/T_/).map { |key|
         [key, @after[key] - @before[key]]
       }.sort_by { |_, delta| -delta }.each { |key, delta|
-        puts '%10s +%6d' % [key, delta]
+        puts "%10s +%6d" % [key, delta]
       }
     end
 
@@ -27,10 +27,10 @@ module Benchmarks
       @before = count_objects
 
       if @columnar
-        require 'mime/types'
+        require "mime/types"
         MIME::Types.first.to_h if @full
       else
-        require 'mime/types/full'
+        require "mime/types/full"
       end
 
       @after = count_objects

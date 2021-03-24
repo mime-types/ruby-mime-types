@@ -4,10 +4,11 @@
 
 ##
 module MIME; end
+
 ##
 class MIME::Types; end
 
-require 'mime/types/data'
+require "mime/types/data"
 
 # This class is responsible for initializing the MIME::Types registry from
 # the data files supplied with the mime-types library.
@@ -30,7 +31,7 @@ class MIME::Types::Loader
   # Creates a Loader object that can be used to load MIME::Types registries
   # into memory, using YAML, JSON, or Columnar registry format loaders.
   def initialize(path = nil, container = nil)
-    path = path || ENV['RUBY_MIME_TYPES_DATA'] || MIME::Types::Data::PATH
+    path = path || ENV["RUBY_MIME_TYPES_DATA"] || MIME::Types::Data::PATH
     @container = container || MIME::Types.new
     @path = File.expand_path(path)
   end
@@ -68,7 +69,7 @@ class MIME::Types::Loader
   # Loads a MIME::Types registry from columnar files recursively found in
   # +path+.
   def load_columnar
-    require 'mime/types/columnar' unless defined?(MIME::Types::Columnar)
+    require "mime/types/columnar" unless defined?(MIME::Types::Columnar)
     container.extend(MIME::Types::Columnar)
     container.load_base_data(path)
 
@@ -80,7 +81,7 @@ class MIME::Types::Loader
   #
   # This will load from columnar files (#load_columnar) if <tt>columnar:
   # true</tt> is provided in +options+ and there are columnar files in +path+.
-  def load(options = { columnar: false })
+  def load(options = {columnar: false})
     if options[:columnar] && !Dir[columnar_path].empty?
       load_columnar
     else
@@ -90,7 +91,7 @@ class MIME::Types::Loader
 
   class << self
     # Loads the default MIME::Type registry.
-    def load(options = { columnar: false })
+    def load(options = {columnar: false})
       new.load(options)
     end
 
@@ -105,12 +106,18 @@ class MIME::Types::Loader
     # NOTE: The purpose of this format is purely for maintenance reasons.
     def load_from_yaml(filename)
       begin
-        require 'psych'
+        require "psych"
       rescue LoadError
         nil
       end
-      require 'yaml'
-      YAML.load(read_file(filename))
+
+      require "yaml"
+
+      if old_yaml?
+        YAML.safe_load(read_file(filename), [MIME::Type])
+      else
+        YAML.safe_load(read_file(filename), permitted_classes: [MIME::Type])
+      end
     end
 
     # Loads MIME::Types from a single JSON file.
@@ -119,28 +126,36 @@ class MIME::Types::Loader
     # The JSON format is the registry format for the MIME types registry
     # shipped with the mime-types library.
     def load_from_json(filename)
-      require 'json'
+      require "json"
       JSON.parse(read_file(filename)).map { |type| MIME::Type.new(type) }
     end
 
     private
 
     def read_file(filename)
-      File.open(filename, 'r:UTF-8:-', &:read)
+      File.open(filename, "r:UTF-8:-", &:read)
+    end
+
+    def old_yaml?
+      @old_yaml ||=
+        begin
+          require "rubygems/version"
+          Gem::Version.new(YAML::VERSION) < Gem::Version.new("3.1")
+        end
     end
   end
 
   private
 
   def yaml_path
-    File.join(path, '*.y{,a}ml')
+    File.join(path, "*.y{,a}ml")
   end
 
   def json_path
-    File.join(path, '*.json')
+    File.join(path, "*.json")
   end
 
   def columnar_path
-    File.join(path, '*.column')
+    File.join(path, "*.column")
   end
 end

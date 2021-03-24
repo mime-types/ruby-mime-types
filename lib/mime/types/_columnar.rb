@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'mime/type/columnar'
+require "mime/type/columnar"
 
 # MIME::Types::Columnar is used to extend a MIME::Types container to load data
 # by columns instead of from JSON or YAML. Column loads of MIME types loaded
@@ -22,7 +22,7 @@ module MIME::Types::Columnar
   def load_base_data(path) #:nodoc:
     @__root__ = path
 
-    each_file_line('content_type', false) do |line|
+    each_file_line("content_type", false) do |line|
       line = line.split
       content_type = line.shift
       extensions = line
@@ -45,11 +45,11 @@ module MIME::Types::Columnar
       i = -1
       column = File.join(@__root__, "mime.#{name}.column")
 
-      IO.readlines(column, encoding: 'UTF-8').each do |line|
+      IO.readlines(column, encoding: "UTF-8").each do |line|
         line.chomp!
 
         if lookup
-          type = @__mime_data__[i += 1] or next
+          (type = @__mime_data__[i += 1]) || next
           yield type, line
         else
           yield line
@@ -61,26 +61,26 @@ module MIME::Types::Columnar
   end
 
   def load_encoding
-    each_file_line('encoding') do |type, line|
+    each_file_line("encoding") do |type, line|
       pool ||= {}
       type.instance_variable_set(:@encoding, (pool[line] ||= line))
     end
   end
 
   def load_docs
-    each_file_line('docs') do |type, line|
+    each_file_line("docs") do |type, line|
       type.instance_variable_set(:@docs, opt(line))
     end
   end
 
   def load_preferred_extension
-    each_file_line('pext') do |type, line|
+    each_file_line("pext") do |type, line|
       type.instance_variable_set(:@preferred_extension, opt(line))
     end
   end
 
   def load_flags
-    each_file_line('flags') do |type, line|
+    each_file_line("flags") do |type, line|
       line = line.split
       type.instance_variable_set(:@obsolete, flag(line.shift))
       type.instance_variable_set(:@registered, flag(line.shift))
@@ -89,29 +89,29 @@ module MIME::Types::Columnar
   end
 
   def load_xrefs
-    each_file_line('xrefs') { |type, line|
+    each_file_line("xrefs") { |type, line|
       type.instance_variable_set(:@xrefs, dict(line, array: true))
     }
   end
 
   def load_friendly
-    each_file_line('friendly') { |type, line|
+    each_file_line("friendly") { |type, line|
       type.instance_variable_set(:@friendly, dict(line))
     }
   end
 
   def load_use_instead
-    each_file_line('use_instead') do |type, line|
+    each_file_line("use_instead") do |type, line|
       type.instance_variable_set(:@use_instead, opt(line))
     end
   end
 
   def dict(line, array: false)
-    if line == '-'
+    if line == "-"
       {}
     else
-      line.split('|').each_with_object({}) { |l, h|
-        k, v = l.split('^')
+      line.split("|").each_with_object({}) { |l, h|
+        k, v = l.split("^")
         v = nil if v.empty?
         h[k] = array ? Array(v) : v
       }
@@ -119,18 +119,18 @@ module MIME::Types::Columnar
   end
 
   def arr(line)
-    if line == '-'
+    if line == "-"
       []
     else
-      line.split('|').flatten.compact.uniq
+      line.split("|").flatten.compact.uniq
     end
   end
 
   def opt(line)
-    line unless line == '-'
+    line unless line == "-"
   end
 
   def flag(line)
-    line == '1'
+    line == "1"
   end
 end

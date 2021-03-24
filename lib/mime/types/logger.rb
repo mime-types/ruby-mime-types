@@ -2,7 +2,7 @@
 
 # -*- ruby encoding: utf-8 -*-
 
-require 'logger'
+require "logger"
 
 ##
 module MIME

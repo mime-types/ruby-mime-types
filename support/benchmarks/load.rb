@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'benchmark'
-require 'mime/types'
+require "benchmark"
+require "mime/types"
 
 module Benchmarks
   # Benchmark loading speed
@@ -11,10 +11,10 @@ module Benchmarks
     end
 
     def initialize(load_path, repeats = nil)
-      @cache_file = File.expand_path('../cache.mtc', __FILE__)
-      @repeats    = repeats.to_i
-      @repeats    = 50 if @repeats <= 0
-      @load_path  = load_path
+      @cache_file = File.expand_path("../cache.mtc", __FILE__)
+      @repeats = repeats.to_i
+      @repeats = 50 if @repeats <= 0
+      @load_path = load_path
     end
 
     def reload_mime_types(repeats = 1, force: false, columnar: false, cache: false)
@@ -34,26 +34,18 @@ module Benchmarks
       remove_cache
 
       Benchmark.bm(30) do |mark|
-        mark.report('Normal') do reload_mime_types(@repeats) end
-        mark.report('Columnar') do
-          reload_mime_types(@repeats, columnar: true)
-        end
-        mark.report('Columnar Full') do
-          reload_mime_types(@repeats, columnar: true, force: true)
-        end
+        mark.report("Normal") { reload_mime_types(@repeats) }
+        mark.report("Columnar") { reload_mime_types(@repeats, columnar: true) }
+        mark.report("Columnar Full") { reload_mime_types(@repeats, columnar: true, force: true) }
 
-        ENV['RUBY_MIME_TYPES_CACHE'] = @cache_file
-        mark.report('Cache Initialize') do reload_mime_types(cache: true) end
-        mark.report('Cached') do reload_mime_types(@repeats, cache: true) end
+        ENV["RUBY_MIME_TYPES_CACHE"] = @cache_file
+        mark.report("Cache Initialize") { reload_mime_types(cache: true) }
+        mark.report("Cached") { reload_mime_types(@repeats, cache: true) }
 
         remove_cache
-        ENV['RUBY_MIME_TYPES_CACHE'] = @cache_file
-        mark.report('Columnar Cache Initialize') do
-          reload_mime_types(columnar: true, cache: true)
-        end
-        mark.report('Columnar Cached') {
-          reload_mime_types(@repeats, columnar: true, cache: true)
-        }
+        ENV["RUBY_MIME_TYPES_CACHE"] = @cache_file
+        mark.report("Columnar Cache Initialize") { reload_mime_types(columnar: true, cache: true) }
+        mark.report("Columnar Cached") { reload_mime_types(@repeats, columnar: true, cache: true) }
       end
     ensure
       remove_cache

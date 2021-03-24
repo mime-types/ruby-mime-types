@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'mime/type'
+require "mime/type"
 
 # A version of MIME::Type that works hand-in-hand with a MIME::Types::Columnar
 # container to load data by columns.
@@ -36,7 +36,7 @@ class MIME::Type::Columnar < MIME::Type
   column :docs, :docs=
   column :preferred_extension, :preferred_extension=
   column :obsolete, :obsolete=, :obsolete?, :registered, :registered=,
-         :registered?, :signature, :signature=, :signature?, file: 'flags'
+    :registered?, :signature, :signature=, :signature?, file: "flags"
   column :xrefs, :xrefs=, :xref_urls
   column :use_instead, :use_instead=
 

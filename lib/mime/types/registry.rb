@@ -33,7 +33,7 @@ class << MIME::Types
   def type_for(filename)
     __types__.type_for(filename)
   end
-  alias of type_for
+  alias_method :of, :type_for
 
   # MIME::Types#add against the default MIME::Types registry.
   def add(*types)
@@ -43,22 +43,22 @@ class << MIME::Types
   private
 
   def lazy_load?
-    return unless ENV.key?('RUBY_MIME_TYPES_LAZY_LOAD')
+    return unless ENV.key?("RUBY_MIME_TYPES_LAZY_LOAD")
 
-    MIME::Types.logger.warn <<-WARNING.chomp
-Lazy loading ($RUBY_MIME_TYPES_LAZY_LOAD) is deprecated and will be removed.
+    MIME::Types.logger.warn <<~WARNING.chomp
+      Lazy loading ($RUBY_MIME_TYPES_LAZY_LOAD) is deprecated and will be removed.
     WARNING
 
-    (lazy = ENV['RUBY_MIME_TYPES_LAZY_LOAD']) && (lazy != 'false')
+    (lazy = ENV["RUBY_MIME_TYPES_LAZY_LOAD"]) && (lazy != "false")
   end
 
   def __types__
-    (defined?(@__types__) and @__types__) or load_default_mime_types
+    (defined?(@__types__) && @__types__) || load_default_mime_types
   end
 
   unless private_method_defined?(:load_mode)
     def load_mode
-      { columnar: true }
+      {columnar: true}
     end
   end
 
