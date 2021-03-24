@@ -1,9 +1,9 @@
 # -*- encoding: utf-8 -*-
-# stub: mime-types 3.3.1 ruby lib
+# stub: mime-types 3.4.0 ruby lib
 
 Gem::Specification.new do |s|
   s.name = "mime-types".freeze
-  s.version = "3.3.1"
+  s.version = "3.4.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
   s.metadata = { "bug_tracker_uri" => "https://github.com/mime-types/ruby-mime-types/issues", "changelog_uri" => "https://github.com/mime-types/ruby-mime-types/blob/master/History.md", "homepage_uri" => "https://github.com/mime-types/ruby-mime-types/", "source_code_uri" => "https://github.com/mime-types/ruby-mime-types/" } if s.respond_to? :metadata=

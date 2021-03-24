@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# -*- ruby encoding: utf-8 -*-
-
 ##
 module MIME; end
 

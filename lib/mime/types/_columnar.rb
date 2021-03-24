@@ -85,6 +85,7 @@ module MIME::Types::Columnar
       type.instance_variable_set(:@obsolete, flag(line.shift))
       type.instance_variable_set(:@registered, flag(line.shift))
       type.instance_variable_set(:@signature, flag(line.shift))
+      type.instance_variable_set(:@provisional, flag(line.shift))
     end
   end
 

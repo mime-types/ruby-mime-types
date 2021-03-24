@@ -1,6 +1,11 @@
 # Changelog
 
-## NEXT / 2021-MM-DD
+## 3.4.0 / 2021-06-02
+
+- 1 minor enhancement:
+
+  - Added a new field to `MIME::Type` for checking provisional registrations
+    from IANA.
 
 - Documentation:
 

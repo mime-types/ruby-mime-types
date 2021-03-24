@@ -34,7 +34,6 @@ spec = Hoe.spec "mime-types" do
   extra_dev_deps << ["minitest-bonus-assertions", "~> 3.0"]
   extra_dev_deps << ["minitest-hooks", "~> 1.4"]
   extra_dev_deps << ["rake", ">= 10.0", "< 14.0"]
-  extra_dev_deps << ["psych", "~> 3.0"]
 
   if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new("2.0")
     extra_dev_deps << ["simplecov", "~> 0.7"]
@@ -249,7 +248,7 @@ task "deps:top", [:number] do |_, args|
 end
 
 task :console do
-  arguments = %w[pry]
+  arguments = %w[irb]
   arguments.push(*spec.spec.require_paths.map { |dir| "-I#{dir}" })
   arguments.push("-r#{spec.spec.name.gsub("-", File::SEPARATOR)}")
   unless system(*arguments)
