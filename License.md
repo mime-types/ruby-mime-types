@@ -1,4 +1,4 @@
-# Licence
+# License
 
 - Copyright 2003–2019 Austin Ziegler and contributors.
 
