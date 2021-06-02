@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'set'
-require 'forwardable'
+require "set"
+require "forwardable"
 
 # MIME::Types requires a serializable keyed container that returns an empty Set
 # on a key miss. Hash#default_value cannot be used because, while it traverses
@@ -37,7 +37,7 @@ class MIME::Types::Container #:nodoc:
 
   def merge!(other)
     tap {
-      other = other.kind_of?(MIME::Types::Container) ? other.container : other
+      other = other.is_a?(MIME::Types::Container) ? other.container : other
       container.merge!(other)
       normalize
     }
@@ -48,15 +48,15 @@ class MIME::Types::Container #:nodoc:
   end
 
   def_delegators :@container,
-                 :==,
-                 :count,
-                 :each,
-                 :each_value,
-                 :empty?,
-                 :flat_map,
-                 :keys,
-                 :select,
-                 :values
+    :==,
+    :count,
+    :each,
+    :each_value,
+    :empty?,
+    :flat_map,
+    :keys,
+    :select,
+    :values
 
   def add(key, value)
     (container[key] ||= Set.new).add(value)
@@ -85,7 +85,7 @@ class MIME::Types::Container #:nodoc:
 
   def normalize
     container.each do |k, v|
-      next if v.kind_of?(Set)
+      next if v.is_a?(Set)
 
       container[k] = Set[*v]
     end

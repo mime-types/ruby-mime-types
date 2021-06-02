@@ -13,3 +13,4 @@ publish
 test/cache.tst
 tmp/
 .byebug_history
+tags

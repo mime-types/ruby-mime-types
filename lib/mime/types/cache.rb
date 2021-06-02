@@ -15,21 +15,21 @@ class << MIME::Types::Cache
   # file does not exist, if the file cannot be loaded, or if the data in
   # the cache version is different than this version.
   def load(cache_file = nil)
-    cache_file ||= ENV['RUBY_MIME_TYPES_CACHE']
-    return nil unless cache_file and File.exist?(cache_file)
+    cache_file ||= ENV["RUBY_MIME_TYPES_CACHE"]
+    return nil unless cache_file && File.exist?(cache_file)
 
     cache = Marshal.load(File.binread(cache_file))
     if cache.version == MIME::Types::Data::VERSION
       Marshal.load(cache.data)
     else
-      MIME::Types.logger.warn <<-WARNING.chomp
-Could not load MIME::Types cache: invalid version
+      MIME::Types.logger.warn <<~WARNING.chomp
+        Could not load MIME::Types cache: invalid version
       WARNING
       nil
     end
   rescue => e
-    MIME::Types.logger.warn <<-WARNING.chomp
-Could not load MIME::Types cache: #{e}
+    MIME::Types.logger.warn <<~WARNING.chomp
+      Could not load MIME::Types cache: #{e}
     WARNING
     nil
   end
@@ -44,12 +44,12 @@ Could not load MIME::Types cache: #{e}
   # +RUBY_MIME_TYPES_CACHE+. If there is no cache file specified either
   # directly or through the environment, this method will return +nil+
   def save(types = nil, cache_file = nil)
-    cache_file ||= ENV['RUBY_MIME_TYPES_CACHE']
+    cache_file ||= ENV["RUBY_MIME_TYPES_CACHE"]
     return nil unless cache_file
 
     types ||= MIME::Types.send(:__types__)
 
-    File.open(cache_file, 'wb') do |f|
+    File.open(cache_file, "wb") do |f|
       f.write(
         Marshal.dump(new(MIME::Types::Data::VERSION, Marshal.dump(types)))
       )

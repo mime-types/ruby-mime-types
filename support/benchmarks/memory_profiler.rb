@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-if RUBY_VERSION < '2.3'
-  warn 'Cannot use memory_profiler on less than 2.3.8.'
+if RUBY_VERSION < "2.3"
+  warn "Cannot use memory_profiler on less than 2.3.8."
   exit 1
 end
 
 begin
-  require 'memory_profiler'
+  require "memory_profiler"
 rescue Exception # rubocop:disable Lint/RescueException
   warn "Memory profiling requires the gem 'memory_profiler'."
   exit 1
@@ -51,12 +51,12 @@ module Benchmarks
 
       if @columnar
         MemoryProfiler.report(**report_params) do
-          require 'mime/types'
+          require "mime/types"
           MIME::Types.first.to_h if @full
         end
       else
         MemoryProfiler.report(**report_params) do
-          require 'mime/types/full'
+          require "mime/types/full"
         end
       end
     end
