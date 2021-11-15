@@ -9,7 +9,8 @@ class Hoe
   def with_config
     config = Hoe::DEFAULT_CONFIG
 
-    homeconfig = load_config(File.expand_path("~/.hoerc"))
+    rc = File.expand_path("~/.hoerc")
+    homeconfig = load_config(rc)
     config = config.merge(homeconfig)
 
     localconfig = load_config(File.expand_path(File.join(Dir.pwd, ".hoerc")))
@@ -19,10 +20,19 @@ class Hoe
   end
 
   def load_config(name)
-    File.exist? name ? safe_load_yaml(name) : {}
+    File.exist?(name) ? safe_load_yaml(name) : {}
   end
 
   def safe_load_yaml(name)
+    return safe_load_yaml_file(name) if YAML.respond_to?(:safe_load_file)
+
+    data = IO.binread(name)
+    YAML.safe_load(data, permitted_classes: [Regexp])
+  rescue
+    YAML.safe_load(data, [Regexp])
+  end
+
+  def safe_load_yaml_file(name)
     YAML.safe_load_file(name, permitted_classes: [Regexp])
   rescue
     YAML.safe_load_file(name, [Regexp])
@@ -240,33 +250,10 @@ namespace :convert do
   task docs: "convert:docs:run"
 end
 
-task "deps:top", [:number] do |_, args|
-  require "net/http"
-  require "json"
-
-  def rubygems_get(gem_name: "", endpoint: "")
-    path = File.join("/api/v1/gems/", gem_name, endpoint).chomp("/") + ".json"
-    Net::HTTP.start("rubygems.org", use_ssl: true) do |http|
-      JSON.parse(http.get(path).body)
-    end
-  end
-
-  results = rubygems_get(
-    gem_name: "mime-types",
-    endpoint: "reverse_dependencies"
-  )
-
-  weighted_results = {}
-  results.each do |name|
-    weighted_results[name] = rubygems_get(gem_name: name)["downloads"]
-  rescue => e
-    puts "#{name} #{e.message}"
-  end
-
-  weighted_results.sort { |(_k1, v1), (_k2, v2)|
-    v2 <=> v1
-  }.first(args.number || 50).each_with_index do |(k, v), i|
-    puts "#{i}) #{k}: #{v}"
+namespace :deps do
+  task :top, [:number] => "benchmark:support" do |_, args|
+    require "deps"
+    Deps.run(args)
   end
 end
 

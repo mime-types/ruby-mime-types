@@ -21,6 +21,7 @@
   - Igor Victor added TruffleRuby to the Travis CI configuration. [#149]
   - Koichi ITO loosened an excessively tight dependency. [#147]
   - Started using `standardrb` for Ruby formatting and validation.
+  - Moved `deps:top` functionality to a support file.
 
 ## 3.3.1 / 2019-12-26
 
