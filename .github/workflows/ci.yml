@@ -9,9 +9,9 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [main]
   pull_request:
-    branches: [ master ]
+    branches: [main]
 
 jobs:
   test:
@@ -56,9 +56,9 @@ jobs:
             ruby: truffleruby-head
     runs-on: ${{ matrix.os }}-latest
     continue-on-error: ${{
-          endsWith(matrix.ruby, 'head') ||
-          matrix.ruby == 'debug' ||
-          (startsWith(matrix.ruby, 'jruby') && matrix.os == 'windows')
+      endsWith(matrix.ruby, 'head') ||
+      matrix.ruby == 'debug' ||
+      (startsWith(matrix.ruby, 'jruby') && matrix.os == 'windows')
       }}
     steps:
       - uses: actions/checkout@v2
