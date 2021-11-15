@@ -25,6 +25,7 @@ end
 #  puts text.ascii?                # => true
 #  puts text.obsolete?             # => false
 #  puts text.registered?           # => true
+#  puts text.provisional?          # => false
 #  puts text.complete?             # => true
 #
 #  puts text                       # => 'text/plain'
@@ -92,7 +93,7 @@ class MIME::Type
   end
 
   # The released version of the mime-types library.
-  VERSION = "3.3.1"
+  VERSION = "3.4.0"
 
   include Comparable
 
@@ -123,7 +124,7 @@ class MIME::Type
   # Yields the newly constructed +self+ object.
   def initialize(content_type) # :yields: self
     @friendly = {}
-    @obsolete = @registered = false
+    @obsolete = @registered = @provisional = false
     @preferred_extension = @docs = @use_instead = nil
     self.extensions = []
 
@@ -419,6 +420,14 @@ class MIME::Type
   attr_accessor :registered
   alias_method :registered?, :registered
 
+  # Indicates whether the MIME type's registration with IANA is provisional.
+  attr_accessor :provisional
+
+  # Indicates whether the MIME type's registration with IANA is provisional.
+  def provisional?
+    registered? && @provisional
+  end
+
   # MIME types can be specified to be sent across a network in particular
   # formats. This method returns +true+ when the MIME::Type encoding is set
   # to <tt>base64</tt>.
@@ -493,6 +502,7 @@ class MIME::Type
       end
     end
     coder["registered"] = registered?
+    coder["provisional"] = provisional? if provisional?
     coder["signature"] = signature? if signature?
     coder
   end
@@ -509,6 +519,7 @@ class MIME::Type
     self.preferred_extension = coder["preferred-extension"]
     self.obsolete = coder["obsolete"] || false
     self.registered = coder["registered"] || false
+    self.provisional = coder["provisional"] || false
     self.signature = coder["signature"]
     self.xrefs = coder["xrefs"] || {}
     self.use_instead = coder["use-instead"]

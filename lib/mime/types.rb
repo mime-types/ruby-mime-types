@@ -61,6 +61,7 @@ require "mime/type"
 #  puts plaintext.ascii?                # => true
 #  puts plaintext.obsolete?             # => false
 #  puts plaintext.registered?           # => true
+#  puts plaintext.provisional?          # => false
 #  puts plaintext == 'text/plain'       # => true
 #  puts MIME::Type.simplified('x-appl/x-zip') # => 'appl/zip'
 #

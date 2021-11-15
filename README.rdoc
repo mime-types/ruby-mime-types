@@ -65,6 +65,7 @@ files). A MIME::Type stores the known information about one MIME type.
    puts text.ascii?                # => true
    puts text.obsolete?             # => false
    puts text.registered?           # => true
+   puts text.provisional?          # => false
    puts text.complete?             # => true
 
    puts text                       # => 'text/plain'

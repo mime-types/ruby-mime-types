@@ -4,6 +4,41 @@ require "rubygems"
 require "hoe"
 require "rake/clean"
 
+# This is required until https://github.com/seattlerb/hoe/issues/112 is fixed
+class Hoe
+  def with_config
+    config = Hoe::DEFAULT_CONFIG
+
+    rc = File.expand_path("~/.hoerc")
+    homeconfig = load_config(rc)
+    config = config.merge(homeconfig)
+
+    localconfig = load_config(File.expand_path(File.join(Dir.pwd, ".hoerc")))
+    config = config.merge(localconfig)
+
+    yield config, rc
+  end
+
+  def load_config(name)
+    File.exist?(name) ? safe_load_yaml(name) : {}
+  end
+
+  def safe_load_yaml(name)
+    return safe_load_yaml_file(name) if YAML.respond_to?(:safe_load_file)
+
+    data = IO.binread(name)
+    YAML.safe_load(data, permitted_classes: [Regexp])
+  rescue
+    YAML.safe_load(data, [Regexp])
+  end
+
+  def safe_load_yaml_file(name)
+    YAML.safe_load_file(name, permitted_classes: [Regexp])
+  rescue
+    YAML.safe_load_file(name, [Regexp])
+  end
+end
+
 Hoe.plugin :doofus
 Hoe.plugin :gemspec2
 Hoe.plugin :git
@@ -34,7 +69,6 @@ spec = Hoe.spec "mime-types" do
   extra_dev_deps << ["minitest-bonus-assertions", "~> 3.0"]
   extra_dev_deps << ["minitest-hooks", "~> 1.4"]
   extra_dev_deps << ["rake", ">= 10.0", "< 14.0"]
-  extra_dev_deps << ["psych", "~> 3.0"]
 
   if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new("2.0")
     extra_dev_deps << ["simplecov", "~> 0.7"]
@@ -216,40 +250,15 @@ namespace :convert do
   task docs: "convert:docs:run"
 end
 
-task "deps:top", [:number] do |_, args|
-  require "net/http"
-  require "json"
-
-  def rubygems_get(gem_name: "", endpoint: "")
-    path = File.join("/api/v1/gems/", gem_name, endpoint).chomp("/") + ".json"
-    Net::HTTP.start("rubygems.org", use_ssl: true) do |http|
-      JSON.parse(http.get(path).body)
-    end
-  end
-
-  results = rubygems_get(
-    gem_name: "mime-types",
-    endpoint: "reverse_dependencies"
-  )
-
-  weighted_results = {}
-  results.each do |name|
-    begin
-      weighted_results[name] = rubygems_get(gem_name: name)["downloads"]
-    rescue => e
-      puts "#{name} #{e.message}"
-    end
-  end
-
-  weighted_results.sort { |(_k1, v1), (_k2, v2)|
-    v2 <=> v1
-  }.first(args.number || 50).each_with_index do |(k, v), i|
-    puts "#{i}) #{k}: #{v}"
+namespace :deps do
+  task :top, [:number] => "benchmark:support" do |_, args|
+    require "deps"
+    Deps.run(args)
   end
 end
 
 task :console do
-  arguments = %w[pry]
+  arguments = %w[irb]
   arguments.push(*spec.spec.require_paths.map { |dir| "-I#{dir}" })
   arguments.push("-r#{spec.spec.name.gsub("-", File::SEPARATOR)}")
   unless system(*arguments)

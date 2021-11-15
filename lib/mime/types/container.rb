@@ -9,7 +9,7 @@ require "forwardable"
 # format (plus, a default of a mutable object resuls in a shared mess).
 # Hash#default_proc cannot be used without a wrapper because it prevents
 # Marshal serialization (and doesn't survive the round-trip).
-class MIME::Types::Container #:nodoc:
+class MIME::Types::Container # :nodoc:
   extend Forwardable
 
   def initialize(hash = {})
