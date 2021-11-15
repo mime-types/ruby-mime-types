@@ -151,8 +151,8 @@ class MIME::Types
   def type_for(filename)
     results =
       Array(filename).flat_map { |fn|
-      @extension_index[fn.chomp.downcase[/\.?([^.]*?)$/, 1]]
-    }.compact.inject(Set.new, :+)
+        @extension_index[fn.chomp.downcase[/\.?([^.]*?)$/, 1]]
+      }.compact.inject(Set.new, :+)
 
     stable_sort(results)
   end

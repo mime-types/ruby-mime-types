@@ -101,8 +101,8 @@ describe MIME::Types, "registry" do
       assert_includes MIME::Types.type_for("xtxt"), "text/plain"
     end
 
-    it 'returns a stable order for types with equal priority' do
-      assert_equal %w(audio/webm video/webm), MIME::Types.type_for('foo.webm')
+    it "returns a stable order for types with equal priority" do
+      assert_equal %w[audio/webm video/webm], MIME::Types.type_for("foo.webm")
     end
   end
 

@@ -38,7 +38,7 @@ describe MIME::Types do
       assert_kind_of Enumerator::Lazy, mime_types.map.lazy
     end
 
-    it 'is countable with an enumerator' do
+    it "is countable with an enumerator" do
       assert_equal 8, mime_types.each.count
       assert_equal 8, mime_types.lazy.count
     end
@@ -161,13 +161,13 @@ describe MIME::Types do
       assert_includes mime_types.type_for("xtxt"), "text/plain"
     end
 
-    it 'returns a stable order for types with equal priority' do
-      assert_equal %w(audio/webm video/webm), mime_types.type_for('foo.webm')
+    it "returns a stable order for types with equal priority" do
+      assert_equal %w[audio/webm video/webm], mime_types.type_for("foo.webm")
     end
   end
 
-  describe '#count' do
-    it 'can count the number of types inside' do
+  describe "#count" do
+    it "can count the number of types inside" do
       assert_equal 8, mime_types.count
     end
   end
