@@ -45,7 +45,7 @@ class << MIME::Types
   def lazy_load?
     return unless ENV.key?("RUBY_MIME_TYPES_LAZY_LOAD")
 
-    MIME::Types.logger.warn <<~WARNING.chomp
+    MIME::Types.logger.warn <<-WARNING.chomp.strip
       Lazy loading ($RUBY_MIME_TYPES_LAZY_LOAD) is deprecated and will be removed.
     WARNING
 

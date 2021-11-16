@@ -25,7 +25,7 @@ module MIME
                 else
                   message
         end
-      MIME::Types.logger.warn <<~WARNING.chomp
+      MIME::Types.logger.warn <<-WARNING.chomp.strip
         #{caller(2..2).first}: #{klass}#{level}#{sym} is deprecated #{message}.
       WARNING
 

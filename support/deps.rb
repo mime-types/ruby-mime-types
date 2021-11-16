@@ -35,7 +35,7 @@ class Deps
   end
 
   def gem_downloads(name)
-     rubygems_get(gem_name: name)["downloads"]
+    rubygems_get(gem_name: name)["downloads"]
   rescue => e
     puts "#{name} #{e.message}"
   end
