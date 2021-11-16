@@ -1,5 +1,14 @@
 # Changelog
 
+## 3.4.1 / 2021-11-16
+
+- 1 bugfix:
+
+  - Fixed a Ruby &lt; 2.3 incompatibility introduced by the use of standardrb,
+    where `<<-` heredocs were converted to `<<~` heredocs. These have been
+    reverted back to `<<-` with the indentation kept and a `.strip` call
+    to prevent excess whitespace.
+
 ## 3.4.0 / 2021-11-15
 
 - 1 minor enhancement:
