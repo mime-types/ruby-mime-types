@@ -133,8 +133,7 @@ class MIME::Type
   def initialize(content_type) # :yields: self
     @friendly = {}
     @obsolete = @registered = @provisional = false
-    @preferred_extension = @docs = @use_instead = nil
-    @priority = 0
+    @preferred_extension = @docs = @use_instead = @__sort_priority = nil
 
     self.extensions = []
 
@@ -166,6 +165,8 @@ class MIME::Type
     self.xrefs ||= {}
 
     yield self if block_given?
+
+    update_sort_priority
   end
 
   # Indicates that a MIME type is like another type. This differs from
@@ -193,26 +194,14 @@ class MIME::Type
   end
 
   # Compares the +other+ MIME::Type using the simplified representation, then
-  # a pre-computed priority value. Used by MIME::Types#[] to sort types. The
-  # comparisons involved are:
-  #
-  # 1. self.simplified <=> other.simplified (ensures that we
-  #    do not try to compare different types)
-  # 2. active definitions < obsolete definitions
-  # 3. IANA-registered definitions < unregistered definitions
-  # 4. Normal registrations < Provisional registrations
-  # 5. Complete definitions < incomplete definitions.
-  # 6. self.extension count <=> other.extension count (capped to 16)
-  #
-  # After the first comparison, the comparison is simplified by using a
-  # precomputed 8-bit flag value.
+  # a pre-computed sort priority value. Used by MIME::Types#[] to sort types.
   #
   # While this method is public, its direct use is strongly discouraged by
   # consumers of mime-types. For the next major version of MIME::Types, this
   # method will become #<=> and #priority_compare will be removed.
   def priority_compare(other)
     if (cmp = simplified <=> other.simplified).zero?
-      __priority <=> other.__priority
+      __sort_priority <=> other.__sort_priority
     else
       cmp
     end
@@ -250,9 +239,11 @@ class MIME::Type
     simplified.hash
   end
 
-  # The computed priority value. This is _not_ intended to be used
-  # by most callers.
-  attr_reader :__priority #:nodoc:
+  # The computed sort priority value. This is _not_ intended to be used by most
+  # callers.
+  def __sort_priority
+    @__sort_priority || update_sort_priority
+  end
 
   # Returns the whole MIME content-type string.
   #
@@ -308,9 +299,8 @@ class MIME::Type
 
   ##
   def extensions=(value) # :nodoc:
+    clear_sort_priority
     @extensions = Set[*Array(value).flatten.compact].freeze
-    update_priority
-
     MIME::Types.send(:reindex_extensions, self)
   end
 
@@ -398,8 +388,8 @@ class MIME::Type
 
   ##
   def obsolete=(value)
+    clear_sort_priority
     @obsolete = !!value
-    update_priority
   end
 
   # The documentation for this MIME::Type.
@@ -466,8 +456,8 @@ class MIME::Type
 
   ##
   def registered=(value)
+    clear_sort_priority
     @registered = !!value
-    update_priority
   end
 
   # Indicates whether the MIME type's registration with IANA is provisional.
@@ -477,8 +467,8 @@ class MIME::Type
 
   ##
   def provisional=(value)
+    clear_sort_priority
     @provisional = !!value
-    update_priority
   end
 
   # Indicates whether the MIME type's registration with IANA is provisional.
@@ -562,6 +552,7 @@ class MIME::Type
     coder["registered"] = registered?
     coder["provisional"] = provisional? if provisional?
     coder["signature"] = signature? if signature?
+    coder["__sort_priority"] = __sort_priority
     coder
   end
 
@@ -581,6 +572,7 @@ class MIME::Type
     self.signature = coder["signature"]
     self.xrefs = coder["xrefs"] || {}
     self.use_instead = coder["use-instead"]
+    @__sort_priority = coder["__sort_priority"]
 
     friendly(coder["friendly"] || {})
   end
@@ -638,35 +630,35 @@ class MIME::Type
 
   private
 
-  # :stopdoc:
-  PRIORITY_MASK = 0b11111111
-  # :startdoc:
-  private_constant :PRIORITY_MASK
+  def clear_sort_priority
+    @__sort_priority = nil
+  end
 
-  # Update the __priority value. Note that @provisional and @obsolete are
-  # _inverted_ values and are lower if false.
+  # Update the __sort_priority value. Lower numbers sort better, so the
+  # bitmapping may seem a little odd. The _best_ sort priority is 0.
   #
-  # The __priority value is masked as follows:
+  # | bit | meaning         | details   |
+  # | --- | --------------- | --------- |
+  # | 7   | obsolete        | 1 if true |
+  # | 6   | provisional     | 1 if true |
+  # | 5   | registered      | 0 if true |
+  # | 4   | complete        | 0 if true |
+  # | 3   | # of extensions | see below |
+  # | 2   | # of extensions | see below |
+  # | 1   | # of extensions | see below |
+  # | 0   | # of extensions | see below |
   #
-  # | bit | meaning              |
-  # | --- | -------------------- |
-  # | 7   | not obsolete         |
-  # | 6   | registered           |
-  # | 5   | not provisional      |
-  # | 4   | complete             |
-  # | 3   | number of extensions |
-  # | 2   | number of extensions |
-  # | 1   | number of extensions |
-  # | 0   | number of extensions |
-  def update_priority
+  # The # of extensions is marked as the number of extensions subtracted from
+  # 16, to a minimum of 0.
+  def update_sort_priority
     extension_count = @extensions.length
-    obsolete = @obsolete ? 0 : 1 << 7
-    registered = @registered ? 1 << 6 : 0
-    provisional = @provisional ? 0 : 1 << 5
-    complete = extension_count.nonzero? ? 1 << 6 : 0
-    extension_count = [0, [extension_count, 16].max].min
+    obsolete = @obsolete ? 1 << 7 : 0
+    provisional = @provisional ? 1 << 6 : 0
+    registered = @registered ? 0 : 1 << 5
+    complete = extension_count.nonzero? ? 0 : 1 << 4
+    extension_count = [0, 16 - extension_count].max
 
-    @__priority = obsolete | registered | provisional | complete | extension_count
+    @__sort_priority = obsolete | registered | provisional | complete | extension_count
   end
 
   def content_type=(type_string)
