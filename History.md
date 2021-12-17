@@ -12,9 +12,25 @@
   - Deprecated Array-based MIME::Type initialization.
   - Deprecated String-based MIME::Type initialization.
 
+- 1 enhancement:
+
+  - Improved the performance of sorting by eliminating the complex comparison
+    flow from `MIME::Type#priority_compare`. The old version shows under 600
+    i/s, and the new version shows over 900 i/s. In sorting the full set of MIME
+    data, there are three differences between the old and new versions; after
+    comparison, these differences are considered acceptable.
+
+- 1 bug fix:
+
+  - Simplified the default compare implementation (`MIME::Type#<=>`) to use the
+    new `MIME::Type#priority_compare` operation and simplify the fallback to
+    `String` comparison. This _may_ result in exceptions where there had been
+    none, as explicit support for several special values (which should have
+    caused errors in any case) have been removed.
+
 ## 3.4.1 / 2021-11-16
 
-- 1 bugfix:
+- 1 bug fix:
 
   - Fixed a Ruby &lt; 2.3 incompatibility introduced by the use of standardrb,
     where `<<-` heredocs were converted to `<<~` heredocs. These have been
@@ -46,7 +62,7 @@
 
 ## 3.3.1 / 2019-12-26
 
-- 1 minor bugfix:
+- 1 minor bug fix:
 
   - Al Snow fixed a warning with MIME::Types::Logger producing a warning
     because Ruby 2.7 introduces numbered block parameters. Because of the way

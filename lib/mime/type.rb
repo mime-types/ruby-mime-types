@@ -131,6 +131,8 @@ class MIME::Type
     @friendly = {}
     @obsolete = @registered = @provisional = false
     @preferred_extension = @docs = @use_instead = nil
+    @priority = 0
+
     self.extensions = []
 
     case content_type
@@ -167,62 +169,40 @@ class MIME::Type
 
   # Compares the +other+ MIME::Type against the exact content type or the
   # simplified type (the simplified type will be used if comparing against
-  # something that can be treated as a String with #to_s). In comparisons, this
-  # is done against the lowercase version of the MIME::Type.
+  # something that can be treated as a String with #to_s). In comparisons,
+  # this is done against the lowercase version of the MIME::Type.
+  #
+  # Note that this implementation of #<=> is deprecated and will be changed
+  # in the next major version to be the same as #priority_compare.
   def <=>(other)
-    if other.nil?
-      -1
-    elsif other.respond_to?(:simplified)
-      simplified <=> other.simplified
-    else
-      filtered = "silent" if other == :silent
-      filtered ||= "true" if other == true
-      filtered ||= other.to_s
-
-      simplified <=> MIME::Type.simplified(filtered)
-    end
+    return priority_compare(other) if other.kind_of?(MIME::Type)
+    simplified <=> other
   end
 
-  # Compares the +other+ MIME::Type based on how reliable it is before doing a
-  # normal <=> comparison. Used by MIME::Types#[] to sort types. The
+  # Compares the +other+ MIME::Type using the simplified representation, then
+  # a pre-computed priority value. Used by MIME::Types#[] to sort types. The
   # comparisons involved are:
   #
   # 1. self.simplified <=> other.simplified (ensures that we
   #    don't try to compare different types)
-  # 2. IANA-registered definitions < other definitions.
-  # 3. Complete definitions < incomplete definitions.
-  # 4. Current definitions < obsolete definitions.
-  # 5. Obselete with use-instead names < obsolete without.
-  # 6. Obsolete use-instead definitions are compared.
+  # 2. active definitions < obsolete definitions
+  # 3. IANA-registered definitions < unregistered definitions
+  # 4. Normal registrations < Provisional registrations
+  # 5. Complete definitions < incomplete definitions.
+  # 6. self.extension count <=> other.extension count (capped to 16)
   #
-  # While this method is public, its use is strongly discouraged by consumers
-  # of mime-types. In mime-types 3, this method is likely to see substantial
-  # revision and simplification to ensure current registered content types sort
-  # before unregistered or obsolete content types.
+  # After the first comparison, the comparison is simplified by using a
+  # precomputed 8-bit flag value.
+  #
+  # While this method is public, its direct use is strongly discouraged by
+  # consumers of mime-types. For the next major version of MIME::Types, this
+  # method will become #<=> and #priority_compare will be removed.
   def priority_compare(other)
-    pc = simplified <=> other.simplified
-    if pc.zero? || !(extensions & other.extensions).empty?
-      pc =
-        if (reg = registered?) != other.registered?
-          reg ? -1 : 1 # registered < unregistered
-        elsif (comp = complete?) != other.complete?
-          comp ? -1 : 1 # complete < incomplete
-        elsif (obs = obsolete?) != other.obsolete?
-          obs ? 1 : -1 # current < obsolete
-        elsif obs && ((ui = use_instead) != (oui = other.use_instead))
-          if ui.nil?
-            1
-          elsif oui.nil?
-            -1
-          else
-            ui <=> oui
-          end
-        else
-          0
-        end
+    if (cmp = simplified <=> other.simplified).zero?
+      __priority <=> other.__priority
+    else
+      cmp
     end
-
-    pc
   end
 
   # Returns +true+ if the +other+ object is a MIME::Type and the content types
@@ -256,6 +236,10 @@ class MIME::Type
   def hash
     simplified.hash
   end
+
+  # The computed priority value. This is _not_ intended to be used
+  # by most callers.
+  attr_reader :__priority
 
   # Returns the whole MIME content-type string.
   #
@@ -312,6 +296,8 @@ class MIME::Type
   ##
   def extensions=(value) # :nodoc:
     @extensions = Set[*Array(value).flatten.compact].freeze
+    update_priority
+
     MIME::Types.send(:reindex_extensions, self)
   end
 
@@ -390,8 +376,16 @@ class MIME::Type
   attr_writer :use_instead
 
   # Returns +true+ if the media type is obsolete.
-  attr_accessor :obsolete
+  #
+  # :attr_accessor: obsolete
+  attr_reader :obsolete
   alias_method :obsolete?, :obsolete
+
+  ##
+  def obsolete=(value)
+    @obsolete = !!value
+    update_priority
+  end
 
   # The documentation for this MIME::Type.
   attr_accessor :docs
@@ -450,11 +444,27 @@ class MIME::Type
   end
 
   # Indicates whether the MIME type has been registered with IANA.
-  attr_accessor :registered
+  #
+  # :attr_accessor: registered
+  attr_reader :registered
   alias_method :registered?, :registered
 
+  ##
+  def registered=(value)
+    @registered = !!value
+    update_priority
+  end
+
   # Indicates whether the MIME type's registration with IANA is provisional.
-  attr_accessor :provisional
+  #
+  # :attr_accessor: provisional
+  attr_reader :provisional
+
+  ##
+  def provisional=(value)
+    @provisional = !!value
+    update_priority
+  end
 
   # Indicates whether the MIME type's registration with IANA is provisional.
   def provisional?
@@ -612,6 +622,37 @@ class MIME::Type
   end
 
   private
+
+  # :stopdoc:
+  PRIORITY_MASK = 0b11111111
+  # :startdoc:
+  private_constant :PRIORITY_MASK
+
+  # Update the __priority value. Note that @provisional and @obsolete are
+  # _inverted_ values and are lower if false.
+  #
+  # The __priority value is masked as follows:
+  #
+  # | bit | meaning              |
+  # | --- | -------------------- |
+  # | 7   | not obsolete         |
+  # | 6   | registered           |
+  # | 5   | not provisional      |
+  # | 4   | complete             |
+  # | 3   | number of extensions |
+  # | 2   | number of extensions |
+  # | 1   | number of extensions |
+  # | 0   | number of extensions |
+  def update_priority
+    extension_count = @extensions.length
+    obsolete = @obsolete ? 0 : 1 << 7
+    registered = @registered ? 1 << 6 : 0
+    provisional = @provisional ? 0 : 1 << 5
+    complete = extension_count.nonzero? ? 1 << 6 : 0
+    extension_count = [0, [extension_count, 16].max].min
+
+    @__priority = obsolete | registered | provisional | complete | extension_count
+  end
 
   def content_type=(type_string)
     match = MEDIA_TYPE_RE.match(type_string)

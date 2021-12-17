@@ -125,12 +125,12 @@ class MIME::Types
   def [](type_id, complete: false, registered: false)
     matches =
       case type_id
-              when MIME::Type
-                @type_variants[type_id.simplified]
-              when Regexp
-                match(type_id)
-              else
-                @type_variants[MIME::Type.simplified(type_id)]
+      when MIME::Type
+        @type_variants[type_id.simplified]
+      when Regexp
+        match(type_id)
+      else
+        @type_variants[MIME::Type.simplified(type_id)]
       end
 
     prune_matches(matches, complete, registered).sort { |a, b|
