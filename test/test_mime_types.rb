@@ -9,7 +9,7 @@ describe MIME::Types do
       mt.add(
         MIME::Type.new("content-type" => "text/plain", "extensions" => %w[txt]),
         MIME::Type.new("content-type" => "image/jpeg", "extensions" => %w[jpg jpeg]),
-        MIME::Type.new("application/x-wordperfect6.1"),
+        MIME::Type.new("content-type" => "application/x-wordperfect6.1"),
         MIME::Type.new("content-type" => "application/x-www-form-urlencoded", "registered" => true),
         MIME::Type.new("content-type" => "application/x-gzip", "extensions" => %w[gz]),
         MIME::Type.new("content-type" => "application/gzip", "extensions" => "gz", "registered" => true)
@@ -40,7 +40,7 @@ describe MIME::Types do
 
   describe "#[]" do
     it "can be searched with a MIME::Type" do
-      text_plain = MIME::Type.new("text/plain")
+      text_plain = MIME::Type.new("content-type" => "text/plain")
       assert_includes mime_types[text_plain], "text/plain"
       assert_equal 1, mime_types[text_plain].size
     end
@@ -87,8 +87,8 @@ describe MIME::Types do
   end
 
   describe "#add" do
-    let(:eruby) { MIME::Type.new("application/x-eruby") }
-    let(:jinja) { MIME::Type.new("application/jinja2") }
+    let(:eruby) { MIME::Type.new("content-type" => "application/x-eruby") }
+    let(:jinja) { MIME::Type.new("content-type" => "application/jinja2") }
 
     it "successfully adds a new type" do
       mime_types.add(eruby)

@@ -7,9 +7,10 @@
   - Added a definition of `MIME::Type#hash`. Contributed by Alex Vondrak in
     [#167][], fixing [#166][].
 
-- 1 deprecation:
+- 2 deprecations:
 
-  - Deprecated array-based MIME::Type initialization.
+  - Deprecated Array-based MIME::Type initialization.
+  - Deprecated String-based MIME::Type initialization.
 
 ## 3.4.1 / 2021-11-16
 

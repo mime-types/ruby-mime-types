@@ -118,6 +118,9 @@ class MIME::Type
   #
   # * When provided a Hash or a MIME::Type, the MIME::Type will be
   #   constructed with #init_with.
+  #
+  # There are two deprecated initialization forms:
+  #
   # * When provided an Array, the MIME::Type will be constructed using
   #   the first element as the content type and the remaining flattened
   #   elements as extensions.
@@ -140,6 +143,7 @@ class MIME::Type
     when MIME::Type
       init_with(content_type.to_h)
     else
+      MIME::Types.deprecated(MIME::Type, {new: "when called with a String"}, "")
       self.content_type = content_type
     end
 

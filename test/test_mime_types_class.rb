@@ -31,7 +31,7 @@ describe MIME::Types, "registry" do
 
   describe ".[]" do
     it "can be searched with a MIME::Type" do
-      text_plain = MIME::Type.new("text/plain")
+      text_plain = MIME::Type.new("content-type" => "text/plain")
       assert_includes MIME::Types[text_plain], "text/plain"
       assert_equal 1, MIME::Types[text_plain].size
     end
@@ -114,8 +114,8 @@ describe MIME::Types, "registry" do
       MIME::Types.send(:load_default_mime_types)
     end
 
-    let(:eruby) { MIME::Type.new("application/x-eruby") }
-    let(:jinja) { MIME::Type.new("application/jinja2") }
+    let(:eruby) { MIME::Type.new("content-type" => "application/x-eruby") }
+    let(:jinja) { MIME::Type.new("content-type" => "application/jinja2") }
 
     it "successfully adds a new type" do
       MIME::Types.add(eruby)
