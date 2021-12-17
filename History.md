@@ -11,6 +11,10 @@
 
   - Deprecated Array-based MIME::Type initialization.
   - Deprecated String-based MIME::Type initialization.
+  - Deprecated `MIME::Type#priority_compare`. In a future release, this will be
+    will be renamed to `MIME::Type#<=>`. This method is used in tight loops, so
+    there is no warning message for either `MIME::Type#priority_compare` or
+    `MIME::Type#<=>`.
 
 - 1 enhancement:
 

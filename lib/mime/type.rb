@@ -175,7 +175,7 @@ class MIME::Type
   # Note that this implementation of #<=> is deprecated and will be changed
   # in the next major version to be the same as #priority_compare.
   def <=>(other)
-    return priority_compare(other) if other.kind_of?(MIME::Type)
+    return priority_compare(other) if other.is_a?(MIME::Type)
     simplified <=> other
   end
 
@@ -239,7 +239,7 @@ class MIME::Type
 
   # The computed priority value. This is _not_ intended to be used
   # by most callers.
-  attr_reader :__priority
+  attr_reader :__priority #:nodoc:
 
   # Returns the whole MIME content-type string.
   #
