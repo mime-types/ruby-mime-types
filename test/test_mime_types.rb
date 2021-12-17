@@ -6,19 +6,14 @@ require "minitest_helper"
 describe MIME::Types do
   def mime_types
     @mime_types ||= MIME::Types.new.tap { |mt|
-      mt.add MIME::Type.new(["text/plain", %w[txt]]),
-        MIME::Type.new(["image/jpeg", %w[jpg jpeg]]),
+      mt.add(
+        MIME::Type.new("content-type" => "text/plain", "extensions" => %w[txt]),
+        MIME::Type.new("content-type" => "image/jpeg", "extensions" => %w[jpg jpeg]),
         MIME::Type.new("application/x-wordperfect6.1"),
-        MIME::Type.new(
-          "content-type" => "application/x-www-form-urlencoded",
-          "registered" => true
-        ),
-        MIME::Type.new(["application/x-gzip", %w[gz]]),
-        MIME::Type.new(
-          "content-type" => "application/gzip",
-          "extensions" => "gz",
-          "registered" => true
-        )
+        MIME::Type.new("content-type" => "application/x-www-form-urlencoded", "registered" => true),
+        MIME::Type.new("content-type" => "application/x-gzip", "extensions" => %w[gz]),
+        MIME::Type.new("content-type" => "application/gzip", "extensions" => "gz", "registered" => true)
+      )
     }
   end
 

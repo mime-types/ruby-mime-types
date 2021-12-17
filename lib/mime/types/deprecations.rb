@@ -10,23 +10,30 @@ module MIME
     def self.deprecated(klass, sym, message = nil, &block) # :nodoc:
       level =
         case klass
-              when Class, Module
-                "."
-              else
-                klass = klass.class
-                "#"
+        when Class, Module
+          "."
+        else
+          klass = klass.class
+          "#"
         end
+
+      sym, pre_message = sym.shift if sym.is_a?(Hash)
+      pre_message = " #{pre_message}" if pre_message
+
       message =
         case message
-                when :private, :protected
-                  "and will be #{message}"
-                when nil
-                  "and will be removed"
-                else
-                  message
+        when :private, :protected
+          " and will be made #{message}"
+        when nil
+          " and will be removed"
+        when ""
+          nil
+        else
+          " #{message}"
         end
+
       MIME::Types.logger.warn <<-WARNING.chomp.strip
-        #{caller(2..2).first}: #{klass}#{level}#{sym} is deprecated #{message}.
+        #{caller(2..2).first}: #{klass}#{level}#{sym}#{pre_message} is deprecated#{message}.
       WARNING
 
       return unless block

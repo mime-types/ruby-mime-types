@@ -1,11 +1,15 @@
 # Changelog
 
-## NEXT / 2022-MM-DD
+## NEXT / YYYY-MM-DD
 
 - 1 bugfix:
 
   - Added a definition of `MIME::Type#hash`. Contributed by Alex Vondrak in
     [#167][], fixing [#166][].
+
+- 1 deprecation:
+
+  - Deprecated array-based MIME::Type initialization.
 
 ## 3.4.1 / 2021-11-16
 
@@ -55,7 +59,7 @@
 
 ## 3.3 / 2019-09-04
 
-- 1 minor enhancement
+- 1 minor enhancement:
 
   - Jean Boussier reduced memory usage for Ruby versions 2.3 or higher by
     interning various string values in each type. This is done with a

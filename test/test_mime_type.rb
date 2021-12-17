@@ -118,10 +118,12 @@ describe MIME::Type do
     end
 
     it "creates a valid content type from an array" do
-      type = MIME::Type.new(%w[text/x-yaml yaml yml yz])
-      assert_instance_of MIME::Type, type
-      assert_equal "text/x-yaml", type.content_type
-      assert_equal %w[yaml yml yz], type.extensions
+      assert_output "", /MIME::Type.new when called with an Array is deprecated\./ do
+        type = MIME::Type.new(%w[text/x-yaml yaml yml yz])
+        assert_instance_of MIME::Type, type
+        assert_equal "text/x-yaml", type.content_type
+        assert_equal %w[yaml yml yz], type.extensions
+      end
     end
   end
 

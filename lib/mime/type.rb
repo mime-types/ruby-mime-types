@@ -4,6 +4,8 @@
 module MIME
 end
 
+require "mime/types/deprecations"
+
 # The definition of one MIME content-type.
 #
 # == Usage
@@ -132,6 +134,7 @@ class MIME::Type
     when Hash
       init_with(content_type)
     when Array
+      MIME::Types.deprecated(MIME::Type, {new: "when called with an Array"}, "")
       self.content_type = content_type.shift
       self.extensions = content_type.flatten
     when MIME::Type
