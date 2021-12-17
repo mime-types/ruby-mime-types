@@ -7,10 +7,12 @@ source "https://rubygems.org/"
 
 gem "mime-types-data", path: "../mime-types-data" if ENV["DEV"]
 
-# gem "byebug"
-# gem "benchmark-ips"
-# gem "memory_profiler"
-# gem "allocation_tracer"
+if ENV["DEV"]
+  gem "byebug"
+  gem "benchmark-ips"
+  gem "memory_profiler"
+  gem "allocation_tracer"
+end
 
 gemspec
 
