@@ -91,7 +91,7 @@ module MIME::Types::Columnar
 
   def load_xrefs
     each_file_line("xrefs") { |type, line|
-      type.instance_variable_set(:@xrefs, dict(line, array: true))
+      type.instance_variable_set(:@xrefs, dict(line, transform: :array))
     }
   end
 
@@ -107,16 +107,45 @@ module MIME::Types::Columnar
     end
   end
 
-  def dict(line, array: false)
+  def load_extension_priorities
+    each_file_line("extpri") do |type, line|
+      type.instance_variable_set(:@extension_priorities, dict(line, transform: :extension_priority))
+    end
+  rescue
+    # This path preserves backwards compatibility.
+  end
+
+  def dict(line, transform: nil)
     if line == "-"
       {}
     else
       line.split("|").each_with_object({}) { |l, h|
         k, v = l.split("^")
         v = nil if v.empty?
-        h[k] = array ? Array(v) : v
+
+        if transform
+          send(:"dict_#{transform}", h, k, v)
+        else
+          h[k] = v
+        end
       }
     end
+  end
+
+  def dict_extension_priority(h, k, v)
+    return if v.nil?
+
+    v = v.to_i if v.kind_of?(String)
+    v = v.trunc if v.kind_of?(Float)
+    v =  [[-20, v].max, 20].min
+
+    return if v.zero?
+
+    h[k] = v
+  end
+
+  def dict_array(h, k, v)
+    h[k] = Array(v)
   end
 
   def arr(line)
