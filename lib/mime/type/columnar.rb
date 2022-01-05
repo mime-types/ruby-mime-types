@@ -39,6 +39,7 @@ class MIME::Type::Columnar < MIME::Type
     :signature?, :provisional, :provisional=, :provisional?, file: "flags"
   column :xrefs, :xrefs=, :xref_urls
   column :use_instead, :use_instead=
+  column :extension_priorities, :extension_priorities=
 
   def encode_with(coder) # :nodoc:
     @container.send(:load_friendly)
@@ -48,6 +49,7 @@ class MIME::Type::Columnar < MIME::Type
     @container.send(:load_use_instead)
     @container.send(:load_xrefs)
     @container.send(:load_preferred_extension)
+    @container.send(:load_extension_priorities)
     super
   end
 
