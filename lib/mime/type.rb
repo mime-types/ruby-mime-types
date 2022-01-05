@@ -134,6 +134,7 @@ class MIME::Type
     @friendly = {}
     @obsolete = @registered = @provisional = false
     @preferred_extension = @docs = @use_instead = @__sort_priority = nil
+    __extension_priorities
 
     self.extensions = []
 
@@ -328,8 +329,27 @@ class MIME::Type
   def preferred_extension=(value) # :nodoc:
     if value
       add_extensions(value)
+      set_preferred_extension_priority(value)
+    else
+      clear_extension_priority(@preferred_extension)
     end
     @preferred_extension = value
+  end
+
+  ##
+  # Optional extension priorities for this MIME type. This is a relative value
+  # similar to nice(1). An explicitly set `preferred_extension` is automatically
+  # given a relative priority of `-10`.
+  #
+  # :attr_reader: extension_priorities
+  attr_accessor :extension_priorities
+
+  ##
+  # Returns the priority for the provided extension or extensions. If a priority
+  # is not set, the default priority is 0. The range for priorities is -20..20,
+  # inclusive.
+  def extension_priority(*exts)
+    exts.map { |ext| get_extension_priority(ext) }.min
   end
 
   ##
@@ -552,7 +572,8 @@ class MIME::Type
     coder["registered"] = registered?
     coder["provisional"] = provisional? if provisional?
     coder["signature"] = signature? if signature?
-    coder["__sort_priority"] = __sort_priority
+    coder["sort-priority"] = __sort_priority
+    coder["extension-priorities"] = __extension_priorities unless __extension_priorities.empty?
     coder
   end
 
@@ -561,6 +582,7 @@ class MIME::Type
   #
   # This method should be considered a private implementation detail.
   def init_with(coder)
+    @__sort_priority = 0
     self.content_type = coder["content-type"]
     self.docs = coder["docs"] || ""
     self.encoding = coder["encoding"]
@@ -572,9 +594,11 @@ class MIME::Type
     self.signature = coder["signature"]
     self.xrefs = coder["xrefs"] || {}
     self.use_instead = coder["use-instead"]
-    @__sort_priority = coder["__sort_priority"]
+    self.extension_priorities = coder["extension-priorities"]
 
     friendly(coder["friendly"] || {})
+
+    update_sort_priority
   end
 
   def inspect # :nodoc:
@@ -629,6 +653,22 @@ class MIME::Type
   end
 
   private
+
+  def __extension_priorities
+    @extension_priorities ||= {}
+  end
+
+  def clear_extension_priority(ext)
+    __extension_priorities.delete(ext) if ext
+  end
+
+  def get_extension_priority(ext)
+    [[-20, __extension_priorities[ext] || 0].max, 20].min
+  end
+
+  def set_preferred_extension_priority(ext)
+    __extension_priorities[ext] = -10 unless __extension_priorities.has_key?(ext)
+  end
 
   def clear_sort_priority
     @__sort_priority = nil
