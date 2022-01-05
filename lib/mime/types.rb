@@ -151,10 +151,18 @@ class MIME::Types
   #   puts MIME::Types.type_for(%w(citydesk.xml citydesk.gif))
   #     => [application/xml, image/gif, text/xml]
   def type_for(filename)
-    Array(filename).flat_map { |fn|
-      @extension_index[fn.chomp.downcase[/\.?([^.]*?)$/, 1]]
+    extensions = Array(filename).map { |fn| fn.chomp.downcase[/\.?([^.]*?)$/, 1] }
+
+    extensions.flat_map { |ext|
+      @extension_index[ext]
     }.compact.inject(Set.new, :+).sort { |a, b|
-      a.priority_compare(b)
+      by_ext = a.extension_priority(*extensions) <=> b.extension_priority(*extensions)
+
+      if by_ext.zero?
+        a.priority_compare(b)
+      else
+        by_ext
+      end
     }
   end
   alias_method :of, :type_for
