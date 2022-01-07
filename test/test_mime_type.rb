@@ -175,11 +175,6 @@ describe MIME::Type do
       refute_equal text_plain, "text/html"
       assert_operator text_plain, :>, "text/html"
     end
-
-    it "correctly compares against nil" do
-      refute_equal text_html, nil
-      assert_operator text_plain, :<, nil
-    end
   end
 
   describe "#ascii?" do
@@ -326,16 +321,20 @@ describe MIME::Type do
   end
 
   describe "#priority_compare" do
+    def priority(type)
+      "#{type} (#{("%08b" % type.__sort_priority).chars.join(" ")})"
+    end
+
     def assert_priority_less(left, right)
-      assert_equal(-1, left.priority_compare(right))
+      assert_equal(-1, left.priority_compare(right), "#{priority(left)} is not less than #{priority(right)}")
     end
 
     def assert_priority_same(left, right)
-      assert_equal 0, left.priority_compare(right)
+      assert_equal 0, left.priority_compare(right), "#{priority(left)} is not equal to #{priority(right)}"
     end
 
     def assert_priority_more(left, right)
-      assert_equal 1, left.priority_compare(right)
+      assert_equal 1, left.priority_compare(right), "#{priority(left)} is not more than #{priority(right)}"
     end
 
     def assert_priority(left, middle, right)
@@ -348,19 +347,24 @@ describe MIME::Type do
     let(:text_1p) { mime_type("content-type" => "text/1") }
     let(:text_2) { mime_type("content-type" => "text/2") }
 
-    it "sorts (1) based on the simplified type" do
+    it "sorts based on the simplified type when the sort priorities are the same" do
       assert_priority text_1, text_1p, text_2
     end
 
-    it "sorts (2) based on extensions" do
-      text_1.extensions = ["foo", "bar"]
-      text_2.extensions = ["foo"]
+    it "sorts obsolete types higher than non-obsolete types" do
+      text_1.obsolete = text_1p.obsolete = false
+      text_1b = mime_type(text_1) { |t| t.obsolete = true }
 
-      assert_priority_same text_1, text_2
+      assert_priority_less text_1, text_1b
 
-      text_2.registered = true
+      assert_priority text_1, text_1p, text_1b
+    end
 
-      assert_priority_more text_1, text_2
+    it "sorts provisional types higher than non-provisional types" do
+      text_1.provisional = text_1p.provisional = true
+      text_1b = mime_type(text_1) { |t| t.provisional = false }
+
+      assert_priority text_1, text_1p, text_1b
     end
 
     it "sorts (3) based on the registration state" do
@@ -377,13 +381,6 @@ describe MIME::Type do
       assert_priority text_1, text_1p, text_1b
     end
 
-    it "sorts (5) based on obsolete status" do
-      text_1.obsolete = text_1p.obsolete = false
-      text_1b = mime_type(text_1) { |t| t.obsolete = true }
-
-      assert_priority text_1, text_1p, text_1b
-    end
-
     it "sorts (5) based on the use-instead value" do
       text_1.obsolete = text_1p.obsolete = true
       text_1.use_instead = text_1p.use_instead = "abc/xyz"
@@ -394,6 +391,13 @@ describe MIME::Type do
       text_1b.use_instead = "abc/zzz"
 
       assert_priority text_1, text_1p, text_1b
+    end
+
+    it "sorts based on extensions (more extensions sort lower)" do
+      text_1.extensions = ["foo", "bar"]
+      text_2.extensions = ["foo"]
+
+      assert_priority_less text_1, text_2
     end
   end
 
@@ -502,10 +506,10 @@ describe MIME::Type do
 
   describe "#to_json" do
     let(:expected_1) {
-      '{"content-type":"a/b","encoding":"base64","registered":false}'
+      '{"content-type":"a/b","encoding":"base64","registered":false,"sort-priority":48}'
     }
     let(:expected_2) {
-      '{"content-type":"a/b","encoding":"base64","registered":true,"provisional":true}'
+      '{"content-type":"a/b","encoding":"base64","registered":true,"provisional":true,"sort-priority":80}'
     }
 
     it "converts to JSON when requested" do
