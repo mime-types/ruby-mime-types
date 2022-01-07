@@ -131,7 +131,7 @@ class MIME::Type
     @friendly = {}
     @obsolete = @registered = @provisional = false
     @preferred_extension = @docs = @use_instead = @__sort_priority = nil
-    self.__extension_priorities
+    __extension_priorities
 
     self.extensions = []
 
@@ -176,6 +176,8 @@ class MIME::Type
   #
   # Note that this implementation of #<=> is deprecated and will be changed
   # in the next major version to be the same as #priority_compare.
+  #
+  # Note that MIME::Types no longer compare against nil.
   def <=>(other)
     return priority_compare(other) if other.is_a?(MIME::Type)
     simplified <=> other
@@ -230,7 +232,8 @@ class MIME::Type
   # The computed sort priority value. This is _not_ intended to be used by most
   # callers.
   def __sort_priority # :nodoc:
-    @__sort_priority || update_sort_priority
+    update_sort_priority if !instance_variable_defined?(:@__sort_priority) || @__sort_priority.nil?
+    @__sort_priority
   end
 
   # Returns the whole MIME content-type string.
@@ -317,7 +320,7 @@ class MIME::Type
     if value
       add_extensions(value)
       set_preferred_extension_priority(value)
-    else
+    elsif instance_variable_defined?(:@preferred_extension)
       clear_extension_priority(@preferred_extension)
     end
     @preferred_extension = value
@@ -566,7 +569,7 @@ class MIME::Type
     coder["registered"] = registered?
     coder["provisional"] = provisional? if provisional?
     coder["signature"] = signature? if signature?
-    coder["sort-priority"] = __sort_priority
+    coder["sort-priority"] = __sort_priority || 0b11111111
     coder["extension-priorities"] = __extension_priorities unless __extension_priorities.empty?
     coder
   end
@@ -646,11 +649,11 @@ class MIME::Type
     end
   end
 
-  private
-
-  def __extension_priorities
+  def __extension_priorities # :nodoc:
     @extension_priorities ||= {}
   end
+
+  private
 
   def clear_extension_priority(ext)
     __extension_priorities.delete(ext) if ext
@@ -686,14 +689,15 @@ class MIME::Type
   # 16, to a minimum of 0.
   def update_sort_priority
     extension_count = @extensions.length
-    obsolete = @obsolete ? 1 << 7 : 0
-    provisional = @provisional ? 1 << 6 : 0
-    registered = @registered ? 0 : 1 << 5
+    obsolete = instance_variable_defined?(:@obsolete) && @obsolete ? 1 << 7 : 0
+    provisional = instance_variable_defined?(:@provisional) && @provisional ? 1 << 6 : 0
+    registered = instance_variable_defined?(:@registered) && @registered ? 0 : 1 << 5
     complete = extension_count.nonzero? ? 0 : 1 << 4
     extension_count = [0, 16 - extension_count].max
 
     @__sort_priority = obsolete | registered | provisional | complete | extension_count
-    @__priority_penalty = (@obsolete ? 3 : 0) + (@registered ? 0 : 2)
+    @__priority_penalty = (instance_variable_defined?(:@obsolete) && @obsolete ? 3 : 0) +
+      (instance_variable_defined?(:@registered) && @registered ? 0 : 2)
   end
 
   def __priority_penalty
