@@ -204,6 +204,10 @@ class MIME::Types
     index_extensions!(type)
   end
 
+  def __fully_loaded? # :nodoc:
+    true
+  end
+
   private
 
   def add_type_variant!(mime_type)
