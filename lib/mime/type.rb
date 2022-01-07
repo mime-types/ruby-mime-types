@@ -201,8 +201,8 @@ class MIME::Type
   # consumers of mime-types. For the next major version of MIME::Types, this
   # method will become #<=> and #priority_compare will be removed.
   def priority_compare(other)
-    if (cmp = simplified <=> other.simplified).zero?
-      __sort_priority <=> other.__sort_priority
+    if (cmp = __sort_priority <=> other.__sort_priority).zero?
+      simplified <=> other.simplified
     else
       cmp
     end
@@ -242,7 +242,7 @@ class MIME::Type
 
   # The computed sort priority value. This is _not_ intended to be used by most
   # callers.
-  def __sort_priority
+  def __sort_priority # :nodoc:
     @__sort_priority || update_sort_priority
   end
 
@@ -337,17 +337,24 @@ class MIME::Type
   end
 
   ##
-  # Optional extension priorities for this MIME type. This is a relative value
-  # similar to nice(1). An explicitly set `preferred_extension` is automatically
-  # given a relative priority of `-10`.
+  # Optional extension priorities for this MIME type. This is a map of
+  # extensions to relative priority values (+-20..20+) similar to +nice(1)+.
+  # Unless otherwise specified in the data, an explicitly set
+  # +preferred_extension+ is automatically given a relative priority of +-10+.
   #
   # :attr_reader: extension_priorities
   attr_accessor :extension_priorities
 
   ##
   # Returns the priority for the provided extension or extensions. If a priority
-  # is not set, the default priority is 0. The range for priorities is -20..20,
-  # inclusive.
+  # is not set, the default priority is +0+. The range for priorities is
+  # +-20..20+, inclusive.
+  #
+  # Obsolete MIME types have a <code>+3</code> penalty applied to their
+  # extension priority and unregistered MIME types have a <code>+2</code>
+  # penalty to their extension priority, meaning that the highest priority an
+  # obsolete, unregistered MIME type can have is +-15+. The lowest priority is
+  # always <code>+20</code>.
   def extension_priority(*exts)
     exts.map { |ext| get_extension_priority(ext) }.min
   end
@@ -663,7 +670,7 @@ class MIME::Type
   end
 
   def get_extension_priority(ext)
-    [[-20, __extension_priorities[ext] || 0].max, 20].min
+    [[-20, (__extension_priorities[ext] || 0) + __priority_penalty].max, 20].min
   end
 
   def set_preferred_extension_priority(ext)
@@ -699,6 +706,12 @@ class MIME::Type
     extension_count = [0, 16 - extension_count].max
 
     @__sort_priority = obsolete | registered | provisional | complete | extension_count
+    @__priority_penalty = (@obsolete ? 3 : 0) + (@registered ? 0 : 2)
+  end
+
+  def __priority_penalty
+    update_sort_priority if @__priority_penalty.nil?
+    @__priority_penalty
   end
 
   def content_type=(type_string)
