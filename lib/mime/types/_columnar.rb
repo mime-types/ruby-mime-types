@@ -30,7 +30,6 @@ module MIME::Types::Columnar
       line = line.split
       content_type = line.shift
       extensions = line
-      # content_type, *extensions = line.split
 
       type = MIME::Type::Columnar.new(self, content_type, extensions)
       @__mime_data__ << type
@@ -162,9 +161,9 @@ module MIME::Types::Columnar
   def dict_extension_priority(h, k, v)
     return if v.nil?
 
-    v = v.to_i if v.kind_of?(String)
-    v = v.trunc if v.kind_of?(Float)
-    v =  [[-20, v].max, 20].min
+    v = v.to_i if v.is_a?(String)
+    v = v.trunc if v.is_a?(Float)
+    v = [[-20, v].max, 20].min
 
     return if v.zero?
 
