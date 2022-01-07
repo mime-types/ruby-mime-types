@@ -18,6 +18,10 @@ module MIME::Types::Columnar
     obj.instance_variable_set(:@__files__, Set.new)
   end
 
+  def __fully_loaded? # :nodoc:
+    @__files__.size == 10
+  end
+
   # Load the first column data file (type and extensions).
   def load_base_data(path) # :nodoc:
     @__root__ = path
@@ -31,6 +35,10 @@ module MIME::Types::Columnar
       type = MIME::Type::Columnar.new(self, content_type, extensions)
       @__mime_data__ << type
       add(type)
+    end
+
+    each_file_byte("spri") do |type, byte|
+      type.instance_variable_set(:@__sort_priority, byte)
     end
 
     self
@@ -54,6 +62,25 @@ module MIME::Types::Columnar
         else
           yield line
         end
+      end
+
+      @__files__ << name
+    end
+  end
+
+  def each_file_byte(name)
+    LOAD_MUTEX.synchronize do
+      next if @__files__.include?(name)
+
+      i = -1
+
+      filename = File.join(@__root__, "mime.#{name}.column")
+
+      next unless File.exist?(filename)
+
+      IO.binread(filename).unpack("C*").each do |byte|
+        (type = @__mime_data__[i += 1]) || next
+        yield type, byte
       end
 
       @__files__ << name
