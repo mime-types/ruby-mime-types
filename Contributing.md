@@ -25,11 +25,11 @@ The mime-types registry is no longer contained in mime-types, but in
 
 mime-types uses Ryan Davis’s [Hoe][] to manage the release process, and it adds
 a number of rake tasks. You will mostly be interested in `rake`, which runs the
-tests the same way that `rake test` or `rake travis` will do.
+tests the same way that `rake test` will do.
 
 To assist with the installation of the development dependencies for
 mime-types, I have provided the simplest possible Gemfile pointing to the
-(generated) `mime-types.gemspec` file. This will permit you to do `bundle install` to get the development dependencies. If you aleady have `hoe`
+(generated) `mime-types.gemspec` file. This will permit you to do `bundle install` to get the development dependencies. If you already have `hoe`
 installed, you can accomplish the same thing with `rake newb`.
 
 This task will install any missing dependencies, run the tests/specs, and

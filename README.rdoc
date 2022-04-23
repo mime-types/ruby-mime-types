@@ -5,7 +5,7 @@ code :: https://github.com/mime-types/ruby-mime-types/
 bugs :: https://github.com/mime-types/ruby-mime-types/issues
 rdoc :: http://rdoc.info/gems/mime-types/
 clog :: https://github.com/mime-types/ruby-mime-types/blob/master/History.md
-continuous integration :: {<img src="https://travis-ci.org/mime-types/ruby-mime-types.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/mime-types/ruby-mime-types]
+continuous integration :: {<img src="https://github.com/mime-types/ruby-mime-types/actions/workflows/ci.yml/badge.svg" alt="Build Status" />}[https://github.com/mime-types/ruby-mime-types/actions/workflows/ci.yml]
 test coverage :: {<img src="https://coveralls.io/repos/mime-types/ruby-mime-types/badge.svg?branch=master&service=github" alt="Coverage Status" />}[https://coveralls.io/github/mime-types/ruby-mime-types?branch=master]
 
 == Description
