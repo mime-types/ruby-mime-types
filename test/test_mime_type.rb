@@ -266,7 +266,27 @@ describe MIME::Type do
     end
 
     it "is true for an equivalent MIME::Type" do
-      assert text_plain, mime_type("text/Plain")
+      assert text_plain.eql?(mime_type("text/Plain"))
+    end
+
+    it "is true for an equivalent subclass of MIME::Type" do
+      subclass = Class.new(MIME::Type)
+      assert text_plain.eql?(subclass.new("text/plain"))
+    end
+  end
+
+  describe "#hash" do
+    it "is the same between #eql? MIME::Type instances" do
+      assert_equal text_plain.hash, mime_type("text/plain").hash
+    end
+
+    it "is the same between #eql? MIME::Type instances of different classes" do
+      subclass = Class.new(MIME::Type)
+      assert_equal text_plain.hash, subclass.new("text/plain").hash
+    end
+
+    it "uses the #simplified value" do
+      assert_equal text_plain.hash, mime_type("text/Plain").hash
     end
   end
 

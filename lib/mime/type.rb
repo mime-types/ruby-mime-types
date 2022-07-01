@@ -224,6 +224,32 @@ class MIME::Type
     other.is_a?(MIME::Type) && (self == other)
   end
 
+  # Returns a hash based on the #simplified value.
+  #
+  # This maintains the invariant that two #eql? instances must have the same
+  # #hash (although having the same #hash does *not* imply that the objects are
+  # #eql?).
+  #
+  # To see why, suppose a MIME::Type instance +a+ is compared to another object
+  # +b+, and that <code>a.eql?(b)</code> is true. By the definition of #eql?,
+  # we know the following:
+  #
+  # 1. +b+ is a MIME::Type instance itself.
+  # 2. <code>a == b</code> is true.
+  #
+  # Due to the first point, we know that +b+ should respond to the #simplified
+  # method. Thus, per the definition of #<=>, we know that +a.simplified+ must
+  # be equal to +b.simplified+, as compared by the <=> method corresponding to
+  # +a.simplified+.
+  #
+  # Presumably, if <code>a.simplified <=> b.simplified</code> is +0+, then
+  # +a.simplified+ has the same hash as +b.simplified+. So we assume it's
+  # suitable for #hash to delegate to #simplified in service of the #eql?
+  # invariant.
+  def hash
+    simplified.hash
+  end
+
   # Returns the whole MIME content-type string.
   #
   # The content type is a presentation value from the MIME type registry and
