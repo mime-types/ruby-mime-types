@@ -1,5 +1,12 @@
 # Changelog
 
+## NEXT / 2022-MM-DD
+
+- 1 bugfix:
+
+  - Added a definition of `MIME::Type#hash`. Contributed by Alex Vondrak in
+    [#167][], fixing [#166][].
+
 ## 3.4.1 / 2021-11-16
 
 - 1 bugfix:
@@ -264,6 +271,8 @@
 [#149]: https://github.com/mime-types/ruby-mime-types/pull/149
 [#150]: https://github.com/mime-types/ruby-mime-types/pull/150
 [#153]: https://github.com/mime-types/ruby-mime-types/pull/153
+[#166]: https://github.com/mime-types/ruby-mime-types/issues/166
+[#167]: https://github.com/mime-types/ruby-mime-types/pull/167
 [code-of-conduct.md]: Code-of-Conduct_md.html
 [contributor covenant]: http://contributor-covenant.org
 [mime-types-data]: https://github.com/mime-types/mime-types-data
