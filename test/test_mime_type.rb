@@ -447,36 +447,44 @@ describe MIME::Type do
     let(:t) { mime_type("a/b") }
 
     it "has the required keys (content-type, registered, encoding)" do
-      assert_has_keys t.to_h, %w[content-type registered encoding]
+      keys = t.to_h.keys
+      assert_includes keys, "content-type"
+      assert_includes keys, "registered"
+      assert_includes keys, "encoding"
     end
 
     it "has the docs key if there are documents" do
-      assert_has_keys mime_type(t) { |v| v.docs = "a" }.to_h, %w[docs]
+      assert_includes mime_type(t) { |v| v.docs = "a" }.to_h.keys, "docs"
     end
 
     it "has the extensions key if set" do
-      assert_has_keys mime_type(t) { |v| v.extensions = "a" }.to_h,
+      assert_includes mime_type(t) { |v| v.extensions = "a" }.to_h.keys,
         "extensions"
     end
 
     it "has the preferred-extension key if set" do
-      assert_has_keys mime_type(t) { |v| v.preferred_extension = "a" }.to_h,
-        "preferred-extension"
+      assert_includes mime_type(t) { |v|
+        v.preferred_extension = "a"
+      }.to_h.keys, "preferred-extension"
     end
 
     it "has the obsolete key if set" do
-      assert_has_keys mime_type(t) { |v| v.obsolete = true }.to_h, "obsolete"
+      assert_includes mime_type(t) { |v| v.obsolete = true }.to_h.keys,
+        "obsolete"
     end
 
     it "has the obsolete and use-instead keys if set" do
-      assert_has_keys mime_type(t) { |v|
+      keys = mime_type(t) { |v|
         v.obsolete = true
         v.use_instead = "c/d"
-      }.to_h, %w[obsolete use-instead]
+      }.to_h.keys
+      assert_includes keys, "obsolete"
+      assert_includes keys, "use-instead"
     end
 
     it "has the signature key if set" do
-      assert_has_keys mime_type(t) { |v| v.signature = true }.to_h, "signature"
+      assert_includes mime_type(t) { |v| v.signature = true }.to_h.keys,
+        "signature"
     end
   end
 
