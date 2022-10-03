@@ -27,6 +27,7 @@ jobs:
           - '2.6'
           - '2.7'
           - '3.0'
+          - '3.1'
           - head
           - debug
           - mingw
@@ -61,7 +62,7 @@ jobs:
       (startsWith(matrix.ruby, 'jruby') && matrix.os == 'windows')
       }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
