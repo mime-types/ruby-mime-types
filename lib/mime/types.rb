@@ -187,9 +187,9 @@ class MIME::Types
   # truthy value to suppress that warning.
   def add_type(type, quiet = false)
     if !quiet && @type_variants[type.simplified].include?(type)
-      MIME::Types.logger.debug <<-WARNING.chomp.strip
-        Type #{type} is already registered as a variant of #{type.simplified}.
-      WARNING
+      # MIME::Types.logger.debug <<-WARNING.chomp.strip
+      #   Type #{type} is already registered as a variant of #{type.simplified}.
+      # WARNING
     end
 
     add_type_variant!(type)
