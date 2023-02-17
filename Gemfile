@@ -7,6 +7,8 @@ source "https://rubygems.org/"
 
 gem "mime-types-data", path: "../mime-types-data" if ENV["DEV"]
 
+gem "debug", platforms: [:mri_31]
+
 gemspec
 
 # vim: syntax=ruby

@@ -47,7 +47,6 @@ Hoe.plugin :email unless ENV["CI"]
 
 spec = Hoe.spec "mime-types" do
   developer("Austin Ziegler", "halostatue@gmail.com")
-  self.need_tar = true
 
   require_ruby_version ">= 2.0"
 
@@ -58,17 +57,18 @@ spec = Hoe.spec "mime-types" do
 
   extra_deps << ["mime-types-data", "~> 3.2015"]
 
+  extra_dev_deps << ["hoe", ">= 3.0", "< 5"]
   extra_dev_deps << ["hoe-doofus", "~> 1.0"]
   extra_dev_deps << ["hoe-gemspec2", "~> 1.1"]
-  extra_dev_deps << ["hoe-git", "~> 1.6"]
+  extra_dev_deps << ["hoe-git2", "~> 1.7"]
   extra_dev_deps << ["hoe-rubygems", "~> 1.0"]
-  extra_dev_deps << ["standard", "~> 1.0"]
-  extra_dev_deps << ["minitest", "~> 5.4"]
+  extra_dev_deps << ["minitest", "~> 5.0"]
   extra_dev_deps << ["minitest-autotest", "~> 1.0"]
-  extra_dev_deps << ["minitest-focus", "~> 1.0"]
   extra_dev_deps << ["minitest-bonus-assertions", "~> 3.0"]
+  extra_dev_deps << ["minitest-focus", "~> 1.0"]
   extra_dev_deps << ["minitest-hooks", "~> 1.4"]
   extra_dev_deps << ["rake", ">= 10.0", "< 14.0"]
+  extra_dev_deps << ["standard", "~> 1.0"]
 
   if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new("2.0")
     extra_dev_deps << ["simplecov", "~> 0.7"]
@@ -235,9 +235,7 @@ namespace :convert do
 
       file mark => [rdoc, :setup] do |t|
         puts "#{rdoc} => #{mark}"
-        File.open(t.name, "wb") { |target|
-          target.write @doc_converter.convert(IO.read(t.prerequisites.first))
-        }
+        File.binwrite(t.name, @doc_converter.convert(IO.read(t.prerequisites.first)))
       end
 
       CLEAN.add mark

@@ -7,6 +7,23 @@
   - Added a definition of `MIME::Type#hash`. Contributed by Alex Vondrak in
     [#167][], fixing [#166][].
 
+- Dependency and CI updates:
+
+  - Update the .github/workflows/ci.yml workflow to test Ruby 3.2 and more
+    reliably test certain combinations rather than depending on exclusions.
+
+  - Change `.standard.yml` configuration to format for Ruby 2.3 as certain files
+    are not properly detected with Ruby 2.0.
+
+    - Change from `hoe-git` to `hoe-git2` to support Hoe version 4.
+
+    - Apply `standardrb --fix`.
+
+    - The above changes have resulted in the Soft deprecation of Ruby versions
+      below 2.6. Any errors reported for Ruby versions 2.0, 2.1, 2.2, 2.3, 2.4,
+      and 2.5 will be resolved, but maintaining CI for these versions is
+      unsustainable.
+
 ## 3.4.1 / 2021-11-16
 
 - 1 bugfix:
