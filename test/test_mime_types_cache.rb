@@ -67,7 +67,7 @@ describe MIME::Types::Cache do
     it "outputs an error when there is a marshal file incompatibility" do
       MIME::Types::Cache.save
       data = File.binread(@cache_file).reverse
-      File.open(@cache_file, "wb") { |f| f.write(data) }
+      File.binwrite(@cache_file, data)
       MIME::Types.instance_variable_set(:@__types__, nil)
       assert_output "", /incompatible marshal file format/ do
         MIME::Types["text/html"]

@@ -364,7 +364,7 @@ class MIME::Type
 
   # Returns the default encoding for the MIME::Type based on the media type.
   def default_encoding
-    @media_type == "text" ? "quoted-printable" : "base64"
+    (@media_type == "text") ? "quoted-printable" : "base64"
   end
 
   ##

@@ -11,10 +11,12 @@ class Deps
     weighted_deps = {}
 
     deps.each do |name|
-      downloads = gem_downloads(name)
-      weighted_deps[name] = downloads if downloads
-    rescue => e
-      puts "#{name} #{e.message}"
+      begin
+        downloads = gem_downloads(name)
+        weighted_deps[name] = downloads if downloads
+      rescue => e
+        puts "#{name} #{e.message}"
+      end
     end
 
     weighted_deps

@@ -49,10 +49,6 @@ class << MIME::Types::Cache
 
     types ||= MIME::Types.send(:__types__)
 
-    File.open(cache_file, "wb") do |f|
-      f.write(
-        Marshal.dump(new(MIME::Types::Data::VERSION, Marshal.dump(types)))
-      )
-    end
+    File.binwrite(cache_file, Marshal.dump(new(MIME::Types::Data::VERSION, Marshal.dump(types))))
   end
 end
