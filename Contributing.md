@@ -121,6 +121,7 @@ Thanks to everyone else who has contributed to mime-types over the years:
 - Richard Hirner
 - Richard Hurt
 - Richard Schneeman
+- Robb Shecter
 - Tibor Szolár
 - Todd Carrico
 
