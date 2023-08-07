@@ -1,6 +1,17 @@
 # Changelog
 
-## 3.4.2 / 2023-08-07
+## 3.5.0 / 2023-08-07
+
+- 1 minor enhancement:
+
+  - Robb Shecter changed the default log level for duplicate type variant from
+    `warn` to `debug` in [#170][]. This works because `MIME::Types.logger` is
+    intended to fit the `::Logger` interface, and the default logger
+    (`WarnLogger`) is a subclass of `::Logger` that passes through to
+    `Kernel.warn`.
+
+    - Further consideration has changed cache load messages from `warn` to
+      `error` and deprecation messages from `warn` to `debug`.
 
 - 1 bug fix:
 
@@ -292,6 +303,7 @@
 [#153]: https://github.com/mime-types/ruby-mime-types/pull/153
 [#166]: https://github.com/mime-types/ruby-mime-types/issues/166
 [#167]: https://github.com/mime-types/ruby-mime-types/pull/167
+[#170]: https://github.com/mime-types/ruby-mime-types/pull/170
 [code-of-conduct.md]: Code-of-Conduct_md.html
 [contributor covenant]: http://contributor-covenant.org
 [mime-types-data]: https://github.com/mime-types/mime-types-data
