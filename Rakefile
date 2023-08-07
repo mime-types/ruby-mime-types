@@ -1,59 +1,25 @@
-# frozen_string_literal: true
-
 require "rubygems"
 require "hoe"
 require "rake/clean"
 
-# This is required until https://github.com/seattlerb/hoe/issues/112 is fixed
-class Hoe
-  def with_config
-    config = Hoe::DEFAULT_CONFIG
-
-    rc = File.expand_path("~/.hoerc")
-    homeconfig = load_config(rc)
-    config = config.merge(homeconfig)
-
-    localconfig = load_config(File.expand_path(File.join(Dir.pwd, ".hoerc")))
-    config = config.merge(localconfig)
-
-    yield config, rc
-  end
-
-  def load_config(name)
-    File.exist?(name) ? safe_load_yaml(name) : {}
-  end
-
-  def safe_load_yaml(name)
-    return safe_load_yaml_file(name) if YAML.respond_to?(:safe_load_file)
-
-    data = IO.binread(name)
-    YAML.safe_load(data, permitted_classes: [Regexp])
-  rescue
-    YAML.safe_load(data, [Regexp])
-  end
-
-  def safe_load_yaml_file(name)
-    YAML.safe_load_file(name, permitted_classes: [Regexp])
-  rescue
-    YAML.safe_load_file(name, [Regexp])
-  end
-end
-
+Hoe.plugin :cov
 Hoe.plugin :doofus
 Hoe.plugin :gemspec2
-Hoe.plugin :git
+Hoe.plugin :git2
 Hoe.plugin :minitest
-Hoe.plugin :email unless ENV["CI"]
+Hoe.plugin :rubygems
 
 spec = Hoe.spec "mime-types" do
   developer("Austin Ziegler", "halostatue@gmail.com")
-
-  require_ruby_version ">= 2.0"
 
   self.history_file = "History.md"
   self.readme_file = "README.rdoc"
 
   license "MIT"
+
+  require_ruby_version ">= 2.0"
+
+  spec_extras[:metadata] = ->(val) { val["rubygems_mfa_required"] = "true" }
 
   extra_deps << ["mime-types-data", "~> 3.2015"]
 
@@ -69,10 +35,6 @@ spec = Hoe.spec "mime-types" do
   extra_dev_deps << ["minitest-hooks", "~> 1.4"]
   extra_dev_deps << ["rake", ">= 10.0", "< 14.0"]
   extra_dev_deps << ["standard", "~> 1.0"]
-
-  if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new("2.0")
-    extra_dev_deps << ["simplecov", "~> 0.7"]
-  end
 end
 
 namespace :benchmark do
