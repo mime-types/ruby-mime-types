@@ -159,6 +159,10 @@ describe MIME::Types do
       plain_text.add_extensions("xtxt")
       assert_includes mime_types.type_for("xtxt"), "text/plain"
     end
+
+    it "handles newline characters correctly" do
+      assert_includes mime_types.type_for("test.pdf\n.txt"), "text/plain"
+    end
   end
 
   describe "#count" do

@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.5.1 / 2023-08-21
+
+- 1 bug fix:
+
+  - Better handle possible line-termination strings (legal in Unix filenames)
+    such as `\n` in `MIME::Types.type_for`. Reported by ooooooo-q in [#177][],
+    resolved in [#178][].
+
 ## 3.5.0 / 2023-08-07
 
 - 1 minor enhancement:
@@ -304,6 +312,8 @@
 [#166]: https://github.com/mime-types/ruby-mime-types/issues/166
 [#167]: https://github.com/mime-types/ruby-mime-types/pull/167
 [#170]: https://github.com/mime-types/ruby-mime-types/pull/170
+[#177]: https://github.com/mime-types/ruby-mime-types/issues/177
+[#178]: https://github.com/mime-types/ruby-mime-types/pull/178
 [code-of-conduct.md]: Code-of-Conduct_md.html
 [contributor covenant]: http://contributor-covenant.org
 [mime-types-data]: https://github.com/mime-types/mime-types-data
