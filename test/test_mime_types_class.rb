@@ -100,6 +100,11 @@ describe MIME::Types, "registry" do
       plain_text.add_extensions("xtxt")
       assert_includes MIME::Types.type_for("xtxt"), "text/plain"
     end
+
+    it "handles newline characters correctly" do
+      assert_includes MIME::Types.type_for("test.pdf\n.txt"), "text/plain"
+      assert_includes MIME::Types.type_for("test.txt\n.pdf"), "application/pdf"
+    end
   end
 
   describe ".count" do
