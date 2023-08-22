@@ -24,9 +24,7 @@ jobs:
           - jruby
           - jruby-head
           - truffleruby
-          - truffleruby-head
           - truffleruby+graalvm
-          - truffleruby+graalvm-head
         include:
           - ruby: head
             continue-on-error: true
@@ -45,6 +43,13 @@ jobs:
             ruby: '3.1'
           - os: ubuntu-22.04
             ruby: '3.2'
+          - os: ubuntu-22.04
+            ruby: truffleruby+graalvm-head
+            continue-on-error: true
+          - os: ubuntu-22.04
+            ruby: truffleruby-head
+            continue-on-error: true
+
     runs-on: ${{ matrix.os }}
     continue-on-error: ${{ matrix.continue-on-error || false }}
     steps:
