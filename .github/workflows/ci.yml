@@ -1,13 +1,14 @@
 name: CI
 
 on:
+  pull_request:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
+  workflow_dispatch:
 
 jobs:
   test:
+    name: Ruby ${{ matrix.ruby }} - ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
@@ -40,10 +41,13 @@ jobs:
             continue-on-error: true
           - os: ubuntu-22.04
             ruby: head
+            continue-on-error: true
           - os: ubuntu-22.04
             ruby: '3.1'
           - os: ubuntu-22.04
             ruby: '3.2'
+          - os: ubuntu-22.04
+            ruby: '3.3'
           - os: ubuntu-22.04
             ruby: truffleruby+graalvm-head
             continue-on-error: true
@@ -53,14 +57,17 @@ jobs:
 
     runs-on: ${{ matrix.os }}
     continue-on-error: ${{ matrix.continue-on-error || false }}
+
     steps:
       - uses: actions/checkout@v3
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
-          rubygems: ${{ matrix.rubygems || 'latest' }}
+          rubygems: latest
           bundler: 2
           bundler-cache: true
+
       - run: bundle exec ruby -S rake test --trace
-      - if: matrix.os == 'ubuntu-22.04' && matrix.ruby == '3.2'
+
+      - if: matrix.os == 'ubuntu-22.04' && matrix.ruby == '3.3'
         run: bundle exec standardrb

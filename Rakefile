@@ -30,7 +30,6 @@ spec = Hoe.spec "mime-types" do
   extra_dev_deps << ["hoe-rubygems", "~> 1.0"]
   extra_dev_deps << ["minitest", "~> 5.0"]
   extra_dev_deps << ["minitest-autotest", "~> 1.0"]
-  extra_dev_deps << ["minitest-bonus-assertions", "~> 3.0"]
   extra_dev_deps << ["minitest-focus", "~> 1.0"]
   extra_dev_deps << ["minitest-hooks", "~> 1.4"]
   extra_dev_deps << ["rake", ">= 10.0", "< 14.0"]

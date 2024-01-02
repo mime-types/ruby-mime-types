@@ -1,5 +1,19 @@
 # Changelog
 
+## 3.5.2 / 2024-01-02
+
+There are no primary code changes, but we are releasing this as an update as
+there are some validation changes and updated code with formatting.
+
+- Dependency and CI updates:
+
+  - Masato Nakamura added Ruby 3.3 to the CI workflow in [#179][].
+
+  - Fixed regressions in standard formatting in [#180][].
+
+  - Removed `minitest-bonus-assertions` because of a bundler resolution issue.
+    Created a better replacement in-line.
+
 ## 3.5.1 / 2023-08-21
 
 - 1 bug fix:
@@ -314,6 +328,8 @@
 [#170]: https://github.com/mime-types/ruby-mime-types/pull/170
 [#177]: https://github.com/mime-types/ruby-mime-types/issues/177
 [#178]: https://github.com/mime-types/ruby-mime-types/pull/178
+[#179]: https://github.com/mime-types/ruby-mime-types/pull/179
+[#180]: https://github.com/mime-types/ruby-mime-types/pull/180
 [code-of-conduct.md]: Code-of-Conduct_md.html
 [contributor covenant]: http://contributor-covenant.org
 [mime-types-data]: https://github.com/mime-types/mime-types-data

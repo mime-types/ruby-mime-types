@@ -446,37 +446,53 @@ describe MIME::Type do
   describe "#to_h" do
     let(:t) { mime_type("a/b") }
 
+    def assert_has_keys(wanted_keys, actual, msg = nil)
+      wanted_keys = Array(wanted_keys).uniq.sort
+      actual_keys = if actual.is_a?(Hash)
+        actual.keys
+      else
+        actual.to_h.keys
+      end
+
+      missing = wanted_keys - actual_keys
+      pretty_wanted_keys = (wanted_keys + actual_keys).uniq.sort
+
+      msg = message(msg) {
+        "#{mu_pp(actual)} is missing attribute values\n#{diff(pretty_wanted_keys, actual_keys)}"
+      }
+
+      assert missing.empty?, msg
+    end
+
     it "has the required keys (content-type, registered, encoding)" do
-      assert_has_keys t.to_h, %w[content-type registered encoding]
+      assert_has_keys %w[content-type registered encoding], t
     end
 
     it "has the docs key if there are documents" do
-      assert_has_keys mime_type(t) { |v| v.docs = "a" }.to_h, %w[docs]
+      assert_has_keys "docs", mime_type(t) { |v| v.docs = "a" }
     end
 
     it "has the extensions key if set" do
-      assert_has_keys mime_type(t) { |v| v.extensions = "a" }.to_h,
-        "extensions"
+      assert_has_keys "extensions", mime_type(t) { |v| v.extensions = "a" }
     end
 
     it "has the preferred-extension key if set" do
-      assert_has_keys mime_type(t) { |v| v.preferred_extension = "a" }.to_h,
-        "preferred-extension"
+      assert_has_keys "preferred-extension", mime_type(t) { |v| v.preferred_extension = "a" }
     end
 
     it "has the obsolete key if set" do
-      assert_has_keys mime_type(t) { |v| v.obsolete = true }.to_h, "obsolete"
+      assert_has_keys "obsolete", mime_type(t) { |v| v.obsolete = true }
     end
 
     it "has the obsolete and use-instead keys if set" do
-      assert_has_keys mime_type(t) { |v|
+      assert_has_keys %w[obsolete use-instead], mime_type(t) { |v|
         v.obsolete = true
         v.use_instead = "c/d"
-      }.to_h, %w[obsolete use-instead]
+      }
     end
 
     it "has the signature key if set" do
-      assert_has_keys mime_type(t) { |v| v.signature = true }.to_h, "signature"
+      assert_has_keys "signature", mime_type(t) { |v| v.signature = true }
     end
   end
 

@@ -82,9 +82,9 @@ Here's the most direct way to get your work merged into the project:
 Thanks to everyone else who has contributed to mime-types over the years:
 
 - Aaron Patterson
-- Alex Vondrak
 - Aggelos Avgerinos
 - Al Snow
+- Alex Vondrak
 - Andre Pankratz
 - Andy Brody
 - Arnaud Meuret
@@ -93,8 +93,8 @@ Thanks to everyone else who has contributed to mime-types over the years:
 - Chris Gat
 - David Genord
 - Dillon Welch
-- Eric Marden
 - Edward Betts
+- Eric Marden
 - Garret Alfert
 - Godfrey Chan
 - Greg Brockman
@@ -106,15 +106,16 @@ Thanks to everyone else who has contributed to mime-types over the years:
 - Jeremy Evans
 - Juanito Fatas
 - Jun Aruga
-- Łukasz Śliwa
 - Keerthi Siva
 - Ken Ip
 - Kevin Menard
 - Koichi ITO
+- Łukasz Śliwa
 - Martin d'Allens
+- Masato Nakamura
 - Mauricio Linhares
-- Nicolas Leger
 - Nicholas La Roux
+- Nicolas Leger
 - nycvotes-dev
 - Olle Jonsson
 - Postmodern
