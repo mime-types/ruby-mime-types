@@ -165,7 +165,7 @@ class MIME::Types
   # The last parameter may be the value <tt>:silent</tt> or +true+ which
   # will suppress duplicate MIME type warnings.
   def add(*types)
-    quiet = ((types.last == :silent) || (types.last == true))
+    quiet = (types.last == :silent) || (types.last == true)
 
     types.each do |mime_type|
       case mime_type
