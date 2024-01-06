@@ -183,7 +183,8 @@ MAJOR.MINOR:
    MAJOR.MINOR.PATCH.
 
 In practical terms, there will be fewer releases of mime-types focussing on
-features because of the existence of the [mime-types-data][] gem, and if
+features because of the existence of the
+{mime-types-data}[https://github.com/mime-types/mime-types-data] gem, and if
 features are marked deprecated in the course of mime-types 3.x, they will not
 be removed until mime-types 4.x or possibly later.
 
