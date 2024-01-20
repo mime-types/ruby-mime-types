@@ -4,20 +4,22 @@
 module MIME
 end
 
+require "mime/types/deprecations"
+
 # The definition of one MIME content-type.
 #
 # == Usage
-#  require 'mime/types'
+#  require "mime/types"
 #
-#  plaintext = MIME::Types['text/plain'] # => [ text/plain ]
+#  plaintext = MIME::Types["text/plain"] # => [ text/plain ]
 #  text = plaintext.first
-#  puts text.media_type            # => 'text'
-#  puts text.sub_type              # => 'plain'
+#  puts text.media_type            # => "text"
+#  puts text.sub_type              # => "plain"
 #
-#  puts text.extensions.join(' ')  # => 'txt asc c cc h hh cpp hpp dat hlp'
-#  puts text.preferred_extension   # => 'txt'
-#  puts text.friendly              # => 'Text Document'
-#  puts text.i18n_key              # => 'text.plain'
+#  puts text.extensions.join(" ")  # => "txt asc c cc h hh cpp hpp dat hlp"
+#  puts text.preferred_extension   # => "txt"
+#  puts text.friendly              # => "Text Document"
+#  puts text.i18n_key              # => "text.plain"
 #
 #  puts text.encoding              # => quoted-printable
 #  puts text.default_encoding      # => quoted-printable
@@ -28,42 +30,42 @@ end
 #  puts text.provisional?          # => false
 #  puts text.complete?             # => true
 #
-#  puts text                       # => 'text/plain'
+#  puts text                       # => "text/plain"
 #
-#  puts text == 'text/plain'       # => true
-#  puts 'text/plain' == text       # => true
-#  puts text == 'text/x-plain'     # => false
-#  puts 'text/x-plain' == text     # => false
+#  puts text == "text/plain"       # => true
+#  puts "text/plain" == text       # => true
+#  puts text == "text/x-plain"     # => false
+#  puts "text/x-plain" == text     # => false
 #
-#  puts MIME::Type.simplified('x-appl/x-zip') # => 'x-appl/x-zip'
-#  puts MIME::Type.i18n_key('x-appl/x-zip') # => 'x-appl.x-zip'
+#  puts MIME::Type.simplified("x-appl/x-zip") # => "x-appl/x-zip"
+#  puts MIME::Type.i18n_key("x-appl/x-zip") # => "x-appl.x-zip"
 #
-#  puts text.like?('text/x-plain') # => true
-#  puts text.like?(MIME::Type.new('x-text/x-plain')) # => true
+#  puts text.like?("text/x-plain") # => true
+#  puts text.like?(MIME::Type.new("content-type" => "x-text/x-plain")) # => true
 #
 #  puts text.xrefs.inspect # => { "rfc" => [ "rfc2046", "rfc3676", "rfc5147" ] }
 #  puts text.xref_urls # => [ "http://www.iana.org/go/rfc2046",
 #                      #      "http://www.iana.org/go/rfc3676",
 #                      #      "http://www.iana.org/go/rfc5147" ]
 #
-#  xtext = MIME::Type.new('x-text/x-plain')
-#  puts xtext.media_type # => 'text'
-#  puts xtext.raw_media_type # => 'x-text'
-#  puts xtext.sub_type # => 'plain'
-#  puts xtext.raw_sub_type # => 'x-plain'
+#  xtext = MIME::Type.new("x-text/x-plain")
+#  puts xtext.media_type # => "text"
+#  puts xtext.raw_media_type # => "x-text"
+#  puts xtext.sub_type # => "plain"
+#  puts xtext.raw_sub_type # => "x-plain"
 #  puts xtext.complete? # => false
 #
-#  puts MIME::Types.any? { |type| type.content_type == 'text/plain' } # => true
+#  puts MIME::Types.any? { |type| type.content_type == "text/plain" } # => true
 #  puts MIME::Types.all?(&:registered?) # => false
 #
 #  # Various string representations of MIME types
-#  qcelp = MIME::Types['audio/QCELP'].first # => audio/QCELP
-#  puts qcelp.content_type         # => 'audio/QCELP'
-#  puts qcelp.simplified           # => 'audio/qcelp'
+#  qcelp = MIME::Types["audio/QCELP"].first # => audio/QCELP
+#  puts qcelp.content_type         # => "audio/QCELP"
+#  puts qcelp.simplified           # => "audio/qcelp"
 #
-#  xwingz = MIME::Types['application/x-Wingz'].first # => application/x-Wingz
-#  puts xwingz.content_type        # => 'application/x-Wingz'
-#  puts xwingz.simplified          # => 'application/x-wingz'
+#  xwingz = MIME::Types["application/x-Wingz"].first # => application/x-Wingz
+#  puts xwingz.content_type        # => "application/x-Wingz"
+#  puts xwingz.simplified          # => "application/x-wingz"
 class MIME::Type
   # Reflects a MIME content-type specification that is not correctly
   # formatted (it isn't +type+/+subtype+).
@@ -100,7 +102,7 @@ class MIME::Type
   # :stopdoc:
   # TODO verify mime-type character restrictions; I am pretty sure that this is
   # too wide open.
-  MEDIA_TYPE_RE = %r{([-\w.+]+)/([-\w.+]*)}.freeze
+  MEDIA_TYPE_RE = %r{([a-zA-Z][-a-zA-Z0-9+_.]*)/([a-zA-Z0-9][-a-zA-Z0-9+_.]*)}.freeze
   I18N_RE = /[^[:alnum:]]/.freeze
   BINARY_ENCODINGS = %w[base64 8bit].freeze
   ASCII_ENCODINGS = %w[7bit quoted-printable].freeze
@@ -110,12 +112,15 @@ class MIME::Type
     :ASCII_ENCODINGS
 
   # Builds a MIME::Type object from the +content_type+, a MIME Content Type
-  # value (e.g., 'text/plain' or 'application/x-eruby'). The constructed object
+  # value (e.g., "text/plain" or "application/x-eruby"). The constructed object
   # is yielded to an optional block for additional configuration, such as
   # associating extensions and encoding information.
   #
   # * When provided a Hash or a MIME::Type, the MIME::Type will be
   #   constructed with #init_with.
+  #
+  # There are two deprecated initialization forms:
+  #
   # * When provided an Array, the MIME::Type will be constructed using
   #   the first element as the content type and the remaining flattened
   #   elements as extensions.
@@ -125,18 +130,22 @@ class MIME::Type
   def initialize(content_type) # :yields: self
     @friendly = {}
     @obsolete = @registered = @provisional = false
-    @preferred_extension = @docs = @use_instead = nil
+    @preferred_extension = @docs = @use_instead = @__sort_priority = nil
+    __extension_priorities
+
     self.extensions = []
 
     case content_type
     when Hash
       init_with(content_type)
     when Array
+      MIME::Types.deprecated(MIME::Type, {new: "when called with an Array"}, "")
       self.content_type = content_type.shift
       self.extensions = content_type.flatten
     when MIME::Type
       init_with(content_type.to_h)
     else
+      MIME::Types.deprecated(MIME::Type, {new: "when called with a String"}, "")
       self.content_type = content_type
     end
 
@@ -144,6 +153,8 @@ class MIME::Type
     self.xrefs ||= {}
 
     yield self if block_given?
+
+    update_sort_priority
   end
 
   # Indicates that a MIME type is like another type. This differs from
@@ -160,62 +171,30 @@ class MIME::Type
 
   # Compares the +other+ MIME::Type against the exact content type or the
   # simplified type (the simplified type will be used if comparing against
-  # something that can be treated as a String with #to_s). In comparisons, this
-  # is done against the lowercase version of the MIME::Type.
+  # something that can be treated as a String with #to_s). In comparisons,
+  # this is done against the lowercase version of the MIME::Type.
+  #
+  # Note that this implementation of #<=> is deprecated and will be changed
+  # in the next major version to be the same as #priority_compare.
+  #
+  # Note that MIME::Types no longer compare against nil.
   def <=>(other)
-    if other.nil?
-      -1
-    elsif other.respond_to?(:simplified)
-      simplified <=> other.simplified
-    else
-      filtered = "silent" if other == :silent
-      filtered ||= "true" if other == true
-      filtered ||= other.to_s
-
-      simplified <=> MIME::Type.simplified(filtered)
-    end
+    return priority_compare(other) if other.is_a?(MIME::Type)
+    simplified <=> other
   end
 
-  # Compares the +other+ MIME::Type based on how reliable it is before doing a
-  # normal <=> comparison. Used by MIME::Types#[] to sort types. The
-  # comparisons involved are:
+  # Compares the +other+ MIME::Type using the simplified representation, then
+  # a pre-computed sort priority value. Used by MIME::Types#[] to sort types.
   #
-  # 1. self.simplified <=> other.simplified (ensures that we
-  #    don't try to compare different types)
-  # 2. IANA-registered definitions < other definitions.
-  # 3. Complete definitions < incomplete definitions.
-  # 4. Current definitions < obsolete definitions.
-  # 5. Obselete with use-instead names < obsolete without.
-  # 6. Obsolete use-instead definitions are compared.
-  #
-  # While this method is public, its use is strongly discouraged by consumers
-  # of mime-types. In mime-types 3, this method is likely to see substantial
-  # revision and simplification to ensure current registered content types sort
-  # before unregistered or obsolete content types.
+  # While this method is public, its direct use is strongly discouraged by
+  # consumers of mime-types. For the next major version of MIME::Types, this
+  # method will become #<=> and #priority_compare will be removed.
   def priority_compare(other)
-    pc = simplified <=> other.simplified
-    if pc.zero? || !(extensions & other.extensions).empty?
-      pc =
-        if (reg = registered?) != other.registered?
-          reg ? -1 : 1 # registered < unregistered
-        elsif (comp = complete?) != other.complete?
-          comp ? -1 : 1 # complete < incomplete
-        elsif (obs = obsolete?) != other.obsolete?
-          obs ? 1 : -1 # current < obsolete
-        elsif obs && ((ui = use_instead) != (oui = other.use_instead))
-          if ui.nil?
-            1
-          elsif oui.nil?
-            -1
-          else
-            ui <=> oui
-          end
-        else
-          0
-        end
+    if (cmp = __sort_priority <=> other.__sort_priority) == 0
+      simplified <=> other.simplified
+    else
+      cmp
     end
-
-    pc
   end
 
   # Returns +true+ if the +other+ object is a MIME::Type and the content types
@@ -248,6 +227,13 @@ class MIME::Type
   # invariant.
   def hash
     simplified.hash
+  end
+
+  # The computed sort priority value. This is _not_ intended to be used by most
+  # callers.
+  def __sort_priority # :nodoc:
+    update_sort_priority if !instance_variable_defined?(:@__sort_priority) || @__sort_priority.nil?
+    @__sort_priority
   end
 
   # Returns the whole MIME content-type string.
@@ -304,6 +290,7 @@ class MIME::Type
 
   ##
   def extensions=(value) # :nodoc:
+    clear_sort_priority
     @extensions = Set[*Array(value).flatten.compact].freeze
     MIME::Types.send(:reindex_extensions, self)
   end
@@ -319,7 +306,7 @@ class MIME::Type
   # exceptions defined, the first extension will be used.
   #
   # When setting #preferred_extensions, if #extensions does not contain this
-  # extension, this will be added to #xtensions.
+  # extension, this will be added to #extensions.
   #
   # :attr_accessor: preferred_extension
 
@@ -330,8 +317,36 @@ class MIME::Type
 
   ##
   def preferred_extension=(value) # :nodoc:
-    add_extensions(value) if value
+    if value
+      add_extensions(value)
+      set_preferred_extension_priority(value)
+    elsif instance_variable_defined?(:@preferred_extension)
+      clear_extension_priority(@preferred_extension)
+    end
     @preferred_extension = value
+  end
+
+  ##
+  # Optional extension priorities for this MIME type. This is a map of
+  # extensions to relative priority values (+-20..20+) similar to +nice(1)+.
+  # Unless otherwise specified in the data, an explicitly set
+  # +preferred_extension+ is automatically given a relative priority of +-10+.
+  #
+  # :attr_reader: extension_priorities
+  attr_accessor :extension_priorities
+
+  ##
+  # Returns the priority for the provided extension or extensions. If a priority
+  # is not set, the default priority is +0+. The range for priorities is
+  # +-20..20+, inclusive.
+  #
+  # Obsolete MIME types have a <code>+3</code> penalty applied to their
+  # extension priority and unregistered MIME types have a <code>+2</code>
+  # penalty to their extension priority, meaning that the highest priority an
+  # obsolete, unregistered MIME type can have is +-15+. The lowest priority is
+  # always <code>+20</code>.
+  def extension_priority(*exts)
+    exts.map { |ext| get_extension_priority(ext) }.min
   end
 
   ##
@@ -343,7 +358,7 @@ class MIME::Type
   # provided is invalid.
   #
   # If the encoding is not provided on construction, this will be either
-  # 'quoted-printable' (for text/* media types) and 'base64' for eveything
+  # "quoted-printable" (for text/* media types) and "base64" for eveything
   # else.
   #
   # :attr_accessor: encoding
@@ -383,8 +398,16 @@ class MIME::Type
   attr_writer :use_instead
 
   # Returns +true+ if the media type is obsolete.
-  attr_accessor :obsolete
+  #
+  # :attr_accessor: obsolete
+  attr_reader :obsolete
   alias_method :obsolete?, :obsolete
+
+  ##
+  def obsolete=(value)
+    clear_sort_priority
+    @obsolete = !!value
+  end
 
   # The documentation for this MIME::Type.
   attr_accessor :docs
@@ -393,7 +416,7 @@ class MIME::Type
   #
   # call-seq:
   #   text_plain.friendly         # => "Text File"
-  #   text_plain.friendly('en')   # => "Text File"
+  #   text_plain.friendly("en")   # => "Text File"
   def friendly(lang = "en")
     @friendly ||= {}
 
@@ -443,11 +466,27 @@ class MIME::Type
   end
 
   # Indicates whether the MIME type has been registered with IANA.
-  attr_accessor :registered
+  #
+  # :attr_accessor: registered
+  attr_reader :registered
   alias_method :registered?, :registered
 
+  ##
+  def registered=(value)
+    clear_sort_priority
+    @registered = !!value
+  end
+
   # Indicates whether the MIME type's registration with IANA is provisional.
-  attr_accessor :provisional
+  #
+  # :attr_accessor: provisional
+  attr_reader :provisional
+
+  ##
+  def provisional=(value)
+    clear_sort_priority
+    @provisional = !!value
+  end
 
   # Indicates whether the MIME type's registration with IANA is provisional.
   def provisional?
@@ -486,7 +525,7 @@ class MIME::Type
   # Returns the MIME::Type as a string for implicit conversions. This allows
   # MIME::Type objects to appear on either side of a comparison.
   #
-  #   'text/plain' == MIME::Type.new('text/plain')
+  #   "text/plain" == MIME::Type.new("content-type" => "text/plain")
   def to_str
     content_type
   end
@@ -530,6 +569,8 @@ class MIME::Type
     coder["registered"] = registered?
     coder["provisional"] = provisional? if provisional?
     coder["signature"] = signature? if signature?
+    coder["sort-priority"] = __sort_priority || 0b11111111
+    coder["extension-priorities"] = __extension_priorities unless __extension_priorities.empty?
     coder
   end
 
@@ -538,6 +579,7 @@ class MIME::Type
   #
   # This method should be considered a private implementation detail.
   def init_with(coder)
+    @__sort_priority = 0
     self.content_type = coder["content-type"]
     self.docs = coder["docs"] || ""
     self.encoding = coder["encoding"]
@@ -549,8 +591,11 @@ class MIME::Type
     self.signature = coder["signature"]
     self.xrefs = coder["xrefs"] || {}
     self.use_instead = coder["use-instead"]
+    self.extension_priorities = coder["extension-priorities"]
 
     friendly(coder["friendly"] || {})
+
+    update_sort_priority
   end
 
   def inspect # :nodoc:
@@ -604,7 +649,61 @@ class MIME::Type
     end
   end
 
+  def __extension_priorities # :nodoc:
+    @extension_priorities ||= {}
+  end
+
   private
+
+  def clear_extension_priority(ext)
+    __extension_priorities.delete(ext) if ext
+  end
+
+  def get_extension_priority(ext)
+    [[-20, (__extension_priorities[ext] || 0) + __priority_penalty].max, 20].min
+  end
+
+  def set_preferred_extension_priority(ext)
+    __extension_priorities[ext] = -10 unless __extension_priorities.has_key?(ext)
+  end
+
+  def clear_sort_priority
+    @__sort_priority = nil
+  end
+
+  # Update the __sort_priority value. Lower numbers sort better, so the
+  # bitmapping may seem a little odd. The _best_ sort priority is 0.
+  #
+  # | bit | meaning         | details   |
+  # | --- | --------------- | --------- |
+  # | 7   | obsolete        | 1 if true |
+  # | 6   | provisional     | 1 if true |
+  # | 5   | registered      | 0 if true |
+  # | 4   | complete        | 0 if true |
+  # | 3   | # of extensions | see below |
+  # | 2   | # of extensions | see below |
+  # | 1   | # of extensions | see below |
+  # | 0   | # of extensions | see below |
+  #
+  # The # of extensions is marked as the number of extensions subtracted from
+  # 16, to a minimum of 0.
+  def update_sort_priority
+    extension_count = @extensions.length
+    obsolete = (instance_variable_defined?(:@obsolete) && @obsolete) ? 1 << 7 : 0
+    provisional = (instance_variable_defined?(:@provisional) && @provisional) ? 1 << 6 : 0
+    registered = (instance_variable_defined?(:@registered) && @registered) ? 0 : 1 << 5
+    complete = extension_count.nonzero? ? 0 : 1 << 4
+    extension_count = [0, 16 - extension_count].max
+
+    @__sort_priority = obsolete | registered | provisional | complete | extension_count
+    @__priority_penalty = ((instance_variable_defined?(:@obsolete) && @obsolete) ? 3 : 0) +
+      ((instance_variable_defined?(:@registered) && @registered) ? 0 : 2)
+  end
+
+  def __priority_penalty
+    update_sort_priority if @__priority_penalty.nil?
+    @__priority_penalty
+  end
 
   def content_type=(type_string)
     match = MEDIA_TYPE_RE.match(type_string)

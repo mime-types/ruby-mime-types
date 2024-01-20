@@ -31,7 +31,7 @@ describe MIME::Types, "registry" do
 
   describe ".[]" do
     it "can be searched with a MIME::Type" do
-      text_plain = MIME::Type.new("text/plain")
+      text_plain = MIME::Type.new("content-type" => "text/plain")
       assert_includes MIME::Types[text_plain], "text/plain"
       assert_equal 1, MIME::Types[text_plain].size
     end
@@ -47,7 +47,7 @@ describe MIME::Types, "registry" do
       }
       # This is this way because of a new type ending with gzip that only
       # appears in some data files.
-      assert_equal %w[application/gzip application/x-gzip multipart/x-gzip], types
+      assert_equal %w[application/gzip multipart/x-gzip application/x-gzip], types
       assert_equal 3, types.size
     end
 
@@ -86,9 +86,8 @@ describe MIME::Types, "registry" do
       assert_equal %w[image/jpeg], MIME::Types.of(["foo.jpeg", "bar.jpeg"])
     end
 
-    it "finds multiple extensions" do
-      assert_equal %w[image/jpeg text/plain],
-        MIME::Types.type_for(%w[foo.txt foo.jpeg])
+    it "finds multiple extensions ordered by the filename list" do
+      assert_equal %w[text/plain image/jpeg], MIME::Types.type_for(%w[foo.txt foo.jpeg])
     end
 
     it "does not find unknown extensions" do
@@ -119,8 +118,8 @@ describe MIME::Types, "registry" do
       MIME::Types.send(:load_default_mime_types)
     end
 
-    let(:eruby) { MIME::Type.new("application/x-eruby") }
-    let(:jinja) { MIME::Type.new("application/jinja2") }
+    let(:eruby) { MIME::Type.new("content-type" => "application/x-eruby") }
+    let(:jinja) { MIME::Type.new("content-type" => "application/jinja2") }
 
     it "successfully adds a new type" do
       MIME::Types.add(eruby)

@@ -16,17 +16,24 @@ module MIME
           klass = klass.class
           "#"
         end
+
+      sym, pre_message = sym.shift if sym.is_a?(Hash)
+      pre_message = " #{pre_message}" if pre_message
+
       message =
         case message
         when :private, :protected
-          "and will be #{message}"
+          " and will be made #{message}"
         when nil
-          "and will be removed"
+          " and will be removed"
+        when ""
+          nil
         else
-          message
+          " #{message}"
         end
+
       MIME::Types.logger.debug <<-WARNING.chomp.strip
-        #{caller(2..2).first}: #{klass}#{level}#{sym} is deprecated #{message}.
+        #{caller(2..2).first}: #{klass}#{level}#{sym}#{pre_message} is deprecated#{message}.
       WARNING
 
       return unless block
