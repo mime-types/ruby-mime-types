@@ -26,7 +26,6 @@ jobs:
           - jruby
           - jruby-head
           - truffleruby
-          - truffleruby+graalvm
         include:
           - ruby: head
             continue-on-error: true
@@ -48,18 +47,13 @@ jobs:
             ruby: '3.2'
           - os: ubuntu-22.04
             ruby: '3.3'
-          - os: ubuntu-22.04
-            ruby: truffleruby+graalvm-head
-            continue-on-error: true
-          - os: ubuntu-22.04
-            ruby: truffleruby-head
-            continue-on-error: true
+            standardrb: true
 
     runs-on: ${{ matrix.os }}
     continue-on-error: ${{ matrix.continue-on-error || false }}
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
@@ -69,5 +63,5 @@ jobs:
 
       - run: bundle exec ruby -S rake test --trace
 
-      - if: matrix.os == 'ubuntu-22.04' && matrix.ruby == '3.3'
+      - if: matrix.standardrb == true
         run: bundle exec standardrb
