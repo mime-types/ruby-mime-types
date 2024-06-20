@@ -18,6 +18,10 @@ module MIME::Types::Columnar
     obj.instance_variable_set(:@__files__, Set.new)
   end
 
+  def __fully_loaded? # :nodoc:
+    @__files__.size == 10
+  end
+
   # Load the first column data file (type and extensions).
   def load_base_data(path) # :nodoc:
     @__root__ = path
@@ -26,11 +30,14 @@ module MIME::Types::Columnar
       line = line.split
       content_type = line.shift
       extensions = line
-      # content_type, *extensions = line.split
 
       type = MIME::Type::Columnar.new(self, content_type, extensions)
       @__mime_data__ << type
       add(type)
+    end
+
+    each_file_byte("spri") do |type, byte|
+      type.instance_variable_set(:@__sort_priority, byte)
     end
 
     self
@@ -54,6 +61,25 @@ module MIME::Types::Columnar
         else
           yield line
         end
+      end
+
+      @__files__ << name
+    end
+  end
+
+  def each_file_byte(name)
+    LOAD_MUTEX.synchronize do
+      next if @__files__.include?(name)
+
+      i = -1
+
+      filename = File.join(@__root__, "mime.#{name}.column")
+
+      next unless File.exist?(filename)
+
+      IO.binread(filename).unpack("C*").each do |byte|
+        (type = @__mime_data__[i += 1]) || next
+        yield type, byte
       end
 
       @__files__ << name
@@ -91,7 +117,7 @@ module MIME::Types::Columnar
 
   def load_xrefs
     each_file_line("xrefs") { |type, line|
-      type.instance_variable_set(:@xrefs, dict(line, array: true))
+      type.instance_variable_set(:@xrefs, dict(line, transform: :array))
     }
   end
 
@@ -107,16 +133,45 @@ module MIME::Types::Columnar
     end
   end
 
-  def dict(line, array: false)
+  def load_extension_priorities
+    each_file_line("extpri") do |type, line|
+      type.instance_variable_set(:@extension_priorities, dict(line, transform: :extension_priority))
+    end
+  rescue
+    # This path preserves backwards compatibility.
+  end
+
+  def dict(line, transform: nil)
     if line == "-"
       {}
     else
       line.split("|").each_with_object({}) { |l, h|
         k, v = l.split("^")
         v = nil if v.empty?
-        h[k] = array ? Array(v) : v
+
+        if transform
+          send(:"dict_#{transform}", h, k, v)
+        else
+          h[k] = v
+        end
       }
     end
+  end
+
+  def dict_extension_priority(h, k, v)
+    return if v.nil?
+
+    v = v.to_i if v.is_a?(String)
+    v = v.trunc if v.is_a?(Float)
+    v = [[-20, v].max, 20].min
+
+    return if v.zero?
+
+    h[k] = v
+  end
+
+  def dict_array(h, k, v)
+    h[k] = Array(v)
   end
 
   def arr(line)

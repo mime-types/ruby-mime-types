@@ -1,5 +1,32 @@
 # Changelog
 
+## NEXT / YYYY-MM-DD
+
+- 2 deprecations:
+
+  - Deprecated Array-based MIME::Type initialization.
+  - Deprecated String-based MIME::Type initialization.
+  - Deprecated `MIME::Type#priority_compare`. In a future release, this will be
+    will be renamed to `MIME::Type#<=>`. This method is used in tight loops, so
+    there is no warning message for either `MIME::Type#priority_compare` or
+    `MIME::Type#<=>`.
+
+- 1 enhancement:
+
+  - Improved the performance of sorting by eliminating the complex comparison
+    flow from `MIME::Type#priority_compare`. The old version shows under 600
+    i/s, and the new version shows over 900 i/s. In sorting the full set of MIME
+    data, there are three differences between the old and new versions; after
+    comparison, these differences are considered acceptable.
+
+- 1 bug fix:
+
+  - Simplified the default compare implementation (`MIME::Type#<=>`) to use the
+    new `MIME::Type#priority_compare` operation and simplify the fallback to
+    `String` comparison. This _may_ result in exceptions where there had been
+    none, as explicit support for several special values (which should have
+    caused errors in any case) have been removed.
+
 ## 3.5.2 / 2024-01-02
 
 There are no primary code changes, but we are releasing this as an update as
@@ -105,7 +132,7 @@ there are some validation changes and updated code with formatting.
 
 ## 3.3 / 2019-09-04
 
-- 1 minor enhancement
+- 1 minor enhancement:
 
   - Jean Boussier reduced memory usage for Ruby versions 2.3 or higher by
     interning various string values in each type. This is done with a
