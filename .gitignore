@@ -3,8 +3,6 @@
 .rake_tasks~
 .source_index
 Gemfile.lock
-coverage.info
-coverage/
 doc/
 html/
 pkg/
