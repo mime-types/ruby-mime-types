@@ -4,20 +4,22 @@
 module MIME
 end
 
+require "mime/types/deprecations"
+
 # The definition of one MIME content-type.
 #
 # == Usage
-#  require 'mime/types'
+#  require "mime/types"
 #
-#  plaintext = MIME::Types['text/plain'] # => [ text/plain ]
+#  plaintext = MIME::Types["text/plain"] # => [ text/plain ]
 #  text = plaintext.first
-#  puts text.media_type            # => 'text'
-#  puts text.sub_type              # => 'plain'
+#  puts text.media_type            # => "text"
+#  puts text.sub_type              # => "plain"
 #
-#  puts text.extensions.join(' ')  # => 'txt asc c cc h hh cpp hpp dat hlp'
-#  puts text.preferred_extension   # => 'txt'
-#  puts text.friendly              # => 'Text Document'
-#  puts text.i18n_key              # => 'text.plain'
+#  puts text.extensions.join(" ")  # => "txt asc c cc h hh cpp hpp dat hlp"
+#  puts text.preferred_extension   # => "txt"
+#  puts text.friendly              # => "Text Document"
+#  puts text.i18n_key              # => "text.plain"
 #
 #  puts text.encoding              # => quoted-printable
 #  puts text.default_encoding      # => quoted-printable
@@ -28,45 +30,45 @@ end
 #  puts text.provisional?          # => false
 #  puts text.complete?             # => true
 #
-#  puts text                       # => 'text/plain'
+#  puts text                       # => "text/plain"
 #
-#  puts text == 'text/plain'       # => true
-#  puts 'text/plain' == text       # => true
-#  puts text == 'text/x-plain'     # => false
-#  puts 'text/x-plain' == text     # => false
+#  puts text == "text/plain"       # => true
+#  puts "text/plain" == text       # => true
+#  puts text == "text/x-plain"     # => false
+#  puts "text/x-plain" == text     # => false
 #
-#  puts MIME::Type.simplified('x-appl/x-zip') # => 'x-appl/x-zip'
-#  puts MIME::Type.i18n_key('x-appl/x-zip') # => 'x-appl.x-zip'
+#  puts MIME::Type.simplified("x-appl/x-zip") # => "x-appl/x-zip"
+#  puts MIME::Type.i18n_key("x-appl/x-zip") # => "x-appl.x-zip"
 #
-#  puts text.like?('text/x-plain') # => true
-#  puts text.like?(MIME::Type.new('x-text/x-plain')) # => true
+#  puts text.like?("text/x-plain") # => true
+#  puts text.like?(MIME::Type.new("content-type" => "x-text/x-plain")) # => true
 #
 #  puts text.xrefs.inspect # => { "rfc" => [ "rfc2046", "rfc3676", "rfc5147" ] }
 #  puts text.xref_urls # => [ "http://www.iana.org/go/rfc2046",
 #                      #      "http://www.iana.org/go/rfc3676",
 #                      #      "http://www.iana.org/go/rfc5147" ]
 #
-#  xtext = MIME::Type.new('x-text/x-plain')
-#  puts xtext.media_type # => 'text'
-#  puts xtext.raw_media_type # => 'x-text'
-#  puts xtext.sub_type # => 'plain'
-#  puts xtext.raw_sub_type # => 'x-plain'
+#  xtext = MIME::Type.new("x-text/x-plain")
+#  puts xtext.media_type # => "text"
+#  puts xtext.raw_media_type # => "x-text"
+#  puts xtext.sub_type # => "plain"
+#  puts xtext.raw_sub_type # => "x-plain"
 #  puts xtext.complete? # => false
 #
-#  puts MIME::Types.any? { |type| type.content_type == 'text/plain' } # => true
+#  puts MIME::Types.any? { |type| type.content_type == "text/plain" } # => true
 #  puts MIME::Types.all?(&:registered?) # => false
 #
 #  # Various string representations of MIME types
-#  qcelp = MIME::Types['audio/QCELP'].first # => audio/QCELP
-#  puts qcelp.content_type         # => 'audio/QCELP'
-#  puts qcelp.simplified           # => 'audio/qcelp'
+#  qcelp = MIME::Types["audio/QCELP"].first # => audio/QCELP
+#  puts qcelp.content_type         # => "audio/QCELP"
+#  puts qcelp.simplified           # => "audio/qcelp"
 #
-#  xwingz = MIME::Types['application/x-Wingz'].first # => application/x-Wingz
-#  puts xwingz.content_type        # => 'application/x-Wingz'
-#  puts xwingz.simplified          # => 'application/x-wingz'
+#  xwingz = MIME::Types["application/x-Wingz"].first # => application/x-Wingz
+#  puts xwingz.content_type        # => "application/x-Wingz"
+#  puts xwingz.simplified          # => "application/x-wingz"
 class MIME::Type
   # Reflects a MIME content-type specification that is not correctly
-  # formatted (it isn't +type+/+subtype+).
+  # formatted (it is not +type+/+subtype+).
   class InvalidContentType < ArgumentError
     # :stopdoc:
     def initialize(type_string)
@@ -93,14 +95,20 @@ class MIME::Type
   end
 
   # The released version of the mime-types library.
-  VERSION = "3.5.2"
+  VERSION = "3.6.0.beta1"
 
   include Comparable
 
   # :stopdoc:
-  # TODO verify mime-type character restrictions; I am pretty sure that this is
-  # too wide open.
-  MEDIA_TYPE_RE = %r{([-\w.+]+)/([-\w.+]*)}.freeze
+  # Full conformance with RFC 6838 §4.2 (the recommendation for < 64 characters is not
+  # enforced or reported because MIME::Types mostly deals with registered data). RFC 4288
+  # §4.2 does not restrict the first character to alphanumeric, but the total length of
+  # each part is limited to 127 characters. RFCC 2045 §5.1 does not restrict the character
+  # composition except for whitespace, but MIME::Type was always more strict than this.
+  restricted_name_first = "[0-9a-zA-Z]"
+  restricted_name_chars = "[-!#{$&}^_.+0-9a-zA-Z]{0,126}"
+  restricted_name = "#{restricted_name_first}#{restricted_name_chars}"
+  MEDIA_TYPE_RE = %r{(#{restricted_name})/(#{restricted_name})}.freeze
   I18N_RE = /[^[:alnum:]]/.freeze
   BINARY_ENCODINGS = %w[base64 8bit].freeze
   ASCII_ENCODINGS = %w[7bit quoted-printable].freeze
@@ -110,12 +118,15 @@ class MIME::Type
     :ASCII_ENCODINGS
 
   # Builds a MIME::Type object from the +content_type+, a MIME Content Type
-  # value (e.g., 'text/plain' or 'application/x-eruby'). The constructed object
+  # value (e.g., "text/plain" or "application/x-eruby"). The constructed object
   # is yielded to an optional block for additional configuration, such as
   # associating extensions and encoding information.
   #
   # * When provided a Hash or a MIME::Type, the MIME::Type will be
   #   constructed with #init_with.
+  #
+  # There are two deprecated initialization forms:
+  #
   # * When provided an Array, the MIME::Type will be constructed using
   #   the first element as the content type and the remaining flattened
   #   elements as extensions.
@@ -132,11 +143,23 @@ class MIME::Type
     when Hash
       init_with(content_type)
     when Array
+      MIME::Types.deprecated(
+        class: MIME::Type,
+        method: :new,
+        pre: "when called with an Array",
+        once: true
+      )
       self.content_type = content_type.shift
       self.extensions = content_type.flatten
     when MIME::Type
       init_with(content_type.to_h)
     else
+      MIME::Types.deprecated(
+        class: MIME::Type,
+        method: :new,
+        pre: "when called with a String",
+        once: true
+      )
       self.content_type = content_type
     end
 
@@ -181,7 +204,7 @@ class MIME::Type
   # comparisons involved are:
   #
   # 1. self.simplified <=> other.simplified (ensures that we
-  #    don't try to compare different types)
+  #    do not try to compare different types)
   # 2. IANA-registered definitions < other definitions.
   # 3. Complete definitions < incomplete definitions.
   # 4. Current definitions < obsolete definitions.
@@ -243,7 +266,7 @@ class MIME::Type
   # +a.simplified+.
   #
   # Presumably, if <code>a.simplified <=> b.simplified</code> is +0+, then
-  # +a.simplified+ has the same hash as +b.simplified+. So we assume it's
+  # +a.simplified+ has the same hash as +b.simplified+. So we assume it is
   # suitable for #hash to delegate to #simplified in service of the #eql?
   # invariant.
   def hash
@@ -319,7 +342,7 @@ class MIME::Type
   # exceptions defined, the first extension will be used.
   #
   # When setting #preferred_extensions, if #extensions does not contain this
-  # extension, this will be added to #xtensions.
+  # extension, this will be added to #extensions.
   #
   # :attr_accessor: preferred_extension
 
@@ -330,7 +353,9 @@ class MIME::Type
 
   ##
   def preferred_extension=(value) # :nodoc:
-    add_extensions(value) if value
+    if value
+      add_extensions(value)
+    end
     @preferred_extension = value
   end
 
@@ -343,7 +368,7 @@ class MIME::Type
   # provided is invalid.
   #
   # If the encoding is not provided on construction, this will be either
-  # 'quoted-printable' (for text/* media types) and 'base64' for eveything
+  # "quoted-printable" (for text/* media types) and "base64" for eveything
   # else.
   #
   # :attr_accessor: encoding
@@ -393,7 +418,7 @@ class MIME::Type
   #
   # call-seq:
   #   text_plain.friendly         # => "Text File"
-  #   text_plain.friendly('en')   # => "Text File"
+  #   text_plain.friendly("en")   # => "Text File"
   def friendly(lang = "en")
     @friendly ||= {}
 
@@ -486,7 +511,7 @@ class MIME::Type
   # Returns the MIME::Type as a string for implicit conversions. This allows
   # MIME::Type objects to appear on either side of a comparison.
   #
-  #   'text/plain' == MIME::Type.new('text/plain')
+  #   "text/plain" == MIME::Type.new("content-type" => "text/plain")
   def to_str
     content_type
   end
@@ -627,7 +652,7 @@ class MIME::Type
       -string
     end
   else
-    # MRI 2.2 and older don't have a method for string interning,
+    # MRI 2.2 and older do not have a method for string interning,
     # so we simply freeze them for keeping a similar interface
     def intern_string(string)
       string.freeze

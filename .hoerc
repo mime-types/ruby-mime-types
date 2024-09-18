@@ -30,6 +30,7 @@ exclude: !ruby/regexp '/
     fasterer |
     pullreview |
     rubocop* |
+    standard* |
     travis |
     unused
   )\.yml$

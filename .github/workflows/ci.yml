@@ -50,7 +50,7 @@ jobs:
             continue-on-error: true
 
     runs-on: ${{ matrix.os }}
-    continue-on-error: ${{ matrix.continue-on-error }}
+    continue-on-error: ${{ matrix.continue-on-error || false }}
 
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
@@ -104,7 +104,6 @@ jobs:
         ruby:
           - '2.6'
           - '2.7'
-          - '3.0'
           - '3.1'
           - '3.2'
           - '3.3'
@@ -112,6 +111,8 @@ jobs:
           - ucrt
         include:
           - ruby: mingw
+            os: windows-2022
+          - ruby: '3.0'
             os: windows-2022
 
     runs-on: ${{ matrix.os }}

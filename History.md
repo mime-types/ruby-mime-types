@@ -1,5 +1,23 @@
 # Changelog
 
+## 3.6 / 2024-09-30
+
+- 2 deprecations:
+
+  - Array-based MIME::Type initialization
+  - String-based MIME::Type initialization
+
+  Use of these these will result in deprecation warnings.
+
+- Added `logger` to the gemspec to suppress a bundled gem warning with Ruby
+  3.3.5. This warning should not be showing up until Ruby 3.4.0 is released and
+  will be suppressed in Ruby 3.3.6.
+
+- Reworked the deprecation message code to be somewhat more flexible and allow
+  for outputting certain warnings once. Because there will be at least one other
+  release after 3.6, we do not need to make the type initialization deprecations
+  frequent with this release.
+
 ## 3.5.2 / 2024-01-02
 
 There are no primary code changes, but we are releasing this as an update as
