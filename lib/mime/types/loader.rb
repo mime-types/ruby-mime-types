@@ -13,7 +13,7 @@ require "mime/types/data"
 #
 # The Loader will use one of the following paths:
 # 1.  The +path+ provided in its constructor argument;
-# 2.  The value of ENV['RUBY_MIME_TYPES_DATA']; or
+# 2.  The value of ENV["RUBY_MIME_TYPES_DATA"]; or
 # 3.  The value of MIME::Types::Data::PATH.
 #
 # When #load is called, the +path+ will be searched recursively for all YAML
