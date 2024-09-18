@@ -9,13 +9,13 @@ describe MIME::Type do
   end
 
   let(:x_appl_x_zip) {
-    mime_type("x-appl/x-zip") { |t| t.extensions = %w[zip zp] }
+    mime_type("content-type" => "x-appl/x-zip") { |t| t.extensions = %w[zip zp] }
   }
-  let(:text_plain) { mime_type("text/plain") }
-  let(:text_html) { mime_type("text/html") }
-  let(:image_jpeg) { mime_type("image/jpeg") }
+  let(:text_plain) { mime_type("content-type" => "text/plain") }
+  let(:text_html) { mime_type("content-type" => "text/html") }
+  let(:image_jpeg) { mime_type("content-type" => "image/jpeg") }
   let(:application_javascript) {
-    mime_type("application/javascript") do |js|
+    mime_type("content-type" => "application/javascript") do |js|
       js.friendly("en" => "JavaScript")
       js.xrefs = {
         "rfc" => %w[rfc4239 rfc4239],
@@ -27,7 +27,7 @@ describe MIME::Type do
     end
   }
   let(:text_x_yaml) {
-    mime_type("text/x-yaml") do |yaml|
+    mime_type("content-type" => "text/x-yaml") do |yaml|
       yaml.extensions = %w[yaml yml]
       yaml.encoding = "8bit"
       yaml.friendly("en" => "YAML Structured Document")
@@ -88,20 +88,22 @@ describe MIME::Type do
   describe ".new" do
     it "fails if an invalid content type is provided" do
       exception = assert_raises MIME::Type::InvalidContentType do
-        MIME::Type.new("apps")
+        MIME::Type.new("content-type" => "apps")
       end
       assert_equal 'Invalid Content-Type "apps"', exception.to_s
     end
 
     it "creates a valid content type just from a string" do
-      type = MIME::Type.new("text/x-yaml")
+      assert_output "", /MIME::Type.new when called with a String is deprecated\./ do
+        type = MIME::Type.new("text/x-yaml")
 
-      assert_instance_of MIME::Type, type
-      assert_equal "text/x-yaml", type.content_type
+        assert_instance_of MIME::Type, type
+        assert_equal "text/x-yaml", type.content_type
+      end
     end
 
     it "yields the content type in a block" do
-      MIME::Type.new("text/x-yaml") do |type|
+      MIME::Type.new("content-type" => "text/x-yaml") do |type|
         assert_instance_of MIME::Type, type
         assert_equal "text/x-yaml", type.content_type
       end
@@ -118,10 +120,12 @@ describe MIME::Type do
     end
 
     it "creates a valid content type from an array" do
-      type = MIME::Type.new(%w[text/x-yaml yaml yml yz])
-      assert_instance_of MIME::Type, type
-      assert_equal "text/x-yaml", type.content_type
-      assert_equal %w[yaml yml yz], type.extensions
+      assert_output "", /MIME::Type.new when called with an Array is deprecated\./ do
+        type = MIME::Type.new(%w[text/x-yaml yaml yml yz])
+        assert_instance_of MIME::Type, type
+        assert_equal "text/x-yaml", type.content_type
+        assert_equal %w[yaml yml yz], type.extensions
+      end
     end
   end
 
@@ -143,7 +147,7 @@ describe MIME::Type do
     end
 
     it "correctly compares equivalent types" do
-      right = mime_type("text/Plain")
+      right = mime_type("content-type" => "text/Plain")
       refute_same text_plain, right
       assert_equal text_plain, right
     end
@@ -204,14 +208,14 @@ describe MIME::Type do
     end
 
     it "is false when there are no extensions" do
-      refute mime_type("text/plain").complete?
+      refute mime_type("content-type" => "text/plain").complete?
     end
   end
 
   describe "#content_type" do
     it "preserves the original case" do
       assert_equal "text/plain", text_plain.content_type
-      assert_equal "text/vCard", mime_type("text/vCard").content_type
+      assert_equal "text/vCard", mime_type("content-type" => "text/vCard").content_type
     end
 
     it "does not remove x- prefixes" do
@@ -266,27 +270,27 @@ describe MIME::Type do
     end
 
     it "is true for an equivalent MIME::Type" do
-      assert text_plain.eql?(mime_type("text/Plain"))
+      assert text_plain.eql?(mime_type("content-type" => "text/Plain"))
     end
 
     it "is true for an equivalent subclass of MIME::Type" do
       subclass = Class.new(MIME::Type)
-      assert text_plain.eql?(subclass.new("text/plain"))
+      assert text_plain.eql?(subclass.new("content-type" => "text/plain"))
     end
   end
 
   describe "#hash" do
     it "is the same between #eql? MIME::Type instances" do
-      assert_equal text_plain.hash, mime_type("text/plain").hash
+      assert_equal text_plain.hash, mime_type("content-type" => "text/plain").hash
     end
 
     it "is the same between #eql? MIME::Type instances of different classes" do
       subclass = Class.new(MIME::Type)
-      assert_equal text_plain.hash, subclass.new("text/plain").hash
+      assert_equal text_plain.hash, subclass.new("content-type" => "text/plain").hash
     end
 
     it "uses the #simplified value" do
-      assert_equal text_plain.hash, mime_type("text/Plain").hash
+      assert_equal text_plain.hash, mime_type("content-type" => "text/Plain").hash
     end
   end
 
@@ -340,9 +344,9 @@ describe MIME::Type do
       assert_priority_more right, left
     end
 
-    let(:text_1) { mime_type("text/1") }
-    let(:text_1p) { mime_type("text/1") }
-    let(:text_2) { mime_type("text/2") }
+    let(:text_1) { mime_type("content-type" => "text/1") }
+    let(:text_1p) { mime_type("content-type" => "text/1") }
+    let(:text_2) { mime_type("content-type" => "text/2") }
 
     it "sorts (1) based on the simplified type" do
       assert_priority text_1, text_1p, text_2
@@ -395,7 +399,7 @@ describe MIME::Type do
 
   describe "#raw_media_type" do
     it "extracts the media type as case-preserved" do
-      assert_equal "Text", mime_type("Text/plain").raw_media_type
+      assert_equal "Text", mime_type("content-type" => "Text/plain").raw_media_type
     end
 
     it "does not remove x- prefixes" do
@@ -415,7 +419,7 @@ describe MIME::Type do
 
   describe "#raw_media_type" do
     it "extracts the media type as case-preserved" do
-      assert_equal "Text", mime_type("Text/plain").raw_media_type
+      assert_equal "Text", mime_type("content-type" => "Text/plain").raw_media_type
     end
 
     it "does not remove x- prefixes" do
@@ -435,7 +439,7 @@ describe MIME::Type do
 
   describe "#raw_sub_type" do
     it "extracts the sub type as case-preserved" do
-      assert_equal "Plain", mime_type("text/Plain").raw_sub_type
+      assert_equal "Plain", mime_type("content-type" => "text/Plain").raw_sub_type
     end
 
     it "does not remove x- prefixes" do
@@ -444,7 +448,7 @@ describe MIME::Type do
   end
 
   describe "#to_h" do
-    let(:t) { mime_type("a/b") }
+    let(:t) { mime_type("content-type" => "a/b") }
 
     def assert_has_keys(wanted_keys, actual, msg = nil)
       wanted_keys = Array(wanted_keys).uniq.sort
@@ -505,11 +509,11 @@ describe MIME::Type do
     }
 
     it "converts to JSON when requested" do
-      assert_equal expected_1, mime_type("a/b").to_json
+      assert_equal expected_1, mime_type("content-type" => "a/b").to_json
     end
 
     it "converts to JSON with provisional when requested" do
-      type = mime_type("a/b") do |t|
+      type = mime_type("content-type" => "a/b") do |t|
         t.registered = true
         t.provisional = true
       end
@@ -559,7 +563,7 @@ describe MIME::Type do
     }
 
     let(:type) {
-      mime_type("a/b").tap do |t|
+      mime_type("content-type" => "a/b").tap do |t|
         t.xrefs = {
           "draft" => ["RFC1"],
           "template" => ["a/b"],

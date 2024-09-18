@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
 
-      - uses: ruby/setup-ruby@v1
+      - uses: ruby/setup-ruby@c04af2bb7258bb6a03df1d3c1865998ac9390972 # v1
         with:
           ruby-version: '3.3'
           rubygems: latest
@@ -39,22 +39,13 @@ jobs:
           - '3.1'
           - '3.2'
           - '3.3'
-          - jruby
           - truffleruby
-        include:
-          - ruby: jruby
-            os: ubuntu-22.04
-            continue-on-error: true
-          - ruby: truffleruby
-            os: ubuntu-22.04
-            continue-on-error: true
 
     runs-on: ${{ matrix.os }}
-    continue-on-error: ${{ matrix.continue-on-error }}
 
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
-      - uses: ruby/setup-ruby@v1
+      - uses: ruby/setup-ruby@c04af2bb7258bb6a03df1d3c1865998ac9390972 # v1
         with:
           ruby-version: ${{ matrix.ruby }}
           rubygems: latest
@@ -84,7 +75,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
-      - uses: ruby/setup-ruby@v1
+      - uses: ruby/setup-ruby@c04af2bb7258bb6a03df1d3c1865998ac9390972 # v1
         with:
           ruby-version: ${{ matrix.ruby }}
           rubygems: latest
@@ -104,7 +95,6 @@ jobs:
         ruby:
           - '2.6'
           - '2.7'
-          - '3.0'
           - '3.1'
           - '3.2'
           - '3.3'
@@ -113,12 +103,14 @@ jobs:
         include:
           - ruby: mingw
             os: windows-2022
+          - ruby: '3.0'
+            os: windows-2022
 
     runs-on: ${{ matrix.os }}
 
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
-      - uses: ruby/setup-ruby@v1
+      - uses: ruby/setup-ruby@c04af2bb7258bb6a03df1d3c1865998ac9390972 # v1
         with:
           ruby-version: ${{ matrix.ruby }}
           rubygems: latest
@@ -126,6 +118,36 @@ jobs:
           bundler-cache: true
 
       - run: bundle exec ruby -S rake test --trace
+
+  # JRuby should NOT be optional, but I have not been able to make it work in quite
+  # a while.
+  jruby:
+    name: Ruby ${{ matrix.ruby }} - ${{ matrix.os }})
+
+    strategy:
+      fail-fast: false
+
+      matrix:
+        ruby:
+          - jruby
+        os:
+          - ubuntu-20.04
+          - ubuntu-22.04
+          - ubuntu-24.04
+
+    continue-on-error: true
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+      - uses: ruby/setup-ruby@c04af2bb7258bb6a03df1d3c1865998ac9390972 # v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          rubygems: latest
+          bundler: 2
+          bundler-cache: true
+
+      - run: bundle exec jruby -S rake test --trace
 
   ruby-head-optional:
     name: Ruby ${{ matrix.ruby }} - ${{ matrix.os }} (optional)
@@ -146,7 +168,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
-      - uses: ruby/setup-ruby@v1
+      - uses: ruby/setup-ruby@c04af2bb7258bb6a03df1d3c1865998ac9390972 # v1
         with:
           ruby-version: ${{ matrix.ruby }}
           rubygems: latest

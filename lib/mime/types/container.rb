@@ -5,10 +5,10 @@ require "forwardable"
 
 # MIME::Types requires a serializable keyed container that returns an empty Set
 # on a key miss. Hash#default_value cannot be used because, while it traverses
-# the Marshal format correctly, it won't survive any other serialization
+# the Marshal format correctly, it will not survive any other serialization
 # format (plus, a default of a mutable object resuls in a shared mess).
 # Hash#default_proc cannot be used without a wrapper because it prevents
-# Marshal serialization (and doesn't survive the round-trip).
+# Marshal serialization (and does not survive the round-trip).
 class MIME::Types::Container # :nodoc:
   extend Forwardable
 

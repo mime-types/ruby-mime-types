@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "mime/types/deprecations"
+
 class << MIME::Types
   include Enumerable
 
@@ -45,11 +47,11 @@ class << MIME::Types
   def lazy_load?
     return unless ENV.key?("RUBY_MIME_TYPES_LAZY_LOAD")
 
-    MIME::Types.logger.debug <<-WARNING.chomp.strip
-      Lazy loading ($RUBY_MIME_TYPES_LAZY_LOAD) is deprecated and will be removed.
-    WARNING
+    deprecated(
+      message: "Lazy loading ($RUBY_MIME_TYPES_LAZY_LOAD) is deprecated and will be removed."
+    )
 
-    (lazy = ENV["RUBY_MIME_TYPES_LAZY_LOAD"]) && (lazy != "false")
+    ENV["RUBY_MIME_TYPES_LAZY_LOAD"] != "false"
   end
 
   def __types__
