@@ -66,9 +66,6 @@ require "mime/type"
 #  puts MIME::Type.simplified('x-appl/x-zip') # => 'appl/zip'
 #
 class MIME::Types
-  # The release version of Ruby MIME::Types
-  VERSION = MIME::Type::VERSION
-
   include Enumerable
 
   # Creates a new MIME::Types registry.
@@ -231,3 +228,4 @@ require "mime/types/loader"
 require "mime/types/logger"
 require "mime/types/_columnar"
 require "mime/types/registry"
+require "mime/types/version"

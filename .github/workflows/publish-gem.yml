@@ -1,0 +1,63 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - lib/mime/types/version.rb
+
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
+    paths:
+      - lib/mime/types/version.rb
+
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  release:
+    if: github.repository == 'mime-types/mime-types' && (github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request' && github.event.pull_request.merged))
+
+    runs-on: ubuntu-latest
+    environment: production
+
+    env:
+      rubygems_release_gem: true
+      BUNDLE_WITHOUT: "profile:data:coverage"
+
+    permissions:
+      contents: write
+      id-token: write
+
+    steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@4d991eb9b905ef189e4c376166672c3f2f230481 # v2.11.0
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: true
+
+      - id: rubygems
+        run: |
+          ruby -e 'print "version=", Gem::Specification.load(ARGV[0]).rubygems_version, "\n"' mime-types.gemspec >> $GITHUB_OUTPUT
+
+      - uses: ruby/setup-ruby@277ba2a127aba66d45bad0fa2dc56f80dbfedffa # v1.222.0
+        with:
+          bundler-cache: false
+          ruby-version: ruby
+
+      - name: Install dependencies
+        run: |
+          gem update --system="${RUBYGEMS_VERSION}"
+          bundle install --jobs 4 --retry 3
+        env:
+          RUBYGEMS_VERSION: ${{ steps.rubygems.outputs.version }}
+
+      - uses: rubygems/release-gem@a25424ba2ba8b387abc8ef40807c2c85b96cbe32 # v1.1.1

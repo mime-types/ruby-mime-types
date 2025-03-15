@@ -2,32 +2,34 @@ require "rubygems"
 require "hoe"
 require "rake/clean"
 
+Hoe.plugin :halostatue
 Hoe.plugin :cov
-Hoe.plugin :doofus
-Hoe.plugin :gemspec2
-Hoe.plugin :git2
 Hoe.plugin :minitest
 Hoe.plugin :rubygems
+
+Hoe.plugins.delete :debug
+Hoe.plugins.delete :newb
+Hoe.plugins.delete :publish
+Hoe.plugins.delete :signing
 
 spec = Hoe.spec "mime-types" do
   developer("Austin Ziegler", "halostatue@gmail.com")
 
-  self.history_file = "History.md"
-  self.readme_file = "README.rdoc"
-
-  license "MIT"
+  # self.trusted_release = ENV["rubygems_release_gem"] == "true"
 
   require_ruby_version ">= 2.0"
 
-  spec_extras[:metadata] = ->(val) { val["rubygems_mfa_required"] = "true" }
+  license "MIT"
+
+  spec_extras[:metadata] = ->(val) {
+    val.merge!({"rubygems_mfa_required" => "true"})
+  }
 
   extra_deps << ["mime-types-data", "~> 3.2015"]
   extra_deps << ["logger", ">= 0"]
 
-  extra_dev_deps << ["hoe", ">= 3.0", "< 5"]
-  extra_dev_deps << ["hoe-doofus", "~> 1.0"]
-  extra_dev_deps << ["hoe-gemspec2", "~> 1.1"]
-  extra_dev_deps << ["hoe-git2", "~> 1.7"]
+  extra_dev_deps << ["hoe", "~> 4.0"]
+  extra_dev_deps << ["hoe-halostatue", "~> 2.0"]
   extra_dev_deps << ["hoe-rubygems", "~> 1.0"]
   extra_dev_deps << ["minitest", "~> 5.0"]
   extra_dev_deps << ["minitest-autotest", "~> 1.0"]
