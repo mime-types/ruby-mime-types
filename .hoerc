@@ -1,51 +1,50 @@
 ---
 exclude: !ruby/regexp '/
-  \.(?:
-    tmp |
-    swp
-  )$
-  |
-  \.(?:
-    bundle |
-    git |
-    github |
-    hg |
-    idea |
-    svn |
-    vagrant
+    \.gemspec$
+  | \.tmp$
+  | \.swp$
+  | ^\.(?:
+      DS_Store
+    | autotest
+    | byebug_history
+    | gemtest
+    | gitattributes
+    | gitignore
+    | hoerc
+    | minitest\.rb
+    | simplecov-prelude\.rb
+    | workenv
+    | (?:
+        appveyor
+      | coveralls
+      | fasterer
+      | pullreview
+      | rubocop.*
+      | standard.*
+      | travis
+      | unused
+    )\.yml$
+    | (?:
+        typos
+    )\.toml$
+  )
+  | ^\.(?:
+      bundle
+    | git
+    | github
+    | hg
+    | idea
+    | svn
+    | vagrant
   )\/
-  |
-  [gG]emfile(?:\.lock)?
-  |
-  (?:
-    support |
-    research
+  | [gG]emfile(?:\.lock)?$
+  | [Aa]ppraisals$
+  | (?i:TAGS)$
+  | Vagrantfile$
+  | ^(?:
+      support
+    | research
+    | benchmarks/
+    | vendor
   )\/
-  |
-  \b(?i:TAGS)$
-  |
-  \.(?:
-    appveyor |
-    coveralls |
-    fasterer |
-    pullreview |
-    rubocop* |
-    standard* |
-    travis |
-    unused
-  )\.yml$
-  |
-  \.(?:
-    DS_Store |
-    autotest |
-    byebug_history |
-    gemtest |
-    gitattributes |
-    gitignore |
-    hoerc |
-    minitest.rb |
-    simplecov-prelude.rb
-  )$
-  |
-  \.gemspec$
-  /x'
+/x'

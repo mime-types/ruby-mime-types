@@ -1,11 +1,12 @@
-.standard.yml
-Code-of-Conduct.md
-Contributing.md
-History.md
-Licence.md
+CHANGELOG.md
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+CONTRIBUTORS.md
+LICENCE.md
 Manifest.txt
-README.rdoc
+README.md
 Rakefile
+SECURITY.md
 lib/mime-types.rb
 lib/mime/type.rb
 lib/mime/type/columnar.rb
@@ -19,6 +20,7 @@ lib/mime/types/full.rb
 lib/mime/types/loader.rb
 lib/mime/types/logger.rb
 lib/mime/types/registry.rb
+lib/mime/types/version.rb
 test/bad-fixtures/malformed
 test/fixture/json.json
 test/fixture/old-data

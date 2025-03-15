@@ -94,9 +94,6 @@ class MIME::Type
     # :startdoc:
   end
 
-  # The released version of the mime-types library.
-  VERSION = "3.6.0"
-
   include Comparable
 
   # :stopdoc:
