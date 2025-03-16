@@ -9,7 +9,18 @@ module MIME
     class << self
       # Configure the MIME::Types logger. This defaults to an instance of a
       # logger that passes messages (unformatted) through to Kernel#warn.
-      attr_accessor :logger
+      # :attr_accessor: logger
+      attr_reader :logger
+
+      ##
+      def logger=(logger) # :nodoc
+        @logger =
+          if logger.nil?
+            NullLogger.new
+          else
+            logger
+          end
+      end
     end
 
     class WarnLogger < ::Logger # :nodoc:
@@ -25,13 +36,33 @@ module MIME
         end
       end
 
-      def initialize(_one, _two = nil, _three = nil)
+      def initialize(*)
         super(nil)
         @logdev = WarnLogDevice.new
         @formatter = ->(_s, _d, _p, m) { m }
       end
     end
 
-    self.logger = WarnLogger.new(nil)
+    class NullLogger < ::Logger
+      def initialize(*)
+        super(nil)
+        @logdev = nil
+      end
+
+      def reopen(_)
+        self
+      end
+
+      def <<(_)
+      end
+
+      def close
+      end
+
+      def add(_severity, _message = nil, _progname = nil)
+      end
+    end
+
+    self.logger = WarnLogger.new
   end
 end
