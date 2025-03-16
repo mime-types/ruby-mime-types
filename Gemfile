@@ -5,6 +5,10 @@
 
 source "https://rubygems.org/"
 
-gem "mime-types-data", path: "../mime-types-data" if ENV["DEV"]
+group :profile do
+  gem "debug", platforms: [:mri]
+  gem "ruby-prof", platforms: [:mri]
+  gem "memory_profiler", platforms: [:mri]
+end
 
 gemspec
