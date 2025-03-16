@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "set"
-require "forwardable"
 
 # MIME::Types requires a serializable keyed container that returns an empty Set
 # on a key miss. Hash#default_value cannot be used because, while it traverses
@@ -10,8 +9,6 @@ require "forwardable"
 # Hash#default_proc cannot be used without a wrapper because it prevents
 # Marshal serialization (and does not survive the round-trip).
 class MIME::Types::Container # :nodoc:
-  extend Forwardable
-
   def initialize(hash = {})
     @container = {}
     merge!(hash)
@@ -47,16 +44,49 @@ class MIME::Types::Container # :nodoc:
     container
   end
 
-  def_delegators :@container,
-    :==,
-    :count,
-    :each,
-    :each_value,
-    :empty?,
-    :flat_map,
-    :keys,
-    :select,
-    :values
+  def ==(other)
+    container == other
+  end
+
+  def count(*args, &block)
+    if args.size == 0
+      container.count
+    elsif block
+      container.count(&block)
+    else
+      container.count(args.first)
+    end
+  end
+
+  def each_pair(&block)
+    container.each_pair(&block)
+  end
+
+  alias_method :each, :each_pair
+
+  def each_value(&block)
+    container.each_value(&block)
+  end
+
+  def empty?
+    container.empty?
+  end
+
+  def flat_map(&block)
+    container.flat_map(&block)
+  end
+
+  def keys
+    container.keys
+  end
+
+  def values
+    container.values
+  end
+
+  def select(&block)
+    container.select(&block)
+  end
 
   def add(key, value)
     (container[key] ||= Set.new).add(value)
