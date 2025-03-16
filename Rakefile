@@ -135,39 +135,19 @@ namespace :benchmark do
 end
 
 namespace :profile do
-  directory "tmp/profile"
-
-  CLEAN.add "tmp"
-
-  def ruby_prof(script)
-    require "pathname"
-    output = Pathname("tmp/profile").join(script)
-    output.mkpath
-    script = Pathname("support/profile").join("#{script}.rb")
-
-    args = [
-      "-W0",
-      "-Ilib",
-      "-S", "ruby-prof",
-      "-R", "mime/types",
-      "-s", "self",
-      "-p", "multi",
-      "-f", output.to_s,
-      script.to_s
-    ]
-    ruby args.join(" ")
+  task full: "benchmark:support" do
+    require "profile"
+    profile_full
   end
 
-  task full: "tmp/profile" do
-    ruby_prof "full"
+  task columnar: "benchmark:support" do
+    require "profile"
+    profile_columnar
   end
 
-  task columnar: :support do
-    ruby_prof "columnar"
-  end
-
-  task "columnar:full" => :support do
-    ruby_prof "columnar_full"
+  task "columnar:full" => "benchmark:support" do
+    require "profile"
+    profile_columnar_full
   end
 end
 
