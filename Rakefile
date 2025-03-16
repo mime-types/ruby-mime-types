@@ -87,7 +87,7 @@ namespace :benchmark do
 
   desc "Memory profiler"
   task :memory, [:top_x, :mime_types_only] => "benchmark:support" do |_, args|
-    require "benchmarks/memory_profiler"
+    require "benchmarks/profile_memory"
     Benchmarks::ProfileMemory.report(
       mime_types_only: args.mime_types_only,
       top_x: args.top_x
@@ -96,7 +96,7 @@ namespace :benchmark do
 
   desc "Columnar memory profiler"
   task "memory:columnar", [:top_x, :mime_types_only] => "benchmark:support" do |_, args|
-    require "benchmarks/memory_profiler"
+    require "benchmarks/profile_memory"
     Benchmarks::ProfileMemory.report(
       columnar: true,
       mime_types_only: args.mime_types_only,
@@ -106,7 +106,7 @@ namespace :benchmark do
 
   desc "Columnar allocation counts (full load)"
   task "memory:columnar:full", [:top_x, :mime_types_only] => "benchmark:support" do |_, args|
-    require "benchmarks/memory_profiler"
+    require "benchmarks/profile_memory"
     Benchmarks::ProfileMemory.report(
       columnar: true,
       full: true,
