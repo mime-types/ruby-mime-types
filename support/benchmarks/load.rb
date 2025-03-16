@@ -3,6 +3,8 @@
 require "benchmark"
 require "mime/types"
 
+MIME::Types.logger = MIME::Types::NullLogger.new
+
 module Benchmarks
   # Benchmark loading speed
   class Load
@@ -33,7 +35,7 @@ module Benchmarks
     def report
       remove_cache
 
-      Benchmark.bm(30) do |mark|
+      Benchmark.bm(50) do |mark|
         mark.report("Normal") { reload_mime_types(@repeats) }
         mark.report("Columnar") { reload_mime_types(@repeats, columnar: true) }
         mark.report("Columnar Full") { reload_mime_types(@repeats, columnar: true, force: true) }
