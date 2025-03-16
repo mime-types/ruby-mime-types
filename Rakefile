@@ -55,36 +55,6 @@ namespace :benchmark do
     )
   end
 
-  desc "Allocation counts"
-  task :allocations, [:top_x, :mime_types_only] => "benchmark:support" do |_, args|
-    require "benchmarks/load_allocations"
-    Benchmarks::LoadAllocations.report(
-      top_x: args.top_x,
-      mime_types_only: args.mime_types_only
-    )
-  end
-
-  desc "Columnar allocation counts"
-  task "allocations:columnar", [:top_x, :mime_types_only] => "benchmark:support" do |_, args|
-    require "benchmarks/load_allocations"
-    Benchmarks::LoadAllocations.report(
-      columnar: true,
-      top_x: args.top_x,
-      mime_types_only: args.mime_types_only
-    )
-  end
-
-  desc "Columnar allocation counts (full load)"
-  task "allocations:columnar:full", [:top_x, :mime_types_only] => "benchmark:support" do |_, args|
-    require "benchmarks/load_allocations"
-    Benchmarks::LoadAllocations.report(
-      columnar: true,
-      top_x: args.top_x,
-      mime_types_only: args.mime_types_only,
-      full: true
-    )
-  end
-
   desc "Memory profiler"
   task :memory, [:top_x, :mime_types_only] => "benchmark:support" do |_, args|
     require "benchmarks/profile_memory"
