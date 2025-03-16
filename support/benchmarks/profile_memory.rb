@@ -1,13 +1,8 @@
 # frozen_string_literal: true
 
-if RUBY_VERSION < "2.3"
-  warn "Cannot use memory_profiler on less than 2.3.8."
-  exit 1
-end
-
 begin
   require "memory_profiler"
-rescue Exception # rubocop:disable Lint/RescueException
+rescue Exception # standard:disable Lint/RescueException
   warn "Memory profiling requires the gem 'memory_profiler'."
   exit 1
 end
@@ -16,15 +11,10 @@ module Benchmarks
   # Use Memory Profiler to profile memory
   class ProfileMemory
     def self.report(columnar: false, full: false, mime_types_only: false, top_x: nil)
-      new(
-        columnar: columnar,
-        full: full,
-        mime_types_only: mime_types_only,
-        top_x: top_x
-      ).report
+      new(columnar, full, mime_types_only, top_x).report
     end
 
-    def initialize(columnar:, full:, mime_types_only:, top_x:)
+    def initialize(columnar, full, mime_types_only, top_x)
       @columnar = !!columnar
       @full = !!full
       @mime_types_only = !!mime_types_only
@@ -46,7 +36,8 @@ module Benchmarks
     def collect
       report_params = {
         top: @top_x,
-        allow_files: @mime_types_only ? %r{mime-types/lib} : nil
+        # allow_files: @mime_types_only ? %r{mime-types/lib/mime/} : nil,
+        ignore_files: %r{lib/logger\.rb|lib/logger}
       }.delete_if { |_k, v| v.nil? }
 
       if @columnar
