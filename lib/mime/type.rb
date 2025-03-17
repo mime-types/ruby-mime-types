@@ -680,3 +680,5 @@ class MIME::Type
     "http://www.iana.org/assignments/media-types/%s" % value
   end
 end
+
+require "mime/types/version"

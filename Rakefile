@@ -1,10 +1,9 @@
 require "rubygems"
 require "hoe"
 require "rake/clean"
+require "minitest"
 
 Hoe.plugin :halostatue
-Hoe.plugin :cov
-Hoe.plugin :minitest
 Hoe.plugin :rubygems
 
 Hoe.plugins.delete :debug
@@ -15,7 +14,7 @@ Hoe.plugins.delete :signing
 spec = Hoe.spec "mime-types" do
   developer("Austin Ziegler", "halostatue@gmail.com")
 
-  # self.trusted_release = ENV["rubygems_release_gem"] == "true"
+  self.trusted_release = ENV["rubygems_release_gem"] == "true"
 
   require_ruby_version ">= 2.0"
 
@@ -37,6 +36,25 @@ spec = Hoe.spec "mime-types" do
   extra_dev_deps << ["minitest-hooks", "~> 1.4"]
   extra_dev_deps << ["rake", ">= 10.0", "< 14.0"]
   extra_dev_deps << ["standard", "~> 1.0"]
+end
+
+Minitest::TestTask.create :test
+Minitest::TestTask.create :coverage do |t|
+  t.test_prelude = <<-RUBY.split($/).join("; ")
+  require "simplecov"
+  require "simplecov-lcov"
+
+  SimpleCov::Formatter::LcovFormatter.config do |config|
+    config.report_with_single_file = true
+    config.lcov_file_name = "lcov.info"
+  end
+
+  SimpleCov.start "test_frameworks" do
+    enable_coverage :branch
+    primary_coverage :branch
+    formatter SimpleCov::Formatter::MultiFormatter.new([SimpleCov::Formatter::HTMLFormatter, SimpleCov::Formatter::LcovFormatter, SimpleCov::Formatter::SimpleFormatter])
+  end
+  RUBY
 end
 
 namespace :benchmark do
@@ -118,20 +136,6 @@ namespace :profile do
   task "columnar:full" => "benchmark:support" do
     require "profile"
     profile_columnar_full
-  end
-end
-
-if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new("2.0")
-  namespace :test do
-    desc "Run test coverage"
-    task :coverage do
-      spec.test_prelude = [
-        'require "simplecov"',
-        'SimpleCov.start("test_frameworks") { command_name "Minitest" }',
-        'gem "minitest"'
-      ].join("; ")
-      Rake::Task["test"].execute
-    end
   end
 end
 

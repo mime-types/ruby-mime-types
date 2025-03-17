@@ -6,10 +6,16 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
+
+    env:
+      BUNDLE_WITHOUT: "profile:data:coverage"
 
     steps:
       - name: Harden the runner (Audit all outbound calls)
@@ -70,8 +76,8 @@ jobs:
           if [[ -n "${COVERAGE}" ]]; then
             echo "BUNDLE_WITHOUT=profile:data"
           else
-            echo "BUNDLE_WITHOUT="profile:data:coverage"
-          fi >> "$GITHUB_ENV"
+            echo "BUNDLE_WITHOUT=profile:data:coverage"
+          fi >>"$GITHUB_ENV"
         env:
           COVERAGE: ${{ matrix.coverage }}
 
@@ -82,7 +88,16 @@ jobs:
           bundler: 2
           bundler-cache: true
 
-      - run: bundle exec ruby -S rake test --trace
+      - name: Run Tests (without coverage)
+        run: bundle exec ruby -S rake test --trace
+        if: ${{ !matrix.coverage }}
+
+      - name: Run Tests (with coverage)
+        run: bundle exec ruby -S rake test:coverage --trace
+        if: ${{ matrix.coverage }}
+
+      - uses: coverallsapp/github-action@648a8eb78e6d50909eff900e4ec85cab4524a45b #v2.3.6
+        if: ${{ matrix.coverage }}
 
   required-macos:
     name: Ruby ${{ matrix.ruby }} - ${{ matrix.os }}
@@ -103,6 +118,9 @@ jobs:
           - '3.4'
 
     runs-on: ${{ matrix.os }}
+
+    env:
+      BUNDLE_WITHOUT: "profile:data:coverage"
 
     steps:
       - name: Harden the runner (Audit all outbound calls)
@@ -148,6 +166,9 @@ jobs:
 
     runs-on: ${{ matrix.os }}
 
+    env:
+      BUNDLE_WITHOUT: "profile:data:coverage"
+
     steps:
       - name: Harden the runner (Audit all outbound calls)
         uses: step-security/harden-runner@4d991eb9b905ef189e4c376166672c3f2f230481 # v2.11.0
@@ -186,6 +207,9 @@ jobs:
     continue-on-error: true
     runs-on: ${{ matrix.os }}
 
+    env:
+      BUNDLE_WITHOUT: "profile:data:coverage"
+
     steps:
       - name: Harden the runner (Audit all outbound calls)
         uses: step-security/harden-runner@4d991eb9b905ef189e4c376166672c3f2f230481 # v2.11.0
@@ -221,6 +245,9 @@ jobs:
 
     continue-on-error: true
     runs-on: ${{ matrix.os }}
+
+    env:
+      BUNDLE_WITHOUT: "profile:data:coverage"
 
     steps:
       - name: Harden the runner (Audit all outbound calls)
