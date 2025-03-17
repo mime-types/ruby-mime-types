@@ -2,9 +2,22 @@
 
 ## 3.6.1 / 2025-03-15
 
-- Restructured documentation for how I prefer to manage Hoe projects now.
+- Restructure project structure to be more consistent with mime-types-data.
+
+- Increased GitHub action security. Added Ruby 3.4, dropped macOS 12, added
+  macOS 15.
 
 - Added [trusted publishing][tp] for fully automated releases.
+
+- Added `MIME::Types::NullLogger` to completely silence MIME::Types logging.
+
+- Improved the development experience with updates to the Gemfile.
+
+- Worked around various issues with the benchmarks and profiling code.
+
+- Removed Forwardable from MIME::Types::Container.
+
+- Added coverage support (back).
 
 ## 3.6.0 / 2024-10-02
 

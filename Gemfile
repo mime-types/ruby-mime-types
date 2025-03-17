@@ -11,4 +11,13 @@ group :profile do
   gem "memory_profiler", platforms: [:mri]
 end
 
+group :data do
+  gem "mime-types-data", path: "../mime-types-data"
+end
+
+group :coverage do
+  gem "simplecov", require: false, platforms: [:mri]
+  gem "simplecov-lcov", require: false, platforms: [:mri]
+end
+
 gemspec
