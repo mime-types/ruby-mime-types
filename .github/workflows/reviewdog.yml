@@ -31,7 +31,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: reviewdog/action-typos@2d77b519f5787ca723660c00f9bc82d61b63f5fe # v1.16.0
+      - uses: reviewdog/action-typos@9e768c4fb1e84e0c3283790e61a736a4bebd30eb # v1.17.0
 
   actionlint:
     if: ${{ github.event.action != 'closed' }}
