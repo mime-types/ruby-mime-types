@@ -24,7 +24,7 @@ jobs:
     if: github.repository == 'mime-types/ruby-mime-types' && (github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request' && github.event.pull_request.merged))
 
     runs-on: ubuntu-latest
-    environment: production
+    environment: release
 
     env:
       rubygems_release_gem: true
