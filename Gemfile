@@ -5,17 +5,17 @@
 
 source "https://rubygems.org/"
 
-group :profile do
+if ENV["DEV"]
   gem "debug", platforms: [:mri]
   gem "ruby-prof", platforms: [:mri]
   gem "memory_profiler", platforms: [:mri]
 end
 
-group :data do
+if ENV["DATA"]
   gem "mime-types-data", path: "../mime-types-data"
 end
 
-group :coverage do
+if ENV["COVERAGE"]
   gem "simplecov", require: false, platforms: [:mri]
   gem "simplecov-lcov", require: false, platforms: [:mri]
 end

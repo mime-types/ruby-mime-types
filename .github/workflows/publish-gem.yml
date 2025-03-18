@@ -28,7 +28,6 @@ jobs:
 
     env:
       rubygems_release_gem: true
-      BUNDLE_WITHOUT: "profile:data:coverage"
 
     permissions:
       contents: write
