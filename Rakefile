@@ -34,12 +34,20 @@ spec = Hoe.spec "mime-types" do
   extra_dev_deps << ["minitest-autotest", "~> 1.0"]
   extra_dev_deps << ["minitest-focus", "~> 1.0"]
   extra_dev_deps << ["minitest-hooks", "~> 1.4"]
-  extra_dev_deps << ["rake", ">= 10.0", "< 14.0"]
+  extra_dev_deps << ["rake", ">= 10.0", "< 14"]
+  extra_dev_deps << ["rdoc", ">= 0.0"]
   extra_dev_deps << ["standard", "~> 1.0"]
 end
 
 Minitest::TestTask.create :test
 Minitest::TestTask.create :coverage do |t|
+  formatters = <<-RUBY.split($/).join(" ")
+    SimpleCov::Formatter::MultiFormatter.new([
+      SimpleCov::Formatter::HTMLFormatter,
+      SimpleCov::Formatter::LcovFormatter,
+      SimpleCov::Formatter::SimpleFormatter
+    ])
+  RUBY
   t.test_prelude = <<-RUBY.split($/).join("; ")
   require "simplecov"
   require "simplecov-lcov"
@@ -52,7 +60,7 @@ Minitest::TestTask.create :coverage do |t|
   SimpleCov.start "test_frameworks" do
     enable_coverage :branch
     primary_coverage :branch
-    formatter SimpleCov::Formatter::MultiFormatter.new([SimpleCov::Formatter::HTMLFormatter, SimpleCov::Formatter::LcovFormatter, SimpleCov::Formatter::SimpleFormatter])
+    formatter #{formatters}
   end
   RUBY
 end
@@ -182,5 +190,3 @@ task :console do
     abort
   end
 end
-
-# vim: syntax=ruby

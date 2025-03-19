@@ -40,7 +40,7 @@ contributions.
 
 The mime-types registry is managed in [mime-types-data][mtd].
 
-### Test Dependencies
+## Test Dependencies
 
 mime-types uses Ryan Davis's [Hoe][Hoe] to manage the release process, and it
 adds a number of rake tasks. You will mostly be interested in `rake`, which runs
@@ -51,10 +51,7 @@ I have provided the simplest possible Gemfile pointing to the (generated)
 `mime-types.gemspec` file. This will permit you to do `bundle install` to get
 the development dependencies.
 
-This task will install any missing dependencies, run the tests/specs, and
-generate the RDoc.
-
-You can run tests with code coverage analysis by running `rake test:coverage`.
+You can run tests with code coverage analysis by running `rake coverage`.
 
 ## Benchmarks
 
@@ -66,13 +63,6 @@ mime-types with its full registry. By default, it runs fifty loops and uses the
 built-in benchmark library:
 
 - `rake benchmark:load`
-
-There are two allocation tracing benchmarks (for normal and columnar loads).
-These can only be run on Ruby 2.1 or better and requires the
-[allocation\_tracer][allocation-tracer] gem (not installed by default).
-
-- `rake benchmark:allocations`
-- `rake benchmark:allocations:columnar`
 
 There are two loaded object count benchmarks (for normal and columnar loads).
 These use `ObjectSpace.count_objects`.
@@ -96,7 +86,6 @@ Here's the most direct way to get your work merged into the project:
 - Create a pull request against mime-types/ruby-mime-types and describe what
   your change does and the why you think it should be merged.
 
-[allocation-tracer]: https://github.com/ko1/allocation_tracer
 [hoe]: https://github.com/seattlerb/hoe
 [minitest]: https://github.com/seattlerb/minitest
 [mtd]: https://github.com/mime-types/mime-types-data
