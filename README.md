@@ -5,7 +5,7 @@
 - code :: https://github.com/mime-types/ruby-mime-types/
 - rdoc :: http://rdoc.info/gems/mime-types/
 - changelog ::
-  https://github.com/mime-types/ruby-mime-types/blob/master/History.md
+  https://github.com/mime-types/ruby-mime-types/blob/main/CHANGELOG.md
 - continuous integration ::
   {<img src="https://github.com/mime-types/ruby-mime-types/actions/workflows/ci.yml/badge.svg" alt="Build Status" />}[https://github.com/mime-types/ruby-mime-types/actions/workflows/ci.yml]
 - test coverage ::
