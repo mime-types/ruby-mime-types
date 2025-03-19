@@ -37,6 +37,7 @@ Thanks to everyone else who has contributed to mime-types over the years:
 - Martin d'Allens
 - Masato Nakamura
 - Mauricio Linhares
+- Nana Kugayama
 - Nicholas La Roux
 - Nicolas Leger
 - nycvotes-dev
