@@ -1,3 +1,0 @@
-exclude_paths:
-  - lib/mime/types.rb # sort_vs_sort_by on priority_compare
-  - Rakefile # each_with_index vs while
