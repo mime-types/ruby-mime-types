@@ -1,8 +1,9 @@
 # Changelog
 
-## NEXT / 2025-MM-DD
+## 3.6.2 / 2025-03-25
 
-- Updated the reference to the changelog in the README, fixing RubyGems metadata on the next release. Fixed in [#189][pull-189] by nna774.
+- Updated the reference to the changelog in the README, fixing RubyGems metadata
+  on the next release. Fixed in [#189][pull-189] by nna774.
 
 ## 3.6.1 / 2025-03-15
 
