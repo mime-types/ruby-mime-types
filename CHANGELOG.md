@@ -5,6 +5,9 @@
 - Updated the reference to the changelog in the README, fixing RubyGems metadata
   on the next release. Fixed in [#189][pull-189] by nna774.
 
+- Daniel Watkins fixed an error in the repo tag for this release because the
+  modified gemspec was not included in the release. Fixed in [#196][pull-196].
+
 ## 3.6.1 / 2025-03-15
 
 - Restructure project structure to be more consistent with mime-types-data.
@@ -373,6 +376,7 @@ there are some validation changes and updated code with formatting.
 [pull-179]: https://github.com/mime-types/ruby-mime-types/pull/179
 [pull-180]: https://github.com/mime-types/ruby-mime-types/pull/180
 [pull-189]: https://github.com/mime-types/ruby-mime-types/pull/189
+[pull-196]: https://github.com/mime-types/ruby-mime-types/pull/196
 [pull-79]: https://github.com/mime-types/ruby-mime-types/pull/79
 [pull-84]: https://github.com/mime-types/ruby-mime-types/pull/84
 [pull-85]: https://github.com/mime-types/ruby-mime-types/pull/85

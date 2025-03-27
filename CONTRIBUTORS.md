@@ -14,6 +14,7 @@ Thanks to everyone else who has contributed to mime-types over the years:
 - Brandon Galbraith
 - Burke Libbey
 - Chris Gat
+- Daniel Watkins
 - David Genord
 - Dillon Welch
 - Edward Betts
