@@ -2,6 +2,7 @@ require "rubygems"
 require "hoe"
 require "rake/clean"
 require "minitest"
+require "minitest/test_task"
 
 Hoe.plugin :halostatue
 Hoe.plugin :rubygems
@@ -10,6 +11,7 @@ Hoe.plugins.delete :debug
 Hoe.plugins.delete :newb
 Hoe.plugins.delete :publish
 Hoe.plugins.delete :signing
+Hoe.plugins.delete :test
 
 spec = Hoe.spec "mime-types" do
   developer("Austin Ziegler", "halostatue@gmail.com")
@@ -64,6 +66,8 @@ Minitest::TestTask.create :coverage do |t|
   end
   RUBY
 end
+
+task default: :test
 
 namespace :benchmark do
   task :support do

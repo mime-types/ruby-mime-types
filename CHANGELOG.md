@@ -1,29 +1,28 @@
 # Changelog
 
-## NEXT / YYYY-MM-DD
+## 4.0.0 / YYYY-MM-DD
 
-- 1 deprecation:
+- The minimum supported Ruby version for mime-types 4 is Ruby 3.2. All backport
+  support for older versions of Ruby have been removed.
 
-  - Deprecated `MIME::Type#priority_compare`. In a future release, this will be
-    will be renamed to `MIME::Type#<=>`. This method is used in tight loops, so
-    there is no warning message for either `MIME::Type#priority_compare` or
-    `MIME::Type#<=>`.
+## 3.7.0 / YYYY-MM-DD
 
-- 1 enhancement:
+- Deprecated `MIME::Type#priority_compare`. In a future release, this will be
+  will be renamed to `MIME::Type#<=>`. This method is used in tight loops, so
+  there is no warning message for either `MIME::Type#priority_compare` or
+  `MIME::Type#<=>`.
 
-  - Improved the performance of sorting by eliminating the complex comparison
-    flow from `MIME::Type#priority_compare`. The old version shows under 600
-    i/s, and the new version shows over 900 i/s. In sorting the full set of MIME
-    data, there are three differences between the old and new versions; after
-    comparison, these differences are considered acceptable.
+- Improved the performance of sorting by eliminating the complex comparison flow
+  from `MIME::Type#priority_compare`. The old version shows under 600 i/s, and
+  the new version shows over 900 i/s. In sorting the full set of MIME data,
+  there are three differences between the old and new versions; after
+  comparison, these differences are considered acceptable.
 
-- 1 bug fix:
-
-  - Simplified the default compare implementation (`MIME::Type#<=>`) to use the
-    new `MIME::Type#priority_compare` operation and simplify the fallback to
-    `String` comparison. This _may_ result in exceptions where there had been
-    none, as explicit support for several special values (which should have
-    caused errors in any case) have been removed.
+- Simplified the default compare implementation (`MIME::Type#<=>`) to use the
+  new `MIME::Type#priority_compare` operation and simplify the fallback to
+  `String` comparison. This _may_ result in exceptions where there had been
+  none, as explicit support for several special values (which should have caused
+  errors in any case) have been removed.
 
 ## 3.6.2 / 2025-03-25
 

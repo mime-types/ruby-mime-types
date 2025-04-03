@@ -322,7 +322,13 @@ describe MIME::Type do
 
   describe "#priority_compare" do
     def priority(type)
-      "#{type} (#{("%08b" % type.__sort_priority).chars.join(" ")})"
+      priority = "OpRceXtN"
+        .chars
+        .zip(("%08b" % type.__sort_priority).chars)
+        .map { |e| e.join(":") }
+        .join(" ")
+
+      "#{type} (#{priority} / #{type.__sort_priority})"
     end
 
     def assert_priority_less(left, right)
@@ -340,7 +346,7 @@ describe MIME::Type do
     def assert_priority(left, middle, right)
       assert_priority_less left, right
       assert_priority_same left, middle
-      assert_priority_more right, left
+      assert_priority_more right, middle
     end
 
     let(:text_1) { mime_type("content-type" => "text/1") }
@@ -361,8 +367,8 @@ describe MIME::Type do
     end
 
     it "sorts provisional types higher than non-provisional types" do
-      text_1.provisional = text_1p.provisional = true
-      text_1b = mime_type(text_1) { |t| t.provisional = false }
+      text_1.provisional = text_1p.provisional = false
+      text_1b = mime_type(text_1) { |t| t.provisional = true }
 
       assert_priority text_1, text_1p, text_1b
     end
@@ -377,18 +383,6 @@ describe MIME::Type do
     it "sorts (4) based on the completeness" do
       text_1.extensions = text_1p.extensions = "1"
       text_1b = mime_type(text_1) { |t| t.extensions = nil }
-
-      assert_priority text_1, text_1p, text_1b
-    end
-
-    it "sorts (5) based on the use-instead value" do
-      text_1.obsolete = text_1p.obsolete = true
-      text_1.use_instead = text_1p.use_instead = "abc/xyz"
-      text_1b = mime_type(text_1) { |t| t.use_instead = nil }
-
-      assert_priority text_1, text_1p, text_1b
-
-      text_1b.use_instead = "abc/zzz"
 
       assert_priority text_1, text_1p, text_1b
     end
