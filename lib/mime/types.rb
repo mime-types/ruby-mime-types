@@ -130,9 +130,7 @@ class MIME::Types
         @type_variants[MIME::Type.simplified(type_id)]
       end
 
-    prune_matches(matches, complete, registered).sort { |a, b|
-      a.priority_compare(b)
-    }
+    prune_matches(matches, complete, registered).sort
   end
 
   # Return the list of MIME::Types which belongs to the file based on its
@@ -148,10 +146,14 @@ class MIME::Types
   #   puts MIME::Types.type_for(%w(citydesk.xml citydesk.gif))
   #     => [application/xml, image/gif, text/xml]
   def type_for(filename)
-    Array(filename).flat_map { |fn|
-      @extension_index[fn.chomp.downcase[/\.?([^.]*?)\z/m, 1]]
-    }.compact.inject(Set.new, :+).sort { |a, b|
-      a.priority_compare(b)
+    wanted = Array(filename).map { |fn| fn.chomp.downcase[/\.?([^.]*?)\z/m, 1] }
+
+    wanted
+      .flat_map { |ext| @extension_index[ext] }
+      .compact
+      .reduce(Set.new, :+)
+      .sort { |a, b|
+      a.__extension_priority_compare(b, wanted)
     }
   end
   alias_method :of, :type_for
@@ -193,6 +195,10 @@ class MIME::Types
     index_extensions!(type)
   end
 
+  def __fully_loaded? # :nodoc:
+    true
+  end
+
   private
 
   def add_type_variant!(mime_type)
@@ -220,6 +226,12 @@ class MIME::Types
       k =~ pattern
     }.values.inject(Set.new, :+)
   end
+
+  # def stable_sort(list)
+  #   list.lazy.each_with_index.sort { |(a, ai), (b, bi)|
+  #     a.priority_compare(b).nonzero? || ai <=> bi
+  #   }.map(&:first)
+  # end
 end
 
 require "mime/types/cache"

@@ -79,7 +79,7 @@ class MIME::Types::Loader
   #
   # This will load from columnar files (#load_columnar) if <tt>columnar:
   # true</tt> is provided in +options+ and there are columnar files in +path+.
-  def load(options = {columnar: false})
+  def load(options = {columnar: true})
     if options[:columnar] && !Dir[columnar_path].empty?
       load_columnar
     else

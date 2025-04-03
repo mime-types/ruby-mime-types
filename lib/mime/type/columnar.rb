@@ -15,8 +15,10 @@ require "mime/type"
 class MIME::Type::Columnar < MIME::Type
   def initialize(container, content_type, extensions) # :nodoc:
     @container = container
+    @__priority_penalty = nil
     self.content_type = content_type
-    self.extensions = extensions
+    @extensions = Set[*Array(extensions).flatten.compact].freeze
+    clear_sort_priority
   end
 
   def self.column(*methods, file: nil) # :nodoc:
@@ -49,6 +51,17 @@ class MIME::Type::Columnar < MIME::Type
     @container.send(:load_xrefs)
     @container.send(:load_preferred_extension)
     super
+  end
+
+  def update_sort_priority
+    if @container.__fully_loaded?
+      super
+    else
+      obsolete = (@__sort_priority & (1 << 7)) != 0
+      registered = (@__sort_priority & (1 << 5)) == 0
+
+      @__priority_penalty = (obsolete ? 3 : 0) + (registered ? 0 : 2)
+    end
   end
 
   class << self

@@ -12,7 +12,8 @@ describe MIME::Types do
         MIME::Type.new("content-type" => "application/x-wordperfect6.1"),
         MIME::Type.new("content-type" => "application/x-www-form-urlencoded", "registered" => true),
         MIME::Type.new("content-type" => "application/x-gzip", "extensions" => %w[gz]),
-        MIME::Type.new("content-type" => "application/gzip", "extensions" => "gz", "registered" => true)
+        MIME::Type.new("content-type" => "application/gzip", "extensions" => "gz", "registered" => true),
+        *MIME::Types.type_for("foo.webm")
       )
     }
   end
@@ -33,8 +34,8 @@ describe MIME::Types do
     end
 
     it "is countable with an enumerator" do
-      assert_equal 6, mime_types.each.count
-      assert_equal 6, mime_types.lazy.count
+      assert_equal 8, mime_types.each.count
+      assert_equal 8, mime_types.lazy.count
     end
   end
 
@@ -139,7 +140,7 @@ describe MIME::Types do
     end
 
     it "finds multiple extensions" do
-      assert_equal %w[image/jpeg text/plain],
+      assert_equal %w[text/plain image/jpeg],
         mime_types.type_for(%w[foo.txt foo.jpeg])
     end
 
@@ -158,11 +159,15 @@ describe MIME::Types do
     it "handles newline characters correctly" do
       assert_includes mime_types.type_for("test.pdf\n.txt"), "text/plain"
     end
+
+    it "returns a stable order for types with equal priority" do
+      assert_equal %w[text/x-vcalendar text/x-vcard], MIME::Types[/text\/x-vca/]
+    end
   end
 
   describe "#count" do
     it "can count the number of types inside" do
-      assert_equal 6, mime_types.count
+      assert_equal 8, mime_types.count
     end
   end
 end
