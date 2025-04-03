@@ -47,7 +47,7 @@ describe MIME::Types, "registry" do
       }
       # This is this way because of a new type ending with gzip that only
       # appears in some data files.
-      assert_equal %w[application/gzip application/x-gzip multipart/x-gzip], types
+      assert_equal %w[application/gzip multipart/x-gzip application/x-gzip], types
       assert_equal 3, types.size
     end
 
@@ -86,9 +86,11 @@ describe MIME::Types, "registry" do
       assert_equal %w[image/jpeg], MIME::Types.of(["foo.jpeg", "bar.jpeg"])
     end
 
-    it "finds multiple extensions" do
-      assert_equal %w[image/jpeg text/plain],
-        MIME::Types.type_for(%w[foo.txt foo.jpeg])
+    it "finds multiple extensions ordered by the filename list" do
+      result = MIME::Types.type_for(%w[foo.txt foo.jpeg])
+
+      # assert_equal %w[text/plain image/jpeg], MIME::Types.type_for(%w[foo.txt foo.jpeg])
+      assert_equal %w[text/plain image/jpeg], result
     end
 
     it "does not find unknown extensions" do
@@ -104,6 +106,10 @@ describe MIME::Types, "registry" do
     it "handles newline characters correctly" do
       assert_includes MIME::Types.type_for("test.pdf\n.txt"), "text/plain"
       assert_includes MIME::Types.type_for("test.txt\n.pdf"), "application/pdf"
+    end
+
+    it "returns a stable order for types with equal priority" do
+      assert_equal %w[text/x-vcalendar text/x-vcard], MIME::Types[/text\/x-vca/]
     end
   end
 

@@ -2,6 +2,7 @@ require "rubygems"
 require "hoe"
 require "rake/clean"
 require "minitest"
+require "minitest/test_task"
 
 Hoe.plugin :halostatue
 Hoe.plugin :rubygems
@@ -10,6 +11,7 @@ Hoe.plugins.delete :debug
 Hoe.plugins.delete :newb
 Hoe.plugins.delete :publish
 Hoe.plugins.delete :signing
+Hoe.plugins.delete :test
 
 spec = Hoe.spec "mime-types" do
   developer("Austin Ziegler", "halostatue@gmail.com")
@@ -24,7 +26,7 @@ spec = Hoe.spec "mime-types" do
     val.merge!({"rubygems_mfa_required" => "true"})
   }
 
-  extra_deps << ["mime-types-data", "~> 3.2015"]
+  extra_deps << ["mime-types-data", "~> 3.2025", ">= 3.2025.0506.pre2"]
   extra_deps << ["logger", ">= 0"]
 
   extra_dev_deps << ["hoe", "~> 4.0"]
@@ -64,6 +66,8 @@ Minitest::TestTask.create :coverage do |t|
   end
   RUBY
 end
+
+task default: :test
 
 namespace :benchmark do
   task :support do
@@ -172,6 +176,11 @@ namespace :convert do
 
   desc "Convert documentation from RDoc to Markdown"
   task docs: "convert:docs:run"
+end
+
+task :version do
+  require "mime/types/version"
+  puts MIME::Types::VERSION
 end
 
 namespace :deps do
