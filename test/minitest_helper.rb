@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+$debug = false
+
 gem "minitest"
 require "minitest/focus"
 require "minitest/hooks"
