@@ -151,7 +151,13 @@ class MIME::Types
     Array(filename).flat_map { |fn|
       @extension_index[fn.chomp.downcase[/\.?([^.]*?)\z/m, 1]]
     }.compact.inject(Set.new, :+).sort { |a, b|
-      a.priority_compare(b)
+      by_ext = a.extension_priority(*a.extensions) <=> b.extension_priority(*b.extensions)
+
+      if by_ext.zero?
+        a.priority_compare(b)
+      else
+        by_ext
+      end
     }
   end
   alias_method :of, :type_for
@@ -191,6 +197,10 @@ class MIME::Types
 
     add_type_variant!(type)
     index_extensions!(type)
+  end
+
+  def __fully_loaded? # :nodoc:
+    true
   end
 
   private
