@@ -26,7 +26,7 @@ spec = Hoe.spec "mime-types" do
     val.merge!({"rubygems_mfa_required" => "true"})
   }
 
-  extra_deps << ["mime-types-data", "~> 3.2015"]
+  extra_deps << ["mime-types-data", "~> 3.2025", ">= 3.2025.0506.pre1"]
   extra_deps << ["logger", ">= 0"]
 
   extra_dev_deps << ["hoe", "~> 4.0"]
@@ -176,6 +176,11 @@ namespace :convert do
 
   desc "Convert documentation from RDoc to Markdown"
   task docs: "convert:docs:run"
+end
+
+task :version do
+  require "mime/types/version"
+  puts MIME::Types::VERSION
 end
 
 namespace :deps do
