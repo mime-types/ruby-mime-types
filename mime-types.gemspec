@@ -1,9 +1,9 @@
 # -*- encoding: utf-8 -*-
-# stub: mime-types 3.6.2 ruby lib
+# stub: mime-types 3.7.0.pre1 ruby lib
 
 Gem::Specification.new do |s|
   s.name = "mime-types".freeze
-  s.version = "3.6.2".freeze
+  s.version = "3.7.0.pre1".freeze
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
   s.metadata = { "bug_tracker_uri" => "https://github.com/mime-types/ruby-mime-types/issues", "changelog_uri" => "https://github.com/mime-types/ruby-mime-types/blob/main/CHANGELOG.md", "homepage_uri" => "https://github.com/mime-types/ruby-mime-types/", "rubygems_mfa_required" => "true", "source_code_uri" => "https://github.com/mime-types/ruby-mime-types/" } if s.respond_to? :metadata=
@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
 
   s.specification_version = 4
 
-  s.add_runtime_dependency(%q<mime-types-data>.freeze, ["~> 3.2015".freeze])
+  s.add_runtime_dependency(%q<mime-types-data>.freeze, ["~> 3.2025".freeze, ">= 3.2025.0506.pre1".freeze])
   s.add_runtime_dependency(%q<logger>.freeze, [">= 0".freeze])
   s.add_development_dependency(%q<hoe>.freeze, ["~> 4.0".freeze])
   s.add_development_dependency(%q<hoe-halostatue>.freeze, ["~> 2.0".freeze])

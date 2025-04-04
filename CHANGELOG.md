@@ -1,11 +1,6 @@
 # Changelog
 
-## 4.0.0 / YYYY-MM-DD
-
-- The minimum supported Ruby version for mime-types 4 is Ruby 3.2. All backport
-  support for older versions of Ruby have been removed.
-
-## 3.7.0 / YYYY-MM-DD
+## 3.7.0.pre1 / YYYY-MM-DD
 
 - Deprecated `MIME::Type#priority_compare`. In a future release, this will be
   will be renamed to `MIME::Type#<=>`. This method is used in tight loops, so
