@@ -139,7 +139,7 @@ describe MIME::Types do
     end
 
     it "finds multiple extensions" do
-      assert_equal %w[image/jpeg text/plain],
+      assert_equal %w[text/plain image/jpeg],
         mime_types.type_for(%w[foo.txt foo.jpeg])
     end
 
