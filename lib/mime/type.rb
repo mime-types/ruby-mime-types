@@ -659,11 +659,6 @@ class MIME::Type
 
   private
 
-  def get_extension_priority(ext)
-    __priority_penalty
-    # [[-20, (__extension_priorities[ext] || 0) + __priority_penalty].max, 20].min
-  end
-
   def clear_sort_priority
     @__sort_priority = nil
   end
@@ -693,13 +688,6 @@ class MIME::Type
     extension_count = [0, 16 - extension_count].max
 
     @__sort_priority = obsolete | registered | provisional | complete | extension_count
-    @__priority_penalty = ((instance_variable_defined?(:@obsolete) && @obsolete) ? 3 : 0) +
-      ((instance_variable_defined?(:@registered) && @registered) ? 0 : 2)
-  end
-
-  def __priority_penalty
-    update_sort_priority if @__priority_penalty.nil?
-    @__priority_penalty
   end
 
   def content_type=(type_string)
