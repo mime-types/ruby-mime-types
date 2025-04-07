@@ -130,9 +130,8 @@ class MIME::Types
         @type_variants[MIME::Type.simplified(type_id)]
       end
 
-    prune_matches(matches, complete, registered).sort { |a, b|
-      a.priority_compare(b)
-    }
+    # prune_matches(matches, complete, registered).sort { |a, b| a.priority_compare(b) }
+    prune_matches(matches, complete, registered).sort
   end
 
   # Return the list of MIME::Types which belongs to the file based on its
@@ -154,7 +153,9 @@ class MIME::Types
       .flat_map { |ext| @extension_index[ext] }
       .compact
       .reduce(Set.new, :+)
-      .sort { |a, b| a.__extension_priority_compare(b, wanted) }
+      .sort { |a, b|
+      a.__extension_priority_compare(b, wanted)
+    }
   end
   alias_method :of, :type_for
 
@@ -226,6 +227,12 @@ class MIME::Types
       k =~ pattern
     }.values.inject(Set.new, :+)
   end
+
+  # def stable_sort(list)
+  #   list.lazy.each_with_index.sort { |(a, ai), (b, bi)|
+  #     a.priority_compare(b).nonzero? || ai <=> bi
+  #   }.map(&:first)
+  # end
 end
 
 require "mime/types/cache"
