@@ -133,7 +133,8 @@ class MIME::Type
   def initialize(content_type) # :yields: self
     @friendly = {}
     @obsolete = @registered = @provisional = false
-    @preferred_extension = @docs = @use_instead = nil
+    @preferred_extension = @docs = @use_instead = @__sort_priority = nil
+
     self.extensions = []
 
     case content_type
@@ -164,6 +165,8 @@ class MIME::Type
     self.xrefs ||= {}
 
     yield self if block_given?
+
+    update_sort_priority
   end
 
   # Indicates that a MIME type is like another type. This differs from
@@ -182,60 +185,54 @@ class MIME::Type
   # simplified type (the simplified type will be used if comparing against
   # something that can be treated as a String with #to_s). In comparisons, this
   # is done against the lowercase version of the MIME::Type.
+  #
+  # Note that this implementation of #<=> is deprecated and will be changed
+  # in the next major version to be the same as #priority_compare.
+  #
+  # Note that MIME::Types no longer compare against nil.
   def <=>(other)
-    if other.nil?
-      -1
-    elsif other.respond_to?(:simplified)
+    return priority_compare(other) if other.is_a?(MIME::Type)
+    simplified <=> other
+  end
+
+  # Compares the +other+ MIME::Type using a pre-computed sort priority value,
+  # then the simplified representation for an alphabetical sort.
+  #
+  # For the next major version of MIME::Types, this method will become #<=> and
+  # #priority_compare will be removed.
+  def priority_compare(other)
+    if (cmp = __sort_priority <=> other.__sort_priority) == 0
       simplified <=> other.simplified
     else
-      filtered = "silent" if other == :silent
-      filtered ||= "true" if other == true
-      filtered ||= other.to_s
-
-      simplified <=> MIME::Type.simplified(filtered)
+      cmp
     end
   end
 
-  # Compares the +other+ MIME::Type based on how reliable it is before doing a
-  # normal <=> comparison. Used by MIME::Types#[] to sort types. The
-  # comparisons involved are:
+  # Uses a modified pre-computed sort priority value based on whether one of the provided
+  # extensions is the preferred extension for a type.
   #
-  # 1. self.simplified <=> other.simplified (ensures that we
-  #    do not try to compare different types)
-  # 2. IANA-registered definitions < other definitions.
-  # 3. Complete definitions < incomplete definitions.
-  # 4. Current definitions < obsolete definitions.
-  # 5. Obselete with use-instead names < obsolete without.
-  # 6. Obsolete use-instead definitions are compared.
-  #
-  # While this method is public, its use is strongly discouraged by consumers
-  # of mime-types. In mime-types 3, this method is likely to see substantial
-  # revision and simplification to ensure current registered content types sort
-  # before unregistered or obsolete content types.
-  def priority_compare(other)
-    pc = simplified <=> other.simplified
-    if pc.zero? || !(extensions & other.extensions).empty?
-      pc =
-        if (reg = registered?) != other.registered?
-          reg ? -1 : 1 # registered < unregistered
-        elsif (comp = complete?) != other.complete?
-          comp ? -1 : 1 # complete < incomplete
-        elsif (obs = obsolete?) != other.obsolete?
-          obs ? 1 : -1 # current < obsolete
-        elsif obs && ((ui = use_instead) != (oui = other.use_instead))
-          if ui.nil?
-            1
-          elsif oui.nil?
-            -1
-          else
-            ui <=> oui
-          end
-        else
-          0
-        end
+  # This is an internal function. If an extension provided is a preferred extension either
+  # for this instance or the compared instance, the corresponding extension has its top
+  # _extension_ bit cleared from its sort priority. That means that a type with between
+  # 0 and 8 extensions will be treated as if it had 9 extensions.
+  def __extension_priority_compare(other, exts) # :nodoc:
+    tsp = __sort_priority
+
+    if exts.include?(preferred_extension) && tsp & 0b1000 != 0
+      tsp = tsp & 0b11110111 | 0b0111
     end
 
-    pc
+    osp = other.__sort_priority
+
+    if exts.include?(other.preferred_extension) && osp & 0b1000 != 0
+      osp = osp & 0b11110111 | 0b0111
+    end
+
+    if (cmp = tsp <=> osp) == 0
+      simplified <=> other.simplified
+    else
+      cmp
+    end
   end
 
   # Returns +true+ if the +other+ object is a MIME::Type and the content types
@@ -268,6 +265,13 @@ class MIME::Type
   # invariant.
   def hash
     simplified.hash
+  end
+
+  # The computed sort priority value. This is _not_ intended to be used by most
+  # callers.
+  def __sort_priority # :nodoc:
+    update_sort_priority if !instance_variable_defined?(:@__sort_priority) || @__sort_priority.nil?
+    @__sort_priority
   end
 
   # Returns the whole MIME content-type string.
@@ -324,6 +328,7 @@ class MIME::Type
 
   ##
   def extensions=(value) # :nodoc:
+    clear_sort_priority
     @extensions = Set[*Array(value).flatten.compact].freeze
     MIME::Types.send(:reindex_extensions, self)
   end
@@ -350,9 +355,7 @@ class MIME::Type
 
   ##
   def preferred_extension=(value) # :nodoc:
-    if value
-      add_extensions(value)
-    end
+    add_extensions(value) if value
     @preferred_extension = value
   end
 
@@ -405,8 +408,16 @@ class MIME::Type
   attr_writer :use_instead
 
   # Returns +true+ if the media type is obsolete.
-  attr_accessor :obsolete
+  #
+  # :attr_accessor: obsolete
+  attr_reader :obsolete
   alias_method :obsolete?, :obsolete
+
+  ##
+  def obsolete=(value)
+    clear_sort_priority
+    @obsolete = !!value
+  end
 
   # The documentation for this MIME::Type.
   attr_accessor :docs
@@ -465,11 +476,27 @@ class MIME::Type
   end
 
   # Indicates whether the MIME type has been registered with IANA.
-  attr_accessor :registered
+  #
+  # :attr_accessor: registered
+  attr_reader :registered
   alias_method :registered?, :registered
 
+  ##
+  def registered=(value)
+    clear_sort_priority
+    @registered = !!value
+  end
+
   # Indicates whether the MIME type's registration with IANA is provisional.
-  attr_accessor :provisional
+  #
+  # :attr_accessor: provisional
+  attr_reader :provisional
+
+  ##
+  def provisional=(value)
+    clear_sort_priority
+    @provisional = !!value
+  end
 
   # Indicates whether the MIME type's registration with IANA is provisional.
   def provisional?
@@ -552,6 +579,7 @@ class MIME::Type
     coder["registered"] = registered?
     coder["provisional"] = provisional? if provisional?
     coder["signature"] = signature? if signature?
+    coder["sort-priority"] = __sort_priority || 0b11111111
     coder
   end
 
@@ -560,6 +588,7 @@ class MIME::Type
   #
   # This method should be considered a private implementation detail.
   def init_with(coder)
+    @__sort_priority = 0
     self.content_type = coder["content-type"]
     self.docs = coder["docs"] || ""
     self.encoding = coder["encoding"]
@@ -573,6 +602,8 @@ class MIME::Type
     self.use_instead = coder["use-instead"]
 
     friendly(coder["friendly"] || {})
+
+    update_sort_priority
   end
 
   def inspect # :nodoc:
@@ -627,6 +658,37 @@ class MIME::Type
   end
 
   private
+
+  def clear_sort_priority
+    @__sort_priority = nil
+  end
+
+  # Update the __sort_priority value. Lower numbers sort better, so the
+  # bitmapping may seem a little odd. The _best_ sort priority is 0.
+  #
+  # | bit | meaning         | details   |
+  # | --- | --------------- | --------- |
+  # | 7   | obsolete        | 1 if true |
+  # | 6   | provisional     | 1 if true |
+  # | 5   | registered      | 0 if true |
+  # | 4   | complete        | 0 if true |
+  # | 3   | # of extensions | see below |
+  # | 2   | # of extensions | see below |
+  # | 1   | # of extensions | see below |
+  # | 0   | # of extensions | see below |
+  #
+  # The # of extensions is marked as the number of extensions subtracted from
+  # 16, to a minimum of 0.
+  def update_sort_priority
+    extension_count = @extensions.length
+    obsolete = (instance_variable_defined?(:@obsolete) && @obsolete) ? 1 << 7 : 0
+    provisional = (instance_variable_defined?(:@provisional) && @provisional) ? 1 << 6 : 0
+    registered = (instance_variable_defined?(:@registered) && @registered) ? 0 : 1 << 5
+    complete = extension_count.nonzero? ? 0 : 1 << 4
+    extension_count = [0, 16 - extension_count].max
+
+    @__sort_priority = obsolete | registered | provisional | complete | extension_count
+  end
 
   def content_type=(type_string)
     match = MEDIA_TYPE_RE.match(type_string)

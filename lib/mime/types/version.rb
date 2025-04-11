@@ -4,7 +4,7 @@
 module MIME
   class Types
     # The released version of the mime-types library.
-    VERSION = "3.6.2"
+    VERSION = "3.7.0.pre2"
   end
 
   class Type

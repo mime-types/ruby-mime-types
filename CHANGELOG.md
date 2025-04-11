@@ -1,5 +1,32 @@
 # Changelog
 
+## 3.7.0.pre2 / YYYY-MM-DD
+
+- Deprecated `MIME::Type#priority_compare`. In a future release, this will be
+  will be renamed to `MIME::Type#<=>`. This method is used in tight loops, so
+  there is no warning message for either `MIME::Type#priority_compare` or
+  `MIME::Type#<=>`.
+
+- Improved the performance of sorting by eliminating the complex comparison flow
+  from `MIME::Type#priority_compare`. The old version shows under 600 i/s, and
+  the new version shows over 900 i/s. In sorting the full set of MIME data,
+  there are three differences between the old and new versions; after
+  comparison, these differences are considered acceptable.
+
+- Simplified the default compare implementation (`MIME::Type#<=>`) to use the
+  new `MIME::Type#priority_compare` operation and simplify the fallback to
+  `String` comparison. This _may_ result in exceptions where there had been
+  none, as explicit support for several special values (which should have caused
+  errors in any case) have been removed.
+
+- When sorting the result of `MIME::Types#type_for`, provided a priority boost
+  if one of the target extensions is the type's preferred extension. This means
+  that for the case in [#148][issue-148], when getting the type for `foo.webm`,
+  the type `video/webm` will be returned before the type `audio/webm`, because
+  `.webm` is the preferred extension for `video/webm` but not `audio/webm`
+  (which has a preferred extension of `.weba`). Added tests to ensure MIME types
+  are retrieved in a stable order (which is alphabetical).
+
 ## 3.6.2 / 2025-03-25
 
 - Updated the reference to the changelog in the README, fixing RubyGems metadata
@@ -151,7 +178,7 @@ there are some validation changes and updated code with formatting.
 
 ## 3.3 / 2019-09-04
 
-- 1 minor enhancement
+- 1 minor enhancement:
 
   - Jean Boussier reduced memory usage for Ruby versions 2.3 or higher by
     interning various string values in each type. This is done with a
@@ -350,6 +377,7 @@ there are some validation changes and updated code with formatting.
 [issue-127]: https://github.com/mime-types/ruby-mime-types/issues/127
 [issue-134]: https://github.com/mime-types/ruby-mime-types/issues/134
 [issue-136]: https://github.com/mime-types/ruby-mime-types/issues/136
+[issue-148]: https://github.com/mime-types/ruby-mime-types/issues/148
 [issue-166]: https://github.com/mime-types/ruby-mime-types/issues/166
 [issue-177]: https://github.com/mime-types/ruby-mime-types/issues/177
 [mime-types-data]: https://github.com/mime-types/mime-types-data
