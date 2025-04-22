@@ -1,50 +1,37 @@
 ---
 exclude: !ruby/regexp '/
-    \.gemspec$
-  | \.tmp$
-  | \.swp$
-  | ^\.(?:
-      DS_Store
-    | autotest
-    | byebug_history
-    | gemtest
-    | gitattributes
-    | gitignore
-    | hoerc
-    | minitest\.rb
-    | simplecov-prelude\.rb
-    | workenv
-    | (?:
-        appveyor
-      | coveralls
-      | fasterer
-      | pullreview
-      | rubocop.*
-      | standard.*
-      | travis
-      | unused
-    )\.yml$
-    | (?:
-        typos
-    )\.toml$
-  )
-  | ^\.(?:
-      bundle
-    | git
-    | github
-    | hg
-    | idea
-    | svn
-    | vagrant
-  )\/
-  | [gG]emfile(?:\.lock)?$
+    (?i:TAGS)$
   | [Aa]ppraisals$
-  | (?i:TAGS)$
-  | Vagrantfile$
-  | ^(?:
-      support
-    | research
-    | benchmarks/
-    | vendor
-  )\/
+  | [gG]emfile(?:\.lock)?$
+  | \.gemspec$
+  | \.swp$
+  | \.tmp$
+  | ^\.appveyor\.ya?ml$
+  | ^\.autotest$
+  | ^\.bundle\/
+  | ^\.byebug_history$
+  | ^\.coveralls\.ya?ml$
+  | ^\.DS_Store$
+  | ^\.fasterer\.ya?ml$
+  | ^\.gemtest$
+  | ^\.git\/
+  | ^\.gitattributes$
+  | ^\.github\/
+  | ^\.gitignore$
+  | ^\.hg\/
+  | ^\.hoerc$
+  | ^\.idea\/
+  | ^\.pullreview\.ya?ml$
+  | ^\.rubocop.*\.ya?ml$
+  | ^\.standard.*\.ya?ml$
+  | ^\.svn\/
+  | ^\.travis\.ya?ml$
+  | ^\.typos\.toml$
+  | ^\.unused\.ya?ml$
+  | ^benchmarks\/
+  | ^coverage\/
+  | ^doc\/
+  | ^research\/
+  | ^support\/
+  | ^vendor\/
 /x'

@@ -6,10 +6,8 @@
 - rdoc :: http://rdoc.info/gems/mime-types/
 - changelog ::
   https://github.com/mime-types/ruby-mime-types/blob/main/CHANGELOG.md
-- continuous integration ::
-  {<img src="https://github.com/mime-types/ruby-mime-types/actions/workflows/ci.yml/badge.svg" alt="Build Status" />}[https://github.com/mime-types/ruby-mime-types/actions/workflows/ci.yml]
-- test coverage ::
-  {<img src="https://coveralls.io/repos/mime-types/ruby-mime-types/badge.svg?branch=master&service=github" alt="Coverage Status" />}[https://coveralls.io/github/mime-types/ruby-mime-types?branch=master]
+- continuous integration :: [![Build Status][ci-badge]][ci-workflow]
+- test coverage :: [![Coverage][coveralls-badge]][coveralls]
 
 ## Description
 
@@ -21,10 +19,9 @@ MIME type definitions.
 Version 3.0 is a major release that requires Ruby 2.0 compatibility and removes
 deprecated functions. The columnar registry format introduced in 2.6 has been
 made the primary format; the registry data has been extracted from this library
-and put into {mime-types-data}[https://github.com/mime-types/mime-types-data].
-Additionally, mime-types is now licensed exclusively under the MIT licence and
-there is a code of conduct in effect. There are a number of other smaller
-changes described in the History file.
+and put into [mime-types-data][data]. Additionally, mime-types is now licensed
+exclusively under the MIT licence and there is a code of conduct in effect.
+There are a number of other smaller changes described in the History file.
 
 ### About MIME Media Types
 
@@ -35,9 +32,8 @@ entities (provided as an enumerable collection of MIME::Type objects) to be
 determined and used. There are many types defined by RFCs and vendors, so the
 list is long but by definition incomplete; don't hesitate to add additional type
 definitions. MIME type definitions found in mime-types are from RFCs, W3C
-recommendations, the {IANA Media Types
-registry}[https://www.iana.org/assignments/media-types/media-types.xhtml], and
-user contributions. It conforms to RFCs 2045 and 2231.
+recommendations, the [IANA Media Types registry][registry], and user
+contributions. It conforms to RFCs 2045 and 2231.
 
 ### mime-types 3.x
 
@@ -197,3 +193,8 @@ removed until mime-types 4.x or possibly later.
 [pull-96-comment]: https://github.com/mime-types/ruby-mime-types/pull/96#issuecomment-100725400
 [semver]: https://semver.org
 [data]: https://github.com/mime-types/mime-types-data
+[ci-badge]: https://github.com/mime-types/ruby-mime-types/actions/workflows/ci.yml/badge.svg
+[ci-workflow]: https://github.com/mime-types/ruby-mime-types/actions/workflows/ci.yml
+[coveralls-badge]: https://coveralls.io/repos/mime-types/ruby-mime-types/badge.svg?branch=main&service=github
+[coveralls]: https://coveralls.io/github/mime-types/ruby-mime-types?branch=main
+[registry]: https://www.iana.org/assignments/media-types/media-types.xhtml
