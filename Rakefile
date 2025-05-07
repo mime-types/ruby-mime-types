@@ -26,7 +26,7 @@ spec = Hoe.spec "mime-types" do
     val.merge!({"rubygems_mfa_required" => "true"})
   }
 
-  extra_deps << ["mime-types-data", "~> 3.2025", ">= 3.2025.0506.pre2"]
+  extra_deps << ["mime-types-data", "~> 3.2025", ">= 3.2025.0507"]
   extra_deps << ["logger", ">= 0"]
 
   extra_dev_deps << ["hoe", "~> 4.0"]
