@@ -34,7 +34,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: ruby/setup-ruby@e34163cd15f4bb403dcd72d98e295997e6a55798 # v1.238.0
+      - uses: ruby/setup-ruby@cb0fda56a307b8c78d38320cd40d9eb22a3bf04e # v1.242.0
         with:
           ruby-version: '3.4'
           rubygems: latest
@@ -64,7 +64,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: ruby/setup-ruby@e34163cd15f4bb403dcd72d98e295997e6a55798 # v1.238.0
+      - uses: ruby/setup-ruby@cb0fda56a307b8c78d38320cd40d9eb22a3bf04e # v1.242.0
         with:
           ruby-version: '3.4'
           rubygems: latest
@@ -115,7 +115,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: ruby/setup-ruby@e34163cd15f4bb403dcd72d98e295997e6a55798 # v1.238.0
+      - uses: ruby/setup-ruby@cb0fda56a307b8c78d38320cd40d9eb22a3bf04e # v1.242.0
         with:
           ruby-version: ${{ matrix.ruby }}
           rubygems: latest
@@ -160,7 +160,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: ruby/setup-ruby@e34163cd15f4bb403dcd72d98e295997e6a55798 # v1.238.0
+      - uses: ruby/setup-ruby@cb0fda56a307b8c78d38320cd40d9eb22a3bf04e # v1.242.0
         with:
           ruby-version: ${{ matrix.ruby }}
           rubygems: latest
@@ -211,7 +211,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: ruby/setup-ruby@e34163cd15f4bb403dcd72d98e295997e6a55798 # v1.238.0
+      - uses: ruby/setup-ruby@cb0fda56a307b8c78d38320cd40d9eb22a3bf04e # v1.242.0
         with:
           ruby-version: ${{ matrix.ruby }}
           rubygems: latest
@@ -254,7 +254,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: ruby/setup-ruby@e34163cd15f4bb403dcd72d98e295997e6a55798 # v1.238.0
+      - uses: ruby/setup-ruby@cb0fda56a307b8c78d38320cd40d9eb22a3bf04e # v1.242.0
         with:
           ruby-version: ${{ matrix.ruby }}
           rubygems: latest
@@ -296,7 +296,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: ruby/setup-ruby@e34163cd15f4bb403dcd72d98e295997e6a55798 # v1.238.0
+      - uses: ruby/setup-ruby@cb0fda56a307b8c78d38320cd40d9eb22a3bf04e # v1.242.0
         with:
           ruby-version: ${{ matrix.ruby }}
           rubygems: latest
