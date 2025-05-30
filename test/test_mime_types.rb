@@ -13,6 +13,7 @@ describe MIME::Types do
         MIME::Type.new("content-type" => "application/x-www-form-urlencoded", "registered" => true),
         MIME::Type.new("content-type" => "application/x-gzip", "extensions" => %w[gz]),
         MIME::Type.new("content-type" => "application/gzip", "extensions" => "gz", "registered" => true),
+        MIME::Type.new("content-type" => "application/msword", "extensions" => %w[doc]),
         *MIME::Types.type_for("foo.webm")
       )
     }
@@ -133,6 +134,11 @@ describe MIME::Types do
     it "finds all types for a given extension" do
       assert_equal %w[application/gzip application/x-gzip],
         mime_types.type_for("gz")
+    end
+
+    it "returns the correct MIME type for a .doc file" do
+      type = MIME::Types.type_for('test.doc').first
+      assert_equal 'application/msword', type.to_s
     end
 
     it "separates the extension from filenames" do
