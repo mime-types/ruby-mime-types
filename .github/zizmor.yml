@@ -1,4 +1,4 @@
 rules:
   artipacked:
     ignore:
-      - publish-gem.yml:56 # publish-gem adds and pushes a tag.
+      - publish-gem.yml:57 # publish-gem adds and pushes a tag.

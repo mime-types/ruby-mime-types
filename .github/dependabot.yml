@@ -5,10 +5,14 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    commit-message:
+      prefix: 'deps'
 
   - package-ecosystem: bundler
     directory: /
     schedule:
-      interval: monthly
+      interval: weekly
+    commit-message:
+      prefix: 'deps'
     ignore:
       - dependency-name: mime-types-data

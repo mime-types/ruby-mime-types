@@ -28,6 +28,7 @@ exclude: !ruby/regexp '/
   | ^\.travis\.ya?ml$
   | ^\.typos\.toml$
   | ^\.unused\.ya?ml$
+  | ^[.]?mise\.toml$
   | ^benchmarks\/
   | ^coverage\/
   | ^doc\/

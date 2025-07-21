@@ -40,7 +40,7 @@ jobs:
 
     steps:
       - name: Harden the runner
-        uses: step-security/harden-runner@6c439dc8bdf85cadbbce9ed30d1c7b959517bc49 # v2.12.2
+        uses: step-security/harden-runner@ec9f2d5744a09debf3a187a3f4f675c53b671911 # v2.13.0
         with:
           disable-sudo: true
           egress-policy: block
@@ -50,6 +50,7 @@ jobs:
             index.rubygems.org:443
             objects.githubusercontent.com:443
             rekor.sigstore.dev:443
+            release-assets.githubusercontent.com:443
             rubygems.org:443
             tuf-repo-cdn.sigstore.dev:443
 
@@ -63,7 +64,7 @@ jobs:
             'print "version=", Gem::Specification.load(ARGV[0]).rubygems_version, "\n"' \
             mime-types.gemspec >>"${GITHUB_OUTPUT}"
 
-      - uses: ruby/setup-ruby@a4effe49ee8ee5b8b5091268c473a4628afb5651 # v1.245.0
+      - uses: ruby/setup-ruby@a9bfc2ecf3dd40734a9418f89a7e9d484c32b990 # v1.248.0
         with:
           bundler-cache: false
           ruby-version: ruby
