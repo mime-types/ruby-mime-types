@@ -6,8 +6,7 @@ on:
     branches: [main]
   workflow_dispatch:
 
-permissions:
-  contents: read
+permissions: {}
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -18,9 +17,12 @@ jobs:
     name: Lint
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+
     steps:
       - name: Harden the runner
-        uses: step-security/harden-runner@6c439dc8bdf85cadbbce9ed30d1c7b959517bc49 # v2.12.2
+        uses: step-security/harden-runner@ec9f2d5744a09debf3a187a3f4f675c53b671911 # v2.13.0
         with:
           disable-sudo: true
           egress-policy: block
@@ -28,28 +30,34 @@ jobs:
             github.com:443
             index.rubygems.org:443
             objects.githubusercontent.com:443
+            release-assets.githubusercontent.com:443
             rubygems.org:443
 
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
 
-      - uses: ruby/setup-ruby@a4effe49ee8ee5b8b5091268c473a4628afb5651 # v1.245.0
+      - uses: ruby/setup-ruby@a9bfc2ecf3dd40734a9418f89a7e9d484c32b990 # v1.248.0
         with:
           ruby-version: '3.4'
           rubygems: latest
           bundler: 2
           bundler-cache: true
 
-      - run: bundle exec standardrb
+      - name: Run standardrb
+        run: |
+          bundle exec standardrb
 
   coverage:
     name: Generate Coverage Report
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+
     steps:
       - name: Harden the runner
-        uses: step-security/harden-runner@6c439dc8bdf85cadbbce9ed30d1c7b959517bc49 # v2.12.2
+        uses: step-security/harden-runner@ec9f2d5744a09debf3a187a3f4f675c53b671911 # v2.13.0
         with:
           disable-sudo: true
           egress-policy: block
@@ -58,20 +66,22 @@ jobs:
             github.com:443
             index.rubygems.org:443
             objects.githubusercontent.com:443
+            release-assets.githubusercontent.com:443
             rubygems.org:443
 
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
 
-      - uses: ruby/setup-ruby@a4effe49ee8ee5b8b5091268c473a4628afb5651 # v1.245.0
+      - uses: ruby/setup-ruby@a9bfc2ecf3dd40734a9418f89a7e9d484c32b990 # v1.248.0
         with:
           ruby-version: '3.4'
           rubygems: latest
           bundler: 2
-          bundler-cache: true
+          bundler-cache: false
 
-      - run: |
+      - name: Run coverage
+        run: |
           bundle install --jobs 4 --retry 3
           bundle exec ruby -S rake coverage --trace
         env:
@@ -81,6 +91,9 @@ jobs:
 
   required-ubuntu:
     name: Ruby ${{ matrix.ruby }} - ${{ matrix.os }}
+
+    permissions:
+      contents: read
 
     strategy:
       fail-fast: false
@@ -101,7 +114,7 @@ jobs:
 
     steps:
       - name: Harden the runner
-        uses: step-security/harden-runner@6c439dc8bdf85cadbbce9ed30d1c7b959517bc49 # v2.12.2
+        uses: step-security/harden-runner@ec9f2d5744a09debf3a187a3f4f675c53b671911 # v2.13.0
         with:
           disable-sudo: true
           egress-policy: block
@@ -109,13 +122,14 @@ jobs:
             github.com:443
             index.rubygems.org:443
             objects.githubusercontent.com:443
+            release-assets.githubusercontent.com:443
             rubygems.org:443
 
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
 
-      - uses: ruby/setup-ruby@a4effe49ee8ee5b8b5091268c473a4628afb5651 # v1.245.0
+      - uses: ruby/setup-ruby@a9bfc2ecf3dd40734a9418f89a7e9d484c32b990 # v1.248.0
         with:
           ruby-version: ${{ matrix.ruby }}
           rubygems: latest
@@ -126,6 +140,9 @@ jobs:
 
   required-macos:
     name: Ruby ${{ matrix.ruby }} - ${{ matrix.os }}
+
+    permissions:
+      contents: read
 
     strategy:
       fail-fast: false
@@ -146,7 +163,7 @@ jobs:
 
     steps:
       - name: Harden the runner
-        uses: step-security/harden-runner@6c439dc8bdf85cadbbce9ed30d1c7b959517bc49 # v2.12.2
+        uses: step-security/harden-runner@ec9f2d5744a09debf3a187a3f4f675c53b671911 # v2.13.0
         with:
           disable-sudo: true
           egress-policy: block
@@ -154,13 +171,14 @@ jobs:
             github.com:443
             index.rubygems.org:443
             objects.githubusercontent.com:443
+            release-assets.githubusercontent.com:443
             rubygems.org:443
 
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
 
-      - uses: ruby/setup-ruby@a4effe49ee8ee5b8b5091268c473a4628afb5651 # v1.245.0
+      - uses: ruby/setup-ruby@a9bfc2ecf3dd40734a9418f89a7e9d484c32b990 # v1.248.0
         with:
           ruby-version: ${{ matrix.ruby }}
           rubygems: latest
@@ -171,6 +189,9 @@ jobs:
 
   required-windows:
     name: Ruby ${{ matrix.ruby }} - ${{ matrix.os }}
+
+    permissions:
+      contents: read
 
     strategy:
       fail-fast: false
@@ -194,7 +215,7 @@ jobs:
 
     steps:
       - name: Harden the runner
-        uses: step-security/harden-runner@6c439dc8bdf85cadbbce9ed30d1c7b959517bc49 # v2.12.2
+        uses: step-security/harden-runner@ec9f2d5744a09debf3a187a3f4f675c53b671911 # v2.13.0
         with:
           disable-sudo: true
           egress-policy: block
@@ -202,13 +223,14 @@ jobs:
             github.com:443
             index.rubygems.org:443
             objects.githubusercontent.com:443
+            release-assets.githubusercontent.com:443
             rubygems.org:443
 
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
 
-      - uses: ruby/setup-ruby@a4effe49ee8ee5b8b5091268c473a4628afb5651 # v1.245.0
+      - uses: ruby/setup-ruby@a9bfc2ecf3dd40734a9418f89a7e9d484c32b990 # v1.248.0
         with:
           ruby-version: ${{ matrix.ruby }}
           rubygems: latest
@@ -217,27 +239,28 @@ jobs:
 
       - run: bundle exec ruby -S rake test --trace
 
-  # JRuby should NOT be optional, but I have not been able to make it work in quite
-  # a while.
-  jruby:
-    name: Ruby ${{ matrix.ruby }} - ${{ matrix.os }})
+  jruby-optional:
+    name: JRuby ${{ matrix.ruby }} - ${{ matrix.os }}
+
+    permissions:
+      contents: read
 
     strategy:
       fail-fast: false
 
       matrix:
-        ruby:
-          - jruby
         os:
           - ubuntu-22.04
           - ubuntu-24.04
+        ruby:
+          - jruby-10
 
     continue-on-error: true
     runs-on: ${{ matrix.os }}
 
     steps:
       - name: Harden the runner
-        uses: step-security/harden-runner@6c439dc8bdf85cadbbce9ed30d1c7b959517bc49 # v2.12.2
+        uses: step-security/harden-runner@ec9f2d5744a09debf3a187a3f4f675c53b671911 # v2.13.0
         with:
           disable-sudo: true
           egress-policy: block
@@ -245,23 +268,28 @@ jobs:
             github.com:443
             index.rubygems.org:443
             objects.githubusercontent.com:443
+            release-assets.githubusercontent.com:443
+            repo.maven.apache.org:443
             rubygems.org:443
 
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
 
-      - uses: ruby/setup-ruby@a4effe49ee8ee5b8b5091268c473a4628afb5651 # v1.245.0
+      - uses: ruby/setup-ruby@a9bfc2ecf3dd40734a9418f89a7e9d484c32b990 # v1.248.0
         with:
           ruby-version: ${{ matrix.ruby }}
           rubygems: latest
           bundler: 2
           bundler-cache: true
 
-      - run: bundle exec jruby -S rake test --trace
+      - run: bundle exec ruby -S rake test --trace
 
   ruby-head-optional:
     name: Ruby ${{ matrix.ruby }} - ${{ matrix.os }} (optional)
+
+    permissions:
+      contents: read
 
     strategy:
       fail-fast: false
@@ -279,7 +307,7 @@ jobs:
 
     steps:
       - name: Harden the runner
-        uses: step-security/harden-runner@6c439dc8bdf85cadbbce9ed30d1c7b959517bc49 # v2.12.2
+        uses: step-security/harden-runner@ec9f2d5744a09debf3a187a3f4f675c53b671911 # v2.13.0
         with:
           disable-sudo: true
           egress-policy: block
@@ -287,13 +315,14 @@ jobs:
             github.com:443
             index.rubygems.org:443
             objects.githubusercontent.com:443
+            release-assets.githubusercontent.com:443
             rubygems.org:443
 
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
 
-      - uses: ruby/setup-ruby@a4effe49ee8ee5b8b5091268c473a4628afb5651 # v1.245.0
+      - uses: ruby/setup-ruby@a9bfc2ecf3dd40734a9418f89a7e9d484c32b990 # v1.248.0
         with:
           ruby-version: ${{ matrix.ruby }}
           rubygems: latest
