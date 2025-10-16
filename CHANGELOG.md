@@ -1,5 +1,14 @@
 # Changelog
 
+## NEXT / YYYY-MM-DD
+
+### Governance
+
+As of 2025-10-15, all contribution commits require `Signed-off-by` trailers to
+certify that the contributor is able to contribute the changes, per the
+[Developer Certificate of Origin][dco]. Further documentation and updates will
+be added in the coming weeks.
+
 ## 3.7.0 / 2025-05-07
 
 - Deprecated `MIME::Type#priority_compare`. In a future release, this will be
@@ -411,3 +420,4 @@ there are some validation changes and updated code with formatting.
 [pull-95]: https://github.com/mime-types/ruby-mime-types/pull/95
 [pull-97]: https://github.com/mime-types/ruby-mime-types/pull/97
 [tp]: https://guides.rubygems.org/trusted-publishing/
+[dco]: https://developercertificate.org

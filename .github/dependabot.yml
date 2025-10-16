@@ -4,15 +4,31 @@ updates:
   - package-ecosystem: github-actions
     directory: /
     schedule:
-      interval: weekly
+      interval: monthly
     commit-message:
       prefix: 'deps'
+    cooldown:
+      default-days: 7
+    groups:
+      actions:
+        applies-to: version-updates
+        update-types:
+          - minor
+          - patch
 
   - package-ecosystem: bundler
     directory: /
     schedule:
-      interval: weekly
+      interval: monthly
     commit-message:
       prefix: 'deps'
+    cooldown:
+      default-days: 7
+    groups:
+      bundler:
+        applies-to: version-updates
+        update-types:
+          - minor
+          - patch
     ignore:
       - dependency-name: mime-types-data

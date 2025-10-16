@@ -35,8 +35,8 @@ jobs:
       rubygems_release_gem: true
 
     permissions:
-      contents: write
-      id-token: write
+      contents: write # Create a new tag
+      id-token: write # Authenticate for gem publishing
 
     steps:
       - name: Harden the runner
@@ -64,7 +64,7 @@ jobs:
             'print "version=", Gem::Specification.load(ARGV[0]).rubygems_version, "\n"' \
             mime-types.gemspec >>"${GITHUB_OUTPUT}"
 
-      - uses: ruby/setup-ruby@0481980f17b760ef6bca5e8c55809102a0af1e5a # v1.263.0
+      - uses: ruby/setup-ruby@ab177d40ee5483edb974554986f56b33477e21d0 # v1.265.0
         with:
           bundler-cache: false
           ruby-version: ruby
@@ -77,3 +77,17 @@ jobs:
           RUBYGEMS_VERSION: ${{ steps.rubygems.outputs.version }}
 
       - uses: rubygems/release-gem@a25424ba2ba8b387abc8ef40807c2c85b96cbe32 # v1.1.1
+
+      - name: Show the status if release failed
+        if: failure()
+        run: |
+          git status
+          git diff
+
+  publish_docs:
+    needs: release
+    permissions:
+      contents: read
+      pages: write    # Publish documentation
+      id-token: write # Authenticate for gem publishing
+    uses: ./.github/workflows/publish-docs.yml

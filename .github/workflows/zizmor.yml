@@ -13,13 +13,11 @@ concurrency:
 
 jobs:
   zizmor:
-    name: zizmor latest via uv
+    name: zizmor latest via zizmor-action
     runs-on: ubuntu-latest
 
     permissions:
-      security-events: write
-      contents: read
-      actions: read
+      security-events: write # Zizmor writes security events
 
     steps:
       - name: Harden Runner
@@ -29,23 +27,14 @@ jobs:
           egress-policy: block
           allowed-endpoints: >
             api.github.com:443
-            release-assets.githubusercontent.com:443
-            files.pythonhosted.org:443
+            ghcr.io:443
             github.com:443
-            objects.githubusercontent.com:443
-            pypi.org:443
+            pkg-containers.githubusercontent.com:443
 
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           persist-credentials: false
 
-      - uses: astral-sh/setup-uv@b75a909f75acd358c2196fb9a5f1299a9a8868a4 # v6.7.0
-
-      - run: uvx zizmor --persona pedantic --format sarif . > results.sarif
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - uses: github/codeql-action/upload-sarif@3599b3baa15b485a2e49ef411a7a4bb2452e7f93 # v3.30.5
+      - uses: zizmorcore/zizmor-action@e673c3917a1aef3c65c972347ed84ccd013ecda4 # v0.2.0
         with:
-          sarif_file: results.sarif
-          category: zizmor
+          persona: pedantic

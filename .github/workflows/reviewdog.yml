@@ -17,7 +17,7 @@ jobs:
 
     permissions:
       contents: read
-      pull-requests: write
+      pull-requests: write # Reviewdog comments on pull requests
 
     steps:
       - name: Harden Runner
@@ -36,7 +36,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: reviewdog/action-typos@fe961cdbe416990b23bc1597325891575ef2dd7c # v1.18.0
+      - uses: reviewdog/action-typos@d5eb1bbcd1b3bfde596f6eeb470322727862fe98 # v1.19.0
 
   actionlint:
     if: ${{ github.event.action != 'closed' }}
@@ -45,7 +45,7 @@ jobs:
 
     permissions:
       contents: read
-      pull-requests: write
+      pull-requests: write # Reviewdog comments on pull requests
 
     steps:
       - name: Harden Runner
@@ -61,4 +61,4 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: reviewdog/action-actionlint@95395aac8c053577d0bc67eb7b74936c660c6f66 # v1.67.0
+      - uses: reviewdog/action-actionlint@f00ad0691526c10be4021a91b2510f0a769b14d0 # v1.68.0
