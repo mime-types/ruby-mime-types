@@ -5,6 +5,10 @@ on:
 
 permissions: {}
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: false
+
 jobs:
   check-dco:
     name: Check DCO
@@ -15,7 +19,7 @@ jobs:
 
     steps:
       - name: Harden the runner
-        uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
+        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
         with:
           egress-policy: block
           disable-sudo: true
@@ -23,4 +27,4 @@ jobs:
             api.github.com:443
             github.com:443
 
-      - uses: KineticCafe/actions-dco@1c23966ecce077f76671a61caabeb13eefc72a51 # v1.3.8
+      - uses: KineticCafe/actions-dco@cd9508e5ae82413fbd74b20af21551db0ea3eb78 # v2.0.0

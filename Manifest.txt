@@ -21,6 +21,7 @@ lib/mime/types/loader.rb
 lib/mime/types/logger.rb
 lib/mime/types/registry.rb
 lib/mime/types/version.rb
+licences/dco.txt
 test/bad-fixtures/malformed
 test/fixture/json.json
 test/fixture/old-data
