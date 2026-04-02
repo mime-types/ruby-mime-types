@@ -103,6 +103,13 @@ describe MIME::Types, "registry" do
       assert_includes MIME::Types.type_for("xtxt"), "text/plain"
     end
 
+    it "sorts correctly after modifying type extensions" do
+      a = MIME::Types["text/plain"].first
+      b = MIME::Types["image/jpeg"].first
+      a.add_extensions("sort-test")
+      assert_equal 2, [a, b].sort.length
+    end
+
     it "handles newline characters correctly" do
       assert_includes MIME::Types.type_for("test.pdf\n.txt"), "text/plain"
       assert_includes MIME::Types.type_for("test.txt\n.pdf"), "application/pdf"
