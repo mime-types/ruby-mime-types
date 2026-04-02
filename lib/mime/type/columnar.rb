@@ -54,7 +54,7 @@ class MIME::Type::Columnar < MIME::Type
   end
 
   def update_sort_priority
-    if @container.__fully_loaded?
+    if @container.__fully_loaded? || @__sort_priority.nil?
       super
     else
       obsolete = (@__sort_priority & (1 << 7)) != 0
