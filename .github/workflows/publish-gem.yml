@@ -40,7 +40,7 @@ jobs:
 
     steps:
       - name: Harden the runner
-        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        uses: step-security/harden-runner@8d3c67de8e2fe68ef647c8db1e6a09f647780f40 # v2.19.0
         with:
           disable-sudo: true
           egress-policy: block
@@ -54,7 +54,7 @@ jobs:
             rubygems.org:443
             tuf-repo-cdn.sigstore.dev:443
 
-      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: true
 
@@ -64,7 +64,7 @@ jobs:
             'print "version=", Gem::Specification.load(ARGV[0]).rubygems_version, "\n"' \
             mime-types.gemspec >>"${GITHUB_OUTPUT}"
 
-      - uses: ruby/setup-ruby@d354de180d0c9e813cfddfcbdc079945d4be589b # v1.275.0
+      - uses: ruby/setup-ruby@0cb964fd540e0a24c900370abf38a33466142735 # v1.305.0
         with:
           bundler-cache: false
           ruby-version: ruby
@@ -76,7 +76,7 @@ jobs:
         env:
           RUBYGEMS_VERSION: ${{ steps.rubygems.outputs.version }}
 
-      - uses: rubygems/release-gem@1c162a739e8b4cb21a676e97b087e8268d8fc40b # v1.1.2
+      - uses: rubygems/release-gem@6317d8d1f7e28c24d28f6eff169ea854948bd9f7 # v1.2.0
 
       - name: Show the status if release failed
         if: failure()
