@@ -23,7 +23,7 @@ class Deps
       .sort { |(_k1, v1), (_k2, v2)| v2 <=> v1 }
       .first(args.number || 50)
       .each_with_index do |(k, v), i|
-      puts "#{i}) #{k}: #{v}"
+        puts "#{i}) #{k}: #{v}"
     end
   end
 
