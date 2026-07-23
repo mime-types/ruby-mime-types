@@ -153,7 +153,7 @@ class MIME::Types
       .compact
       .reduce(Set.new, :+)
       .sort { |a, b|
-      a.__extension_priority_compare(b, wanted)
+        a.__extension_priority_compare(b, wanted)
     }
   end
   alias_method :of, :type_for
