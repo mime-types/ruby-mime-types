@@ -146,7 +146,11 @@ class MIME::Types
   #   puts MIME::Types.type_for(%w(citydesk.xml citydesk.gif))
   #     => [application/xml, image/gif, text/xml]
   def type_for(filename)
-    wanted = Array(filename).map { |fn| fn.chomp.downcase[/\.?([^.]*?)\z/m, 1] }
+    filename = Array(filename).map { |fn| fn.chomp.downcase }
+    dotfile = filename.select { |fn| fn.start_with?(".") }
+    wanted = Array(filename).map { |fn| fn[/\.?([^.]*?)\z/m, 1] }
+
+    wanted.concat(dotfile)
 
     wanted
       .flat_map { |ext| @extension_index[ext] }
