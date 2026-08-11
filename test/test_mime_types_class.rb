@@ -82,6 +82,10 @@ describe MIME::Types, "registry" do
         MIME::Types.type_for("gz")
     end
 
+    it "find dotfile from filenames" do
+      assert_equal %w[text/plain], MIME::Types.type_for(".htaccess")
+    end
+
     it "separates the extension from filenames" do
       assert_equal %w[image/jpeg], MIME::Types.of(["foo.jpeg", "bar.jpeg"])
     end
@@ -91,6 +95,21 @@ describe MIME::Types, "registry" do
 
       # assert_equal %w[text/plain image/jpeg], MIME::Types.type_for(%w[foo.txt foo.jpeg])
       assert_equal %w[text/plain image/jpeg], result
+    end
+
+    it "finds all with extension and dotfile mixed" do
+      result = MIME::Types.type_for(%w[foo.jpeg .htaccess])
+      assert_equal %w[text/plain image/jpeg], result
+    end
+
+    it "does not duplicate a type matched by both a regular file and a dotfile" do
+      result = MIME::Types.type_for(%w[foo.txt .htaccess])
+      assert_equal %w[text/plain], result
+    end
+
+    it "find extension from unnamed file" do
+      result = MIME::Types.type_for(%w[.jpeg])
+      assert_equal %w[image/jpeg], result
     end
 
     it "does not find unknown extensions" do

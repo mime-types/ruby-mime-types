@@ -7,7 +7,7 @@ describe MIME::Types do
   def mime_types
     @mime_types ||= MIME::Types.new.tap { |mt|
       mt.add(
-        MIME::Type.new("content-type" => "text/plain", "extensions" => %w[txt]),
+        MIME::Type.new("content-type" => "text/plain", "extensions" => %w[.htaccess txt]),
         MIME::Type.new("content-type" => "image/jpeg", "extensions" => %w[jpg jpeg]),
         MIME::Type.new("content-type" => "application/x-wordperfect6.1"),
         MIME::Type.new("content-type" => "application/x-www-form-urlencoded", "registered" => true),
@@ -135,13 +135,32 @@ describe MIME::Types do
         mime_types.type_for("gz")
     end
 
+    it "find dotfile from filenames" do
+      assert_equal %w[text/plain], mime_types.type_for(".htaccess")
+    end
+
     it "separates the extension from filenames" do
       assert_equal %w[image/jpeg], mime_types.of(["foo.jpeg", "bar.jpeg"])
     end
 
     it "finds multiple extensions" do
-      assert_equal %w[text/plain image/jpeg],
+      assert_equal %w[image/jpeg text/plain],
         mime_types.type_for(%w[foo.txt foo.jpeg])
+    end
+
+    it "finds all with extension and dotfile mixed" do
+      result = mime_types.type_for(%w[foo.jpeg .htaccess])
+      assert_equal %w[text/plain image/jpeg], result
+    end
+
+    it "does not duplicate a type matched by both a regular file and a dotfile" do
+      result = mime_types.type_for(%w[foo.txt .htaccess])
+      assert_equal %w[text/plain], result
+    end
+
+    it "find extension from unnamed file" do
+      result = mime_types.type_for(%w[.jpeg])
+      assert_equal %w[image/jpeg], result
     end
 
     it "does not find unknown extensions" do
