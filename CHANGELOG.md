@@ -1,6 +1,8 @@
 # Changelog
 
 ## NEXT / YYYY-MM-DD
+- Fixed `MIME::Types#type_for` so it correctly detects dotfiles defined in `data/mime.content_type.column`.
+`.htaccess` was added in [mime-types-data 3.2025.0514](https://github.com/mime-types/mime-types-data/pull/161).
 
 ### Governance
 
