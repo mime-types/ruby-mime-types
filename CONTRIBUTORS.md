@@ -23,6 +23,7 @@ Thanks to everyone else who has contributed to mime-types over the years:
 - Godfrey Chan
 - Greg Brockman
 - Hans de Graaff
+- Haruki Kobayashi
 - Henrik Hodne
 - Igor Victor
 - Janko Marohnić
